@@ -70,7 +70,8 @@ correction $|\!\sum s_k\sqrt{\hat m_k}|^2$ from
 monopole-instantons on $\mathbb{R}^3\times S^1$; a
 three-instanton superpotential $(\det M)^3/\Lambda^{18}$
 generates a $\cos(9\delta)$ potential whose minima include the
-observed lepton Koide phase to $5\,\text{ppm}$.
+observed lepton Koide phase to $33\,\text{ppm}$ ($0.9\sigma$
+in $m_\tau$).
 After these constraints, only two to three
 free parameters remain ($m_u$, $m_d$, $m_s$), with $m_u$ and
 $m_d$ connected to the Cabibbo angle via the Oakes relation.
@@ -660,19 +661,22 @@ meaningful quantity is the reduced phase
 \end{equation}
 This is strikingly close to the fraction $2/9 = 0.22222\ldots$:
 \begin{equation}
-\delta_0 \bmod \frac{2\pi}{3} - \frac{2}{9} = -1.1 \times 10^{-6}\,,
+\delta_0 \bmod \frac{2\pi}{3} - \frac{2}{9} = +7.4 \times 10^{-6}\,,
 \end{equation}
-a residual of $\mathbf{5}$~\textbf{ppm} relative to $2/9$.
+a residual of $\mathbf{33}$~\textbf{ppm} relative to $2/9$
+(using PDG 2024 central masses; within the $m_\tau$ uncertainty
+of $0.12\MeV$, the residual can vanish).
 
 \paragraph{Statistical significance of the rational approximation.}
 There are 128~``nice'' fractions $p/q$ with $q \leq 20$ and
 $0 < p/q < 2\pi/3$. The probability that a random phase (uniform
-on $[0, 2\pi/3)$) falls within $1.1 \times 10^{-6}$ of \emph{any}
+on $[0, 2\pi/3)$) falls within $7.4 \times 10^{-6}$ of \emph{any}
 of these 128 fractions gives a look-elsewhere-corrected significance
-of $\mathbf{3.6\sigma}$. Evaluated specifically against the fraction
+of $\mathbf{3.3\sigma}$. Evaluated specifically against the fraction
 $2/9$ alone (i.e., without look-elsewhere correction), the
-significance is $\mathbf{4.7\sigma}$. The $2/9$ proximity is the
-strongest single numerical coincidence in the Koide system.
+significance is $\mathbf{4.5\sigma}$.
+The deviation from~$2/9$ is $0.9\sigma$ in the
+$m_\tau$~uncertainty, consistent with an exact match.
 
 \subsection{The scaling rule: $M_1 = 3M_0$, $\delta_1 = 3\delta_0$}
 \label{subsec:scaling}
@@ -2798,6 +2802,12 @@ below threshold, they reduce to the matching conditions that generate
 $\Lambda_{\text{eff}}$ and the Seiberg constraint.
 The top Yukawa $y_t\,H_u\,Q^t\bar Q_t$ stands apart because the
 top does not confine into a meson.
+At $\tan\beta = 1$, the tree-level lightest Higgs mass vanishes
+($m_h = m_Z|\cos 2\beta| = 0$); an NMSSM-type coupling
+$\lambda\,X\,H_u\!\cdot\!H_d$ lifts the flat direction and gives
+$m_h = \lambda v/\sqrt{2} = 125\GeV$ for $\lambda = 0.72$.
+The field $X$ (the Seiberg Lagrange multiplier) is a gauge singlet
+already present in the superpotential.
 The constraint $\tan\beta = 1$ ($v_u = v_d = v/\sqrt{2}$) is imposed
 by the Koide condition on mixed triples
 (\S\ref{subsec:superpotential}).
@@ -2982,7 +2992,7 @@ $\sin^2\theta_W$ & $0.22310$ & $0.22320 \pm 0.00026$ ($0.4\sigma$)
   & Casimir equation \\
 $V_{us}$ & $0.224$ & $0.2243 \pm 0.0005$ ($1.4\sigma$)
   & Oakes relation \\
-$M_0$ (lepton) & $\fpi^2/27 = 315\MeV$ & $314\MeV$ (fitted)
+$M_0$ (lepton) & $\fpi^2/27 = 314.0\MeV$ & $313.8\MeV$ (fitted)
   & Scale relation \\
 $\tan\beta$ & $1$ & --- (not directly measured)
   & Mixed-triple Koide \\
@@ -3103,8 +3113,8 @@ from $2/3$ at any nonzero strength, making the seed an unstable
 fixed point. The bloom must therefore be nonperturbative.
 
 The lepton phase satisfies $\delta_\ell \bmod 2\pi/3 = 2/9$ to
-$5\,\text{ppm}$ ($3.6\sigma$ after look-elsewhere over fractions
-with denominator $\leq 20$). Since $2/9$
+$33\,\text{ppm}$ ($0.9\sigma$ in $m_\tau$; $3.3\sigma$ after
+look-elsewhere over fractions with denominator $\leq 20$). Since $2/9$
 is not a rational multiple of $\pi$, this is not a geometric angle.
 It is, however, $2/9 = 2/(3\times 3)$, which points to a $\mathbb{Z}_9$
 discrete symmetry in the Koide modulus space. The $\mathbb{Z}_3$
@@ -3186,8 +3196,19 @@ one-loop CW quartic in the O'Raifeartaigh model has $c_4 = -20/3$
 at $gf/m^2 = 1$ (exact), which is orders of magnitude too large;
 the ISS one-loop potential produces a positive quartic ($c_{\text{eff}} = +0.014$),
 the wrong sign entirely. The K\"ahler pole mechanism is therefore a
-tree-level statement about the UV completion or non-perturbative
-K\"ahler structure---identifying its origin remains open.
+tree-level statement about the effective K\"ahler potential,
+not a consequence of one-loop dynamics.  However, magnetic bions
+on $\mathbb{R}^3 \times S^1$ generate a quartic K\"ahler correction
+of the correct sign.
+The bion-induced coefficient
+$c_{\text{bion}} = -3\pi^2\,e^{-4\pi/(N_c^2\alpha_s)}\,M^2/\alpha_s^2$
+(where $M^2 = [\prod_f(m_f/\Lambda)]^2$ is the zero-mode mass factor)
+equals $-1/12$ at $\alpha_s = 0.143$ ($S_{\text{bion}} = 9.76$)
+in the ISS model with heavy magnetic quarks ($M^2 = 1$).
+With physical light-quark masses, zero-mode suppression reduces
+$|c_{\text{bion}}|$ by five orders of magnitude; the ISS magnetic
+dual---where the pseudo-modulus lives---is the appropriate
+setting for the bion calculation.
 The three-instanton operator $(\det M)^3$ shifts the Seiberg
 Lagrange multiplier~$X$ (dimension $[\text{mass}]^{-3}$ in the
 confining phase) but this is a different object from the ISS
@@ -3298,6 +3319,23 @@ scheme, and no argument selects this scheme over $\overline{\text{MS}}$;
 (iii)~the negative spin-$\tfrac{1}{2}$ root gives $|M| = 122.4\GeV$,
 tantalizingly close to $M_H = 125.25\GeV$ but with a spin mismatch.
 
+\subsection{The Higgs mass at $\tan\beta = 1$}
+At $\tan\beta = 1$, the $D$-term quartic
+$(g^2+g'^2)(|H_u|^2 - |H_d|^2)^2/8$ vanishes on the
+$D$-flat direction $H_u = H_d$.  The tree-level lightest
+CP-even Higgs mass is $m_h = m_Z|\cos 2\beta| = 0$---a known
+MSSM result. The meson Yukawa F-terms contribute only mass
+terms ($y_j^2|H|^2$), not quartics.
+In the NMSSM, a singlet coupling
+$\lambda\,S\,H_u\!\cdot\!H_d$ generates an extra quartic
+$\lambda^2|H_u\!\cdot\!H_d|^2$; at $\sin 2\beta = 1$ (i.e.,
+$\tan\beta = 1$), $m_h^2 = \lambda^2 v^2/2$, and
+$\lambda = 0.72$ gives $m_h = 125\GeV$ at tree level.
+The Seiberg Lagrange multiplier~$X$ is a gauge-singlet chiral
+superfield already present in the Lagrangian; adding the coupling
+$\lambda\,X\,H_u\!\cdot\!H_d$ to the superpotential is
+the minimal extension.
+
 \subsection{The $SO(32)$ projection}
 The adjoint $\mathbf{496}$ contains the sBootstrap
 representations: $\mathbf{24}$ in the neutral sector and
@@ -3347,10 +3385,10 @@ F-terms flavour-universal: $F = C/v_{\text{EW}}$ & Derived & Seesaw cancellation
 Lepton Koide $Q = 2/3$ to $0.001\%$ & Observed & $2.8\sigma$ after LEE \\
 Meson triple $(-\pi,D_s,B)$ to $0.10\%$ & Observed & $1.1\sigma$ after LEE \\
 $v_0$-doubling: $v_0^{(f)}/v_0^{(s)} = 2.0005$ ($0.025\%$); $m_b$ to $0.07\%$ & Observed & Derived via bion K\"ahler \\
-$\delta_\ell \bmod 2\pi/3 = 2/9$ to 5~ppm & Observed & $3.6\sigma$ after LEE \\
+$\delta_\ell \bmod 2\pi/3 = 2/9$ to 33~ppm & Observed & $3.3\sigma$ after LEE \\
 Casimir $R = 0.22310$ vs $\sin^2\theta_W$ & Observed & Scheme-dependent \\
 Dual Koide $Q(1/m_d,1/m_s,1/m_b) = 0.665$ & Observed & $0.2\%$ from $2/3$ \\
-$M_0 \approx \fpi^2/27$ & Observed & $0.3\%$; connects lepton scale to $\fpi$ \\
+$M_0 \approx \fpi^2/27$ & Observed & $0.04\%$; connects lepton scale to $\fpi$ \\
 $\tan\beta = 1$ & Derived & Mixed triples + $SU(5)_f$ \\
 \midrule
 $m_\pi^2 - m_\mu^2 = f_\pi^2$ (VA relation) & Assumed & 2.2\% match \\
@@ -3360,6 +3398,8 @@ $m_b = 4{,}177 \pm 40\MeV$ from bion minimum & Derived & $0.06\sigma$; requires 
 $N_f = 4$ unique in ISS window & Derived & Only integer in $(3, 4.5)$ \\
 ISS vacuum cosmologically stable & Derived & $S_{\text{bounce}} \gg 1$ for $h \sim O(1)$ \\
 ISS CW does not transmit Koide & Derived & $Q_{\text{CW}} \to 1/3$ (affine map) \\
+$c = -1/12$ from bion K\"ahler & Derived & At $\alpha_s = 0.143$ (ISS) \\
+$m_h = 0$ at tree-level ($\tan\beta = 1$) & Derived & NMSSM singlet: $\lambda = 0.72$ \\
 $\cos(9\delta)$ from $(\det M)^3/\Lambda^{18}$ & Derived & $\mathbb{Z}_{18}$ charge counting \\
 $\mathcal{Q}_{[ij]} \in \overline{\mathbf{10}}$ of $SU(5)_f$ & Derived & Miyazawa algebra \\
 Casimir structural constraints & Assumed & Reverse-engineered \\
@@ -3402,7 +3442,10 @@ alone stabilizes the pseudo-modulus at $v = 0$; a negative
 quartic K\"ahler correction $c\,|\Phi_0|^4/\Lambda_K^2$ with
 $c = -\Lambda_K^2/(12m^2)$ pins it at the K\"ahler pole
 $v = \sqrt{3}\,m/g$ exactly. The Koide seed emerges at
-$M_0 = 2m/3$.
+$M_0 = 2m/3$.  The coefficient $c = -1/12$ is not radiatively
+generated but arises from magnetic bions on
+$\mathbb{R}^3 \times S^1$ at $\alpha_s = 0.143$
+in the ISS magnetic dual.
 
 \paragraph{4.\ Two breaking mechanisms plus a heavy-sector origin.}
 F-term breaking (via the massless seed member) generates the light 
