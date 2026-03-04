@@ -45,10 +45,14 @@ top diquarks do not hadronize. We discuss the diquark sector---which
 fills the symmetric $\mathbf{15} + \overline{\mathbf{15}}$ of $SU(5)$ 
 flavor, in conflict with Pauli statistics for point-like diquarks, 
 proving that the diquark cannot be a $qq$ composite---and outline 
-how SUSY breaking proceeds through two mechanisms---F-term (chiral 
-condensate, with Volkov--Akulov as its low-energy realization) and 
-D-term (electromagnetic Fayet--Iliopoulos)---plus a separate 
-heavy-sector origin for the $(c,b,t)$ triple.
+how SUSY breaking proceeds through two mechanisms---F-term (chiral
+condensate, with Volkov--Akulov as its low-energy realization) and
+D-term (electromagnetic Fayet--Iliopoulos)---plus a separate
+heavy-sector origin for the $(c,b,t)$ triple. The O'Raifeartaigh
+superpotential produces the Koide seed spectrum exactly when
+$gv/m = \sqrt{3}$, reducing the energy-balance condition to a
+single constraint on the couplings. A Diophantine system on the
+scalar content uniquely selects $N=3$ generations.
 \end{abstract}
 
 \tableofcontents
@@ -91,8 +95,20 @@ of $SU(5)$ flavor---the representation produced naturally by the
 SUSY generator and by the $SO(32)$ decomposition. A kinematic 
 theorem shows that no $J=0$, color-$\bar{3}$ diquark can have 
 symmetric flavor---regardless of orbital angular momentum---so the 
-sBootstrap diquark cannot be a $qq$ composite but must be an 
+sBootstrap diquark cannot be a $qq$ composite but must be an
 algebraically or string-theoretically generated object.
+
+Third, \textbf{the Koide condition constrains the superpotential}.
+The O'Raifeartaigh model---the simplest realization of $F$-term
+SUSY breaking with three chiral superfields---produces a fermionic
+mass spectrum that is an exact Koide seed triple when the ratio of
+the cubic coupling to the bilinear mass parameter satisfies
+$gv/m = \sqrt{3}$. This single algebraic constraint is the
+microscopic content of the energy-balance condition. Separately,
+a Diophantine system on the scalar content ($rs = 2N$,
+$r(r+1)/2 = 2N$, $r^2+s^2-1=4N$) uniquely selects $N=3$
+generations, and a Casimir eigenvalue equation predicts
+$\sin^2\theta_W = 0.22310$ to $0.13\sigma$.
 
 %======================================================================
 \section{The Koide Formula as Energy Balance}
@@ -665,13 +681,13 @@ The chain returns to its starting point: $t \to c \to s \to
 but an algebraic necessity: the Koide condition, combined with the
 specific masses of $b$ and $t$, defines a closed orbit in
 $(m_1, m_2, m_3)$ space. The cycle is:
-\begin{equation}
-\cdots \;\longrightarrow\; (b,t) \xrightarrow{Q=3/2} c
-\;\longrightarrow\; (c,b) \xrightarrow{Q=3/2} s
-\;\longrightarrow\; (s,c) \xrightarrow{Q=3/2} \text{stall}
-\;\longrightarrow\; (\text{stall}, s) \xrightarrow{Q=3/2} c
-\;\longrightarrow\; \cdots
-\end{equation}
+\begin{multline*}
+\cdots \;\to\; (b,t) \xrightarrow{Q=3/2} c
+\;\to\; (c,b) \xrightarrow{Q=3/2} s \\
+\;\to\; (s,c) \xrightarrow{Q=3/2} \text{stall}
+\;\to\; (\text{stall}, s) \xrightarrow{Q=3/2} c
+\;\to\; \cdots
+\end{multline*}
 
 The chain captures $c$, $b$, $s$ but misses $u$, $d$, and the
 leptons entirely. The first generation is outside the algebraic
@@ -1687,13 +1703,19 @@ two quantities---the Goldstino decay constant and the pion decay
 constant---are \emph{identified} in the sBootstrap; this is the 
 central claim, not a derivation.
 
-The identification should not be confused with the standard relation 
-between the $F$-term VEV and the chiral condensate. In standard 
-SQCD, $\langle F\rangle \sim |\qqbar|/f_\pi \sim (250\MeV)^3/92\MeV 
-\approx 170{,}000\MeV^2$, while $f_\pi^2 \approx 8{,}500\MeV^2$---a 
-factor of $\sim 20$ discrepancy. The GOR relation \cite{GOR1968}
-$m_\pi^2 f_\pi^2 = -(m_u + m_d)\qqbar$ connects these through the 
-small quark masses, but does not equate them. The sBootstrap 
+The identification should not be confused with the standard relation
+between the $F$-term VEV and the chiral condensate. In standard
+SQCD,
+%
+\begin{equation*}
+\langle F\rangle \sim \frac{|\qqbar|}{\fpi} \sim
+\frac{(250\MeV)^3}{92\MeV} \approx 1.7\times 10^5\MeV^2\,,
+\end{equation*}
+%
+while $\fpi^2 \approx 8{,}500\MeV^2$---a factor of ${\sim}20$
+discrepancy. The GOR relation \cite{GOR1968},
+$m_\pi^2 \fpi^2 = -(m_u + m_d)\qqbar$, connects these through the
+small quark masses but does not equate them. The sBootstrap 
 identification $f_{\text{VA}} = f_\pi$ is therefore a 
 \emph{low-energy effective} statement about the composite sector, 
 not a microscopic identity. It says: the scale at which SUSY 
@@ -1935,18 +1957,26 @@ energy-balance condition $\langle z_k^2\rangle = z_0^2$.
 
 \subsection{The energy balance as a fixed point}
 \label{subsec:fixedpoint}
-One possibility is that the energy-balance condition 
-$\langle z_k^2\rangle = z_0^2$ is a \emph{dynamical attractor}: 
-any set of three masses evolving under the SUSY-breaking dynamics 
-flows toward the Koide surface $Q = 2/3$, as a fixed point of the 
-RG flow for the soft SUSY-breaking parameters. This is speculative, 
-but the observation that the condition holds for fundamental fermions 
-(leptons, quarks) \emph{and} composite bosons (mesons) across very 
-different scales lends it plausibility. A concrete test would be to 
-show that the one-loop soft-mass RG equations in $\mathcal{N}=1$ 
-SQCD with appropriate boundary conditions flow toward 
-$\sigma(\zch)/\bar{\zch} = 1$; this calculation has not yet been 
-performed.
+One might hope that the energy-balance condition
+$\langle z_k^2\rangle = z_0^2$ is a \emph{dynamical attractor}:
+that three masses evolving under SUSY-breaking dynamics flow toward
+the Koide surface $Q = 2/3$. However, the one-loop soft-mass RG
+equations in $\mathcal{N}=1$ SQCD with universal Casimirs and
+negligible Yukawas give $dm_i/dt = \gamma(M_g^2 - m_i)$, which
+drives all masses to a common value $m_i \to M_g^2$, yielding
+$Q \to 1/3$---the \emph{opposite} extreme. The Koide preservation
+condition $\sum_i F_i(3 - 2S/\sqrt{m_i}) = 0$ on the $Q = 2/3$
+surface is algebraically incompatible with any uniform attractor
+flow (by the Cauchy--Schwarz inequality, the required identity
+$S\sum 1/\sqrt{m_i} = 9/2$ contradicts $S\sum 1/\sqrt{m_i} \geq 9$).
+
+The energy-balance condition therefore does \emph{not} arise from
+simple RG running. It must instead be a \emph{boundary condition}
+on the superpotential---as in the O'Raifeartaigh realization of
+\S\ref{subsec:fterm}, where $gv = \sqrt{3}\,m$ produces the exact
+Koide seed. The condition is set at the scale of SUSY breaking and
+then preserved by the QCD-invariant mass ratios, rather than being
+an RG attractor.
 
 \subsection{The exact seed and what breaks it}
 \label{subsec:exactseed}
@@ -2411,7 +2441,7 @@ constraints would strengthen the argument considerably.
 \label{sec:conclusions}
 %======================================================================
 
-Three principal results:
+Six principal results:
 
 \paragraph{1.\ The Koide formula is energy equipartition.}
 $Q = 2/3$ is $\langle z_k^2\rangle = z_0^2$: perturbation energies 
@@ -2428,7 +2458,15 @@ The massless member is the necessary condition for F-term
 full triples $(-s,c,b)$ and $(-\pi,D_s,B)$. The lepton triple 
 is the ``almost-seed'' that has barely bloomed.
 
-\paragraph{3.\ Two breaking mechanisms plus a heavy-sector origin.}
+\paragraph{3.\ The seed condition is one superpotential constraint.}
+The O'Raifeartaigh model with superpotential
+$W = f\Phi_0 + m\Phi_1\Phi_2 + g\Phi_0\Phi_1^2$ produces a
+fermionic spectrum $(0,\, m_-,\, m_+)$ that is an exact Koide
+seed triple when $gv/m = \sqrt{3}$. The energy-balance condition
+reduces to a single algebraic relation among the cubic coupling,
+the pseudo-modulus VEV, and the mass parameter.
+
+\paragraph{4.\ Two breaking mechanisms plus a heavy-sector origin.}
 F-term breaking (via the massless seed member) generates the light 
 sector; the Volkov--Akulov relation $f_{\text{VA}} = f_\pi$ is its 
 low-energy realization, not a separate mechanism. D-term breaking 
@@ -2437,14 +2475,14 @@ splittings as a perturbative correction. The heavy triple
 $(c,b,t)$ stands apart: no seed, no meson shadow, scale far above 
 $\Lambda_{\text{QCD}}$, possibly connected to electroweak breaking.
 
-\paragraph{4.\ The Diophantine counting uniquely selects $N=3$.}
+\paragraph{5.\ The Diophantine counting uniquely selects $N=3$.}
 Three equations on the scalar content---$rs = 2N$, $r(r+1)/2 = 2N$,
 $r^2+s^2-1 = 4N$---have the unique positive-integer solution
 $(N,r,s) = (3,3,2)$, which maps to the $SU(5)$ representations
 $\mathbf{24} \oplus \mathbf{15} \oplus \overline{\mathbf{15}}$.
 This combination is anomaly-free and asymptotically free.
 
-\paragraph{5.\ An algebraic electroweak ratio.}
+\paragraph{6.\ An algebraic electroweak ratio.}
 The eigenvalue equation $x^2 + s(s+1)\,x - s(s+1) = 0$, with
 $s$ the spin Casimir, predicts
 $R = 1 - x_+(1/2)/x_+(1) = 0.22310$, matching the on-shell
