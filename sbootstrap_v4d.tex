@@ -2807,7 +2807,7 @@ with K\"ahler potential (canonical plus stabilization and bion corrections),
 %
 \begin{equation*}
   K = \underbrace{\operatorname{Tr}(M^\dagger M) + |X|^2 + |B|^2
-    + |\bar B|^2 + |H_u|^2 + |H_d|^2}_{K_{\text{can}}}
+    + |\bar B|^2 + |H_u|^2 + |H_d|^2 + |S|^2}_{K_{\text{can}}}
   \underbrace{{}-\,\frac{|X|^4}{12\,\mu^2}}_{K_{\text{stab}}}
   + \underbrace{\frac{\zeta^2}{\Lambda^2}\,
     \Bigl|\sum_{k=1}^{N_c} s_k \sqrt{\hat m_k}\,\Bigr|^2}_{K_{\text{bion}}}\,,
@@ -2837,7 +2837,8 @@ superpotential combining mass, constraint, and Yukawa terms,
     + \underbrace{y_c\, H_u\, M^c{}_c
       + y_b\, H_d\, M^b{}_b
       + y_t\, H_u\, Q^t \bar Q_t\phantom{X}}_{\text{Yukawa}}
-    + \underbrace{\lambda\, X\, H_u\!\cdot\!H_d}_{\text{NMSSM}}\,,
+    + \underbrace{\lambda_S\, S\, H_u\!\cdot\!H_d
+      + \tfrac{\kappa}{3}\,S^3}_{\text{NMSSM}}\,,
 \end{equation*}
 %
 where $M^{(3)}$ is the $3\times 3$ light-flavor block ($u,d,s$)
@@ -2851,11 +2852,12 @@ $\Lambda_{\text{eff}}$ and the Seiberg constraint.
 The top Yukawa $y_t\,H_u\,Q^t\bar Q_t$ stands apart because the
 top does not confine into a meson.
 At $\tan\beta = 1$, the tree-level lightest Higgs mass vanishes
-($m_h = m_Z|\cos 2\beta| = 0$); an NMSSM-type coupling
-$\lambda\,X\,H_u\!\cdot\!H_d$ lifts the flat direction and gives
-$m_h = \lambda v/\sqrt{2} = 125\GeV$ for $\lambda = 0.72$.
-The field $X$ (the Seiberg Lagrange multiplier) is a gauge singlet
-already present in the superpotential.
+($m_h = m_Z|\cos 2\beta| = 0$); the NMSSM coupling
+$\lambda_S\,S\,H_u\!\cdot\!H_d$ lifts the flat direction and gives
+$m_h = \lambda_S v/\sqrt{2} = 125\GeV$ for $\lambda_S = 0.72$.
+The singlet~$S$ is a \emph{separate} elementary field, distinct
+from the Seiberg Lagrange multiplier~$X$
+(\S\ref{subsec:higgs_open}).
 The constraint $\tan\beta = 1$ ($v_u = v_d = v/\sqrt{2}$) is imposed
 by the Koide condition on mixed triples
 (\S\ref{subsec:superpotential}).
@@ -3459,7 +3461,7 @@ The off-diagonal meson scalars $M^d{}_s$, $M^s{}_d$ are the
 new degrees of freedom.  Their tree-level contribution to
 $K$--$\bar K$ mixing is the standard QCD effect already
 included in SM predictions.  The question is whether the
-additional SUSY couplings (the $\lambda\,X\,H_u\!\cdot\!H_d$
+additional SUSY couplings (the $\lambda_S\,S\,H_u\!\cdot\!H_d$
 vertex, the Yukawa $y_c\,H_u\,M^d{}_d$ and
 $y_b\,H_d\,M^s{}_s$) generate \emph{extra} flavour-violating
 contributions beyond QCD.  Because the mesinos are identified
@@ -3846,8 +3848,9 @@ the pseudo-modulus at $gv/m = \sqrt{3}$) and a bion correction
 $K_{\text{bion}} \sim |\!\sum s_k\sqrt{\hat m_k}|^2$,
 a superpotential combining the Seiberg constraint
 with Yukawa couplings (using separate $H_u$, $H_d$ doublets)
-and an NMSSM coupling $\lambda\,X\,H_u\!\cdot\!H_d$
-($\lambda = 0.72$ for $m_h = 125\GeV$),
+and an NMSSM coupling $\lambda_S\,S\,H_u\!\cdot\!H_d$
+($\lambda_S = 0.72$ for $m_h = 125\GeV$, with $S$ a separate
+elementary singlet, distinct from the Lagrange multiplier~$X$),
 standard $SU(2)_L \times U(1)_Y$ $D$-terms
 (vanishing at $\tan\beta = 1$),
 and soft breaking $V_{\text{soft}} = \fpi^2\,\text{Tr}(M^\dagger M)$.
