@@ -1,0 +1,595 @@
+\documentclass[a4paper]{article}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{multirow}
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+%%\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+
+\newcommand*{\bord}{\multicolumn{1}{c|}{}} 
+\newcommand*{\nobord}{\multicolumn{1}{c}{}}
+
+\title{Bootstrapping charges via Supersymmetry}
+\author{Alejandro Rivero\footnote{arivero@unizar.es}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+A self-referencing postulate in the Chan-Paton
+factors of a string allows to fix some of the freedom in the choosing of
+standard-model-like vacua.
+
+\hrulefill
+\hrulefill
+\end{abstract}
+
+With the failure to find scalar superpartners of the currently known
+quarks and leptons, it becomes of interest to explore other 
+representations of supersymmetry (eg \cite{Jourjine:2012hv,Armori}). 
+In this letter we find if not a representation of susy, at least
+an interesting representation of three generations of scalars that 
+could be used to form SM supermultiplets. 
+
+\subsubsection*{The view from above}
+Consider $SO(32)$. We can factor it as flavour times colour, $G^F \times SU(3)$, following the
+procedure of  \cite{GellMann:1976pg} where it is listed as case 4, equation
+2.18:
+\begin{eqnarray*}
+(32 \times 32)_A= [1,1,1^c] + {\bf (1,24,1^c) }+ (1,1,1^c) 
+        +(1,1,8^c) + (2,5,3^c) + (2,\bar 5, \bar 3^c) \\
+      +{\bf [1,15,\bar3^c]} + {\bf [1, \bar {15}, 3^c]} 
+      +[1,10,6^c] + [1, \bar 10, \bar 6^c] 
+\end{eqnarray*}
+
+where the derived flavour group is $G^F=SO(2) \times U(5) \times U(1)$.  In
+fact the same structure plus an extra $(1,28,8^c)$ can be derived branching down
+via 
+$$SO(32) \supset SO(30) \times U(1) \supset SU(15) \times U(1) \times U(1)
+\supset SU(5) \times SU(3) \times U(1) \times U(1) $$ 
+from where, following the branching rules in \cite{Yamatsu:2015npn} we get
+ \begin{eqnarray*}
+{\bf 496 }=    (24, 8^c)_{0,0} 
+   ⊕ (1,1^c)_{0,0} \oplus {\bf (24, 1^c)_{0,0}} \oplus (1,1^c)_{0,0} \\
+  ⊕ (1, 8^c)_{0,0} ⊕   (5, 3^c)_{2,2} ⊕ (5, 3^c)_{2,−2} \oplus  (5, 3^c)_{-2,2} ⊕ (5, 3^c)_{-2,−2}\\ \oplus {\bf
+   (15, 3^c)_{0,4} ⊕  ⊕ (15, 3^c)_{0,−4}} 
+    ⊕ (10, 6^c)_{0,4} \oplus (10, 6^c)_{0,−4} 
+\end{eqnarray*}
+In this case a second $U(1)$ from the flavour part is explicitly raided out. Still another $U(1)$ charge can be got
+by further breaking to $SU(5) \supset SU(3)\times SU(2) \times U(1)$.
+Then the  $\bf 24$ descend as
+$$
+24 = (1, 1)(0) + (1, 3)(0) + (3, 2)(5) + (\bar 3, 2)(−5) + (8, 1)(0)
+$$
+and with $Q=\frac 15 Y$ it looks as three generations of scalar leptons. Furthermore,
+the $\bf 15$ descends as
+$$
+15 = (1, 3)(−6) + (3, 2)(−1) + (6, 1)(4) \\
+$$ and then extending the assignment of the $U(1)$ charges
+the total $\bf 15+\bar {15}+24$ can be interpreted as three generations of scalar
+quarks and leptons: 
+$$
+\begin{array}{l|c |r|r|c}  % a/b = 1/6 or = 2/3????
+ irrep  & N& Y_1 & Y_2& Q= \frac 1{30}Y_1 - \frac15 Y_2 \\ % Q= -\frac 2{15}Y_1 - \frac15 Y_2
+\hline
+(6,1) & 6 & 4 &  4 &  -2/3  \\    
+(3,2) & 6 & 4 & -1 &  +1/3  \\        
+(1,3) & 3 & 4 & -6 & +4/3 \\           
+(\bar 6,1) & 6 &-4 & -4 & +2/3\\         
+(\bar 3,2) & 6 & -4 & 1 & -1/3\\          
+(1,\bar 3) & 3 & -4 & 6 & -4/3\\                                                                                
+(\bar 3,2)& 6 & 0 & -5 &     +1      \\   
+(3,2) &6 &0 & 5 &   -1   \\
+(1,1) & &&& \\
+(1,3)&12 &0& 0& 0   \\
+(8,1)& &&& \\
+\end{array}        
+$$      
+
+In this sense, this is possibly the most straightforward way to obtain
+three generations of standard model colour and electric charge out
+of a string motivated group. This is probably left unnoticed because
+one wants to get also the chiral charge, and then one looks for spinors 
+in complex representations by exploring groups $SO(4n +2)$, which
+excludes $SO(32)$.   
+
+Isolated, 15+15+24 can be considered as a 54 of SO(10) or a 55 in Sp(10)
+or O(10). Such representations are occasionally considered to organize "hidden mesons", for example recently in \cite{Arkani-Hamed:2016kpz,Yamatsu:2015npn} but 
+the charge assignment in such cases is aimed to obtain colour and weak
+charges as usual. 
+
+In our case the table is interpreted as three generations of scalars with the correct electric
+charge; plus three "half-generations" of an extra quark\footnote{it could be interesting to set also
+the Q of this extra (1,3) to zero, but in order to do this we would need to grant some baryon number to (6,1) and (3,2)}.  To propose an identification for the components of
+the $10$ of $SO(10)$ we can also branch the 10-plet of the SO(10) group first to $SU(5)$,
+with $10 = 5 (2) + \bar 5 (-2)$ and then to $SU(3) \times SU(2)$,
+via $5 = (3, 1)(2) + (1,2) (-3)$. We see that the 10-plet has three elements with $Q=\frac 2{30} - \frac 2{5} = -\frac 13$, two elements with $Q=\frac 2{30} + \frac 3{5} = \frac 23$  and then the corresponding opposite charges. Abusing a bit
+on traditional notation, we can call $d,s,b$ to the
+elements of the triplet and $u,c$ to the doublet, and draw the whole construction as [in figure]. It can be said that the bosons are actually being 
+generated from pairing "quarks" or "antiquarks".
+
+\subsubsection*{The view from below}
+
+The goal of this paper is to point out a possible principle,
+in this frame of open superstrings, to bootstrap this particular group
+and charge from a self-referential argument. 
+
+Lets consider here the $54=\bf 15+\bar {15}+24$ as produced by an unoriented bosonic string with $SO(10)$ or $Sp(10)$ Chan-Paton labels, and in a 
+first step we delegate the
+function  of colour to the string itself. We need unorientability of
+the string in order to produce 
+all the the 54 states forming a set of mesons, quarks and diquarks. 
+Of course we could then again discard the unoriented states to reduce 
+to a theory of mesons with SU(5) group, which in this case would be the three generations of scalar leptons.
+
+Looking for a postulate for this structure, the idea that we propose
+is to assume that there exists a
+supersymmetric theory containing this same set of scalar states, and that there is 
+a nuclear democracy in the labeling: the Chan-Paton charges of this theory are 
+a subset of the quarks.  We can call them the light quarks or, indistinctly,
+the preons of the theory.
+
+So, consider $r$ quarks of $+2/3$ charge and $s$ quarks of charge $-1/3$. Our postulate is that they combine pairwise -at the extremes of an open string- to form consistent generations of squarks and sleptons. 
+
+We can formulate this requisite in two ways:
+
+- we can ask that the combination must build the same number of "up type" and "down type" diquarks. This is, that $$rs = s(s+1)/2 = 2n$$ and so $ s= 2 r -1$. Plus, we can ask $r$ to be even, to make sure we build a pair number of scalars of each charge (we want to be able to promote them to a supersymmetric theory in the future).
+
+- or, we can go for a more general condition, that we will see implies the former one: we can ask that the total number of combinations must be an integer multiple of a single set, this is a multiple of $rs$.  In this case we look for integer positive solutions of:
+
+$$rs + {s^2+s \over 2} + {r^2 + r \over 2} + (r+s)^2 -1 = K rs$$
+
+and then $K=9$. This in turns implies that one generation is composed of $(K-1)/2$
+Dirac-like tuples -including the neutrino-,
+plus one extra state, with its antiparticle. This extra state can be
+either neutral or charged with +4/3. 
+
+In any case, either requirement fixes $s=2 r -1$ and then the allowed groups are 
+$SO(2s+2r)=SO(6r -2)$, with $r$  even. The smallest possible group is,
+as expected, SO(10), but bigger groups are possible. 
+
+We could at this level to discuss if the representation is the
+54 of SO(10) or the 55 of Sp(10) or just use O(10); either of them does
+the job and in principle Sp(10) looks less ad-hoc. There is the inconvenience 
+of an extra singlet that separates when branching down to SU(5). As this
+branching is the same in all the cases, perhaps the best answer is
+that at this level we are just using representations of $SU(r+s)$ and
+that its collection in a $SO$ is just a way to keep the tabs.
+
+Whan we need now is an extra postulate to fix $n_g=3$, if we are not
+happy simply with being the smallest of the possible answers. 
+To look for it, lets examine a
+table of solutions, with the corresponding total of "standard model
+generations" of scalars and its extra content, that we see adds always to $n_g$.
+so one extra scalar in each generation.
+
+$$
+\begin{array}{cc|c|c|c|}
+r & s & n_g & {r(r+1)\over 2 } & {r^2+s^2 -1 \over 2} - 2 n_g \\ 
+\hline
+2 & 3 & 3   &  3  & 0 \\
+4 & 7 & 14  & 10  & 4 \\
+6 & 11 & 33 & 21  & 12 \\
+8 & 15 & 60 & 36 & 24 \\
+%10 & 19 & 95 & 55 & 40 \\
+%... \\
+%16 & 31 & 248 & 136 & 112 \\
+... \\
+\end{array}
+$$
+
+From the table, it seems that the simplest extra postulate is to ask
+for absence of excess neutral bosons. An equivalent requisite is to
+ask that the number of neutral bosons to be equal to the number of 
+charged ones, given that the later is always $2 r s$ as in the "quark" 
+sector. 
+ 
+ With this extra requisite, the solution is unique:
+ $$ r=2, s=3, n_g=3, G=SO(10)$$
+ 
+
+Lets now address colour. We already know that it can be recovered if one
+considers to assign a SU(3) singlet to the 24 of SU(5) and SU(3) triplets and anti-triplets
+to the $15$ and $\bar 15$. The decomposition should then be promoted to
+something under $SO(10) \otimes SU(3)$ such as
+$$ \bf ? \longrightarrow (15,3) + (\bar 15, \bar 3) + (24, 1) $$ 
+What we need is some argument to pinpoint exactly $SU(3)$,
+either as a preferred labeling or extracting it out of a $SU(3 + N)$ in large $N$.
+%it could be interesting to know how to extract simply an U(1) for leptonic/barionic number 
+
+We can argue, again self-referencially, that $N=3$ is derived from the fact that 
+$$ \bf 3 \times 3 = 6 + 3 $$
+so in some sense a composite $3$ is composed of itself. The mesonic
+strings, on the other hand, go to the singlet from $$ \bf 3 \times \bar 3 = 8 + 1 $$ and the colouring paints a matrix
+
+$${\bf 
+\begin{array}{|cccccccccc|c} 
+\hline
+  &  &    & & \bord   &&&&& \\ \cline{1-1}
+ \bord &&  && \bord&&&&& \\ \cline{2-2}
+\nobord & \bord &\multicolumn{2}{r}{\bf \bar {3}}&\bord&&\multicolumn{3}{c}{\bf 1} & \\ \cline{3-3} 
+\nobord&& \bord && \bord&&&&& \\ \cline{4-4}
+\nobord &&& \bord &\bord&&&&& \\ \cline{5-10}
+\nobord&&&& \bord &&&&& \\ \cline{6-6}
+\nobord&&&&& \bord&&&& \\ \cline{7-7} 
+\nobord&&&&&& \bord &\multicolumn{2}{c}{\bf 3}& \\ \cline{8-8} 
+\nobord&&&&&&& \bord && \\ \cline{9-9}
+\nobord&&&&&&&& \bord & \\    \cline{10-10}  
+\end{array}} 
+$$
+
+where it can be seen more the process 
+$$ oriented \to unoriented \to reoriented $$
+that allows to extract out a set of mesons with Chan-Paton flavour charges
+under $SU(r+s)$, the upper right box. 
+This technique is used by Armori et al under the market 
+name "planar orientifold" for the calculation of meson masses in a large $N$
+theory generating an "Hadronic Susy". Note that the diquark, 
+unoriented part, can not survive in the large $N$, making already a sort of confinement.
+
+\subsubsection*{From bottom to the top}
+
+Now we notice that colouring the scheme has expanded the solution 10-plet 
+$$ dsb \; uc \  \bar d\bar s\bar b \; \bar u\bar c $$ to
+a 30-plet $d_{rgb}s_{rgb}...$, and so from $SO(10)$ to $SO(30)$,
+and we are really only one "uncolored preon" out of reaching $SO(32)$.
+
+Even if we had no results about consistency of gauge theories in
+strings, we could have considered, by symmetry reasons, to leave
+the colour boxes to overflow the diagonal by adding singlets, this is, 
+to consider $U(3)$ instead of $SU(3)$ and the $\bf 54+1$ of $SO(10)$ so that the
+full composition, colour+flavour, of $U(3) \times O(10)$ should be something
+adding as
+\begin{eqnarray*}
+\bf 
+(15,3)+(15,6)+(\bar {15},\bar 3)+(\bar {15},6)+(24,8)+(24,1)+(1,8)+(1,1) \\
+=(15,9)+(\bar {15}, 9)+(24,9)+(1,9)  
+\\ =(54+1,9) \\ =495
+\end{eqnarray*}
+
+So we see that our super-bootstrap of a three family structure
+when supplemented with three colours has about the right size
+to potentially reach the Green-Schwarz cancellation.
+
+%Permite el coloreado tambien decidir si es SO(x), Sp(x) o ninguno?
+
+\subsubsection*{The chiral basis}(TO BE DONE, usease, esto es a lo
+que le estoy dando vueltas ahora)
+
+
+A clear inconvenient of our process is that it works in a non-chiral schema,
+using electric charge and colour. We woild like to obtain similar results
+for the chiral charges of the standard model, namely weak isospin
+and weak hypercharge.
+
+A first step could be to group our mesons in pairs associated to
+ chiral supermultiplets. The simplest idea is to use a definition
+ of left and rigt components as the sum and difference of particle/antiparticle.
+
+$$d^L=d+\bar d$$
+$$d^R=d-\bar d $$
+$$...$$
+
+(Here in principle we have a freedom to choose which combination
+corresponds to each antiparticle but we assume that any choosing can be
+absorbed by the flavour symmetry)
+
+Correspondingly, we would construct "complex scalars" from
+combinations of scalar and antiscalar. A first detail of this idea is that it will mark some peculiarity for neutrinos,
+as in our construction the composite scalar neutrals in the diagonal of the $\bf 24$
+are they own antiparticles, and then, if unmixed, they will fail to have a 
+a "Right component". This could be a feature.
+
+... ... 
+
+Ideally, we should be able to fold our $54$ into a left-right
+sum of $27 \oplus 27$ and then add the coloring, as we did
+in the previous case, the expectation being again to build some
+$(9,27)^L + (9,27)^R  = 243 + 243$ that allows us to guess
+a valid decompositio. Lacking that, we could try to force our way
+from above, possibly $E8 \times E8$ to $(SU(3) \times E6)
+\times (SU(3) \times E6)$. A main issue is that we need to
+understand why colour should act separately in both parts, and
+we need to have triplets and singlets of colour in the 
+adequate representations, as it happened in the $SO(32)$ descent.
+
+
+For reference (working draft, again) lets list all the composites:
+
+\begin{itemize}
+\item In the 24 +1:
+\begin{itemize}
+\item charge +1, irrep $(3,2)$ 
+$$\begin{array}{ccc} 
+                 u \bar d & u\bar s & u \bar b \\ 
+                 c \bar d & c\bar s & c \bar b \\
+                \end{array}$$
+\item charge -1, irrep $\bar (3,2)$
+ $$\begin{array}{ccc} 
+                 \bar u  d &\bar u s &\bar u  b \\ 
+                 \bar c  d &\bar c s &\bar c  b \\
+                \end{array}$$
+\item charge 0, sum $ (1,3) + (8,1) + (1,1) + 1 $
+  $$\begin{array}{ccccc}
+        u \bar u & c \bar c & u \bar c & c \bar u \\
+        d\bar s & d\bar b & s\bar b & d\bar d \\
+        s\bar d & b\bar d & b\bar s & s\bar s & b\bar b \\
+        \end{array}$$
+\end{itemize}
+\item From the $\bar {15} \oplus 15$ :
+\begin{itemize}
+\item charge +4/3 and -4/3
+$$\begin{array}{ccc} 
+                 u u &  c c &  c u \\ 
+                 \bar  u\bar u &  \bar  c\bar c &  \bar c\bar u \\
+                \end{array}$$
+\item charge +2/3
+$$\begin{array}{ccc} 
+                 \bar d \bar d & \bar s\bar s & \bar b \bar b \\ 
+                 \bar s \bar d & \bar b\bar s & \bar d \bar b \\
+                \end{array}$$
+                
+\item charge -2/3
+$$\begin{array}{ccc} 
+                 d d &  s s &  b b \\ 
+                 s d &  b s &  d b \\
+                \end{array}$$
+\item charge -1/3
+$$\begin{array}{ccc} 
+                 \bar u \bar d & \bar u\bar s & \bar u \bar b \\ 
+                 \bar c \bar d & \bar c\bar s & \bar c \bar b \\
+                \end{array}$$
+                \item charge +1/3
+$$\begin{array}{ccc} 
+                  u  d & u s & u b \\ 
+                  c  d & c s & c b \\
+                \end{array}$$
+\end {itemize}
+\end{itemize}
+
+ 
+... ...\dots{}
+
+\subsubsection*{Conclusion}
+
+
+In conclusion, lets review what we have got. We have started from the
+postulate that a bosonic unoriented string could be constructed such that:
+
+\begin{itemize}
+\item The "preons" labeling the string are of two kinds according electric
+charge: "up" and "down".
+\item In the diquark sector, the number of "up" diquarks is equal to the number
+of "down" diquarks.
+\item In the meson sector, the number of charged mesons is equal to the number
+of neutral mesons
+\end{itemize}
+ 
+We call this arrangement "a supersymmetrical bootstrap" because
+in a field theory of quarks and mesons 
+the preons should be a subset of the quarks of the theory,
+assuming that such quarks are recovered via susy from the bosonic
+sector. 
+
+The main conclusion is that there is a consistent assignment of charges,
+and the only possible number of generations is three.
+
+Then we add colouring compatible with the construction: a meson must be 
+a singlet of colour, a diquark must be in the same representation
+of colour than a (anti-)quark. This isolates $SU(3)$ and strongly signals
+that the full group must be $SO(32)$
+
+The complete program to build such model should imply to start from
+this bosonic "hadron-diquark" string model, upgrade to superstrings
+then going to D=10, and then analyze the branes corresponding to
+Chan-Paton matrices. Note that it would still be true that 
+removing coloured sectors the hadronic mesons of the standard
+model are recovered, so as a minimum the approach meets the
+goals of the original program of 1970!
+
+It is interesting that the number of quarks actually involved in 
+the construction is one less than the number of quarks obtained
+in the process, and that the one odd out is of "up" type. So it could
+be expected that the process of building the model allows, or 
+even forces, a mass for the top quark separated from
+the other five.
+
+Bootstrapping, as it is known, refers to the possibility of determining
+some parameters -usually of an scattering process- via some set of consistency 
+conditions and a self-referential mechanism -usually a duality-. This was
+expected to generate some non-linearity pinpointing special places of the
+space of parameters. Back in 1970, such program was still considered unable to pinpoint the
+quantum numbers of a model, as Chew himself remarked in an article
+in Physics Today:
+{\it The unfriendly question raised most
+often ... is how self-consistency can possibly be expected to generate "internal quantum numbers" such as hypercharge and baryon number..., but how can you bootstrap a symmetry? A conceivable response is that symmetries (or the associated quantum numbers) are related to particle multiplicities, and the non-linear unitarity condition responds to the number of different particles.} 
+Nowadays the progress on the analysis of anomalies makes us more
+knowledgeable so that today it is more likely 
+to fix the particle content of gauge group via consistency conditions. What we have
+exemplified here is that a combination of attacks from below and from above
+can allow us to select some particular vacuum out of the landscape of 
+string, and then specific generations of standard model like families. 
+
+\begin{thebibliography}{99}
+
+%\cite{Arkani-Hamed:2016kpz}
+\bibitem{Arkani-Hamed:2016kpz}
+  N.~Arkani-Hamed, R.~T.~D'Agnolo, M.~Low and D.~Pinner,
+  %``Unification and New Particles at the LHC,''
+  JHEP {\bf 1611} (2016) 082
+  doi:10.1007/JHEP11(2016)082
+  [arXiv:1608.01675 [hep-ph]].
+  %%CITATION = doi:10.1007/JHEP11(2016)082;%%
+  %3 citations counted in INSPIRE as of 27 Jul 2017
+
+%\cite{Jourjine:2012hv}
+\bibitem{Jourjine:2012hv}
+  A.~N.~Jourjine,
+  %``Scalar supersymmetry,''
+  Phys.\ Lett.\ B {\bf 727} (2013) 211
+  doi:10.1016/j.physletb.2013.10.036
+  [arXiv:1208.1867 [hep-ph]].
+  %%CITATION = doi:10.1016/j.physletb.2013.10.036;%%
+  %6 citations counted in INSPIRE as of 31 Jul 2017
+
+%\cite{GellMann:1976pg}
+\bibitem{GellMann:1976pg}
+  M.~Gell-Mann, P.~Ramond and R.~Slansky,
+  %``Color Embeddings, Charge Assignments, and Proton Stability in Unified Gauge Theories,''
+  Rev.\ Mod.\ Phys.\  {\bf 50} (1978) 721.
+  doi:10.1103/RevModPhys.50.721
+  %%CITATION = doi:10.1103/RevModPhys.50.721;%%
+  %338 citations counted in INSPIRE as of 27 Jul 2017
+
+%\cite{Harigaya:2016eol}
+\bibitem{Harigaya:2016eol}
+  K.~Harigaya and Y.~Nomura,
+  %``Hidden Pion Varieties in Composite Models for Diphoton Resonances,''
+  Phys.\ Rev.\ D {\bf 94} (2016) no.7,  075004
+  doi:10.1103/PhysRevD.94.075004
+  [arXiv:1603.05774 [hep-ph]].
+  %%CITATION = doi:10.1103/PhysRevD.94.075004;%%
+  %21 citations counted in INSPIRE as of 27 Jul 2017
+  
+  %\cite{Yamatsu:2015npn}
+\bibitem{Yamatsu:2015npn}
+  N.~Yamatsu,
+  %``Finite-Dimensional Lie Algebras and Their Representations for Unified Model Building,''
+  arXiv:1511.08771 [hep-ph].
+  %%CITATION = ARXIV:1511.08771;%%
+  %7 citations counted in INSPIRE as of 27 Jul 2017
+\end{thebibliography}
+\end{document}
+
+
+
+
+
+And each representation goes down to (flavour) $SU(3) \times SU(2) \times U_2(1)$
+
+\begin{eqnarray*}
+15 =& (1, 3)(−6) + (3, 2)(−1) + (6, 1)(4) \\
+24 =& (1, 1)(0) + (1, 3)(0) + (3, 2)(5) + (\bar 3, 2)(−5) + (8, 1)(0)
+\end{eqnarray*}
+
+
+In this model we look only to electric charge. Setting the two $U(1)$ charges to $Q_1+Q_2=-\frac 16$, $Q_2=-1/5$ we can produce a total combination $Q$ as
+in the following table. Note that $N$ here is the number of states. 
+
+$$
+\begin{array}{l|c |r|r|c}  % a/b = 1/6 or = 2/3????
+ irrep  & N& Y_1 & Y_2& Q= \frac 1{30}Y_1 - \frac15 Y_2 \\ % Q= -\frac 2{15}Y_1 - \frac15 Y_2
+\hline
+(6,1) & 6 & 4 &  4 &  -2/3  \\    
+(3,2) & 6 & 4 & -1 &  +1/3  \\        
+(1,3) & 3 & 4 & -6 & +4/3 \\           
+(\bar 6,1) & 6 &-4 & -4 & +2/3\\         
+(\bar 3,2) & 6 & -4 & 1 & -1/3\\          
+(1,\bar 3) & 3 & -4 & 6 & -4/3\\                                                                                
+(\bar 3,2)& 6 & 0 & -5 &     +1      \\   
+(3,2) &6 &0 & 5 &   -1   \\
+(1,1) & &&& \\
+(1,3)&12 &0& 0& 0   \\
+(8,1)& &&& \\
+\end{array}        
+$$            
+
+
+ 
+$$ {{\bf 54} \longrightarrow
+\begin{array}{|cccccccccc|c} 
+\hline
+  &  &    & & \bord   &&&&& \\ \cline{1-1}
+ \bord &&  && \bord&&&&& \\ \cline{2-2}
+\nobord & \bord &\multicolumn{2}{r}{\bf \bar {15}}&\bord&&\multicolumn{3}{c}{\bf 24} & \\ \cline{3-3} 
+\nobord&& \bord && \bord&&&&& \\ \cline{4-4}
+\nobord &&& \bord &\bord&&&&& \\ \cline{5-10}
+\nobord&&&& \bord &&&&& \\ \cline{6-6}
+\nobord&&&&& \bord&&&& \\ \cline{7-7} 
+\nobord&&&&&& \bord &\multicolumn{2}{c}{\bf 15}& \\ \cline{8-8} 
+\nobord&&&&&&& \bord && \\ \cline{9-9}
+\nobord&&&&&&&& \bord & \\    \cline{10-10}  
+\end{array}} 
+\longrightarrow
+\begin{array}{c|cccccccccc|}
+ &d&s&b&u&c&\bar d&\bar s&\bar b&\bar u&\bar c \\
+\hline
+d &  & \multirow{2}{*}{$-\frac 23$} &  \bord  & & \bord   &&&\bord && \\ \cline{2-2}
+s & \bord &  & \bord & \multicolumn{2}{c|}{\frac 13} &&0&\bord&\multicolumn{2}{c|}{-1} \\ \cline{3-3}
+b && \bord &\bord&&\bord&&&\bord&& \\ \cline{4-11} 
+u &&& \bord && \multicolumn{1}{c|}{\multirow{2}{*}{$\frac {-4}3$}} &&\multirow{2}{*}{+1}&\bord&\multicolumn{2}{c|}{\multirow{2}{*}{0}} \\ \cline{5-5}
+c &&&& \bord &\bord&&&\bord&\multicolumn{2}{c|}{} \\ \cline{6-11}
+\bar d &&&&& \bord &&\multirow{2}{*}{$\frac 23$}&\bord&& \\ \cline{7-7}
+\bar s &&&&&& \bord&&\bord& \multicolumn{2}{c|}{-\frac 13} \\ \cline{8-8} 
+\bar b &&&&&&& \bord &\bord&& \\ \cline{9-11} 
+\bar u &&&&&&&& \bord &&\multirow{2}{*}{$\frac 43$} \\ \cline{10-10}
+\bar c &&&&&&&&& \bord & \\    \cline{11-11}  
+\end{array} 
+$$
+%%posiblemente habria sido mas astuto poner una caja de cuatro y luego cada cuadrante por separado, ajustando anchos
+
+
+ Note
+that honestly we are still in the world of the bosonic string; we
+can take this number as sheer coincidence or as signal that the
+"sBoostrap" postulate actually has some susy in it. In any
+case, it isolates a pathway for model building with
+exactly three generations.
+
+Actually the sum is a bit of luck; a more accurate decomposition,
+for instance, is to branch out from $SO(32)$ to $SU(5)\times SU(3)$ via 
+say $SO(30)$ and $SU(15)$. Such pathway decomposes:
+
+\begin{eqnarray*}\bf
+496 = (435)_0 ⊕ (30)_2 ⊕ (30)_{−2} ⊕ (1)_0 \\ \bf
+=   (224)_{0,0} ⊕ (105)_{0,4} ⊕ (105)_{0,−4} ⊕ (1)_{0,0} \oplus 
+   (15)_{2,2} ⊕ (15)_{2,−2} \oplus  (15)_{-2,2} ⊕ (15)_{-2,−2} \\ \bf
+=  (24, 8)_{0,0} ⊕ (24, 1)_{0,0} ⊕ (1, 8)_{0,0} ⊕ \\ \bf
+   (15, 3)_{0,4} ⊕ (10, 6)_{0,4} ⊕ (15, 3)_{0,−4} ⊕ (10, 6)_{0,−4} ⊕ (1)_{0,0} \oplus \\ \bf
+   (5, 3)_{2,2} ⊕ (5, 3)_{2,−2} \oplus  (5, 3)_{-2,2} ⊕ (5, 3)_{-2,−2} \\ \bf
+\end{eqnarray*}
+
+
+In the current context, as we are not including the weak
+force in the model, there is no value on locating
+a concrete descent. Also, we ignore if there is some 
+more direct way to relate $SO(10)$ to $SO(32) = SO(2^{D/2})$;
+is is a bit intriguing that adding colour seems to be enough.
+
+
+
+\end{document}
+
+%hablando de 27:  54/2 == 27
+  asi que igual podemos doblar la 54 sobre si misma? antes de aplicar el color?
+
+
+%oriented ---> unoriented --> reoriented
+ SU(2n)   ----> SO(2n) or Sp(n) ---> SU(n)
+
+54 = (1, 1) + (5, 1) + (3, 7) + (1, 27)
+7 = 1 + 6
+27 = 1 + 6 + 20'
+
+
+54 = 1 + 9 + 44
+  9 = (1, 3) + (6, 1)
+  44 = (1, 1) + (1, 5) + (6, 3) + (20', 1)
+
+  9 = 1 + 8v
+  44 = 1 + 8v + 35v
+
+54 = (1, 1, 1) + (3, 3, 1) + (2, 2, 6) + (1, 1, 20'
+)
+
+
+(15,3) + (24,1) + (15,3) === 45 + 24 + 45 == 114

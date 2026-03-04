@@ -1,0 +1,572 @@
+\documentclass{article}
+\usepackage[table]{xcolor}  %\cellcolor[gray]{0.9}  \cellcolor{red}
+\usepackage{multirow}
+%\usepackage{siunitx}
+ 
+ \begin{document}
+\title{Folding a pattern}
+\author{Alejandro Rivero}\maketitle
+\begin{abstract}
+ We propose a reorganisation of the standard model and their mesons in order
+ to build supersymmetric multiplets. The presentation is open to improvements
+ to choose the adequate candidates in each recombination.
+\end{abstract}
+
+
+
+%\centering
+
+
+%the folded pattern here
+
+
+
+I have told elsewhere how a chain of four Koide equations does a good work to predict SM mass.
+Gray cells are inputs
+All triplets in sequence meet Koide equation. 
+For $(bcs)$, sign of $\sqrt {m_s}$ is minus.
+
+\begin{center}
+\begin{tabular}{r|r||c|c||}
+         &  {pdg 2012}       & {exact} & {rotated}  \\
+\hline
+t & $173.5 \pm 1.0 $ & \cellcolor[gray]{0.9} 174.10 & 173.26     \\
+b & $4.18 \pm 0.03$ & 3.64 &4.197    \\
+c & $1.275 \pm 0.025$  & 1.698  &1.359   \\
+$\tau$ & $1.77682 (16)$ & 1.698 &1.776968  \\
+s & $95 \pm 5$ & 121.95 & 92.275           \\
+$\mu$ &105.65837  & 121.95 & \cellcolor[gray]{0.9}105.6584       \\
+d &$\sim 4.8$ & 8.75 &  5.32    \\
+u &$\sim 2.3$ & \cellcolor[gray]{0.9} 0 & .03564          \\
+e &0.5109989 & 0 & \cellcolor[gray]{0.9} .5109989       \\
+\hline
+\end{tabular}
+\end{center}
+
+Lets exploit this identification of some levels to try to fold them into a susy-like configuration.
+
+First step, the SM as it is. For each QCD string, consider its fundamental state.
+
+$$
+\begin{array}{lllllll} 
+&\nu_1, t_{rgb}&  &   & & \\ 
+&\nu_2, b_{rgb}& 
+      B^+,B_c^+ & 
+      {bu}, {bc}
+      & {bb}, {bs}, {bd} & 
+      \eta_b, B^0, B^0_s,  \bar B^0, \bar B^0_s \\ 
+\stackrel{\bar c\bar c}{cc},\stackrel{\bar c\bar u}{cu}&
+\tau, c_{rgb} &
+       D^+, D_s^+&
+       sc,dc  &
+       & 
+       \eta_c, D^0, \bar {D^0}\\ 
+\stackrel{\bar u\bar u}{uu}&
+\mu, s_{rgb} &
+         \pi^+, K^+& 
+         su, du&
+         ss, sd, dd &
+         \eta_8, \pi^0, K^0, \bar K^0 \\ 
+&\nu_3,  d_{rgb} \\  
+&e, u_{rgb}\end{array}
+$$
+
+For charged particles, the antiparticle is in the same level. I ommit the ``+ antiparticle'' remark
+
+Now, second step, we fold t and u
+
+$$
+\begin{array}{lllllll} 
+&\nu_2, b_{rgb}, e, u_{rgb}& 
+      B^+,B_c^+ & 
+      {bu}, {bc}
+      & {bb}, {bs}, {bd} & 
+      \eta_b, B^0, B^0_s,  \bar B^0, \bar B^0_s \\ 
+\stackrel{\bar c\bar c}{cc},\stackrel{\bar c\bar u}{cu}&
+\tau, c_{rgb} &
+       D^+, D_s^+&
+       sc,dc  &
+       & 
+       \eta_c, D^0, \bar {D^0}\\ 
+\stackrel{\bar u\bar u}{uu}&
+\mu, s_{rgb} , \nu_1, t_{rgb}&
+         \pi^+, K^+& 
+         su, du&
+         ss, sd, dd &
+         \eta_8, \pi^0, K^0, \bar K^0 \\ 
+&\nu_3,  d_{rgb} 
+\end{array}
+$$
+
+Next steps are arbitrary, we could fold any combination of up-like quarks
+
+$$
+\begin{array}{lllllll} 
+&\nu_2, b_{rgb}, e, u_{rgb}& 
+      B^+,B_c^+ & 
+      {bu}, {bc}
+      &  {bs}, {bd} & 
+      \eta_b, B^0, B^0_s,  \bar B^0, \bar B^0_s \\ 
+\stackrel{\bar c\bar c}{cc},\stackrel{\bar c\bar u}{cu}&
+\tau, c_{rgb} , \nu_3,  d_{rgb}&
+       D^+, D_s^+&
+       sc,dc  & 
+       bb,dd &
+       \eta_c, D^0, \bar {D^0}\\ 
+\stackrel{\bar u\bar u}{uu}&
+\mu, s_{rgb} , \nu_1, t_{rgb}&
+         \pi^+, K^+& 
+         su, du&
+         ss, sd&
+         \eta_8, \pi^0, K^0, \bar K^0 
+\end{array}
+$$
+
+And last, and even more arbitrary, is to decide which neutral meson
+to fold into the intermediate level. Just choose one
+
+$$
+\begin{array}{lllllll} 
+&\nu_2, b_{rgb}, e, u_{rgb}& 
+      B^+,B_c^+ & 
+      {bu}, {bc}
+      &  {bs}, {bd} & 
+       B^0, B^0_s,  \bar B^0, \bar B^0_s \\ 
+\stackrel{\bar c\bar c}{cc},\stackrel{\bar c\bar u}{cu}&
+\tau, c_{rgb} , \nu_3,  d_{rgb}&
+       D^+, D_s^+&
+       sc,dc  & 
+       bb,dd &
+       \eta_b, \eta_c, D^0, \bar {D^0}\\ 
+\stackrel{\bar u\bar u}{uu}&
+\mu, s_{rgb} , \nu_1, t_{rgb}&
+         \pi^+, K^+& 
+         su, du&
+         ss, sd&
+         \eta_8, \pi^0, K^0, \bar K^0 
+\end{array}
+$$
+
+The $\pm 4/3$ diquarks, at last, I guess they are related to 
+electroweak symmetry breaking via some condensation. They could stay
+as there are, or perhaps the charm should be at an upper level
+
+$$
+\begin{array}{lllllll} 
+\stackrel{\bar c\bar c}{cc}&
+\nu_2, b_{rgb}, e, u_{rgb}& 
+      B^+,B_c^+ & 
+      {bu}, {bc}
+      &  {bs}, {bd} & 
+       B^0, B^0_s,  \bar B^0, \bar B^0_s \\ 
+\stackrel{\bar c\bar u}{cu}&
+\tau, c_{rgb} , \nu_3,  d_{rgb}&
+       D^+, D_s^+&
+       sc,dc  & 
+       bb,dd &
+       \eta_b, \eta_c, D^0, \bar {D^0}\\ 
+\stackrel{\bar u\bar u}{uu}&
+\mu, s_{rgb} , \nu_1, t_{rgb}&
+         \pi^+, K^+& 
+         su, du&
+         ss, sd&
+         \eta_8, \pi^0, K^0, \bar K^0 
+\end{array}
+$$
+
+It could be. Probably all the ambiguities in the above folding,
+including this last one, are related.
+
+Final, let me prettify it by adding the antiparticles. Note that we have the 
+required quantity of bosons for three generations of the SM, but that
+the not-SM charged bosons (the uu etc) can not be arranged in a
+pattern of three generations of Dirac particles; it is because of it
+that we can guess they have a different role that being
+a plain sfermion.
+ 
+$$
+\begin{array}{||l|l|llll||} 
+\hline
+\stackrel{\bar c\bar c}{cc}&
+\nu_2, b_{rgb}, e, u_{rgb}& 
+      B^\pm,B_c^\pm & 
+      \stackrel{\bar b\bar u}{bu}, \stackrel{\bar b\bar c}{bc}
+      &  \stackrel{\bar b \bar s}{bs}, \stackrel{\bar b\bar s}{bd} & 
+       B^0, B^0_s,  \bar B^0, \bar B^0_s \\ 
+\stackrel{\bar c\bar u}{cu}&
+\tau, c_{rgb} , \nu_3,  d_{rgb}&
+       D^\pm, D_s^\pm&
+       \stackrel{\bar s\bar c}{sc},\stackrel{\bar d\bar c}{dc}  & 
+       \stackrel{\bar b\bar b}{bb},\stackrel{\bar d\bar d}{dd} &
+       \eta_b, \eta_c, D^0, \bar {D^0}\\ 
+\stackrel{\bar u\bar u}{uu}&
+\mu, s_{rgb} , \nu_1, t_{rgb}&
+         \pi^\pm, K^\pm& 
+         \stackrel{\bar s\bar u}{su}, \stackrel{\bar d\bar u}{du}&
+         \stackrel{\bar s\bar s}{ss}, \stackrel{\bar s\bar d}{sd}&
+         \eta_8, \pi^0, K^0, \bar K^0 \\
+\hline
+\end{array}
+$$
+
+Remember that the point of the grouping in fermion side is that we were
+looking at the koide triplets of the waterfall; any of the triplets
+is build by taking a fermion for each of the three lines.
+
+A lateral question is, can be build mass values so that any of the 
+eight possible triplets is solution?
+
+Let me consider a simpler case, that of, say, $m_u = 0$. Call
+$$k=k^+= 2 + {\sqrt 3}$$
+$$k^-= 2 - {\sqrt 3}$$
+$$k^+k^-=1$$
+and check that $(k, 8, k^-)$ and $(k, 0, k^-)$ are Koide
+triplets. We can use them to build ``mass spectra'' that saturate
+all the equations.
+
+$$ \begin{array}{|c|c|c|}
+\begin{array}{ll}
+ 0     & \\
+ 1     & \\
+ k^2  &k^2 
+\end{array} &
+
+\begin{array}{ll}
+ 0      &           \\
+ 1      &            \\
+ k^{-2} & k^{-2}
+\end{array} &
+
+
+\begin{array}{ll}
+ 0   &        \\
+ 1   &         \\
+ k^2 & k^{-2}
+\end{array} \\
+
+
+\begin{array}{|ll|}
+ 0     & \\
+ 1     & 1\\
+ k^2  &k^2 
+\end{array} 
+
+
+\begin{array}{|ll|}
+ 0     & \\
+ 1     & k^4\\
+ k^2  &k^2 
+\end{array} 
+
+
+&
+
+\begin{array}{|ll|}
+ 0      &           \\
+ 1      & 1          \\
+ k^{-2} & k^{-2}
+\end{array}
+
+\begin{array}{|ll|}
+ 0      &           \\
+ 1      & k^{-4}          \\
+ k^{-2} & k^{-2}
+\end{array} &
+
+
+\begin{array}{|ll|}
+ 0   &        \\
+ 1   &   1      \\
+ k^2 & k^{-2}
+\end{array} \\
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{array}{|ll|}
+ 0     & 0\\
+ 1     & 1\\
+ k^2  &k^2 
+\end{array} 
+
+\begin{array}{|ll|}
+ 0     & 8k\\
+ 1     & 1\\
+ k^2  &k^2 
+\end{array} 
+
+
+\begin{array}{|ll|}
+ 0     & 0\\
+ 1     & k^4\\
+ k^2  &k^2 
+\end{array} 
+
+
+&
+
+\begin{array}{|ll|}
+ 0      & 0        \\
+ 1      & 1          \\
+ k^{-2} & k^{-2}
+\end{array}
+
+\begin{array}{|ll|}
+ 0      & 8k^-        \\
+ 1      & 1          \\
+ k^{-2} & k^{-2}
+\end{array}
+
+\begin{array}{|ll|}
+ 0      &   0        \\
+ 1      & k^{-4}          \\
+ k^{-2} & k^{-2}
+\end{array} &
+
+
+\begin{array}{|ll|}
+ 0   &    0    \\
+ 1   &   1      \\
+ k^2 & k^{-2}
+\end{array} \\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hline
+\hline
+
+\begin{array}{|ll|}
+ 0   & 0\\
+ k^- & k^-\\
+ k   &k 
+\end{array} 
+
+\begin{array}{|ll|}
+ 0     & 8\\
+ k^-     & k^-\\
+ k  &k 
+\end{array} 
+
+
+\begin{array}{|ll|}
+ 0     & 0\\
+ k^{-2}     & k^2\\
+ 1  &1 
+\end{array} 
+
+
+&
+
+\begin{array}{|ll|}
+ 0      & 0        \\
+ k      & k          \\
+ k^{-} & k^{-}
+\end{array}
+
+\begin{array}{|ll|}
+ 0      & 8        \\
+ k      & k          \\
+ k^{-} & k^{-}
+\end{array}
+
+\begin{array}{|ll|}
+ 0      &   0        \\
+ k^2      & k^{-2}          \\
+ 1 & 1
+\end{array} &
+
+
+\begin{array}{|ll|}
+ 0   &    0    \\
+ 1   &   1      \\
+ k^2 & k^{-2}
+\end{array} \\
+\hline
+\hline
+\end{array}
+$$
+
+In this case, we see that there is really only three possibilites: we can 
+keep full degenerated with the trivial triplet $(0, 2 - \sqrt 3 , 2+\sqrt 3 )$ or
+we can do one of two possible mutations: either change one zero to
+a nonzero from the complementary triplets (8 or 96, thus), or to multiply 
+one of the $2 - \sqrt 3$ masses with $k^4$, scaling it to $k^3=26+ 15 \sqrt 3$. 
+
+Phenom-wise, the two changes are interesting. In the former, we could think
+that the broken double is the $u,b$ pair, and then the $b$ quark gains -or keeps-
+a mass above the other two doubles. In the later, it should be the
+$t,s$ pair, separating the top quark still not far enough, but the most
+allowed by the set of eight simultaneus Koide equations (at least,
+the most with a massless quark still there; we should work now the
+general case).
+
+$$
+\begin{array}{c}
+\hline
+\begin{array}{||ll||}
+ 0     & 96\\
+ k^-     & k^-\\
+ k  &k 
+\end{array} 
+\begin{array}{ll}
+ 0     & 8\\
+ k^-     & k^-\\
+ k  &k 
+\end{array} 
+\begin{array}{||ll}
+ 0      & 0        \\
+ k^{-} & k^{-} \\
+ k      & k          
+\end{array}
+\begin{array}{|||ll||}
+ 0   &    0    \\
+ k^3 & k^{-} \\ 
+ k   &   k     
+\end{array} \\
+\hline
+\end{array}
+\dots
+\begin{array}{|ll|}
+ 96     & 8\\
+ k^-     & k^-\\
+ k  &k 
+\end{array} 
+\dots
+$$
+
+
+
+If we put some mass scale in GeV, the likeliness with the SM is apparent
+
+$$
+\begin{array}{c}
+\hline
+\begin{array}{||ll||}
+ 0  & 43.6918 \\ 
+ 0.12195 & 0.12195 \\
+1.69854 & 1.69854
+\end{array} 
+\begin{array}{ll}
+ 0     & 3.64098 \\
+ 0.12195 & 0.12195 \\
+ 1.69854 & 1.69854
+\end{array} 
+\begin{array}{||ll}
+ 0      & 0        \\
+ 0.12195 & 0.12195 \\
+ 1.69854 & 1.69854 \\
+\end{array}
+\begin{array}{|||ll||}
+ 0   &    0    \\
+ 1.69854  & 0.008755 \\
+ 0.12195 & 0.12195
+\end{array} \\
+\hline
+\end{array}
+$$
+
+
+
+Ok; if we are going to use these sextets as a startpoint to look
+for continous families of non-zero solutions, we can also change 
+both zeros to a still degenerated pair (8,8) or
+(96,96) or to the non-degenerated (8,96). But here we see that
+the general case of two degenerated pairs is uninteresting: 
+there is always the possibility of choosing from up to four 
+different solutions for a pair of masses. In any case, we could
+look for accidental degeneracies.
+
+So a more interesting question 
+is if there are solutions with zero or one degenerated pair at most.
+A numerical exploration, e.g with {\tt octave} finds at least four candidates,
+they are uninteresting, if they are expected to have some hint about
+the top quark:
+                      
+%[1.972064777327935,12.1354051054384]
+%[.2471462221416923,1.972064777327935]
+%[.2471462221416923,4.974009900990099]
+%[4.974009900990099,12.1354051054384]           3?           
+%                      
+                      
+%[.2626126990216766,5.046782114241406]          
+%[3.752061572292468,5.046782114241406]          2?                    
+%[.003668609282629659,.2626126990216766]
+%[.003668609282629659,3.752061572292468]    
+                        
+%[7.336050724637682,21.41397288842544]          4?
+%[4.38487023743788,21.41397288842544]
+%[3.930230298318919,7.336050724637682]
+%[3.930230298318919,4.38487023743788]
+
+%[.002862920633477994,.2721622021607222]
+%[.002862920633477994,3.747673216132368]
+%[3.747673216132368,5.091511936339523]          1?
+%[.2721622021607222,5.091511936339523]
+\begin{center}
+\begin{tabular}{|ll|ll|ll|ll|}
+0.000055046 &  174.1  & 0.000091997  & 174.1  & 0.0722 & 174.1& 5.864 & 174.1\\
+ 0.49746& 94.32  & 0.4714 & 96.229  & 4.597 &  29.24 & 7.299 & 20.432\\
+6.7159 & 6.7159 & 6.8354 & 6.8354 & 1.1821 & 1.1821 & 0.3796& 0.3796 \\
+\hline
+\end{tabular}
+\end{center}
+
+ 
+ They are not directly connected to the zeroed solutions.
+ The next approach is to use Mathematica or Maxima to find
+ solutions perhaps missed in the numerical exploration
+  This is explained in
+ 
+ {\tt http://www.physicsforums.com/showthread.php?t=551549\&page=7}
+ 
+ {\tt http://www.physicsforums.com/showpost.php?p=4270855\&postcount=100}
+ 
+ and what happens is very peculiar; the polynomials in the resolvent
+ produce the above four solutions but each of them
+ have extra real triplets that can be used to build zero-less but degenerated
+ solutions; these solutions are really inside the continous spectra
+ of answers, but they are specially signaled in the resolvent and they
+ are also connected in some way to the above zeroed solutions. In
+ particlar, the strange-charm-bottom triplet
+ $$
+[2-\sqrt 3,1,2\sqrt 3 -2]   
+$$
+and the charm-bottom-top
+$$
+[1, 2\sqrt 3-2,7\sqrt 3-2] 
+$$
+solutions appear explicitly. So we have on one side a zeroed solution, and
+on other side, from the resolvent, a particular zeroless solution, that happens
+to be related to our folding:
+
+$$
+\begin{array}{|ll|}
+\hline
+ 3.64098 & 0 \\
+ 1.69854 & 1.69854 \\
+ 0.12195 & 0.12195 \\
+\hline
+\end{array}
+\dots
+\begin{array}{|ll|}
+\hline
+ b  & u \\
+ d  & c \\
+ s  & t \\
+\hline
+\end{array} 
+\dots
+\begin{array}{|ll|}
+\hline
+ 3.640 & 3.640 \\
+ 1.698 & 1.698 \\
+ 0.1219 & 174.1 \\
+\hline
+\end{array}
+$$
+ 
+Note that some of the zeroed solutions were also able to produce good values for the down
+quark. Perhaps the right symmetry group is beyond $S_4$
+
+\end{document}

@@ -1,0 +1,276 @@
+
+\documentclass[10pt]{article}
+
+%% The amssymb package provides various useful mathematical symbols
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{ulem} 
+\usepackage{authblk}
+
+\begin{document}
+
+
+ 
+
+\author{Alejandro Rivero \thanks{\texttt{arivero@unizar.es}}}
+\affil{BIFI - Universidad de Zaragoza, \\ Mariano Esquillor, Edificio I + D \\ 50018 Zaragoza (Spain)}
+
+
+
+ 
+
+\title{Bootstrapping generations}
+ 
+ \maketitle 
+\begin{abstract}
+A supersymmetric version of Chew's old democratic bootstrap argument
+predicts the existence of three generations of quarks and leptons with one
+quark, of type "up", more massive that the other five. 
+\end{abstract}
+
+
+%\begin{keyword}
+%% keywords here, in the form: keyword \sep keyword
+%example \sep \LaTeX \sep template
+%% MSC codes here, in the form: \MSC code \sep code
+%% or \MSC[2008] code \sep code (2000 is the default)
+%\end{keyword}
+ 
+
+The origin of the now popular "dual models" can be traced to advocacy,
+by Geoffrey Chew in the early sixties, of the study of the S-matrix, 
+eventually looking for an unique consistent solution that "bootstraps" 
+itself. A guiding principle was "nuclear democracy"; no particle
+should be claimed to be elementary. Each particle was 
+providing the force needed to bind the others \cite{Chew:1963zza,PhysRevLett.7.394}
+and from the view of S-Matrix polologists, each particle
+was a composite of others. 
+
+At the start of the seventies, it was noticed that dual models 
+with fermions \cite{Ramond:1971gb, Neveu:1971iv} seem to require
+a special symmetry, supersymmetry, relating bosonic and
+fermionic degrees of freedom. Schwarz \cite{Schwarz:1972hg} has proposed to interpret this need as a "quark-gluon dual model". 
+
+Given the stringy character
+of these models, it seems reasonable to consider that the
+gluon part, bosonic, is constituted by a string terminated in
+a pair of quarks. With this imaginery, we can try a 
+version of the democratic bootstrap. We require that scalar
+leptons and scalar quarks are
+composed of pairs of quarks, bound by some gluonic string.
+Still, we keep agnostic about if quarks and leptons
+are composed of themselves or other particles, or if
+they are truly elementary.
+
+Each possible pair of "string terminations"
+will produce one kind of scalar, as a triplet of
+colour in the case of pairs quark-quark, and as
+a colour singlet in the case of quark-antiquark; i.e.,
+we are taking the triplet in $3 \times 3 = 3 + 6$ and the 
+singlet in $3 \times \bar 3 = 1 + 8$ when combining 
+the colour charges of the constituents. As for the
+electric charge, it is simply the sum of the charges
+of the two elements of the pair.
+
+Following an emergent tradition, we will call squarks
+and sleptons to the scalar particles, and we will refer
+to the requirement of matching between the number of
+composite scalar particles and the number of degrees of
+freedom of the standard model fermions as the "sBootstrap".
+This matching, of course, must be fulfilled in
+each charge sector, for each value of electric 
+and colour charge, but we do not need to consider
+the later in the calculations, as simply we have
+triplets coinciding with triplets and singlets
+with singlets.
+
+
+So, lets first taste the sBootstrap condition at cask strength:
+$N$ generations of
+quarks of types $u, d$ should produce $N^2$ scalars of charge
+$+1/3$, but we have $2 N$ fermionic degrees of freedom
+with such charge, so $N=2$ for the matching in the
+"down antiquark" sector. And they also produce, from pairs
+of two down-type quarks, a total of $N (N+1)/2$ scalars
+of charge $-2/3$, again to be matched to $2 N$ degrees of
+freedom in the "up antiquark" sector. So $N=3$ for the
+matching in this sector. The mechanism fails, which
+is no surprise.
+
+We need thus to dilute our condition for it to be palatable.
+We do it in the following simple way: requesting that not every
+quark can terminate the string. An argument for this is
+to imagine that some of the families have very high
+masses, perhaps of the order of the electroweak scale,
+so that on one hand they can not reach the relativistic
+speed at the extremes of the string, and on the other hand
+they would even disintegrate and decay before 
+hadronization, not being able to form a durable bound state.
+
+We postulate thus that only some subset of "light quarks"
+are in the terminations of the string and then able to
+form composites, and we will calculate the size
+of this subset. Given that we could even have
+"mixed" generations, with one light and a heavy quark,
+we have now at our disposal three parameters: the
+number of generations $N$, the number of light quarks of
+the down kind, say $r$, and the number of light quarks of
+the up kind, say $s$. The matching of scalar and
+fermionic degrees of freedom is now
+
+\begin{eqnarray}
+r s = 2 N \\
+{r (r+1) \over 2} = 2N  
+\end{eqnarray}
+
+respectively for $+1/3$ and $-2/3$ particles. The integer solution of the system is that $N$ must be half
+of an hexagonal number % n (2n-1)
+
+\begin{equation}
+2 N = \cancel { \, 1}, 6, \cancel {15}, 28, \cancel {45}, 66, \cancel {91}, 120, ...
+\end{equation}
+
+So the smallest admissible solution is $N=3$. We could
+consider the requirement of
+asymptotic freedom  in the beta function 
+of QCD \cite{Gross:1973id,Gross:1973ju} to put an upper  limit to the number of 
+solutions, asking the number of flavours $n_f$ to be such that $2 n_f < 33$.
+If this limitation applies to all the flavours,
+light or heavy, then the solution is unique.
+
+\emph{We obtain N=3 generations of quarks with r=3 light
+down quarks but only s=2 light up quarks.}
+
+Perhaps it could be argued that the beta function 
+should be built only with the light quarks. In this case
+we have still a very short list of solutions
+
+% r2 + r - 4N =0 %
+% r =  (+ sqrt( 1 + 16N) -1 )/2
+ 
+\begin{center}
+\begin{tabular}{c|cc|c}
+N  & s & r & Total light flavours \\
+\hline
+3      &     2        &      3      &       5 \\
+14      &    4       &       7       &     11 \\
+33      &    6      &        11       &    17 
+%60          8              15
+\end{tabular}
+\end{center}
+
+Where we have included the third solution only because 17
+flavours are very near of the theoretical bound of 16.5. 
+Of course all the solutions beyond $N=3$ already contain
+a lot of heavy generations. Note that we always have $r = 2 s -1$.
+
+To search for another source of uniqueness, lets look
+the slepton sector. 
+
+For the charged leptons, we have nothing new. Every
+charged scalar lepton is a composite of a quark and
+antiquark of different type, so $ r s = 2 N$. 
+
+For neutral leptons, we have some options.
+On the Standard Model side, we could consider the
+known degrees of freedom of neutrinos, only as left-
+handed particles, or add a right-handed neutrino in
+each generation.
+On the composition side, the question is what group
+must be use to classify the colour neutral composites. 
+Given that
+they are similar to mesons (they could even be interpreted
+as the mesons themselves) we will classify
+them with $SU(r+s)$. We could try $U(r+s)$, having
+an extra neutral state, but then we had a odd number
+of neutral states and no solution.
+
+So we have finally two possible equations.
+
+1) With both left and right handed neutrinos:
+\begin{equation}
+r^2 + s^2 -1 = 4N
+\end{equation}
+
+
+2) With only left handed neutrinos
+\begin{equation}
+r^2 + s^2 -1 = 2N
+\end{equation}
+
+And we can discard the second option: when combined with
+the previous equations, it does not produce an
+integer solution. Interestingly, the sBootstrap can be extended to
+the lepton sector only if we use the extra degrees
+of freedom that come with the addition of right-handed
+neutrinos.
+
+Furthermore, the extension produces a system of
+equations with an unique integer solution,
+the one with $N=3$.
+
+So, even if we do not want to use QCD beta-function
+as an argument, we also have an unique solution if
+we ask the the sBootstrap to produce all the scalars
+in the SSM. 
+
+To conclude: we
+have found that the sBootstrap requisites predict
+that the number of fermion families must be \emph{three}.
+
+Looking the solution group-theoretically, we can say that
+the scalars are produced from 3 "down quarks" and 2 "up quarks"
+according the decomposition of a flavour group 
+$SU(5)$ to $SU(3) \times SU(2)$
+
+We get the sleptons extracted from a {\bf 24} of this
+flavour group
+
+\begin{equation}
+ 24=(1,1)+(3,1)+(2,3)+(2, \bar 3)+(1,8)
+\end{equation}
+
+And the squarks from the two
+sextets that appear in the
+decomposition of {\bf 15}.
+
+\begin{equation}
+15=(3,1)+(2,3)+(1,6)
+\end{equation}
+
+And similarly the anti-squarks.
+
+In the solution, the number of "light" down-type quarks is $r=3$, equal to the number $N=3$ of generations, but the 
+number of "light" up-type quarks is $s=2$.
+
+Having a third generation discovered with one massive "up type" quark, this
+should be considered a striking \sout{prediction} postdiction from 
+the theory of dual models,
+or string theory, how they call it nowadays.
+
+
+%% The Appendices part is started with the command \appendix;
+%% appendix sections are then done as normal sections
+%\appendix
+
+%\section{Section in Appendix}
+%\label{appendix-sec1}
+
+%% References
+%%
+%% Following citation commands can be used in the body text:
+%% Usage of \cite is as follows:
+%%   \cite{key}         ==>>  [#]
+%%   \cite[chap. 2]{key} ==>> [#, chap. 2]
+%%
+
+%% References with bibTeX database:
+
+\bibliographystyle{plain}
+
+\bibliography{Bootstrap}
+
+\end{document}
+
+%%
+%% End of file `elsarticle-template-num.tex'.

@@ -1,0 +1,10 @@
+*.aux
+*.log
+*.out
+*.toc
+*.pdf
+*.bak
+*.synctex.gz
+tmp/
+*.pyc
+__pycache__/
