@@ -3409,6 +3409,23 @@ splitting applies to the \emph{soft} contribution, not to the
 total mass; it is visible only for $(\pi, \mu)$,
 where the soft term dominates over $|m_u + m_d|^2$.
 
+\subsection{Flavour-changing neutral currents}
+The off-diagonal meson scalars $M^d{}_s$, $M^s{}_d$ mediate
+tree-level $\Delta S = 2$ transitions.  With a scalar mass
+$m_S = \fpi = 92\MeV$, the Wilson coefficient is
+$C_1 = g^2/(2\,m_S^2) \sim 6 \times 10^{-5}\MeV^{-2}$
+for $g \sim 1$, which exceeds the UTfit bound
+$|C_1| < 9 \times 10^{-13}\GeV^{-2}$~\cite{UTfit} by a factor
+$\sim 70$.  The $K$--$\bar K$ constraint requires
+$m_S \gtrsim 750\MeV$ (with $g = 1$), roughly $8\times$ larger
+than~$\fpi$.  Several resolutions exist:
+non-universal soft masses (with $m^2_{\text{off-diag}} \gg \fpi^2$),
+GIM-like alignment of the meson--quark couplings, or
+decoupling the off-diagonal scalars above the confinement scale.
+A complete treatment requires computing the effective coupling
+$g$ from the microscopic theory and including the off-diagonal
+VEVs from the tachyonic condensate (\S\ref{sec:open}).
+
 \subsection{The Casimir eigenvalue equation}
 The eigenvalue equation $x^2 + C_2 x - C_2 = 0$ produces the
 on-shell weak mixing angle to $0.4\sigma$, but three issues
@@ -3433,7 +3450,17 @@ $\lambda = 0.72$ gives $m_h = 125\GeV$ at tree level.
 The Seiberg Lagrange multiplier~$X$ is a gauge-singlet chiral
 superfield already present in the Lagrangian; adding the coupling
 $\lambda\,X\,H_u\!\cdot\!H_d$ to the superpotential is
-the minimal extension.
+the minimal extension.  In the rescaled variable
+$\hat S = X\,\Lambda^4$ (giving $[\hat S] = [\text{mass}]$), the
+seesaw VEV is $\langle\hat S\rangle = -(m_u m_d m_s)^{1/3} \approx
+-9.8\MeV$, so the effective $\mu$-term is
+$\mu_{\text{eff}} = \lambda\,\langle\hat S\rangle \approx -7\MeV$---three
+orders of magnitude below the electroweak scale. The model
+therefore relies on Higgs soft masses for EWSB, with the NMSSM
+coupling providing only the quartic (not the $\mu$-term). A
+separate source for the $\mu$-parameter (e.g.\
+Giudice--Masiero mechanism, radiative generation) remains an open
+problem.
 
 \subsection{Vacuum stability and CKM mixing}
 
@@ -3565,6 +3592,11 @@ $m_h = \lambda v/\sqrt{2} = 125.4\GeV$ & Derived & NMSSM singlet $X$; $\lambda =
 $\cos(9\delta)$ from $(\det M)^3/\Lambda^{18}$ & Derived & $\mathbb{Z}_{18}$ charge counting \\
 $\mathcal{Q}_{[ij]} \in \overline{\mathbf{10}}$ of $SU(5)_f$ & Derived & Miyazawa algebra \\
 Casimir structural constraints & Assumed & Reverse-engineered \\
+8 tachyonic modes at Seiberg vacuum & Derived & $F_X = -\lambda v^2/2$ dominates \\
+Oakes angle $\theta_C = \arctan\sqrt{m_d/m_s}$ & Derived & Off-diagonal condensate \\
+$\mu_{\text{eff}} = \lambda\langle\hat S\rangle \approx -7\MeV$ & Derived & Too small for EWSB \\
+K\"ahler cannot generate $Q_\ell = 2/3$ & Derived & Rank invariance of $W_{IJ}$ \\
+FCNC: $m_S = \fpi$ is $8\times$ too light & Derived & $K$-$\bar K$ mixing~\cite{UTfit} \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -3645,9 +3677,9 @@ a superpotential combining the Seiberg constraint
 with Yukawa couplings (using separate $H_u$, $H_d$ doublets)
 and an NMSSM coupling $\lambda\,X\,H_u\!\cdot\!H_d$
 ($\lambda = 0.72$ for $m_h = 125\GeV$),
-$D$-terms with a Fayet--Iliopoulos
-parameter, and soft breaking from a spurion
-$\langle F\rangle = \fpi^2$.
+standard $SU(2)_L \times U(1)_Y$ $D$-terms
+(vanishing at $\tan\beta = 1$),
+and soft breaking $V_{\text{soft}} = \fpi^2\,\text{Tr}(M^\dagger M)$.
 The supertrace $\text{STr}[M^2] = 18\,\fpi^2$
 receives contributions only from the nine soft meson masses.
 The mixed up/down-type Koide triples require $\tan\beta = 1$
@@ -3804,6 +3836,12 @@ arXiv:hep-ph/0510068 (2005).
 \bibitem{GST1968}
 R.~Gatto, G.~Sartori, and M.~Tonin, ``Weak self-masses, Cabibbo
 angle, and broken $SU(3)$,'' Phys.\ Lett.\ B \textbf{28}, 128 (1968).
+
+\bibitem{UTfit}
+M.~Bona et~al.\ (UTfit Collaboration), ``Model-independent
+constraints on $\Delta F = 2$ operators and the scale of new
+physics,'' JHEP \textbf{03}, 049 (2008),
+\texttt{arXiv:0707.0636}.
 
 \end{thebibliography}
 
