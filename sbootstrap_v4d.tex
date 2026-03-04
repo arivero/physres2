@@ -1813,6 +1813,17 @@ $v_0$-doubling condition. The relation between bion couplings
 enforces the doubling. Numerically,
 $S_{\text{bloom}} - 2\,S_{\text{seed}} = 0.023\MeV^{1/2}$
 (effectively zero: $m_b = 4{,}177$ vs.\ PDG $4{,}180$).
+The Hessian of $\lambda_2\,|S_{\text{bloom}} - 2\,S_{\text{seed}}|^2$
+has rank~1: its single nonzero eigenvector is
+$\partial f/\partial m_i$ (the gradient of
+$f = \sqrt{m_b} - 3\sqrt{m_s} - \sqrt{m_c}$), while the two flat
+directions correspond to independent variation of $m_s$ and $m_c$
+at fixed $f$.  Thus the bion K\"ahler constrains exactly \emph{one}
+mass combination; the remaining two masses are fixed by the Koide
+seed in the superpotential. Including propagated uncertainties
+($\delta m_s = 0.8\MeV$, $\delta m_c = 20\MeV$), the prediction
+is $m_b = 4{,}177 \pm 40\MeV$, consistent with the PDG value
+$4{,}180 \pm 30\MeV$ at $0.06\sigma$.
 
 The principal caveat is that this analysis
 applies on $\mathbb{R}^3 \times S^1$; connecting to $\mathbb{R}^4$
@@ -2596,14 +2607,13 @@ $m^2_{\text{meson}} - m^2_{\text{lepton}} = \fpi^2$.
 \paragraph{Scope of the Lagrangian.}
 This Lagrangian produces: (i)~the seed Koide condition ($gv/m = \sqrt{3}$
 in the O'Raifeartaigh limit); (ii)~the meson--lepton mass splitting
-($\fpi^2$); (iii)~the Yukawa couplings for the heavy sector. It does
-\emph{not} produce the bloom from seed to full triple: the $v_0$-doubling
-is non-holomorphic and lives in the K\"ahler sector. The candidate
-mechanism---monopole-instanton contributions on $\mathbb{R}^3 \times S^1$
-(\S\ref{subsec:fterm})---generates the required $\sum\sqrt{m_k}$
-structure, but its incorporation into a closed-form K\"ahler potential
-remains open. The Lagrangian is therefore complete for the seed and
-splitting, but sketches the bloom only through the monopole mechanism.
+($\fpi^2$); (iii)~the $v_0$-doubling condition via the bion K\"ahler
+correction $K_{\text{bion}}$, whose minimum enforces
+$\sqrt{m_b} = 3\sqrt{m_s} + \sqrt{m_c}$; (iv)~the Yukawa couplings for
+the heavy sector. The bloom is non-holomorphic and lives in the
+K\"ahler sector: the bion term $|\sum s_k\sqrt{M^k{}_k}|^2$ is the
+leading monopole-instanton contribution on $\mathbb{R}^3 \times S^1$
+(\S\ref{subsec:fterm}).
 
 The parameters of this construction separate into those fixed by
 structure and those that remain free.
@@ -2807,15 +2817,15 @@ the $v_0$-doubling fixes $m_b$ (from the K\"ahler sector),
 and the $(c,b,t)$ Koide serves as an overdetermination test.
 After these constraints, only two to three free parameters remain:
 $m_u$, $m_d$ (connected to the Cabibbo angle), and the overall
-scale $m_s$. The remaining open question is the origin of the
-$v_0$-doubling: it is non-holomorphic and cannot arise from the
-superpotential. As argued in \S\ref{subsec:fterm}, fractional
-instantons (monopole-instantons on $\mathbb{R}^3 \times S^1$)
-produce exactly the required $\sum\sqrt{m_k}$ structure, with
-the doubling emerging from the counting of active monopole amplitudes.
-This mechanism operates in the K\"ahler sector and does not
-conflict with the holomorphic superpotential. Its extension to
-$\mathbb{R}^4$ is conjectural (via \"Unsal's continuity).
+scale $m_s$. The $v_0$-doubling is non-holomorphic and lives in the
+K\"ahler sector: as shown in \S\ref{subsec:fterm}, the bion
+K\"ahler correction $K_{\text{bion}} \sim |\!\sum s_k\sqrt{M^k{}_k}|^2$
+generates an effective potential whose minimum enforces
+$\sqrt{m_b} = 3\sqrt{m_s} + \sqrt{m_c}$.
+The Hessian has rank~1, constraining exactly the $v_0$-doubling
+combination while leaving $m_s$ and $m_c$ to the Koide seed.
+The extension from $\mathbb{R}^3 \times S^1$ to
+$\mathbb{R}^4$ relies on \"Unsal's continuity conjecture.
 
 \subsection{The baryon sector}
 In Seiberg's SQCD with $N_f = N_c = 3$, baryons are part of the 
