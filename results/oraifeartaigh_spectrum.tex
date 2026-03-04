@@ -1,0 +1,117 @@
+% O'Raifeartaigh Model: Complete Spectrum Analysis
+% Superpotential: W = f Phi_0 + m Phi_1 Phi_2 + g Phi_0 Phi_1^2
+
+\textbf{Part 1: Scalar mass-squared matrix.}
+The scalar potential $V = \sum_k |F_k|^2$ with $F_0 = f + g\phi_1^2$,
+$F_1 = m\phi_2 + 2g\phi_0\phi_1$, $F_2 = m\phi_1$ has minimum $V = f^2$
+at $\phi_1 = 0$, $\phi_0 = v$, $\phi_2 = 0$, with $F_0 = f \neq 0$ signaling
+SUSY breaking. Writing $\phi_k = v_k + (\sigma_k + i\pi_k)/\sqrt{2}$ and
+defining $t \equiv gv/m$, $y \equiv gf/m^2$, the $6 \times 6$ mass matrix
+in the basis $(\sigma_0, \sigma_1, \sigma_2, \pi_0, \pi_1, \pi_2)$ is block
+diagonal, $\mathcal{M}^2_S = \mathrm{diag}(\mathcal{M}^2_\sigma, \mathcal{M}^2_\pi)$, with
+\begin{equation}
+  \frac{\mathcal{M}^2_\sigma}{m^2}
+  = \begin{pmatrix} 0 & 0 & 0 \\ 0 & 4t^2{+}2y{+}1 & 2t \\ 0 & 2t & 1 \end{pmatrix}, \qquad
+  \frac{\mathcal{M}^2_\pi}{m^2}
+  = \begin{pmatrix} 0 & 0 & 0 \\ 0 & 4t^2{-}2y{+}1 & 2t \\ 0 & 2t & 1 \end{pmatrix}.
+\end{equation}
+The $\sigma$-sector arises from $W^\dagger W + B$ and the $\pi$-sector from
+$W^\dagger W - B$, where $B_{11} = 2gf$ is the only nonzero element of the
+$B$-term matrix ($B_{ij} = \sum_k F_k\, W_{kij}$, with the sole nonvanishing
+third derivative $W_{011} = 2g$). Both $\sigma_0$ and $\pi_0$ are flat
+directions (zero eigenvalue). The four nonzero eigenvalues are
+\begin{equation}
+  \frac{m^2_{\sigma,\pm}}{m^2} = 2t^2 + y + 1 \pm \sqrt{(2t^2 + y)^2 + 4t^2}\,, \qquad
+  \frac{m^2_{\pi,\pm}}{m^2} = 2t^2 - y + 1 \pm \sqrt{(2t^2 - y)^2 + 4t^2}\,.
+\end{equation}
+The stability condition $\det(\mathcal{M}^2_\pi) \geq 0$ requires $y < 1/2$.
+
+\bigskip
+\textbf{Part 2: Fermion masses and supertrace.}
+The fermion mass matrix $W_{ij} = \partial^2 W/\partial\phi_i\partial\phi_j$
+at the vacuum has a vanishing first row and column; its $2\times 2$ block
+$\bigl(\begin{smallmatrix} 2t & 1 \\ 1 & 0 \end{smallmatrix}\bigr)$ (in units of $m$)
+has eigenvalues $\lambda = t \pm \sqrt{t^2+1}$, giving fermion masses
+\begin{equation}
+  m_0 = 0\quad\text{(goldstino)}, \qquad
+  m_\pm = \bigl(\sqrt{t^2+1} \pm t\bigr)\,m\,,
+\end{equation}
+with $m_+ m_- = m^2$. The supertrace is
+\begin{align}
+  \mathrm{STr}[\mathcal{M}^2]
+  &= \sum_{\text{scalars}} m_i^2 - 2\sum_{\text{fermions}} m_i^2 \notag\\
+  &= \bigl[\mathrm{Tr}(\mathcal{M}^2_\sigma) + \mathrm{Tr}(\mathcal{M}^2_\pi)\bigr]
+     - 2\bigl[m_+^2 + m_-^2\bigr] \notag\\
+  &= m^2\bigl[(4t^2{+}2y{+}2) + (4t^2{-}2y{+}2)\bigr]
+     - 2m^2\bigl[4t^2{+}2\bigr] \notag\\
+  &= m^2(8t^2+4) - m^2(8t^2+4) = 0\,.
+\end{align}
+The $y$-dependence cancels between the $\sigma$ and $\pi$ sectors ($+2y$ vs.\
+$-2y$), and the remaining $t$-dependent terms are fixed by the tree-level
+sum rule. The supertrace vanishes identically for all $t$ and $y$.
+
+\bigskip
+\textbf{Parts 3 and 5: Spectrum and pairings at $\boldsymbol{t = \sqrt{3}}$.}
+At $t = \sqrt{3}$ we have $\sqrt{t^2+1} = 2$, so $m_\pm = (2 \pm \sqrt{3})\,m$.
+The scalar eigenvalues at $t = \sqrt{3}$ become
+\[
+  m^2_{\sigma,\pm}/m^2 = 7 + y \pm \sqrt{y^2 + 12y + 48}\,, \qquad
+  m^2_{\pi,\pm}/m^2 = 7 - y \pm \sqrt{y^2 - 12y + 48}\,.
+\]
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{llcc}
+\hline
+Particle & Spin & $m^2/m^2$ (exact) & $m^2/m^2$ ($y = \tfrac{1}{4}$) \\
+\hline
+Goldstino $\psi_0$ & $\tfrac{1}{2}$ & $0$ & $0$ \\
+Flat scalar $\sigma_0$ & $0$ & $0$ & $0$ \\
+Flat scalar $\pi_0$ & $0$ & $0$ & $0$ \\[4pt]
+Light $\pi$ & $0$ & $7-y-\sqrt{y^2-12y+48}$ & $0.037$ \\
+Light fermion $\psi_-$ & $\tfrac{1}{2}$ & $7 - 4\sqrt{3}$ & $0.072$ \\
+Light $\sigma$ & $0$ & $7+y-\sqrt{y^2+12y+48}$ & $0.104$ \\[4pt]
+Heavy $\pi$ & $0$ & $7-y+\sqrt{y^2-12y+48}$ & $13.463$ \\
+Heavy fermion $\psi_+$ & $\tfrac{1}{2}$ & $7 + 4\sqrt{3}$ & $13.928$ \\
+Heavy $\sigma$ & $0$ & $7+y+\sqrt{y^2+12y+48}$ & $14.396$ \\
+\hline
+\end{tabular}
+\caption{Complete spectrum of the O'Raifeartaigh model at $t = gv/m = \sqrt{3}$.
+The scalar eigenvalues depend on $y = gf/m^2$ (stability requires $y < 1/2$);
+the illustrative column uses $y = 1/4$. Each fermion mass is bracketed by
+its $\sigma$ and $\pi$ scalar partners.}
+\end{table}
+
+In the SUSY limit $y \to 0$, each fermion mass-squared is doubly degenerate
+with its scalar partners ($\sigma$ and $\pi$ types), since
+$\sqrt{y^2 \pm 12y + 48}\,\big|_{y=0} = 4\sqrt{3}$, recovering
+$m^2_\pm = 7 \pm 4\sqrt{3}$. For $y > 0$, the $B$-term $B_{11} = 2gf$
+splits each degenerate pair: the $\sigma$-partner (from $W^\dagger W + B$)
+is pushed up while the $\pi$-partner (from $W^\dagger W - B$) is pushed down.
+To first order in $y$, the perturbative shifts are
+\begin{equation}
+\delta m^2_{\sigma/\pi,\pm} = \pm\left(1 + \frac{\sqrt{3}}{2}\right) y \cdot m^2
+\quad \text{(heavy pair)}, \qquad
+\delta m^2_{\sigma/\pi,\pm} = \pm\left(1 - \frac{\sqrt{3}}{2}\right) y \cdot m^2
+\quad \text{(light pair)},
+\end{equation}
+where $+$ applies to $\sigma$ and $-$ to $\pi$.
+The shift coefficients $1 \pm \sqrt{3}/2$ are the normalized squared amplitude
+of the $\phi_1$ component in each mass eigenstate: $|\langle\phi_1|\psi_\pm\rangle|^2 = 1/(8 \mp 4\sqrt{3})$,
+times the perturbation strength $2y$. The sum of all scalar shifts vanishes,
+$\sum_i \delta m^2_i = 0$, ensuring the supertrace remains zero at all
+orders in $y$.
+
+\bigskip
+\textbf{Part 4: Supertrace sum rule.}
+The vanishing of $\mathrm{STr}[\mathcal{M}^2]$ is a consequence of the
+tree-level sum rule for $F$-term SUSY breaking. The proof is purely algebraic:
+the trace of each $3\times 3$ block is determined by its diagonal elements alone
+(the square-root terms cancel pairwise in the trace), giving
+$\mathrm{Tr}(\mathcal{M}^2_\sigma) + \mathrm{Tr}(\mathcal{M}^2_\pi)
+= 2\,\mathrm{Tr}(W^\dagger W) = 2(m_+^2 + m_-^2 + m_0^2)$.
+The $B$-term contributes $+\mathrm{Tr}\,B$ to the $\sigma$ sector and
+$-\mathrm{Tr}\,B$ to the $\pi$ sector, so these cancel in the sum.
+Hence $\mathrm{STr}[\mathcal{M}^2] = 2\sum_i m^2_{f,i} - 2\sum_i m^2_{f,i} = 0$,
+valid for all values of $t$ and $y$.

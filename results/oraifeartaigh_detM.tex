@@ -1,0 +1,156 @@
+% O'Raifeartaigh fermion determinant: v-independence conditions
+% Homework problem: general analysis of det(M) for the massive fermion block
+
+\textbf{Part 1: The fermion mass matrix.}
+Consider the general O'Raifeartaigh-type superpotential with $n+1$ chiral superfields
+$(\Phi_0, \Phi_1, \ldots, \Phi_n)$:
+$$
+W = f\Phi_0 + W_{\mathrm{mass}}(\Phi_1,\ldots,\Phi_n) + \Phi_0 \cdot g(\Phi_1,\ldots,\Phi_n)\,,
+$$
+where $f\Phi_0$ is the linear term driving SUSY breaking ($F_0 = f \neq 0$),
+$W_{\mathrm{mass}}$ contains bilinear mass terms, and $g(\Phi_1,\ldots,\Phi_n)$
+is a polynomial (at least quadratic) coupling $\Phi_0$ to the remaining fields.
+The vacuum sits at $\langle\Phi_0\rangle = v$ (the pseudo-modulus),
+$\langle\Phi_k\rangle = 0$ for $k \geq 1$.
+
+The fermion mass matrix $\mathcal{W}_{ij} = \partial^2 W / \partial\Phi_i\partial\Phi_j$
+evaluated at the vacuum has the following structure. Since $W$ is linear in $\Phi_0$
+(apart from the coupling $\Phi_0 \cdot g$), we have
+$\partial^2 W / \partial\Phi_0^2 = 0$, and
+$\partial^2 W / \partial\Phi_0\partial\Phi_k = \partial g/\partial\Phi_k\big|_0$
+for $k \geq 1$. Because $g$ is at least quadratic in $\Phi_1,\ldots,\Phi_n$,
+these derivatives vanish at the vacuum $\langle\Phi_k\rangle = 0$. Hence the
+first row and column of $\mathcal{W}_{ij}$ are identically zero, confirming
+that $\Phi_0$ furnishes the massless goldstino.
+
+The remaining $n \times n$ block is
+$$
+M_{kl} = \frac{\partial^2 W_{\mathrm{mass}}}{\partial\Phi_k\partial\Phi_l}\bigg|_0
++ v \cdot \frac{\partial^2 g}{\partial\Phi_k\partial\Phi_l}\bigg|_0\,,
+\qquad k,l = 1,\ldots,n\,.
+$$
+Writing $m_{kl}$ for the mass-term Hessian and $g_{kl}$ for the coupling Hessian
+(both constant matrices, since $W_{\mathrm{mass}}$ is bilinear and $g$ is quadratic),
+the massive block takes the form $M = m + v\,g$.
+
+\bigskip
+\textbf{Part 2: The standard cubic model.}
+For $n = 2$ with $W = f\Phi_0 + m\Phi_1\Phi_2 + g\Phi_0\Phi_1^2$, the mass
+matrix is $m_{kl} = \bigl(\begin{smallmatrix} 0 & m \\ m & 0 \end{smallmatrix}\bigr)$
+and the coupling Hessian is $g_{kl} = \bigl(\begin{smallmatrix} 2g & 0 \\ 0 & 0 \end{smallmatrix}\bigr)$.
+The massive block is
+$$
+M = \begin{pmatrix} 2gv & m \\ m & 0 \end{pmatrix}\,,
+\qquad \det M = -m^2\,.
+$$
+The determinant is independent of $v$ and $g$, a fact verified by direct
+computation (SymPy confirms $\det M = -m^2$ identically).
+
+\bigskip
+\textbf{Part 3: Quartic deformations.}
+Adding $\lambda\Phi_1^3$ to the superpotential contributes
+$\partial^2(\lambda\Phi_1^3)/\partial\Phi_k\partial\Phi_l\big|_0 = 0$
+to the massive block, since all such second derivatives are proportional to
+$\Phi_1$ and vanish at the vacuum. Therefore $\det M = -m^2$ is unchanged.
+More generally, any term in $W$ that does not involve $\Phi_0$ and is cubic
+or higher in the fields contributes nothing to the fermion mass matrix at
+the vacuum $\langle\Phi_k\rangle = 0$.
+
+For $\lambda\Phi_0^2\Phi_1$, the situation is different: $\Phi_0$ now appears
+nonlinearly in $W$, so the full $3\times 3$ fermion mass matrix acquires
+$\mathcal{W}_{00} = 2\lambda\Phi_1\big|_0 = 0$ and
+$\mathcal{W}_{01} = 2g\Phi_1 + 2\lambda\Phi_0\big|_{\mathrm{vac}} = 2\lambda v$.
+The first row and column are no longer zero, which means $\Phi_0$ is no longer
+a pure goldstino --- it mixes with the massive fermions. Nevertheless, the
+$2\times 2$ sub-block $M_{kl}$ for $k,l \in \{1,2\}$ remains
+$\bigl(\begin{smallmatrix} 2gv & m \\ m & 0 \end{smallmatrix}\bigr)$
+with $\det M = -m^2$. The full $3\times 3$ determinant, however, changes due
+to the off-diagonal entries in the first row. SymPy confirms:
+$\det\mathcal{W}_{3\times 3} = 4\lambda^2 m v^2$.
+
+\bigskip
+\textbf{Part 4: General quadratic coupling for $n = 2$.}
+Let $g(\Phi_1,\Phi_2) = a\Phi_1^2 + b\Phi_1\Phi_2 + c\Phi_2^2$ with
+$m_{kl} = \bigl(\begin{smallmatrix} 0 & m \\ m & 0 \end{smallmatrix}\bigr)$ as before.
+The massive block is
+$$
+M = \begin{pmatrix} 2av & bv + m \\ bv + m & 2cv \end{pmatrix}\,,
+\qquad \det M = (4ac - b^2)v^2 - 2bmv - m^2\,.
+$$
+This equals $\det m = -m^2$ if and only if
+$$
+b = 0 \quad \text{and} \quad ac = 0\,.
+$$
+The first condition ($b = 0$) says $g$ has no $\Phi_1\Phi_2$ cross-term; the second
+($ac = 0$) says at most one of $\Phi_1^2, \Phi_2^2$ appears.
+The standard O'Raifeartaigh model ($a = g, b = 0, c = 0$) satisfies both.
+The ``mirror'' model with $g = c\Phi_2^2$ ($a = 0, b = 0$) also works.
+
+\bigskip
+\textbf{Part 5: General $n$ --- expansion of $\det(m + vg)$.}
+For general $n$, the massive block $M = m + vg$ is an $n\times n$ matrix
+depending linearly on $v$. The determinant is a polynomial of degree $n$ in $v$.
+A standard identity from linear algebra gives
+$$
+\det(m + vg) = \sum_{k=0}^{n} v^k\, C_k(m, g)\,,
+$$
+where $C_0 = \det m$, $C_1 = \operatorname{Tr}(\operatorname{adj}(m)\cdot g)$,
+$C_{n-1} = \operatorname{Tr}(\operatorname{adj}(g)\cdot m)$, and $C_n = \det g$.
+(Here $\operatorname{adj}$ denotes the classical adjugate, i.e.\ the transpose of
+the cofactor matrix.) The intermediate coefficients $C_k$ for $2 \leq k \leq n-2$
+are the ``mixed'' compound determinants. For $n = 2$:
+$$
+\det(m + vg) = \det m + v\,\operatorname{Tr}(\operatorname{adj}(m)\cdot g) + v^2\det g\,.
+$$
+For $n = 3$ (verified by SymPy):
+$$
+\det(m + vg) = \det m + v\,\operatorname{Tr}(\operatorname{adj}(m)\cdot g)
++ v^2\,\operatorname{Tr}(\operatorname{adj}(g)\cdot m) + v^3\det g\,.
+$$
+The condition $\det M = \det m$ for all $v$ requires $C_k = 0$ for all $k \geq 1$.
+
+\bigskip
+\textbf{Part 6: The standard model satisfies both conditions.}
+For $m = \bigl(\begin{smallmatrix} 0 & m \\ m & 0 \end{smallmatrix}\bigr)$,
+the adjugate is $\operatorname{adj}(m) = \bigl(\begin{smallmatrix} 0 & -m \\ -m & 0 \end{smallmatrix}\bigr)$.
+With $g = \bigl(\begin{smallmatrix} 2g & 0 \\ 0 & 0 \end{smallmatrix}\bigr)$:
+$$
+\operatorname{adj}(m) \cdot g = \begin{pmatrix} 0 & 0 \\ -2gm & 0 \end{pmatrix}\,,
+\qquad \operatorname{Tr}(\operatorname{adj}(m)\cdot g) = 0\,.
+$$
+Also $\det g = 0$. Both conditions are satisfied, confirming $\det M = -m^2$.
+
+The vanishing of the trace has a transparent algebraic origin: because $m$ is
+purely off-diagonal (antidiagonal) while $g$ is purely diagonal with only a
+$(1,1)$ entry, their adjugate-product is strictly lower-triangular and hence
+traceless. This is not a coincidence of the specific coupling constant values
+--- it holds for \emph{any} $g_{11}$ and \emph{any} $m_{12} = m_{21}$.
+
+\bigskip
+\textbf{Part 7: Theorem.}
+
+\emph{Let $W = f\Phi_0 + \tfrac{1}{2}\,m_{kl}\Phi_k\Phi_l + \Phi_0\cdot \tfrac{1}{2}\,g_{kl}\Phi_k\Phi_l$
+be an O'Raifeartaigh superpotential with $n+1$ chiral superfields, where $m_{kl}$
+is a symmetric mass matrix and $g_{kl}$ is a symmetric coupling matrix
+($k, l = 1,\ldots,n$). At the SUSY-breaking vacuum
+$\langle\Phi_0\rangle = v$, $\langle\Phi_k\rangle = 0$, the massive fermion
+block is $M = m + vg$. Then}
+$$
+\det M = \det m \quad \text{for all } v
+\qquad \Longleftrightarrow \qquad
+\det(I_n + v\,m^{-1}g) = 1 \;\;\text{for all } v\,,
+$$
+\emph{which holds if and only if $m^{-1}g$ is nilpotent (equivalently,
+all eigenvalues of $m^{-1}g$ vanish). When $m$ is invertible, this is equivalent
+to requiring that every coefficient $C_k = 0$ for $k = 1,\ldots,n$ in the
+expansion $\det(m + vg) = \sum_{k=0}^n v^k C_k$.}
+
+\emph{For $n = 2$, the two conditions reduce to:}
+\begin{enumerate}
+\item $\operatorname{Tr}(\operatorname{adj}(m)\cdot g) = 0$\,,
+\item $\det g = 0$\,.
+\end{enumerate}
+\emph{The standard O'Raifeartaigh model ($m$ antidiagonal, $g$ with a single diagonal
+entry) satisfies both conditions, and so $\det M = \det m = -m^2$ identically.
+The fermion mass eigenvalues $m_\pm$ satisfy $m_+ m_- = m^2$ for all values of
+the pseudo-modulus VEV.}

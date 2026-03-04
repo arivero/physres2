@@ -673,35 +673,125 @@ $m_\pm = (2 \pm \sqrt{3})\,m$.
 
 \subsection{Abelian charges and the mass-charge identity}
 
-The fundamental variable is the signed mass charge $\zch = z_0 + z_k
-\in \mathbb{R}$, with the physical mass $m_k = \zch_k^2 \geq 0$.
-For three charges $\zch_k = z_0 + z_k$ with $z_0$ the mean
-($\sum z_k = 0$), the identity
-\begin{equation}
-\boxed{\langle z_k^2\rangle = z_0^2}
+Write each fermion mass as the square of an abelian charge,
+\begin{equation}\label{eq:mass-charge-def}
+  m_k = \zch_k^2, \qquad \zch_k = z_0 + z_k, \qquad k=1,2,3,
 \end{equation}
-states that the variance of the charge perturbations equals the
-squared mean charge. It is equivalent to the ratio condition
-$\sum m_k / (\sum \zch_k)^2 = 2/3$, since
-$\sum \zch_k^2 = 3z_0^2 + \sum z_k^2$ and $(\sum\zch_k)^2 = 9z_0^2$.
+with $z_0 \equiv \bar{\zch} = \tfrac{1}{3}\sum_k \zch_k$ and the tracelessness
+constraint $\sum_k z_k = 0$.
+Then the mass-charge identity $\langle z_k^2\rangle = z_0^2$ takes the form of a
+\emph{charge-variance identity}: expanding
+\begin{equation}
+  \frac{1}{3}\sum_k z_k^2
+  = \frac{1}{3}\sum_k \zch_k^2 - z_0^2
+  = \frac{\sum m_k}{3} - \frac{(\sum\sqrt{m_k})^2}{9} ,
+\end{equation}
+so that
+$\langle z_k^2 \rangle = z_0^2$ is equivalent to
+$\tfrac{1}{3}\sum m_k = 2z_0^2$, which rearranges to
+\begin{equation}
+\boxed{
+  \frac{\sum m_k}{\bigl(\sum\sqrt{m_k}\bigr)^2} = \frac{2}{3}
+}\,.
+\end{equation}
+In statistical language the identity states that the population variance of
+the charges equals the squared mean:
+$\operatorname{Var}(\zch) = \bar{\zch}^{\,2}$.
 
-\medskip\noindent\textit{Proof for the O'Raifeartaigh vacuum.}
-The eigenvalue triple $(0,\, (2{-}\sqrt{3})\,m,\, (2{+}\sqrt{3})\,m)$
-has mass charges $\zch_k = (0,\; \sqrt{2{-}\sqrt{3}}\,\sqrt{m},\;
-\sqrt{2{+}\sqrt{3}}\,\sqrt{m}\,)$. The products
-$\zch_-\,\zch_+ = \sqrt{(2{-}\sqrt{3})(2{+}\sqrt{3})}\,\sqrt{m}
-= \sqrt{m}$, $\zch_-^2 + \zch_+^2 = 4\sqrt{m}$, and
-$(\zch_- + \zch_+)^2 = 4 + 2 = 6$ (in units of $\sqrt{m}$). The
-mean charge is $z_0 = (0 + \zch_- + \zch_+)/3 = \sqrt{6m}/3$.
-Then $\langle z_k^2 \rangle = \frac{1}{3}(\zch_0^2 + \zch_-^2 +
-\zch_+^2) - z_0^2 = 4m/3 - 6m/9 = 4m/3 - 2m/3 = 2m/3$ and
-$z_0^2 = 6m/9 = 2m/3$. Therefore
-$\langle z_k^2\rangle = z_0^2$ exactly.
-\hfill$\square$
+\paragraph{Angular parametrisation.}
+The constraint $\sum z_k = 0$ restricts $(z_1,z_2,z_3)$ to a
+two-dimensional hyperplane in $\mathbb{R}^3$, parametrised as
+\begin{equation}\label{eq:zk-angular}
+  z_k = r\cos\!\bigl(\delta + \tfrac{2\pi k}{3}\bigr), \qquad k=1,2,3.
+\end{equation}
+For any $\delta$ the tracelessness $\sum\cos(\delta+2\pi k/3)=0$ is
+automatic, and the identity
+$\sum\cos^2(\delta+2\pi k/3) = 3/2$ gives
+$\langle z_k^2\rangle = r^2/2$.
+The charge-variance identity $\langle z_k^2\rangle = z_0^2$ then fixes
+\begin{equation}
+  r = \sqrt{2}\,z_0,
+\end{equation}
+and the angle $\delta$---the \emph{bloom angle}---parametrises the family
+of mass triples at fixed vacuum charge $z_0$.
+The full charges read
+$\zch_k = z_0\bigl[1 + \sqrt{2}\cos(\delta + 2\pi k/3)\bigr]$.
+
+\paragraph{The seed angle.}
+At the O'Raifeartaigh seed, $m_1=0$ forces $\zch_1=0$, hence
+$z_1 = -z_0$.  From~\eqref{eq:zk-angular},
+\begin{equation}
+  r\cos\delta = -z_0 = -\frac{r}{\sqrt{2}}
+  \quad\Longrightarrow\quad
+  \cos\delta = -\frac{1}{\sqrt{2}},
+  \qquad \delta = \frac{3\pi}{4}.
+\end{equation}
+Every O'Raifeartaigh seed sits at $\delta=3\pi/4$.
+The remaining two eigenvalues satisfy
+$t^2 - 4mt + m^2 = 0$
+with $z_0^2 = 2m/3$, giving $m_\pm = (2\pm\sqrt{3})\,m$, which is the
+spectrum at $gv/m=\sqrt{3}$.
+
+\paragraph{Determinant condition.}
+Their product
+$m_+m_- = m^2$ is the \emph{determinant condition}: it equals
+$\det W_{ij}$ restricted to the massive $2\times 2$ block.
+That this follows from $\langle z_k^2\rangle = z_0^2$
+is direct: at the seed, $z_2+z_3=z_0$ and
+$z_2 z_3 = -z_0^2/2$, so
+\begin{equation}
+  m_+ m_- = \bigl[(z_0{+}z_2)(z_0{+}z_3)\bigr]^2
+  = \Bigl[z_0^2 + z_0^2 - \tfrac{z_0^2}{2}\Bigr]^2
+  = \tfrac{9z_0^4}{4}
+  = m^2.
+\end{equation}
+Conversely, requiring $m_+m_-=m^2$ with $m_++m_-=4m$ forces
+$\langle z_k^2\rangle = z_0^2$.
+Thus the mass-charge identity at the seed is the determinant of the
+superpotential mass matrix.
+
+\paragraph{Generality of the determinant condition.}
+For a general O'Raifeartaigh superpotential
+$W = f\Phi_0 + \frac{1}{2}m_{kl}\Phi_k\Phi_l
++ \frac{1}{2}\Phi_0\,g_{kl}\Phi_k\Phi_l$,
+the massive fermion block is $M = m + v\,g$.
+Then $\det M = \det m$ for all~$v$ if and only if $m^{-1}g$ is
+\emph{nilpotent}. For $n=2$ this reduces to two conditions:
+$\mathrm{Tr}(\mathrm{adj}(m)\cdot g) = 0$ and $\det g = 0$.
+Both are satisfied automatically when $m$ is antidiagonal
+and $g$ has a single diagonal entry (as in the standard model),
+since $\mathrm{adj}(m)\cdot g$ is then strictly lower-triangular.
+The product $m_+m_- = m^2$ is therefore not a numerical accident
+at $gv/m = \sqrt{3}$; it holds for \emph{all} values of the
+pseudo-modulus.
+
+\paragraph{Signed charges and the quark sector.}
+The charge $\zch_k$ need not be positive: a negative sign
+$\zch_1 = -\sqrt{m_1}$ still gives $m_1 = \zch_1^2>0$
+while changing the sign of the field's mass contribution in the
+superpotential.
+
+\paragraph{Vacuum-charge doubling.}
+The seed triple $(0,\sqrt{m_s},\sqrt{m_c})$ has
+$v_0^{\text{seed}} = (\sqrt{m_s}+\sqrt{m_c})/3$.
+If $\sqrt{m_b} = 3\sqrt{m_s}+\sqrt{m_c}$, substitution gives
+\begin{equation}\label{eq:v0-doubling}
+  v_0^{\text{bloom}}
+  = \frac{-\sqrt{m_s}+\sqrt{m_c}+3\sqrt{m_s}+\sqrt{m_c}}{3}
+  = \frac{2(\sqrt{m_s}+\sqrt{m_c})}{3}
+  = 2\,v_0^{\text{seed}}.
+\end{equation}
+Conversely, $v_0^{\text{bloom}}=2v_0^{\text{seed}}$ requires
+$\sqrt{m_b}=3\sqrt{m_s}+\sqrt{m_c}$,
+predicting $m_b = 4177$\,MeV (PDG: $4180\pm30$, $0.1\sigma$).
+The bion relation and the vacuum-charge doubling are
+algebraically equivalent statements: one is the other rewritten in the
+charge language.
 
 \medskip
-This is a theorem about the O'Raifeartaigh superpotential at
-$gv/m = \sqrt{3}$, not an empirical observation.
+The mass-charge identity is a theorem about the O'Raifeartaigh superpotential at
+$gv/m = \sqrt{3}$, not an empirical observation.  The angular parametrisation,
+determinant condition, and vacuum-charge doubling are its corollaries.
 
 \subsection{K\"ahler stabilization of the pseudo-modulus}
 
@@ -730,22 +820,54 @@ signaling the boundary of the effective field theory.
 
 \subsection{The O'Raifeartaigh structure in SQCD}
 
-In Seiberg's SQCD with $N_f = N_c = 3$, the quantum constraint
-$\det M - B\bar{B} = \Lambda^6$
-provides a natural setting for the O'Raifeartaigh mechanism.
-When quark masses are added via a tree-level superpotential
-$W_{\text{tree}} = m_i M^i{}_i$, the diagonal meson equation requires
+\paragraph{The quantum constraint.}
+In Seiberg's SQCD with $N_f = N_c = 3$, the confined degrees of freedom
+are the meson matrix $M^i{}_j = Q^i\bar Q_j/\Lambda$, the baryons
+$B = \epsilon_{ijk}Q^iQ^jQ^k/\Lambda^3$ and
+$\bar B = \epsilon^{ijk}\bar Q_i\bar Q_j\bar Q_k/\Lambda^3$,
+subject to the quantum-modified constraint
+$\det M - B\bar B = \Lambda^6$.
+A Lagrange multiplier $X$ enforces this:
 \begin{equation}
-  \hat m_j + X\,\frac{\det M^{(3)}}{M^j{}_j} = 0
+  W = X\bigl(\det M - B\bar B - \Lambda^6\bigr) + \sum_j m_j\, M^j{}_j\,.
+\end{equation}
+
+\paragraph{The Seiberg seesaw.}
+Setting $B = \bar B = 0$ and diagonal $M = \mathrm{diag}(M_1,M_2,M_3)$,
+the F-term equation $\partial W/\partial M^j{}_j = 0$ gives
+\begin{equation}
+  m_j + X\,\frac{\det M}{M_j} = 0
   \qquad(\text{no sum on } j)\,,
 \end{equation}
-which determines each diagonal entry of $M^{(3)}$ in terms of the
-quark masses and $\Lambda_{\text{eff}}$. For a seed configuration in
-which one quark mass vanishes ($m_u\to 0$), the corresponding $F$-term
-remains nonzero so long as $\det M^{(3)}\neq 0$, which is guaranteed
-by the quantum constraint. Supersymmetry is therefore spontaneously broken.
+so that $M_j = C/m_j$ with $C = -X\det M$ flavor-independent.
+The constraint $\det M = \Lambda^6$ fixes
+$C = \Lambda^2(m_1 m_2 m_3)^{1/3}$. Heavy quarks produce light
+mesons: this is the Seiberg seesaw.
 
-In the ISS magnetic dual, the O'Raifeartaigh parameters map as
+\paragraph{F-term SUSY breaking.}
+Adding an O'Raifeartaigh deformation $\Delta W = f\,X + g\,X\,\phi^2/2$
+(where $\phi$ is an off-diagonal meson fluctuation), the F-term
+for $X$ becomes
+\begin{equation}
+  F_X^* = \bigl(\det M - B\bar B - \Lambda^6\bigr) + f
+  + \tfrac{1}{2}g\,\phi^2\,.
+\end{equation}
+At the meta-stable vacuum where $\det M \approx \Lambda^6$ and
+$\phi = 0$, the constraint term vanishes but $F_X^* = f \neq 0$.
+Setting all F-terms to zero simultaneously would require
+$\det M - \Lambda^6 = -f$, contradicting the remaining F-term
+equations which drive $\phi \to 0$ and $\det M \to \Lambda^6$.
+Supersymmetry is therefore spontaneously broken with vacuum
+energy $V_0 = |f|^2$.
+
+\paragraph{ISS parameter map.}
+In the ISS magnetic dual with gauge group $SU(N_f - N_c)$,
+the rank condition provides an independent argument:
+$\tilde q \, q$ is an $N_f \times N_f$ matrix of rank
+$\tilde N_c = N_f - N_c < N_f$, so it cannot equal
+$\mu^2\,\mathbb{1}_{N_f}$. The $N_c$ frustrated F-terms
+give $V_0 = N_c|h\mu^2|^2$.
+The O'Raifeartaigh parameters map as
 $g \to h$, $m \to h\mu$, $v \to \langle X\rangle$, so the
 condition $gv/m = \sqrt{3}$ becomes
 $\langle X\rangle/\mu = \sqrt{3}$---the magnetic Yukawa~$h$ cancels.
@@ -1051,13 +1173,19 @@ Deviation & $-0.87\%$ \\
 \end{tabular}
 \end{center}
 
-\textbf{Scheme dependence caveat.} The nominal pull uses the
-pole mass for the top but $\overline{\mathrm{MS}}$ masses for $c$ and $b$---a
-scheme-inconsistent comparison. Evaluated entirely in the
-$\overline{\mathrm{MS}}$ scheme at a common scale, the structural
-invariant holds to $\sim 0.4\%$, and the pull reduces to $\sim 2\sigma$.
-The prediction is therefore more properly stated as
-$m_t = 171.3 \pm 1.5\GeV$.
+\textbf{Scheme dependence.} The chain input $m_s = 93.4\MeV$
+is $\overline{\mathrm{MS}}$ at $2\GeV$, while the PDG top mass
+$172.57 \pm 0.29\GeV$ is the pole mass. The two differ by the
+QCD self-energy: $m_t^{\text{pole}}/\bar m_t(\bar m_t) \approx 1.06$
+at two loops, giving $\bar m_t(\bar m_t) = 162.5 \pm 1.1\GeV$.
+Converting the prediction to $\overline{\mathrm{MS}}$ at the same
+order yields $\bar m_t(\bar m_t) \approx 161.3\GeV$
+($-1.1\sigma$ from PDG). The dominant systematic is
+the chain's mixed-scale nature---light quarks at $2\GeV$,
+heavy quarks effectively at $m_q(m_q)$---which introduces
+an $\mathcal{O}(1\GeV)$ scheme ambiguity. The prediction is
+therefore stated as $m_t = 171.3 \pm 1.5\GeV$, where the
+uncertainty reflects this scheme mismatch.
 
 \subsection{The complete $m_s$ chain}
 
@@ -1070,7 +1198,7 @@ m_s &= 93.4\;\mathrm{MeV} \quad\text{(input)}\\[4pt]
 m_c = 1301\;\mathrm{MeV} \quad[+2.0\%]\\[4pt]
 &\xrightarrow{\;\sqrt{m_b} = 3\sqrt{m_s} + \sqrt{m_c}\;}
 m_b = 4233\;\mathrm{MeV} \quad[+1.3\%]\\[4pt]
-&\xrightarrow{\;Q(c,b,t) = 2/3\;}
+&\xrightarrow{\;\langle z_k^2\rangle = z_0^2\text{ on }(c,b,t)\;}
 m_t = 171{,}250\;\mathrm{MeV} \quad[-0.9\%]
 \end{aligned}
 }
@@ -1237,28 +1365,66 @@ Pull & $0.6\sigma$ \\
 
 \subsection{The Cabibbo angle}
 
-The UV quark mass matrix has a nearest-neighbour (Fritzsch) texture,
+The UV quark mass matrix has a nearest-neighbour (Fritzsch) texture
+\begin{equation}\label{eq:fritzsch}
+M = \begin{pmatrix} 0 & A & 0 \\ A^* & 0 & B \\ 0 & B^* & C \end{pmatrix}\,,
+\end{equation}
 a structural property of the seesaw vacuum $M \propto \hat{m}^{-T}$
 that inverts the mass hierarchy while preserving eigenvectors.
-The Gatto--Sartori--Tonin relation~\cite{GST1968} gives the leading-order
-mixing angle from the down-sector mass hierarchy:
+In the hierarchy $|A| \ll |B| \ll C$, the eigenvalues are
+$m_1 \approx |A|^2 C/|B|^2$, $m_2 \approx |B|^2/C$, $m_3 \approx C$,
+and the $1$--$2$ mixing angle satisfies the
+Gatto--Sartori--Tonin relation~\cite{GST1968}:
 \begin{equation}
 \sin\theta_C = \sqrt{\frac{m_d}{m_s}}
 = \sqrt{\frac{4.67}{93.4}}
 = 0.2236\,.
 \end{equation}
 
+\paragraph{Up-type correction.}
+With separate Fritzsch textures for up-type and down-type quarks,
+the CKM element receives a phase-dependent correction:
+\begin{equation}\label{eq:fritzsch-Vus}
+|V_{us}| = \left|\sqrt{\frac{m_d}{m_s}}
+  - e^{i\phi}\sqrt{\frac{m_u}{m_c}}\right|\,.
+\end{equation}
+The second term $\sqrt{m_u/m_c} = 0.041$ is an 18\% correction.
+With $\phi = \pi/2$ the classic Fritzsch prediction gives
+$|V_{us}| = 0.2274$ ($3.8\sigma$ high); the PDG value
+$0.2243 \pm 0.0008$ is reproduced at $\phi \approx 86^\circ$.
+
 \begin{center}
-\begin{tabular}{lc}
+\begin{tabular}{lcc}
 \toprule
-Quantity & Value \\
+Method & $\sin\theta_C$ & $\theta_C$ \\
 \midrule
-$\sin\theta_C$ (predicted) & 0.2236 \\
-$|V_{us}|$ (PDG 2024) & $0.2250 \pm 0.0007$ \\
-Deviation & $-0.6\%\;\;(-2.0\sigma)$ \\
+$\sqrt{m_d/m_s}$ (GST) & 0.2236 & $12.92^\circ$ \\
+$|V_{us}|$ (PDG 2024) & $0.2243 \pm 0.0008$ & $12.96^\circ$ \\
+Deviation & $-0.3\%$ & $(-0.9\sigma)$ \\
 \bottomrule
 \end{tabular}
 \end{center}
+
+\paragraph{Charge-language interpretation.}
+In the angular parametrisation~\eqref{eq:zk-angular}
+with $k = 0,1,2$ labelling $(d, s, b)$, the GST ratio becomes
+\begin{equation}
+\sin\theta_C
+= \frac{|1 + \sqrt{2}\cos\delta|}
+       {|1 + \sqrt{2}\cos(\delta + 2\pi/3)|}\,.
+\end{equation}
+At the seed $\delta = 3\pi/4$, the numerator vanishes
+($1 + \sqrt{2}\cos(3\pi/4) = 0$), forcing $m_d = 0$ and
+$\theta_C = 0$.
+A bloom $\delta = 3\pi/4 + \varepsilon$ opens both a nonzero
+$m_d$ and a nonzero Cabibbo angle; they are the \emph{same degree
+of freedom}.  The mass-charge identity
+$\langle z_k^2\rangle = z_0^2$ is an identity
+$\sum \cos^2(\delta + 2\pi k/3) = 3/2$ for all~$\delta$ and
+imposes no constraint on~$\varepsilon$.  The Cabibbo angle
+is thus controlled entirely by~$\delta$: it measures how far
+the down-type charge configuration has bloomed from the massless
+seed.  The scale parameter $z_0$ remains separate.
 
 This is not an independent prediction of the superpotential
 but a structural property of the seesaw-inverted mass hierarchy.
@@ -1310,6 +1476,43 @@ remain open problems.
 \section{Complete particle spectrum}
 \label{sec:spectrum}
 %======================================================================
+
+\subsection{O'Raifeartaigh model spectrum}
+
+At general $t = gv/m$, the scalar potential $V = \sum|F_k|^2$
+depends on a second dimensionless parameter $y = gf/m^2$ (the
+SUSY-breaking strength, with $y < 1/2$ for stability).
+The $6\times 6$ real scalar mass matrix in the basis
+$(\sigma_0,\sigma_1,\sigma_2,\pi_0,\pi_1,\pi_2)$ is block-diagonal,
+$\mathcal{M}^2_S = \mathrm{diag}(\mathcal{M}^2_\sigma,
+\mathcal{M}^2_\pi)$, with
+\begin{equation}
+  \frac{\mathcal{M}^2_\sigma}{m^2}
+  = \begin{pmatrix} 0 & 0 & 0 \\ 0 & 4t^2{+}2y{+}1 & 2t \\
+    0 & 2t & 1 \end{pmatrix}, \quad
+  \frac{\mathcal{M}^2_\pi}{m^2}
+  = \begin{pmatrix} 0 & 0 & 0 \\ 0 & 4t^2{-}2y{+}1 & 2t \\
+    0 & 2t & 1 \end{pmatrix}.
+\end{equation}
+The $B$-term $B_{11} = 2gf$ is the sole nonvanishing element of
+$B_{ij} = \sum_k F_k W_{kij}$, contributing $+2y$ to $\sigma$
+and $-2y$ to $\pi$. The four nonzero eigenvalues are
+\begin{equation}
+  \frac{m^2_{\sigma,\pm}}{m^2}
+    = 2t^2 + y + 1 \pm \sqrt{(2t^2+y)^2+4t^2}\,,\quad
+  \frac{m^2_{\pi,\pm}}{m^2}
+    = 2t^2 - y + 1 \pm \sqrt{(2t^2-y)^2+4t^2}\,.
+\end{equation}
+At $t = \sqrt{3}$, each fermion mass is bracketed by its
+$\sigma$ (heavier) and $\pi$ (lighter) scalar partners.
+In the SUSY limit $y \to 0$, the $\sigma$--$\pi$ splittings vanish
+and each fermion mass-squared $m^2_\pm = 7 \pm 4\sqrt{3}$ is
+doubly degenerate.
+
+The supertrace vanishes identically:
+$\mathrm{STr}[\mathcal{M}^2] = m^2(8t^2{+}4) - 2m^2(4t^2{+}2) = 0$
+for all $t$ and $y$, because the $B$-term contributions
+$\pm 2y$ cancel between sectors.
 
 \subsection{Scalar meson masses}
 
@@ -1468,10 +1671,26 @@ diquarks of the $\mathbf{15}$ would be a testable consequence.
 The mass-charge identity constrains but does not uniquely fix the
 angular parameter $\delta$ that controls how the seed develops into a
 full triple. The O'Raifeartaigh vacuum fixes the seed ratio
-$gv/m = \sqrt{3}$ but leaves $\delta$ undetermined. Explicit R-breaking
-perturbations push $\langle z_k^2\rangle/z_0^2$ away from unity at any nonzero strength, making
-the seed an unstable fixed point. The bloom must therefore be
-nonperturbative.
+$gv/m = \sqrt{3}$ but leaves $\delta$ undetermined.
+
+The lowest-dimension $R$-breaking deformation that affects the
+spectrum is the bilinear $\Delta W = \epsilon\,\Phi_0\Phi_2$, which
+forces $\langle\Phi_1\rangle \neq 0$ and mixes the goldstino with the
+massive sector.  (Cubic deformations in $\Phi_1,\Phi_2$ alone vanish
+at the vacuum and are inert.)  To first order in $\varepsilon =
+\epsilon/m$, all eigenvalue shifts vanish, but the bloom angle shifts
+at $O(\varepsilon)$ because $\delta\delta \sim \sqrt{m_0} \sim
+\varepsilon$:
+$$
+  \delta\delta = 3^{5/4}\,|\varepsilon| \approx 3.95\,|\varepsilon|\,.
+$$
+The direction is \emph{toward} the physical quark spectrum
+($\delta > 3\pi/4$).  The determinant condition $m_+m_- = m^2$ is
+broken at $O(\varepsilon^2)$ with fractional deviation
+$49\,\varepsilon^2$.  The seed is therefore an unstable fixed point
+under any $R$-breaking, and the instability points in the right
+direction. The bloom magnitude, however, requires a nonperturbative
+mechanism.
 
 A dynamical origin for the lepton phase exists in SQCD: for $N_f = N_c = 3$,
 instantons break $U(1)_{R+2A} \to \mathbb{Z}_{18}$, which contains

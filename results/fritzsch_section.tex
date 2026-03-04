@@ -1,0 +1,131 @@
+\subsection{Fritzsch texture and the Cabibbo angle}
+
+The Fritzsch ``nearest-neighbour interaction'' texture
+\begin{equation}\label{eq:fritzsch_texture}
+M = \begin{pmatrix} 0 & A & 0 \\ A^* & 0 & B \\ 0 & B^* & C \end{pmatrix}
+\end{equation}
+has zeros at positions (1,1), (1,3), (3,1), and (2,2).
+Its characteristic polynomial is
+$$
+\lambda^3 - C\lambda^2 - (|A|^2 + |B|^2)\lambda + |A|^2 C = 0\,.
+$$
+In the hierarchy $|A| \ll |B| \ll C$, the eigenvalues are
+\begin{equation}\label{eq:fritzsch_evals}
+m_1 \approx \frac{|A|^2 C}{|B|^2}\,, \qquad
+m_2 \approx \frac{|B|^2}{C}\,, \qquad
+m_3 \approx C\,,
+\end{equation}
+where $m_1$ and $m_3$ are positive and $m_2$ carries a negative
+sign (the physical mass is $|m_2|$).  These follow from treating
+$A$ as a perturbation on the $(2,3)$ block, whose eigenvalues
+are $\pm |B|$ corrected to $C + |B|^2/C$ and $-|B|^2/C$ by the
+diagonal entry~$C$.  The lightest eigenvalue arises at second
+order:
+$\Delta\lambda_1 = |A|^2/(|B|^2/C) = |A|^2 C/|B|^2$.
+
+The relations~\eqref{eq:fritzsch_evals} imply
+$m_1 m_2 \approx |A|^2$ and $m_2 m_3 \approx |B|^2$, and
+the $1$--$2$ mixing angle from diagonalisation satisfies
+\begin{equation}\label{eq:GST}
+\sin\theta_{12} \approx \sqrt{\frac{m_1}{m_2}}\,.
+\end{equation}
+This is the Gatto--Sartori--Tonin (GST) relation~\cite{GST1968}:
+applied to the down-type mass matrix,
+$\sin\theta_C \approx \sqrt{m_d/m_s}$.
+
+\paragraph{CKM matrix from two Fritzsch textures.}
+With separate matrices $M_u$ and $M_d$ for up-type and
+down-type quarks, the CKM matrix is $V = U_u^\dagger U_d$.
+Each matrix contributes a $1$--$2$ rotation of the form~\eqref{eq:GST},
+with a relative phase~$\phi$ originating from the complex entries
+$A_u, A_d$.  The result is the Fritzsch relation
+\begin{equation}\label{eq:fritzsch_Vus}
+|V_{us}| = \left|\sqrt{\frac{m_d}{m_s}}
+  - e^{i\phi}\sqrt{\frac{m_u}{m_c}}\right|\,.
+\end{equation}
+With PDG inputs $m_u = 2.16\MeV$, $m_d = 4.67\MeV$,
+$m_s = 93.4\MeV$, $m_c = 1270\MeV$:
+\begin{align*}
+\sqrt{m_d/m_s} &= 0.2236\,, \\
+\sqrt{m_u/m_c} &= 0.0412\,.
+\end{align*}
+The second term is an 18\% correction to the first.
+The modulus of~\eqref{eq:fritzsch_Vus} is
+$$
+|V_{us}|^2 = \frac{m_d}{m_s} + \frac{m_u}{m_c}
+  - 2\sqrt{\frac{m_d m_u}{m_s m_c}}\cos\phi\,,
+$$
+which ranges over $[0.1824,\; 0.2648]$ as $\phi$ varies.
+The PDG value $|V_{us}| = 0.2243 \pm 0.0008$ is reproduced at
+$\phi \approx 86^\circ$, near maximal phase.  The classic
+Fritzsch prediction $\phi = \pi/2$ gives
+$|V_{us}| = \sqrt{m_d/m_s + m_u/m_c} = 0.2274$, deviating
+by $3.8\sigma$ from the current PDG average.
+
+\paragraph{Oakes--GMOR connection.}
+The Gell-Mann--Oakes--Renner relations connect pseudo-Goldstone
+masses to quark masses via $m_\pi^2 = (m_u + m_d)B_0$ and
+$m_K^2 = (\hat m + m_s)B_0$ where $\hat m = (m_u + m_d)/2$.
+In the isospin limit $m_u = m_d = \hat m$:
+$$
+\frac{\hat m}{m_s}
+= \frac{m_\pi^2}{2m_K^2 - m_\pi^2}\,.
+$$
+With $m_\pi = 139.57\MeV$, $m_K = 493.68\MeV$, the right-hand
+side evaluates to $0.0416$, giving
+$\sin\theta_C^{\text{GMOR}} = \sqrt{0.0416} = 0.204$.
+This is a 9\% underestimate relative to $\sqrt{m_d/m_s} = 0.224$,
+because the isospin approximation $m_u = m_d$ underestimates
+$m_d/m_s$ by identifying it with $\hat m/m_s$.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lcc}
+\toprule
+Method & $\sin\theta_C$ & $\theta_C$ \\
+\midrule
+$\sqrt{m_d/m_s}$ (GST) & 0.2236 & $12.92^\circ$ \\
+$m_\pi/\sqrt{2m_K^2-m_\pi^2}$ (GMOR) & 0.2040 & $11.77^\circ$ \\
+$|V_{us}|$ (PDG) & 0.2243 & $12.96^\circ$ \\
+\bottomrule
+\end{tabular}
+\caption{Three determinations of the Cabibbo angle.  The GST
+value uses $\overline{\text{MS}}$ quark masses at $2\GeV$.
+The GMOR value uses the isospin-limit relation between meson
+and quark masses.}
+\end{table}
+
+\paragraph{Charge-language formulation.}
+In the Koide parametrisation $\sqrt{m_k} = z_0(1 + \sqrt{2}\cos(\delta + 2\pi k/3))$
+with $k = 0,1,2$ labelling ($d, s, b$), the GST ratio becomes
+\begin{equation}\label{eq:GST_charge}
+\sin\theta_C = \sqrt{\frac{m_d}{m_s}}
+= \frac{|1 + \sqrt{2}\cos\delta|}
+       {|1 + \sqrt{2}\cos(\delta + 2\pi/3)|}\,.
+\end{equation}
+At the seed $\delta_0 = 3\pi/4$, the numerator vanishes
+($1 + \sqrt{2}\cos(3\pi/4) = 0$), forcing $m_d = 0$ and
+$\theta_C = 0$.  The denominator evaluates to
+$1 + \sqrt{2}\cos(17\pi/12) = (3 - \sqrt{3})/2$.
+A bloom $\delta = 3\pi/4 + \varepsilon$ opens both a nonzero
+$m_d$ and a nonzero Cabibbo angle; they are the same degree
+of freedom.  From the Taylor expansion
+$1 + \sqrt{2}\cos(3\pi/4 + \varepsilon) \approx -\varepsilon$,
+the leading-order relation is
+$$
+\sin\theta_C \approx \frac{2|\varepsilon|}{3 - \sqrt{3}}
+= \frac{(3+\sqrt{3})}{3}\,|\varepsilon|\,.
+$$
+Numerically, matching $\sin\theta_C = 0.224$ requires
+$\varepsilon = 0.259\,\text{rad} = 14.8^\circ$---far from the
+linear regime, so the full expression~\eqref{eq:GST_charge}
+is needed rather than the small-$\varepsilon$ approximation.
+
+The energy-balance condition $\langle z_k^2\rangle = z_0^2$
+(equivalently $Q = 2/3$) is an identity
+$\sum \cos^2(\delta + 2\pi k/3) = 3/2$ for all~$\delta$ and
+imposes no constraint on~$\varepsilon$.  The Cabibbo angle
+is thus controlled entirely by~$\delta$: it measures how far
+the down-type charge configuration has bloomed from the massless
+seed.  The scale parameter $z_0$ (equivalently, the overall mass
+$6z_0^2 = m_d + m_s + m_b$) remains a separate free parameter.

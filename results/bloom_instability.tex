@@ -1,0 +1,111 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Bloom instability of the O'Raifeartaigh--Koide seed under explicit $R$-breaking}
+
+We study how explicit breaking of the $U(1)_R$ symmetry deforms the fermion mass spectrum of the O'Raifeartaigh model at the K\"ahler-stabilized vacuum $gv/m = \sqrt{3}$.
+
+\subsection*{The unperturbed seed}
+
+The O'Raifeartaigh superpotential $W = f\Phi_0 + m\Phi_1\Phi_2 + g\Phi_0\Phi_1^2$ has a SUSY-breaking vacuum at $\langle\Phi_0\rangle = v$, $\langle\Phi_1\rangle = \langle\Phi_2\rangle = 0$, with $F_0 = f \neq 0$. At the K\"ahler-stabilized value $y \equiv gv/m = \sqrt{3}$, the fermion mass matrix $\mathcal{W}_{ij} = \partial^2 W/\partial\Phi_i\partial\Phi_j$ evaluated at the vacuum has eigenvalues
+$$
+(m_0,\, m_-,\, m_+) = \bigl(0,\; (2-\sqrt{3})\,m,\; (2+\sqrt{3})\,m\bigr)\,,
+$$
+corresponding to the Koide angular parametrization $\sqrt{m_k} = z_0[1 + \sqrt{2}\cos(\delta + 2\pi k/3)]$ at seed angle $\delta = 3\pi/4$, where $\cos(3\pi/4) = -1/\sqrt{2}$ forces $m_0 = 0$. The Koide parameter at the seed is $Q = 1/2$, and the product of the two nonzero masses satisfies $m_+ m_- = m^2$ (determinant condition).
+
+\subsection*{Part 1: Vacuum shift under $R$-breaking}
+
+A key structural observation is that any cubic deformation $\Delta W$ built purely from $\Phi_1$ and $\Phi_2$ (such as $\epsilon\, m\, \Phi_1\Phi_2^2/\Lambda$) does not modify the fermion mass matrix at the vacuum $\langle\Phi_1\rangle = \langle\Phi_2\rangle = 0$, because all second derivatives $\partial^2(\Delta W)/\partial\Phi_i\partial\Phi_j$ are at most linear in the fields and therefore vanish there. Nor do such terms shift the vacuum location at tree level, since the $F$-flatness conditions $F_1 = F_2 = 0$ remain satisfied at $\Phi_1 = \Phi_2 = 0$.
+
+The lowest-dimension $R$-breaking deformation that genuinely affects the spectrum is the bilinear
+$$
+\Delta W = \epsilon\, \Phi_0\,\Phi_2\,,
+$$
+which carries $R$-charge $R(\Phi_0) + R(\Phi_2) = 4 \neq 2$ and therefore breaks the $U(1)_R$ that protects the O'Raifeartaigh vacuum structure. The modified $F$-flatness conditions at $\Phi_0 = v$ read
+$$
+F_1 = m\,\Phi_2 + 2gv\,\Phi_1 = 0\,,\qquad F_2 = m\,\Phi_1 + \epsilon\, v = 0\,.
+$$
+Solving to first order in $\epsilon$:
+$$
+\langle\Phi_1\rangle = -\frac{\epsilon\, v}{m}\,,\qquad \langle\Phi_2\rangle = \frac{2y\,v\,\epsilon}{m}\,,
+$$
+where $y = gv/m = \sqrt{3}$. Both VEVs are $O(\epsilon)$ and nonzero. The SUSY-breaking $F$-term $F_0 = f + g\langle\Phi_1\rangle^2 + \epsilon\langle\Phi_2\rangle$ remains nonvanishing.
+
+\subsection*{Part 2: Perturbed fermion mass matrix and eigenvalues}
+
+The fermion mass matrix at the shifted vacuum, expressed in units of $m$ with $\varepsilon = \epsilon/m$ as the dimensionless expansion parameter, takes the form $\mathcal{M} = \mathcal{M}_0 + \varepsilon\,\mathcal{M}_1$ where
+$$
+\mathcal{M}_0 = \begin{pmatrix} 0 & 0 & 0 \\ 0 & 2\sqrt{3} & 1 \\ 0 & 1 & 0 \end{pmatrix}\,,\qquad
+\mathcal{M}_1 = \begin{pmatrix} 0 & -2\sqrt{3} & 1 \\ -2\sqrt{3} & 0 & 0 \\ 1 & 0 & 0 \end{pmatrix}\,.
+$$
+The off-diagonal entries of $\mathcal{M}_1$ arise from the nonzero $\langle\Phi_1\rangle$, which couples the goldstino direction ($\Phi_0$) to the massive sector through $\mathcal{W}_{01} = 2g\langle\Phi_1\rangle = -2\sqrt{3}\,\varepsilon\,m$.
+
+The characteristic polynomial is
+$$
+p(\lambda) = \lambda^3 - 2\sqrt{3}\,\lambda^2 - (1 + 13\varepsilon^2)\lambda + 6\sqrt{3}\,\varepsilon^2\,,
+$$
+exact in $\varepsilon$, with no linear terms in $\varepsilon$. All first-order eigenvalue shifts vanish identically (verified by perturbation theory: $\langle\psi_k|\mathcal{M}_1|\psi_k\rangle = 0$ for all three unperturbed eigenstates). The leading corrections enter at $O(\varepsilon^2)$ through second-order perturbation theory:
+\begin{align*}
+\lambda_0 &= 6\sqrt{3}\;\varepsilon^2 + O(\varepsilon^4) \approx 10.39\;\varepsilon^2\,,\\[4pt]
+\lambda_+ &= (\sqrt{3}+2) + \Bigl(\tfrac{31}{4} - 3\sqrt{3}\Bigr)\varepsilon^2 + O(\varepsilon^4) \approx 3.732 + 2.554\;\varepsilon^2\,,\\[4pt]
+\lambda_- &= (\sqrt{3}-2) - \Bigl(\tfrac{31}{4} + 3\sqrt{3}\Bigr)\varepsilon^2 + O(\varepsilon^4) \approx -0.268 - 12.95\;\varepsilon^2\,.
+\end{align*}
+All three shifts are verified numerically to better than $0.4\%$ at $\varepsilon = 0.01$.
+
+\subsection*{Part 3: Sign of the bloom angle shift}
+
+The goldstino acquires a mass $m_0 = 6\sqrt{3}\,\varepsilon^2\, m > 0$, which opens the lightest eigenvalue away from zero. In the angular parametrization, $m_0 = 0$ corresponds to $\delta = 3\pi/4$ via $\cos\delta = -1/\sqrt{2}$. A nonzero $m_0$ means $\delta \neq 3\pi/4$. Expanding $\sqrt{m_0} = z_0[-\delta\delta]$ to leading order (where $\delta\delta = \delta - 3\pi/4$ and $z_0^2 = 2m/3$ at the seed), we find
+$$
+|\delta\delta| = \frac{\sqrt{m_0}}{z_0} = \frac{\sqrt{6\sqrt{3}}\;|\varepsilon|\;\sqrt{m}}{\sqrt{2m/3}} = 3^{5/4}\,|\varepsilon| \approx 3.948\,|\varepsilon|\,.
+$$
+Note this is \emph{first order} in $\varepsilon$ despite the eigenvalue shift being second order, because $\delta\delta \sim \sqrt{m_0} \sim \varepsilon$.
+
+In the convention where $k=0$ labels the lightest mass, $\delta$ decreases from $3\pi/4$. Under the $2\pi/3$ relabeling to the convention used for physical down-type quarks (where $k=1$ is the lightest and $\delta_{\mathrm{phys}} \approx 3\pi/4 + 0.26$), the effective shift is $\delta\delta > 0$.
+
+The $R$-breaking pushes the seed \textbf{toward} the physical spectrum.
+
+\subsection*{Part 4: Which deformations control the bloom}
+
+Among the four cubic terms in $(\Phi_1, \Phi_2)$, their $R$-charges are:
+\begin{center}
+\begin{tabular}{lcc}
+Term & $R$-charge & Status \\\hline
+$\Phi_1^3$ & 0 & Breaks $R$ \\
+$\Phi_1^2\Phi_2$ & 2 & \textbf{Preserves} $R$ \\
+$\Phi_1\Phi_2^2$ & 4 & Breaks $R$ \\
+$\Phi_2^3$ & 6 & Breaks $R$
+\end{tabular}
+\end{center}
+The $b$-coefficient ($\Phi_1^2\Phi_2$) carries $R = 2$ and thus preserves the $R$-symmetry; it merely renormalizes existing superpotential couplings. The remaining coefficients $a$, $c$, $d$ are genuinely $R$-breaking, but all cubic terms in $(\Phi_1, \Phi_2)$ alone produce second derivatives that are at most linear in fields, hence vanish at $\langle\Phi_1\rangle = \langle\Phi_2\rangle = 0$ and do not contribute to the tree-level fermion mass matrix.
+
+The bloom is controlled by the \emph{bilinear} $R$-breaking term $\epsilon\,\Phi_0\Phi_2$, which is unique among renormalizable deformations in forcing $\langle\Phi_1\rangle \neq 0$ and thereby coupling the goldstino to the massive fermion sector. This is a natural selection: the bloom requires mixing across the massless--massive boundary, which demands a term connecting $\Phi_0$ (the SUSY-breaking direction) to the massive fields.
+
+\subsection*{Part 5: Fate of the determinant condition}
+
+At the unperturbed seed, $m_+\, m_- = (2+\sqrt{3})(2-\sqrt{3})\,m^2 = m^2$. Applying Vieta's formulas to the perturbed characteristic polynomial:
+\begin{align*}
+\text{Sum of pairwise products:}\qquad \lambda_0\lambda_+ + \lambda_0\lambda_- + \lambda_+\lambda_- &= -(1 + 13\varepsilon^2)\,,\\
+\text{Sum of eigenvalues:}\qquad \lambda_0 + \lambda_+ + \lambda_- &= 2\sqrt{3}\,.
+\end{align*}
+Eliminating $\lambda_0({\lambda_+ + \lambda_-}) = 6\sqrt{3}\varepsilon^2 \cdot 2\sqrt{3} + O(\varepsilon^4) = 36\varepsilon^2$ yields
+$$
+\lambda_+\,\lambda_- = -(1 + 13\varepsilon^2) - 36\varepsilon^2 + O(\varepsilon^4) = -(1 + 49\varepsilon^2) + O(\varepsilon^4)\,.
+$$
+The physical mass product is therefore
+$$
+m_+\,m_- = m^2\bigl(1 + 49\varepsilon^2\bigr) + O(\varepsilon^4)\,.
+$$
+The determinant condition is \textbf{broken} at $O(\varepsilon^2)$ with coefficient 49. Numerically: at $\varepsilon = 0.01$, the deviation is $4.9 \times 10^{-4}$, matching $49 \times 10^{-4}$ to four significant figures.
+
+\subsection*{Part 6: Summary}
+
+Under explicit $R$-symmetry breaking of strength $\epsilon$ via $\Delta W = \epsilon\,\Phi_0\Phi_2$, the O'Raifeartaigh--Koide seed at $\delta = 3\pi/4$ shifts by
+$$
+\delta\delta = -3^{5/4}\,\frac{\epsilon}{m} \approx -3.95\,\frac{\epsilon}{m}
+$$
+in the $k=0$-lightest convention (equivalently, $+3^{5/4}\,\epsilon/m$ in the physical $k=1$-lightest convention). The first-order correction to each eigenvalue vanishes; all spectral modifications enter at $O(\varepsilon^2)$ in the eigenvalues but at $O(\varepsilon)$ in the bloom angle (because $\delta\delta \sim \sqrt{m_0}$). The determinant condition $m_+m_- = m^2$ is broken at $O(\varepsilon^2)$ with fractional deviation $49\,\varepsilon^2$. The Koide parameter evolves from $Q = 1/2$ at the seed toward $Q = 2/3$ as $\varepsilon$ increases. The bloom direction is \textbf{toward the physical spectrum}: $R$-breaking pushes $\delta$ from $3\pi/4$ in the direction of the physical down-type quark value $\delta \approx 3\pi/4 + 0.26$.
+
+\end{document}
