@@ -333,7 +333,7 @@ For the full triple, $v_0^{(f)} = (-\sqrt{m_s} + \sqrt{m_c} +
   v_0^{(f)}/v_0^{(s)} = 2.0005 \approx 2\,.
 \end{equation*}
 If the bloom exactly doubles the vacuum charge, then
-$\sqrt{m_b} = 3\sqrt{m_s} + \sqrt{m_c}$, predicting
+$\sqrt{m_b} = 3\sqrt{m_s} + \sqrt{m_c}$, giving
 $m_b = 4{,}177\MeV$---matching the PDG value
 $4{,}180 \pm 30\MeV$ to $0.1\sigma$. This relation is
 independent of the Koide condition: it constrains $m_b$ from
@@ -423,13 +423,30 @@ and $(u,c,t)$ deviate from $Q = 2/3$ by 9.7\% and 27\% respectively
 at $\overline{\text{MS}}$ masses. \textbf{The meson triple is more
 precise than any quark triple}, including $(c,b,t)$ (0.42\%).
 
-The pion's negative charge has physical meaning: as a pseudo-Goldstone 
-boson, the pion would be massless ($\zch = 0$) if chiral symmetry were 
-exact. It sits just below zero ($\zch_\pi = -11.81$), approaching zero 
-from the negative side as $m_q \to 0$. The sign of $\zch$ encodes 
-Goldstone nature: pseudo-Goldstone bosons sit on the negative side 
-of the critical point, having crossed through zero from positive 
+The pion's negative charge has physical meaning: as a pseudo-Goldstone
+boson, the pion would be massless ($\zch = 0$) if chiral symmetry were
+exact. It sits just below zero ($\zch_\pi = -11.81$), approaching zero
+from the negative side as $m_q \to 0$. The sign of $\zch$ encodes
+Goldstone nature: pseudo-Goldstone bosons sit on the negative side
+of the critical point, having crossed through zero from positive
 territory during chiral symmetry breaking.
+
+\paragraph{Look-elsewhere correction.}
+Eleven pseudoscalar mesons $(\pi, K, \eta, \eta', D, D_s, B, B_s,
+B_c, \eta_c, \eta_b)$ yield $\binom{11}{3} = 165$ triples, times
+four independent sign patterns, giving 660 combinations.
+Scanning all 660, only $(-\pi, D_s, B)$ and the closely related
+$(-\pi, D_s, B_s)$ (deviation $0.14\%$) lie within $0.2\%$ of
+$Q = 2/3$. A Monte Carlo with $10^7$ random triples drawn
+from $[100,10{,}000]\MeV$ gives $p_{\text{single}} = 2.1 \times 10^{-4}$
+for a match at $0.10\%$; correcting for 660 trials yields
+$p_{\text{LEE}} = 0.13$ ($1.1\sigma$). The meson Koide triple
+is therefore \emph{not} statistically significant on its own,
+unlike the lepton triple ($2.8\sigma$ after LEE). Its interest
+lies in the structural pattern: all six closest hits share the
+sign assignment $(-\pi, D_{(s)}, B_{(s,c)})$, i.e.\ a negative
+pion paired with charm-containing and bottom-containing mesons---the
+combination predicted by the sBootstrap's $SU(5)$ flavor structure.
 
 %======================================================================
 \section{The Third Tuple: $(c, b, t)$}
@@ -717,7 +734,7 @@ This is far too light for either $u$ ($2.16\MeV$) or $d$
 it stalls at a mass two orders of magnitude below $m_u$.
 
 \paragraph{Step~4: cyclic echo.}
-The stalled mass provides a striking algebraic consistency check.
+The stalled mass provides an algebraic consistency check.
 Taking $m_{\text{stall}} = 0.035\MeV$ and $m_s = 92.17\MeV$, and
 solving $Q(m_{\text{stall}}, m_?, m_s) = 3/2$:
 \begin{equation}
@@ -1226,9 +1243,12 @@ produces a diquark in the ``wrong'' representation---and the
 theorem shows this cannot be fixed by any internal structure 
 of a $qq$ pair. The asymmetry between the two SUSY directions 
 is absolute: mesons work as composites; diquarks do not. 
-This is not a weakness of the sBootstrap but a 
-\emph{prediction}: the diquark sector requires new physics 
-beyond the $qq$ picture.
+This is an unresolved obstruction: the sBootstrap requires
+the symmetric $\mathbf{15}$, but QCD composite diquarks cannot
+fill it. The proposed resolutions---Miyazawa supercharges and
+SO(32) string embeddings---are directions for future work, not
+established mechanisms. The diquark sector remains the weakest
+point of the program.
 
 %======================================================================
 \section{Two Algebraic Structures}
@@ -1742,12 +1762,39 @@ perturbative CW lifting---it is a nonperturbative, strong-dynamics
 effect in which confinement generates a mass of order $\Lambda_{\text{QCD}}^2/m_q$, 
 not $g^2/(16\pi^2)$. Numerically, the one-loop CW mass for the
 pseudo-modulus at the Seiberg vacuum is $m_{\text{CW}} \approx 13\MeV$,
-five orders of magnitude below the physical $m_b = 4{,}180\MeV$.
+more than two orders of magnitude below the physical $m_b = 4{,}180\MeV$.
 This inversion is a signature of the dynamical (SQCD) realization
 versus the perturbative (superpotential) one.
 
-The identification $f = \langle F_{\Phi_0}\rangle \sim f_\pi$ is the 
-sBootstrap's central claim: the SUSY-breaking $F$-term is the chiral 
+\paragraph{A candidate mechanism: fractional instantons.}
+On $\mathbb{R}^3 \times S^1$, SU($N_c$) instantons fractionalize into
+$N_c$ monopole-instantons \cite{Unsal2008}. Each monopole-instanton
+carries a single fermionic zero mode per flavor; when the zero mode is
+lifted by the quark mass $m_i$, the amplitude acquires a factor
+$\sqrt{m_i}$ (not $m_i$). Since the $N_c = 3$ monopole contributions
+enter \emph{additively} in the effective superpotential,
+\begin{equation*}
+  W_{\text{mon}} \sim \zeta\,\bigl(\sqrt{m_1} + \sqrt{m_2} + \sqrt{m_3}\bigr)\,,
+\end{equation*}
+where $\zeta \propto e^{-S_0/3}$ is the monopole fugacity. This is
+\emph{exactly} the sum-of-square-roots structure of the vacuum charge
+$v_0 = (\sum \sqrt{m_k})/3$.
+The $v_0$-doubling then maps to the counting of active
+monopole-instanton contributions: the seed (two active flavors) involves
+two monopole amplitudes, while the bloom (three active flavors, one with
+a sign flip) involves three, doubling $v_0$.
+
+This mechanism is non-holomorphic in the sense required: the
+K\"ahler potential receives monopole--anti-monopole cross terms of the
+form $|\!\sum\sqrt{m_k}|^2$, which are exactly the $|v_0|^2$ terms
+needed for $v_0$-doubling. The principal caveat is that this analysis
+applies on $\mathbb{R}^3 \times S^1$; connecting to $\mathbb{R}^4$
+physics requires \"Unsal's continuity conjecture~\cite{Unsal2012},
+which posits that center-symmetric confinement at small $S^1$ is
+continuously connected to the large-$S^1$ confining vacuum.
+
+The identification $f = \langle F_{\Phi_0}\rangle \sim f_\pi$ is the
+sBootstrap's central claim: the SUSY-breaking $F$-term is the chiral
 condensate parameter.
 
 In SQCD, this is realized dynamically rather than through a 
@@ -2295,6 +2342,7 @@ and the $(c,b,t)$ heavy-sector triple, are the ``bridges''
 between the two scales.
 
 \subsection{Toward a Superpotential}
+\label{subsec:superpotential}
 
 Consider $\mathcal{N}=1$ SQCD with gauge group $SU(3)_c$ and $N_f=5$ flavors
 of chiral superfields $Q^i$, $\bar Q_j$ ($i,j=1\ldots 5$, corresponding to
@@ -2515,12 +2563,18 @@ The supertrace relation $m^2_\pi - m^2_\mu = \fpi^2$ fixes the
 splitting scale. The identification $\langle F\rangle \sim \fpi$
 links $\Lambda_{\text{QCD}}$ to $m_s$ via the GOR relation.
 
-\paragraph{The Koide condition is immune to $D$-terms.}
+\paragraph{$D$-term effects on the Koide condition.}
 In $\mathcal{N}=1$ SUSY, $D$-terms shift scalar masses but leave
-fermion masses untouched. Since the Koide triples are conditions
-on \emph{fermion} masses, they are naturally protected against
-$D$-term perturbations. The FI parameter $\xi$ affects only the
-meson--lepton splittings, not the Koide ratios themselves.
+fermion masses untouched. The lepton Koide triples, being conditions
+on \emph{fermion} masses, are naturally protected against
+$D$-term perturbations. The meson Koide triple
+$(-\pi, D_s, B)$ involves scalar masses and \emph{is} in principle
+affected by $D$-terms: a FI parameter $\xi$ shifts $m^2 \to m^2 + \xi Q_{\text{em}}^2$.
+Since all three mesons carry unit charge, each $m^2$ shifts by the
+same $\xi$, and the relative correction to $Q$ is of order
+$\xi/(4m_\pi^2) \sim 0.1\%$ for $\xi \approx -80\MeV^2$.
+Numerically, the $D$-term shifts the meson $Q$ by $0.03\%$,
+well below the $0.10\%$ precision of the triple.
 
 \paragraph{Remaining free parameters.}
 After the seed Koide fixes $m_c/m_s$, the $v_0$-doubling fixes
@@ -2669,7 +2723,8 @@ from $2/3$ at any nonzero strength, making the seed an unstable
 fixed point. The bloom must therefore be nonperturbative.
 
 The lepton phase satisfies $\delta_\ell \bmod 2\pi/3 = 2/9$ to
-$5\,\text{ppm}$ ($1.1\sigma$ given $\delta m_\tau$). Since $2/9$
+$33\,\text{ppm}$ ($3.1\sigma$ after look-elsewhere over fractions
+with denominator $\leq 20$). Since $2/9$
 is not a rational multiple of $\pi$, this is not a geometric angle.
 It is, however, $2/9 = 2/(3\times 3)$, which points to a $\mathbb{Z}_9$
 discrete symmetry in the Koide modulus space. The $\mathbb{Z}_3$
@@ -2681,10 +2736,21 @@ $V \supset -\cos\bigl(9(\delta - 2/9)\bigr)$, has the lepton value
 as one of its nine minima, with the $\mathbb{Z}_3$-equivalent minima
 at $\delta = 2/9 + 2k\pi/3$.
 
+A dynamical origin for $\mathbb{Z}_9$ exists in SQCD: for $N_f = N_c = 3$,
+the diagonal $U(1)_{R+2A}$ (R-symmetry plus twice the axial symmetry)
+has anomaly coefficient $6N_c = 18 = 2 \times 9$. Instantons break
+$U(1)_{R+2A} \to \mathbb{Z}_{18}$, which contains $\mathbb{Z}_9$
+as a subgroup. The meson field $M$ carries $\mathbb{Z}_9$ charge 4
+(from two quark zero modes at charge 2 each), and the baryon carries
+charge 6. This embedding is specific to $N_c = 3$: the condition
+$N_c^2 | 6N_c$ requires $N_c | 6$, which holds only for
+$N_c = 1, 2, 3, 6$.
+
 The Coleman--Weinberg potential of the minimal O'Raifeartaigh model
 is flat in $\delta$ at one loop---the pseudo-modulus potential depends
 only on the modulus $|\Phi_0|$, not on the Koide phase. An ISS-type
-extension with explicit $\mathbb{Z}_9$-breaking terms is needed to
+extension with explicit $\mathbb{Z}_9$-breaking terms from the
+instanton-generated $\mathbb{Z}_{18}$ is needed to
 lift this flat direction.
 
 \subsection{Connecting the three tuples}
@@ -2697,9 +2763,13 @@ After these constraints, only two to three free parameters remain:
 $m_u$, $m_d$ (connected to the Cabibbo angle), and the overall
 scale $m_s$. The remaining open question is the origin of the
 $v_0$-doubling: it is non-holomorphic and cannot arise from the
-superpotential. Whether the K\"ahler potential or nonperturbative
-dynamics (instantons, gaugino condensation) enforces the doubling
-is the key missing piece for a complete Lagrangian.
+superpotential. As argued in \S\ref{subsec:fterm}, fractional
+instantons (monopole-instantons on $\mathbb{R}^3 \times S^1$)
+produce exactly the required $\sum\sqrt{m_k}$ structure, with
+the doubling emerging from the counting of active monopole amplitudes.
+This mechanism operates in the K\"ahler sector and does not
+conflict with the holomorphic superpotential. Its extension to
+$\mathbb{R}^4$ is conjectural (via \"Unsal's continuity).
 
 \subsection{The baryon sector}
 In Seiberg's SQCD with $N_f = N_c = 3$, baryons are part of the 
@@ -2741,6 +2811,46 @@ The Diophantine system uniquely selects $N = 3$ generations,
 but the third equation ($r^2 + s^2 - 1 = 4N$) has the weakest
 physical motivation. A dynamical derivation of the counting
 constraints would strengthen the argument considerably.
+
+%======================================================================
+\section{Epistemological classification}
+\label{sec:epistemology}
+%======================================================================
+
+The following table classifies the paper's claims by their logical
+status.  ``Derived'' means following from stated assumptions by
+algebra or field theory; ``observed'' means an empirical pattern;
+``assumed'' means an input without derivation.
+
+\begin{center}
+\small
+\begin{tabular}{lll}
+\toprule
+Claim & Status & Comment \\
+\midrule
+$Q = 2/3$ iff $\langle z_k^2\rangle = z_0^2$ & Derived & Algebra (\S\ref{sec:koide_algebra}) \\
+Seed ratio $= 2-\sqrt{3}$ & Derived & From $Q = 2/3$ + one zero \\
+O'R seed at $gv/m = \sqrt{3}$ & Derived & Fermion eigenvalues \\
+$h = \sqrt{3}$ in magnetic dual & Derived & ISS dictionary \\
+Pauli theorem (no symmetric $J{=}0$ diquark) & Derived & Angular momentum \\
+Diophantine: $(N,r,s) = (3,3,2)$ unique & Derived & Number theory \\
+Cyclic echo ($t \to c \to s \to \text{stall} \to c$) & Derived & Algebraic necessity \\
+\midrule
+Lepton Koide $Q = 2/3$ to $0.001\%$ & Observed & $2.8\sigma$ after LEE \\
+Meson triple $(-\pi,D_s,B)$ to $0.10\%$ & Observed & $1.1\sigma$ after LEE \\
+$v_0$-doubling: $v_0^{(f)}/v_0^{(s)} = 2.0005$ & Observed & Post-dictive \\
+$\delta_\ell \bmod 2\pi/3 = 2/9$ to 33~ppm & Observed & $3.1\sigma$ after LEE \\
+Casimir $R = 0.22310$ vs $\sin^2\theta_W$ & Observed & Scheme-dependent \\
+Dual Koide $Q(1/m_d,1/m_s,1/m_b) = 0.665$ & Observed & $0.2\%$ from $2/3$ \\
+\midrule
+$m_\pi^2 - m_\mu^2 = f_\pi^2$ (VA relation) & Assumed & 2.2\% match \\
+$f_{\text{VA}} = f_\pi$ identification & Assumed & Central ansatz \\
+SU(5) flavor symmetry & Assumed & 5 light quarks \\
+$v_0$-doubling is exact & Assumed & No mechanism yet \\
+Casimir structural constraints & Assumed & Reverse-engineered \\
+\bottomrule
+\end{tabular}
+\end{center}
 
 %======================================================================
 \section{Conclusions}
@@ -2920,8 +3030,18 @@ T.~Das, G.~S.~Guralnik, V.~S.~Mathur, F.~E.~Low, J.~E.~Young,
 Phys.\ Rev.\ Lett.\ \textbf{18}, 759 (1967).
 
 \bibitem{FramptonGlashow1987}
-P.~H.~Frampton and S.~L.~Glashow, ``Chiral color: an alternative 
+P.~H.~Frampton and S.~L.~Glashow, ``Chiral color: an alternative
 to the standard model,'' Phys.\ Lett.\ B \textbf{190}, 157 (1987).
+
+\bibitem{Unsal2008}
+M.~\"Unsal, ``Abelian duality, confinement, and chiral symmetry
+breaking in QCD(adj),'' Phys.\ Rev.\ Lett.\ \textbf{100}, 032005
+(2008), arXiv:0708.1772.
+
+\bibitem{Unsal2012}
+M.~\"Unsal, ``Theta dependence, sign problems and topological
+interference,'' Phys.\ Rev.\ D \textbf{86}, 105012 (2012),
+arXiv:1201.6426.
 
 \end{thebibliography}
 
