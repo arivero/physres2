@@ -798,25 +798,34 @@ determinant condition, and vacuum-charge doubling are its corollaries.
 In the minimal O'Raifeartaigh model with canonical K\"ahler potential,
 the CW potential is monotonically increasing and selects
 $\langle X\rangle = 0$.  A negative quartic K\"ahler correction
-resolves this:
 \begin{equation}
   K = |X|^2 + \frac{c}{\Lambda_K^2}\,|X|^4\,,
-  \qquad c < 0\,.
+  \qquad c < 0
 \end{equation}
-The tree-level potential becomes
-$V_{\text{tree}} = f^2/(1 + 4c\,v^2/\Lambda_K^2)$, which has
-a pole at $v_{\text{pole}} = \Lambda_K/(2\sqrt{|c|})$.
-Near the pole the CW contribution is negligible, and the effective
-potential is minimized at $v_{\text{pole}}$.
-Demanding $v_{\text{pole}} = \sqrt{3}\,m/g$ gives the exact condition
+modifies the tree-level potential to
+$V_{\text{tree}} = f^2/(1 + 4c\,v^2/\Lambda_K^2)$, which
+diverges at $v_{\text{pole}} = \Lambda_K/(2\sqrt{|c|})$
+where the K\"ahler metric vanishes.  The field space terminates
+at $v_{\text{pole}}$: the proper distance to the pole is finite,
+$\sigma_{\max} = \sqrt{3}\pi m/(4g)$.
+
+Setting $v_{\text{pole}} = \sqrt{3}\,m/g$ gives the exact condition
 \begin{equation}
   c = -\,\frac{\Lambda_K^2}{12\,m^2}\,.
 \end{equation}
 With $\Lambda_K = m$ this is $c = -1/12$, an algebraic result:
 $\Lambda_K/(2\sqrt{1/12}) = \sqrt{12}/2 = \sqrt{3}$.
-No numerical tuning is required. The K\"ahler metric
-$K_{X\bar X} = 1 - v^2/(3m^2)$ vanishes at $v = \sqrt{3}\,m$,
-signaling the boundary of the effective field theory.
+
+\textbf{Open problem.} Both $V_{\text{tree}}$ and $V_{\text{CW}}$
+are monotonically increasing functions of $v$: the one-loop
+effective potential is minimized at $v = 0$, not at the pole.
+The pole creates an impenetrable wall but does not attract.
+Stabilizing the pseudo-modulus at $v = \sqrt{3}\,m/g$ requires
+a nonperturbative negative contribution to the potential that
+competes with the perturbative terms near the pole. The
+three-instanton operator (Section~\ref{sec:open}) is a
+candidate but has not been shown to produce the required
+minimum.
 
 \subsection{The O'Raifeartaigh structure in SQCD}
 
@@ -1263,6 +1272,16 @@ K_{\text{lepton}} = |X_L|^2\!\left(1 - \frac{|X_L|^2}{3\mu_K^2}\right)
   + |L_1|^2 + |L_2|^2 + |L_3|^2\,,
 \end{equation}
 with the pole condition $\mu_K = \sqrt{2}\,m/g$.
+
+The $s$-confining term $L_1 L_2 L_3/\Lambda_L^3$ has all second
+derivatives proportional to fields, hence contributes nothing to the
+mass matrices at $\langle L_k\rangle = 0$. The spectrum is therefore
+precisely the SU(3) O'Raifeartaigh spectrum plus one extra massless
+chiral multiplet ($L_2$), which is a pseudo-modulus stabilised by the
+CW potential with a mass suppressed by $(m/\Lambda_L)^6$.
+The scalar $B$-term structure ($\pm 2gf$ splitting between
+$\sigma$ and $\pi$ sectors) and the identity
+$\mathrm{STr}[\mathcal{M}^2] = 0$ carry over identically.
 
 \subsection{Lepton mass prediction}
 
