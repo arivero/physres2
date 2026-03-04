@@ -21,7 +21,7 @@ of an $\mathcal{N}=1$ $\mathrm{SU}(3)\times\mathrm{SU}(2)$ theory}
 
 \author{A.~Rivero\thanks{Universidad de Zaragoza.
 Manuscript prepared with AI assistance (Claude/Anthropic).
-Continues the program of \cite{Rivero2005,Rivero2012}.}}
+Continues the program of \cite{Rivero2005}.}}
 \date{March 2026}
 
 \begin{document}
@@ -44,7 +44,8 @@ lepton sector by $s$-confining $\mathrm{SU}(2)$ SQCD with $N_f = 3$.
 Both sectors admit an O'Raifeartaigh deformation whose
 Coleman--Weinberg-stabilized vacuum at $gv/m = \sqrt{3}$ fixes a
 structural mass ratio $(2+\sqrt{3})^2 \approx 13.93$ and enforces an
-energy-balance invariant $Q = 2/3$. From the strange quark mass alone,
+algebraic identity $\langle z_k^2 \rangle = z_0^2$ on the
+mass charges $m_k = (z_0 + z_k)^2$. From the strange quark mass alone,
 the Lagrangian predicts $m_c = 1301$ MeV (+2.0\%), $m_b = 4233$ MeV
 (+1.3\%), and $m_t = 171\,250$ MeV ($-$0.9\%). The lepton sector predicts
 $m_\tau = 1776.97$ MeV (+0.006\%). In total five of the Standard Model's
@@ -120,16 +121,15 @@ $m = m_s = 93.4$ MeV, it predicts $m_c = 13.93 \times m_s = 1301$ MeV,
 to be compared with the PDG value $1275 \pm 25$ MeV (2.0\% deviation,
 $1.0\sigma$).
 
-The same vacuum enforces an algebraic identity: the ratio $Q \equiv
-\sum m_k / (\sum \sqrt{m_k})^2$ evaluates to exactly $2/3$ for the
-eigenvalue triple $(0, m_-, m_+)$ at $t = \sqrt{3}$. This is the
-\emph{energy-balance condition} --- it states that the mean squared
-perturbation of the mass charges equals the squared vacuum charge, i.e.,
-$\langle z_k^2 \rangle = z_0^2$ in the parametrization $m_k =
-(z_0 + z_k)^2$ with $\sum z_k = 0$. It is not an empirical observation
-extracted from data; it is a theorem about the O'Raifeartaigh
-superpotential. The energy-balance condition serves as the organizing
-principle for all subsequent mass predictions.
+The same vacuum enforces an algebraic identity on the mass charges.
+Writing each mass as $m_k = \mathfrak{z}_k^2$ with
+$\mathfrak{z}_k = z_0 + z_k$ and $\sum z_k = 0$, the eigenvalue
+triple $(0, m_-, m_+)$ at $t = \sqrt{3}$ satisfies
+$\langle z_k^2 \rangle = z_0^2$ --- the variance of the charge
+perturbations equals the squared mean charge. This is not an empirical
+observation extracted from data; it is a theorem about the
+O'Raifeartaigh superpotential at its stabilized vacuum. This identity
+serves as the organizing principle for all subsequent mass predictions.
 
 To pass from the charm quark to the bottom quark, a second mechanism is
 needed. On $\mathbb{R}^3 \times S^1$, the SU(3) gauge theory admits
@@ -140,13 +140,13 @@ to $\sqrt{m_b} = 3\sqrt{m_s} + \sqrt{m_c}$, where the integer
 coefficient is the number of colors. We call this the \emph{bion mass
 relation}. Using the O'Raifeartaigh-predicted $m_c$, it gives
 $m_b = 4233$ MeV (PDG: $4180 \pm 30$ MeV, 1.3\% deviation). The
-energy-balance invariant is approximately preserved: $Q(-\sqrt{m_s},
-\sqrt{m_c}, \sqrt{m_b}) = 0.673$, deviating from $2/3$ by 0.9\%.
+mass-charge identity is approximately preserved:
+$\langle z_k^2 \rangle / z_0^2 = 1.018$, deviating from unity by 0.9\%.
 
 The chain extends to the top quark through the \emph{Yukawa eigenvalue
 constraint}. At $\tan\beta = 1$, the SUSY Yukawa structure requires the
-heavy triple $(m_c, m_b, m_t)$ to satisfy $Q = 2/3$ with all positive
-square roots. This reduces to a quadratic equation for $\sqrt{m_t}$
+heavy triple $(m_c, m_b, m_t)$ to satisfy $\langle z_k^2 \rangle = z_0^2$
+with all positive mass charges. This reduces to a quadratic equation for $\sqrt{m_t}$
 whose physical solution, using the predicted $m_c$ and $m_b$ as inputs,
 gives $m_t = 171\,250$ MeV (PDG: $172\,760 \pm 300$ MeV, 0.9\%
 deviation). Thus from the single input $m_s$, the theory produces the
@@ -158,8 +158,9 @@ $\mathrm{SU}(2)$ confining theory with $N_f = 3$ is $s$-confining
 antisymmetric composites and a singlet, deformed by an O'Raifeartaigh
 superpotential stabilized at the same $gv/m = \sqrt{3}$. Because the
 SU(2) theory has no magnetic bion mechanism, the physical spectrum stays
-close to the O'Raifeartaigh seed. The energy-balance condition
-$Q(m_e, m_\mu, m_\tau) = 2/3$ directly predicts $m_\tau = 1776.97$ MeV
+close to the O'Raifeartaigh seed. The mass-charge identity
+$\langle z_k^2 \rangle = z_0^2$ applied to $(m_e, m_\mu, m_\tau)$
+directly predicts $m_\tau = 1776.97$ MeV
 from the inputs $m_e$ and $m_\mu$, matching the PDG value $1776.86 \pm
 0.12$ MeV to 0.006\%.
 
@@ -178,7 +179,7 @@ charged fermion sector has thirteen free parameters: nine masses and four
 CKM angles. In this theory, the O'Raifeartaigh mass ratio determines
 $m_c$ from $m_s$; the bion mass relation determines $m_b$ from $m_s$
 and $m_c$; the Yukawa eigenvalue constraint determines $m_t$ from $m_c$
-and $m_b$; the energy-balance condition determines $m_\tau$ from $m_e$
+and $m_b$; the mass-charge identity determines $m_\tau$ from $m_e$
 and $m_\mu$; and the Gatto--Sartori--Tonin relation determines
 $\theta_{12}$ from $m_d$ and $m_s$. Five parameters are eliminated. The
 remaining eight free parameters are $m_u$, $m_d$, $m_s$, $m_e$, $m_\mu$,
@@ -190,7 +191,7 @@ $s=2$. Section~\ref{sec:diquarks} describes the $\mathrm{SU}(5)$ flavor
 structure, the composite representations, and the anomaly cancellation.
 Section~\ref{sec:lagrangian} constructs the $\mathrm{SU}(3)$ SQCD
 Lagrangian in the Seiberg magnetic dual, derives the O'Raifeartaigh
-vacuum, and proves the energy-balance identity $Q = 2/3$.
+vacuum, and proves the mass-charge identity $\langle z_k^2\rangle = z_0^2$.
 Section~\ref{sec:predictions} derives the bion mass relation and the
 Yukawa eigenvalue constraint, assembling the complete $m_s$ chain that
 predicts $m_c$, $m_b$, and $m_t$. Section~\ref{sec:leptons} presents the
@@ -661,39 +662,37 @@ which gives the unique solution
 At this vacuum, $g^2v^2 + m^2 = 4m^2$, so
 $m_\pm = (2 \pm \sqrt{3})\,m$.
 
-\subsection{The energy-balance condition}
+\subsection{Abelian charges and the mass-charge identity}
 
-The fundamental variable is the signed mass charge $\zch = z_0 + z_i
-\in \mathbb{R}$, with the physical mass $m = \zch^2 \geq 0$.
+The fundamental variable is the signed mass charge $\zch = z_0 + z_k
+\in \mathbb{R}$, with the physical mass $m_k = \zch_k^2 \geq 0$.
 For three charges $\zch_k = z_0 + z_k$ with $z_0$ the mean
-($\sum z_k = 0$):
+($\sum z_k = 0$), the identity
 \begin{equation}
-Q = \frac{\sum \zch_k^2}{(\sum \zch_k)^2}
-= \frac{3z_0^2 + \sum z_k^2}{9z_0^2}
-= \frac{1}{3} + \frac{\langle z_k^2\rangle}{3z_0^2}\,.
+\boxed{\langle z_k^2\rangle = z_0^2}
 \end{equation}
-Therefore:
-\begin{equation}
-\boxed{Q = \frac{2}{3} \quad\Longleftrightarrow\quad
-\langle z_k^2\rangle = z_0^2\,.}
-\end{equation}
+states that the variance of the charge perturbations equals the
+squared mean charge. It is equivalent to the ratio condition
+$\sum m_k / (\sum \zch_k)^2 = 2/3$, since
+$\sum \zch_k^2 = 3z_0^2 + \sum z_k^2$ and $(\sum\zch_k)^2 = 9z_0^2$.
 
-The two conditions are:
-\begin{enumerate}
-\item \textbf{Zero-sum perturbations:} $z_1 + z_2 + z_3 = 0$
-(definition of $z_0$ as the mean charge).
-\item \textbf{Energy balance:} The mean energy of the perturbations
-equals the energy of the unperturbed charge:
-$\langle z_k^2\rangle = z_0^2$.
-\end{enumerate}
+\medskip\noindent\textit{Proof for the O'Raifeartaigh vacuum.}
+The eigenvalue triple $(0,\, (2{-}\sqrt{3})\,m,\, (2{+}\sqrt{3})\,m)$
+has mass charges $\zch_k = (0,\; \sqrt{2{-}\sqrt{3}}\,\sqrt{m},\;
+\sqrt{2{+}\sqrt{3}}\,\sqrt{m}\,)$. The products
+$\zch_-\,\zch_+ = \sqrt{(2{-}\sqrt{3})(2{+}\sqrt{3})}\,\sqrt{m}
+= \sqrt{m}$, $\zch_-^2 + \zch_+^2 = 4\sqrt{m}$, and
+$(\zch_- + \zch_+)^2 = 4 + 2 = 6$ (in units of $\sqrt{m}$). The
+mean charge is $z_0 = (0 + \zch_- + \zch_+)/3 = \sqrt{6m}/3$.
+Then $\langle z_k^2 \rangle = \frac{1}{3}(\zch_0^2 + \zch_-^2 +
+\zch_+^2) - z_0^2 = 4m/3 - 6m/9 = 4m/3 - 2m/3 = 2m/3$ and
+$z_0^2 = 6m/9 = 2m/3$. Therefore
+$\langle z_k^2\rangle = z_0^2$ exactly.
+\hfill$\square$
 
-For the O'Raifeartaigh triple $(0,\, (2-\sqrt{3})\,m,\, (2+\sqrt{3})\,m)$
-the numerator is $\sum m_k = 4m$ and the denominator is
-$(\sqrt{2-\sqrt{3}} + \sqrt{2+\sqrt{3}})^2 = 4 + 2 = 6$ (since
-$\sqrt{(2-\sqrt{3})(2+\sqrt{3})} = 1$), giving
-$Q = 4m/6m = 2/3$ exactly. This is a theorem about the
-O'Raifeartaigh superpotential at $gv/m = \sqrt{3}$, not an
-empirical observation.
+\medskip
+This is a theorem about the O'Raifeartaigh superpotential at
+$gv/m = \sqrt{3}$, not an empirical observation.
 
 \subsection{K\"ahler stabilization of the pseudo-modulus}
 
@@ -739,28 +738,29 @@ by the quantum constraint. Supersymmetry is therefore spontaneously broken.
 
 In the ISS magnetic dual, the O'Raifeartaigh parameters map as
 $g \to h$, $m \to h\mu$, $v \to \langle X\rangle$, so the
-energy-balance condition $gv/m = \sqrt{3}$ becomes
+condition $gv/m = \sqrt{3}$ becomes
 $\langle X\rangle/\mu = \sqrt{3}$---the magnetic Yukawa~$h$ cancels.
 
-\subsection{The energy balance is not an RG attractor}
+\subsection{The mass-charge identity is not an RG attractor}
 
-One might hope that the energy-balance condition
+One might hope that the identity
 $\langle z_k^2\rangle = z_0^2$ is a dynamical attractor:
 that three masses evolving under SUSY-breaking dynamics flow toward
-the $Q = 2/3$ surface. However, the one-loop soft-mass RG
+the $\langle z_k^2\rangle = z_0^2$ surface. However, the one-loop soft-mass RG
 equations in $\mathcal{N}=1$ SQCD with universal Casimirs and
 negligible Yukawas give $dm_i/dt = \gamma(M_g^2 - m_i)$, which
 drives all masses to a common value $m_i \to M_g^2$, yielding
-$Q \to 1/3$---the \emph{opposite} extreme. The algebraic
-preservation condition on the $Q = 2/3$
-surface is incompatible with any uniform attractor flow
-(by the Cauchy--Schwarz inequality).
+$\langle z_k^2\rangle/z_0^2 \to 0$---the \emph{opposite} extreme.
+The algebraic preservation condition on the
+$\langle z_k^2\rangle = z_0^2$ surface is incompatible with any
+uniform attractor flow (by the Cauchy--Schwarz inequality).
 
-The energy-balance condition therefore does \emph{not} arise from
-simple RG running. It must instead be a \emph{boundary condition}
-on the superpotential---as in the O'Raifeartaigh realization, where
-$gv = \sqrt{3}\,m$ produces the exact seed. The condition is set at the
-scale of SUSY breaking and then preserved by QCD-invariant mass ratios.
+The identity therefore does \emph{not} arise from simple RG running.
+It must instead be a \emph{boundary condition} on the
+superpotential---as in the O'Raifeartaigh realization, where
+$gv = \sqrt{3}\,m$ produces the exact seed. The condition is set at
+the scale of SUSY breaking and then preserved by QCD-invariant mass
+ratios.
 
 \subsection{The full Lagrangian}
 
@@ -847,13 +847,15 @@ masses to Yukawa couplings depends on~$\tan\beta$.
 For the $(c,b,t)$ triple, with $c$ and $t$ receiving mass
 from $H_u$ and $b$ from~$H_d$:
 \begin{equation}
-  Q(m_c, m_b, m_t)
-  = Q(y_c\sin\beta,\; y_b\cos\beta,\; y_t\sin\beta)\,,
+  \frac{\sum m_k}{(\sum\sqrt{m_k})^2}\bigg|_{c,b,t}
+  = \frac{y_c^2\sin^2\!\beta + y_b^2\cos^2\!\beta + y_t^2\sin^2\!\beta}
+  {(y_c\sin\beta + y_b\cos\beta + y_t\sin\beta)^2}\,,
 \end{equation}
-which equals $Q(y_c, y_b, y_t)$ only when $\sin\beta = \cos\beta$,
+which satisfies $\langle z_k^2\rangle = z_0^2$ for the Yukawa eigenvalues
+only when $\sin\beta = \cos\beta$,
 i.e., $\tan\beta = 1$. Thus $\tan\beta = 1$ is the unique value
-at which the energy-balance condition on \emph{masses} is equivalent
-to the same condition on \emph{Yukawa couplings} for mixed
+at which the mass-charge identity on \emph{masses} is equivalent
+to the same identity on \emph{Yukawa couplings} for mixed
 up/down-type triples.
 
 
@@ -1003,13 +1005,13 @@ the Yukawa superpotential. At $\tan\beta = 1$ (required by the mixed
 up/down-type structure of the mass triples), the eigenvalue sum rule of
 the $3 \times 3$ mass matrix in the $(c, b, t)$ sector imposes:
 \begin{equation}
-\boxed{\frac{m_c + m_b + m_t}
-{(\sqrt{m_c} + \sqrt{m_b} + \sqrt{m_t})^2}
-= \frac{2}{3}\,.}
+\boxed{\langle z_k^2 \rangle = z_0^2
+\quad\text{for}\quad
+\zch_k = \sqrt{m_k},\;\; k \in \{c, b, t\}\,.}
 \end{equation}
 
-This is the same structural invariant $Q = 2/3$ that appears at the
-O'Raifeartaigh vacuum---it is an algebraic consequence of the
+This is the same structural identity that appears at the
+O'Raifeartaigh vacuum---an algebraic consequence of the
 superpotential, not a fitted parameter.
 
 \textbf{Solving for $m_t$.} Let $x = \sqrt{m_t}$,
@@ -1069,7 +1071,7 @@ The chain spans a factor of 1834 in mass (from $m_s$ to $m_t$),
 controlled by three structural constants of the Lagrangian: the
 O'Raifeartaigh mass ratio $R_{\mathrm{OR}}$, the bion doubling
 (with coefficient $N_c = 3$), and the eigenvalue sum rule
-$Q = 2/3$. None of these is fitted; each is an algebraic
+$\langle z_k^2\rangle = z_0^2$. None of these is fitted; each is an algebraic
 consequence of the superpotential at its stabilised vacuum.
 
 
@@ -1130,18 +1132,18 @@ with the pole condition $\mu_K = \sqrt{2}\,m/g$.
 The O'Raifeartaigh seed for the lepton sector has the spectrum
 $(0,\, (2-\sqrt{3})m_{\text{OR}},\, (2+\sqrt{3})m_{\text{OR}})$
 with $m_{\text{OR}} = (m_e + m_\mu + m_\tau)/4 = 470.76\MeV$.
-The energy-balance condition $Q = 2/3$ is satisfied exactly at the seed.
+The mass-charge identity $\langle z_k^2\rangle = z_0^2$ is satisfied exactly at the seed.
 
 Because the SU(2) theory has no magnetic bion mechanism (the
 monopole-instanton structure of SU(2) does not produce the
 $v_0$-doubling effect), the physical spectrum stays close to the
 O'Raifeartaigh seed. The bloom is a tiny $2.3^\circ$ rotation in
 the angular parameter $\delta$, at nearly fixed $v_0$. The
-energy-balance condition applied to the charged lepton masses gives:
+mass-charge identity applied to the charged lepton masses gives:
 \begin{equation}
-\frac{m_e + m_\mu + m_\tau}
-{(\sqrt{m_e} + \sqrt{m_\mu} + \sqrt{m_\tau})^2}
-= \frac{2}{3}\,.
+\langle z_k^2 \rangle = z_0^2
+\quad\text{for}\quad
+\zch_k = \sqrt{m_k},\;\; k \in \{e, \mu, \tau\}\,.
 \end{equation}
 
 Solving for $m_\tau$ from the measured $m_e$ and $m_\mu$:
@@ -1180,7 +1182,7 @@ $\delta_{\text{bloom}} = -2.27^\circ$ & Electron mass generation & 1 \\
 \end{tabular}
 \end{center}
 Equivalently: specifying any two of $(m_e, m_\mu, m_\tau)$ determines
-the third, via $Q = 2/3$.
+the third, via $\langle z_k^2\rangle = z_0^2$.
 
 
 %======================================================================
@@ -1383,8 +1385,8 @@ Relation & Predicts & From \\
 \midrule
 O'Raifeartaigh: $m_c/m_s = (2{+}\sqrt{3})^2$ & $m_c$ from $m_s$ & $W$: $gv/m = \sqrt{3}$ \\
 Bion: $\sqrt{m_b} = 3\sqrt{m_s} + \sqrt{m_c}$ & $m_b$ from $m_s, m_c$ & $K_{\text{bion}}$: minimum \\
-Yukawa: $Q(c,b,t) = 2/3$ & $m_t$ from $m_c, m_b$ & $W_{\text{Yukawa}}$ at $\tan\beta = 1$ \\
-Energy balance: $Q(e,\mu,\tau) = 2/3$ & $m_\tau$ from $m_e, m_\mu$ & $W_{\text{lepton}}$: O'Raifeartaigh \\
+Yukawa: $\langle z_k^2\rangle = z_0^2$ on $(c,b,t)$ & $m_t$ from $m_c, m_b$ & $W_{\text{Yukawa}}$ at $\tan\beta = 1$ \\
+Lepton: $\langle z_k^2\rangle = z_0^2$ on $(e,\mu,\tau)$ & $m_\tau$ from $m_e, m_\mu$ & $W_{\text{lepton}}$: O'Raifeartaigh \\
 GST: $\sin\theta_C = \sqrt{m_d/m_s}$ & $\theta_{12}$ from $m_d, m_s$ & Seesaw structure \\
 \midrule
 \textbf{Remaining free:} & \multicolumn{2}{l}{$m_u,\, m_d,\, m_s,\, m_e,\, m_\mu,\, \theta_{23},\, \theta_{13},\, \delta_{\rm CP}$ (8 parameters)} \\
@@ -1412,7 +1414,7 @@ $m_b$ & $4{,}233\MeV$ & $4{,}180 \pm 30$ ($1.8\sigma$)
 $m_t$ & $171.3 \pm 1.5\GeV$ & $172.76 \pm 0.30$
   & Yukawa eigenvalue constraint \\
 $m_\tau$ & $1776.97\MeV$ & $1776.86 \pm 0.12$ ($0.9\sigma$)
-  & Lepton energy-balance \\
+  & Lepton mass-charge identity \\
 $\sin^2\theta_W$ & $0.22310$ & $0.22320 \pm 0.00026$ ($0.4\sigma$)
   & Casimir equation \\
 $V_{us}$ & $0.224$ & $0.2250 \pm 0.0007$ ($2.0\sigma$)
@@ -1454,11 +1456,11 @@ diquarks of the $\mathbf{15}$ would be a testable consequence.
 
 \subsection{The bloom mechanism}
 
-The energy-balance condition constrains but does not uniquely fix the
+The mass-charge identity constrains but does not uniquely fix the
 angular parameter $\delta$ that controls how the seed develops into a
 full triple. The O'Raifeartaigh vacuum fixes the seed ratio
 $gv/m = \sqrt{3}$ but leaves $\delta$ undetermined. Explicit R-breaking
-perturbations push $Q$ away from $2/3$ at any nonzero strength, making
+perturbations push $\langle z_k^2\rangle/z_0^2$ away from unity at any nonzero strength, making
 the seed an unstable fixed point. The bloom must therefore be
 nonperturbative.
 
@@ -1478,7 +1480,7 @@ quark bloom position.
 
 The fermion mass matrix $W_{IJ}$ at the Seiberg vacuum has
 light eigenvalues ($\sim 10^{-3}$--$10^{-2}\MeV$) too small
-and too degenerate ($Q = 0.48$, not $2/3$) to reproduce lepton masses.
+and too degenerate ($\langle z_k^2\rangle/z_0^2 = 0.44$, far from unity) to reproduce lepton masses.
 The obstruction is structural: K\"ahler rescaling is a congruence
 transformation that preserves the rank of~$W_{IJ}$ and cannot generate
 new mass eigenvalues. Lepton masses therefore require the separate
@@ -1551,14 +1553,15 @@ Right-handed neutrinos are required; the top quark is automatically
 excluded from the composite sector.
 
 \paragraph{2.\ The O'Raifeartaigh superpotential produces the
-energy-balance condition as a theorem.}
+mass-charge identity as a theorem.}
 With three chiral superfields, the O'Raifeartaigh model at
 $gv/m = \sqrt{3}$ (stabilized by a K\"ahler pole at $c = -1/12$)
 produces the fermion spectrum
 $(0,\, (2{-}\sqrt{3})\,m,\, (2{+}\sqrt{3})\,m)$
-with $Q = 2/3$ exactly. The energy-balance condition is a
+satisfying $\langle z_k^2\rangle = z_0^2$ exactly. This identity is a
 boundary condition on the superpotential, not an RG attractor
-(one-loop RG drives $Q \to 1/3$, the opposite extreme).
+(one-loop RG drives $\langle z_k^2\rangle/z_0^2 \to 0$,
+the opposite extreme).
 
 \paragraph{3.\ The quark mass chain from a single input.}
 From $m_s = 93.4\MeV$ alone, the Lagrangian predicts
@@ -1566,7 +1569,7 @@ $m_c = 1301\MeV$ ($+2.0\%$), $m_b = 4233\MeV$ ($+1.3\%$),
 and $m_t = 171.3 \pm 1.5\GeV$ ($-0.9\%$), via three structural
 constants: the O'Raifeartaigh mass ratio $(2{+}\sqrt{3})^2$, the
 bion doubling with coefficient $N_c = 3$, and the Yukawa eigenvalue
-constraint $Q(c,b,t) = 2/3$.
+constraint $\langle z_k^2\rangle = z_0^2$ on the $(c,b,t)$ charges.
 
 \paragraph{4.\ The lepton sector from SU(2) $s$-confinement.}
 A separate $SU(2)$ confining sector with $N_f = 3$ produces the
@@ -1575,16 +1578,16 @@ $m_\tau = 1776.97\MeV$ ($+0.006\%$, $0.9\sigma$) from
 $m_e$ and $m_\mu$.
 
 \paragraph{5.\ Mixed mass triples require $\tan\beta = 1$.}
-Since all quark mass triples satisfying $Q \approx 2/3$
-obligatorily mix up-type and down-type quarks, the energy-balance
-condition on masses equals the condition on Yukawa couplings
+Since all quark mass triples satisfying $\langle z_k^2\rangle \approx z_0^2$
+obligatorily mix up-type and down-type quarks, the mass-charge
+identity on masses equals the identity on Yukawa couplings
 only at $\tan\beta = 1$. The NMSSM singlet coupling
 $\lambda_S = 0.72$ then gives $m_h = 125.35\GeV$ at tree level
 ($0.6\sigma$ from PDG).
 
 \paragraph{6.\ Five parameters eliminated.}
 The O'Raifeartaigh mass ratio, the bion mass relation, the Yukawa
-eigenvalue constraint, the lepton energy-balance condition, and
+eigenvalue constraint, the lepton mass-charge identity, and
 the GST relation together determine five of the Standard Model's
 thirteen charged-fermion parameters. The remaining eight are
 $m_u$, $m_d$, $m_s$, $m_e$, $m_\mu$, $\theta_{23}$,
@@ -1600,7 +1603,7 @@ the alternative $E_8 \times E_8$ is blocked. The bloom mechanism,
 the $SO(32)$ projection, and a Lagrangian derivation of the
 Diophantine counting remain the central open problems.
 
-The empirical evidence for the energy-balance condition---the
+The empirical evidence for the mass-charge identity---the
 precision of the lepton prediction, the accuracy of the meson
 triple, and the statistical significance of the quark
 chains---will be presented in a companion paper~\cite{companion}.
@@ -1614,13 +1617,10 @@ Eur.\ Phys.\ J.\ C \textbf{84}, 1058 (2024),
 arXiv:2407.05397 [hep-ph]; earlier versions: viXra:0503.001 (2005),
 viXra:0809.001 (2008).
 
-\bibitem{Rivero2012}
-A.~Rivero, ``A new Koide tuple: strange, charm, bottom,''
-arXiv:1111.7232 [hep-ph] (2011).
-
 \bibitem{companion}
-A.~Rivero, ``The energy-balance condition: empirical evidence for
-$Q = 2/3$ in fermion mass triples,'' in preparation.
+A.~Rivero, ``The mass-charge identity
+$\langle z_k^2\rangle = z_0^2$ in fermion mass triples:
+empirical evidence,'' in preparation.
 
 \bibitem{Seiberg1995}
 N.~Seiberg, ``Electric--magnetic duality in supersymmetric
