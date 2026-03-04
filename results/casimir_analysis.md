@@ -40,8 +40,8 @@ $$R = 1 - \frac{x_+(1/2)}{x_+(1)} = 0.2231013223008663...$$
 
 | Quantity | Predicted | Experimental | Deviation |
 |----------|-----------|-------------|-----------|
-| sin^2(theta_W) | 0.2231013223 | 0.22306 +/- 0.00031 (PDG on-shell) | 0.13 sigma |
-| M_W (GeV) | 80.3744 | 80.3692 +/- 0.0133 (PDG) | 0.39 sigma |
+| sin^2(theta_W) | 0.2231013223 | 0.22320 +/- 0.00026 (PDG 2024, on-shell) | 0.39 sigma |
+| M_W (GeV) | 80.3744 | 80.3692 +/- 0.0133 (PDG 2024) | 0.39 sigma |
 | M_W (GeV) | 80.3744 | 80.4335 +/- 0.0094 (CDF-II) | 6.3 sigma |
 
 The predicted M_W disfavors the CDF-II measurement at 6.3 sigma.
