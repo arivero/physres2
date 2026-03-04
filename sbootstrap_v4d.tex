@@ -62,7 +62,7 @@ $D$-terms, and soft breaking from a spurion with
 $\langle F\rangle = f_\pi^2$---and show that the seed Koide
 fixes the magnetic Yukawa coupling ($h = \sqrt{3}$) while the
 $v_0$-doubling originates in the K\"ahler sector via a bion
-correction $|\!\sum s_k\sqrt{M^k{}_k}|^2$ from
+correction $|\!\sum s_k\sqrt{\hat m_k}|^2$ from
 monopole-instantons on $\mathbb{R}^3\times S^1$; a
 three-instanton superpotential $(\det M)^3/\Lambda^{18}$
 generates a $\cos(9\delta)$ potential whose minima include the
@@ -362,7 +362,8 @@ For the full triple, $v_0^{(f)} = (-\sqrt{m_s} + \sqrt{m_c} +
 If the bloom exactly doubles the vacuum charge, then
 $\sqrt{m_b} = 3\sqrt{m_s} + \sqrt{m_c}$, giving
 $m_b = 4{,}177\MeV$---matching the PDG value
-$4{,}180 \pm 30\MeV$ to $0.1\sigma$. This relation is
+$4{,}180 \pm 30\MeV$ to $0.1\sigma$ ($0.06\sigma$ including
+propagated input uncertainties; see \S\ref{subsec:fterm}). This relation is
 independent of the Koide condition: it constrains $m_b$ from
 $(m_s, m_c)$ alone, and is more precise (0.07\%) than the
 overlapping-triples prediction (0.5\%).  A tension exists, however:
@@ -1834,18 +1835,21 @@ a sign flip) involves three, doubling $v_0$.
 
 This mechanism is non-holomorphic in the sense required: the
 K\"ahler potential receives monopole--anti-monopole (bion) cross terms
-of the form $|\!\sum s_k\sqrt{m_k}|^2$. Expanding for
-$N_c = 3$ diagonal mesons $M = \operatorname{diag}(M_1, M_2, M_3)$:
+of the form $|\!\sum s_k\sqrt{m_k}|^2$, where $m_k$ are the
+current quark masses. Expanding for $N_c = 3$:
 \begin{equation*}
   K_{\text{bion}} = \frac{\zeta^2}{\Lambda^2}\bigl(
-  M_1 + M_2 + M_3
-  + 2s_1 s_2\sqrt{M_1 M_2}
-  + 2s_1 s_3\sqrt{M_1 M_3}
-  + 2s_2 s_3\sqrt{M_2 M_3}\bigr)\,,
+  m_1 + m_2 + m_3
+  + 2s_1 s_2\sqrt{m_1 m_2}
+  + 2s_1 s_3\sqrt{m_1 m_3}
+  + 2s_2 s_3\sqrt{m_2 m_3}\bigr)\,,
 \end{equation*}
-where the diagonal terms $s_k^2 M_k = M_k$ are self-bions and the
-cross terms $\sqrt{M_i M_j}$ are mixed bion amplitudes---their
+where the diagonal terms $s_k^2 m_k = m_k$ are self-bions and the
+cross terms $\sqrt{m_i m_j}$ are mixed bion amplitudes---their
 geometric mean structure is what produces $\sum\sqrt{m_k}$.
+Note that $m_k$ here are the quark masses (superpotential couplings),
+\emph{not} the meson VEVs $M^k{}_k \propto 1/m_k$ of the Seiberg
+seesaw; the bion amplitude involves quark zero modes, not meson fields.
 Organizing the bion amplitudes into
 seed-sector ($S_{\text{seed}} = \sqrt{m_s} + \sqrt{m_c}$) and
 bloom-sector ($S_{\text{bloom}} = -\!\sqrt{m_s} + \sqrt{m_c} + \sqrt{m_b}$)
@@ -2649,11 +2653,13 @@ with K\"ahler potential (canonical plus bion correction),
   K = \underbrace{\operatorname{Tr}(M^\dagger M) + |X|^2 + |B|^2
     + |\bar B|^2 + |H|^2}_{K_{\text{can}}}
   + \underbrace{\frac{\zeta^2}{\Lambda^2}\,
-    \Bigl|\sum_{k=1}^{N_c} s_k \sqrt{M^k{}_k}\,\Bigr|^2}_{K_{\text{bion}}}\,,
+    \Bigl|\sum_{k=1}^{N_c} s_k \sqrt{\hat m_k}\,\Bigr|^2}_{K_{\text{bion}}}\,,
 \end{equation*}
-where $\zeta \propto e^{-S_0/(2N_c)}$ is the monopole fugacity and
+where $\zeta \propto e^{-S_0/(2N_c)}$ is the monopole fugacity,
+$\hat m_k$ are the current quark masses (the couplings in
+$W \ni \operatorname{Tr}(\hat m\,M)$), and
 $s_k = \pm 1$ are monopole-instanton signs (encoding the seed-to-bloom
-phase). The bion term is non-holomorphic (containing $\sqrt{M}$) and
+phase). The bion term is non-holomorphic (containing $\sqrt{\hat m}$) and
 non-perturbatively suppressed by $e^{-2S_0/3} \sim 10^{-2}$ at the
 confinement scale. Its minimum enforces the $v_0$-doubling condition
 $\sqrt{m_b} = 3\sqrt{m_s} + \sqrt{m_c}$
@@ -2675,7 +2681,13 @@ superpotential combining mass, constraint, and Yukawa terms,
 where $M^{(3)}$ is the $3\times 3$ light-flavor block ($u,d,s$)
 and $\Lambda_{\text{eff}}$ is the dynamical scale of the confined
 $N_f = N_c = 3$ theory (including threshold matching at $m_c$
-and $m_b$).
+and $m_b$).  The Yukawa terms are written in the full five-flavor
+theory above the heavy-quark thresholds, where $M^c{}_c = Q^c\bar Q_c$
+and $M^b{}_b = Q^b\bar Q_b$ are elementary bilinears;
+below threshold, they reduce to the matching conditions that generate
+$\Lambda_{\text{eff}}$ and the Seiberg constraint.
+The top Yukawa $y_t\,H\,Q^t\bar Q_t$ stands apart because the
+top does not confine into a meson.
 The $D$-term Lagrangian includes an optional Fayet--Iliopoulos
 parameter $\xi$ for $U(1)_{\text{em}}$:
 %
@@ -2692,7 +2704,7 @@ $\langle F_S\rangle = \fpi^2$:
   \mathcal{L}_{\text{soft}}
   = -\tilde m^2 \operatorname{Tr}(M^\dagger M)
   - \bigl(B_\mu\operatorname{Tr}(\hat m\, M)
-    + A_y\, y_i\, H\, M^i{}_i + \text{h.c.}\bigr)\,,
+    + A_y\sum_{i=c,b} y_i\, H\, M^i{}_i + \text{h.c.}\bigr)\,,
   \qquad
   \tilde m^2 \sim \fpi^2\,.
 \end{equation*}
@@ -2711,7 +2723,7 @@ the heavy sector; (v)~the $\cos(9\delta)$ potential that selects
 the lepton Koide phase, via the three-instanton operator
 $(\det M^{(3)})^3/\Lambda_{\text{eff}}^{18}$. The bloom is
 non-holomorphic and lives in the K\"ahler sector: the bion term
-$|\sum s_k\sqrt{M^k{}_k}|^2$ is the leading monopole-instanton
+$|\sum s_k\sqrt{\hat m_k}|^2$ is the leading monopole-instanton
 contribution on $\mathbb{R}^3 \times S^1$
 (\S\ref{subsec:fterm}).
 
@@ -3009,7 +3021,7 @@ After these constraints, only two to three free parameters remain:
 $m_u$, $m_d$ (connected to the Cabibbo angle), and the overall
 scale $m_s$. The $v_0$-doubling is non-holomorphic and lives in the
 K\"ahler sector: as shown in \S\ref{subsec:fterm}, the bion
-K\"ahler correction $K_{\text{bion}} \sim |\!\sum s_k\sqrt{M^k{}_k}|^2$
+K\"ahler correction $K_{\text{bion}} \sim |\!\sum s_k\sqrt{\hat m_k}|^2$
 generates an effective potential whose minimum enforces
 $\sqrt{m_b} = 3\sqrt{m_s} + \sqrt{m_c}$.
 The Hessian has rank~1, constraining exactly the $v_0$-doubling
@@ -3125,7 +3137,7 @@ Seed self-dual: $Q(a,b) = Q(1/a,1/b)$ & Derived & Identity for two masses \\
 \midrule
 Lepton Koide $Q = 2/3$ to $0.001\%$ & Observed & $2.8\sigma$ after LEE \\
 Meson triple $(-\pi,D_s,B)$ to $0.10\%$ & Observed & $1.1\sigma$ after LEE \\
-$v_0$-doubling observed to $0.025\%$ & Observed & Derived via bion K\"ahler \\
+$v_0$-doubling: $v_0^{(f)}/v_0^{(s)} = 2.0005$ ($0.025\%$); $m_b$ to $0.07\%$ & Observed & Derived via bion K\"ahler \\
 $\delta_\ell \bmod 2\pi/3 = 2/9$ to 5~ppm & Observed & $3.6\sigma$ after LEE \\
 Casimir $R = 0.22310$ vs $\sin^2\theta_W$ & Observed & Scheme-dependent \\
 Dual Koide $Q(1/m_d,1/m_s,1/m_b) = 0.665$ & Observed & $0.2\%$ from $2/3$ \\
@@ -3206,7 +3218,7 @@ equation and the choice of renormalization scheme remain open.
 The full $\mathcal{N}=1$ Lagrangian
 (\S\ref{subsec:superpotential}) comprises a canonical K\"ahler
 potential supplemented by a bion correction
-$K_{\text{bion}} \sim |\!\sum s_k\sqrt{M^k{}_k}|^2$,
+$K_{\text{bion}} \sim |\!\sum s_k\sqrt{\hat m_k}|^2$,
 a superpotential combining the Seiberg constraint
 with Yukawa couplings, $D$-terms with a Fayet--Iliopoulos
 parameter, and soft breaking from a spurion
@@ -3257,7 +3269,7 @@ with SUSY breaking forced by the quantum constraint when $m_u = m_d = 0$;
 $h = \sqrt{3}$ in the magnetic dual) fixes the seed Koide ratio,
 predicting $m_c$ from $m_s$;
 (iii)~the bion K\"ahler correction
-$|\!\sum s_k\sqrt{M^k{}_k}|^2$ predicts
+$|\!\sum s_k\sqrt{\hat m_k}|^2$ predicts
 $m_b = 4{,}177 \pm 40\MeV$ via $v_0$-doubling;
 (iv)~the Yukawa sector governs the $(c,b,t)$ triple as an
 overdetermination test.
