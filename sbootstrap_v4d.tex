@@ -2732,11 +2732,15 @@ subalgebra of $SU(3)_f$:
 \end{equation*}
 %
 where $\boldsymbol\lambda_{\text{diag}} = (\lambda_3, \lambda_8)$
-are the diagonal Gell-Mann matrices and $\hat n$ is a unit vector
-in the Cartan plane determined by $\delta$. The Koide condition is
-therefore a constraint on the \emph{direction} of the Yukawa
-matrix in flavor space: the amplitude $\sqrt{6}/2$ is fixed, only
+are the diagonal Gell-Mann matrices and
+$\hat n = (\cos\theta,\,\sin\theta)$ is a unit vector
+in the Cartan plane.  An exact trigonometric identity gives
+$\theta = \pi/6 - \delta$, so the Koide phase is literally
+the angle of the Yukawa matrix in flavor space.
+The Koide condition fixes the amplitude at $\sqrt{6}/2$; only
 $\hat n$ (equivalently $\delta$) is free.
+The bloom from seed to physical triple is a rigid rotation in
+the $(\lambda_3,\lambda_8)$ plane by $-\Delta\delta$.
 
 The total Lagrangian is
 %
@@ -2891,7 +2895,13 @@ is not a tree-level superpotential term.
 
 \paragraph{Fixed by SUSY breaking.}
 The supertrace relation $m^2_\pi - m^2_\mu = \fpi^2$ fixes the
-splitting scale. The identification $\langle F\rangle \sim \fpi^2$
+splitting scale. At the Seiberg vacuum, $F_X = 0$ (SUSY is
+unbroken in the confined sector), but the Yukawa couplings
+produce $F_{H_u} = y_c M^c{}_c$ and $F_{H_d} = y_b M^b{}_b$.
+By the seesaw $y_j M_j = (m_j/v)(C/m_j) = C/v$, these
+F-terms are flavour-universal:
+$F_{H_u} = F_{H_d} = C/v_{\text{EW}} = 290\MeV$.
+The identification $\langle F\rangle \sim \fpi^2$
 links $\Lambda_{\text{QCD}}$ to $m_s$ via the GOR relation.
 
 \paragraph{$D$-term effects on the Koide condition.}
@@ -3171,6 +3181,13 @@ with $c = -\Lambda_K^2/(12\mu^2)$ pins the pseudo-modulus at
 the K\"ahler pole $v_{\text{pole}} = \sqrt{3}\,\mu$ exactly
 (an algebraic result, not numerical tuning;
 see \S\ref{subsec:superpotential}).
+This coefficient is \emph{not} radiatively generated: the
+one-loop CW quartic in the O'Raifeartaigh model has $c_4 = -20/3$
+at $gf/m^2 = 1$ (exact), which is orders of magnitude too large;
+the ISS one-loop potential produces a positive quartic ($c_{\text{eff}} = +0.014$),
+the wrong sign entirely. The K\"ahler pole mechanism is therefore a
+tree-level statement about the UV completion or non-perturbative
+K\"ahler structure---identifying its origin remains open.
 The three-instanton operator $(\det M)^3$ shifts the Seiberg
 Lagrange multiplier~$X$ (dimension $[\text{mass}]^{-3}$ in the
 confining phase) but this is a different object from the ISS
@@ -3324,6 +3341,8 @@ Pauli theorem (no symmetric $J{=}0$ diquark) & Derived & Angular momentum \\
 Diophantine: $(N,r,s) = (3,3,2)$ unique & Derived & Number theory \\
 Cyclic echo ($t \to c \to s \to \text{stall} \to c$) & Derived & Algebraic necessity \\
 Seed self-dual: $Q(a,b) = Q(1/a,1/b)$ & Derived & Identity for two masses \\
+Cartan angle $\theta = \pi/6 - \delta$ & Derived & Exact trigonometric identity \\
+F-terms flavour-universal: $F = C/v_{\text{EW}}$ & Derived & Seesaw cancellation \\
 \midrule
 Lepton Koide $Q = 2/3$ to $0.001\%$ & Observed & $2.8\sigma$ after LEE \\
 Meson triple $(-\pi,D_s,B)$ to $0.10\%$ & Observed & $1.1\sigma$ after LEE \\
