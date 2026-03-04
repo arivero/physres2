@@ -1,167 +1,96 @@
-# Koide Ratio Scan: All Pseudoscalar Meson Triples
+# Comprehensive Koide Scan: 30 Particles, All Signs
 
-## Definition
+## Setup
 
-Koide ratio with signed square roots:
+**30 particles**: 9 fundamental fermions (e, μ, τ, u, d, s, c, b, t), 4 EW bosons/scales (W, Z, H, v_EW), f_π, and 16 mesons (π, K, η, η', D, D_s, η_c, B, B_s, B_c, η_b, ρ, ω, φ, J/ψ, Υ).
 
-    Q = (m1 + m2 + m3) / (s1*sqrt(m1) + s2*sqrt(m2) + s3*sqrt(m3))^2
+**All 8 sign combinations** tested per triple (flipping signs on √m_k independently). C(30,3) = 4060 unique triples × ~7 sign combos = ~28400 valid entries.
 
-where si = +/-1. Target: Q = 2/3.
+**Formula**: Q = (m₁ + m₂ + m₃) / (±√m₁ ± √m₂ ± √m₃)²
 
-Since Q is invariant under simultaneous flip of all signs, there are
-4 independent sign assignments per triple (not 8).
+---
 
-## Pseudoscalar Meson Masses (PDG 2024)
+## Top 20 Unique Triples (Best Sign Per Triple)
 
-| Meson | Mass (MeV) |
-|-------|------------|
-| pi | 139.57 |
-| K | 493.677 |
-| eta | 547.862 |
-| eta' | 957.78 |
-| D | 1869.66 |
-| D_s | 1968.35 |
-| B | 5279.34 |
-| B_s | 5366.92 |
-| B_c | 6274.47 |
-| eta_c | 2983.9 |
-| eta_b | 9398.7 |
+| Rank | Triple | Q | % dev from 2/3 | Type |
+|------|--------|---|----------------|------|
+| 1 | **(+e, +μ, +τ)** | **0.66665909** | **0.0011%** | **FUND** |
+| 2 | (+τ, +v_EW, +B_c) | 0.66669171 | 0.0038% | MES+ |
+| 3 | (+d, −W, −B_c) | 0.66656233 | 0.016% | MES+ |
+| 4 | (+f_π, −D, −η_b) | 0.66647256 | 0.029% | MES+ |
+| 5 | (+f_π, −D, −Υ) | 0.66647196 | 0.029% | MES+ |
+| 6 | (+b, +Z, +π) | 0.66687249 | 0.031% | MES+ |
+| 7 | (+b, +v_EW, +J/ψ) | 0.66695229 | 0.043% | MES+ |
+| 8 | (+H, +η', +J/ψ) | 0.66636684 | 0.045% | MES+ |
+| 9 | (+u, −η, −B_c) | 0.66704219 | 0.056% | MES+ |
+| 10 | (+e, −s, −φ) | 0.66626933 | 0.060% | MES+ |
+| 11 | (+s, +f_π, +B_c) | 0.66625000 | 0.063% | MES+ |
+| 12 | (+H, +η_c, +φ) | 0.66623920 | 0.064% | MES+ |
+| 13 | (+d, +W, +B) | 0.66713576 | 0.070% | MES+ |
+| 14 | (+u, −H, −Υ) | 0.66613120 | 0.080% | MES+ |
+| 15 | (+u, −H, −η_b) | 0.66613017 | 0.081% | MES+ |
+| 16 | (+μ, +t, +Υ) | 0.66609196 | 0.086% | MES+ |
+| 17 | (+μ, +t, +η_b) | 0.66609102 | 0.086% | MES+ |
+| 18 | (+e, −K, −B_c) | 0.66728152 | 0.092% | MES+ |
+| 19 | (+s, −D, −Υ) | 0.66729463 | 0.094% | MES+ |
+| 20 | (+s, −D, −η_b) | 0.66729523 | 0.094% | MES+ |
 
-## Combinatorics
+---
 
-- Mesons: 11
-- Triples: C(11,3) = 165
-- Independent sign assignments per triple: 4
-- Total configurations: 660
+## Known Koide Triples — Ranking in Full Pool
 
-## Top 20 Closest to Q = 2/3
+| Triple | Q | % dev | Rank (of 4060) |
+|--------|---|-------|----------------|
+| **(e, μ, τ)** | **0.66666** | **0.001%** | **1** |
+| (c, b, t) | 0.66949 | 0.42% | 113 |
+| (−s, c, b) | 0.67495 | 1.24% | 324 |
 
-| Rank | Triple | Q | |Q - 2/3| | Deviation % |
-|------|--------|---|----------|-------------|
-| 1 | (+pi, -D_s, -B) | 0.66735909 | 0.00069242 | 0.1039% |
-| 2 | (+pi, -D_s, -B_s) | 0.66763198 | 0.00096531 | 0.1448% |
-| 3 | (+pi, -D_s, -eta_c) | 0.66998826 | 0.00332159 | 0.4982% |
-| 4 | (+pi, -D_s, -B_c) | 0.67106806 | 0.00440139 | 0.6602% |
-| 5 | (+pi, -D, -B) | 0.67277353 | 0.00610686 | 0.9160% |
-| 6 | (+pi, -D, -B_s) | 0.67307277 | 0.00640610 | 0.9609% |
-| 7 | (+pi, -D, -eta_c) | 0.67431729 | 0.00765063 | 1.1476% |
-| 8 | (+pi, -D, -B_c) | 0.67674096 | 0.01007429 | 1.5111% |
-| 9 | (+K, -B_c, -eta_b) | 0.68222026 | 0.01555359 | 2.3330% |
-| 10 | (+pi, -D_s, -eta_b) | 0.68614339 | 0.01947672 | 2.9215% |
-| 11 | (+pi, -eta_c, -eta_b) | 0.64110065 | 0.02556602 | 3.8349% |
-| 12 | (+pi, -D, -eta_b) | 0.69225000 | 0.02558333 | 3.8375% |
-| 13 | (+pi, -D, -D_s) | 0.69242995 | 0.02576328 | 3.8645% |
-| 14 | (+eta, -B_c, -eta_b) | 0.69519191 | 0.02852525 | 4.2788% |
-| 15 | (+K, -B_s, -eta_b) | 0.69676375 | 0.03009708 | 4.5146% |
-| 16 | (+K, -B, -eta_b) | 0.69841843 | 0.03175176 | 4.7628% |
-| 17 | (+pi, -B_c, -eta_c) | 0.63117773 | 0.03548893 | 5.3233% |
-| 18 | (+pi, -B, -eta_c) | 0.63020940 | 0.03645727 | 5.4686% |
-| 19 | (+pi, -B_s, -eta_c) | 0.63020936 | 0.03645730 | 5.4686% |
-| 20 | (+eta, -B_s, -eta_b) | 0.71059734 | 0.04393068 | 6.5896% |
+**(c, b, t) drops to rank 113** when mesons are included. 112 meson-containing triples are closer to Q = 2/3.
 
-## Extended: Top 50
+---
 
-| Rank | Triple | Q | |Q - 2/3| | Dev % |
-|------|--------|---|----------|-------|
-| 1 | (+pi, -D_s, -B) | 0.66735909 | 0.00069242 | 0.1039% |
-| 2 | (+pi, -D_s, -B_s) | 0.66763198 | 0.00096531 | 0.1448% |
-| 3 | (+pi, -D_s, -eta_c) | 0.66998826 | 0.00332159 | 0.4982% |
-| 4 | (+pi, -D_s, -B_c) | 0.67106806 | 0.00440139 | 0.6602% |
-| 5 | (+pi, -D, -B) | 0.67277353 | 0.00610686 | 0.9160% |
-| 6 | (+pi, -D, -B_s) | 0.67307277 | 0.00640610 | 0.9609% |
-| 7 | (+pi, -D, -eta_c) | 0.67431729 | 0.00765063 | 1.1476% |
-| 8 | (+pi, -D, -B_c) | 0.67674096 | 0.01007429 | 1.5111% |
-| 9 | (+K, -B_c, -eta_b) | 0.68222026 | 0.01555359 | 2.3330% |
-| 10 | (+pi, -D_s, -eta_b) | 0.68614339 | 0.01947672 | 2.9215% |
-| 11 | (+pi, -eta_c, -eta_b) | 0.64110065 | 0.02556602 | 3.8349% |
-| 12 | (+pi, -D, -eta_b) | 0.69225000 | 0.02558333 | 3.8375% |
-| 13 | (+pi, -D, -D_s) | 0.69242995 | 0.02576328 | 3.8645% |
-| 14 | (+eta, -B_c, -eta_b) | 0.69519191 | 0.02852525 | 4.2788% |
-| 15 | (+K, -B_s, -eta_b) | 0.69676375 | 0.03009708 | 4.5146% |
-| 16 | (+K, -B, -eta_b) | 0.69841843 | 0.03175176 | 4.7628% |
-| 17 | (+pi, -B_c, -eta_c) | 0.63117773 | 0.03548893 | 5.3233% |
-| 18 | (+pi, -B, -eta_c) | 0.63020940 | 0.03645727 | 5.4686% |
-| 19 | (+pi, -B_s, -eta_c) | 0.63020936 | 0.03645730 | 5.4686% |
-| 20 | (+eta, -B_s, -eta_b) | 0.71059734 | 0.04393068 | 6.5896% |
-| 21 | (+eta, -B, -eta_b) | 0.71234636 | 0.04567970 | 6.8520% |
-| 22 | (+K, -B_s, -B_c) | 0.71527583 | 0.04860916 | 7.2914% |
-| 23 | (+K, -B, -B_c) | 0.71670350 | 0.05003684 | 7.5055% |
-| 24 | (+K, -B, -B_s) | 0.72802606 | 0.06135939 | 9.2039% |
-| 25 | (+eta, -B_s, -B_c) | 0.73175273 | 0.06508607 | 9.7629% |
-| 26 | (+eta, -B, -B_c) | 0.73329946 | 0.06663280 | 9.9949% |
-| 27 | (+pi, -B, -B_s) | 0.59974659 | 0.06692007 | 10.0380% |
-| 28 | (+pi, -B, -B_c) | 0.59611854 | 0.07054813 | 10.5822% |
-| 29 | (+pi, -B_s, -B_c) | 0.59546872 | 0.07119795 | 10.6797% |
-| 30 | (+pi, -B, -eta_b) | 0.59512512 | 0.07154155 | 10.7312% |
-| 31 | (+pi, -B_s, -eta_b) | 0.59411433 | 0.07255234 | 10.8829% |
-| 32 | (+eta, -B, -B_s) | 0.74581931 | 0.07915264 | 11.8729% |
-| 33 | (+pi, -B_c, -eta_b) | 0.58545961 | 0.08120706 | 12.1811% |
-| 34 | (+pi, +K, +eta_b) | 0.58475935 | 0.08190732 | 12.2861% |
-| 35 | (+pi, -eta', -eta_c) | 0.75017330 | 0.08350664 | 12.5260% |
-| 36 | (+pi, +eta, +eta_b) | 0.57739961 | 0.08926706 | 13.3901% |
-| 37 | (+pi, -eta', -B) | 0.75678952 | 0.09012285 | 13.5184% |
-| 38 | (+pi, -eta', -B_s) | 0.75724850 | 0.09058183 | 13.5873% |
-| 39 | (+pi, -eta', -D_s) | 0.76029184 | 0.09362518 | 14.0438% |
-| 40 | (+pi, -eta', -B_c) | 0.76219285 | 0.09552618 | 14.3289% |
-| 41 | (+pi, -eta', -D) | 0.76263587 | 0.09596921 | 14.3954% |
-| 42 | (+K, -eta_c, -eta_b) | 0.76954920 | 0.10288254 | 15.4324% |
-| 43 | (+pi, -eta', -eta_b) | 0.77894011 | 0.11227344 | 16.8410% |
-| 44 | (+K, -B_c, -eta_c) | 0.78276052 | 0.11609385 | 17.4141% |
-| 45 | (+eta, -eta_c, -eta_b) | 0.78717554 | 0.12050887 | 18.0763% |
-| 46 | (+eta', -B_c, -eta_b) | 0.78871749 | 0.12205082 | 18.3076% |
-| 47 | (+K, -B_s, -eta_c) | 0.79214858 | 0.12548191 | 18.8223% |
-| 48 | (+K, -B, -eta_c) | 0.79329103 | 0.12662437 | 18.9937% |
-| 49 | (+pi, +K, +B_c) | 0.53864334 | 0.12802333 | 19.2035% |
-| 50 | (+pi, +eta', +eta_b) | 0.53774678 | 0.12891989 | 19.3380% |
+## Look-Elsewhere Statistics
 
-## Threshold Counts
+| Threshold | Unique triples within |
+|-----------|----------------------|
+| < 0.1% | 21 |
+| < 0.5% | 96 |
+| < 1.0% | 178 |
 
-| Threshold | Count | Fraction of 660 |
-|-----------|-------|---------------------|
-| |Q - 2/3| < 0.005 (0.75%) | 4 | 0.0061 |
-| |Q - 2/3| < 0.001 (0.15%) | 2 | 0.0030 |
-| |Q - 2/3| < 0.0007 (0.1%) | 1 | 0.0015 |
+With 4060 unique triples and Q ∈ [1/3, 1], the expected number within 0.1% of any target by chance is ~12. We find 21 — about 1.7× expectation. Not statistically remarkable.
 
-## The (-pi, D_s, B) Triple
+For (e, μ, τ) specifically: P(one trial within 0.001%) = 3×10⁻⁵. With 4060 trials: P(≥1) ≈ 12%. So even (e, μ, τ) is only ~2σ with full LEE from 30 particles.
 
-- **Signed triple**: (+pi, -D_s, -B)
-- **Q value**: 0.6673590878
-- **|Q - 2/3|**: 0.0006924211
-- **Deviation**: 0.1039%
-- **Rank**: 1 out of 660 total configurations
-- **Rank among triples**: top 1 (counting each sign assignment separately)
+---
 
-### All sign assignments for (pi, D_s, B)
+## Notable Triples
 
-| Signs | Q | |Q - 2/3| | Dev % | Rank |
-|-------|---|----------|-------|------|
-| (+pi, -D_s, -B) | 0.66735909 | 0.00069242 | 0.1039% | 1 |
-| (+pi, +D_s, +B) | 0.44502848 | 0.22163819 | 33.2457% | 114 |
-| (+pi, -D_s, +B) | 4.59244633 | 3.92577966 | 588.8669% | 456 |
-| (+pi, +D_s, -B) | 27.20330061 | 26.53663394 | 3980.4951% | 569 |
+### (τ, v_EW, B_c): Rank 2, Q = 0.66669 (0.004%)
 
-## Monte Carlo Background Estimate
+The tauon, the Fermi scale, and the B_c meson (b c̄ bound state). Only 3× worse than (e, μ, τ). The B_c connects the two quarks whose masses the sBootstrap predicts (Koide → m_c, v₀-doubling → m_b).
 
-- **Trials**: 10000 random triples
-- **Mass range**: uniform in [100, 10000] MeV
-- **Method**: for each random triple, test all 4 sign assignments, keep best
+### (b, Z, π): Rank 6, Q = 0.66687 (0.031%)
 
-### Results
+Unsigned. Mixes a quark mass, an EW boson, and the lightest meson.
 
-| Threshold | MC hits | MC rate | Expected (165 triples) | Observed |
-|-----------|---------|---------|------------------------|----------|
-| |Q-2/3| < 0.001 | 19 | 0.19% | 0.3 | 2 |
-| |Q-2/3| < 0.0007 | 13 | 0.13% | 0.2 | 1 |
+### (H, η', J/ψ): Rank 8, Q = 0.66637 (0.045%)
 
-Observed/Expected ratio at 0.001 threshold: 6.38
-Observed/Expected ratio at 0.0007 threshold: 4.66
+The Higgs, η' meson, and J/ψ (charmonium). All three are bosonic.
 
-## Complete List: All Configurations with |Q - 2/3| < 0.005
+### Meson-only: (+π, −D_s, −B): Q = 0.66736 (0.10%)
 
-| Rank | Triple | Q | |Q - 2/3| | Dev % |
-|------|--------|---|----------|-------|
-| 1 | (+pi, -D_s, -B) | 0.66735909 | 0.00069242 | 0.1039% |
-| 2 | (+pi, -D_s, -B_s) | 0.66763198 | 0.00096531 | 0.1448% |
-| 3 | (+pi, -D_s, -eta_c) | 0.66998826 | 0.00332159 | 0.4982% |
-| 4 | (+pi, -D_s, -B_c) | 0.67106806 | 0.00440139 | 0.6602% |
+Best pure-meson triple. The pion, D_s (cs̄), and B (bū) — one meson from each heavy-quark sector.
 
+---
+
+## Assessment
+
+**Mesons are NOT independent masses.** They are composite states: m_meson = f(m_quark, Λ_QCD, binding). A meson triple near Q = 2/3 is a statement about QCD dynamics + quark masses falling into a particular ratio, not about a new Koide symmetry.
+
+**(e, μ, τ) remains the only triple involving three independent fundamental parameters.** The (c, b, t) triple — previously rank 2 — drops to rank 113 when composites are included, showing that its 0.42% closeness to 2/3 is not statistically exceptional in a 30-particle pool.
+
+The Koide relation for (e, μ, τ) is distinguished not by its rank alone (which survives LEE at ~2σ), but by the fact that it involves three truly fundamental, same-type particles whose masses have no known theoretical connection to each other.
+
+---
+
+*Generated by all-signs Koide scan, 30 particles, C(30,3) × 7 ≈ 28400 entries*

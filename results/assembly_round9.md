@@ -80,9 +80,27 @@
 
 ---
 
-## Agent F: EW Koide Scan (ew_koide_scan.md) — STILL RUNNING
+## Agent F: EW/Meson Koide Scan (ew_koide_scan.md, meson_koide_scan.md)
 
-**Task**: Scan all triples including W, Z, H, v_EW for Koide ratios.
+**Task**: Scan all triples including W, Z, H, v_EW, and 16 mesons for Koide ratios. All 8 sign combos.
+
+**Key results**:
+
+1. **(e, μ, τ) remains #1** at 0.001%. Unassailable. The ONLY fundamental-particle-only triple in the top 20.
+
+2. **(τ, v_EW, B_c) is #2** at 0.004%. Intriguing but involves a composite (B_c) and a scale (v_EW).
+
+3. **(c, b, t) drops to rank 113** (0.42%) when 30 particles are included. 112 meson-containing triples are closer.
+
+4. **(-s, c, b) drops to rank 324** (1.24%). Not statistically special in the 30-particle pool.
+
+5. **Look-elsewhere**: 21 of 4060 unique triples within 0.1% of 2/3. Expected by chance: ~12. Ratio 1.7× — not remarkable.
+
+6. **No EW boson Koide**: Q(W, Z, H) = 0.336 ≈ 1/3 (near-equal masses). (c, b, t) is completely isolated in the fundamental-particle sector.
+
+7. **Best pure-meson triple**: (+π, −D_s, −B) at Q = 0.667 (0.10%).
+
+**For the paper**: (c, b, t) is alone among EW-scale fundamental particles. The meson pool dilutes the statistical significance of all quark Koide triples. Only (e, μ, τ) survives as genuinely exceptional.
 
 ---
 
@@ -129,4 +147,5 @@ The global minimum is at M = 0 with baryons absorbing the constraint. The seesaw
 | Supertrace per charge | COMPUTED | STr_Q = 2n_Q f_π²; Σ Q² STr = 8f_π² |
 | Vacuum stability | REFINED | M=0 global min; seesaw metastable; B=0 required |
 | CKM mixing | OPEN | Perturbative treatment needed around B=0 seesaw |
-| EW boson Koide | Agent F running | Scan of all triples including W, Z, H |
+| EW/Meson Koide | COMPLETED | (c,b,t) rank 113/4060 with mesons; (e,μ,τ) alone at top |
+| Top Yukawa uniqueness | NOTED | y_t may be the only fundamental Yukawa; y_c, y_b effective |
