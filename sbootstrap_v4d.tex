@@ -2531,7 +2531,7 @@ quarks are treated democratically.
 The Koide constraints on the two overlapping triples, together with
 the seed condition on $(0,s,c)$, determine $(s,c,b)$ from a single
 input ($m_t$). The unconstrained masses are $m_u$ and $m_d$---the
-first generation. The Gatto--Sartori--Tonin relation $|V_{us}| \approx
+first generation. The Gatto--Sartori--Tonin relation~\cite{GST1968} $|V_{us}| \approx
 \sqrt{m_d/m_s}$ connects precisely these free parameters to the
 Cabibbo angle ($|V_{us}| = 0.224$ vs.\ PDG $0.2243$,
 Table~\ref{tab:predictions}), suggesting that the CKM matrix
@@ -3022,8 +3022,12 @@ $V_{us}$ & $0.224$ & $0.2243 \pm 0.0005$ ($1.4\sigma$)
   & GST relation \\
 $M_0$ (lepton) & $\fpi^2/27 = 314.0\MeV$ & $313.8\MeV$ (fitted)
   & Scale relation \\
+$m_h$ & $125.4\GeV$ & $125.25 \pm 0.17$ ($0.9\sigma$)
+  & NMSSM: $\lambda v/\sqrt{2}$ \\
 $\tan\beta$ & $1$ & --- (not directly measured)
   & Mixed-triple Koide \\
+$\text{STr}[M^2]$ & $18\,\fpi^2$ & --- (not directly measured)
+  & Soft mass only \\
 \bottomrule
 \end{tabular}
 \caption{Predictions from the sBootstrap Lagrangian.
@@ -3110,10 +3114,18 @@ $(0, \pi, D_s)$ is the configuration at the moment of crossing.
 %======================================================================
 
 \subsection{The diquark sector}
-The Pauli theorem (\S\ref{subsec:pauli}) proves that no $J=0$, 
-color-$\bar{3}$ diquark can have symmetric flavor, closing all 
-field-theoretic escape routes ($L=0$, P-wave, or higher). The 
-sBootstrap's $\mathbf{15}$ diquark must therefore be non-composite: 
+The Pauli theorem (\S\ref{subsec:pauli}) proves that no $J=0$,
+color-$\bar{3}$ diquark can have symmetric flavor.  The argument
+extends to all partial waves: $J = 0$ forces $L = S$, so the
+spatial--spin exchange sign is $(-1)^{L+S} = (-1)^{2S} = +1$,
+which combined with the antisymmetric color $\bar{3}$ gives
+overall $+1$; Pauli then requires antisymmetric flavor
+($\overline{\mathbf{10}}$).  The $\mathbf{15}$ is accessible
+only for $J \geq 1$.  In SQCD, the same conclusion holds
+algebraically: the $\varepsilon$-tensor on color indices in
+$B^{abc} = \varepsilon_{ijk}Q^{ia}Q^{jb}Q^{kc}$ forces
+antisymmetric flavor regardless of statistics.
+The sBootstrap's $\mathbf{15}$ diquark must therefore be non-composite:
 either an algebraic image of the Miyazawa supercharge
 (\S\ref{subsec:baryon_open}) or a fundamental $SO(32)$ string state.
 However, the mixed anticommutator
@@ -3265,7 +3277,10 @@ the $v_0$-doubling fixes $m_b$ (from the K\"ahler sector),
 and the $(c,b,t)$ Koide serves as an overdetermination test.
 After these constraints, only two to three free parameters remain:
 $m_u$, $m_d$ (connected to the Cabibbo angle), and the overall
-scale $m_s$. The $v_0$-doubling is non-holomorphic and lives in the
+scale $m_s$.  The Koide condition does \emph{not} extend to triples
+containing $m_u$ or $m_d$: $Q(m_u,m_d,m_s) = 0.567$ ($-15\%$)
+and $Q(m_u,m_c,m_t) = 0.849$ ($+27\%$), confirming that the
+lightest quarks are free parameters of the framework. The $v_0$-doubling is non-holomorphic and lives in the
 K\"ahler sector: as shown in \S\ref{subsec:fterm}, the bion
 K\"ahler correction $K_{\text{bion}} \sim |\!\sum s_k\sqrt{\hat m_k}|^2$
 generates an effective potential whose minimum enforces
@@ -3274,6 +3289,18 @@ The Hessian has rank~1, constraining exactly the $v_0$-doubling
 combination while leaving $m_s$ and $m_c$ to the Koide seed.
 The extension from $\mathbb{R}^3 \times S^1$ to
 $\mathbb{R}^4$ relies on \"Unsal's continuity conjecture.
+
+\subsection{Lepton masses are not mesino masses}
+The fermion mass matrix $W_{IJ}$ at the Seiberg vacuum has
+light eigenvalues ($\sim 10^{-3}$--$10^{-2}\MeV$) from the
+seesaw between the meson and Lagrange-multiplier sectors.
+These are far too small and too degenerate
+($Q_{\text{light}} = 0.48$, not $2/3$) to reproduce lepton masses.
+Lepton masses in this framework must therefore arise from the
+\emph{nonperturbative} K\"ahler sector (bion corrections), not
+from the perturbative superpotential.  This is consistent with
+the Koide condition being a boundary condition rather than
+an attractor of the renormalization group.
 
 \subsection{The baryon sector}
 \label{subsec:baryon_open}
@@ -3430,7 +3457,8 @@ Meson triple $(-\pi,D_s,B)$ to $0.10\%$ & Observed & $1.1\sigma$ after LEE \\
 $v_0$-doubling: $v_0^{(f)}/v_0^{(s)} = 2.0005$ ($0.025\%$); $m_b$ to $0.07\%$ & Observed & Derived via bion K\"ahler \\
 $\delta_\ell \bmod 2\pi/3 = 2/9$ to 5~ppm & Observed & $3.6\sigma$ after LEE \\
 Casimir $R = 0.22310$ vs $\sin^2\theta_W$ & Observed & Scheme-dependent \\
-Dual Koide $Q(1/m_d,1/m_s,1/m_b) = 0.665$ & Observed & $0.2\%$ from $2/3$ \\
+Dual Koide $Q(1/m_d,1/m_s,1/m_b) = 0.665$ & Observed & $0.2\%$ from $2/3$; not predictive \\
+GST: $|V_{us}| = \sqrt{m_d/m_s} = 0.224$ & Observed & $0.9\%$ from PDG~\cite{GST1968} \\
 $M_0 \approx \fpi^2/27$ & Observed & $0.04\%$; connects lepton scale to $\fpi$ \\
 $\tan\beta = 1$ & Derived & Mixed triples + $SU(5)_f$ \\
 \midrule
@@ -3443,8 +3471,7 @@ ISS vacuum cosmologically stable & Derived & $S_{\text{bounce}} \gg 1$ for $h \s
 ISS CW does not transmit Koide & Derived & $Q_{\text{CW}} \to 1/3$ (affine map) \\
 $c = -1/12$ from bion K\"ahler & Derived & At $\alpha_s = 0.143$ (ISS) \\
 $\text{STr}[M^2] = 18\,\fpi^2$ & Derived & Soft mass only (canonical K\"ahler) \\
-$m_h = 0$ at tree-level $\tan\beta = 1$ & Derived & $D$-flat direction; NMSSM fix $\lambda = 0.72$ \\
-$m_h = 0$ at tree-level ($\tan\beta = 1$) & Derived & NMSSM singlet: $\lambda = 0.72$ \\
+$m_h = \lambda v/\sqrt{2} = 125.4\GeV$ & Derived & NMSSM singlet $X$; $\lambda = 0.72$ \\
 $\cos(9\delta)$ from $(\det M)^3/\Lambda^{18}$ & Derived & $\mathbb{Z}_{18}$ charge counting \\
 $\mathcal{Q}_{[ij]} \in \overline{\mathbf{10}}$ of $SU(5)_f$ & Derived & Miyazawa algebra \\
 Casimir structural constraints & Assumed & Reverse-engineered \\
@@ -3681,6 +3708,10 @@ arXiv:1201.6426.
 \bibitem{Rivero2005b}
 A.~Rivero, ``The de Vries formula for $\sin^2\theta_W$,''
 arXiv:hep-ph/0510068 (2005).
+
+\bibitem{GST1968}
+R.~Gatto, G.~Sartori, and M.~Tonin, ``Weak self-masses, Cabibbo
+angle, and broken $SU(3)$,'' Phys.\ Lett.\ B \textbf{28}, 128 (1968).
 
 \end{thebibliography}
 
