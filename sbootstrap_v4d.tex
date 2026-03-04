@@ -2104,13 +2104,18 @@ from vanishing. The sBootstrap case $N_f = N_c = 3$ is strictly
 \emph{below} the ISS window---at $N_f = N_c$ the low-energy 
 description is qualitatively different, governed by the 
 quantum-modified constraint \eqref{eq:seiberg} on the moduli space 
-rather than by a free magnetic dual. However, physical QCD has 
-$N_f = 3$ light flavors and $N_f = 4$--$5$ if charm and bottom are 
-included at their respective thresholds, which does fall within the 
-ISS window for $N_c = 3$. The sBootstrap's multi-scale structure---with 
-the seed triples involving $s$, $c$, and $b$ quarks at different 
-scales---may require treating the effective $N_f$ as 
-scale-dependent, entering the ISS regime above the strange threshold.
+rather than by a free magnetic dual. However, physical QCD has
+$N_f = 3$ light flavors and $N_f = 4$--$5$ if charm and bottom are
+included at their respective thresholds. With charm included,
+$N_f = 4$ falls within the ISS window ($3 < 4 < 4.5$); with both
+charm and bottom, $N_f = 5$ falls in the conformal window
+($4.5 < 5 < 9$), where the Seiberg seesaw constraint does not apply
+directly. The sBootstrap's multi-scale structure---with
+the seed triples involving $s$, $c$, and $b$ quarks at different
+scales---requires treating the effective $N_f$ as
+scale-dependent: $N_f = 3$ below $m_c$ (confining, Seiberg
+constraint), $N_f = 4$ above $m_c$ (ISS metastable SUSY breaking),
+and $N_f = 5$ above $m_b$ (conformal window).
 Note that $N_f = 4$ is the \emph{unique} integer satisfying
 $3 < N_f < 4.5$ for $N_c = 3$, providing a dynamical rationale for
 exactly four light flavors $(u,d,s,c)$ in the SUSY-breaking sector.
@@ -2164,6 +2169,9 @@ $Q(-s,c,b) \neq Q(1/m_s,1/m_c,1/m_b)$ in general.
 The dual Koide $Q(1/m_d,1/m_s,1/m_b) = 0.665$ is therefore a
 \emph{nontrivial} constraint on the down-type sector, not a
 tautological restatement of the seed.
+Among all $\binom{5}{3} = 10$ quark triples, $(d,s,b)$ is the
+unique triple with inverse-mass Koide ratio within 1\% of $2/3$;
+the next closest is $(d,s,c)$ at 4.2\% deviation---a 19:1 margin.
 
 \subsection{How the three supermultiplets join}
 
@@ -2449,29 +2457,34 @@ tree-level superpotential is
 \end{equation*}
 %
 where $M^i{}_j = Q^i\cdot\bar Q_j$ is the $5\times 5$ composite meson
-superfield. Below the confinement scale the theory is described by $M$,
-together with baryon superfields $B$ and $\bar B$, subject to the
-quantum-modified constraint~\eqref{eq:seiberg}:
+superfield. Since $m_c, m_b \gg \Lambda_{\text{QCD}}$, the charm and
+bottom quarks are integrated out at tree level, reducing the effective
+theory to $N_f = N_c = 3$ light flavors $(u,d,s)$. In this regime,
+Seiberg's exact results give confinement with the composite meson
+$M^{(3)}$, baryons $B$, $\bar B$, and the quantum-modified
+constraint~\eqref{eq:seiberg}:
 %
 \begin{equation*}
-  \det M - B\bar B = \Lambda^{6}\,.
+  \det M^{(3)} - B\bar B = \Lambda_{\text{eff}}^{6}\,,
 \end{equation*}
 %
+where $\Lambda_{\text{eff}}$ is the dynamical scale of the effective
+three-flavor theory after threshold matching at $m_c$ and $m_b$.
 Implementing this constraint via a Lagrange multiplier $X$ gives the full
 effective superpotential
 %
 \begin{equation*}
   W_{\text{eff}}
-  = \operatorname{Tr}(\hat m\, M)
-  + X\!\left(\det M - B\bar B - \Lambda^{6}\right).
+  = \operatorname{Tr}(\hat m^{(3)}\, M^{(3)})
+  + X\!\left(\det M^{(3)} - B\bar B - \Lambda_{\text{eff}}^{6}\right).
 \end{equation*}
 
-The $F$-term equations read
+The $F$-term equations for the $3\times 3$ light-flavor block read
 %
 \begin{align*}
   \frac{\partial W_{\text{eff}}}{\partial M^i{}_j}
   &= \hat m_j\,\delta^i{}_j
-    + X\,(\det M)\,(M^{-1})_i{}^j = 0\,,\\[4pt]
+    + X\,(\det M^{(3)})\,(M^{(3)\,-1})_i{}^j = 0\,,\\[4pt]
   \frac{\partial W_{\text{eff}}}{\partial B}
   &= -X\,\bar B = 0\,,\\[4pt]
   \frac{\partial W_{\text{eff}}}{\partial \bar B}
@@ -2481,18 +2494,18 @@ The $F$-term equations read
 The baryon equations force either $X=0$ or $B=\bar B=0$. If $X=0$ the meson
 equation reduces to $\hat m_j\,\delta^i{}_j=0$, which has no solution for
 nonzero quark masses. Hence $B=\bar B=0$ and the constraint becomes
-$\det M = \Lambda^6$. The diagonal meson equation then requires
+$\det M^{(3)} = \Lambda_{\text{eff}}^6$. The diagonal meson equation then requires
 %
 \begin{equation*}
-  \hat m_j + X\,\frac{\det M}{M^j{}_j} = 0
+  \hat m_j + X\,\frac{\det M^{(3)}}{M^j{}_j} = 0
   \qquad(\text{no sum on } j)\,,
 \end{equation*}
 %
-which determines each diagonal entry of $M$ in terms of the quark masses and
-$\Lambda$. For a seed configuration in which one quark mass vanishes---say
+which determines each diagonal entry of $M^{(3)}$ in terms of the quark masses and
+$\Lambda_{\text{eff}}$. For a seed configuration in which one quark mass vanishes---say
 $m_u\to 0$---the corresponding $F$-term
-$F_{M^1{}_1}=X\,(\det M)(M^{-1})_1{}^1$ remains nonzero so long as
-$\det M\neq 0$, which is guaranteed by the quantum constraint. Supersymmetry
+$F_{M^1{}_1}=X\,(\det M^{(3)})(M^{(3)\,-1})_1{}^1$ remains nonzero so long as
+$\det M^{(3)}\neq 0$, which is guaranteed by the quantum constraint. Supersymmetry
 is therefore spontaneously broken, with order parameter
 %
 \begin{equation*}
@@ -3025,6 +3038,7 @@ $h = \sqrt{3}$ in magnetic dual & Derived & ISS dictionary \\
 Pauli theorem (no symmetric $J{=}0$ diquark) & Derived & Angular momentum \\
 Diophantine: $(N,r,s) = (3,3,2)$ unique & Derived & Number theory \\
 Cyclic echo ($t \to c \to s \to \text{stall} \to c$) & Derived & Algebraic necessity \\
+Seed self-dual: $Q(a,b) = Q(1/a,1/b)$ & Derived & Identity for two masses \\
 \midrule
 Lepton Koide $Q = 2/3$ to $0.001\%$ & Observed & $2.8\sigma$ after LEE \\
 Meson triple $(-\pi,D_s,B)$ to $0.10\%$ & Observed & $1.1\sigma$ after LEE \\
