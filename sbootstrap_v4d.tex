@@ -1359,6 +1359,35 @@ level of point-particle composites: in the string picture,
 diquarks are open-string states whose symmetry is determined by
 the gauge group, not by Fermi statistics of constituents.
 
+\paragraph{Why $SO(32)$ and not $E_8 \times E_8$.}
+Anomaly cancellation in ten dimensions selects two gauge groups:
+$SO(32)$ and $E_8 \times E_8$. The latter cannot accommodate the
+sBootstrap. Every decomposition of $E_8$ under $SU(5)$ produces
+the antisymmetric $\mathbf{10}$, never the symmetric $\mathbf{15}$:
+the maximal-subgroup chain $E_8 \supset SU(5) \times SU(5)$ gives
+$\mathbf{248} = (\mathbf{24},\mathbf{1}) + (\mathbf{1},\mathbf{24})
++ (\mathbf{10},\bar{\mathbf{5}}) + (\overline{\mathbf{10}},\mathbf{5})
++ (\mathbf{5},\mathbf{10}) + (\bar{\mathbf{5}},\overline{\mathbf{10}})$,
+with no $\mathbf{15}$ appearing anywhere.  The obstruction is
+irreducible: it reflects the fact that $E_8$'s simply-laced root
+lattice admits only antisymmetric tensor representations of
+$SU(5)$.  By contrast, $SO(32)$'s adjoint $\mathbf{496} =
+\wedge^2(\mathbf{32})$ naturally contains the symmetric
+$\mathbf{15}$ through the identity
+$\wedge^2(\mathbf{5} \otimes \mathbf{3}) \supset
+S^2(\mathbf{5}) \otimes \wedge^2(\mathbf{3})
+= (\mathbf{15}, \bar{\mathbf{3}})$.  The Type~I realization, where
+quark Chan-Paton factors directly generate $SO(32)$ from
+$5\!\times\!3 + 1 = 16$ endpoint labels, is the most natural home.
+
+The $E_8 \times E_8$ heterotic string is connected to Type~I $SO(32)$
+by a chain of dualities (S-duality to heterotic $SO(32)$, then
+T-duality on a non-simply-connected torus).  These dualities may
+allow the sBootstrap content to appear in the $E_8 \times E_8$ frame
+through a non-standard embedding, but the direct decomposition
+route is blocked by the $\mathbf{15}$ vs.\ $\mathbf{10}$
+obstruction.
+
 %----------------------------------------------------------------------
 \subsection{Part B: The Casimir eigenvalue equation}
 \label{subsec:casimir_eq}
@@ -2647,7 +2676,11 @@ representations: $\mathbf{24}$ in the neutral sector and
 $\mathbf{15} \oplus \overline{\mathbf{15}}$ in the matter
 sector at $|Q_A| = 2$. The remaining 442 states must be
 projected out or made massive. No projection mechanism has been
-identified.
+identified. The alternative anomaly-free gauge group
+$E_8 \times E_8$ is blocked by the $\mathbf{15}$ vs.\
+$\mathbf{10}$ obstruction (\S\ref{subsec:so32_open}),
+constraining the string embedding to the Type~I / $SO(32)$
+corner of the landscape.
 
 \subsection{Generation uniqueness}
 The Diophantine system uniquely selects $N = 3$ generations,
