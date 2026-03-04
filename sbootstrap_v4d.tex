@@ -63,7 +63,11 @@ $\langle F\rangle = f_\pi^2$---and show that the seed Koide
 fixes the magnetic Yukawa coupling ($h = \sqrt{3}$) while the
 $v_0$-doubling originates in the K\"ahler sector via a bion
 correction $|\!\sum s_k\sqrt{M^k{}_k}|^2$ from
-monopole-instantons on $\mathbb{R}^3\times S^1$. After these constraints, only two to three
+monopole-instantons on $\mathbb{R}^3\times S^1$; a
+three-instanton superpotential $(\det M)^3/\Lambda^{18}$
+generates a $\cos(9\delta)$ potential whose minima include the
+observed lepton Koide phase to $33\,\text{ppm}$.
+After these constraints, only two to three
 free parameters remain ($m_u$, $m_d$, $m_s$), with $m_u$ and
 $m_d$ connected to the Cabibbo angle via the Oakes relation.
 The $SO(32)$ adjoint accommodates the sBootstrap representations;
@@ -141,8 +145,10 @@ the Seiberg seesaw; and the bion K\"ahler mechanism for the
 $v_0$-doubling. The Casimir eigenvalue equation and the $SO(32)$
 decomposition appeared in our prior work; here we add the
 algebraic proof linking the Casimir ratio to the de~Vries form,
-a uniqueness analysis of the equation, and the
-$N_f$-phase structure of the SQCD realization.
+a uniqueness analysis of the equation, the
+$N_f$-phase structure of the SQCD realization, and the
+three-instanton origin of the $\cos(9\delta)$ potential
+that selects the lepton Koide phase.
 
 %======================================================================
 \section{The Koide Formula as Energy Balance}
@@ -2662,6 +2668,8 @@ superpotential combining mass, constraint, and Yukawa terms,
   W = \underbrace{\operatorname{Tr}(\hat m\, M)}_{\text{chiral mass}}
     + \underbrace{X\!\left(\det M^{(3)} - B\bar B
       - \Lambda_{\text{eff}}^{6}\right)}_{\text{Seiberg constraint}}
+    + \underbrace{c_3\,\frac{(\det M^{(3)})^3}
+      {\Lambda_{\text{eff}}^{18}}}_{\text{3-instanton}}
     + \underbrace{y_c\, H\, M^c{}_c
       + y_b\, H\, M^b{}_b
       + y_t\, H\, Q^t \bar Q_t\phantom{X}}_{\text{Yukawa}}\,,
@@ -2702,9 +2710,12 @@ in the O'Raifeartaigh limit); (ii)~the meson--lepton mass splitting
 ($\fpi^2$); (iii)~the $v_0$-doubling condition via the bion K\"ahler
 correction $K_{\text{bion}}$, whose minimum enforces
 $\sqrt{m_b} = 3\sqrt{m_s} + \sqrt{m_c}$; (iv)~the Yukawa couplings for
-the heavy sector. The bloom is non-holomorphic and lives in the
-K\"ahler sector: the bion term $|\sum s_k\sqrt{M^k{}_k}|^2$ is the
-leading monopole-instanton contribution on $\mathbb{R}^3 \times S^1$
+the heavy sector; (v)~the $\cos(9\delta)$ potential that selects
+the lepton Koide phase, via the three-instanton operator
+$(\det M^{(3)})^3/\Lambda_{\text{eff}}^{18}$. The bloom is
+non-holomorphic and lives in the K\"ahler sector: the bion term
+$|\sum s_k\sqrt{M^k{}_k}|^2$ is the leading monopole-instanton
+contribution on $\mathbb{R}^3 \times S^1$
 (\S\ref{subsec:fterm}).
 
 \paragraph{Mass spectrum from the Lagrangian.}
@@ -2728,6 +2739,8 @@ $m_t = y_t v_{\text{EW}}/\sqrt{2}$
   & $W_{\text{Yukawa}}$: $y_t H Q^t\bar Q_t$ & External \\
 $\delta m^2 = Q_{\text{em}}\,\xi$
   & $\mathcal{L}_D$: FI term & EM splitting \\
+$\delta_\ell \bmod 2\pi/3 = 2/9$
+  & $W$: $(\det M^{(3)})^3/\Lambda^{18}$ & 3-instanton \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -2928,18 +2941,52 @@ A dynamical origin for $\mathbb{Z}_9$ exists in SQCD: for $N_f = N_c = 3$,
 the diagonal $U(1)_{R+2A}$ (R-symmetry plus twice the axial symmetry)
 has anomaly coefficient $6N_c = 18 = 2 \times 9$. Instantons break
 $U(1)_{R+2A} \to \mathbb{Z}_{18}$, which contains $\mathbb{Z}_9$
-as a subgroup. The meson field $M$ carries $\mathbb{Z}_9$ charge 4
-(from two quark zero modes at charge 2 each), and the baryon carries
-charge 6. This embedding is specific to $N_c = 3$: the condition
-$N_c^2 | 6N_c$ requires $N_c | 6$, which holds only for
+as a subgroup. The meson field $M$ carries $\mathbb{Z}_{18}$ charge 4
+(from two quark zero modes at charge 2 each), so $\det M$ carries
+charge~12.  The lowest-order holomorphic $\mathbb{Z}_{18}$-singlet
+beyond the Seiberg constraint is the three-instanton operator
+\begin{equation}
+  \delta W_{3\text{-inst}}
+    = c_3\,\frac{(\det M)^3}{\Lambda^{18}}\,,
+\end{equation}
+since $(\det M)^3$ has $\mathbb{Z}_{18}$ charge $36 = 2\times 18$.
+Near the SUSY vacuum $\det M = \Lambda^6$, parametrizing
+$\det M = \Lambda^6\,e^{3i\delta_M}$ yields
+$\delta W \propto e^{9i\delta}$, and the cross-term with the
+tree-level superpotential gives
+$V_{\text{eff}} \supset -V_0\cos\bigl(9(\delta - \delta_0)\bigr)$
+with $\delta_0 = \arg(c_3)/9$.
+This is exactly the $\cos(9\delta)$ potential identified above.
+The one-instanton vertex ($\det M$, charge 12) is already captured
+by the Seiberg constraint; the two-instanton vertex ($(\det M)^2$,
+charge 24, not a $\mathbb{Z}_{18}$ singlet) is forbidden.
+
+At strong coupling ($\Lambda \sim 300\MeV$), the coefficient
+$c_3$ is $O(1)$ and the potential strength is
+$V_0^{1/4} \sim 65\text{--}85\MeV$, comparable to
+$f_\pi = 92\MeV$---this is not a parametrically suppressed effect.
+The same $\cos(9\delta)$ structure also arises from magnetic
+bion contributions on $\mathbb{R}^3 \times S^1$, where the
+$\mathbb{Z}_3$-symmetric combination of the SU(3) affine roots
+maps to $\cos(9\delta)$ in the meson phase variable.
+
+The embedding is specific to $N_c = 3$: the condition
+$N_c^2 \mid 6N_c$ requires $N_c \mid 6$, which holds only for
 $N_c = 1, 2, 3, 6$.
+
+The quark Koide phases, by contrast, do \emph{not} sit at
+$\mathbb{Z}_9$ minima: the $(-s,c,b)$ and $(c,b,t)$ phases
+are displaced by $39\%$ and $41\%$ of the $\mathbb{Z}_9$
+spacing, respectively.  This suggests that the lepton and quark
+phases are selected by different dynamical mechanisms---the
+instanton potential for leptons, and possibly the bloom mechanism
+or ISS dynamics for quarks.
 
 The Coleman--Weinberg potential of the minimal O'Raifeartaigh model
 is flat in $\delta$ at one loop---the pseudo-modulus potential depends
-only on the modulus $|\Phi_0|$, not on the Koide phase. An ISS-type
-extension with explicit $\mathbb{Z}_9$-breaking terms from the
-instanton-generated $\mathbb{Z}_{18}$ is needed to
-lift this flat direction.
+only on the modulus $|\Phi_0|$, not on the Koide phase.  The
+three-instanton potential above provides the leading
+$\delta$-dependent term that lifts this flat direction.
 
 More broadly, the ISS Coleman--Weinberg potential does \emph{not}
 transmit the Koide condition from the UV quark masses to the IR
@@ -3200,7 +3247,11 @@ The bloom from seed to full triple is a phase rotation
 $\delta: 3\pi/4 \to \delta_{\text{phys}}$ in the Koide
 parametrization, at fixed Koide scale $v_0$; it is not a
 continuous deformation of the O'Raifeartaigh spectrum (which would
-break $Q = 2/3$) but a nonperturbative rearrangement.
+break $Q = 2/3$) but a nonperturbative rearrangement.  The lepton
+phase is selected by a three-instanton potential
+$V \propto -\cos(9\delta)$, the lowest $\mathbb{Z}_{18}$-invariant
+harmonic in $N_f = N_c = 3$ SQCD; the quark phases are not at
+$\mathbb{Z}_9$ minima, suggesting a different selection mechanism.
 The unified superpotential has a layered structure:
 (i)~the Seiberg effective superpotential governs the light sector,
 with SUSY breaking forced by the quantum constraint when $m_u = m_d = 0$;
