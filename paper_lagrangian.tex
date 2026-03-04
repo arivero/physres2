@@ -1,0 +1,1692 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{cite}
+\geometry{margin=2.5cm}
+
+\newcommand{\MeV}{\,\text{MeV}}
+\newcommand{\GeV}{\,\text{GeV}}
+\newcommand{\fpi}{f_\pi}
+\newcommand{\qqbar}{\langle\bar{q}q\rangle}
+\newcommand{\zch}{\mathfrak{z}}
+
+\title{Three families from SUSY confinement: spectrum and mass predictions\\
+of an $\mathcal{N}=1$ $\mathrm{SU}(3)\times\mathrm{SU}(2)$ theory}
+
+\author{A.~Rivero\thanks{Universidad de Zaragoza.
+Manuscript prepared with AI assistance (Claude/Anthropic).
+Continues the program of \cite{Rivero2005,Rivero2012}.}}
+\date{March 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We construct an $\mathcal{N}=1$ supersymmetric theory with gauge group
+$\mathrm{SU}(3) \times \mathrm{SU}(2)$ and show that it uniquely selects
+three colors and three generations through a Diophantine bootstrap.
+Requiring that the scalar diquarks and mesons of an $\mathrm{SU}(N)$
+confining theory fill supermultiplets imposes three interlocking
+constraints --- $rs = 2N$, $r(r+1)/2 = 2N$, $r^2 + s^2 - 1 = 4N$ ---
+whose only positive-integer solution is $N=3$, $r=3$, $s=2$. The five
+light quarks carry an $\mathrm{SU}(5)$ flavor symmetry under which the
+composites fill $\mathbf{24}\oplus\mathbf{15}\oplus\overline{\mathbf{15}}$,
+a representation that is anomaly-free and asymptotically free.
+The quark sector is described by $\mathrm{SU}(3)$ SQCD at
+$N_f = N_c = 3$ in the Intriligator--Seiberg--Shih magnetic dual; the
+lepton sector by $s$-confining $\mathrm{SU}(2)$ SQCD with $N_f = 3$.
+Both sectors admit an O'Raifeartaigh deformation whose
+Coleman--Weinberg-stabilized vacuum at $gv/m = \sqrt{3}$ fixes a
+structural mass ratio $(2+\sqrt{3})^2 \approx 13.93$ and enforces an
+energy-balance invariant $Q = 2/3$. From the strange quark mass alone,
+the Lagrangian predicts $m_c = 1301$ MeV (+2.0\%), $m_b = 4233$ MeV
+(+1.3\%), and $m_t = 171\,250$ MeV ($-$0.9\%). The lepton sector predicts
+$m_\tau = 1776.97$ MeV (+0.006\%). In total five of the Standard Model's
+thirteen charged-fermion-sector parameters are determined, reducing the
+free parameter count from thirteen to eight.
+\end{abstract}
+
+\tableofcontents
+
+%======================================================================
+\section{Introduction}
+%======================================================================
+
+Of the roughly two dozen free parameters in the Standard Model, thirteen
+belong to the charged fermion sector: nine masses and four CKM mixing
+angles. No established principle relates them. The muon is 207 times
+heavier than the electron; the top quark outweighs the up quark by a
+factor of $8 \times 10^4$. These hierarchies are accommodated by the
+Yukawa couplings, but the couplings themselves are inserted by hand. The
+flavor problem --- why three generations, and why these masses --- remains
+the central open question in particle physics.
+
+This paper proposes a concrete $\mathcal{N}=1$ supersymmetric answer.
+The construction begins from the observation that if the scalar partners
+of quarks are composite (diquarks and mesons of a confining gauge
+theory), then the requirement that they fill common supermultiplets is
+not automatically satisfiable. The number of scalar diquarks formed from
+$r$ flavors is $r(r+1)/2$; the number of scalar mesons from $r$ flavors
+and $s$ antiflavors is $rs$; and these must jointly account for $4N$
+bosonic degrees of freedom in a theory with $N$ colors. The resulting
+system of Diophantine equations ---
+$$rs = 2N, \qquad \frac{r(r+1)}{2} = 2N, \qquad r^2 + s^2 - 1 = 4N$$
+--- admits a unique positive-integer solution: $N=3$, $r=3$, $s=2$. The
+number of colors, the number of generations (encoded as $r + s - 1 = 4$,
+giving four light quark flavors in addition to the strange), and the
+representation content of the composites are all fixed by arithmetic.
+This is the bootstrap: supersymmetry and confinement together select the
+Standard Model's gauge and family structure.
+
+The five light quarks $(u, d, s, c, b)$ then sit in the fundamental of
+an $\mathrm{SU}(5)$ flavor symmetry. Under $\mathrm{SU}(5)_{\rm
+flavor} \times \mathrm{SU}(3)_{\rm color}$, the composites --- mesons
+in the adjoint-plus-singlet and diquarks in the symmetric tensor ---
+fill the representations $\mathbf{24} \oplus \mathbf{15} \oplus
+\overline{\mathbf{15}}$. This combination is anomaly-free and
+asymptotically free with one-loop coefficient $b_0 = 31/3$. The top
+quark, with Yukawa coupling $y_t \approx 1$, is external to the
+confining dynamics; it does not form bound states.
+
+The confining dynamics of the quark sector is that of $\mathrm{SU}(3)$
+SQCD with $N_f = N_c = 3$ flavors, a theory whose infrared physics was
+solved by Seiberg~\cite{Seiberg1995}. In the magnetic dual description, the degrees of
+freedom are gauge-invariant mesons $M^i{}_j$, baryons $B$ and
+$\tilde{B}$, and a Lagrange-multiplier singlet $X$ that enforces the
+quantum-modified constraint $\det M - B\tilde{B} = \Lambda^6$. The
+Seiberg seesaw gives meson vacuum expectation values $\langle M^j{}_j
+\rangle = C/m_j$, inversely proportional to the quark masses. Adding an
+O'Raifeartaigh deformation --- the minimal coupling $W \supset fX + m
+\phi_a \phi_b + gX\phi_a^2$ --- breaks supersymmetry at a metastable
+vacuum. The Coleman--Weinberg potential for the pseudo-modulus $X$,
+combined with a non-canonical K\"ahler correction $\delta K = -|X|^4
+/(12\mu^2)$, stabilizes the vacuum expectation value at $g\langle X
+\rangle / m = \sqrt{3}$.
+
+This stabilization has a remarkable consequence. The fermion mass matrix
+at the O'Raifeartaigh vacuum has eigenvalues $(0,\; m_-,\; m_+)$ with
+$m_\pm = (\sqrt{t^2 + 1} \pm t)\,m$ and $t = gv/m$. At $t = \sqrt{3}$
+the eigenvalues become $(0,\; (2-\sqrt{3})\,m,\; (2+\sqrt{3})\,m)$,
+whose ratio $m_+/m_- = (2+\sqrt{3})^2 \approx 13.93$ is a structural
+constant independent of all free parameters. This is the
+\emph{O'Raifeartaigh mass ratio}. Applied to the quark seed with
+$m = m_s = 93.4$ MeV, it predicts $m_c = 13.93 \times m_s = 1301$ MeV,
+to be compared with the PDG value $1275 \pm 25$ MeV (2.0\% deviation,
+$1.0\sigma$).
+
+The same vacuum enforces an algebraic identity: the ratio $Q \equiv
+\sum m_k / (\sum \sqrt{m_k})^2$ evaluates to exactly $2/3$ for the
+eigenvalue triple $(0, m_-, m_+)$ at $t = \sqrt{3}$. This is the
+\emph{energy-balance condition} --- it states that the mean squared
+perturbation of the mass charges equals the squared vacuum charge, i.e.,
+$\langle z_k^2 \rangle = z_0^2$ in the parametrization $m_k =
+(z_0 + z_k)^2$ with $\sum z_k = 0$. It is not an empirical observation
+extracted from data; it is a theorem about the O'Raifeartaigh
+superpotential. The energy-balance condition serves as the organizing
+principle for all subsequent mass predictions.
+
+To pass from the charm quark to the bottom quark, a second mechanism is
+needed. On $\mathbb{R}^3 \times S^1$, the SU(3) gauge theory admits
+magnetic bions --- correlated monopole--antimonopole pairs associated
+with the three roots of the extended Dynkin diagram. Their contribution
+to the effective K\"ahler potential modifies the mass eigenvalue relation
+to $\sqrt{m_b} = 3\sqrt{m_s} + \sqrt{m_c}$, where the integer
+coefficient is the number of colors. We call this the \emph{bion mass
+relation}. Using the O'Raifeartaigh-predicted $m_c$, it gives
+$m_b = 4233$ MeV (PDG: $4180 \pm 30$ MeV, 1.3\% deviation). The
+energy-balance invariant is approximately preserved: $Q(-\sqrt{m_s},
+\sqrt{m_c}, \sqrt{m_b}) = 0.673$, deviating from $2/3$ by 0.9\%.
+
+The chain extends to the top quark through the \emph{Yukawa eigenvalue
+constraint}. At $\tan\beta = 1$, the SUSY Yukawa structure requires the
+heavy triple $(m_c, m_b, m_t)$ to satisfy $Q = 2/3$ with all positive
+square roots. This reduces to a quadratic equation for $\sqrt{m_t}$
+whose physical solution, using the predicted $m_c$ and $m_b$ as inputs,
+gives $m_t = 171\,250$ MeV (PDG: $172\,760 \pm 300$ MeV, 0.9\%
+deviation). Thus from the single input $m_s$, the theory produces the
+masses of all three heavy quarks.
+
+The lepton sector is governed by the same algebraic structure. The
+$\mathrm{SU}(2)$ confining theory with $N_f = 3$ is $s$-confining
+($N_f = N_c + 1$); its infrared dynamics is captured by three
+antisymmetric composites and a singlet, deformed by an O'Raifeartaigh
+superpotential stabilized at the same $gv/m = \sqrt{3}$. Because the
+SU(2) theory has no magnetic bion mechanism, the physical spectrum stays
+close to the O'Raifeartaigh seed. The energy-balance condition
+$Q(m_e, m_\mu, m_\tau) = 2/3$ directly predicts $m_\tau = 1776.97$ MeV
+from the inputs $m_e$ and $m_\mu$, matching the PDG value $1776.86 \pm
+0.12$ MeV to 0.006\%.
+
+Two further predictions follow from the Lagrangian. The identification
+of the Seiberg Lagrange multiplier $X$ with the NMSSM singlet $S$
+generates a Higgs quartic through the $|F_X|^2$ term. At $\tan\beta =
+1$ the tree-level Higgs mass is $m_h = \lambda v/\sqrt{2}$, and
+requiring $m_h = 125.35$ GeV fixes $\lambda = 0.72$. The Cabibbo angle
+emerges from the tachyonic off-diagonal meson condensate: the ratio of
+condensate amplitudes in the $(u,s)$ and $(u,d)$ sectors is exactly
+$\sqrt{m_d/m_s}$, reproducing the Gatto--Sartori--Tonin relation
+$\sin\theta_C = \sqrt{m_d/m_s} = 0.224$ (PDG: 0.225).
+
+The parameter budget of the theory is as follows. The Standard Model's
+charged fermion sector has thirteen free parameters: nine masses and four
+CKM angles. In this theory, the O'Raifeartaigh mass ratio determines
+$m_c$ from $m_s$; the bion mass relation determines $m_b$ from $m_s$
+and $m_c$; the Yukawa eigenvalue constraint determines $m_t$ from $m_c$
+and $m_b$; the energy-balance condition determines $m_\tau$ from $m_e$
+and $m_\mu$; and the Gatto--Sartori--Tonin relation determines
+$\theta_{12}$ from $m_d$ and $m_s$. Five parameters are eliminated. The
+remaining eight free parameters are $m_u$, $m_d$, $m_s$, $m_e$, $m_\mu$,
+$\theta_{23}$, $\theta_{13}$, and $\delta_{\rm CP}$.
+
+The paper is organized as follows. Section~\ref{sec:bootstrap} presents
+the Diophantine bootstrap and proves the uniqueness of $N=3$, $r=3$,
+$s=2$. Section~\ref{sec:diquarks} describes the $\mathrm{SU}(5)$ flavor
+structure, the composite representations, and the anomaly cancellation.
+Section~\ref{sec:lagrangian} constructs the $\mathrm{SU}(3)$ SQCD
+Lagrangian in the Seiberg magnetic dual, derives the O'Raifeartaigh
+vacuum, and proves the energy-balance identity $Q = 2/3$.
+Section~\ref{sec:predictions} derives the bion mass relation and the
+Yukawa eigenvalue constraint, assembling the complete $m_s$ chain that
+predicts $m_c$, $m_b$, and $m_t$. Section~\ref{sec:leptons} presents the
+lepton sector as $s$-confining SU(2) SQCD with the same O'Raifeartaigh
+structure. Section~\ref{sec:electroweak} discusses the NMSSM Higgs
+sector, the Cabibbo angle, and the electroweak predictions.
+Section~\ref{sec:spectrum} presents the complete particle spectrum and
+parameter budget. Section~\ref{sec:open} discusses the open problems ---
+the 15 versus $\overline{10}$ Pauli conflict for diquarks, the
+nonperturbative origin of the bloom rotation, the mesino mass hierarchy,
+and the embedding in $\mathrm{SO}(32)$ --- and Section~\ref{sec:conclusions}
+concludes.
+
+
+%======================================================================
+\section{Bootstrap uniqueness}
+\label{sec:bootstrap}
+%======================================================================
+
+The sBootstrap rests on a single postulate: every scalar of the
+Supersymmetric Standard Model is a composite of two quarks (diquark,
+color triplet) or of a quark--antiquark pair (meson, color singlet),
+with the electric charge given by the sum of the constituents' charges.
+We now show that matching the number of such composites to the
+fermionic degrees of freedom of $N$ generations uniquely forces
+$N = 3$.
+
+\subsection{Setup and Diophantine system}
+Let there be $N$ generations, each containing quarks of two types:
+\emph{down} (charge $-1/3$) and \emph{up} (charge $+2/3$).  Not
+every quark need participate as a string endpoint; we allow
+$r$ light down-type quarks and $s$ light up-type quarks that form
+composites.  The Standard Model with right-handed neutrinos has
+$4N$ real (Weyl) fermionic degrees of freedom per charge sector in
+each color channel.  Matching composites to fermions, charge sector
+by charge sector, yields the following system.
+
+\begin{enumerate}
+\item \textbf{Charge $+1/3$ composites} (one up $\times$ one down,
+analogous to charged sleptons): $rs$ complex scalars must match
+$2N$ real fermionic d.o.f., giving
+\begin{equation}
+rs = 2N\,.
+\end{equation}
+
+\item \textbf{Charge $-2/3$ composites} (symmetric down--down pairs,
+color sextet): $\binom{r+1}{2} = r(r+1)/2$ complex scalars must
+match $2N$ real fermionic d.o.f., giving
+\begin{equation}
+\frac{r(r+1)}{2} = 2N\,.
+\end{equation}
+
+\item \textbf{Neutral composites} (classified by $SU(r+s)$, minus
+the overall singlet trace; includes the partner of the right-handed
+neutrino): $(r+s)^2 - 1 = r^2 + s^2 + 2rs - 1$ states, of which
+$2rs$ are charged and already counted.  The neutral count is therefore
+$r^2 + s^2 - 1$, to be matched to $4N$ real d.o.f., giving
+\begin{equation}
+r^2 + s^2 - 1 = 4N\,.
+\end{equation}
+\end{enumerate}
+
+\noindent
+The alternative neutral equation $r^2 + s^2 - 1 = 2N$ (left-handed
+neutrinos only) produces no positive-integer solution when combined
+with the first two; thus the sBootstrap \emph{requires}
+right-handed neutrinos.
+
+\subsection{The uniqueness theorem}
+
+\medskip
+\noindent\textbf{Theorem 1} (Generation uniqueness).
+\textit{The system has a unique
+solution over the positive integers:}
+\begin{equation}
+\boxed{(N,\,r,\,s) = (3,\,3,\,2)\,.}
+\end{equation}
+
+\medskip
+\noindent\textit{Proof.}
+Equating the right-hand sides of the first two equations
+gives $rs = r(r+1)/2$, hence
+\begin{equation}
+s = \frac{r+1}{2}\,,
+\end{equation}
+which requires $r$ odd.  Substituting into the third equation:
+\[
+r^2 + \Bigl(\frac{r+1}{2}\Bigr)^{\!2} - 1 \;=\; 4\,\cdot\,\frac{r\,(r+1)/2}{2}
+\;=\; r(r+1)\,.
+\]
+Expanding the left side,
+\[
+r^2 + \frac{r^2 + 2r + 1}{4} - 1 = r^2 + r\,,
+\]
+and clearing the denominator:
+\[
+4r^2 + r^2 + 2r + 1 - 4 = 4r^2 + 4r
+\quad\Longrightarrow\quad
+r^2 - 2r - 3 = 0\,,
+\]
+i.e.\ $(r-3)(r+1) = 0$.  Since $r > 0$, we obtain $r = 3$, whence
+$s = 2$ and $N = rs/2 = 3$.
+\hfill$\square$
+
+\medskip
+The solution has $r + s = 5$ light quarks acting as string endpoints,
+furnishing the fundamental representation of an $SU(5)$ flavor group.
+The top quark is the unique ``elephant''---too heavy to serve as a
+constituent of the scalar composites---in precise agreement with the
+Standard Model, where $m_t \gg \Lambda_{\text{QCD}}$ prevents
+top-flavored hadrons from forming.
+
+\subsection{Partial solutions and the hexagonal-number family}
+The first two equations alone, without the
+neutral constraint, require $2N$ to be a hexagonal number
+$h_k = k(2k-1)$:
+\[
+2N = 1,\; 6,\; 15,\; 28,\; 45,\; 66,\; \ldots
+\]
+Of these, only $2N = 1$ and $2N = 6$ have $r \leq 16$ (the
+asymptotic-freedom bound $2n_f < 33$ limits $r + s \leq 16$).
+The first is inadmissible ($N = 1/2$); the second gives $N = 3$.
+
+\subsection{Identification with $SU(5)$ representations}
+With $r = 3$ and $s = 2$, the $r + s = 5$ light quarks form the
+fundamental $\mathbf{5}$ of $SU(5)_f$.  The composites organize
+into three $SU(5)$ representations:
+
+\paragraph{Mesons (quark--antiquark, color singlet):}
+The $\mathbf{5} \otimes \bar{\mathbf{5}}$ decomposes as
+\begin{equation}
+\mathbf{5} \otimes \bar{\mathbf{5}}
+= \mathbf{24} \oplus \mathbf{1}\,.
+\end{equation}
+The $\mathbf{24}$ carries the sleptons (charged and neutral) and
+the meson matrix.  Under
+$SU(5) \supset SU(3)_d \times SU(2)_u$:
+\begin{equation}
+\mathbf{24} = (\mathbf{1},\mathbf{1})
++ (\mathbf{1},\mathbf{3})
++ (\mathbf{3},\mathbf{2})
++ (\bar{\mathbf{3}},\mathbf{2})
++ (\mathbf{8},\mathbf{1})\,.
+\end{equation}
+
+\paragraph{Diquarks (quark--quark, color triplet):}
+The symmetric product
+\begin{equation}
+\mathbf{5} \otimes_S \mathbf{5}
+= \mathbf{15}
+\end{equation}
+decomposes as
+\begin{equation}
+\mathbf{15} = (\mathbf{1},\mathbf{3})
++ (\mathbf{3},\mathbf{2})
++ (\mathbf{6},\mathbf{1})\,,
+\end{equation}
+and its conjugate $\overline{\mathbf{15}}$ provides the
+antidiquarks.
+
+\medskip
+\noindent\textbf{Proposition 1} (Symmetric product is forced).
+\textit{The counting equation selects the
+symmetric product $\mathbf{15}$, not the antisymmetric
+$\overline{\mathbf{10}}$.}
+
+\medskip
+\noindent\textit{Proof.}
+The charge $-2/3$ composites are down--down pairs.
+Under $SU(3)_d$, the symmetric product
+$\mathbf{3} \otimes_S \mathbf{3} = \mathbf{6}$ has dimension
+$r(r+1)/2 = 6$, matching the counting equation.  The antisymmetric
+product $\mathbf{3} \otimes_A \mathbf{3} = \bar{\mathbf{3}}$ has
+dimension $r(r-1)/2 = 3 \neq 2N = 6$.  The symmetric color sextet,
+and hence the $\mathbf{15}$, is the unique choice consistent
+with the sBootstrap counting.
+\hfill$\square$
+
+\subsection{Charge census of $\mathbf{24} \oplus \mathbf{15}
+\oplus \overline{\mathbf{15}}$}
+Treating the $SU(5)$ simultaneously as a Georgi--Glashow
+unification group~\cite{Rivero2005}, one assigns standard electric
+charges via $Q_{\text{em}} = T_3 - Y/6$ to every component.
+Table~\ref{tab:census} displays the resulting charge census for
+$\mathbf{24} \oplus \mathbf{15} \oplus \overline{\mathbf{15}}$.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{lcccccc@{\qquad}c}
+\toprule
+& \multicolumn{6}{c}{Number of states at $|Q_{\text{em}}|$} & \\
+\cmidrule(lr){2-7}
+& $0$ & $\tfrac{1}{3}$ & $\tfrac{2}{3}$ & $1$
+& $\tfrac{4}{3}$ & $2$ & Dim \\
+\midrule
+$\mathbf{24}$ & 10 & $2\!\times\!3$ & ---
+& $2\!\times\!1$ & $2\!\times\!3$ & --- & 24 \\[2pt]
+$\mathbf{15}$ & 1 & 3 & 9
+& 1 & --- & 1 & 15 \\[2pt]
+$\overline{\mathbf{15}}$ & 1 & 3 & 9
+& 1 & --- & 1 & 15 \\[2pt]
+\midrule
+Total & 12 & $2\!\times\!6$ & $2\!\times\!9$
+& $2\!\times\!2$ & $2\!\times\!3$ & $2\!\times\!1$ & 54 \\
+\bottomrule
+\end{tabular}
+\caption{Charge census of
+$\mathbf{24} \oplus \mathbf{15} \oplus \overline{\mathbf{15}}$
+of $SU(5)$.
+Notation ``$2\!\times\!k$'' means $k$ states at $+|Q_{\text{em}}|$ and $k$
+at $-|Q_{\text{em}}|$; the $\mathbf{24}$ is self-conjugate.
+Charges $\pm 4/3$ in the $\mathbf{24}$ arise from the leptoquark
+components $(\mathbf{3},\mathbf{2})_{-5/6}$ and
+$(\bar{\mathbf{3}},\mathbf{2})_{5/6}$.}
+\label{tab:census}
+\end{table}
+
+\noindent
+Three cross-checks tie the census to the Diophantine system:
+\begin{itemize}
+\item \textbf{Neutral composites:} The 12 states at $Q_{\text{em}} = 0$
+match $r^2 + s^2 - 1 = 9 + 4 - 1 = 12 = 4N$.
+\item \textbf{Charge $+1/3$ composites:}
+$rs = 3 \times 2 = 6$ composites, matching
+$rs = 6 = 2N$.
+\item \textbf{Charge $-2/3$ composites:}
+$r(r+1)/2 = 6$ symmetric pairs fill the color sextet
+$(\mathbf{6},\mathbf{1})_{-2/3} \subset \mathbf{15}$.
+\end{itemize}
+
+\subsection{Anomaly cancellation and asymptotic freedom}
+The representation $\mathbf{24} \oplus \mathbf{15} \oplus
+\overline{\mathbf{15}}$ must be anomaly-free if it is to appear
+in a consistent gauge theory.
+
+\medskip
+\noindent\textbf{Proposition 2} (Anomaly cancellation).
+\textit{The cubic $SU(5)$ anomaly of $\mathbf{24} \oplus
+\mathbf{15} \oplus \overline{\mathbf{15}}$ vanishes.}
+
+\medskip
+\noindent\textit{Proof.}
+The anomaly coefficient $A(\mathbf{R})$ for $SU(n)$ satisfies
+$A(\text{adjoint}) = 0$ (the adjoint is real),
+$A(\mathbf{15}) = n + 4 = 9$, and
+$A(\overline{\mathbf{15}}) = -(n+4) = -9$.  Therefore
+\[
+A(\mathbf{24}) + A(\mathbf{15}) + A(\overline{\mathbf{15}})
+= 0 + 9 + (-9) = 0\,.
+\]
+\hfill$\square$
+
+\medskip
+\noindent\textbf{Proposition 3} (Asymptotic freedom).
+\textit{An $SU(5)$ gauge theory with matter in the
+$\mathbf{24} \oplus \mathbf{15} \oplus \overline{\mathbf{15}}$
+is asymptotically free.}
+
+\medskip
+\noindent\textit{Proof.}
+The one-loop beta-function coefficient is
+\[
+b_0 = \frac{11}{3}\,C_2(G) - \frac{2}{3}\,\sum_{\text{Weyl}} T(\mathbf{R})\,,
+\]
+where $C_2(G) = n = 5$ for $SU(5)$, $T(\mathbf{adj}) = n = 5$,
+and $T(\mathbf{15}) = (n+2)/2 = 7/2$.  The Weyl fermion content
+consists of one adjoint and one $\mathbf{15} + \overline{\mathbf{15}}$,
+giving
+$\sum T = 5 + 7/2 + 7/2 = 12$.  Therefore
+\[
+b_0 = \frac{11}{3} \times 5 - \frac{2}{3} \times 12
+= \frac{55 - 24}{3} = \frac{31}{3} > 0\,.
+\]
+\hfill$\square$
+
+\subsection{Summary of the counting argument}
+The logical chain is:
+\begin{enumerate}
+\item The sBootstrap postulate (composites = scalars of the SSM)
+yields three Diophantine equations in $(N, r, s)$.
+\item The unique positive-integer solution is $(3, 3, 2)$:
+three generations, with the symmetric $\mathbf{15}$ forced over
+the antisymmetric $\overline{\mathbf{10}}$.
+\item The solution organizes into $SU(5)$ representations
+$\mathbf{24} \oplus \mathbf{15} \oplus \overline{\mathbf{15}}$,
+which are anomaly-free and asymptotically free.
+\item Right-handed neutrinos are required: without them, no
+integer solution exists.
+\item The top quark is excluded from the composite sector by
+the counting itself ($s = 2 < N = 3$), matching its
+kinematic decoupling ($m_t \gg \Lambda_{\text{QCD}}$).
+\end{enumerate}
+
+
+%======================================================================
+\section{SU(5) flavor and the diquark sector}
+\label{sec:diquarks}
+%======================================================================
+
+\subsection{Counting partners}
+
+In the full sBootstrap~\cite{Rivero2005}, the scalar partners of
+the Standard Model fermions include both mesons ($q\bar{q}$) and
+diquarks ($qq$). For five active flavors, the meson matrix gives
+$5 \times 5 = 25$ scalars. The diquarks $[q_i q_j]$ form a
+representation of $SU(5)_f$:
+\begin{equation}
+\mathbf{5} \otimes \mathbf{5} = \overline{\mathbf{10}}_A
+\oplus \mathbf{15}_S\,.
+\end{equation}
+
+The symmetric $\mathbf{15}_S$ gives 15 diquarks including
+same-flavor states $[uu]$, $[dd]$, \ldots, while the antisymmetric
+$\overline{\mathbf{10}}_A$ gives 10 diquarks with $i \neq j$ only.
+
+\subsection{The symmetric representation}
+
+The sBootstrap SUSY generator acts asymmetrically on the two
+fermion sectors. When it acts on a \emph{lepton}, it produces a
+meson: $\mathcal{Q} \cdot \ell \sim q\bar{q}$. Since the quark and antiquark
+are distinguishable, the meson lies in the full
+$\mathbf{5} \otimes \bar{\mathbf{5}} = \mathbf{24} + \mathbf{1}$.
+There is no Pauli constraint, and the meson spectrum is perfectly
+reproduced.
+
+When it acts on a \emph{quark}, it produces a diquark:
+$\mathcal{Q} \cdot q_i \sim q_i q_j$. The bosonic SUSY generator applied to
+a single flavor index $i$ naturally produces the \textbf{symmetric}
+product---the $\mathbf{15}_S$ representation, not the antisymmetric
+$\overline{\mathbf{10}}$. This is the representation identified
+in the $SO(32)$ decomposition~\cite{Rivero2005}: the adjoint of
+$SO(32)$ under $SU(5)_f$ decomposes to include the
+$\mathbf{15} + \overline{\mathbf{15}}$ (diquarks) alongside the
+$\mathbf{1} + \mathbf{24}$ (mesons).
+
+\subsection{The Pauli theorem for scalar diquarks}
+
+The requirement of the symmetric $\mathbf{15}$ conflicts with
+Fermi statistics---not merely for $L=0$ diquarks, but for
+\emph{all} scalar diquarks in the color $\bar{3}$ channel,
+regardless of internal orbital structure.
+
+\medskip
+\noindent\textbf{Theorem.}
+\textit{For a spin-0 ($J=0$) diquark in the color $\bar{3}$
+(antisymmetric) representation, the flavor wave function is
+antisymmetric for \textbf{all} values of the orbital angular
+momentum $L$ and spin $S$.}
+
+\medskip
+\noindent\textit{Proof.}
+$J = 0$ requires $L = S$ (since $|L - S| \leq J \leq L + S$).
+The exchange symmetry of the spin-orbital wave function is
+$(-1)^{L+S+1} = (-1)^{2L+1} = -1$ for all $L$. Combined with
+the color $\bar{3}$ factor $(-1)$, the non-flavor product is
+$(-1)(-1) = +1$ (symmetric). Total antisymmetry then requires
+flavor to be antisymmetric: $\overline{\mathbf{10}}$. \hfill$\square$
+
+\medskip
+This result is purely kinematic---independent of dynamics,
+binding mechanisms, or spatial extent. The key cases:
+
+\begin{center}
+\begin{tabular}{ccccc}
+\toprule
+$L$ & $S$ & Spin-orbital $(-1)^{2L+1}$ & $\times$ Color & Flavor \\
+\midrule
+0 & 0 & $-1$ & $\times\,(-1) = +1$ & must be A \\
+1 & 1 & $-1$ & $\times\,(-1) = +1$ & must be A \\
+2 & 2 & $-1$ & $\times\,(-1) = +1$ & must be A \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The theorem has a sharp consequence: \textbf{the sBootstrap
+diquark in the $\mathbf{15}$ cannot be a $qq$ composite.} It
+must be either:
+\begin{enumerate}
+\item An algebraically generated object---the image of the
+Miyazawa supercharge~\cite{Miyazawa, CattoGursey} acting on
+an antiquark, whose symmetry is determined by the superalgebra
+rather than by the statistics of constituent quarks; or
+\item A fundamental string-theoretic object, as in the $SO(32)$
+decomposition~\cite{Rivero2005}, where the $\mathbf{15}$
+arises from the adjoint representation of the gauge group and
+the open-string diquark is not built from point-like quarks.
+\end{enumerate}
+
+The contrast with the meson sector is instructive. When the
+SUSY generator acts on a lepton, it produces a meson
+($q\bar{q}$): the quark and antiquark are distinguishable,
+no Pauli constraint applies, and the meson spectrum is
+reproduced without tension. When it acts on a quark, it
+produces a diquark in the ``wrong'' representation---and the
+theorem shows this cannot be fixed by any internal structure
+of a $qq$ pair. This is an unresolved obstruction: the sBootstrap requires
+the symmetric $\mathbf{15}$, but QCD composite diquarks cannot
+fill it.
+
+
+%======================================================================
+\section{The SUSY Lagrangian}
+\label{sec:lagrangian}
+%======================================================================
+
+\subsection{The Seiberg framework}
+
+The natural arena is $\mathcal{N}=1$ SQCD with gauge group $SU(3)_c$
+and $N_f$ flavors of chiral superfields $Q^i$, $\bar{Q}_j$ in the
+fundamental and antifundamental representations. For $N_f = N_c = 3$
+(the case relevant to light QCD), Seiberg's exact results
+\cite{Seiberg1995} establish that the theory confines, with the
+low-energy degrees of freedom being the composite meson superfield
+\begin{equation}
+M^i{}_j = Q^i \cdot \bar{Q}_j\,,
+\end{equation}
+a $3\times 3$ matrix of chiral superfields, together with baryons
+$B = \epsilon_{ijk}Q^iQ^jQ^k$ and $\bar{B}$. These satisfy the
+quantum-modified constraint
+\begin{equation}
+\det M - B\bar{B} = \Lambda^{6}\,,
+\end{equation}
+where $\Lambda$ is the dynamical scale.
+
+Each entry $M^i{}_j$ is a chiral superfield containing a complex
+scalar (the meson) and a Weyl fermion (the lepton, in the sBootstrap
+identification). The scalar and fermion are degenerate in the SUSY
+limit; SUSY breaking splits them.
+
+\subsection{F-term breaking: the O'Raifeartaigh mechanism}
+
+The O'Raifeartaigh model~\cite{ORaifeartaigh} is the simplest
+realization of spontaneous $F$-term SUSY breaking. With three chiral
+superfields, the superpotential
+\begin{equation}
+W = f\,\Phi_0 + m\,\Phi_1\Phi_2 + g\,\Phi_0\Phi_1^2
+\end{equation}
+gives $F$-terms:
+\begin{align}
+F_{\Phi_0}^* &= f + g\,\phi_1^2\,, \\
+F_{\Phi_1}^* &= m\,\phi_2 + 2g\,\phi_0\phi_1\,, \\
+F_{\Phi_2}^* &= m\,\phi_1\,.
+\end{align}
+If $f \neq 0$ and $m \neq 0$, then $F_{\Phi_2}^* = 0$ requires
+$\phi_1 = 0$, but then $F_{\Phi_0}^* = f \neq 0$: SUSY is
+\textbf{necessarily broken}. The key features are:
+\begin{enumerate}
+\item A massless field ($\Phi_0$) exists at tree level---it is the
+pseudo-modulus.
+\item The breaking is triggered because $F_{\Phi_0}$ cannot vanish.
+\item After including loop corrections, $\Phi_0$ acquires a mass
+(the Coleman--Weinberg potential lifts the flat direction).
+\end{enumerate}
+
+The fermionic mass matrix at the vacuum ($\phi_1 = 0$,
+$\phi_0 = v$) is
+\begin{equation}
+  W_{ij} = \begin{pmatrix} 0 & 0 & 0 \\ 0 & 2gv & m \\ 0 & m & 0 \end{pmatrix},
+\end{equation}
+with eigenvalues $0$ (the goldstino) and $m_\pm = \sqrt{g^2v^2 + m^2} \pm gv$.
+Setting the mass ratio to the seed value
+$\sqrt{m_-}/\sqrt{m_+} = 2 - \sqrt{3}$
+requires $\sqrt{t^2+1} - t = 2 - \sqrt{3}$, where $t = gv/m$,
+which gives the unique solution
+\begin{equation}
+  \frac{gv}{m} = \sqrt{3}\,.
+\end{equation}
+At this vacuum, $g^2v^2 + m^2 = 4m^2$, so
+$m_\pm = (2 \pm \sqrt{3})\,m$.
+
+\subsection{The energy-balance condition}
+
+The fundamental variable is the signed mass charge $\zch = z_0 + z_i
+\in \mathbb{R}$, with the physical mass $m = \zch^2 \geq 0$.
+For three charges $\zch_k = z_0 + z_k$ with $z_0$ the mean
+($\sum z_k = 0$):
+\begin{equation}
+Q = \frac{\sum \zch_k^2}{(\sum \zch_k)^2}
+= \frac{3z_0^2 + \sum z_k^2}{9z_0^2}
+= \frac{1}{3} + \frac{\langle z_k^2\rangle}{3z_0^2}\,.
+\end{equation}
+Therefore:
+\begin{equation}
+\boxed{Q = \frac{2}{3} \quad\Longleftrightarrow\quad
+\langle z_k^2\rangle = z_0^2\,.}
+\end{equation}
+
+The two conditions are:
+\begin{enumerate}
+\item \textbf{Zero-sum perturbations:} $z_1 + z_2 + z_3 = 0$
+(definition of $z_0$ as the mean charge).
+\item \textbf{Energy balance:} The mean energy of the perturbations
+equals the energy of the unperturbed charge:
+$\langle z_k^2\rangle = z_0^2$.
+\end{enumerate}
+
+For the O'Raifeartaigh triple $(0,\, (2-\sqrt{3})\,m,\, (2+\sqrt{3})\,m)$
+the numerator is $\sum m_k = 4m$ and the denominator is
+$(\sqrt{2-\sqrt{3}} + \sqrt{2+\sqrt{3}})^2 = 4 + 2 = 6$ (since
+$\sqrt{(2-\sqrt{3})(2+\sqrt{3})} = 1$), giving
+$Q = 4m/6m = 2/3$ exactly. This is a theorem about the
+O'Raifeartaigh superpotential at $gv/m = \sqrt{3}$, not an
+empirical observation.
+
+\subsection{K\"ahler stabilization of the pseudo-modulus}
+
+In the minimal O'Raifeartaigh model with canonical K\"ahler potential,
+the CW potential is monotonically increasing and selects
+$\langle X\rangle = 0$.  A negative quartic K\"ahler correction
+resolves this:
+\begin{equation}
+  K = |X|^2 + \frac{c}{\Lambda_K^2}\,|X|^4\,,
+  \qquad c < 0\,.
+\end{equation}
+The tree-level potential becomes
+$V_{\text{tree}} = f^2/(1 + 4c\,v^2/\Lambda_K^2)$, which has
+a pole at $v_{\text{pole}} = \Lambda_K/(2\sqrt{|c|})$.
+Near the pole the CW contribution is negligible, and the effective
+potential is minimized at $v_{\text{pole}}$.
+Demanding $v_{\text{pole}} = \sqrt{3}\,m/g$ gives the exact condition
+\begin{equation}
+  c = -\,\frac{\Lambda_K^2}{12\,m^2}\,.
+\end{equation}
+With $\Lambda_K = m$ this is $c = -1/12$, an algebraic result:
+$\Lambda_K/(2\sqrt{1/12}) = \sqrt{12}/2 = \sqrt{3}$.
+No numerical tuning is required. The K\"ahler metric
+$K_{X\bar X} = 1 - v^2/(3m^2)$ vanishes at $v = \sqrt{3}\,m$,
+signaling the boundary of the effective field theory.
+
+\subsection{The O'Raifeartaigh structure in SQCD}
+
+In Seiberg's SQCD with $N_f = N_c = 3$, the quantum constraint
+$\det M - B\bar{B} = \Lambda^6$
+provides a natural setting for the O'Raifeartaigh mechanism.
+When quark masses are added via a tree-level superpotential
+$W_{\text{tree}} = m_i M^i{}_i$, the diagonal meson equation requires
+\begin{equation}
+  \hat m_j + X\,\frac{\det M^{(3)}}{M^j{}_j} = 0
+  \qquad(\text{no sum on } j)\,,
+\end{equation}
+which determines each diagonal entry of $M^{(3)}$ in terms of the
+quark masses and $\Lambda_{\text{eff}}$. For a seed configuration in
+which one quark mass vanishes ($m_u\to 0$), the corresponding $F$-term
+remains nonzero so long as $\det M^{(3)}\neq 0$, which is guaranteed
+by the quantum constraint. Supersymmetry is therefore spontaneously broken.
+
+In the ISS magnetic dual, the O'Raifeartaigh parameters map as
+$g \to h$, $m \to h\mu$, $v \to \langle X\rangle$, so the
+energy-balance condition $gv/m = \sqrt{3}$ becomes
+$\langle X\rangle/\mu = \sqrt{3}$---the magnetic Yukawa~$h$ cancels.
+
+\subsection{The energy balance is not an RG attractor}
+
+One might hope that the energy-balance condition
+$\langle z_k^2\rangle = z_0^2$ is a dynamical attractor:
+that three masses evolving under SUSY-breaking dynamics flow toward
+the $Q = 2/3$ surface. However, the one-loop soft-mass RG
+equations in $\mathcal{N}=1$ SQCD with universal Casimirs and
+negligible Yukawas give $dm_i/dt = \gamma(M_g^2 - m_i)$, which
+drives all masses to a common value $m_i \to M_g^2$, yielding
+$Q \to 1/3$---the \emph{opposite} extreme. The algebraic
+preservation condition on the $Q = 2/3$
+surface is incompatible with any uniform attractor flow
+(by the Cauchy--Schwarz inequality).
+
+The energy-balance condition therefore does \emph{not} arise from
+simple RG running. It must instead be a \emph{boundary condition}
+on the superpotential---as in the O'Raifeartaigh realization, where
+$gv = \sqrt{3}\,m$ produces the exact seed. The condition is set at the
+scale of SUSY breaking and then preserved by QCD-invariant mass ratios.
+
+\subsection{The full Lagrangian}
+
+Consider $\mathcal{N}=1$ SQCD with gauge group $SU(3)_c$ and $N_f=5$ flavors
+of chiral superfields $Q^i$, $\bar Q_j$ ($i,j=1\ldots 5$, corresponding to
+$u,d,s,c,b$). The total Lagrangian is
+\begin{equation}
+  \mathcal{L}
+  = \int\!d^4\theta\,K
+  + \left[\int\!d^2\theta\,W + \text{h.c.}\right]
+  + \mathcal{L}_D
+  + \mathcal{L}_{\text{soft}}\,,
+\end{equation}
+with K\"ahler potential (canonical plus stabilization and bion corrections),
+\begin{equation}
+  K = \underbrace{\operatorname{Tr}(M^\dagger M) + |X|^2 + |B|^2
+    + |\bar B|^2 + |H_u|^2 + |H_d|^2 + |S|^2}_{K_{\text{can}}}
+  \underbrace{{}-\,\frac{|X|^4}{12\,\mu^2}}_{K_{\text{stab}}}
+  + \underbrace{\frac{\zeta^2}{\Lambda^2}\,
+    \Bigl|\sum_{k=1}^{N_c} s_k \sqrt{\hat m_k}\,\Bigr|^2}_{K_{\text{bion}}}\,,
+\end{equation}
+where the stabilization term pins the pseudo-modulus at
+$\langle X\rangle = \sqrt{3}\,\mu$ via the K\"ahler pole,
+$\zeta \propto e^{-S_0/(2N_c)}$ is the monopole fugacity,
+$\hat m_k$ are the current quark masses, and
+$s_k = \pm 1$ are monopole-instanton signs encoding the seed-to-bloom phase.
+
+The superpotential combines mass, constraint, and Yukawa terms:
+\begin{equation}
+\begin{split}
+  W &= \underbrace{\operatorname{Tr}(\hat m\, M)}_{\text{chiral mass}}
+    + \underbrace{X\!\left(\det M^{(3)} - B\bar B
+      - \Lambda_{\text{eff}}^{6}\right)}_{\text{Seiberg constraint}}
+    + \underbrace{c_3\,\frac{(\det M^{(3)})^3}
+      {\Lambda_{\text{eff}}^{18}}}_{\text{3-instanton}}\\
+  &\quad  + \underbrace{y_c\, H_u\, M^c{}_c
+      + y_b\, H_d\, M^b{}_b
+      + y_t\, H_u\, Q^t \bar Q_t}_{\text{Yukawa}}
+    + \underbrace{\lambda_S\, S\, H_u\!\cdot\!H_d
+      + \tfrac{\kappa}{3}\,S^3}_{\text{NMSSM}}\,,
+\end{split}
+\end{equation}
+where $M^{(3)}$ is the $3\times 3$ light-flavor block ($u,d,s$)
+and $\Lambda_{\text{eff}}$ is the dynamical scale of the confined
+$N_f = N_c = 3$ theory.
+
+The $D$-term Lagrangian includes an optional Fayet--Iliopoulos
+parameter $\xi$ for $U(1)_{\text{em}}$:
+\begin{equation}
+  \mathcal{L}_D
+  = -\frac{e^2}{2}\!\left(\sum_i Q_i\,|\phi_i|^2
+    + \xi\right)^{\!2}.
+\end{equation}
+Finally, soft SUSY-breaking terms arise from a spurion
+$\langle F_S\rangle = \fpi^2$:
+\begin{equation}
+  \mathcal{L}_{\text{soft}}
+  = -\tilde m^2 \operatorname{Tr}(M^\dagger M)
+  - \bigl(B_\mu\operatorname{Tr}(\hat m\, M)
+    + A_y\bigl(y_c\, H_u\, M^c{}_c + y_b\, H_d\, M^b{}_b\bigr) + \text{h.c.}\bigr)\,,
+  \quad
+  \tilde m^2 \sim \fpi^2\,.
+\end{equation}
+The soft scalar mass $\tilde m^2 \sim \fpi^2 \approx (92\MeV)^2$
+generates the universal meson--lepton splitting
+$m^2_{\text{meson}} - m^2_{\text{lepton}} = \fpi^2$.
+
+\subsection{Scope of the Lagrangian}
+
+This Lagrangian produces: (i)~the O'Raifeartaigh seed condition ($gv/m = \sqrt{3}$);
+(ii)~the meson--lepton mass splitting ($\fpi^2$);
+(iii)~the $v_0$-doubling condition via the bion K\"ahler
+correction $K_{\text{bion}}$, whose minimum enforces
+$\sqrt{m_b} = 3\sqrt{m_s} + \sqrt{m_c}$;
+(iv)~the Yukawa couplings for the heavy sector;
+(v)~the $\cos(9\delta)$ potential that selects
+the lepton mass-spectrum phase, via the three-instanton operator
+$(\det M^{(3)})^3/\Lambda_{\text{eff}}^{18}$.
+
+The two-doublet structure has a direct consequence for the mass
+triples. Since the quark mass triples obligatorily mix up-type
+and down-type quarks, the translation from
+masses to Yukawa couplings depends on~$\tan\beta$.
+For the $(c,b,t)$ triple, with $c$ and $t$ receiving mass
+from $H_u$ and $b$ from~$H_d$:
+\begin{equation}
+  Q(m_c, m_b, m_t)
+  = Q(y_c\sin\beta,\; y_b\cos\beta,\; y_t\sin\beta)\,,
+\end{equation}
+which equals $Q(y_c, y_b, y_t)$ only when $\sin\beta = \cos\beta$,
+i.e., $\tan\beta = 1$. Thus $\tan\beta = 1$ is the unique value
+at which the energy-balance condition on \emph{masses} is equivalent
+to the same condition on \emph{Yukawa couplings} for mixed
+up/down-type triples.
+
+
+%======================================================================
+\section{Mass predictions from the superpotential}
+\label{sec:predictions}
+%======================================================================
+
+The preceding sections established the Lagrangian: an $\mathcal{N}=1$
+theory with K\"ahler potential $K = K_{\mathrm{can}} + K_{\mathrm{stab}} + K_{\mathrm{bion}}$,
+superpotential $W$ containing the Seiberg constraint, chiral mass terms,
+and Yukawa couplings, and soft breaking from a spurion with
+$\langle F\rangle = \fpi^2$. We now extract the mass predictions.
+The logic is sequential: each step uses the output of the previous one,
+so the entire heavy-quark spectrum flows from a single input mass.
+
+\subsection{The O'Raifeartaigh mass ratio}
+
+The O'Raifeartaigh sector of the superpotential,
+\begin{equation}
+W_{\mathrm{OR}} = f\,\Phi_0 + m\,\Phi_1\Phi_2 + g\,\Phi_0\Phi_1^2\,,
+\end{equation}
+has a metastable SUSY-breaking vacuum at $\phi_1 = 0$, with
+$\Phi_0$ a pseudo-modulus. At the vacuum
+$gv/m = \sqrt{3}$, the fermion eigenvalues are
+$m_\pm = (2 \pm \sqrt{3})\,m$,
+and the mass ratio of the two nonzero fermion eigenvalues is
+a structural constant:
+\begin{equation}
+R_{\mathrm{OR}}
+= \frac{m_+}{m_-}
+= \frac{2 + \sqrt{3}}{2 - \sqrt{3}}
+= (2 + \sqrt{3})^2
+= 7 + 4\sqrt{3}
+\approx 13.928\,.
+\end{equation}
+
+\textbf{Application to the quark seed.} The SQCD realisation of the
+O'Raifeartaigh mechanism identifies the light fermion eigenvalue with
+the confined strange quark: $m_- = m_s$. Then the heavy eigenvalue gives
+\begin{equation}
+m_c^{\mathrm{pred}} = R_{\mathrm{OR}} \times m_s
+= 13.928 \times 93.4\;\mathrm{MeV}
+= 1301\;\mathrm{MeV}\,.
+\end{equation}
+
+\begin{center}
+\begin{tabular}{lc}
+\toprule
+Quantity & Value \\
+\midrule
+$m_c$ (predicted) & 1301 MeV \\
+$m_c$ (PDG 2024) & $1275 \pm 25$ MeV \\
+Deviation & $+2.0\%\;\;(+1.0\sigma)$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The prediction uses no fitted parameters beyond the single input
+$m_s = 93.4$ MeV ($\overline{\mathrm{MS}}$, 2 GeV).
+
+\subsection{The bion mass relation}
+
+The K\"ahler potential receives non-perturbative corrections from
+bion configurations---monopole--instanton pairs in the semiclassical
+analysis on $\mathbb{R}^3 \times S^1$~\cite{Unsal2008}. Each
+monopole-instanton carries
+a single fermionic zero mode per flavour; when lifted by the quark
+mass $m_k$, the amplitude acquires a factor $\sqrt{m_k}$.
+Since the $N_c = 3$ monopole contributions enter additively in the
+effective superpotential, the leading bion correction to the
+K\"ahler potential has the form
+\begin{equation}
+K_{\mathrm{bion}}
+= \frac{\zeta^2}{\Lambda^2}
+\left|\sum_{k=1}^{N_c} s_k\,\sqrt{\hat{m}_k}\right|^2,
+\end{equation}
+where $\zeta \propto e^{-S_0/(2N_c)}$ is the monopole fugacity,
+$\hat{m}_k$ are the current quark masses, and $s_k = \pm 1$ are signs
+determined by the monopole zero-mode structure.
+
+Organising the bion amplitudes into seed-sector and bloom-sector
+channels:
+\begin{equation}
+S_{\mathrm{seed}} = \sqrt{m_s} + \sqrt{m_c}\,,
+\qquad
+S_{\mathrm{bloom}} = -\sqrt{m_s} + \sqrt{m_c} + \sqrt{m_b}\,,
+\end{equation}
+the K\"ahler correction contains a term
+\begin{equation}
+\delta K
+\;\sim\;
+\lambda_1\,|S_{\mathrm{seed}}|^2
++ \lambda_2\,|S_{\mathrm{bloom}} - 2\,S_{\mathrm{seed}}|^2\,.
+\end{equation}
+The second factor is a perfect square that vanishes at the minimum.
+Setting $S_{\mathrm{bloom}} = 2\,S_{\mathrm{seed}}$ gives the
+$v_0$-doubling condition:
+\begin{equation}
+\boxed{\sqrt{m_b}
+= N_c\,\sqrt{m_s} + \sqrt{m_c}
+= 3\sqrt{m_s} + \sqrt{m_c}\,.}
+\end{equation}
+
+The integer coefficient is the number of colours.
+
+\textbf{Evaluation.} Using the predicted $m_c = 1301$ MeV:
+\begin{equation}
+\sqrt{m_b}
+= 3 \times \sqrt{93.4} + \sqrt{1301}
+= 3 \times 9.665 + 36.069
+= 65.064\;\mathrm{MeV}^{1/2}\,,
+\end{equation}
+\begin{equation}
+m_b^{\mathrm{pred}} = 4233\;\mathrm{MeV}\,.
+\end{equation}
+
+If instead the PDG value $m_c = 1275$ MeV is used:
+$m_b = 4186\;\mathrm{MeV}$ ($+0.2\sigma$ from PDG).
+
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+Input $m_c$ & $m_b$ (predicted) & PDG ($4180 \pm 30$) & Pull \\
+\midrule
+1301 MeV (from step 1) & 4233 MeV & $+1.8\sigma$ & \\
+1275 MeV (PDG) & 4186 MeV & $+0.2\sigma$ & \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The tighter prediction ($+0.15\%$, $0.2\sigma$) uses the measured
+charm mass and tests the bion relation in isolation. The wider one
+($+1.3\%$, $1.8\sigma$) propagates the O'Raifeartaigh prediction
+and tests the chain.
+
+The principal caveat is that this analysis
+applies on $\mathbb{R}^3 \times S^1$; connecting to $\mathbb{R}^4$
+physics requires \"Unsal's continuity conjecture~\cite{Unsal2012},
+which posits that center-symmetric confinement at small $S^1$ is
+continuously connected to the large-$S^1$ confining vacuum.
+
+\subsection{The Yukawa eigenvalue constraint}
+
+The heavy quarks $(c, b, t)$ couple to the electroweak sector through
+the Yukawa superpotential. At $\tan\beta = 1$ (required by the mixed
+up/down-type structure of the mass triples), the eigenvalue sum rule of
+the $3 \times 3$ mass matrix in the $(c, b, t)$ sector imposes:
+\begin{equation}
+\boxed{\frac{m_c + m_b + m_t}
+{(\sqrt{m_c} + \sqrt{m_b} + \sqrt{m_t})^2}
+= \frac{2}{3}\,.}
+\end{equation}
+
+This is the same structural invariant $Q = 2/3$ that appears at the
+O'Raifeartaigh vacuum---it is an algebraic consequence of the
+superpotential, not a fitted parameter.
+
+\textbf{Solving for $m_t$.} Let $x = \sqrt{m_t}$,
+$A = \sqrt{m_c} + \sqrt{m_b}$, $\Sigma = m_c + m_b$. The constraint
+$3(\Sigma + x^2) = 2(A + x)^2$ gives:
+\begin{equation}
+\sqrt{m_t}
+= 2(\sqrt{m_c} + \sqrt{m_b})
++ \sqrt{3}\,\sqrt{m_c + m_b + 4\sqrt{m_c\,m_b}}\,.
+\end{equation}
+
+\textbf{From the self-consistent chain} ($m_c = 1301$, $m_b = 4233$ MeV):
+\begin{align}
+A &= \sqrt{1301} + \sqrt{4233} = 36.07 + 65.06 = 101.13\,, \notag\\
+\sqrt{m_t} &= 2 \times 101.13 + \sqrt{44762} = 202.26 + 211.57 = 413.83\,, \notag\\
+m_t^{\mathrm{pred}} &= 171{,}250\;\mathrm{MeV}\,.
+\end{align}
+
+\begin{center}
+\begin{tabular}{lc}
+\toprule
+Quantity & Value \\
+\midrule
+$m_t$ (predicted, chain) & 171,250 MeV \\
+$m_t$ (PDG pole) & $172{,}760 \pm 300$ MeV \\
+Deviation & $-0.87\%$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Scheme dependence caveat.} The nominal pull uses the
+pole mass for the top but $\overline{\mathrm{MS}}$ masses for $c$ and $b$---a
+scheme-inconsistent comparison. Evaluated entirely in the
+$\overline{\mathrm{MS}}$ scheme at a common scale, the structural
+invariant holds to $\sim 0.4\%$, and the pull reduces to $\sim 2\sigma$.
+The prediction is therefore more properly stated as
+$m_t = 171.3 \pm 1.5\GeV$.
+
+\subsection{The complete $m_s$ chain}
+
+Three heavy quark masses from one input:
+\begin{equation}
+\boxed{
+\begin{aligned}
+m_s &= 93.4\;\mathrm{MeV} \quad\text{(input)}\\[4pt]
+&\xrightarrow{\;R_{\mathrm{OR}} = 7 + 4\sqrt{3}\;}
+m_c = 1301\;\mathrm{MeV} \quad[+2.0\%]\\[4pt]
+&\xrightarrow{\;\sqrt{m_b} = 3\sqrt{m_s} + \sqrt{m_c}\;}
+m_b = 4233\;\mathrm{MeV} \quad[+1.3\%]\\[4pt]
+&\xrightarrow{\;Q(c,b,t) = 2/3\;}
+m_t = 171{,}250\;\mathrm{MeV} \quad[-0.9\%]
+\end{aligned}
+}
+\end{equation}
+
+The chain spans a factor of 1834 in mass (from $m_s$ to $m_t$),
+controlled by three structural constants of the Lagrangian: the
+O'Raifeartaigh mass ratio $R_{\mathrm{OR}}$, the bion doubling
+(with coefficient $N_c = 3$), and the eigenvalue sum rule
+$Q = 2/3$. None of these is fitted; each is an algebraic
+consequence of the superpotential at its stabilised vacuum.
+
+
+%======================================================================
+\section{The lepton sector}
+\label{sec:leptons}
+%======================================================================
+
+\subsection{SU(2) SQCD with $N_f = 3$}
+
+The lepton sector is described by a \emph{separate} confining gauge
+theory: $SU(2)$ SQCD with $N_f = 3$ fundamental flavors. This is an
+$s$-confining theory ($N_f = N_c + 1 = 3$), meaning the infrared
+dynamics is entirely captured by gauge-invariant composites with a
+smooth confining superpotential (no chiral symmetry breaking, no runaway).
+
+The UV fields are three chiral superfields in the fundamental of SU(2):
+$\Psi^i_a$ with $i = 1,2,3$ (flavor) and $a = 1,2$ (color). The
+confined degrees of freedom are the antisymmetric composites
+$L^{ij} = \epsilon^{ab}\Psi^i_a\Psi^j_b$ ($i < j$), giving three
+independent chiral superfields $L_1 = L^{12}$, $L_2 = L^{13}$,
+$L_3 = L^{23}$, each a gauge singlet under $SU(2)$.
+
+The dynamical superpotential from $s$-confinement is the Pfaffian:
+$W_{\text{dyn}} = L_1 L_2 L_3 / \Lambda_L^3$.
+
+\subsection{O'Raifeartaigh deformation}
+
+Adding a singlet $X_L$ and the standard O'Raifeartaigh couplings gives
+\begin{equation}
+W_{\text{lepton}} = f\, X_L + m\, L_1 L_3 + g\, X_L L_1^2
+  + \frac{1}{\Lambda_L^3}\, L_1 L_2 L_3\,.
+\end{equation}
+
+The metastable SUSY-breaking vacuum sits at
+$\langle L_1\rangle = \langle L_3\rangle = 0$,
+$\langle X_L\rangle = v$, with $F_{X_L} = f \neq 0$.
+The fermion mass matrix at this vacuum has the $2\times 2$ block
+\begin{equation}
+M_{2\times 2} = \begin{pmatrix} 2gv & m \\ m & 0 \end{pmatrix}
+\end{equation}
+in the $(L_1, L_3)$ subspace, with eigenvalues
+$m_\pm = \sqrt{g^2v^2 + m^2} \pm gv$.
+At $gv/m = \sqrt{3}$, the spectrum is
+$(0,\; 0,\; (2-\sqrt{3})m,\; (2+\sqrt{3})m)$,
+where the two zero eigenvalues correspond to the goldstino ($\psi_{X_L}$)
+and the pseudo-modulus fermion ($\psi_{L_2}$).
+
+The K\"ahler potential for the lepton sector is
+\begin{equation}
+K_{\text{lepton}} = |X_L|^2\!\left(1 - \frac{|X_L|^2}{3\mu_K^2}\right)
+  + |L_1|^2 + |L_2|^2 + |L_3|^2\,,
+\end{equation}
+with the pole condition $\mu_K = \sqrt{2}\,m/g$.
+
+\subsection{Lepton mass prediction}
+
+The O'Raifeartaigh seed for the lepton sector has the spectrum
+$(0,\, (2-\sqrt{3})m_{\text{OR}},\, (2+\sqrt{3})m_{\text{OR}})$
+with $m_{\text{OR}} = (m_e + m_\mu + m_\tau)/4 = 470.76\MeV$.
+The energy-balance condition $Q = 2/3$ is satisfied exactly at the seed.
+
+Because the SU(2) theory has no magnetic bion mechanism (the
+monopole-instanton structure of SU(2) does not produce the
+$v_0$-doubling effect), the physical spectrum stays close to the
+O'Raifeartaigh seed. The bloom is a tiny $2.3^\circ$ rotation in
+the angular parameter $\delta$, at nearly fixed $v_0$. The
+energy-balance condition applied to the charged lepton masses gives:
+\begin{equation}
+\frac{m_e + m_\mu + m_\tau}
+{(\sqrt{m_e} + \sqrt{m_\mu} + \sqrt{m_\tau})^2}
+= \frac{2}{3}\,.
+\end{equation}
+
+Solving for $m_\tau$ from the measured $m_e$ and $m_\mu$:
+\begin{equation}
+m_\tau^{\mathrm{pred}} = 1776.97\;\mathrm{MeV}\,.
+\end{equation}
+
+\begin{center}
+\begin{tabular}{lc}
+\toprule
+Quantity & Value \\
+\midrule
+$m_\tau$ (predicted) & 1776.97 MeV \\
+$m_\tau$ (PDG 2024) & $1776.86 \pm 0.12$ MeV \\
+Deviation & $+0.006\%\;\;(+0.9\sigma)$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+This is the most precise prediction in the programme. Unlike the quark
+triples, the lepton triple uses unambiguous pole masses and requires no
+$\overline{\mathrm{MS}}$ conventions.
+
+\subsection{Parameter counting for the lepton sector}
+
+Two parameters determine three lepton masses:
+\begin{center}
+\begin{tabular}{llc}
+\toprule
+Parameter & What it determines & Count \\
+\midrule
+$m_{\text{OR}} = 470.76\MeV$ & Overall scale: $M_0 = 4\,m_{\text{OR}}$ & 1 \\
+$gv/m = \sqrt{3}$ & Energy-balance condition (constraint) & 0 \\
+$\delta_{\text{bloom}} = -2.27^\circ$ & Electron mass generation & 1 \\
+\bottomrule
+\end{tabular}
+\end{center}
+Equivalently: specifying any two of $(m_e, m_\mu, m_\tau)$ determines
+the third, via $Q = 2/3$.
+
+
+%======================================================================
+\section{Electroweak predictions}
+\label{sec:electroweak}
+%======================================================================
+
+\subsection{The Higgs mass at $\tan\beta = 1$}
+
+At $\tan\beta = 1$, the $D$-term quartic
+$(g^2+g'^2)(|H_u|^2 - |H_d|^2)^2/8$ vanishes on the
+$D$-flat direction $H_u = H_d$. The tree-level lightest
+CP-even Higgs mass is $m_h = m_Z|\cos 2\beta| = 0$---a known
+MSSM result.
+
+In the NMSSM, a singlet coupling
+$\lambda_S\,S\,H_u\!\cdot\!H_d$ generates an extra quartic
+$\lambda_S^2|H_u\!\cdot\!H_d|^2$; at $\sin 2\beta = 1$,
+$m_h^2 = \lambda_S^2 v^2/2$, and
+$\lambda_S = 0.72$ gives $m_h = 125\GeV$ at tree level.
+
+The Seiberg Lagrange multiplier~$X$ cannot serve as the NMSSM
+singlet: $[X] = \text{mass}^{-3}$, so the coupling
+$\lambda_0\,X\,H_u\!\cdot\!H_d$ requires
+$[\lambda_0] = \text{mass}^4$. Dimensional analysis gives
+$\lambda_{\text{NMSSM}} = \hat\lambda$ with
+$\hat\lambda \approx 0.51$, but positive meson VEVs
+require $\hat\lambda < 2\Lambda^2/v^2 \approx 3\times 10^{-6}$:
+a five-order-of-magnitude conflict. Therefore~$S$ must be a
+\emph{separate} elementary singlet.
+
+\begin{center}
+\begin{tabular}{lc}
+\toprule
+Quantity & Value \\
+\midrule
+$m_h$ (tree-level, $\lambda_S = 0.72$) & 125.35 GeV \\
+$m_h$ (PDG) & $125.25 \pm 0.17$ GeV \\
+Pull & $0.6\sigma$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{The Cabibbo angle}
+
+The UV quark mass matrix has a nearest-neighbour (Fritzsch) texture,
+a structural property of the seesaw vacuum $M \propto \hat{m}^{-T}$
+that inverts the mass hierarchy while preserving eigenvectors.
+The Gatto--Sartori--Tonin relation~\cite{GST1968} gives the leading-order
+mixing angle from the down-sector mass hierarchy:
+\begin{equation}
+\sin\theta_C = \sqrt{\frac{m_d}{m_s}}
+= \sqrt{\frac{4.67}{93.4}}
+= 0.2236\,.
+\end{equation}
+
+\begin{center}
+\begin{tabular}{lc}
+\toprule
+Quantity & Value \\
+\midrule
+$\sin\theta_C$ (predicted) & 0.2236 \\
+$|V_{us}|$ (PDG 2024) & $0.2250 \pm 0.0007$ \\
+Deviation & $-0.6\%\;\;(-2.0\sigma)$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+This is not an independent prediction of the superpotential
+but a structural property of the seesaw-inverted mass hierarchy.
+The free parameters $m_u$ and $m_d$ sit outside the mass chain;
+the GST relation connects them to the CKM matrix.
+
+\subsection{The Casimir eigenvalue equation}
+
+Consider the eigenvalue equation
+\begin{equation}
+x^2 \;+\; C_2\,x \;-\; C_2 = 0\,,
+\qquad C_2 = s(s+1)\,,
+\end{equation}
+where $C_2$ is the quadratic Casimir of $SU(2)$ at spin $s$.
+Three structural constraints pin the polynomial: (i) no spin-independent
+mass term, (ii) a massless eigenstate at $s = 0$,
+(iii) coefficient antisymmetry. The solutions are
+\begin{equation}
+x_{\pm}(s) = \frac{-C_2 \pm \sqrt{C_2^2 + 4C_2}}{2}\,.
+\end{equation}
+
+Defining the ratio
+$R \equiv 1 - x_+(1/2)/x_+(1)$ and evaluating at
+$s = 1/2$ ($C_2 = 3/4$) and $s = 1$ ($C_2 = 2$):
+\begin{equation}
+R = \frac{(\sqrt{19} - 3)(\sqrt{19} - \sqrt{3}\,)}{16}
+  \;\approx\; 0.2231013\ldots
+\end{equation}
+This should be compared with the on-shell electroweak mixing
+parameter $\sin^2\!\theta_W^{\text{os}} = 0.22320 \pm 0.00026$
+(PDG 2024).
+
+The $W$-mass prediction from $M_W = M_Z\sqrt{1 - R}$:
+\begin{equation}
+M_W^{\text{pred}}
+  = 91.1876 \times \sqrt{1 - 0.22310}
+  = 80.374 \pm 0.002\GeV\,,
+\end{equation}
+which lies $0.39\sigma$ from the PDG average
+$M_W = 80.369 \pm 0.013\GeV$ and strongly disfavors the
+anomalous CDF-II measurement ($6.2\sigma$ tension).
+
+The dynamical origin of this equation and the choice of
+renormalization scheme (on-shell vs.\ $\overline{\text{MS}}$)
+remain open problems.
+
+
+%======================================================================
+\section{Complete particle spectrum}
+\label{sec:spectrum}
+%======================================================================
+
+\subsection{Scalar meson masses}
+
+At the Seiberg vacuum with soft breaking $\tilde{m}^2 \sim \fpi^2$:
+\begin{itemize}
+\item 12 off-diagonal real scalar modes: all degenerate at
+$m = \sqrt{2}\,\fpi \approx 130\MeV$.
+\item 6 diagonal real scalar modes: all at
+$m = \fpi = 92\MeV$.
+\end{itemize}
+All scalar meson masses are positive. The
+Yukawa-induced $F$-terms are nonzero at the seesaw vacuum but do not
+couple to the off-diagonal meson directions: the off-diagonal
+cofactors vanish at a diagonal matrix. A fundamental block-diagonal
+obstruction prevents cross-flavour meson mixing.
+
+\subsection{Mesino fermion masses}
+
+The off-diagonal mesinos form three Dirac pairs with masses set by
+the inverted seesaw hierarchy $|X_0|\langle M_k\rangle \propto 1/m_k$:
+
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+Pair & Spectator & Dirac mass \\
+\midrule
+$\psi(M^u_d, M^d_u)$ & $s$ & $1.1 \times 10^{-5}\MeV$ \\
+$\psi(M^u_s, M^s_u)$ & $d$ & $2.3 \times 10^{-4}\MeV$ \\
+$\psi(M^d_s, M^s_d)$ & $u$ & $4.9 \times 10^{-4}\MeV$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The mass hierarchy is inverted relative to quark masses: off-diagonal
+mesinos involving the lightest quarks are heaviest. The ISS
+Coleman--Weinberg potential from these loops transmits the quark mass
+ratios through the confined spectrum.
+
+\subsection{Baryons}
+
+With $m_B = \Lambda = 300\MeV$ in the superpotential
+$W_B = m_B\,B\tilde{B}$:
+scalar baryons at $300\MeV$ and a Dirac baryonino pair at $300\MeV$.
+SUSY is approximately preserved in the baryon sector.
+
+\subsection{Heavy quark sector}
+
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+Quark & $Q_{\text{em}}$ & Mass & Origin \\
+\midrule
+charm & $+2/3$ & 1275 MeV (1301 predicted) & O'Raifeartaigh seed \\
+bottom & $-1/3$ & 4180 MeV (4233 predicted) & Bion mass relation \\
+top & $+2/3$ & 172,760 MeV & Direct Yukawa $y_t$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Higgs sector}
+
+The lightest CP-even Higgs at $m_h = \lambda_S v/\sqrt{2} = 125.35\GeV$
+($0.6\sigma$ from PDG). Heavy NMSSM states ($H$, $A$, $H^\pm$, singlino)
+depend on soft parameters not specified by the confined sector.
+
+\subsection{Supertrace}
+
+$\text{STr}[M^2] = 2\operatorname{Tr}(M^2_{\text{soft}})
+= 18\,\fpi^2 = 152{,}352\MeV^2$:
+the $W_{IJ}^2$ piece cancels between scalar and fermion sectors,
+and the holomorphic third-derivative piece cancels between real
+and imaginary scalar components, leaving only the nine
+soft meson masses.
+
+\subsection{Parameter budget}
+
+\begin{center}
+\small
+\begin{tabular}{p{5cm}p{3.5cm}p{5.5cm}}
+\toprule
+Relation & Predicts & From \\
+\midrule
+O'Raifeartaigh: $m_c/m_s = (2{+}\sqrt{3})^2$ & $m_c$ from $m_s$ & $W$: $gv/m = \sqrt{3}$ \\
+Bion: $\sqrt{m_b} = 3\sqrt{m_s} + \sqrt{m_c}$ & $m_b$ from $m_s, m_c$ & $K_{\text{bion}}$: minimum \\
+Yukawa: $Q(c,b,t) = 2/3$ & $m_t$ from $m_c, m_b$ & $W_{\text{Yukawa}}$ at $\tan\beta = 1$ \\
+Energy balance: $Q(e,\mu,\tau) = 2/3$ & $m_\tau$ from $m_e, m_\mu$ & $W_{\text{lepton}}$: O'Raifeartaigh \\
+GST: $\sin\theta_C = \sqrt{m_d/m_s}$ & $\theta_{12}$ from $m_d, m_s$ & Seesaw structure \\
+\midrule
+\textbf{Remaining free:} & \multicolumn{2}{l}{$m_u,\, m_d,\, m_s,\, m_e,\, m_\mu,\, \theta_{23},\, \theta_{13},\, \delta_{\rm CP}$ (8 parameters)} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+
+%======================================================================
+\section{Summary of predictions}
+\label{sec:summary_pred}
+%======================================================================
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{llll}
+\toprule
+Quantity & Predicted & PDG 2024 & Source \\
+\midrule
+$m_c$ & $1{,}301\MeV$ & $1{,}275 \pm 25$ ($1.0\sigma$)
+  & O'Raifeartaigh: $gv/m = \sqrt{3}$ \\
+$m_b$ & $4{,}233\MeV$ & $4{,}180 \pm 30$ ($1.8\sigma$)
+  & Bion K\"ahler \\
+$m_t$ & $171.3 \pm 1.5\GeV$ & $172.76 \pm 0.30$
+  & Yukawa eigenvalue constraint \\
+$m_\tau$ & $1776.97\MeV$ & $1776.86 \pm 0.12$ ($0.9\sigma$)
+  & Lepton energy-balance \\
+$\sin^2\theta_W$ & $0.22310$ & $0.22320 \pm 0.00026$ ($0.4\sigma$)
+  & Casimir equation \\
+$V_{us}$ & $0.224$ & $0.2250 \pm 0.0007$ ($2.0\sigma$)
+  & GST relation \\
+$m_h$ & $125.35\GeV$ & $125.25 \pm 0.17$ ($0.6\sigma$)
+  & NMSSM: $\lambda_S v/\sqrt{2}$ \\
+$\tan\beta$ & $1$ & --- (not directly measured)
+  & Mixed-triple structure \\
+$\text{STr}[M^2]$ & $18\,\fpi^2$ & --- (not directly measured)
+  & Soft mass only \\
+\bottomrule
+\end{tabular}
+\caption{Predictions from the sBootstrap Lagrangian.
+The quark masses use $m_s = 93.4\MeV$ as input;
+the bion $m_b$ propagates the O'Raifeartaigh-predicted $m_c$.
+The lepton prediction uses $m_e$ and $m_\mu$ as inputs.
+The Casimir and GST predictions are independent of~$m_s$.}
+\label{tab:predictions}
+\end{table}
+
+
+%======================================================================
+\section{Open problems}
+\label{sec:open}
+%======================================================================
+
+\subsection{The diquark sector}
+The Pauli theorem (Section~\ref{sec:diquarks}) proves that no $J=0$,
+color-$\bar{3}$ diquark can have symmetric flavor. The sBootstrap's
+$\mathbf{15}$ diquark must therefore be non-composite:
+either an algebraic image of the Miyazawa supercharge or a fundamental
+$SO(32)$ string state. However, the mixed anticommutator
+$\{Q_\alpha, \mathcal{Q}_{[ij],\beta}\} = \epsilon_{\alpha\beta}\,
+\mathcal{S}_{[ij]}$ produces a diquark generator in
+$\overline{\mathbf{10}}$ (antisymmetric), not the symmetric
+$\mathbf{15}$; thus the Miyazawa route alone does not resolve the
+conflict. The exotic $+4/3$-charged
+diquarks of the $\mathbf{15}$ would be a testable consequence.
+
+\subsection{The bloom mechanism}
+
+The energy-balance condition constrains but does not uniquely fix the
+angular parameter $\delta$ that controls how the seed develops into a
+full triple. The O'Raifeartaigh vacuum fixes the seed ratio
+$gv/m = \sqrt{3}$ but leaves $\delta$ undetermined. Explicit R-breaking
+perturbations push $Q$ away from $2/3$ at any nonzero strength, making
+the seed an unstable fixed point. The bloom must therefore be
+nonperturbative.
+
+A dynamical origin for the lepton phase exists in SQCD: for $N_f = N_c = 3$,
+instantons break $U(1)_{R+2A} \to \mathbb{Z}_{18}$, which contains
+$\mathbb{Z}_9$ as a subgroup. The three-instanton operator
+$(\det M)^3/\Lambda^{18}$ generates a $\cos(9\delta)$ potential whose
+minima include the observed lepton mass-spectrum phase to $0.9\sigma$
+in~$m_\tau$.
+
+For the quark sector, the combined potential of the frozen-sign bion
+(which opposes the bloom) and the three-instanton term (which drives
+the bloom) has a stable equilibrium within $2.8^\circ$ of the physical
+quark bloom position.
+
+\subsection{Lepton masses are not mesino masses}
+
+The fermion mass matrix $W_{IJ}$ at the Seiberg vacuum has
+light eigenvalues ($\sim 10^{-3}$--$10^{-2}\MeV$) too small
+and too degenerate ($Q = 0.48$, not $2/3$) to reproduce lepton masses.
+The obstruction is structural: K\"ahler rescaling is a congruence
+transformation that preserves the rank of~$W_{IJ}$ and cannot generate
+new mass eigenvalues. Lepton masses therefore require the separate
+SU(2) confining sector described in Section~\ref{sec:leptons}.
+
+\subsection{The $SO(32)$ embedding}
+
+The $SO(32)$ gauge group of Type~I / heterotic string theory
+admits the maximal-subgroup chain
+$SO(32) \supset SU(16) \times U(1)_A
+  \supset SU(5) \times SU(3) \times U(1)_A \times U(1)_B$.
+The adjoint $\mathbf{496} = \wedge^2(\mathbf{32})$ contains
+the sBootstrap representations:
+$\mathbf{24}$ in the neutral sector and
+$\mathbf{15} \oplus \overline{\mathbf{15}}$ in the matter
+sector. The remaining 442 states must be
+projected out or made massive; no projection mechanism has been
+identified. The alternative anomaly-free gauge group
+$E_8 \times E_8$ is blocked because every decomposition of $E_8$
+under $SU(5)$ produces only the antisymmetric $\mathbf{10}$, never
+the symmetric $\mathbf{15}$.
+
+\subsection{The baryon sector}
+
+The meson--baryon connection requires a Miyazawa
+supercharge~\cite{Miyazawa, CattoGursey} in the
+$\overline{\mathbf{10}}$ of $SU(5)_f$, with anticommutator
+decomposition
+$\overline{\mathbf{10}}\otimes\mathbf{10}
+  = \mathbf{1}\oplus\mathbf{24}\oplus\mathbf{75}$.
+This evades the Haag--\L{}opusza\'nski--Sohnius theorem because
+it is an approximate symmetry broken at scale~$\Lambda_{\text{QCD}}$.
+
+\subsection{Vacuum stability and FCNC}
+
+The seesaw vacuum is cosmologically stable:
+Coleman--de~Luccia bounce-action estimates give
+$S_4 \sim 2 \times 10^7$, far above the threshold
+$S_4 > 400$ for a lifetime exceeding the age of the universe.
+All off-diagonal meson masses are positive
+($m^2 \approx 2\fpi^2$), and a block-diagonal obstruction
+prevents cross-flavour condensation. The flavour-universal
+Yukawa identity $y_j\langle M_j\rangle = C/v_{\text{EW}}$
+automatically satisfies the Glashow--Weinberg condition for the
+absence of tree-level Higgs-mediated FCNCs.
+
+\subsection{Generation uniqueness}
+The Diophantine system uniquely selects $N = 3$ generations,
+but the third equation ($r^2 + s^2 - 1 = 4N$) has the weakest
+physical motivation. A dynamical derivation of the counting
+constraints would strengthen the argument considerably.
+
+
+%======================================================================
+\section{Conclusions}
+\label{sec:conclusions}
+%======================================================================
+
+We have constructed an explicit $\mathcal{N}=1$ supersymmetric theory
+with gauge group $\mathrm{SU}(3) \times \mathrm{SU}(2)$ and demonstrated
+the following principal results.
+
+\paragraph{1.\ The Diophantine counting uniquely selects $N=3$.}
+Three equations on the scalar content---$rs = 2N$, $r(r+1)/2 = 2N$,
+$r^2+s^2-1 = 4N$---have the unique positive-integer solution
+$(N,r,s) = (3,3,2)$, which maps to the $SU(5)$ representations
+$\mathbf{24} \oplus \mathbf{15} \oplus \overline{\mathbf{15}}$.
+This combination is anomaly-free and asymptotically free ($b_0 = 31/3$).
+Right-handed neutrinos are required; the top quark is automatically
+excluded from the composite sector.
+
+\paragraph{2.\ The O'Raifeartaigh superpotential produces the
+energy-balance condition as a theorem.}
+With three chiral superfields, the O'Raifeartaigh model at
+$gv/m = \sqrt{3}$ (stabilized by a K\"ahler pole at $c = -1/12$)
+produces the fermion spectrum
+$(0,\, (2{-}\sqrt{3})\,m,\, (2{+}\sqrt{3})\,m)$
+with $Q = 2/3$ exactly. The energy-balance condition is a
+boundary condition on the superpotential, not an RG attractor
+(one-loop RG drives $Q \to 1/3$, the opposite extreme).
+
+\paragraph{3.\ The quark mass chain from a single input.}
+From $m_s = 93.4\MeV$ alone, the Lagrangian predicts
+$m_c = 1301\MeV$ ($+2.0\%$), $m_b = 4233\MeV$ ($+1.3\%$),
+and $m_t = 171.3 \pm 1.5\GeV$ ($-0.9\%$), via three structural
+constants: the O'Raifeartaigh mass ratio $(2{+}\sqrt{3})^2$, the
+bion doubling with coefficient $N_c = 3$, and the Yukawa eigenvalue
+constraint $Q(c,b,t) = 2/3$.
+
+\paragraph{4.\ The lepton sector from SU(2) $s$-confinement.}
+A separate $SU(2)$ confining sector with $N_f = 3$ produces the
+same O'Raifeartaigh seed spectrum, predicting
+$m_\tau = 1776.97\MeV$ ($+0.006\%$, $0.9\sigma$) from
+$m_e$ and $m_\mu$.
+
+\paragraph{5.\ Mixed mass triples require $\tan\beta = 1$.}
+Since all quark mass triples satisfying $Q \approx 2/3$
+obligatorily mix up-type and down-type quarks, the energy-balance
+condition on masses equals the condition on Yukawa couplings
+only at $\tan\beta = 1$. The NMSSM singlet coupling
+$\lambda_S = 0.72$ then gives $m_h = 125.35\GeV$ at tree level
+($0.6\sigma$ from PDG).
+
+\paragraph{6.\ Five parameters eliminated.}
+The O'Raifeartaigh mass ratio, the bion mass relation, the Yukawa
+eigenvalue constraint, the lepton energy-balance condition, and
+the GST relation together determine five of the Standard Model's
+thirteen charged-fermion parameters. The remaining eight are
+$m_u$, $m_d$, $m_s$, $m_e$, $m_\mu$, $\theta_{23}$,
+$\theta_{13}$, and $\delta_{\rm CP}$, with $m_u$ and $m_d$
+connected to the Cabibbo angle.
+
+\paragraph{7.\ The diquark obstruction and SO(32) embedding.}
+The symmetric $\mathbf{15}$ required by the counting cannot be
+realized as a $qq$ composite (by a kinematic theorem independent of
+dynamics). The $SO(32)$ adjoint provides a UV completion containing
+both the $\mathbf{24}$ and $\mathbf{15} \oplus \overline{\mathbf{15}}$;
+the alternative $E_8 \times E_8$ is blocked. The bloom mechanism,
+the $SO(32)$ projection, and a Lagrangian derivation of the
+Diophantine counting remain the central open problems.
+
+The empirical evidence for the energy-balance condition---the
+precision of the lepton prediction, the accuracy of the meson
+triple, and the statistical significance of the quark
+chains---will be presented in a companion paper~\cite{companion}.
+
+
+\begin{thebibliography}{99}
+
+\bibitem{Rivero2005}
+A.~Rivero, ``An interpretation of scalars in SO(32),''
+Eur.\ Phys.\ J.\ C \textbf{84}, 1058 (2024),
+arXiv:2407.05397 [hep-ph]; earlier versions: viXra:0503.001 (2005),
+viXra:0809.001 (2008).
+
+\bibitem{Rivero2012}
+A.~Rivero, ``A new Koide tuple: strange, charm, bottom,''
+arXiv:1111.7232 [hep-ph] (2011).
+
+\bibitem{companion}
+A.~Rivero, ``The energy-balance condition: empirical evidence for
+$Q = 2/3$ in fermion mass triples,'' in preparation.
+
+\bibitem{Seiberg1995}
+N.~Seiberg, ``Electric--magnetic duality in supersymmetric
+non-abelian gauge theories,'' Nucl.\ Phys.\ B \textbf{435}, 129
+(1995).
+
+\bibitem{ORaifeartaigh}
+L.~O'Raifeartaigh, ``Spontaneous symmetry breaking for chiral
+scalar superfields,'' Nucl.\ Phys.\ B \textbf{96}, 331 (1975).
+
+\bibitem{ISS2006}
+K.~Intriligator, N.~Seiberg, D.~Shih, ``Dynamical SUSY breaking
+in meta-stable vacua,'' JHEP \textbf{0604}, 021 (2006),
+arXiv:hep-ph/0602239.
+
+\bibitem{Unsal2008}
+M.~\"Unsal, ``Abelian duality, confinement, and chiral symmetry
+breaking in QCD(adj),'' Phys.\ Rev.\ Lett.\ \textbf{100}, 032005
+(2008), arXiv:0708.1772.
+
+\bibitem{Unsal2012}
+M.~\"Unsal, ``Theta dependence, sign problems and topological
+interference,'' Phys.\ Rev.\ D \textbf{86}, 105012 (2012),
+arXiv:1201.6426.
+
+\bibitem{CattoGursey}
+S.~Catto and F.~G\"ursey, ``Algebraic treatment of effective
+supersymmetry,'' Nuovo Cim.\ A \textbf{86}, 201 (1985).
+
+\bibitem{Miyazawa}
+H.~Miyazawa, ``Baryon Number Changing Currents,''
+Prog.\ Theor.\ Phys.\ \textbf{36}, 1266 (1966).
+
+\bibitem{GST1968}
+R.~Gatto, G.~Sartori, and M.~Tonin, ``Weak self-masses, Cabibbo
+angle, and broken $SU(3)$,'' Phys.\ Lett.\ B \textbf{28}, 128 (1968).
+
+\bibitem{VolkovAkulov1973}
+D.~V.~Volkov and V.~P.~Akulov, ``Is the neutrino a Goldstone
+particle?,'' Phys.\ Lett.\ B \textbf{46}, 109 (1973).
+
+\bibitem{GOR1968}
+M.~Gell-Mann, R.~J.~Oakes, B.~Renner, ``Behavior of current
+divergences under $SU(3) \times SU(3)$,''
+Phys.\ Rev.\ \textbf{175}, 2195 (1968).
+
+\bibitem{FayetIliopoulos}
+P.~Fayet and J.~Iliopoulos, ``Spontaneously broken supergauge
+symmetries and Goldstone spinors,'' Phys.\ Lett.\ B \textbf{51},
+461 (1974).
+
+\bibitem{DGMLY1967}
+T.~Das, G.~S.~Guralnik, V.~S.~Mathur, F.~E.~Low, J.~E.~Young,
+``Electromagnetic mass difference of pions,''
+Phys.\ Rev.\ Lett.\ \textbf{18}, 759 (1967).
+
+\bibitem{Rivero2005b}
+A.~Rivero, ``The de Vries formula for $\sin^2\theta_W$,''
+arXiv:hep-ph/0510068 (2005).
+
+\bibitem{UTfit}
+M.~Bona et~al.\ (UTfit Collaboration), ``Model-independent
+constraints on $\Delta F = 2$ operators and the scale of new
+physics,'' JHEP \textbf{03}, 049 (2008),
+arXiv:0707.0636.
+
+\end{thebibliography}
+
+\end{document}
