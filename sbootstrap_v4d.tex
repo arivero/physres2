@@ -60,7 +60,7 @@ We construct the explicit $\mathcal{N}=1$ Lagrangian---K\"ahler
 potential, superpotential (Seiberg constraint plus Yukawa),
 $D$-terms, and soft breaking from a spurion with
 $\langle F\rangle = f_\pi^2$---and show that the seed Koide
-fixes the magnetic Yukawa coupling ($h = \sqrt{3}$) while the
+fixes the pseudo-modulus VEV ($\langle X\rangle = \sqrt{3}\,\mu$) while the
 $v_0$-doubling originates in the K\"ahler sector via a bion
 correction $|\!\sum s_k\sqrt{\hat m_k}|^2$ from
 monopole-instantons on $\mathbb{R}^3\times S^1$; a
@@ -2130,15 +2130,19 @@ $f$ in the superpotential, and the impossibility of setting all
 $F$-terms to zero is a consequence of the strong dynamics rather
 than a choice of superpotential.
 
-\paragraph{The magnetic Yukawa coupling.}
+\paragraph{The pseudo-modulus and the Koide seed.}
 In the ISS magnetic dual, the tree-level superpotential contains a
 Yukawa coupling $h\,\mathrm{Tr}(q\,M\,\tilde q)$ between the magnetic
-quarks $q$, $\tilde q$ and the meson matrix $M$. The seed Koide
-condition $gv/m = \sqrt{3}$ of the O'Raifeartaigh model translates
-into $h = \sqrt{3}$: the magnetic Yukawa is fixed by requiring the
-fermionic mass spectrum of the meson matrix to be an exact Koide seed.
-This is a single algebraic constraint on the parameters of the magnetic
-theory, reducing one coupling from free to determined.
+quarks $q$, $\tilde q$ and the meson matrix $M$. The O'Raifeartaigh
+parameters map as $g \to h$, $m \to h\mu$, $v \to \langle X\rangle$
+(the pseudo-modulus VEV), so the seed Koide condition
+$gv/m = \sqrt{3}$ becomes $\langle X\rangle/\mu = \sqrt{3}$---the
+magnetic Yukawa~$h$ cancels. The Koide seed fixes the
+pseudo-modulus VEV, not the coupling~$h$.
+At one-loop Coleman--Weinberg level $\langle X\rangle = 0$; the
+nonzero VEV required by the seed must arise from a nonperturbative
+mechanism such as the three-instanton potential
+(\S\ref{sec:electron}).
 
 The ISS mechanism (Intriligator--Seiberg--Shih \cite{ISS2006}) 
 establishes metastable SUSY-breaking vacua for $N_c < N_f < 3N_c/2$, 
@@ -2168,13 +2172,12 @@ The metastable ISS vacuum decays to the SUSY-preserving ground state
 by tunneling with bounce action
 $S_{\text{bounce}} \sim (8\pi^2/3)\,N_c\,(\Lambda_{\text{mag}}/h\mu)^4$,
 where $\mu$ is the lightest quark mass controlling the tunneling.
-For $\mu = m_s = 93\MeV$, $h = \sqrt{3}$, and
-$\Lambda_{\text{mag}} \sim 300\MeV$: $S_{\text{bounce}} \approx 950$,
-giving a lifetime exceeding the age of the universe by $\sim 10^{247}$.
-The critical mass at which the lifetime equals the Hubble time is
-$\mu_{\text{crit}} \approx 117\MeV$ (with $h = \sqrt{3}$)---intriguingly
-close to $m_s$, but safely below. The metastable vacuum is
-cosmologically acceptable.
+For $\mu = m_s = 93\MeV$, $h \sim O(1)$, and
+$\Lambda_{\text{mag}} \sim 300\MeV$:
+$S_{\text{bounce}} \sim 10^2$--$10^3$ (depending on~$h$),
+giving a lifetime exceeding the age of the universe by hundreds of
+orders of magnitude for any $h$ of order unity.
+The metastable vacuum is cosmologically acceptable.
 
 \paragraph{The Seiberg seesaw and dual Koide.}
 At the Seiberg vacuum with $B = \bar B = 0$, the diagonal meson VEVs
@@ -2747,7 +2750,7 @@ $m_{\text{lepton}}^2 = |\hat m_i + \hat m_j|^2$
 $m_{\text{meson}}^2 = m_{\text{lepton}}^2 + \fpi^2$
   & $\mathcal{L}_{\text{soft}}$: $\tilde m^2 \sim \fpi^2$ & Spurion \\
 $m_c/m_s = (2+\sqrt{3})^2$
-  & $W$: O'Raifeartaigh at $h = \sqrt{3}$ & Seed Koide \\
+  & $W$: O'Raifeartaigh at $gv/m = \sqrt{3}$ & Seed Koide \\
 $\sqrt{m_b} = 3\sqrt{m_s} + \sqrt{m_c}$
   & $K_{\text{bion}}$: minimum of $|S_{\text{bloom}} - 2S_{\text{seed}}|^2$
   & $v_0$-doubling \\
@@ -2771,7 +2774,8 @@ structure and those that remain free.
 
 \paragraph{Fixed by the Koide seed.}
 The O'Raifeartaigh condition $gv/m = \sqrt{3}$ translates, in the
-ISS magnetic dual, into a fixed magnetic Yukawa coupling $h = \sqrt{3}$.
+ISS magnetic dual, into $\langle X\rangle = \sqrt{3}\,\mu$ for the
+pseudo-modulus.
 This fixes the mass ratio $m_c/m_s = (2+\sqrt{3})^2$
 within the seed triple, predicting $m_c = 1{,}301\MeV$ from $m_s$ alone
 (PDG: $1{,}270\MeV$, 2.4\% deviation).
@@ -2808,7 +2812,7 @@ well below the $0.10\%$ precision of the triple.
 
 \paragraph{Remaining free parameters.}
 After the seed Koide fixes $m_c/m_s$, the $v_0$-doubling fixes
-$m_b$, and $h=\sqrt{3}$ is determined, only two to three free
+$m_b$, and $\langle X\rangle/\mu = \sqrt{3}$ is imposed, only two to three free
 parameters remain:
 \begin{itemize}
   \item $m_u$, $m_d$: unconstrained by any Koide triple; connected
@@ -3021,7 +3025,7 @@ $\sqrt{m_k}$, rather than the one-loop effective potential.
 \subsection{Connecting the three tuples}
 The unified superpotential (\S\ref{subsec:superpotential}) connects
 the light and heavy sectors through a layered structure:
-the seed Koide fixes $m_c/m_s$ (from $h = \sqrt{3}$),
+the seed Koide fixes $m_c/m_s$ (from $gv/m = \sqrt{3}$),
 the $v_0$-doubling fixes $m_b$ (from the K\"ahler sector),
 and the $(c,b,t)$ Koide serves as an overdetermination test.
 After these constraints, only two to three free parameters remain:
@@ -3136,7 +3140,7 @@ Claim & Status & Comment \\
 $Q = 2/3$ iff $\langle z_k^2\rangle = z_0^2$ & Derived & Algebra (\S\ref{sec:koide_algebra}) \\
 Seed ratio $= 2-\sqrt{3}$ & Derived & From $Q = 2/3$ + one zero \\
 O'R seed at $gv/m = \sqrt{3}$ & Derived & Fermion eigenvalues \\
-$h = \sqrt{3}$ in magnetic dual & Derived & ISS dictionary \\
+$\langle X\rangle/\mu = \sqrt{3}$ in magnetic dual & Derived & ISS dictionary \\
 Pauli theorem (no symmetric $J{=}0$ diquark) & Derived & Angular momentum \\
 Diophantine: $(N,r,s) = (3,3,2)$ unique & Derived & Number theory \\
 Cyclic echo ($t \to c \to s \to \text{stall} \to c$) & Derived & Algebraic necessity \\
@@ -3229,8 +3233,8 @@ $K_{\text{bion}} \sim |\!\sum s_k\sqrt{\hat m_k}|^2$,
 a superpotential combining the Seiberg constraint
 with Yukawa couplings, $D$-terms with a Fayet--Iliopoulos
 parameter, and soft breaking from a spurion
-$\langle F\rangle = \fpi^2$.  The seed Koide fixes the magnetic
-Yukawa coupling $h = \sqrt{3}$ (predicting $m_c/m_s$); the
+$\langle F\rangle = \fpi^2$.  The seed Koide fixes the
+pseudo-modulus VEV $\langle X\rangle = \sqrt{3}\,\mu$ (predicting $m_c/m_s$); the
 bion K\"ahler correction fixes $m_b$ through the
 $v_0$-doubling condition, with Hessian rank~1 constraining
 exactly one mass combination.  After these
@@ -3273,7 +3277,7 @@ The unified superpotential has a layered structure:
 (i)~the Seiberg effective superpotential governs the light sector,
 with SUSY breaking forced by the quantum constraint when $m_u = m_d = 0$;
 (ii)~the O'Raifeartaigh condition $gv/m = \sqrt{3}$ (equivalently
-$h = \sqrt{3}$ in the magnetic dual) fixes the seed Koide ratio,
+$\langle X\rangle = \sqrt{3}\,\mu$ in the magnetic dual) fixes the seed Koide ratio,
 predicting $m_c$ from $m_s$;
 (iii)~the bion K\"ahler correction
 $|\!\sum s_k\sqrt{\hat m_k}|^2$ predicts
