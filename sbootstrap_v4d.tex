@@ -2149,6 +2149,22 @@ result is sensitive to $m_d$: within $\pm 1\sigma$ ($m_d = 4.67
 from $2/3$ varies from $0.2\%$ to $1.7\%$. The dual Koide is an
 observation at the edge of the current $m_d$ uncertainty.
 
+A simple algebraic identity connects the seed to the seesaw:
+for any two masses, the Koide ratio
+$Q(a,b) = (a+b)/(\sqrt{a}+\sqrt{b})^2$ satisfies
+$Q(a,b) = Q(1/a,\,1/b)$ identically.
+The seed $(0, m_s, m_c)$ sits at this self-dual point:
+its Koide ratio is the same whether evaluated on quark masses or
+on Seiberg-dual meson VEVs $\propto 1/m_i$.  Thus the seed Koide
+in the electric (UV) theory is \emph{automatically} a seed Koide
+in the magnetic (IR) theory---the Seiberg duality preserves the
+seed condition without fine-tuning.
+For the full bloomed triple $(-s,c,b)$, self-duality breaks:
+$Q(-s,c,b) \neq Q(1/m_s,1/m_c,1/m_b)$ in general.
+The dual Koide $Q(1/m_d,1/m_s,1/m_b) = 0.665$ is therefore a
+\emph{nontrivial} constraint on the down-type sector, not a
+tautological restatement of the seed.
+
 \subsection{How the three supermultiplets join}
 
 The seed-to-bloom transition generates three separate Koide triples. 
@@ -2638,6 +2654,36 @@ the heavy sector. The bloom is non-holomorphic and lives in the
 K\"ahler sector: the bion term $|\sum s_k\sqrt{M^k{}_k}|^2$ is the
 leading monopole-instanton contribution on $\mathbb{R}^3 \times S^1$
 (\S\ref{subsec:fterm}).
+
+\paragraph{Mass spectrum from the Lagrangian.}
+The mass of each particle is determined by a specific term:
+\begin{center}
+\small
+\begin{tabular}{lll}
+\toprule
+Mass & Origin & Equation \\
+\midrule
+$m_{\text{lepton}}^2 = |\hat m_i + \hat m_j|^2$
+  & $W$: fermion mass from $\partial^2 W/\partial M_i \partial M_j$ & $F$-term \\
+$m_{\text{meson}}^2 = m_{\text{lepton}}^2 + \fpi^2$
+  & $\mathcal{L}_{\text{soft}}$: $\tilde m^2 \sim \fpi^2$ & Spurion \\
+$m_c/m_s = (2+\sqrt{3})^2/(2-\sqrt{3})^2$
+  & $W$: O'Raifeartaigh at $h = \sqrt{3}$ & Seed Koide \\
+$\sqrt{m_b} = 3\sqrt{m_s} + \sqrt{m_c}$
+  & $K_{\text{bion}}$: minimum of $|S_{\text{bloom}} - 2S_{\text{seed}}|^2$
+  & $v_0$-doubling \\
+$m_t = y_t v_{\text{EW}}/\sqrt{2}$
+  & $W_{\text{Yukawa}}$: $y_t H Q^t\bar Q_t$ & External \\
+$\delta m^2 = Q_{\text{em}}\,\xi$
+  & $\mathcal{L}_D$: FI term & EM splitting \\
+\bottomrule
+\end{tabular}
+\end{center}
+The first four rows account for six quark masses ($m_u$ and $m_d$ free,
+$m_s$ sets the scale, $m_c$ from seed, $m_b$ from K\"ahler, $m_t$
+external). The meson--lepton splitting is universal across the
+multiplet, and the $D$-term provides the subdominant electromagnetic
+correction.
 
 The parameters of this construction separate into those fixed by
 structure and those that remain free.
