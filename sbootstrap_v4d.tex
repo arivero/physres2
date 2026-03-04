@@ -2748,15 +2748,20 @@ The total Lagrangian is
   + \mathcal{L}_{\text{soft}}\,,
 \end{equation*}
 %
-with K\"ahler potential (canonical plus bion correction),
+with K\"ahler potential (canonical plus stabilization and bion corrections),
 %
 \begin{equation*}
   K = \underbrace{\operatorname{Tr}(M^\dagger M) + |X|^2 + |B|^2
     + |\bar B|^2 + |H_u|^2 + |H_d|^2}_{K_{\text{can}}}
+  \underbrace{{}-\,\frac{|X|^4}{12\,\mu^2}}_{K_{\text{stab}}}
   + \underbrace{\frac{\zeta^2}{\Lambda^2}\,
     \Bigl|\sum_{k=1}^{N_c} s_k \sqrt{\hat m_k}\,\Bigr|^2}_{K_{\text{bion}}}\,,
 \end{equation*}
-where $\zeta \propto e^{-S_0/(2N_c)}$ is the monopole fugacity,
+The stabilization term $K_{\text{stab}} = -|X|^4/(12\mu^2)$ is the
+negative quartic K\"ahler correction from \S\ref{subsec:superpotential}
+(with $\Lambda_K = \mu$, $c = -1/12$); it pins the pseudo-modulus at
+$\langle X\rangle = \sqrt{3}\,\mu$ via the K\"ahler pole.
+The monopole fugacity is $\zeta \propto e^{-S_0/(2N_c)}$,
 $\hat m_k$ are the current quark masses (the couplings in
 $W \ni \operatorname{Tr}(\hat m\,M)$), and
 $s_k = \pm 1$ are monopole-instanton signs (encoding the seed-to-bloom
