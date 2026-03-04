@@ -1282,7 +1282,263 @@ print()
 
 
 # ============================================================================
-# PART 15: Summary and assessment
+# PART 15: Fine scan of full 13x13 spectrum — search for Q = 2/3
+# ============================================================================
+
+print("=" * 76)
+print("PART 15: Fine scan of full 13x13 — Q of three lightest vs c")
+print("=" * 76)
+print()
+
+print("The full 13x13 spectrum mixes central-block modes with off-diagonal pair")
+print("and baryon modes. As c varies, the central-block eigenvalues move through")
+print("the fixed off-diagonal/baryon spectrum, creating level crossings.")
+print()
+print("Let's do a fine scan to find where Q(3 lightest) = 2/3.")
+print()
+
+c_fine = np.logspace(-6, 10, 5000)
+Q_fine = []
+evals_fine = []
+
+for c_val in c_fine:
+    _, ev_full, _, _ = build_full_physical_13x13(c_val, p=2)
+    if ev_full is not None:
+        abs_ev = np.sort(np.abs(ev_full))
+        nonzero = abs_ev[abs_ev > 1e-20]
+        if len(nonzero) >= 3:
+            Q_val = koide_Q(nonzero[:3])
+            Q_fine.append(Q_val)
+            evals_fine.append(nonzero[:6].copy())
+        else:
+            Q_fine.append(np.nan)
+            evals_fine.append(None)
+    else:
+        Q_fine.append(np.nan)
+        evals_fine.append(None)
+
+Q_fine = np.array(Q_fine)
+
+# Find crossings of Q = 2/3
+crossings_Q23 = []
+for i in range(len(Q_fine)-1):
+    if np.isfinite(Q_fine[i]) and np.isfinite(Q_fine[i+1]):
+        if (Q_fine[i] - 2./3.) * (Q_fine[i+1] - 2./3.) < 0:
+            # Refine with bisection
+            c_lo, c_hi = c_fine[i], c_fine[i+1]
+            for _ in range(100):
+                c_mid = np.sqrt(c_lo * c_hi)  # geometric mean
+                _, ev_mid, _, _ = build_full_physical_13x13(c_mid, p=2)
+                abs_ev_mid = np.sort(np.abs(ev_mid))
+                nz = abs_ev_mid[abs_ev_mid > 1e-20]
+                if len(nz) >= 3:
+                    Q_mid = koide_Q(nz[:3])
+                    if (Q_mid - 2./3.) * (Q_fine[i] - 2./3.) < 0:
+                        c_hi = c_mid
+                    else:
+                        c_lo = c_mid
+                else:
+                    break
+            crossings_Q23.append(c_mid)
+
+if crossings_Q23:
+    print(f"Found {len(crossings_Q23)} crossing(s) of Q = 2/3:")
+    for c_cross in crossings_Q23:
+        _, ev_cross, _, K_cross = build_full_physical_13x13(c_cross, p=2)
+        abs_ev_cross = np.sort(np.abs(ev_cross))
+        nz_cross = abs_ev_cross[abs_ev_cross > 1e-20]
+        Q_cross = koide_Q(nz_cross[:3])
+        print(f"  c = {c_cross:.6e}")
+        print(f"    Q = {Q_cross:.10f}")
+        print(f"    3 lightest |eigenvalues|: {nz_cross[0]:.6e}, {nz_cross[1]:.6e}, {nz_cross[2]:.6e}")
+        if nz_cross[0] > 0:
+            print(f"    Ratios: m2/m1 = {nz_cross[1]/nz_cross[0]:.4f}, m3/m1 = {nz_cross[2]/nz_cross[0]:.4f}")
+        print(f"    K_diag: K_uu={K_cross[0]:.4e}, K_dd={K_cross[4]:.4e}, K_ss={K_cross[8]:.4e}")
+        print()
+else:
+    print("No crossing of Q = 2/3 found in this scan range.")
+    print()
+
+# Also check: scan over ALL triplets from the nonzero eigenvalues
+print("For each c value, check ALL triplets of nonzero eigenvalues for Q ~ 2/3:")
+print()
+
+best_all_triplets = []
+for ic, c_val in enumerate(c_fine[::50]):  # every 50th point
+    _, ev_full, _, _ = build_full_physical_13x13(c_val, p=2)
+    if ev_full is None:
+        continue
+    abs_ev = np.sort(np.abs(ev_full))
+    nonzero = abs_ev[abs_ev > 1e-20]
+    if len(nonzero) < 3:
+        continue
+
+    best_Q_for_c = 1e10
+    best_trip_for_c = None
+    for idx3 in combinations(range(min(len(nonzero), 8)), 3):
+        trip = nonzero[list(idx3)]
+        Q_t = koide_Q(trip)
+        if np.isfinite(Q_t) and abs(Q_t - 2./3.) < best_Q_for_c:
+            best_Q_for_c = abs(Q_t - 2./3.)
+            best_trip_for_c = (c_val, Q_t, trip.copy())
+
+    if best_trip_for_c is not None:
+        best_all_triplets.append(best_trip_for_c)
+
+# Sort by closeness to 2/3
+best_all_triplets.sort(key=lambda x: abs(x[1] - 2./3.))
+
+print("Top 10 closest triplets to Q = 2/3 (scanning all combinations):")
+print(f"  {'c':>12} | {'Q':>12} | {'m_1':>14} {'m_2':>14} {'m_3':>14} | {'m2/m1':>8} {'m3/m1':>8}")
+print("-" * 100)
+for c_val, Q_t, trip in best_all_triplets[:10]:
+    r21 = trip[1]/trip[0] if trip[0] > 0 else 0
+    r31 = trip[2]/trip[0] if trip[0] > 0 else 0
+    print(f"  {c_val:12.4e} | {Q_t:12.8f} | {trip[0]:14.6e} {trip[1]:14.6e} {trip[2]:14.6e} | {r21:8.2f} {r31:8.2f}")
+
+print()
+
+
+# ============================================================================
+# PART 16: Different Kahler forms — K with cross-terms
+# ============================================================================
+
+print("=" * 76)
+print("PART 16: Alternative Kahler — separate powers for each flavor")
+print("=" * 76)
+print()
+
+print("Try K_i = |M_i|^2 + c_i * |M_i|^{2 p_i} / Lambda^{2 p_i - 2}")
+print("with DIFFERENT powers p_i for each flavor.")
+print()
+print("This allows the normalization to be truly independent for each flavor.")
+print()
+
+def physical_mass_matrix_general(c_arr, p_arr):
+    """Physical mass matrix with flavor-dependent powers."""
+    K_diag = np.zeros(4)
+    for i in range(3):
+        K_diag[i] = 1.0 + c_arr[i] * p_arr[i]**2 * M_vev[i]**(2*(p_arr[i]-1)) / Lambda**(2*(p_arr[i]-1))
+    K_diag[3] = 1.0  # X
+
+    if np.any(K_diag <= 0):
+        return None, K_diag
+
+    W = build_central_4x4()
+    m_phys = np.zeros((4, 4))
+    for i in range(4):
+        for j in range(4):
+            m_phys[i, j] = W[i, j] / np.sqrt(K_diag[i] * K_diag[j])
+
+    return m_phys, K_diag
+
+
+# Can we get Q = 2/3 from the central block if we choose K_ii to directly
+# produce desired eigenvalues?
+# The physical matrix is W_IJ / sqrt(K_II * K_JJ).
+# If we SET K_uu, K_dd, K_ss such that the physical masses are (e, mu, tau),
+# can we solve for the K values?
+
+print("Inverse problem: given target spectrum, find required K_ii")
+print()
+print("We want the 4x4 physical mass matrix to have eigenvalues")
+print("proportional to (m_e, m_mu, m_tau, M_heavy).")
+print()
+print("This is a highly constrained problem with 3 unknowns (K_uu, K_dd, K_ss)")
+print("and 4 eigenvalue conditions. Let's optimize.")
+print()
+
+def objective_lepton_spectrum(log_K, target_ratios=(m_mu/m_e, m_tau/m_e)):
+    """Optimize K_ii to match lepton mass ratios."""
+    K_uu = 10**log_K[0]
+    K_dd = 10**log_K[1]
+    K_ss = 10**log_K[2]
+
+    K_diag = np.array([K_uu, K_dd, K_ss, 1.0])
+
+    W = build_central_4x4()
+    m_phys = np.zeros((4, 4))
+    for i in range(4):
+        for j in range(4):
+            m_phys[i, j] = W[i, j] / np.sqrt(K_diag[i] * K_diag[j])
+
+    evals = np.sort(np.abs(np.linalg.eigvalsh(m_phys)))
+
+    if evals[0] <= 0 or evals[1] <= 0:
+        return 1e10
+
+    Q = koide_Q(evals[:3])
+    r21 = evals[1] / evals[0]
+    r31 = evals[2] / evals[0]
+
+    # Objective: Q close to 2/3 AND ratios close to lepton ratios
+    return (Q - 2./3.)**2 + 0.1*(np.log(r21/target_ratios[0]))**2 + 0.1*(np.log(r31/target_ratios[1]))**2
+
+
+best_inv = None
+best_inv_obj = 1e10
+
+for x0 in [[5, 3, 1], [10, 6, 2], [15, 10, 5], [8, 4, 1], [20, 12, 4],
+            [12, 8, 3], [6, 3, 0], [3, 2, 1], [25, 15, 5]]:
+    try:
+        result = minimize(objective_lepton_spectrum, x0,
+                        method='Nelder-Mead',
+                        options={'xatol': 1e-14, 'fatol': 1e-18, 'maxiter': 200000})
+        if result.fun < best_inv_obj:
+            best_inv_obj = result.fun
+            best_inv = result
+    except:
+        pass
+
+if best_inv is not None:
+    K_uu = 10**best_inv.x[0]
+    K_dd = 10**best_inv.x[1]
+    K_ss = 10**best_inv.x[2]
+
+    K_diag = np.array([K_uu, K_dd, K_ss, 1.0])
+    W = build_central_4x4()
+    m_phys = np.zeros((4, 4))
+    for i in range(4):
+        for j in range(4):
+            m_phys[i, j] = W[i, j] / np.sqrt(K_diag[i] * K_diag[j])
+
+    evals_inv = np.sort(np.abs(np.linalg.eigvalsh(m_phys)))
+    Q_inv = koide_Q(evals_inv[:3])
+
+    print(f"Best inverse solution:")
+    print(f"  K_uu = {K_uu:.6e}")
+    print(f"  K_dd = {K_dd:.6e}")
+    print(f"  K_ss = {K_ss:.6e}")
+    print(f"  Eigenvalues: {['%.6e' % e for e in evals_inv]}")
+    print(f"  Q = {Q_inv:.10f}")
+    if evals_inv[0] > 0:
+        print(f"  Ratios: m2/m1 = {evals_inv[1]/evals_inv[0]:.4f} (target {m_mu/m_e:.4f})")
+        print(f"          m3/m1 = {evals_inv[2]/evals_inv[0]:.4f} (target {m_tau/m_e:.4f})")
+    print(f"  Objective function: {best_inv.fun:.6e}")
+
+    # What Kahler power p would give these K values?
+    print()
+    print("  Implied anomalous dimensions (for c=1):")
+    for i, label in enumerate(quark_labels):
+        if K_diag[i] > 1:
+            # K_ii = 1 + p^2 * (M_i/Lambda)^{2(p-1)} with c=1
+            # K_ii - 1 = p^2 * R_i^{2(p-1)} where R_i = M_i/Lambda
+            R_i = M_vev[i]/Lambda
+            K_corr = K_diag[i] - 1
+            # Solve: p^2 * R^{2(p-1)} = K_corr
+            # This is transcendental in p. Estimate:
+            for p_test in np.linspace(1.01, 5, 1000):
+                val = p_test**2 * R_i**(2*(p_test-1))
+                if val > K_corr:
+                    print(f"    M_{label}: K_corr = {K_corr:.4e}, R = {R_i:.4f}, p ~ {p_test:.3f}")
+                    break
+    print()
+
+print()
+
+
+# ============================================================================
+# PART 17: Summary and assessment
 # ============================================================================
 
 print("=" * 76)

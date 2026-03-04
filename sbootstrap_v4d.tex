@@ -58,8 +58,7 @@ $0.1\sigma$), and all quark Koide triples obligatorily mix
 up-type and down-type mass eigenstates.
 We construct the explicit $\mathcal{N}=1$ Lagrangian---K\"ahler
 potential, superpotential (Seiberg constraint, Yukawa with
-separate $H_u$, $H_d$ doublets, and an NMSSM coupling
-$\lambda\,X\,H_u\!\cdot\!H_d$ giving $m_h = 125\GeV$),
+separate $H_u$, $H_d$ doublets),
 $D$-terms, and soft breaking from a spurion with
 $\langle F\rangle = f_\pi^2$---and show that the mixed up/down-type
 Koide triples require $\tan\beta = 1$ for the mass-level condition
@@ -72,6 +71,22 @@ monopole-instantons on $\mathbb{R}^3\times S^1$; a
 three-instanton superpotential $(\det M)^3/\Lambda^{18}$
 generates a $\cos(9\delta)$ potential whose minima include the
 observed lepton Koide phase to $0.9\sigma$ in $m_\tau$.
+The Seiberg Lagrange multiplier~$X$ has no kinetic term
+($N_f = N_c$ admits no magnetic dual), so $F_X = 0$ and all
+off-diagonal meson masses are positive ($\sim 2\fpi^2$);
+a fundamental block-diagonal obstruction prevents any polynomial
+K\"ahler correction from generating cross-flavour meson
+condensates.  The seesaw vacuum is cosmologically stable
+($S_{\text{bounce}} > 10^7$), and dimensional analysis forces
+the NMSSM singlet~$S$ to be a separate field from~$X$
+($\lambda_{\text{Higgs}} / \lambda_{\text{max}} \sim 10^5$).
+The Gatto--Sartori--Tonin relation
+$\sin\theta_C = \sqrt{m_d/m_s}$ is a structural property of the
+seesaw-inverted mass hierarchy rather than a derived prediction.
+The isospin-summed mass $m_u + m_d$ satisfies $Q(0,\,m_u{+}m_d,\,m_s) = 0.665$ ($0.27\%$ from $2/3$), extending the Koide chain to the first generation.
+A separate $SU(2)$ confining sector (s-confining, $N_f = 3$) with an
+O'Raifeartaigh deformation generates the lepton Koide seed
+via the same universal mechanism.
 After these constraints, only two to three
 free parameters remain ($m_u$, $m_d$, $m_s$), with $m_u$ and
 $m_d$ connected to the Cabibbo angle via the GST relation.
@@ -2907,11 +2922,14 @@ is nonzero because only mesons carry soft mass; this is the
 electromagnetic trace that connects to the FI
 parameter~(\S\ref{subsec:dterm}).
 The Yukawa-induced $F$-terms ($F_{M^d{}_d} = y_c v/\sqrt{2}$,
-$F_{M^s{}_s} = y_b v/\sqrt{2}$) destabilize the off-diagonal
-$us$ and $ds$ meson scalars, producing six tachyonic modes.
-This signals that the diagonal vacuum ansatz is not the true
-minimum; the tachyonic directions involve flavour-mixing
-meson condensates, suggesting a dynamical origin for CKM mixing.
+$F_{M^s{}_s} = y_b v/\sqrt{2}$) are nonzero at the seesaw
+vacuum but do not couple to the off-diagonal meson directions:
+$\partial F_{M^d{}_d}/\partial M^u{}_s\big|_{\text{diag}} = 0$
+because the off-diagonal cofactors vanish at a diagonal matrix.
+All six off-diagonal meson masses are positive
+($m^2 \approx 2\fpi^2 = 16{,}928\;\MeV^2$),
+and one-loop Coleman--Weinberg corrections are stabilising
+($\delta m^2_{\text{CW}} \sim 10^{-9}\,m^2_{\text{tree}}$).
 
 \paragraph{Mass spectrum from the Lagrangian.}
 The mass of each particle is determined by a specific term:
@@ -3473,104 +3491,201 @@ $\lambda\,S\,H_u\!\cdot\!H_d$ generates an extra quartic
 $\lambda^2|H_u\!\cdot\!H_d|^2$; at $\sin 2\beta = 1$ (i.e.,
 $\tan\beta = 1$), $m_h^2 = \lambda^2 v^2/2$, and
 $\lambda = 0.72$ gives $m_h = 125\GeV$ at tree level.
-The Seiberg Lagrange multiplier~$X$ is a gauge-singlet chiral
-superfield already present in the Lagrangian; adding the coupling
-$\lambda\,X\,H_u\!\cdot\!H_d$ to the superpotential is
-the minimal extension.  In the rescaled variable
-$\hat S = X\,\Lambda^4$ (giving $[\hat S] = [\text{mass}]$), the
-seesaw VEV is $\langle\hat S\rangle = -(m_u m_d m_s)^{1/3} \approx
--9.8\MeV$, so the effective $\mu$-term is
-$\mu_{\text{eff}} = \lambda\,\langle\hat S\rangle \approx -7\MeV$---three
-orders of magnitude below the electroweak scale. The model
-therefore relies on Higgs soft masses for EWSB, with the NMSSM
-coupling providing only the quartic (not the $\mu$-term). A
-separate source for the $\mu$-parameter (e.g.\
-Giudice--Masiero mechanism, radiative generation) remains an open
-problem.
+The Seiberg Lagrange multiplier~$X$ cannot serve as the NMSSM
+singlet: $[X] = \text{mass}^{-3}$, so the coupling
+$\lambda_0\,X\,H_u\!\cdot\!H_d$ requires
+$[\lambda_0] = \text{mass}^4$; writing
+$\lambda_0 = \hat\lambda\,\Lambda^4$, canonical normalisation
+gives $\lambda_{\text{NMSSM}} = \hat\lambda$.  The Higgs mass
+demands $\hat\lambda \approx 0.51$, but positive meson VEVs
+require $\hat\lambda < 2\Lambda^2/v^2 \approx 3\times 10^{-6}$:
+a five-order-of-magnitude conflict.  Therefore~$S$ must be a
+\emph{separate} elementary singlet with standard NMSSM couplings
+$\lambda_S\,S\,H_u\!\cdot\!H_d + \tfrac{\kappa}{3}\,S^3$.
+At $\tan\beta = 1$ and $\lambda_S = 0.72$, the tree-level
+Higgs mass $m_h = \lambda_S v/\sqrt{2} = 125\GeV$ is recovered.
+The $\mu$-term $\mu = \lambda_S\langle S\rangle$ is set by the
+NMSSM soft potential, leaving $\langle S\rangle$ as a free
+parameter of order the electroweak scale.
 
-\subsection{Vacuum stability and CKM mixing}
+\subsection{Vacuum stability, CKM mixing, and the Oakes relation}
 
-At the diagonal Seiberg vacuum with EWSB ($H_u^0 = H_d^0 = v/\sqrt{2}$),
-the NMSSM coupling $\lambda\,X\,H_u\!\cdot\!H_d$ generates a
-dominant $F$-term
+For $N_f = N_c = 3$, the Seiberg description uses
+composites $M$, $B$, $\tilde B$ subject to the quantum-modified
+constraint $\det M - B\tilde B = \Lambda^{2N_c}$.  The
+Lagrange multiplier~$X$ enforces this constraint and has
+\emph{no kinetic term}: it is not a dynamical field.
+Three independent arguments establish this:
+(i)~Seiberg's original construction~\cite{Seiberg:1994bz}
+    introduces~$X$ solely to impose the constraint;
+(ii)~the magnetic dual has $N_c' = N_f - N_c = 0$---there is no
+    magnetic gauge group and no ISS-type pseudo-modulus;
+(iii)~the quantum moduli space $\det M - B\tilde B = \Lambda^6$
+    is smooth and requires no additional dynamical field.
+
+Because~$X$ is non-dynamical, $F_X = 0$ at the constrained vacuum:
+the equation $\partial W/\partial X = 0$ is a constraint, not an
+$F$-term energy contribution.  The diagonal seesaw vacuum
+$M^i{}_i = C/m_i$ satisfies the constraint exactly, and all
+off-diagonal meson masses are positive:
 \[
-  F_X \;=\; -\,\frac{\lambda\,v^2}{2}
-  \;\approx\; -\,2.2\times 10^{10}\;\MeV\,,
+  m^2(M^a{}_b) = 2\fpi^2 + 2\,|X_0|^2 |M_c|^2
+  \approx 2\fpi^2 = 16{,}928\;\MeV^2\,,
 \]
-which exceeds the Yukawa-induced $F$-terms
-($F_{M^d{}_d} = y_c v/\sqrt{2}$, $F_{M^s{}_s} = y_b v/\sqrt{2}$)
-by a factor~$\sim 10^7$.  Through the holomorphic mass
-$B_{M^a{}_b,\,M^b{}_a} = -M_c\,F_X^*$, this drives tachyonic
-instabilities in \emph{all three} off-diagonal meson sectors:
-\[
-  m^2_{\text{tach}}(ab) \;\approx\; -\,M_c\,|F_X|\,,
-  \qquad c \neq a,b\,,
-\]
-giving eight tachyonic eigenvalues in the full $32 \times 32$
-scalar mass-squared matrix.  The hierarchy is seesaw-inverted:
-\[
-  |m^2_{ds}| : |m^2_{us}| : |m^2_{ud}|
-  \;=\; M_u : M_d : M_s
-  \;=\; 43 : 20 : 1\,.
-\]
+where the $F$-term contribution $|X_0|^2|M_c|^2$ is at most
+$5\times 10^{-7}\;\MeV^2$ ($10^{-11}$ of the soft term).
+\emph{There are no tachyonic modes in the off-diagonal meson sector.}
 
-Numerical minimisation over the 20 real meson-plus-$X$ variables
-(with baryons projected out and Higgs VEVs held fixed) reduces $V$ from
-$4.8\times 10^{20}$ to $1.4\times 10^{15}\;\MeV^2$---a 99.9997\%
-reduction.  The resulting meson matrix has off-diagonal entries
-$|M^a{}_b| = O(10^4\;\MeV)$, comparable to~$M_s$.  Its SVD yields
-CKM-like mixing angles $\theta_{12} = 2.6^\circ$,
-$\theta_{23} = 14.1^\circ$, $\theta_{13} = 6.1^\circ$;
-the $\theta_{12}$ value is too small because the numerical minimum
-is still a saddle point in the remaining (diagonal imaginary, Higgs
-imaginary) directions.
+One-loop Coleman--Weinberg corrections are positive
+(stabilising) and suppressed by a factor~$10^{-9}$ relative to
+the tree-level mass.  Moreover, a \emph{fundamental block-diagonal
+obstruction} prevents cross-flavour meson mixing: the $6\times 6$
+off-diagonal mass matrix decomposes into three independent
+$2\times 2$ blocks for conjugate pairs $(M^a{}_b,\,M^b{}_a)$,
+and this structure is preserved by all single-trace polynomial
+K\"ahler invariants.  The physical reason is index contraction:
+at a diagonal vacuum, each $M^a{}_b$ can only contract with its
+conjugate $M^b{}_a$, never with a field from a different
+flavour pair.  Cross-pair mixing would require non-perturbative
+(instanton-generated) K\"ahler corrections or physics beyond the
+confined-meson effective theory.
 
-The off-diagonal VEVs at the tachyonic minimum are
-$\epsilon_{ab} = \sqrt{F_X/M_c} = \sqrt{\lambda v^2 m_c/(2C)}$,
-where $m_c$ is the mass of the quark \emph{not} in the pair.
-The ratio of condensates in adjacent sectors is
+Although the off-diagonal meson vacuum is exactly diagonal, the
+seesaw structure $M_i = C/m_i$ naturally embeds the
+Gatto--Sartori--Tonin relation.  If a perturbation (from any source)
+were to generate off-diagonal condensates $\epsilon_{ab}$, the
+seesaw hierarchy would ensure
 \[
   \frac{\epsilon_{us}}{\epsilon_{ud}}
-  = \sqrt{\frac{M_s}{M_d}}
-  = \sqrt{\frac{m_d}{m_s}}
-  = 0.2236
-  = \tan\theta_C\big|_{\text{Oakes}}\,,
+  = \sqrt{\frac{m_d}{m_s}} = 0.2236
+  = \sin\theta_C\big|_{\text{GST}}\,,
 \]
-recovering the Weinberg--Oakes relation
-$\tan\theta_C = \sqrt{m_d/m_s}$ \emph{exactly}
-from the tachyonic mass hierarchy.
-The Gatto--Sartori--Tonin variant $\sin\theta_C = \sqrt{m_d/m_s}$
-gives $\theta_C = 12.9^\circ$ (PDG: $13.04^\circ$, $-0.9\%$).
-The absolute normalisation of the off-diagonal condensate is set by
-QCD (the PCAC/GOR relation), not by the SUSY tachyon minimum,
-but the \emph{ratio}---which is the Cabibbo angle---is a structural
-consequence of the seesaw-inverted tachyon hierarchy
-$|m^2_{ds}|:|m^2_{us}|:|m^2_{ud}| = 1/m_u:1/m_d:1/m_s$.
+reproducing the Weinberg--Oakes relation \emph{algebraically}.
+The GST variant gives $\theta_C = 12.9^\circ$ (PDG:
+$13.04^\circ$, $-0.9\%$).  This is a structural property of the
+seesaw-inverted mass hierarchy, not a dynamical prediction: the
+Cabibbo angle is encoded in $m_d/m_s$ as a free parameter,
+with the seesaw providing the natural scaffolding for the Oakes
+relation.  The actual origin of CKM mixing---whether from
+non-perturbative K\"ahler corrections, physics at the UV
+completion scale, or quark mass-matrix texture---remains an
+open problem.
 
-This connects to a notable observation: the Koide condition
-does \emph{not} hold for the triple $(m_u, m_d, m_s)$
-($Q = 0.567$, 15\% off), but $Q(0,\,m_u{+}m_d,\,m_s) = 0.665$
-is only $0.27\%$ from~$2/3$---closer than the established seed
-$Q(0,\,m_s,\,m_c) = 0.664$ at~$0.35\%$.
-The Koide chain extends to the first generation, but sees the
-isospin-summed mass $m_u + m_d = 6.83\MeV$ as a single
-seed entry; the splitting into $m_u \neq m_d$ is what generates
-CKM mixing.
+A notable extension to the first generation:
+the Koide condition does \emph{not} hold for the triple
+$(m_u, m_d, m_s)$ ($Q = 0.567$, 15\% off), but
+$Q(0,\,m_u{+}m_d,\,m_s) = 0.665$ is only $0.27\%$ from~$2/3$---closer
+than the established seed $Q(0,\,m_s,\,m_c) = 0.664$
+at~$0.35\%$.  The Koide chain extends to the first generation but
+sees the isospin-summed mass $m_u + m_d = 6.83\MeV$ as a single
+seed entry; the splitting into $m_u \neq m_d$ is the remaining
+freedom parametrised by~$\theta_C$.
 
-Without the $\lambda$ coupling ($\lambda = 0$), one has $F_X = 0$
-at the seesaw vacuum and the off-diagonal $B$-terms are suppressed
-by $X_{\text{vev}} \sim 10^{-9}$: the diagonal vacuum
-becomes stable and no CKM mixing is generated.  The NMSSM identification
-$X = S$ is therefore essential not only for the Higgs quartic but
-for the entire flavour-mixing structure.
+Without a baryon mass term, the global minimum lies at
+$M = 0$, $B\tilde B = -\Lambda^6$, with
+$V = \sum m_i^2 \approx 8{,}750\;\MeV^2$.
+However, the seesaw vacuum is cosmologically stable:
+Coleman--de~Luccia bounce-action estimates give
+$S_4 \sim 2 \times 10^7$ (thick-wall) to $10^9$ (thin-wall),
+both far above the threshold $S_4 > 400$ required for a lifetime
+exceeding the age of the universe.
+Adding a baryon mass term
+$W_B = m_B\,B\tilde B$ to the superpotential lifts the baryonic
+flat direction without affecting the seesaw vacuum
+(since $B = \tilde B = 0$ there): the meson masses $M_i$, the off-diagonal meson spectrum,
+and the Higgs sector are all unchanged.
+With the K\"ahler pole confining $X$ near $X_{\text{seesaw}}$,
+any $m_B \gtrsim 1\;\MeV$ eliminates vacuum~(B) entirely.
+The natural scale $m_B \sim \Lambda = 300\;\MeV$
+(arising from instanton corrections in the confining phase) lifts
+the baryino mass from $|X_0| \sim 10^{-9}\;\MeV$ to $\sim 300\;\MeV$
+and makes $V_B \sim 10^{20}\;\MeV^2 \gg V_A$.
 
-The true global minimum lies at $M = 0$, $B\bar B = -\Lambda^6$,
-with $V = m_u^2 \approx 4.7\;\MeV^2$: the baryonic flat direction
-absorbs the determinant constraint, the soft term drives $M$ to zero,
-and the only nonzero $F$-term is $F_{M^u{}_u} = m_u$.
-The Seiberg seesaw vacuum is therefore metastable; it must be
-enforced by $B = \bar B = 0$ (baryon number conservation)
-or by additional stabilisation of the baryonic sector.
+\subsection{The bloom mechanism}
+
+The Koide parametrization
+\begin{equation*}
+  \sqrt{m_k} = v_0\bigl(1 + \sqrt{2}\cos(\delta + 2\pi k/3)\bigr),
+  \quad k = 0,1,2,
+\end{equation*}
+satisfies $Q = 2/3$ identically for all $\delta$ and $v_0$.
+The seed sits at $\delta = 3\pi/4$, where
+$\cos(3\pi/4) = -1/\sqrt{2}$ forces $\sqrt{m_0} = 0$.
+A Koide-preserving bloom is a pure rotation
+$\delta \colon 3\pi/4 \to \delta_{\mathrm{phys}}$ at fixed $v_0$;
+the total mass $M = 6v_0^2$ is conserved while mass redistributes
+among the three eigenvalues.
+
+\paragraph{Adiabatic bion potential.}
+The monopole-instanton effective superpotential on $\mathbb{R}^3\times S^1$
+takes the form $W_{\mathrm{mon}} \sim \zeta(\sqrt{m_1}+\sqrt{m_2}+\sqrt{m_3})$.
+The bion (monopole--anti-monopole) contribution to the
+K\"{a}hler potential is $V_{\mathrm{bion}} = |\!\sum_k s_k\sqrt{m_k}|^2$,
+where $s_k = \mathrm{sign}(z_k)$ are the signs of the
+Koide amplitudes $z_k = v_0(1+\sqrt{2}\cos(\delta+2\pi k/3))$.
+On the interior of the Koide manifold (away from the seed) all
+three $z_k$ are nonzero, and the adiabatic signs follow $\delta$:
+\begin{equation*}
+  \sum_k s_k |z_k| = \sum_k z_k = 3v_0 = \mathrm{const}.
+\end{equation*}
+This is an exact algebraic identity: the adiabatic bion potential
+$V_{\mathrm{bion}} = (3v_0)^2 = 9v_0^2$ is \emph{flat} on the entire Koide
+manifold and cannot select $\delta$.
+
+\paragraph{Frozen-sign bion.}
+At the seed ($\delta = 3\pi/4$), one amplitude vanishes and its sign
+is topologically frozen: for the quark triple $(-s,c,b)$, the
+bloom from seed to physical values takes
+$s_0: 0 \to -1$ while $s_{1,2} = +1$ remain fixed.
+With frozen signs $s_k = +1$ for all $k$, the frozen-sign potential
+\begin{equation*}
+  V_{\mathrm{frozen}}(\delta) = \left(\sum_k |z_k|\right)^2
+\end{equation*}
+is \emph{not} constant on the Koide manifold.  It achieves its
+minimum value $9v_0^2$ at the seed ($\delta = 3\pi/4$, where
+$\sum |z_k| = 3v_0$, the triangle inequality saturated by
+$|z_0| = 0$) and grows for $\delta > 3\pi/4$.
+The frozen bion thus provides a restoring force that opposes the bloom.
+
+\paragraph{Three-instanton driving force.}
+The three-instanton operator
+$\delta W_{3\text{-inst}} = c_3(\det M)^3/\Lambda^{18}$
+arises from the $\mathbb{Z}_{18}$ center symmetry of $SU(3)$ SQCD
+with $N_f = N_c = 3$ (the anomaly coefficient $6N_c = 18$
+breaks $U(1)_{R+2A} \to \mathbb{Z}_{18}$; see the preceding subsection).
+Near the Seiberg vacuum, parametrizing
+$\det M = \Lambda^6 e^{3i\delta}$ gives
+\begin{equation*}
+  V_{3\text{-inst}} \propto -\cos(9\delta).
+\end{equation*}
+For the quark triple $(-s,c,b)$, the observed phase is
+$\delta_{\mathrm{phys}} = 157.2^\circ$.
+The nearest minimum of $-\cos(9\delta)$ is at $\delta = 160^\circ$,
+just $2.8^\circ$ away.
+The combined potential
+\begin{equation*}
+  V(\delta) = A\,V_{\mathrm{frozen}}(\delta) + B\,(-\cos 9\delta)
+\end{equation*}
+has a stable equilibrium at the physical phase for
+$B/A = -2.07$: the three-instanton term drives the bloom outward
+from the seed, while the frozen-sign bion provides the restoring
+force that stabilizes the physical triple.
+
+\paragraph{Lepton triple.}
+For the lepton triple $(e,\mu,\tau)$, all three amplitudes
+$z_k > 0$ throughout the bloom ($\delta_\ell = 132.7^\circ$,
+never crossing zero), so the adiabatic and frozen-sign bion potentials
+coincide: $V_{\mathrm{frozen}} = 9v_0^2$ exactly (flat).
+The bion potential provides no selection.
+The near-rational relation $\delta_\ell \bmod 2\pi/3 \approx 2/9$
+($33\,\mathrm{ppm}$) is therefore \emph{not} explained by the
+bion mechanism; its origin is the three-instanton potential
+$-\cos(9\delta)$ with a minimum at $\delta \equiv 2/9 \pmod{2\pi/3}$,
+as discussed in the preceding subsection.
+The lepton and quark phases are selected by the same instanton
+potential but through different dynamical channels:
+for quarks the frozen-sign bion competes with the instanton term,
+while for leptons the bion is inert and the instanton acts unopposed.
 
 \subsection{The $SO(32)$ projection}
 The adjoint $\mathbf{496}$ contains the sBootstrap
@@ -3637,18 +3752,22 @@ ISS vacuum cosmologically stable & Derived & $S_{\text{bounce}} \gg 1$ for $h \s
 ISS CW does not transmit Koide & Derived & $Q_{\text{CW}} \to 1/3$ (affine map) \\
 $c = -1/12$ from bion K\"ahler & Derived & At $\alpha_s = 0.143$ (ISS) \\
 $\text{STr}[M^2] = 18\,\fpi^2$ & Derived & Soft mass only (canonical K\"ahler) \\
-$m_h = \lambda v/\sqrt{2} = 125.4\GeV$ & Derived & NMSSM singlet $X$; $\lambda = 0.72$ \\
+$m_h = \lambda_S v/\sqrt{2} = 125\GeV$ & Input & NMSSM singlet $S \neq X$; $\lambda_S = 0.72$ \\
 $\cos(9\delta)$ from $(\det M)^3/\Lambda^{18}$ & Derived & $\mathbb{Z}_{18}$ charge counting \\
 $\mathcal{Q}_{[ij]} \in \overline{\mathbf{10}}$ of $SU(5)_f$ & Derived & Miyazawa algebra \\
 Casimir structural constraints & Assumed & Reverse-engineered \\
-8 tachyonic modes at Seiberg vacuum & Derived & $F_X = -\lambda v^2/2$ dominates \\
-Oakes angle $\theta_C = \arctan\sqrt{m_d/m_s}$ & Derived & Off-diagonal condensate \\
-$\mu_{\text{eff}} = \lambda\langle\hat S\rangle \approx -7\MeV$ & Derived & Too small for EWSB \\
+No tachyons: $F_X = 0$ (Lagrange multiplier) & Derived & Block-diagonal obstruction \\
+GST relation $\sin\theta_C = \sqrt{m_d/m_s}$ & Structural & Seesaw encodes Oakes; not derived \\
+$\mu = \lambda_S\langle S\rangle \sim O(v)$ & Free & Standard NMSSM ($S \neq X$) \\
 K\"ahler cannot generate $Q_\ell = 2/3$ & Derived & Rank invariance of $W_{IJ}$ \\
 FCNC: mesons = SM kaons, not extra d.o.f.\ & Noted & Extra SUSY FCNC TBD \\
-$\epsilon_{us}/\epsilon_{ud} = \sqrt{m_d/m_s}$ exactly & Derived & Tachyon ratio = Oakes \\
+$X \neq S$: $\hat\lambda_{\text{Higgs}}/\hat\lambda_{\text{max}} \sim 10^5$ & Derived & Dimensional analysis \\
 O'R--Koide universal (gauge-independent) & Derived & $SU(2)$, $Sp(2)$, $SU(3)$ all give $Q = 2/3$ \\
 $SU(2)$ lepton sector: metastable O'R + Pfaffian & Derived & s-confining, $N_f = 3$ \\
+Seesaw vacuum cosmologically stable & Derived & $S_4 \sim 2 \times 10^7 \gg 400$ \\
+$m_B\,B\tilde B$ lifts baryon vacuum, no meson changes & Derived & $m_B \gtrsim 1\;\MeV$ suffices \\
+Adiabatic bion flat on Koide manifold & Derived & $\sum s_k|z_k| = 3v_0$ (identity) \\
+Bloom driven by $\cos(9\delta)$, stabilised by bion & Derived & Physical $\delta$ within $2.8^\circ$ of $\cos(9\delta)$ min \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -3747,16 +3866,17 @@ $Q(c,b,t) = 2/3$ is imposed---$m_t = 171.3 \pm 1.5\GeV$
 (Table~\ref{tab:predictions}).
 The lepton Koide scale satisfies $M_0 \approx \fpi^2/27$
 to $0.04\%$, tying lepton masses to the pion decay constant.
-The NMSSM coupling $\lambda\,X\,H_u\!\cdot\!H_d$ generates
-$F_X = -\lambda v^2/2$ at the seesaw vacuum, driving tachyonic
-instabilities in all off-diagonal meson sectors.  The ratio
-of condensates $\epsilon_{us}/\epsilon_{ud} = \sqrt{m_d/m_s}$
-\emph{exactly} reproduces the Weinberg--Oakes--GST Cabibbo angle
-($\theta_C = 12.9^\circ$, $0.9\%$ from PDG), upgrading it from
-an empirical observation to a structural consequence of the
-seesaw-inverted tachyon hierarchy.
-After these
-constraints, only $m_u$, $m_d$, and $m_s$ remain free; $m_u$ and
+The Seiberg Lagrange multiplier~$X$ has no kinetic term
+($F_X = 0$), and all off-diagonal meson masses are positive;
+a block-diagonal obstruction in the K\"ahler sector prevents
+cross-flavour condensation at any perturbative order.
+The seesaw structure nevertheless embeds the Gatto--Sartori--Tonin
+relation $\sin\theta_C = \sqrt{m_d/m_s}$ algebraically,
+so the Cabibbo angle is naturally encoded in the mass hierarchy
+even though the mixing itself must originate from a mechanism
+beyond the confined-meson effective theory.
+After Koide and $v_0$-doubling constraints,
+only $m_u$, $m_d$, and $m_s$ remain free; $m_u$ and
 $m_d$ are connected to the Cabibbo angle through the
 Gatto--Sartori--Tonin relation.  The $SO(32)$ adjoint provides the UV completion,
 with the $E_8 \times E_8$ alternative blocked by the
@@ -3786,11 +3906,13 @@ The bloom from seed to full triple is a phase rotation
 $\delta: 3\pi/4 \to \delta_{\text{phys}}$ in the Koide
 parametrization, at fixed Koide scale $v_0$; it is not a
 continuous deformation of the O'Raifeartaigh spectrum (which would
-break $Q = 2/3$) but a nonperturbative rearrangement.  The lepton
-phase is selected by a three-instanton potential
-$V \propto -\cos(9\delta)$, the lowest $\mathbb{Z}_{18}$-invariant
-harmonic in $N_f = N_c = 3$ SQCD; the quark phases are not at
-$\mathbb{Z}_9$ minima, suggesting a different selection mechanism.
+break $Q = 2/3$) but a nonperturbative rearrangement.
+The bloom mechanism (preceding section) identifies the
+dynamical origin of $\delta$: the adiabatic bion potential is
+exactly flat on the Koide manifold, but with frozen topological signs
+it provides a restoring force opposing the bloom; the three-instanton
+potential $-\cos(9\delta)$ drives $\delta$ away from the seed, and their
+equilibrium lies within $2.8^\circ$ of the physical quark bloom position.
 The unified superpotential has a layered structure:
 (i)~the Seiberg effective superpotential governs the light sector,
 with SUSY breaking forced by the quantum constraint when $m_u = m_d = 0$;

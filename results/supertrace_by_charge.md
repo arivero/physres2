@@ -176,9 +176,19 @@ Per-sector:
 
 **Total:** $\text{STr}[M^4] = +2.022335e+26$ MeV$^4$
 
-Unlike $\text{STr}[M^2]$, the quartic supertrace does **not** reduce to a pure soft-mass expression.
-It receives contributions from $W^2 M_{\text{soft}}$ (fermion masses crossed with soft breaking)
+Unlike $\text{STr}[M^2]$, the quartic supertrace does **not** reduce to a pure soft-mass expression
+in general. It receives contributions from $W^2 M_{\text{soft}}$ (fermion masses crossed with soft breaking)
 and $M_{\text{hol}}^2$ (Yukawa-induced F-term splittings).
+
+**Charged sectors are special:** For $Q = \pm 1$, all fermion eigenvalues vanish
+and all holomorphic splittings vanish (because the off-diagonal meson pairs $M^a_c, M^c_a$
+carry opposite charges and are split across different sectors). The only nonzero scalar
+masses are exactly $m^2 = f_\pi^2$. Consequently, for the charged sectors:
+$$\text{STr}_{Q=\pm 1}[M^{2n}] = 4 f_\pi^{2n} \quad \text{for all } n \geq 1$$
+
+The quartic supertrace is dominated by the $Q=0$ sector, where the $4\text{Tr}(W^2 M_{\text{soft}})$
+term is enormous ($\sim 2 \times 10^{26}$ MeV$^4$) due to the ultra-heavy X--meson modes
+at $\sim 7.7 \times 10^{10}$ MeV.
 
 ---
 

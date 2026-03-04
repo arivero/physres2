@@ -88,15 +88,15 @@ The distinction is controlled by the symmetry of the meson condensate:
 
 Leading correction: m_d/(2 m_s) = 0.025000 (2.50%)
 
-## 7. Full CKM (3x3 SVD)
+## 7. Full CKM (3x3 eigenvec)
 
-With hierarchical condensate eps_ij = eta M_k, fitted eta = 0.493333:
+With hierarchical condensate eps_ij = eta M_k, fitted eta = 0.357364:
 
 | Angle | This work | PDG |
 |-------|-----------|-----|
-| theta_12 | 0.0000 deg | 13.04 deg |
-| theta_23 | 0.0000 deg | 2.38 deg |
-| theta_13 | 0.0000 deg | 0.201 deg |
+| theta_12 | 13.0399 deg | 13.04 deg |
+| theta_23 | 28.5120 deg | 2.38 deg |
+| theta_13 | 6.7531 deg | 0.201 deg |
 | delta | 0 (real M) | 1.196 rad |
 | J | 0.00e+00 | 3.18e-5 |
 

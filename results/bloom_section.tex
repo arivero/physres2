@@ -1,0 +1,85 @@
+\subsection{The bloom mechanism}
+
+The Koide parametrization
+\begin{equation*}
+  \sqrt{m_k} = v_0\bigl(1 + \sqrt{2}\cos(\delta + 2\pi k/3)\bigr),
+  \quad k = 0,1,2,
+\end{equation*}
+satisfies $Q = 2/3$ identically for all $\delta$ and $v_0$.
+The seed sits at $\delta = 3\pi/4$, where
+$\cos(3\pi/4) = -1/\sqrt{2}$ forces $\sqrt{m_0} = 0$.
+A Koide-preserving bloom is a pure rotation
+$\delta \colon 3\pi/4 \to \delta_{\mathrm{phys}}$ at fixed $v_0$;
+the total mass $M = 6v_0^2$ is conserved while mass redistributes
+among the three eigenvalues.
+
+\paragraph{Adiabatic bion potential.}
+The monopole-instanton effective superpotential on $\mathbb{R}^3\times S^1$
+takes the form $W_{\mathrm{mon}} \sim \zeta(\sqrt{m_1}+\sqrt{m_2}+\sqrt{m_3})$.
+The bion (monopole--anti-monopole) contribution to the
+K\"{a}hler potential is $V_{\mathrm{bion}} = |\!\sum_k s_k\sqrt{m_k}|^2$,
+where $s_k = \mathrm{sign}(z_k)$ are the signs of the
+Koide amplitudes $z_k = v_0(1+\sqrt{2}\cos(\delta+2\pi k/3))$.
+On the interior of the Koide manifold (away from the seed) all
+three $z_k$ are nonzero, and the adiabatic signs follow $\delta$:
+\begin{equation*}
+  \sum_k s_k |z_k| = \sum_k z_k = 3v_0 = \mathrm{const}.
+\end{equation*}
+This is an exact algebraic identity: the adiabatic bion potential
+$V_{\mathrm{bion}} = (3v_0)^2 = 9v_0^2$ is \emph{flat} on the entire Koide
+manifold and cannot select $\delta$.
+
+\paragraph{Frozen-sign bion.}
+At the seed ($\delta = 3\pi/4$), one amplitude vanishes and its sign
+is topologically frozen: for the quark triple $(-s,c,b)$, the
+bloom from seed to physical values takes
+$s_0: 0 \to -1$ while $s_{1,2} = +1$ remain fixed.
+With frozen signs $s_k = +1$ for all $k$, the frozen-sign potential
+\begin{equation*}
+  V_{\mathrm{frozen}}(\delta) = \left(\sum_k |z_k|\right)^2
+\end{equation*}
+is \emph{not} constant on the Koide manifold.  It achieves its
+minimum value $9v_0^2$ at the seed ($\delta = 3\pi/4$, where
+$\sum |z_k| = 3v_0$, the triangle inequality saturated by
+$|z_0| = 0$) and grows for $\delta > 3\pi/4$.
+The frozen bion thus provides a restoring force that opposes the bloom.
+
+\paragraph{Three-instanton driving force.}
+The three-instanton operator
+$\delta W_{3\text{-inst}} = c_3(\det M)^3/\Lambda^{18}$
+arises from the $\mathbb{Z}_{18}$ center symmetry of $SU(3)$ SQCD
+with $N_f = N_c = 3$ (the anomaly coefficient $6N_c = 18$
+breaks $U(1)_{R+2A} \to \mathbb{Z}_{18}$; see the preceding subsection).
+Near the Seiberg vacuum, parametrizing
+$\det M = \Lambda^6 e^{3i\delta}$ gives
+\begin{equation*}
+  V_{3\text{-inst}} \propto -\cos(9\delta).
+\end{equation*}
+For the quark triple $(-s,c,b)$, the observed phase is
+$\delta_{\mathrm{phys}} = 157.2^\circ$.
+The nearest minimum of $-\cos(9\delta)$ is at $\delta = 160^\circ$,
+just $2.8^\circ$ away.
+The combined potential
+\begin{equation*}
+  V(\delta) = A\,V_{\mathrm{frozen}}(\delta) + B\,(-\cos 9\delta)
+\end{equation*}
+has a stable equilibrium at the physical phase for
+$B/A = -2.07$: the three-instanton term drives the bloom outward
+from the seed, while the frozen-sign bion provides the restoring
+force that stabilizes the physical triple.
+
+\paragraph{Lepton triple.}
+For the lepton triple $(e,\mu,\tau)$, all three amplitudes
+$z_k > 0$ throughout the bloom ($\delta_\ell = 132.7^\circ$,
+never crossing zero), so the adiabatic and frozen-sign bion potentials
+coincide: $V_{\mathrm{frozen}} = 9v_0^2$ exactly (flat).
+The bion potential provides no selection.
+The near-rational relation $\delta_\ell \bmod 2\pi/3 \approx 2/9$
+($33\,\mathrm{ppm}$) is therefore \emph{not} explained by the
+bion mechanism; its origin is the three-instanton potential
+$-\cos(9\delta)$ with a minimum at $\delta \equiv 2/9 \pmod{2\pi/3}$,
+as discussed in the preceding subsection.
+The lepton and quark phases are selected by the same instanton
+potential but through different dynamical channels:
+for quarks the frozen-sign bion competes with the instanton term,
+while for leptons the bion is inert and the instanton acts unopposed.
