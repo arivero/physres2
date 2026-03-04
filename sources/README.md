@@ -40,6 +40,14 @@ Each paper has a `.md` summary. Original `.tex` files are kept alongside where a
 | `diquark_origin.md` | arXiv:1111.7230 | q=4/3 diquark from SU(5) decomposition. Tevatron asymmetry connection. |
 | `no_elementary_scalars.md` | viXra:1102.0034 | Earliest LHC prediction: no squarks/sleptons as elementary particles. |
 
+### Volkov-Akulov (SUSY origins)
+
+| File | Source | Description |
+|------|--------|-------------|
+| `Possible_universal_neutrino_interaction.pdf` | JETP Lett. 16, 621 (1972) | **Foundational VA paper.** Neutrino as Goldstone particle of spontaneous SUSY breaking. Universal coupling via single constant `a` ∝ [length]⁴. VA action S = (1/σ)∫\|W\|d⁴x. Interaction with Dirac fermion. Super-Higgs anticipated: gauging Poincaré eats Goldstino → massive spin-3/2. |
+| `article_23569.pdf` | ZhETF Pis. Red. 17, 367 (1973) | Goldstino-EM interaction. Universal coupling: S = ∫[-¼FF + aFFT + ...]d⁴x. Cross section σ(s) = a²s³/80π. Bounds: ℓ ≲ 10⁻¹² cm (solar), ℓ ≲ 10⁻¹⁵ cm (CERN). Weak scale ℓ_w ≈ 0.66×10⁻¹⁶ cm. |
+| `volkov_1973.pdf` | JETP Lett. 18, 529 (1973) | Volkov-Soroka: Higgs effect for spin-1/2 Goldstone. Gauging super-Poincaré: spin-3/2 gauge field eats Goldstino. Key result: Goldstino retained only by violating gauge group → weak/EM interactions require explicit breaking. |
+
 ---
 
 ## Original .tex Files (core)

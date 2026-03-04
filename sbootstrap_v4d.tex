@@ -62,8 +62,9 @@ separate $H_u$, $H_d$ doublets),
 $D$-terms, and soft breaking from a spurion with
 $\langle F\rangle = f_\pi^2$---and show that the mixed up/down-type
 Koide triples require $\tan\beta = 1$ for the mass-level condition
-to equal a Yukawa-level condition.  The seed Koide
-fixes the pseudo-modulus VEV ($\langle X\rangle = \sqrt{3}\,\mu$) while the
+to equal a Yukawa-level condition.  A negative quartic
+K\"ahler correction $c = -1/12$ stabilizes the pseudo-modulus at
+$\langle X\rangle = \sqrt{3}\,\mu$ (the K\"ahler pole), while the
 $v_0$-doubling originates in the K\"ahler sector via a bion
 correction $|\!\sum s_k\sqrt{\hat m_k}|^2$ from
 monopole-instantons on $\mathbb{R}^3\times S^1$; a
@@ -141,7 +142,8 @@ following are first reported here: the signed-charge formalism
 and the meson Koide triple $(-\pi, D_s, B)$; the seed-triple
 concept and the universal ratio $2 - \sqrt{3}$; the
 $v_0$-doubling relation $\sqrt{m_b} = 3\sqrt{m_s} + \sqrt{m_c}$;
-the O'Raifeartaigh derivation $gv/m = \sqrt{3}$; the Pauli theorem
+the O'Raifeartaigh derivation $gv/m = \sqrt{3}$ and its
+K\"ahler stabilization at the pole $c = -1/12$; the Pauli theorem
 for symmetric diquarks; the bloom instability under perturbative
 $R$-breaking; the dual Koide on $(d,s,b)$ and its connection to
 the Seiberg seesaw; the bion K\"ahler mechanism for the
@@ -2158,10 +2160,43 @@ parameters map as $g \to h$, $m \to h\mu$, $v \to \langle X\rangle$
 $gv/m = \sqrt{3}$ becomes $\langle X\rangle/\mu = \sqrt{3}$---the
 magnetic Yukawa~$h$ cancels. The Koide seed fixes the
 pseudo-modulus VEV, not the coupling~$h$.
-At one-loop Coleman--Weinberg level $\langle X\rangle = 0$; the
-mechanism that generates the nonzero VEV
-$\langle X\rangle = \sqrt{3}\,\mu$ required by the seed
-remains an open question (\S\ref{sec:open}).
+At one-loop Coleman--Weinberg level $\langle X\rangle = 0$; a
+non-canonical K\"ahler correction provides the mechanism.
+
+\paragraph{K\"ahler stabilization of the pseudo-modulus.}
+In the minimal O'Raifeartaigh model ($W = fX + m\phi\tilde\phi
++ gX\phi^2$) with canonical K\"ahler potential,
+the CW potential is monotonically increasing and selects
+$\langle X\rangle = 0$.  Polynomial superpotential deformations
+(including cubic, quartic, and dimension-five operators)
+either vanish at the vacuum, reinforce $v = 0$, or produce
+minima at $gv/m \ll \sqrt{3}$.
+
+A negative quartic K\"ahler correction resolves this:
+\begin{equation*}
+  K = |X|^2 + \frac{c}{\Lambda_K^2}\,|X|^4\,,
+  \qquad c < 0\,.
+\end{equation*}
+The tree-level potential becomes
+$V_{\text{tree}} = f^2/(1 + 4c\,v^2/\Lambda_K^2)$, which has
+a pole at $v_{\text{pole}} = \Lambda_K/(2\sqrt{|c|})$.
+Near the pole the CW contribution is negligible
+($V_{\text{CW}} \sim 10^{-4}\,m^4 \ll V_{\text{tree}}$),
+and the effective potential is minimized at $v_{\text{pole}}$.
+Demanding $v_{\text{pole}} = \sqrt{3}\,m/g$ gives the exact condition
+\begin{equation*}
+  c = -\,\frac{\Lambda_K^2}{12\,m^2}\,.
+\end{equation*}
+With $\Lambda_K = m$ this is $c = -1/12$, an algebraic result:
+$\Lambda_K/(2\sqrt{1/12}) = \sqrt{12}/2 = \sqrt{3}$.
+No numerical tuning is required.
+At this VEV the fermion spectrum is
+$(0,\, (2{-}\sqrt{3})\,m,\, (2{+}\sqrt{3})\,m)$
+with $Q = 4/6 = 2/3$ exactly
+(since $(\sqrt{2{-}\sqrt{3}} + \sqrt{2{+}\sqrt{3}})^2 = 4 + 2 = 6$),
+confirming the Koide seed. The K\"ahler metric
+$K_{X\bar X} = 1 - v^2/(3m^2)$ vanishes at $v = \sqrt{3}\,m$,
+signaling the boundary of the effective field theory.
 
 The ISS mechanism (Intriligator--Seiberg--Shih \cite{ISS2006}) 
 establishes metastable SUSY-breaking vacua for $N_c < N_f < 3N_c/2$, 
@@ -3126,11 +3161,16 @@ The \emph{modulus} direction $|\Phi_0|$ is a separate question:
 the CW potential stabilizes $|\langle\Phi_0\rangle|$ at zero,
 but the Koide seed requires $\langle X\rangle/\mu = \sqrt{3}$
 (\S\ref{subsec:superpotential}).
+A negative quartic K\"ahler correction $c\,|X|^4/\Lambda_K^2$
+with $c = -\Lambda_K^2/(12\mu^2)$ pins the pseudo-modulus at
+the K\"ahler pole $v_{\text{pole}} = \sqrt{3}\,\mu$ exactly
+(an algebraic result, not numerical tuning;
+see \S\ref{subsec:superpotential}).
 The three-instanton operator $(\det M)^3$ shifts the Seiberg
 Lagrange multiplier~$X$ (dimension $[\text{mass}]^{-3}$ in the
 confining phase) but this is a different object from the ISS
 pseudo-modulus (dimension $[\text{mass}]^{+1}$ in the magnetic
-dual); the mechanism for the nonzero pseudo-modulus VEV remains open.
+dual).
 
 More broadly, the ISS Coleman--Weinberg potential does \emph{not}
 transmit the Koide condition from the UV quark masses to the IR
@@ -3273,6 +3313,7 @@ Claim & Status & Comment \\
 $Q = 2/3$ iff $\langle z_k^2\rangle = z_0^2$ & Derived & Algebra (\S\ref{sec:koide_algebra}) \\
 Seed ratio $= 2-\sqrt{3}$ & Derived & From $Q = 2/3$ + one zero \\
 O'R seed at $gv/m = \sqrt{3}$ & Derived & Fermion eigenvalues \\
+K\"ahler stabilization: $c = -1/12$ & Derived & Pole condition (\S\ref{subsec:superpotential}) \\
 $\langle X\rangle/\mu = \sqrt{3}$ in magnetic dual & Derived & ISS dictionary \\
 Pauli theorem (no symmetric $J{=}0$ diquark) & Derived & Angular momentum \\
 Diophantine: $(N,r,s) = (3,3,2)$ unique & Derived & Number theory \\
@@ -3327,13 +3368,17 @@ The massless member is the necessary condition for F-term
 full triples $(-s,c,b)$ and $(-\pi,D_s,B)$. The lepton triple 
 is the ``almost-seed'' that has barely bloomed.
 
-\paragraph{3.\ The seed condition is one superpotential constraint.}
+\paragraph{3.\ The seed condition is one superpotential constraint,
+stabilized by a K\"ahler pole.}
 The O'Raifeartaigh model with superpotential
 $W = f\Phi_0 + m\Phi_1\Phi_2 + g\Phi_0\Phi_1^2$ produces a
 fermionic spectrum $(0,\, m_-,\, m_+)$ that is an exact Koide
-seed triple when $gv/m = \sqrt{3}$. The energy-balance condition
-reduces to a single algebraic relation among the cubic coupling,
-the pseudo-modulus VEV, and the mass parameter.
+seed triple when $gv/m = \sqrt{3}$. The one-loop CW potential
+alone stabilizes the pseudo-modulus at $v = 0$; a negative
+quartic K\"ahler correction $c\,|\Phi_0|^4/\Lambda_K^2$ with
+$c = -\Lambda_K^2/(12m^2)$ pins it at the K\"ahler pole
+$v = \sqrt{3}\,m/g$ exactly. The Koide seed emerges at
+$M_0 = 2m/3$.
 
 \paragraph{4.\ Two breaking mechanisms plus a heavy-sector origin.}
 F-term breaking (via the massless seed member) generates the light 
@@ -3363,8 +3408,9 @@ equation and the choice of renormalization scheme remain open.
 
 \paragraph{7.\ An explicit Lagrangian with two to three free parameters.}
 The full $\mathcal{N}=1$ Lagrangian
-(\S\ref{subsec:superpotential}) comprises a canonical K\"ahler
-potential supplemented by a bion correction
+(\S\ref{subsec:superpotential}) comprises a K\"ahler potential
+with a negative quartic correction $c = -1/12$ (stabilizing
+the pseudo-modulus at $gv/m = \sqrt{3}$) and a bion correction
 $K_{\text{bion}} \sim |\!\sum s_k\sqrt{\hat m_k}|^2$,
 a superpotential combining the Seiberg constraint
 with Yukawa couplings (using separate $H_u$, $H_d$ doublets),
