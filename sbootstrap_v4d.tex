@@ -215,7 +215,7 @@ A historical note: Harari, Haut, and Weyers \cite{Harari} observed
 a quark mass ratio pattern that, in the language of the present paper, 
 corresponds to an approximate seed triple---$(0, d, s)$---at a time 
 when the up quark mass was 
-still thought to be possibly zero \cite{Harari}. With current masses, 
+still thought to be possibly zero. With current masses, 
 $\sqrt{m_d}/\sqrt{m_s} = 0.224$, deviating from $2 - \sqrt{3}$ by 
 $16\%$---too large for a good Koide triple. But if $m_s$ were 
 $\sim 150\MeV$ and $m_d \sim 7\MeV$ (values common in that era), the 
@@ -381,8 +381,8 @@ triple known. The energy balance:
 
 For comparison, the ``standard'' all-positive quark triples $(d,s,b)$ 
 and $(u,c,t)$ deviate from $Q = 2/3$ by 9.7\% and 27\% respectively 
-at $\overline{\text{MS}}$ masses. \textbf{The meson triple is more 
-precise than any quark triple} except $(c,b,t)$.
+at $\overline{\text{MS}}$ masses. \textbf{The meson triple is more
+precise than any quark triple}, including $(c,b,t)$ (0.42\%).
 
 The pion's negative charge has physical meaning: as a pseudo-Goldstone 
 boson, the pion would be massless ($\zch = 0$) if chiral symmetry were 
@@ -1308,12 +1308,14 @@ among which the $\mathbf{15} + \overline{\mathbf{15}}$ are
 the symmetric diquarks demanded by the sBootstrap counting
 (\S\ref{subsec:sym15}).
 
-Thus the sBootstrap representations
-$\mathbf{24} \oplus \mathbf{15} \oplus \overline{\mathbf{15}}$
-are exactly the $SU(5)$ content of the $SO(32)$ adjoint after
-restricting to the neutral sector.  However, $496 - 226 = 270$
-additional states with non-zero $U(1)$ charges must be projected
-out.  The mechanism for this projection---whether by an orbifold,
+Thus the sBootstrap representations appear in the $SO(32)$
+adjoint: the $\mathbf{24}$ in the neutral sector ($Q_A\!=\!Q_B\!=\!0$)
+and the $\mathbf{15} \oplus \overline{\mathbf{15}}$ in the matter
+sector ($|Q_A|\!=\!2$). However, the remaining $496 - 54 = 442$
+states (the $\mathbf{10}$, $\overline{\mathbf{10}}$,
+$\mathbf{5}$, $\bar{\mathbf{5}}$, the SU(3)-horizontal copies,
+and the neutral singlets) must be projected out or made massive.
+The mechanism for this projection---whether by an orbifold,
 a GSO-type condition, or a flux background---is an open problem.
 
 This embedding was first noted in \cite{Rivero2005}.  Its role
@@ -1374,12 +1376,12 @@ x_+(1) &= -1 + \sqrt{3}
   \,,\quad\text{so } x_+(1)\,m^2 = M_Z^2\,.
 \end{align}
 The identification with $W$ and $Z$ is motivated by their
-spins ($s = 1/2$ maps to the $SU(2)_L$ doublet structure of $W$,
+$SU(2)$ quantum numbers ($s = 1/2$ maps to the doublet structure of $W$,
 $s = 1$ to the triplet).  Then
 \begin{equation}
 R = 1 - \frac{x_+(1/2)}{x_+(1)}
   = \frac{(\sqrt{19} - 3)(\sqrt{19} - \sqrt{3}\,)}{16}
-  \;\approx\; 0.2231014\ldots
+  \;\approx\; 0.2231013\ldots
 \end{equation}
 
 This should be compared with the on-shell electroweak mixing
@@ -1638,7 +1640,7 @@ pseudo-modulus $\Phi_0$ normally acquires the \emph{smallest} mass
 in the spectrum (a loop-suppressed Coleman--Weinberg mass, 
 parametrically $\sim g^2 f/16\pi^2 m$). In the sBootstrap bloom, 
 the $b$-direction acquires the \emph{largest} mass 
-($m_b \gg m_s, m_c$). The bloom is far more dramatic than a 
+($m_b \gg m_s$ and $m_b > m_c$). The bloom is far more dramatic than a 
 perturbative CW lifting---it is a nonperturbative, strong-dynamics 
 effect in which confinement generates a mass of order $\Lambda_{\text{QCD}}^2/m_q$, 
 not $g^2/(16\pi^2)$. This inversion is a signature of the 
@@ -1772,7 +1774,7 @@ pion is given by the Das--Guralnik--Mathur--Low--Young (DGMLY)
 formula \cite{DGMLY1967}:
 \begin{equation}
 m_{\pi^\pm}^2 - m_{\pi^0}^2 = \frac{3\alpha_{\text{em}}}{4\pi}\,
-\frac{m_\rho^2}{f_\pi^2}\,f_\pi^2 
+m_\rho^2
 \approx (35.5\MeV)^2\,,
 \end{equation}
 which in the SUSY framework becomes a D-term contribution:
@@ -1893,7 +1895,7 @@ from vanishing. The sBootstrap case $N_f = N_c = 3$ is strictly
 \emph{below} the ISS window---at $N_f = N_c$ the low-energy 
 description is qualitatively different, governed by the 
 quantum-modified constraint \eqref{eq:seiberg} on the moduli space 
-rather than by a free magnetic dual. However, the physical QCD has 
+rather than by a free magnetic dual. However, physical QCD has 
 $N_f = 3$ light flavors and $N_f = 4$--$5$ if charm and bottom are 
 included at their respective thresholds, which does fall within the 
 ISS window for $N_c = 3$. The sBootstrap's multi-scale structure---with 
@@ -1955,7 +1957,7 @@ $5 \times 5$), combined with the SUSY-breaking dynamics, produces
 correlations among these scattered entries that enforce the 
 energy-balance condition $\langle z_k^2\rangle = z_0^2$.
 
-\subsection{The energy balance as a fixed point}
+\subsection{The energy balance is not an RG attractor}
 \label{subsec:fixedpoint}
 One might hope that the energy-balance condition
 $\langle z_k^2\rangle = z_0^2$ is a \emph{dynamical attractor}:
@@ -2050,17 +2052,18 @@ phenomenon, not a QCD one---consistent with the sBootstrap's
 identification of the breaking with $SU(2)_L \times U(1)_Y$ 
 rather than $SU(3)_c$.
 
-\paragraph{Charge running.} Even if mass ratios are QCD-invariant, 
-the Koide decomposition $\zch_k = z_0 + z_k$ may have its own 
-flow. The vacuum energy $v_0 = z_0^2$ sets the common scale, 
-and the fluctuations $z_k$ encode the deviations. If the 
-energy-balance condition $\langle z_k^2\rangle = z_0^2$ is a 
-dynamical attractor (as suggested in \S\ref{subsec:fixedpoint}), 
-the $z_k$ may evolve under a flow in which the \emph{ratio} 
-$z_a/z_b$ approaches $2 - \sqrt{3}$ at the fixed point while 
-the individual masses (and their QCD-invariant ratios) remain 
-unchanged. In this picture, the 1.2\% deviation measures how 
-far the quark sector is from the attractor.
+\paragraph{Charge running.} Even if mass ratios are QCD-invariant,
+the Koide decomposition $\zch_k = z_0 + z_k$ may have its own
+flow. The vacuum energy $v_0 = z_0^2$ sets the common scale,
+and the fluctuations $z_k$ encode the deviations. As shown in
+\S\ref{subsec:fixedpoint}, simple RG running drives $Q \to 1/3$
+rather than $2/3$, so the energy-balance condition cannot be an
+attractor in the usual sense. However, the O'Raifeartaigh
+realization (\S\ref{subsec:fterm}) shows that the condition is a
+boundary condition on the superpotential ($gv = \sqrt{3}\,m$).
+The 1.2\% deviation of the quark seed ratio may then reflect
+the distance between the physical quark masses and the exact
+superpotential constraint.
 
 \paragraph{Meson vs.\ quark deviations.} The meson deviation 
 (0.6\%) is smaller than the quark deviation (1.2\%), and for 
@@ -2241,6 +2244,45 @@ which is relevant only for quarks whose masses are dominated by the
 electroweak condensate rather than the chiral condensate. For the light sector
 ($u,d,s$) the Yukawa contribution is negligible compared to
 $\operatorname{Tr}(\hat m\, M)$.
+
+The Koide condition on the $(c,b,t)$ triple constrains the diagonal
+Yukawa matrix $Y = \operatorname{diag}(y_c,y_b,y_t)$ with
+$y_i = \sqrt{2}\,m_i/v_{\text{EW}}$. Since $Q$ is scale-invariant,
+the Koide relation reads
+%
+\begin{equation*}
+  \frac{y_c + y_b + y_t}
+       {(\sqrt{y_c}+\sqrt{y_b}+\sqrt{y_t})^2}
+  = \frac{2}{3}\,,
+\end{equation*}
+%
+which is equivalent to writing the square roots of the Yukawa
+couplings as
+%
+\begin{equation*}
+  \sqrt{y_k} = \sqrt{y_0}\,
+  \bigl(1 + \sqrt{2}\,\cos(2\pi k/3 + \delta)\bigr)\,,
+  \qquad k = 0,1,2\,,
+\end{equation*}
+%
+where $y_0 = \bigl(\sum\sqrt{y_k}\bigr)^2\!/9$ and $\delta$ is
+the Koide phase. For the physical $(c,b,t)$ masses,
+$\delta \approx 0.069$ and $Q = 0.6695$ (a 0.42\% deviation from
+$2/3$). The traceless part of $\sqrt{Y}$ lies in the Cartan
+subalgebra of $SU(3)_f$:
+%
+\begin{equation*}
+  \sqrt{Y} = \sqrt{y_0}\,
+  \Bigl(I_3 + \tfrac{\sqrt{6}}{2}\,
+  \hat n\cdot\boldsymbol\lambda_{\text{diag}}\Bigr)\,,
+\end{equation*}
+%
+where $\boldsymbol\lambda_{\text{diag}} = (\lambda_3, \lambda_8)$
+are the diagonal Gell-Mann matrices and $\hat n$ is a unit vector
+in the Cartan plane determined by $\delta$. The Koide condition is
+therefore a constraint on the \emph{direction} of the Yukawa
+matrix in flavor space: the amplitude $\sqrt{6}/2$ is fixed, only
+$\hat n$ (equivalently $\delta$) is free.
 
 The total Lagrangian takes the schematic form
 %
@@ -2424,11 +2466,12 @@ scheme, and no argument selects this scheme over $\overline{\text{MS}}$;
 tantalizingly close to $M_H = 125.25\GeV$ but with a spin mismatch.
 
 \subsection{The $SO(32)$ projection}
-The adjoint $\mathbf{496}$ decomposes into a 226-dimensional
-neutral sector (containing the sBootstrap representations
-$\mathbf{24} \oplus \mathbf{15} \oplus \overline{\mathbf{15}}$)
-and 270 charged states that must be projected out or made massive
-in a realistic model. No projection mechanism has been identified.
+The adjoint $\mathbf{496}$ contains the sBootstrap
+representations: $\mathbf{24}$ in the neutral sector and
+$\mathbf{15} \oplus \overline{\mathbf{15}}$ in the matter
+sector at $|Q_A| = 2$. The remaining 442 states must be
+projected out or made massive. No projection mechanism has been
+identified.
 
 \subsection{Generation uniqueness}
 The Diophantine system uniquely selects $N = 3$ generations,
@@ -2507,12 +2550,14 @@ The organizing principle is that each sector of the spectrum begins
 with a massless member (a seed), which is the necessary condition 
 for spontaneous SUSY breaking. The breaking lifts the zero, 
 generates the full triple, and the energy-balance condition 
-$\langle z_k^2\rangle = z_0^2$ is preserved as a fixed point 
-of the dynamics. The entire charged fermion and pseudoscalar meson 
-spectrum is then determined by a small number of parameters: the 
-vacuum charges $v_0$ of the three tuples, the Koide phases 
-$\delta$ that control the bloom, and the SUSY-breaking scale 
-$f_\pi$ that separates bosons from fermions.
+$\langle z_k^2\rangle = z_0^2$ constrains the initial conditions. The entire charged fermion and pseudoscalar meson
+spectrum is then determined by a small number of parameters: the
+vacuum charges $v_0$ of the three tuples, the Koide phases
+$\delta$ that control the bloom, and the SUSY-breaking scale
+$f_\pi$ that separates bosons from fermions. The
+O'Raifeartaigh realization shows that the energy-balance condition
+is a boundary condition on the superpotential ($gv = \sqrt{3}\,m$),
+not an RG attractor.
 
 \begin{thebibliography}{99}
 \bibitem{Rivero2005}
