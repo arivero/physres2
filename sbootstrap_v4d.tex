@@ -31,14 +31,14 @@ We reformulate the sBootstrap in terms of signed mass charges
 $\zch = z_0 + z_i$ with $m = \zch^2$, and show that the Koide ratio 
 $Q = 2/3$ is the algebraic consequence of two conditions: 
 $\sum z_i = 0$ and $\langle z_i^2\rangle = z_0^2$ (perturbation 
-energies average to the vacuum energy). Allowing negative charges, 
+energies average to the base-scale energy). Allowing negative charges, 
 we find that pseudoscalar mesons satisfy a Koide triple 
 $(-\pi, D_s, B)$ to 0.1\%, and identify \emph{seed triples} with 
 one massless member---$(0, s, c)$ for quarks, $(0, \pi, D_s)$ for 
 mesons---as the pre-breaking configurations from which the full 
 spectrum emerges. These seed triples share the same analytical 
 structure (charge ratio $2-\sqrt{3}$) and, strikingly, the meson 
-seed $(0,\pi,D_s)$ has vacuum energy $v_0^2 \approx 351\MeV$, 
+seed $(0,\pi,D_s)$ has Koide scale $v_0^2 \approx 351\MeV$,
 close to the lepton triple's $v_0^2 \approx 314\MeV$. A third 
 tuple $(c,b,t)$ stands apart, having no meson counterpart because 
 top diquarks do not hadronize. We discuss the diquark sector---which 
@@ -216,7 +216,7 @@ The strange and charm quark charges give:
 \end{equation}
 
 This triple has $Q = 0.6644$, deviating from $2/3$ by only $0.35\%$.
-Its vacuum energy is $v_0^2 = (\zch_s + \zch_c)^2/9 \approx 228\MeV$.
+Its Koide scale is $v_0^2 = (\zch_s + \zch_c)^2/9 \approx 228\MeV$.
 
 \paragraph{Scale ambiguity in the quark seed.}
 Throughout this paper, quark masses follow PDG conventions:
@@ -267,7 +267,7 @@ exact seed---the electron, while very light, is not massless. But the
 triple is clearly the same family: the near-critical Koide phase puts 
 one member close to zero.
 
-\subsection{Vacuum energy coincidence}
+\subsection{Scale coincidence}
 
 The $v_0^2$ values of the seed triples cluster remarkably:
 
@@ -283,7 +283,7 @@ $(0, s, c)$ & 228 & 15.10 \\
 \end{tabular}
 \end{center}
 
-The lepton and meson seed triples share a vacuum energy around 
+The lepton and meson seed triples share a Koide scale around
 310--350~MeV, squarely in the QCD scale range. This is the 
 sBootstrap connection made quantitative: \textbf{the lepton triple 
 and the meson seed triple operate at the same scale.}
@@ -473,7 +473,7 @@ combination predicted by the sBootstrap's $SU(5)$ flavor structure.
 \subsection{A tuple without mesons}
 
 The triple $(c, b, t)$ with all positive signs gives $Q = 0.6695$, 
-deviating by $0.42\%$. Its vacuum energy $v_0^2 \approx 29.6\GeV$ 
+deviating by $0.42\%$. Its Koide scale $v_0^2 \approx 29.6\GeV$ 
 is far above the QCD scale.
 
 This triple has \textbf{no meson counterpart}: the top quark decays 
@@ -592,7 +592,7 @@ Fitting to the charged lepton masses:
 \begin{equation}
 M_0 = 313.84\MeV\,, \qquad \delta_0 = 2.3166\;\text{rad}\,.
 \end{equation}
-The scale $M_0 \approx 314\MeV$ is the vacuum energy $v_0^2$ of
+The scale $M_0 \approx 314\MeV$ is the Koide scale $v_0^2$ of
 \S\ref{sec:seeds}, now identified as the mass parameter of the
 angular decomposition.
 
@@ -1442,8 +1442,10 @@ x^2 \;+\; C_2\,x \;-\; C_2 = 0\,,
 \qquad C_2 = s(s+1)\,,
 \end{equation}
 where $C_2$ is the quadratic Casimir of $SU(2)$ at spin $s$ and
-$x = M^2/m^2$ for a mass scale $m$ to be determined.  This is a
-quadratic in $x$ (quartic in $M/m$).  Its solutions are
+$x = M^2/m^2$ for a mass scale $m$ to be determined.  Equivalently,
+$x^2/(1-x) = C_2$: the eigenvalue is a self-consistent solution
+where the ``squared coupling'' $x^2$ equals $C_2$ times the
+complement $(1-x)$.  The solutions are
 \begin{equation}
 \label{eq:casimir_roots}
 x_{\pm}(s) = \frac{-C_2 \pm \sqrt{C_2^2 + 4C_2}}{2}\,.
@@ -1463,7 +1465,12 @@ structural conditions pin the polynomial to \eqref{eq:casimir_quartic}:
   (the constant and linear terms in $C_2$ are related).
 \end{enumerate}
 Together with the normalization $f_1 = 1$, these exhaust the
-freedom.  The ratio derived below is therefore a
+freedom.  A systematic scan of 582 polynomial alternatives
+(quadratics, cubics, quartics with Casimir-type functions and
+rational coefficients) confirms uniqueness: no other
+equation of this class reproduces $\sin^2\!\theta_W$ to
+sub-percent accuracy at $(s_1, s_2) = (1/2, 1)$.
+The ratio derived below is therefore a
 \emph{consequence} of these constraints, not a free parameter.
 
 \subsection{The electroweak ratio}
@@ -1488,6 +1495,12 @@ R = 1 - \frac{x_+(1/2)}{x_+(1)}
   = \frac{(\sqrt{19} - 3)(\sqrt{19} - \sqrt{3}\,)}{16}
   \;\approx\; 0.2231013\ldots
 \end{equation}
+The factored form follows from the discriminants of
+\eqref{eq:casimir_quartic}: $57 = 3 \times 19$ at $s = 1/2$ and
+$12 = 4 \times 3$ at $s = 1$.  Rationalizing the denominator
+$\sqrt{3} - 1$ yields an expression in $\sqrt{19}$ and $\sqrt{3}$
+alone, which coincides term-by-term with the form found
+empirically by de~Vries.
 
 This should be compared with the on-shell electroweak mixing
 parameter:
@@ -2324,7 +2337,7 @@ rather than $SU(3)_c$.
 
 \paragraph{Charge running.} Even if mass ratios are QCD-invariant,
 the Koide decomposition $\zch_k = z_0 + z_k$ may have its own
-flow. The vacuum energy $v_0 = z_0^2$ sets the common scale,
+flow. The Koide scale $v_0 = z_0^2$ sets the common scale,
 and the fluctuations $z_k$ encode the deviations. As shown in
 \S\ref{subsec:fixedpoint}, simple RG running drives $Q \to 1/3$
 rather than $2/3$, so the energy-balance condition cannot be an
@@ -2631,7 +2644,9 @@ superpotential combining mass, constraint, and Yukawa terms,
 \end{equation*}
 %
 where $M^{(3)}$ is the $3\times 3$ light-flavor block ($u,d,s$)
-and $\Lambda_{\text{eff}}^6 = \Lambda^6/(m_u m_d m_s)$.
+and $\Lambda_{\text{eff}}$ is the dynamical scale of the confined
+$N_f = N_c = 3$ theory (including threshold matching at $m_c$
+and $m_b$).
 The $D$-term Lagrangian includes an optional Fayet--Iliopoulos
 parameter $\xi$ for $U(1)_{\text{em}}$:
 %
@@ -3069,14 +3084,16 @@ Seven principal results:
 
 \paragraph{1.\ The Koide formula is energy equipartition.}
 $Q = 2/3$ is $\langle z_k^2\rangle = z_0^2$: perturbation energies 
-match the vacuum energy. The signed-charge framework resolves the 
+match the base scale. The signed-charge framework resolves the 
 electron mass puzzle (near-cancellation, not fine-tuning) and reveals 
 that mesons satisfy Koide with $(-\pi, D_s, B)$ to $0.1\%$.
 
 \paragraph{2.\ Seed triples set the stage for SUSY breaking.}
 The quark seed $(0,s,c)$ and meson seed $(0,\pi,D_s)$ share the 
-universal ratio $2 - \sqrt{3}$ and operate at $v_0^2 \sim 
-230$--$350\MeV$, close to the lepton triple's $v_0^2 = 314\MeV$. 
+universal ratio $2 - \sqrt{3}$ and operate at $v_0^2 \sim
+230$--$350\MeV$, close to the lepton triple's $v_0^2 = 314\MeV$
+(recall that $v_0^2$ carries dimensions of MeV, not MeV$^2$,
+because $v_0 = z_0$ is a charge with dimensions MeV$^{1/2}$). 
 The massless member is the necessary condition for F-term 
 (O'Raifeartaigh) SUSY breaking. Upon breaking, seeds bloom into 
 full triples $(-s,c,b)$ and $(-\pi,D_s,B)$. The lepton triple 
@@ -3157,7 +3174,7 @@ generates the full triple, and the energy-balance condition
 $\langle z_k^2\rangle = z_0^2$ constrains the initial conditions.
 The bloom from seed to full triple is a phase rotation
 $\delta: 3\pi/4 \to \delta_{\text{phys}}$ in the Koide
-parametrization, at fixed vacuum energy $v_0$; it is not a
+parametrization, at fixed Koide scale $v_0$; it is not a
 continuous deformation of the O'Raifeartaigh spectrum (which would
 break $Q = 2/3$) but a nonperturbative rearrangement.
 The unified superpotential has a layered structure:
