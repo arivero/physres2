@@ -2773,8 +2773,15 @@ The Pauli theorem (\S\ref{subsec:pauli}) proves that no $J=0$,
 color-$\bar{3}$ diquark can have symmetric flavor, closing all 
 field-theoretic escape routes ($L=0$, P-wave, or higher). The 
 sBootstrap's $\mathbf{15}$ diquark must therefore be non-composite: 
-either an algebraic image of the Miyazawa supercharge or a 
-fundamental $SO(32)$ string state. The exotic $+4/3$-charged
+either an algebraic image of the Miyazawa supercharge
+(\S\ref{subsec:baryon_open}) or a fundamental $SO(32)$ string state.
+However, the mixed anticommutator
+$\{Q_\alpha, \mathcal{Q}_{[ij],\beta}\} = \epsilon_{\alpha\beta}\,
+\mathcal{S}_{[ij]}$ produces a diquark generator in
+$\overline{\mathbf{10}}$ (antisymmetric), not the symmetric
+$\mathbf{15}$; thus the Miyazawa route alone does not resolve the
+$\mathbf{15}$~vs.~$\overline{\mathbf{10}}$ conflict.
+The exotic $+4/3$-charged
 diquarks of the $\mathbf{15}$ would be a testable consequence:
 if their mass is set by the SUSY-breaking scale ($\sim f_\pi$), they
 would be sub-GeV and accessible at fixed-target experiments; if by
@@ -2842,9 +2849,44 @@ The extension from $\mathbb{R}^3 \times S^1$ to
 $\mathbb{R}^4$ relies on \"Unsal's continuity conjecture.
 
 \subsection{The baryon sector}
-In Seiberg's SQCD with $N_f = N_c = 3$, baryons are part of the 
-low-energy spectrum. Their SUSY partners are ``baryonic fermions'' 
+\label{subsec:baryon_open}
+In Seiberg's SQCD with $N_f = N_c = 3$, baryons are part of the
+low-energy spectrum. Their SUSY partners are ``baryonic fermions''
 with no known candidates among observed particles.
+
+The meson--baryon connection requires a Miyazawa supercharge
+\cite{Miyazawa, CattoGursey}, which cannot lie in the
+fundamental~$\mathbf{5}$: the product
+$\mathbf{5}\otimes(\mathbf{1}\oplus\mathbf{24})$ does not
+contain~$\overline{\mathbf{10}}$, so a single-index generator
+cannot map mesons to baryons.  The minimal choice is
+\begin{equation*}
+\mathcal{Q}_{[pq],\alpha}
+  \;\in\; \overline{\mathbf{10}}\;\text{of}\;SU(5)_f\,,
+  \qquad \Delta B = +1\,,
+\end{equation*}
+with transformation law
+$[\mathcal{Q}_{[pq]}, M^i{}_j]
+  = \delta^i_{[p}\,\tilde\psi_{B,\,q]j}
+  - \tfrac{1}{5}\delta^i_j\,\tilde\psi_{B,\,pq}$,
+where $\tilde\psi_{B,\,lm}
+  = \tfrac{1}{6}\epsilon_{lmijk}\,\psi_B^{ijk}$ is the dual
+baryonino.  The anticommutator decomposes as
+\begin{equation*}
+\overline{\mathbf{10}}\otimes\mathbf{10}
+  = \mathbf{1}\oplus\mathbf{24}\oplus\mathbf{75}\,,
+\end{equation*}
+giving $\{\mathcal{Q},\bar{\mathcal{Q}}\}
+  \supset \sigma^\mu P_\mu + T^A + Z$, where $T^A$ are the
+$SU(5)_f$ generators and $Z$ are central charges encoding the
+meson--baryon mass splitting $m_B^2 - m_M^2 = \langle Z\rangle
+\sim\Lambda_{\text{QCD}}^2$.  This Miyazawa SUSY evades the
+Haag--\L{}opusza\'nski--Sohnius theorem because it is an
+approximate symmetry broken at scale~$\Lambda_{\text{QCD}}$,
+analogous to $SU(6)$ spin--flavor symmetry in the quark model.
+The $\mathbf{75}$ channel on the right-hand side
+signals that the full bosonic subalgebra extends beyond
+$SU(5)_f$; its interpretation remains open.
 
 \subsection{The strong CP problem}
 The principle ``Nature abhors chirality'' predicts $\bar{\theta} = 0$ 
