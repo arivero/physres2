@@ -62,7 +62,25 @@
 
 ---
 
-## Agent D: Full Spectrum (full_spectrum.md) — STILL RUNNING
+## Agent D: Full Particle Spectrum (full_spectrum.md)
+
+**Task**: Compute complete fermion (16×16) and scalar (32×32) mass matrices at Seiberg vacuum with Yukawa couplings and EWSB.
+
+**Key results**:
+
+1. **Fermion spectrum spans 20 orders of magnitude**: From ultra-heavy X–M_ss pair at 7.73×10¹⁰ MeV down to baryonic fermion at ~10⁻⁷ MeV. The Seiberg seesaw produces an inverted hierarchy: off-diagonal meson fermion masses ∝ 1/m_quark.
+
+2. **Two exactly massless charged Higgsinos**: H_u⁺ and H_d⁻ have no superpotential coupling at this vacuum. In a full model they acquire mass through gauge couplings.
+
+3. **SUSY broken by Yukawa F-terms**: F_{M_dd} = y_c v/√2 = 1796 MeV, F_{M_ss} = y_b v/√2 = 5911 MeV, F_{H_u⁰} = y_c ⟨M_dd⟩ = 1949 MeV, F_{H_d⁰} = y_b ⟨M_ss⟩ = 321 MeV.
+
+4. **Six tachyonic scalar modes**: R-components of us and ds off-diagonal mesons (m² = −62384 and −144713 MeV²), plus 2 central-block R modes. The holomorphic mass contribution W_{IJK}F_I overcomes the positive soft mass f_π². This signals the diagonal vacuum ansatz is NOT the true minimum when Yukawas + EWSB are included.
+
+5. **Supertrace exact**: STr[M²] = 2 Tr(M²_soft) = 18 f_π² = 152352 MeV². The W² piece cancels between scalar and fermion sectors. The holomorphic piece cancels between R and I. Only soft mass survives — consistent with the general theorem for canonical Kähler + no D-terms.
+
+6. **Diagonal meson–Higgsino mixing**: M_dd mixes with H_u⁰ through y_c (charm sector, masses ~0.01 MeV), M_uu mixes with H_d⁰ through y_b (masses ~0.0008 MeV). The X–M_ss pair is ultra-heavy and decouples.
+
+**For the paper**: The tachyonic modes are the most significant finding. They indicate that the simple diagonal meson VEV ansatz must be generalized when Yukawa couplings are present — the true vacuum involves off-diagonal meson condensation. This may connect to CKM mixing (off-diagonal mesons = flavor mixing). The supertrace formula STr = 18 f_π² is clean and publishable.
 
 ---
 
@@ -90,6 +108,20 @@ Round 6 showed c = -1/12 is NOT radiatively generated. Round 7 shows it CAN be p
 
 This is the first concrete mechanism for the Kähler stabilization coefficient. The Ünsal continuity conjecture extends the result to R⁴.
 
+### Vacuum Instability and CKM Connection
+
+The six tachyonic scalar modes are a STRUCTURAL result, not a numerical artifact. The Yukawa F-terms (F_{M_dd} = 1796 MeV, F_{M_ss} = 5911 MeV) generate holomorphic mass contributions W_{IJK}F_I that destabilize the off-diagonal meson R-components. The us and ds blocks are tachyonic, while ud remains stable.
+
+This has a potentially deep interpretation:
+- The tachyonic directions involve off-diagonal mesons M^u_s, M^s_u, M^d_s, M^s_d
+- Off-diagonal meson condensation = flavor mixing
+- The instability is SELECTIVE: ud is stable, us and ds are unstable
+- This pattern mirrors CKM mixing: the larger mixing angles involve s↔d and s↔u transitions
+
+The true vacuum must involve nonzero off-diagonal meson VEVs, which would generate CKM-like mixing. This connects the tachyonic instability directly to the CKM open problem.
+
+The supertrace STr[M²] = 18 f_π² is model-independent (depends only on the number of soft-broken fields), providing a consistency check. The value 18 = 2 × 9 counts the 9 meson soft masses appearing symmetrically in R and I scalar sectors.
+
 ### Dual Koide Structure
 
 The formula Q_dual = 7/3 − (4√2/3)cos(3δ) on the Koide manifold reveals that the dual Koide Q(1/m_d, 1/m_s, 1/m_b) ≈ 2/3 is NOT a consequence of any Koide condition on the direct masses. It's an independent pattern specific to the down-type quark masses.
@@ -102,7 +134,8 @@ The Seiberg seesaw M_j = C/m_j maps masses to 1/masses, but C cancels from Q. Th
 |-------------|--------|---------|
 | Origin of c = -1/12 | **PARTIALLY RESOLVED** | Bion mechanism at α_s = 0.143 in ISS |
 | Higgs mass at tan β = 1 | **NEW OPEN → RESOLVED** | m_h = 0 tree-level; NMSSM singlet λ = 0.719 |
-| CKM mixing | Open | No new progress |
+| CKM mixing | **NEW LEAD** | Tachyonic off-diagonal mesons → flavor mixing vacuum |
+| Vacuum stability | **NEW OPEN** | 6 tachyonic scalar modes; diagonal ansatz not true minimum |
 | 15 vs 10̄ Pauli | Open | No new progress |
 | Bloom mechanism | Open | No new progress |
 | Dual Koide origin | **CLARIFIED** | Independent of direct Koide; formula derived |
