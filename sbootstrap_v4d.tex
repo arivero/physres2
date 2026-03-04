@@ -1635,6 +1635,27 @@ breaking lifts $\Phi_0$ from zero to $\zch_b \neq 0$, simultaneously
 flipping the sign of $\zch_s$, so that the same three flavors
 rearrange from $(0, s, c)$ into $(-s, c, b)$.
 
+\paragraph{The bloom as a phase rotation.}
+In the Koide parametrization~\eqref{eq:koide_angle}, the seed sits at
+$\delta = 3\pi/4$, where $\cos(3\pi/4) = -1/\sqrt{2}$ forces one
+mass to vanish: $\sqrt{m_0} = \sqrt{M_0}(1 + \sqrt{2}\cos\delta) = 0$.
+A Koide-preserving bloom ($Q = 2/3$ maintained) is a pure rotation
+$\delta: 3\pi/4 \to \delta_{\text{phys}}$ at fixed scale $v_0$
+and fixed amplitude $r = \sqrt{2}\,v_0$. The total mass
+$M = 6v_0^2$ is conserved---mass merely redistributes among the three
+eigenvalues. The sign flip is instantaneous: the seed sits exactly at
+the boundary $\zch_0 = 0$, and any infinitesimal rotation generates
+a nonzero charge with definite sign.
+
+Explicit R-symmetry breaking in the O'Raifeartaigh model (adding a
+term $\delta W \sim \varepsilon\,\Phi_0\Phi_2$) lifts the goldstino
+mass as $m_0 \sim \varepsilon^2/m$, but simultaneously pushes
+$Q$ away from $2/3$---no nonzero $\varepsilon$ preserves the Koide
+condition. The Koide seed is an \emph{unstable fixed point} of the
+R-breaking perturbation. In the dynamical (SQCD) realization, the
+bloom must therefore be a nonperturbative rearrangement---not a
+smooth deformation of the O'Raifeartaigh spectrum.
+
 A striking difference from standard O'Raifeartaigh: the 
 pseudo-modulus $\Phi_0$ normally acquires the \emph{smallest} mass 
 in the spectrum (a loop-suppressed Coleman--Weinberg mass, 
@@ -1903,6 +1924,23 @@ the seed triples involving $s$, $c$, and $b$ quarks at different
 scales---may require treating the effective $N_f$ as 
 scale-dependent, entering the ISS regime above the strange threshold.
 
+\paragraph{The Seiberg seesaw and dual Koide.}
+At the Seiberg vacuum with $B = \bar B = 0$, the diagonal meson VEVs
+scale as $\langle M^j{}_j\rangle \propto 1/m_j$: heavy quarks produce
+light mesons and vice versa. This seesaw prompts a dual question: does
+the inverse-mass spectrum $\{1/m_i\}$ satisfy a Koide condition?
+Evaluating $Q = \sum(1/m_i)/(\sum\sqrt{1/m_i})^2$ for the pure
+down-type quarks $(d,s,b)$:
+\begin{equation*}
+  Q(1/m_d,\, 1/m_s,\, 1/m_b) = 0.6652\,,
+\end{equation*}
+a 0.22\% deviation from $2/3$---better than any direct quark Koide
+triple except the leptons. No other quark triple comes close under
+the Seiberg seesaw (the next best, $(d,s,c)$, deviates by 4.2\%).
+This ``dual Koide'' on $(d,s,b)$ connects the UV mass hierarchy to
+the IR meson VEVs: the Seiberg constraint maps the down-type quark
+masses into a near-Koide spectrum of meson condensates.
+
 \subsection{How the three supermultiplets join}
 
 The seed-to-bloom transition generates three separate Koide triples. 
@@ -2122,14 +2160,37 @@ happen to satisfy the Koide condition without a dynamical reason.
 The 0.42\% precision makes this unlikely but not impossible.
 \end{enumerate}
 
-Interpretation (1) is most natural within the sBootstrap: the 
-$(c,b,t)$ triple involves quarks whose masses are dominated by 
-Yukawa couplings to the Higgs, not by the chiral condensate, and the 
-Koide condition would then be a constraint on the Yukawa matrix 
-rather than on the SQCD dynamics. The chiral sector and the 
-electroweak sector would each independently produce a Koide-type 
-energy balance, with the charm and bottom quarks serving as the 
+Interpretation (1) is most natural within the sBootstrap: the
+$(c,b,t)$ triple involves quarks whose masses are dominated by
+Yukawa couplings to the Higgs, not by the chiral condensate, and the
+Koide condition would then be a constraint on the Yukawa matrix
+rather than on the SQCD dynamics. The chiral sector and the
+electroweak sector would each independently produce a Koide-type
+energy balance, with the charm and bottom quarks serving as the
 bridge between the two.
+
+\paragraph{CKM mixing and the Koide triples.}
+A striking feature of the quark Koide triples is that they
+\emph{obligatorily mix up-type and down-type quarks}: $(-s,c,b)$
+contains one up-type ($c$) and two down-type ($s,b$), while
+$(c,b,t)$ contains two up-type ($c,t$) and one down-type ($b$). An
+exhaustive scan of all $\binom{6}{3} = 20$ quark triples with all
+sign choices confirms that \emph{every} triple close to $Q = 2/3$ is
+mixed---neither the pure down-type $(d,s,b)$ nor the pure up-type
+$(u,c,t)$ comes close ($Q = 0.73$ and $Q = 0.85$ respectively).
+This mixing of mass eigenvalues from different Yukawa sectors is
+puzzling in the Standard Model, where up-type and down-type masses are
+eigenvalues of independent matrices $Y_u$ and $Y_d$. It is natural,
+however, in an $SU(5)_f$ flavor-symmetric framework where all five
+quarks are treated democratically.
+
+The Koide constraints on the two overlapping triples, together with
+the seed condition on $(0,s,c)$, determine $(s,c,b)$ from a single
+input ($m_t$). The unconstrained masses are $m_u$ and $m_d$---the
+first generation. The Oakes relation $\tan\theta_C \approx
+\sqrt{m_d/m_s}$ connects precisely these free parameters to the
+Cabibbo angle, suggesting that the CKM matrix encodes the residual
+freedom left undetermined by the Koide structure.
 
 If interpretation (2) is also invoked, the sBootstrap has two breaking 
 scales:
