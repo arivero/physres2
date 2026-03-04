@@ -1923,11 +1923,21 @@ direction in the meson matrix where the tree-level mass vanishes---the
 entry involving the lightest quark combination. In the exact chiral 
 limit ($m_u = m_d = 0$), this entry is truly massless, and the 
 constraint \eqref{eq:seiberg} forces $\langle F\rangle \neq 0$ for 
-that entry. This is the dynamical O'Raifeartaigh mechanism: 
-confinement (encoded in $\Lambda^6$) plays the role of the parameter 
-$f$ in the superpotential, and the impossibility of setting all 
-$F$-terms to zero is a consequence of the strong dynamics rather 
+that entry. This is the dynamical O'Raifeartaigh mechanism:
+confinement (encoded in $\Lambda^6$) plays the role of the parameter
+$f$ in the superpotential, and the impossibility of setting all
+$F$-terms to zero is a consequence of the strong dynamics rather
 than a choice of superpotential.
+
+\paragraph{The magnetic Yukawa coupling.}
+In the ISS magnetic dual, the tree-level superpotential contains a
+Yukawa coupling $h\,\mathrm{Tr}(q\,M\,\tilde q)$ between the magnetic
+quarks $q$, $\tilde q$ and the meson matrix $M$. The seed Koide
+condition $gv/m = \sqrt{3}$ of the O'Raifeartaigh model translates
+into $h = \sqrt{3}$: the magnetic Yukawa is fixed by requiring the
+fermionic mass spectrum of the meson matrix to be an exact Koide seed.
+This is a single algebraic constraint on the parameters of the magnetic
+theory, reducing one coupling from free to determined.
 
 The ISS mechanism (Intriligator--Seiberg--Shih \cite{ISS2006}) 
 establishes metastable SUSY-breaking vacua for $N_c < N_f < 3N_c/2$, 
@@ -2381,32 +2391,63 @@ where $\mathcal{L}_{\text{FI}}$ is a Fayet--Iliopoulos $D$-term for the
 unbroken $U(1)_{\text{em}}$, providing an additional source of splitting
 between charged and neutral states.
 
-The parameters of this construction separate cleanly into those fixed by
+The parameters of this construction separate into those fixed by
 structure and those that remain free.
-%
-\emph{Determined by the Koide ansatz}: within each mass triple, the ratios
-$\zch_a/\zch_b = 2-\sqrt{3}$ fix two of three masses given the third.
-%
-\emph{Determined by SUSY breaking}: the supertrace relation
-$m^2_\pi - m^2_\mu = \fpi^2$ fixes the splitting scale.
-%
-\emph{Free parameters}: the Koide phase $\delta$ for each triple
-(lepton, light quark, heavy quark), the vacuum energy $v_0^2$ anchoring each
-triple, the SUSY-breaking scale $f\approx\fpi$, and one $D$-term parameter
-$\xi$---eight parameters in total. These determine ten independent masses:
-three charged leptons, four quarks ($s,c,b,t$), and the meson triple
-$(-\pi, D_s, B)$. The charm and bottom masses appear in both the $(-s,c,b)$
-and $(c,b,t)$ triples, providing two nontrivial consistency conditions---the
-overlapping triples must agree on $m_c$ and $m_b$. If both triples are
-required to satisfy $Q = 2/3$ exactly, with only $m_s$ and $m_t$ as inputs,
-the overlap system determines $m_c$ and $m_b$ uniquely:
+
+\paragraph{Fixed by the Koide seed.}
+The O'Raifeartaigh condition $gv/m = \sqrt{3}$ translates, in the
+ISS magnetic dual, into a fixed magnetic Yukawa coupling $h = \sqrt{3}$.
+This fixes the mass ratio $m_c/m_s = (2+\sqrt{3})^2/(2-\sqrt{3})^2$
+within the seed triple, predicting $m_c = 1{,}301\MeV$ from $m_s$ alone
+(PDG: $1{,}270\MeV$, 2.4\% deviation).
+
+\paragraph{Fixed by the vacuum-charge doubling.}
+The bloom from seed to full triple doubles $v_0$, giving
+$\sqrt{m_b} = 3\sqrt{m_s} + \sqrt{m_c}$ and predicting
+$m_b = 4{,}177\MeV$ (0.1$\sigma$ from PDG). This constraint
+is \emph{non-holomorphic}: it is a linear relation among square
+roots of masses, while the superpotential is holomorphic in meson
+fields whose VEVs scale as $1/m_i$. The map
+$\zch_k = \sqrt{m_k} \sim 1/\!\sqrt{\langle M^k{}_k\rangle}$
+is non-holomorphic. The $v_0$-doubling must therefore arise from the
+K\"ahler potential, nonperturbative effects, or emergent dynamics---it
+is not a tree-level superpotential term.
+
+\paragraph{Fixed by SUSY breaking.}
+The supertrace relation $m^2_\pi - m^2_\mu = \fpi^2$ fixes the
+splitting scale. The identification $\langle F\rangle \sim \fpi$
+links $\Lambda_{\text{QCD}}$ to $m_s$ via the GOR relation.
+
+\paragraph{The Koide condition is immune to $D$-terms.}
+In $\mathcal{N}=1$ SUSY, $D$-terms shift scalar masses but leave
+fermion masses untouched. Since the Koide triples are conditions
+on \emph{fermion} masses, they are naturally protected against
+$D$-term perturbations. The FI parameter $\xi$ affects only the
+meson--lepton splittings, not the Koide ratios themselves.
+
+\paragraph{Remaining free parameters.}
+After the seed Koide fixes $m_c/m_s$, the $v_0$-doubling fixes
+$m_b$, and $h=\sqrt{3}$ is determined, only two to three free
+parameters remain:
+\begin{itemize}
+  \item $m_u$, $m_d$: unconstrained by any Koide triple; connected
+    to the Cabibbo angle through the Oakes relation
+    $\tan\theta_C \approx \sqrt{m_d/m_s}$ (giving $V_{us} = 0.224$,
+    PDG: $0.2243$);
+  \item $m_s$ (or equivalently $\Lambda_{\text{QCD}}$): the overall
+    scale of the light sector.
+\end{itemize}
+The top mass $m_t$ is external---it does not participate in the
+confined meson matrix. The Yukawa couplings $y_c = \sqrt{2}\,m_c/v_{\text{EW}}$,
+$y_b = \sqrt{2}\,m_b/v_{\text{EW}}$ are fixed by the predicted masses.
+
+The $(c,b,t)$ Koide triple provides an \emph{overdetermination test}:
+with $m_c$ and $m_b$ already predicted and $m_t$ external,
+$Q(c,b,t) = 0.670$ should be close to $2/3$---and it is
+(0.42\% deviation). If both overlapping triples are required to
+satisfy $Q = 2/3$ exactly, the overlap system determines
 $m_b^{\text{pred}} = 4{,}159\MeV$ (0.5\% from PDG) and
-$m_c^{\text{pred}} = 1{,}369\MeV$ (7.8\% from PDG). The bottom mass
-prediction is remarkably accurate; the charm mass deviation likely
-reflects the fact that the quark triples satisfy $Q = 2/3$ only
-approximately ($Q_{(-s,c,b)} = 0.675$, $Q_{(c,b,t)} = 0.670$).
-The light quark masses $m_u$, $m_d$ are not constrained by any Koide
-triple; they enter only through the GOR relation for $m_\pi$.
+$m_c^{\text{pred}} = 1{,}369\MeV$ (7.8\% from PDG).
 
 %======================================================================
 \section{The Electron Mass and the Lepton Seed}
@@ -2660,17 +2701,25 @@ $\delta: 3\pi/4 \to \delta_{\text{phys}}$ in the Koide
 parametrization, at fixed vacuum energy $v_0$; it is not a
 continuous deformation of the O'Raifeartaigh spectrum (which would
 break $Q = 2/3$) but a nonperturbative rearrangement.
-The entire charged fermion and pseudoscalar meson
-spectrum is then determined by a small number of parameters: the
-vacuum charges $v_0$ of the three tuples, the Koide phases
-$\delta$ that control the bloom, and the SUSY-breaking scale
-$f_\pi$ that separates bosons from fermions. The
-O'Raifeartaigh realization shows that the energy-balance condition
-is a boundary condition on the superpotential ($gv = \sqrt{3}\,m$),
-not an RG attractor. All quark Koide triples obligatorily mix
-up-type and down-type mass eigenstates, and the residual free
-parameters ($m_u$, $m_d$) connect to the CKM matrix through the
-Oakes relation.
+The unified superpotential has a layered structure:
+(i)~the Seiberg effective superpotential governs the light sector,
+with SUSY breaking forced by the quantum constraint when $m_u = m_d = 0$;
+(ii)~the O'Raifeartaigh condition $gv/m = \sqrt{3}$ (equivalently
+$h = \sqrt{3}$ in the magnetic dual) fixes the seed Koide ratio,
+predicting $m_c$ from $m_s$;
+(iii)~the vacuum-charge doubling predicts $m_b$---but this constraint
+is non-holomorphic, arising from the K\"ahler sector rather than the
+superpotential;
+(iv)~the Yukawa sector governs the $(c,b,t)$ triple as an
+overdetermination test.
+After these constraints, only two to three free parameters remain:
+$m_u$, $m_d$ (connected to the Cabibbo angle through the Oakes
+relation), and the overall scale $m_s$. All quark Koide triples
+obligatorily mix up-type and down-type mass eigenstates.
+The energy-balance condition is a boundary condition on the
+superpotential, not an RG attractor; the Koide ratios are naturally
+protected against $D$-term perturbations because $D$-terms shift
+scalar masses but leave fermion masses untouched.
 
 \begin{thebibliography}{99}
 \bibitem{Rivero2005}
