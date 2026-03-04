@@ -1,0 +1,124 @@
+\subsection{The $SO(32)$ embedding}
+
+The $SO(32)$ gauge group of Type~I / heterotic string theory
+admits the maximal-subgroup chain
+$SO(32) \supset SU(16) \times U(1)_A
+  \supset SU(5) \times SU(3) \times U(1)_A \times U(1)_B$,
+where $\mathbf{16} = (\mathbf{5},\mathbf{3})_{+1}
+  \oplus (\mathbf{1},\mathbf{1})_{-15}$
+embeds the five quark flavors times three colors as a single
+tensor-product block.
+
+\paragraph{Complete decomposition.}
+The adjoint $\mathbf{496} = \wedge^2(\mathbf{32})$ splits as
+$(\mathbf{255}\!\oplus\!\mathbf{1})_{0}
+  \oplus \mathbf{120}_{+2}
+  \oplus \overline{\mathbf{120}}_{-2}$
+under $SU(16) \times U(1)_A$.  The $SU(5) \times SU(3)$ content:
+
+\begin{center}
+\begin{tabular}{llcccl}
+\toprule
+Sector & $SU(5)\times SU(3)$ & dim & $q_A$ & $q_B$ & Origin \\
+\midrule
+$\mathbf{255}\!\oplus\!\mathbf{1}$
+ & $(\mathbf{24},\mathbf{8})$ & 192 & 0 & 0
+   & $\mathrm{adj}(SU(15))$ \\
+ & $\boldsymbol{(24,1)}$ & $\boldsymbol{24}$ & 0 & 0
+   & $\mathrm{adj}(SU(15))$ \\
+ & $(\mathbf{1},\mathbf{8})$ & 8 & 0 & 0
+   & $\mathrm{adj}(SU(15))$ \\
+ & $(\mathbf{5},\mathbf{3})\!+\!(\bar{\mathbf{5}},\bar{\mathbf{3}})$
+   & 30 & 0 & $\pm 16$ & cross-terms \\
+ & $2\times(\mathbf{1},\mathbf{1})$ & 2 & 0 & 0
+   & $U(1)_{A,B}$ \\
+\midrule
+$\mathbf{120}$
+ & $\boldsymbol{(15,\bar{3})}$ & $\boldsymbol{45}$ & $+2$ & $+2$
+   & $S^2(\mathbf{5})\otimes\wedge^2(\mathbf{3})$ \\
+ & $(\overline{\mathbf{10}},\mathbf{6})$ & 60 & $+2$ & $+2$
+   & $\wedge^2(\mathbf{5})\otimes S^2(\mathbf{3})$ \\
+ & $(\mathbf{5},\mathbf{3})$ & 15 & $+2$ & $-14$
+   & cross-term \\
+\midrule
+$\overline{\mathbf{120}}$
+ & $\boldsymbol{(\overline{15},3)}$ & $\boldsymbol{45}$ & $-2$ & $-2$
+   & conjugate \\
+ & $(\mathbf{10},\bar{\mathbf{6}})$ & 60 & $-2$ & $-2$
+   & conjugate \\
+ & $(\bar{\mathbf{5}},\bar{\mathbf{3}})$ & 15 & $-2$ & $+14$
+   & conjugate \\
+\midrule
+ & \textbf{Total} & \textbf{496} & & & \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+The target---$(\mathbf{24},\mathbf{1})$,
+$(\mathbf{15},\bar{\mathbf{3}})$,
+$(\overline{\mathbf{15}},\mathbf{3})$---accounts
+for $24 + 45 + 45 = 114$ of the 496 states, each appearing once.
+
+\paragraph{Why the symmetric $\mathbf{15}$ appears.}
+The nontrivial content of $\wedge^2(\mathbf{16})$ comes from
+$\wedge^2[(\mathbf{5},\mathbf{3})]$.  The key identity is
+$$
+\wedge^2(V \otimes W)
+  \;=\; \bigl[S^2(V) \otimes \wedge^2(W)\bigr]
+  \;\oplus\; \bigl[\wedge^2(V) \otimes S^2(W)\bigr]\,.
+$$
+Overall antisymmetry of the composite index $(ia)$ forces a
+correlation: symmetric in one factor implies antisymmetric in the
+other.  Setting $V = \mathbf{5}$, $W = \mathbf{3}$:
+$$
+\wedge^2\bigl[(\mathbf{5},\mathbf{3})\bigr]
+  \;=\; (\mathbf{15},\bar{\mathbf{3}})
+  \;\oplus\; (\overline{\mathbf{10}},\mathbf{6})\,.
+$$
+The symmetric flavor $\mathbf{15}$ is forced into antisymmetric
+color $\bar{\mathbf{3}}$; the pairing is dictated by the
+tensor-product structure, not by a modeling choice.
+
+\paragraph{Minimality and obstructions.}
+The identity requires $(\mathbf{5},\mathbf{3})$ as a
+tensor-product block in the fundamental, hence dimension
+$\geq 15$ complex $= 30$ real; $SO(30)$ is the minimal
+orthogonal group, and $SO(32)$ adds only two inert singlets.
+$SO(16) \times SO(16)$ fails: no single $\mathbf{16}$ can hold
+the 15-dimensional block, so $SU(5)$ and $SU(3)$ embed as
+separate direct summands whose $\wedge^2$ produces only
+$\overline{\mathbf{10}}$ and $\bar{\mathbf{3}}$, never
+$\mathbf{15}$.
+$E_8 \times E_8$ is likewise blocked: every $E_8$ decomposition
+under $SU(5)$ yields only exterior powers
+($\mathbf{5}$, $\overline{\mathbf{10}}$, $\mathbf{24}$, \ldots).
+The symmetric $\mathbf{15} = S^2(\mathbf{5})$ is algebraically
+forbidden.
+
+\paragraph{Orientifold projection.}
+Wilson lines and orbifold projections cannot separate
+$(\mathbf{15},\bar{\mathbf{3}})$ from
+$(\overline{\mathbf{10}},\mathbf{6})$: both carry identical
+$U(1)$ charges $(q_A, q_B) = (+2,+2)$, and Schur's lemma forces
+any orbifold element commuting with $SU(5) \times SU(3)$ to act
+as a scalar on $(\mathbf{5},\mathbf{3})$ and hence on its exterior
+power.
+A mixed orientifold resolves this.  Placing the $SU(5)$ flavor
+branes near an $O^-$ plane (Sp-type, selecting symmetric
+$\mathbf{15}$) and the $SU(3)$ color branes near an $O^+$ plane
+(SO-type, selecting antisymmetric $\bar{\mathbf{3}}$), worldsheet
+parity~$\Omega$ acts with opposite signs on the two tensor
+factors and doubly projects out
+$(\overline{\mathbf{10}},\mathbf{6})$.  The remaining
+$(\mathbf{24},\mathbf{8})$ and bifundamental copies acquire
+compactification-scale masses from brane separation; the $U(1)$
+generators become massive via the St\"uckelberg mechanism.
+
+\paragraph{Open problem.}
+An explicit compactification with the mixed $O^-/O^+$ structure
+and correct tadpole cancellation has not been constructed.
+The self-referential numerology---$5 \times 3 + 1 = 16$
+Chan-Paton factors forming $SO(32)$, whose adjoint contains
+exactly the composites of those quarks---awaits a complete
+string vacuum.
