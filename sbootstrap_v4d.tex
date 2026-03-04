@@ -2260,6 +2260,12 @@ result is sensitive to $m_d$: within $\pm 1\sigma$ ($m_d = 4.67
 \pm 0.48\MeV$), $Q$ ranges from $0.655$ to $0.676$, and the deviation
 from $2/3$ varies from $0.2\%$ to $1.7\%$. The dual Koide is an
 observation at the edge of the current $m_d$ uncertainty.
+Setting $Q(1/m_d,1/m_s,1/m_b) = 2/3$ exactly predicts
+$m_b = 4562\MeV$ ($9\%$ from PDG, $12.7\sigma$)---much worse
+than $v_0$-doubling ($m_b = 4177\MeV$, $0.07\%$).  The $0.22\%$
+closeness of $Q$ to $2/3$ does not translate to a precise mass
+prediction because the Koide quadratic amplifies small $Q$
+deviations into large mass deviations.
 
 A simple algebraic identity connects the seed to the seesaw:
 for any two masses, the Koide ratio
@@ -3405,6 +3411,20 @@ hierarchy: the larger instabilities involve strange--down and
 strange--up mixing.  Finding the true vacuum---with off-diagonal
 meson VEVs---may provide a dynamical origin for
 Cabibbo-like flavour mixing within the Seiberg framework.
+A global minimization of $V$ over all 14 real variables
+(nine meson entries plus $X$, $B$, $\bar B$, $H_u^0$, $H_d^0$)
+finds a minimum at $V \sim 2 \times 10^{13}\MeV^2$, a factor
+$\sim 60$ below the diagonal point, but with order-one
+mixing angles ($\theta_{12} \sim 34^\circ$, $\theta_{23} \sim 76^\circ$)---far
+from the small CKM hierarchy.
+The soft term $\tilde m^2\,\text{Tr}(M^\dagger M)$
+dominates the vacuum energy, collapsing all $|M^i{}_j|$ to
+$O(10^4\MeV)$ and destroying the seesaw hierarchy.
+The physical minimum is a saddle point of the unconstrained
+potential, so the correct treatment is perturbative:
+the off-diagonal condensates should be computed as small
+displacements around the Seiberg vacuum, not from global
+minimization.
 
 \subsection{The $SO(32)$ projection}
 The adjoint $\mathbf{496}$ contains the sBootstrap
@@ -3558,6 +3578,8 @@ and an NMSSM coupling $\lambda\,X\,H_u\!\cdot\!H_d$
 $D$-terms with a Fayet--Iliopoulos
 parameter, and soft breaking from a spurion
 $\langle F\rangle = \fpi^2$.
+The supertrace $\text{STr}[M^2] = 18\,\fpi^2$
+receives contributions only from the nine soft meson masses.
 The mixed up/down-type Koide triples require $\tan\beta = 1$
 for the mass-level condition to equal a Yukawa-level
 condition---a prediction independently motivated by $SU(5)_f$.

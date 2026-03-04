@@ -60,7 +60,21 @@
 
 ---
 
-## Agent D: Off-Diagonal Vacuum (offdiag_vacuum.md) — STILL RUNNING
+## Agent D: Off-Diagonal Vacuum (offdiag_vacuum.md)
+
+**Task**: Find true vacuum allowing off-diagonal meson VEVs, extract CKM mixing.
+
+**Key results**:
+
+1. **Global minimum destabilizes seesaw**: V_best = 2.17×10¹³ MeV² (factor 60 below diagonal minimum). The soft term m̃² = f_π² overwhelms the Seiberg structure, pulling all M^i_j to O(10⁴ MeV) instead of the hierarchical seesaw (M_u ~ 4×10⁵).
+
+2. **Order-one mixing, not CKM**: SVD gives θ₁₂ = 33.7° (vs Cabibbo 13.04°), θ₂₃ = 76.3° (vs PDG 2.38°), θ₁₃ = 16.2° (vs PDG 0.20°). The vacuum is completely rearranged, not a perturbation.
+
+3. **Saddle point, not minimum**: Physical Hessian has 8 negative eigenvalues. The apparent stability in scaled coordinates is an artifact.
+
+4. **Baryons absorb constraint**: B, B̃ acquire large VEVs (~10⁵-10⁹) so that det M − BB̃ − Λ⁶ ≈ 0 despite det M ≠ Λ⁶.
+
+5. **Physical conclusion**: CKM mixing requires perturbative treatment. With m̃² ≪ m_i², off-diagonal tachyonic modes produce VEVs ~ m̃/m_i, giving parametrically small mixing angles. The brute-force approach fails because it misses the correct vacuum branch.
 
 ---
 
@@ -116,7 +130,7 @@ With V_us connecting m_d to m_s through the CKM matrix, the free parameter count
 |-------------|--------|---------|
 | Origin of c = -1/12 | PARTIALLY RESOLVED | (Round 7: bion at α_s = 0.143) |
 | Higgs mass at tan β = 1 | RESOLVED | NMSSM λ = 0.72 confirmed |
-| CKM mixing | OPEN → Agent D running | Tachyonic vacuum → off-diagonal condensation |
+| CKM mixing | OPEN (perturbative regime needed) | Global min gives O(1) mixing; need perturbative expansion |
 | 15 vs 10̄ Pauli | Open | No new progress |
 | Bloom mechanism | Open | No new progress |
 | Dual Koide origin | CLARIFIED | Observation only; m_b prediction poor (9%) |
