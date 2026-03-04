@@ -1795,8 +1795,19 @@ a sign flip) involves three, doubling $v_0$.
 
 This mechanism is non-holomorphic in the sense required: the
 K\"ahler potential receives monopole--anti-monopole (bion) cross terms
-of the form $|\!\sum s_k\sqrt{m_k}|^2$, which are exactly the $|v_0|^2$
-terms needed for $v_0$-doubling. Organizing the bion amplitudes into
+of the form $|\!\sum s_k\sqrt{m_k}|^2$. Expanding for
+$N_c = 3$ diagonal mesons $M = \operatorname{diag}(M_1, M_2, M_3)$:
+\begin{equation*}
+  K_{\text{bion}} = \frac{\zeta^2}{\Lambda^2}\bigl(
+  M_1 + M_2 + M_3
+  + 2s_1 s_2\sqrt{M_1 M_2}
+  + 2s_1 s_3\sqrt{M_1 M_3}
+  + 2s_2 s_3\sqrt{M_2 M_3}\bigr)\,,
+\end{equation*}
+where the diagonal terms $s_k^2 M_k = M_k$ are self-bions and the
+cross terms $\sqrt{M_i M_j}$ are mixed bion amplitudes---their
+geometric mean structure is what produces $\sum\sqrt{m_k}$.
+Organizing the bion amplitudes into
 seed-sector ($S_{\text{seed}} = \sqrt{m_s} + \sqrt{m_c}$) and
 bloom-sector ($S_{\text{bloom}} = -\!\sqrt{m_s} + \sqrt{m_c} + \sqrt{m_b}$)
 channels, the K\"ahler correction takes the form
