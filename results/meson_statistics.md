@@ -33,4 +33,13 @@ Significance: ~0.1 sigma. NOT statistically significant after look-elsewhere.
 ## Interpretation
 The 0.10% precision of the (-pi, Ds, B) triple is not statistically surprising given the number of trials (3185 sign-choice triplets from 15 mesons). The physical significance, if any, must come from the SPECIFIC particles involved (pi, Ds, B are the lightest pseudoscalars with those flavor quantum numbers), not from the closeness to 3/2 alone.
 
-The (pi0, Ds, eta_c) triple deserves investigation — it's closer to 3/2 and involves physically meaningful particles (the lightest unflavored, charmed-strange, and charmonium pseudoscalars).
+## The (pi0, Ds, eta_c) triple — closer to Q=3/2 but physically empty
+Despite being numerically closer, this triple FAILS all other Koide tests:
+- Koide angle: delta_0 mod 2pi/3 = 0.90 (not close to 2/9 = 0.22)
+- Energy balance: z_pi0^2/z_0^2 = 0.08 (far from 1.0 — energy is NOT equipartitioned)
+- Not a seed: no mass near zero relative to the others (z_pi0/z_etac = 0.21)
+
+In contrast, (-pi, Ds, B) satisfies ALL Koide properties: seed structure, meaningful angle, energy balance. The (pi0, Ds, eta_c) match is a pure numerical coincidence.
+
+## Implication for look-elsewhere
+The naive look-elsewhere (scanning all 3185 sign-choice triplets) is too aggressive. The relevant search space is meson triplets that also satisfy Koide structural properties (seed structure, simple angle, energy balance). This is a much smaller set, and (-pi, Ds, B) would be more significant in that restricted space. A proper look-elsewhere should define the trial set as "triplets with Q within X of 3/2 AND delta_0 mod 2pi/3 within Y of a simple fraction."

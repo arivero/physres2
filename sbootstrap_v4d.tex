@@ -917,7 +917,7 @@ with the sBootstrap counting.
 \oplus \overline{\mathbf{15}}$}
 Treating the $SU(5)$ simultaneously as a Georgi--Glashow
 unification group \cite{Rivero2005}, one assigns standard electric
-charges via $Q = T_3 - Y/6$ to every component.
+charges via $Q_{\text{em}} = T_3 - Y/6$ to every component.
 Table~\ref{tab:census} displays the resulting charge census for
 $\mathbf{24} \oplus \mathbf{15} \oplus \overline{\mathbf{15}}$.
 
@@ -925,7 +925,7 @@ $\mathbf{24} \oplus \mathbf{15} \oplus \overline{\mathbf{15}}$.
 \centering
 \begin{tabular}{lcccccc@{\qquad}c}
 \toprule
-& \multicolumn{6}{c}{Number of states at $|Q|$} & \\
+& \multicolumn{6}{c}{Number of states at $|Q_{\text{em}}|$} & \\
 \cmidrule(lr){2-7}
 & $0$ & $\tfrac{1}{3}$ & $\tfrac{2}{3}$ & $1$
 & $\tfrac{4}{3}$ & $2$ & Dim \\
@@ -944,12 +944,12 @@ Total & 12 & $2\!\times\!6$ & $2\!\times\!9$
 \caption{Charge census of
 $\mathbf{24} \oplus \mathbf{15} \oplus \overline{\mathbf{15}}$
 of $SU(5)$.
-Notation ``$2\!\times\!k$'' means $k$ states at $+|Q|$ and $k$
-at $-|Q|$; the $\mathbf{24}$ is self-conjugate.  In the
-$\mathbf{15}$, the 9 states at $|Q|=2/3$ split as 3 from the
-$(\mathbf{3},\mathbf{2})_{1/6}$ component at $Q = +2/3$ and 6
+Notation ``$2\!\times\!k$'' means $k$ states at $+|Q_{\text{em}}|$ and $k$
+at $-|Q_{\text{em}}|$; the $\mathbf{24}$ is self-conjugate.  In the
+$\mathbf{15}$, the 9 states at $|Q_{\text{em}}|=2/3$ split as 3 from the
+$(\mathbf{3},\mathbf{2})_{1/6}$ component at $Q_{\text{em}} = +2/3$ and 6
 from the $(\mathbf{6},\mathbf{1})_{-2/3}$ color sextet at
-$Q = -2/3$; the $\overline{\mathbf{15}}$ is the conjugate.
+$Q_{\text{em}} = -2/3$; the $\overline{\mathbf{15}}$ is the conjugate.
 Charges $\pm 4/3$ in the $\mathbf{24}$ arise from the leptoquark
 components $(\mathbf{3},\mathbf{2})_{-5/6}$ and
 $(\bar{\mathbf{3}},\mathbf{2})_{5/6}$.
@@ -962,7 +962,7 @@ $\overline{\mathbf{15}}$.}
 \noindent
 Three cross-checks tie the census to the Diophantine system:
 \begin{itemize}
-\item \textbf{Neutral composites:} The 12 states at $Q = 0$
+\item \textbf{Neutral composites:} The 12 states at $Q_{\text{em}} = 0$
 match $r^2 + s^2 - 1 = 9 + 4 - 1 = 12 = 4N$.
 \item \textbf{Charge $+1/3$ composites} (one up $\times$ one
 down): $rs = 3 \times 2 = 6$ composites, matching equation
@@ -1069,16 +1069,16 @@ $\overline{\mathbf{10}}_A$ gives 10 diquarks with $i \neq j$ only.
 \subsection{The symmetric representation}
 \label{subsec:sym15}
 
-The sBootstrap SUSY generator acts asymmetrically on the two 
-fermion sectors. When it acts on a \emph{lepton}, it produces a 
-meson: $Q \cdot \ell \sim q\bar{q}$. Since the quark and antiquark 
+The sBootstrap SUSY generator acts asymmetrically on the two
+fermion sectors. When it acts on a \emph{lepton}, it produces a
+meson: $\mathcal{Q} \cdot \ell \sim q\bar{q}$. Since the quark and antiquark 
 are distinguishable, the meson lies in the full 
 $\mathbf{5} \otimes \bar{\mathbf{5}} = \mathbf{24} + \mathbf{1}$. 
 There is no Pauli constraint, and the meson spectrum is perfectly 
 reproduced.
 
-When it acts on a \emph{quark}, it produces a diquark: 
-$Q \cdot q_i \sim q_i q_j$. The bosonic SUSY generator applied to 
+When it acts on a \emph{quark}, it produces a diquark:
+$\mathcal{Q} \cdot q_i \sim q_i q_j$. The bosonic SUSY generator applied to 
 a single flavor index $i$ naturally produces the \textbf{symmetric} 
 product---the $\mathbf{15}_S$ representation, not the antisymmetric 
 $\overline{\mathbf{10}}$. This is the representation identified 
@@ -1580,20 +1580,41 @@ $\Phi_2$ (heavy) & $c$ / $D_s$ & $\zch_c = 35.64$ & $\zch_c \approx 35.64$ (shif
 \end{tabular}
 \end{center}
 
-This parallel is \emph{structural}, not quantitative: the minimal 
-O'Raifeartaigh model gives $\Phi_1$ and $\Phi_2$ the same mass 
-parameter $m$, whereas the seed triple has a mass ratio 
-$m_s/m_c = (2 - \sqrt{3})^2 \approx 0.07$---far from degenerate. 
-The hierarchy between the two massive members must come from 
-additional dynamics beyond the minimal O'Raifeartaigh superpotential. 
-What the O'Raifeartaigh structure \emph{does} provide is the essential 
-feature: a massless flat direction ($\Phi_0 = $ the $b$-direction) 
-whose $F$-term is forced nonzero. The $b$ quark and $B$ meson are 
-always present as flavor degrees of freedom; the seed configuration 
-$(0, s, c)$ means the $b$-direction sits at the flat direction before 
-breaking. The bloom is not particle creation but mass generation: 
-breaking lifts $\Phi_0$ from zero to $\zch_b \neq 0$, simultaneously 
-flipping the sign of $\zch_s$, so that the same three flavors 
+This parallel is more than structural: the minimal O'Raifeartaigh
+model gives $\Phi_1$ and $\Phi_2$ a single mass parameter $m$, but the
+\emph{fermionic} mass matrix at the vacuum ($\phi_1 = 0$,
+$\phi_0 = v$) is
+\begin{equation*}
+  W_{ij} = \begin{pmatrix} 0 & 0 & 0 \\ 0 & 2gv & m \\ 0 & m & 0 \end{pmatrix},
+\end{equation*}
+with eigenvalues $0$ (the goldstino) and $m_\pm = \sqrt{g^2v^2 + m^2} \pm gv$.
+The mass ratio $m_-/m_+ = (\sqrt{t^2+1} - t)^2$, where $t = gv/m$,
+is \emph{not} unity.  Setting $\sqrt{m_-}/\sqrt{m_+} = 2 - \sqrt{3}$
+(the Koide seed ratio) requires $\sqrt{t^2+1} - t = 2 - \sqrt{3}$,
+which gives
+\begin{equation*}
+  t = \frac{gv}{m} = \sqrt{3}\,,
+\end{equation*}
+the unique value at which $t^2 + 1 = 4$, so $m_\pm = (2 \pm \sqrt{3})\,m$.
+The Koide ratio for the triple $(0, m_-, m_+) = (0,\, (2-\sqrt{3})\,m,
+\, (2+\sqrt{3})\,m)$ evaluates to $Q = 4m/(\sqrt{2-\sqrt{3}} +
+\sqrt{2+\sqrt{3}})^2 = 4/6 = 2/3$ exactly, since
+$\sqrt{2-\sqrt{3}}\cdot\sqrt{2+\sqrt{3}} = 1$ and the squared sum
+telescopes to $6$.
+
+The Koide condition on the seed is therefore \emph{one algebraic
+constraint on the superpotential parameters}: $gv = \sqrt{3}\,m$.
+The coupling $g$, the pseudo-modulus VEV $v$, and the mass
+parameter $m$ are individually undetermined, but their ratio is fixed.
+This is the microscopic content of the energy-balance condition
+$\langle z_k^2\rangle = z_0^2$ applied to the seed.
+
+The $b$ quark and $B$ meson are
+always present as flavor degrees of freedom; the seed configuration
+$(0, s, c)$ means the $b$-direction sits at the flat direction before
+breaking. The bloom is not particle creation but mass generation:
+breaking lifts $\Phi_0$ from zero to $\zch_b \neq 0$, simultaneously
+flipping the sign of $\zch_s$, so that the same three flavors
 rearrange from $(0, s, c)$ into $(-s, c, b)$.
 
 A striking difference from standard O'Raifeartaigh: the 
@@ -2090,6 +2111,142 @@ governed by $v_{\text{EW}}$. The charm and bottom quarks,
 appearing in both the $(0,s,c)/(-s,c,b)$ light-sector triples 
 and the $(c,b,t)$ heavy-sector triple, are the ``bridges'' 
 between the two scales.
+
+\subsection{Toward a Superpotential}
+
+Consider $\mathcal{N}=1$ SQCD with gauge group $SU(3)_c$ and $N_f=5$ flavors
+of chiral superfields $Q^i$, $\bar Q_j$ ($i,j=1\ldots 5$, corresponding to
+$u,d,s,c,b$) in the fundamental and antifundamental representations. The
+tree-level superpotential is
+%
+\begin{equation*}
+  W_{\text{tree}} = \operatorname{Tr}(\hat m\, M)\,,
+  \qquad
+  \hat m = \operatorname{diag}(m_u,\, m_d,\, m_s,\, m_c,\, m_b)\,,
+\end{equation*}
+%
+where $M^i{}_j = Q^i\cdot\bar Q_j$ is the $5\times 5$ composite meson
+superfield. Below the confinement scale the theory is described by $M$,
+together with baryon superfields $B$ and $\bar B$, subject to the
+quantum-modified constraint~\eqref{eq:seiberg}:
+%
+\begin{equation*}
+  \det M - B\bar B = \Lambda^{6}\,.
+\end{equation*}
+%
+Implementing this constraint via a Lagrange multiplier $X$ gives the full
+effective superpotential
+%
+\begin{equation*}
+  W_{\text{eff}}
+  = \operatorname{Tr}(\hat m\, M)
+  + X\!\left(\det M - B\bar B - \Lambda^{6}\right).
+\end{equation*}
+
+The $F$-term equations read
+%
+\begin{align*}
+  \frac{\partial W_{\text{eff}}}{\partial M^i{}_j}
+  &= \hat m_j\,\delta^i{}_j
+    + X\,(\det M)\,(M^{-1})_i{}^j = 0\,,\\[4pt]
+  \frac{\partial W_{\text{eff}}}{\partial B}
+  &= -X\,\bar B = 0\,,\\[4pt]
+  \frac{\partial W_{\text{eff}}}{\partial \bar B}
+  &= -X\, B = 0\,.
+\end{align*}
+%
+The baryon equations force either $X=0$ or $B=\bar B=0$. If $X=0$ the meson
+equation reduces to $\hat m_j\,\delta^i{}_j=0$, which has no solution for
+nonzero quark masses. Hence $B=\bar B=0$ and the constraint becomes
+$\det M = \Lambda^6$. The diagonal meson equation then requires
+%
+\begin{equation*}
+  \hat m_j + X\,\frac{\det M}{M^j{}_j} = 0
+  \qquad(\text{no sum on } j)\,,
+\end{equation*}
+%
+which determines each diagonal entry of $M$ in terms of the quark masses and
+$\Lambda$. For a seed configuration in which one quark mass vanishes---say
+$m_u\to 0$---the corresponding $F$-term
+$F_{M^1{}_1}=X\,(\det M)(M^{-1})_1{}^1$ remains nonzero so long as
+$\det M\neq 0$, which is guaranteed by the quantum constraint. Supersymmetry
+is therefore spontaneously broken, with order parameter
+%
+\begin{equation*}
+  \langle F \rangle \;\sim\; \fpi\,.
+\end{equation*}
+
+The scalar and fermionic components of $M^i{}_j$ acquire different masses
+through this breaking. The scalar component (pseudoscalar meson $q_i\bar q_j$)
+picks up an $F$-term contribution absent for the fermionic component (lepton,
+via the Miyazawa superalgebra):
+%
+\begin{align*}
+  m^2_{M^i{}_j}\big|_{\text{scalar}}
+  &= |m_i + m_j|^2 + f^2\,,\\[3pt]
+  m^2_{M^i{}_j}\big|_{\text{fermion}}
+  &= |m_i + m_j|^2\,,
+\end{align*}
+%
+where $f^2\approx \fpi^2$. The mass splitting is universal across the
+multiplet:
+%
+\begin{equation*}
+  m^2_{\text{meson}} - m^2_{\text{lepton}} = f^2 \approx \fpi^2\,,
+\end{equation*}
+%
+which is precisely the Volkov--Akulov relation~\eqref{eq:pimu}.
+
+The top quark, with $m_t\gg\Lambda_{\text{QCD}}$, does not hadronize and
+therefore does not participate in the confined meson matrix---the counting
+$N_f=5$ is exact. Its mass, and corrections to the heavy-quark sector
+($c$, $b$), originate instead from electroweak symmetry breaking. Introducing
+a Higgs doublet $H$, one writes a Yukawa superpotential
+%
+\begin{equation*}
+  W_{\text{Yukawa}} = y_{ij}\, H\, Q^i\, \bar Q_j\,,
+\end{equation*}
+%
+which is relevant only for quarks whose masses are dominated by the
+electroweak condensate rather than the chiral condensate. For the light sector
+($u,d,s$) the Yukawa contribution is negligible compared to
+$\operatorname{Tr}(\hat m\, M)$.
+
+The total Lagrangian takes the schematic form
+%
+\begin{equation*}
+  \mathcal{L}
+  = \mathcal{L}_{\text{SQCD}}(V, Q, \bar Q)
+  + \int\!d^2\theta\,\bigl[
+      W_{\text{eff}}(M,B,\bar B)
+      + W_{\text{Yukawa}}(H,Q,\bar Q)
+    \bigr]
+  + \mathcal{L}_{\text{FI}}(\xi, D_{\text{em}})\,,
+\end{equation*}
+%
+where $\mathcal{L}_{\text{FI}}$ is a Fayet--Iliopoulos $D$-term for the
+unbroken $U(1)_{\text{em}}$, providing an additional source of splitting
+between charged and neutral states.
+
+The parameters of this construction separate cleanly into those fixed by
+structure and those that remain free.
+%
+\emph{Determined by the Koide ansatz}: within each mass triple, the ratios
+$\zch_a/\zch_b = 2-\sqrt{3}$ fix two of three masses given the third.
+%
+\emph{Determined by SUSY breaking}: the supertrace relation
+$m^2_\pi - m^2_\mu = \fpi^2$ fixes the splitting scale.
+%
+\emph{Free parameters}: the Koide phase $\delta$ for each triple
+(lepton, light quark, heavy quark), the vacuum energy $v_0^2$ anchoring each
+triple, the SUSY-breaking scale $f\approx\fpi$, and one $D$-term parameter
+$\xi$---eight parameters in total. These determine ten independent masses:
+three charged leptons, four quarks ($s,c,b,t$), and the meson triple
+$(-\pi, D_s, B)$. The charm and bottom masses appear in both the $(-s,c,b)$
+and $(c,b,t)$ triples, providing two nontrivial consistency conditions---the
+overlapping triples must agree on $m_c$ and $m_b$. The light quark masses
+$m_u$, $m_d$ are not constrained by any Koide triple; they enter only
+through the GOR relation for $m_\pi$.
 
 %======================================================================
 \section{The Electron Mass and the Lepton Seed}
