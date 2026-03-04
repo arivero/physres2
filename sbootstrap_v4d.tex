@@ -527,19 +527,11 @@ $m_\tau = 1776.86 \pm 0.12\MeV$:
 Q(e,\mu,\tau) = \frac{(\sqrt{m_e} + \sqrt{m_\mu} + \sqrt{m_\tau})^2}
 {m_e + m_\mu + m_\tau} = 1.500014 \pm 0.000015\,,
 \end{equation}
-where we have written $Q$ in the ``sum-of-roots-squared over
-sum-of-masses'' convention ($Q = 3/2$ corresponds to the
-energy-balance condition $Q_{\text{prev}} = 2/3$ of
-\S\ref{sec:koide_algebra}).\footnote{The two conventions are related
-by $Q_{\text{here}} = 1/Q_{\text{prev}}$. The value $3/2$ and the
-value $2/3$ encode the same condition; we use $3/2$ in this section
-because the literature on the Koide formula most commonly quotes
-$Q = 2/3$ with the reciprocal normalization
-$Q = \sum m / (\sum\sqrt{m})^2$, and we wish to avoid confusion with
-that sign convention. Explicitly:
-$Q_{\text{here}} = (\sum\sqrt{m})^2 / \sum m = 3/2$, while the
-convention in Sec.~\ref{sec:koide_algebra} is
-$Q_{\text{prev}} = \sum m / (\sum\sqrt{m})^2 = 2/3$.}
+where $Q = (\sum\sqrt{m})^2 / \sum m$ is the reciprocal of the
+convention in \S\ref{sec:koide_algebra}: the Koide condition is
+$Q = 3/2$ here, equivalently $\sum m / (\sum\sqrt{m})^2 = 2/3$
+there. We use the $3/2$ convention in this section to match
+the most common form in the Koide literature.
 The deviation from $3/2$ is $|Q - 3/2| = 1.38 \times 10^{-5}$,
 corresponding to $0.91\sigma$ given the uncertainty dominated by
 $\delta m_\tau$.
@@ -1870,12 +1862,13 @@ SQCD,
 while $\fpi^2 \approx 8{,}500\MeV^2$---a factor of ${\sim}20$
 discrepancy. The GOR relation \cite{GOR1968},
 $m_\pi^2 \fpi^2 = -(m_u + m_d)\qqbar$, connects these through the
-small quark masses but does not equate them. The sBootstrap 
-identification $f_{\text{VA}} = f_\pi$ is therefore a 
-\emph{low-energy effective} statement about the composite sector, 
-not a microscopic identity. It says: the scale at which SUSY 
-appears broken in the meson--lepton spectrum is $f_\pi$, regardless 
-of the microscopic $F$-term that produces this breaking.
+small quark masses: the ratio $|\qqbar|/\fpi \sim 20$ is exactly
+$(m_u + m_d)^{-1} m_\pi^2 \fpi \approx 20$, so the discrepancy is
+the chiral suppression factor, not a tuning. The sBootstrap
+identification $f_{\text{VA}} = f_\pi$ is therefore a
+\emph{low-energy effective} statement: the breaking scale appearing
+in the meson--lepton mass relation is $f_\pi$ (the Goldstone decay
+constant), not the microscopic condensate $|\qqbar|^{1/3}$.
 
 The VA realization gives more than a mass formula---it organizes the 
 entire breaking narrative. In the chiral limit ($m_q \to 0$), both 
@@ -2677,34 +2670,6 @@ the direction of chiral symmetry breaking, and the seed
 $(0, \pi, D_s)$ is the configuration at the moment of crossing.
 
 %======================================================================
-\section{Nature Abhors Chirality}
-\label{sec:chirality}
-%======================================================================
-
-A pattern across the Standard Model: every chiral structure is 
-eliminated in the infrared.
-
-\begin{center}
-\begin{tabular}{lcl}
-\toprule
-UV structure & IR survivor & Mechanism \\
-\midrule
-$SU(2)_L \times U(1)_Y$ & $U(1)_{\text{em}}$ & Higgs \\
-$SU(N_f)_L \times SU(N_f)_R$ & $SU(N_f)_V$ & $\qqbar$ condensate \\
-$U(1)_A$ & nothing & Anomaly \\
-$\bar{\theta}$-vacuum & $|\bar{\theta}| < 10^{-10}$ & Unknown \\
-Chiral color? \cite{FramptonGlashow1987} & $SU(3)_C$ & Axigluon mass \\
-\bottomrule
-\end{tabular}
-\end{center}
-
-The sBootstrap adds: superspace chirality (boson vs.\ fermion 
-distinction within a multiplet) is broken by the same condensate 
-that breaks flavor chirality, with $f_{\text{SUSY}} = f_\pi$. The 
-energy-balance condition $\langle z_k^2\rangle = z_0^2$ may be 
-related: the breaking is ``as large as the background
-allows''---maximal, not perturbative.
-
 %======================================================================
 \section{Open Problems}
 \label{sec:open}
