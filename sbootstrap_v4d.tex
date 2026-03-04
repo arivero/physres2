@@ -2420,21 +2420,60 @@ therefore a constraint on the \emph{direction} of the Yukawa
 matrix in flavor space: the amplitude $\sqrt{6}/2$ is fixed, only
 $\hat n$ (equivalently $\delta$) is free.
 
-The total Lagrangian takes the schematic form
+The total Lagrangian is
 %
 \begin{equation*}
   \mathcal{L}
-  = \mathcal{L}_{\text{SQCD}}(V, Q, \bar Q)
-  + \int\!d^2\theta\,\bigl[
-      W_{\text{eff}}(M,B,\bar B)
-      + W_{\text{Yukawa}}(H,Q,\bar Q)
-    \bigr]
-  + \mathcal{L}_{\text{FI}}(\xi, D_{\text{em}})\,,
+  = \int\!d^4\theta\,K
+  + \left[\int\!d^2\theta\,W + \text{h.c.}\right]
+  + \mathcal{L}_D
+  + \mathcal{L}_{\text{soft}}\,,
 \end{equation*}
 %
-where $\mathcal{L}_{\text{FI}}$ is a Fayet--Iliopoulos $D$-term for the
-unbroken $U(1)_{\text{em}}$, providing an additional source of splitting
-between charged and neutral states.
+with K\"ahler potential (canonical),
+%
+\begin{equation*}
+  K = \operatorname{Tr}(M^\dagger M) + |X|^2 + |B|^2 + |\bar B|^2
+    + |H|^2\,,
+\end{equation*}
+%
+superpotential combining mass, constraint, and Yukawa terms,
+%
+\begin{equation*}
+  W = \underbrace{\operatorname{Tr}(\hat m\, M)}_{\text{chiral mass}}
+    + \underbrace{X\!\left(\det M^{(3)} - B\bar B
+      - \Lambda_{\text{eff}}^{6}\right)}_{\text{Seiberg constraint}}
+    + \underbrace{y_c\, H\, M^c{}_c
+      + y_b\, H\, M^b{}_b
+      + y_t\, H\, Q^t \bar Q_t\phantom{X}}_{\text{Yukawa}}\,,
+\end{equation*}
+%
+where $M^{(3)}$ is the $3\times 3$ light-flavor block ($u,d,s$)
+and $\Lambda_{\text{eff}}^6 = \Lambda^6/(m_u m_d m_s)$.
+The $D$-term Lagrangian includes an optional Fayet--Iliopoulos
+parameter $\xi$ for $U(1)_{\text{em}}$:
+%
+\begin{equation*}
+  \mathcal{L}_D
+  = -\frac{e^2}{2}\!\left(\sum_i Q_i\,|\phi_i|^2
+    + \xi\right)^{\!2}.
+\end{equation*}
+%
+Finally, soft SUSY-breaking terms arise from a spurion
+$\langle F_S\rangle = \fpi^2$:
+%
+\begin{equation*}
+  \mathcal{L}_{\text{soft}}
+  = -\tilde m^2 \operatorname{Tr}(M^\dagger M)
+  - \bigl(B_\mu\operatorname{Tr}(\hat m\, M)
+    + A_y\, y_i\, H\, M^i{}_i + \text{h.c.}\bigr)\,,
+  \qquad
+  \tilde m^2 \sim \fpi^2\,.
+\end{equation*}
+%
+The soft scalar mass $\tilde m^2 \sim \fpi^2 \approx (92\MeV)^2$
+generates the universal meson--lepton splitting
+$m^2_{\text{meson}} - m^2_{\text{lepton}} = \fpi^2$.
 
 The parameters of this construction separate into those fixed by
 structure and those that remain free.
