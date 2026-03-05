@@ -1,0 +1,1096 @@
+     1→"""
+     2→Two-Higgs-doublet scalar potential at tan(beta) = 1
+     3→=====================================================
+     4→
+     5→N=1 SUSY 2HDM with meson singlet Yukawa couplings.
+     6→Computes: EWSB conditions, Higgs mass matrices, tree-level spectrum,
+     7→          soft-mass implications from F-term SUSY breaking.
+     8→"""
+     9→
+    10→import numpy as np
+    11→
+    12→# ---------------------------------------------------------------
+    13→# 1. Numerical inputs
+    14→# ---------------------------------------------------------------
+    15→v_ew    = 246.22e3       # MeV  (electroweak VEV)
+    16→m_Z     = 91.1876e3      # MeV
+    17→g       = 0.653          # SU(2)_L coupling
+    18→gp      = 0.350          # U(1)_Y coupling
+    19→m_c     = 1270.0         # MeV  (charm quark mass)
+    20→m_b     = 4180.0         # MeV  (bottom quark mass)
+    21→
+    22→# SQCD seesaw scale
+    23→C       = 882297.0       # MeV^2
+    24→
+    25→# Meson VEVs from ISS seesaw: <M_j> = C / m_j
+    26→M_c_vev = C / m_c        # MeV
+    27→M_b_vev = C / m_b        # MeV
+    28→
+    29→# tan(beta) = 1  =>  v_u = v_d = v/sqrt(2)
+    30→tan_beta = 1.0
+    31→v_u = v_ew / np.sqrt(2)
+    32→v_d = v_ew / np.sqrt(2)
+    33→
+    34→# Yukawa couplings at tan(beta) = 1:
+    35→#   m_c = y_c v_u / sqrt(2) = y_c v / 2
+    36→#   => y_c = 2 m_c / v
+    37→y_c = 2 * m_c / v_ew
+    38→y_b = 2 * m_b / v_ew
+    39→
+    40→# Derived
+    41→g2  = g**2
+    42→gp2 = gp**2
+    43→gz2 = g2 + gp2            # g_Z^2
+    44→
+    45→print("=" * 65)
+    46→print("TWO-HIGGS-DOUBLET SCALAR POTENTIAL AT tan(beta) = 1")
+    47→print("=" * 65)
+    48→
+    49→print("\n--- Input parameters ---")
+    50→print(f"  v_EW        = {v_ew:.2f} MeV = {v_ew/1e3:.4f} GeV")
+    51→print(f"  m_Z         = {m_Z:.4f} MeV = {m_Z/1e3:.6f} GeV")
+    52→print(f"  g           = {g:.4f}")
+    53→print(f"  g'          = {gp:.4f}")
+    54→print(f"  g_Z^2       = g^2 + g'^2 = {gz2:.6f}")
+    55→print(f"  m_c         = {m_c:.1f} MeV")
+    56→print(f"  m_b         = {m_b:.1f} MeV")
+    57→print(f"  C           = {C:.1f} MeV^2")
+    58→print(f"  <M_c>       = C/m_c = {M_c_vev:.4f} MeV")
+    59→print(f"  <M_b>       = C/m_b = {M_b_vev:.4f} MeV")
+    60→print(f"  y_c         = 2 m_c / v = {y_c:.8f}")
+    61→print(f"  y_b         = 2 m_b / v = {y_b:.8f}")
+    62→print(f"  tan(beta)   = {tan_beta:.1f}")
+    63→print(f"  v_u = v_d   = v/sqrt(2) = {v_u:.4f} MeV")
+    64→
+    65→# ---------------------------------------------------------------
+    66→# 2. F-terms from the superpotential
+    67→# ---------------------------------------------------------------
+    68→# W_H = mu_H (H_u . H_d) + y_c H_u M_c + y_b H_d M_b
+    69→#
+    70→# F-terms (derivatives of W w.r.t. the scalar components):
+    71→#   F_{H_u}^* = dW/dH_u = mu_H H_d + y_c M_c
+    72→#   F_{H_d}^* = dW/dH_d = mu_H H_u + y_b M_b
+    73→#
+    74→# V_F = |F_{H_u}|^2 + |F_{H_d}|^2
+    75→#
+    76→# At the VEVs H_u^0 = v_u/sqrt(2), H_d^0 = v_d/sqrt(2):
+    77→#   F_{H_u}^* = mu_H v_d/sqrt(2) + y_c <M_c>
+    78→#   F_{H_d}^* = mu_H v_u/sqrt(2) + y_b <M_b>
+    79→#
+    80→# The meson singlet F-terms also contribute to SUSY breaking.
+    81→# F_{M_c}^* = y_c H_u^0 = y_c v_u/sqrt(2)
+    82→# F_{M_b}^* = y_b H_d^0 = y_b v_d/sqrt(2)
+    83→
+    84→print("\n" + "=" * 65)
+    85→print("SECTION 1: SCALAR POTENTIAL COMPONENTS")
+    86→print("=" * 65)
+    87→
+    88→# F-term contributions from meson couplings (independent of mu_H):
+    89→F_Mc = y_c * v_u / np.sqrt(2)
+    90→F_Mb = y_b * v_d / np.sqrt(2)
+    91→
+    92→print(f"\n  F_{{M_c}} = y_c v_u / sqrt(2) = {F_Mc:.6f} MeV")
+    93→print(f"  F_{{M_b}} = y_b v_d / sqrt(2) = {F_Mb:.6f} MeV")
+    94→print(f"  |F_{{M_c}}|^2 = {F_Mc**2:.4f} MeV^2 = ({np.sqrt(F_Mc**2):.4f} MeV)^2")
+    95→print(f"  |F_{{M_b}}|^2 = {F_Mb**2:.4f} MeV^2 = ({np.sqrt(F_Mb**2):.4f} MeV)^2")
+    96→
+    97→# SUSY-breaking F-term scale
+    98→F_susy = C / v_ew  # = 882297 / 246220 MeV ≈ 3584 MeV
+    99→print(f"\n  F = C / v_EW = {F_susy:.4f} MeV = {F_susy/1e3:.6f} GeV")
+   100→
+   101→# Verify: y_c <M_c> = y_c C/m_c = (2 m_c/v)(C/m_c) = 2C/v = 2F
+   102→yc_Mc = y_c * M_c_vev
+   103→yb_Mb = y_b * M_b_vev
+   104→print(f"\n  y_c <M_c> = {yc_Mc:.6f} MeV  (= 2C/v = {2*C/v_ew:.6f} MeV)")
+   105→print(f"  y_b <M_b> = {yb_Mb:.6f} MeV  (= 2C/v = {2*C/v_ew:.6f} MeV)")
+   106→print(f"  Note: y_c <M_c> = y_b <M_b> = 2C/v = 2F = {2*F_susy:.4f} MeV")
+   107→print(f"  This is an ISS seesaw consequence: y_j C/m_j = (2m_j/v)(C/m_j) = 2C/v")
+   108→
+   109→# ---------------------------------------------------------------
+   110→# 3. EWSB minimization conditions
+   111→# ---------------------------------------------------------------
+   112→# The full potential is:
+   113→#   V = V_F + V_D + V_soft
+   114→#
+   115→# V_F = |mu_H H_d^0 + y_c <M_c>|^2 + |mu_H H_u^0 + y_b <M_b>|^2
+   116→#      + y_c^2 |H_u^0|^2 + y_b^2 |H_d^0|^2
+   117→#
+   118→# V_D = (g^2 + g'^2)/8 (|H_u^0|^2 - |H_d^0|^2)^2
+   119→#
+   120→# V_soft = m_Hu^2 |H_u^0|^2 + m_Hd^2 |H_d^0|^2 - B_mu v_u v_d / 2
+   121→#          (using H_u . H_d = H_u^+ H_d^- - H_u^0 H_d^0,
+   122→#           at neutral VEVs: = -v_u v_d/2)
+   123→#
+   124→# Substituting H_u^0 = v_u/sqrt(2), H_d^0 = v_d/sqrt(2):
+   125→#
+   126→# V = (mu_H^2/2)(v_u^2 + v_d^2) + mu_H sqrt(2) (y_c <M_c> v_d + y_b <M_b> v_u)
+   127→#     + y_c^2 <M_c>^2 + y_b^2 <M_b>^2
+   128→#     + (y_c^2 v_u^2 + y_b^2 v_d^2)/2
+   129→#     + gz2/32 (v_u^2 - v_d^2)^2
+   130→#     + (m_Hu^2 v_u^2 + m_Hd^2 v_d^2)/2
+   131→#     - B_mu v_u v_d / 2
+   132→
+   133→print("\n" + "=" * 65)
+   134→print("SECTION 2: EWSB MINIMIZATION AT tan(beta) = 1")
+   135→print("=" * 65)
+   136→
+   137→# Minimization: dV/dv_u = 0, dV/dv_d = 0
+   138→#
+   139→# dV/dv_u = mu_H^2 v_u + mu_H sqrt(2) y_b <M_b>
+   140→#           + y_c^2 v_u
+   141→#           + gz2/8 v_u (v_u^2 - v_d^2)
+   142→#           + m_Hu^2 v_u
+   143→#           - B_mu v_d / 2 = 0
+   144→#
+   145→# dV/dv_d = mu_H^2 v_d + mu_H sqrt(2) y_c <M_c>
+   146→#           + y_b^2 v_d
+   147→#           - gz2/8 v_d (v_u^2 - v_d^2)
+   148→#           + m_Hd^2 v_d
+   149→#           - B_mu v_u / 2 = 0
+   150→#
+   151→# At tan(beta) = 1: v_u = v_d = v/sqrt(2). The D-term vanishes.
+   152→# Also y_c <M_c> = y_b <M_b> = 2C/v.
+   153→#
+   154→# Both equations become:
+   155→#   (mu_H^2 + m_Hu^2 + y_c^2) v/sqrt(2) + mu_H sqrt(2) y_b <M_b> - B_mu v/(2 sqrt(2)) = 0
+   156→#   (mu_H^2 + m_Hd^2 + y_b^2) v/sqrt(2) + mu_H sqrt(2) y_c <M_c> - B_mu v/(2 sqrt(2)) = 0
+   157→#
+   158→# Subtracting:
+   159→#   (m_Hu^2 - m_Hd^2 + y_c^2 - y_b^2) v/sqrt(2) + mu_H sqrt(2)(y_b <M_b> - y_c <M_c>) = 0
+   160→#
+   161→# Since y_c <M_c> = y_b <M_b> = 2C/v, the last term vanishes:
+   162→#   m_Hu^2 - m_Hd^2 + y_c^2 - y_b^2 = 0
+   163→#   => m_Hu^2 - m_Hd^2 = y_b^2 - y_c^2
+   164→
+   165→Delta_y2 = y_b**2 - y_c**2
+   166→print(f"\n  Constraint 1 (from dV/dv_u = dV/dv_d):")
+   167→print(f"    m_Hu^2 - m_Hd^2 = y_b^2 - y_c^2 = {Delta_y2:.10e}")
+   168→print(f"    i.e., soft mass splitting tracks Yukawa splitting")
+   169→
+   170→# Adding the two equations (and using v_u = v_d = v/sqrt(2)):
+   171→# [mu_H^2 + (m_Hu^2 + m_Hd^2)/2 + (y_c^2 + y_b^2)/2] v/sqrt(2)
+   172→#   + mu_H sqrt(2) * 2C/v - B_mu v/(2 sqrt(2)) = 0
+   173→#
+   174→# Dividing by v/sqrt(2):
+   175→#   mu_H^2 + (m_Hu^2 + m_Hd^2)/2 + (y_c^2 + y_b^2)/2 + 2 mu_H (2C/v^2) - B_mu/2 = 0
+   176→#
+   177→# => B_mu = 2 mu_H^2 + (m_Hu^2 + m_Hd^2) + (y_c^2 + y_b^2) + 4 mu_H C/v^2
+   178→
+   179→sum_y2 = y_c**2 + y_b**2
+   180→print(f"\n  Constraint 2 (sum of minimization conditions):")
+   181→print(f"    B_mu = 2 mu_H^2 + (m_Hu^2 + m_Hd^2) + (y_c^2 + y_b^2) + 4 mu_H C/v^2")
+   182→print(f"    y_c^2 + y_b^2 = {sum_y2:.10e}")
+   183→print(f"    4C/v^2 = {4*C/v_ew**2:.10e} MeV^{-1}")
+   184→
+   185→# ---------------------------------------------------------------
+   186→# 4. Higgs mass matrices at tan(beta) = 1
+   187→# ---------------------------------------------------------------
+   188→print("\n" + "=" * 65)
+   189→print("SECTION 3: HIGGS MASS MATRICES AT tan(beta) = 1")
+   190→print("=" * 65)
+   191→
+   192→# With the standard 2HDM notation:
+   193→# Expand H_u^0 = v_u/sqrt(2) + (h_u + i a_u)/sqrt(2)
+   194→# Expand H_d^0 = v_d/sqrt(2) + (h_d + i a_d)/sqrt(2)
+   195→#
+   196→# At tan(beta) = 1, v_u = v_d = v/sqrt(2), cos(2beta) = 0.
+   197→#
+   198→# --- CP-even mass matrix ---
+   199→# In the (h_u, h_d) basis:
+   200→#
+   201→# M^2_{11} = d^2V / dv_u^2  evaluated at minimum
+   202→#          = mu_H^2 + y_c^2 + m_Hu^2 + (3 g_Z^2/8) v_u^2 - (g_Z^2/8) v_d^2
+   203→#          At v_u = v_d: = mu_H^2 + y_c^2 + m_Hu^2 + (g_Z^2/4) v^2/2
+   204→#          Using min. condition to eliminate m_Hu^2:
+   205→#          = B_mu/2 - mu_H (2C/v^2) - (y_b^2 - y_c^2)/2 + ... hmm, let me be more careful.
+   206→#
+   207→# Let me use the MSSM-like approach. The mass matrix entries are:
+   208→#
+   209→# In the MSSM at tree level:
+   210→#   M^2_even = | m_A^2 sin^2(beta) + m_Z^2 cos^2(beta)    -(m_A^2 + m_Z^2) sin(beta)cos(beta) |
+   211→#              | -(m_A^2 + m_Z^2) sin(beta)cos(beta)        m_A^2 cos^2(beta) + m_Z^2 sin^2(beta)|
+   212→#
+   213→# with m_A^2 = 2 B_mu / sin(2 beta).
+   214→#
+   215→# But we have extra F-term contributions from the Yukawa couplings.
+   216→# Let me compute directly from second derivatives.
+   217→
+   218→# Work in units of MeV.
+   219→# Use variables: v_u, v_d as the VEV magnitudes.
+   220→# At minimum: v_u = v_d = v/sqrt(2).
+   221→
+   222→v = v_ew  # shorthand
+   223→
+   224→# For the direct computation, I need to specify mu_H. Let's consider two cases:
+   225→# Case A: mu_H = 0 (pure F-term SUSY breaking from meson VEVs)
+   226→# Case B: general mu_H
+   227→
+   228→# The key MSSM result at tan(beta) = 1:
+   229→# cos(2 beta) = (cos^2 beta - sin^2 beta) = 0
+   230→# => MSSM tree-level bound: m_h <= m_Z |cos 2beta| = 0
+   231→
+   232→print("\n--- MSSM tree-level bound at tan(beta) = 1 ---")
+   233→cos2beta = np.cos(2 * np.arctan(tan_beta))
+   234→print(f"  cos(2 beta) = {cos2beta:.6f}")
+   235→print(f"  MSSM bound: m_h <= m_Z |cos(2 beta)| = {m_Z * abs(cos2beta):.6f} MeV")
+   236→print(f"  => The lightest CP-even Higgs is MASSLESS at tree level!")
+   237→
+   238→# This is the famous tan(beta) = 1 catastrophe of the MSSM.
+   239→# The D-term quartic vanishes, leaving no tree-level mass.
+   240→
+   241→# Now let's check if the Yukawa F-terms save us.
+   242→# The extra F-term quartic from |F_{M_c}|^2 + |F_{M_b}|^2:
+   243→#   V_F^{extra} = y_c^2 |H_u^0|^2 + y_b^2 |H_d^0|^2
+   244→#               = y_c^2 v_u^2/2 + y_b^2 v_d^2/2
+   245→#
+   246→# This adds to M^2_{11} and M^2_{22}:
+   247→#   delta M^2_{11} = y_c^2  (from d^2/dh_u^2 of y_c^2 v_u^2/2)
+   248→#   delta M^2_{22} = y_b^2
+   249→
+   250→print("\n--- Direct computation of mass matrices ---")
+   251→print("  (setting mu_H = 0 for the ISS/meson-mediated case)\n")
+   252→
+   253→mu_H = 0.0  # Pure meson-mediated SUSY breaking
+   254→
+   255→# At tan(beta)=1, the minimization condition with mu_H = 0:
+   256→# Constraint 1: m_Hu^2 - m_Hd^2 = y_b^2 - y_c^2
+   257→# Constraint 2: (m_Hu^2 + m_Hd^2) + (y_c^2 + y_b^2) = B_mu
+   258→
+   259→# So m_Hu^2 + y_c^2 = B_mu/2  and  m_Hd^2 + y_b^2 = B_mu/2
+   260→# (These follow from each individual minimization equation.)
+   261→
+   262→# CP-even mass matrix in (h_u, h_d) basis:
+   263→# M^2_{ij} = d^2 V / d h_i d h_j, where H_u^0 = (v_u + h_u)/sqrt(2), etc.
+   264→#
+   265→# The potential terms contributing:
+   266→# V_D = gz2/32 (v_u^2 - v_d^2)^2
+   267→#   => d^2V_D/dv_u^2 = gz2/8 (3 v_u^2 - v_d^2)  -> at v_u=v_d: gz2 v^2/4
+   268→#      Wait, let me be more careful with the field expansion.
+   269→#
+   270→# Write H_u^0 = (v_u + h_u + i a_u)/sqrt(2)
+   271→# |H_u^0|^2 = (v_u + h_u)^2/2 + a_u^2/2  (at leading order for mass matrix)
+   272→#
+   273→# V_D = gz2/8 (|H_u^0|^2 - |H_d^0|^2)^2
+   274→#      = gz2/8 [(v_u + h_u)^2/2 + ... - (v_d + h_d)^2/2 - ...]^2
+   275→#
+   276→# At v_u = v_d and keeping h_u, h_d:
+   277→#   |H_u^0|^2 - |H_d^0|^2 ≈ v_u h_u - v_d h_d = (v/sqrt(2))(h_u - h_d)
+   278→#
+   279→# V_D ≈ gz2/8 * v^2/2 * (h_u - h_d)^2 / 1  ... wait, let me redo:
+   280→# (v_u + h_u)^2/2 - (v_d + h_d)^2/2 = [v_u h_u + h_u^2/2] - [v_d h_d + h_d^2/2] + (v_u^2 - v_d^2)/2
+   281→# At v_u = v_d = v/sqrt(2):
+   282→#   = (v/sqrt(2))(h_u - h_d) + (h_u^2 - h_d^2)/2
+   283→#
+   284→# V_D = gz2/8 [(v/sqrt(2))(h_u - h_d) + ...]^2
+   285→#     = gz2/8 * v^2/2 * (h_u - h_d)^2 + ...
+   286→#     = gz2 v^2/16 * (h_u^2 - 2 h_u h_d + h_d^2)
+   287→#
+   288→# So D-term contribution to mass matrix:
+   289→#   M^2_D = gz2 v^2/8 * [[1, -1], [-1, 1]]
+   290→# (Factor of 2 from d^2/dh^2 of h^2/2 in the potential)
+   291→
+   292→# Actually, let me be very explicit. The potential as a function of
+   293→# the real scalar fluctuations h_u, h_d (CP-even) is:
+   294→#
+   295→# V_soft: m_Hu^2 (v_u + h_u)^2/2 + m_Hd^2 (v_d + h_d)^2/2
+   296→#         - B_mu (v_u + h_u)(v_d + h_d)/2
+   297→#   Mass terms (quadratic in h):
+   298→#     m_Hu^2 h_u^2/2 + m_Hd^2 h_d^2/2 - B_mu h_u h_d/2
+   299→#
+   300→# V_F (from meson Yukawa, mu_H = 0):
+   301→#   y_c^2 (v_u + h_u)^2/2 + y_b^2 (v_d + h_d)^2/2
+   302→#   Mass terms: y_c^2 h_u^2/2 + y_b^2 h_d^2/2
+   303→#
+   304→# V_D: gz2/8 * [(v_u + h_u)^2/2 - (v_d + h_d)^2/2]^2
+   305→#   At v_u = v_d: the linear part is (v/sqrt(2))(h_u - h_d)
+   306→#   Mass terms: gz2/8 * [v/sqrt(2)]^2 * 2*(h_u - h_d)^2 ... no.
+   307→#   Let X = (v_u + h_u)^2/2 - (v_d + h_d)^2/2
+   308→#   X = v_u h_u - v_d h_d + (h_u^2 - h_d^2)/2  (at v_u = v_d)
+   309→#     = (v/sqrt(2))(h_u - h_d) + (h_u^2 - h_d^2)/2
+   310→#   X^2 = v^2/2 (h_u - h_d)^2 + ...  (only keep quadratic)
+   311→#   V_D^(2) = gz2/8 * v^2/2 * (h_u - h_d)^2
+   312→#           = gz2 v^2/16 * (h_u^2 - 2 h_u h_d + h_d^2)
+   313→#
+   314→# So M^2 = | m_Hu^2 + y_c^2 + gz2 v^2/16    -B_mu/2 - gz2 v^2/16 |
+   315→#          | -B_mu/2 - gz2 v^2/16             m_Hd^2 + y_b^2 + gz2 v^2/16 |
+   316→#
+   317→# Wait: the mass matrix M^2_{ij} = d^2 V / d h_i d h_j.
+   318→# V = ... (1/2) m_Hu^2 h_u^2 + (1/2) y_c^2 h_u^2 + gz2 v^2/16 h_u^2 + ...
+   319→#     - (1/2) B_mu h_u h_d - gz2 v^2/8 h_u h_d + ...
+   320→#
+   321→# M^2_{11} = m_Hu^2 + y_c^2 + gz2 v^2/8
+   322→# M^2_{22} = m_Hd^2 + y_b^2 + gz2 v^2/8
+   323→# M^2_{12} = -B_mu/2 - gz2 v^2/8
+   324→#
+   325→# Hmm, let me recheck the D-term factor.
+   326→# V_D^(2) = gz2/8 * v^2/2 * (h_u - h_d)^2
+   327→#         = gz2 v^2/16 (h_u^2 + h_d^2 - 2 h_u h_d)
+   328→# d^2 V_D / d h_u^2 = gz2 v^2/8  (factor of 2 from h_u^2)
+   329→# d^2 V_D / d h_u d h_d = -gz2 v^2/8
+   330→#
+   331→# Wait: gz2 v^2/16 * h_u^2 => d^2/dh_u^2 = gz2 v^2/16 * 2 = gz2 v^2/8. Yes.
+   332→# gz2 v^2/16 * (-2 h_u h_d) => d^2/dh_u dh_d = -gz2 v^2/8. Yes.
+   333→#
+   334→# OK so:
+   335→# M^2_{11} = m_Hu^2 + y_c^2 + gz2 v^2/8
+   336→# M^2_{22} = m_Hd^2 + y_b^2 + gz2 v^2/8
+   337→# M^2_{12} = -B_mu/2 - gz2 v^2/8
+   338→#
+   339→# But wait, the soft B-term: V_soft has - B_mu H_u . H_d + h.c.
+   340→# H_u . H_d = H_u^+ H_d^- - H_u^0 H_d^0
+   341→# At neutral VEVs: = - H_u^0 H_d^0 = -(v_u + h_u)(v_d + h_d)/2
+   342→# So V_soft contains - B_mu * [-(v_u+h_u)(v_d+h_d)/2] + h.c.
+   343→#                    = B_mu (v_u+h_u)(v_d+h_d)/2   (for real B_mu)
+   344→# Hmm, sign convention matters. Let me use the standard MSSM convention:
+   345→#
+   346→# V_soft = m_Hu^2 |H_u|^2 + m_Hd^2 |H_d|^2 + (B_mu H_u . H_d + h.c.)
+   347→#        = ... + B_mu (H_u^+ H_d^- - H_u^0 H_d^0) + h.c.
+   348→# At neutral: - B_mu H_u^0 H_d^0 + h.c. = -B_mu (v_u+h_u)(v_d+h_d)/2 + h.c.
+   349→#           = -B_mu (v_u+h_u)(v_d+h_d)/2 * 2   (real B_mu)
+   350→#           = -B_mu (v_u+h_u)(v_d+h_d)    ... no that's wrong.
+   351→#
+   352→# Let me be more careful with the √2 factors.
+   353→# H_u^0 = (v_u + h_u + i a_u) / √2
+   354→# H_d^0 = (v_d + h_d + i a_d) / √2
+   355→# H_u^0 H_d^0 = [(v_u + h_u)(v_d + h_d) - a_u a_d + i(...)]/2
+   356→#
+   357→# -B_mu H_u^0 H_d^0 + h.c. = -B_mu [(v_u+h_u)(v_d+h_d) - a_u a_d]/2 * 2
+   358→#                            = -B_mu [(v_u+h_u)(v_d+h_d) - a_u a_d]
+   359→# No wait: -B_mu X + B_mu^* X^* = -2 Re(B_mu X) for X = H_u^0 H_d^0
+   360→# With B_mu real and X = [(v_u+h_u)(v_d+h_d) - a_u a_d]/2 + i[...]/2
+   361→# => -2 B_mu [(v_u+h_u)(v_d+h_d) - a_u a_d]/2
+   362→# = -B_mu [(v_u+h_u)(v_d+h_d) - a_u a_d]
+   363→#
+   364→# CP-even quadratic: -B_mu [v_u h_d + v_d h_u + h_u h_d]
+   365→#   => d^2/dh_u dh_d = -B_mu (the cross term)
+   366→#   No linear-independent h_u^2 or h_d^2 contribution from this term.
+   367→#
+   368→# CP-odd quadratic: +B_mu a_u a_d
+   369→#   => d^2/da_u da_d = B_mu
+   370→#
+   371→# Revisiting. The B_mu term gives off-diagonal -B_mu in the CP-even mass matrix.
+   372→#
+   373→# OK let me just use the MSSM formulas directly, modified for the extra Yukawa F-terms.
+   374→
+   375→# MSSM CP-even mass matrix (standard result):
+   376→# In (H_d^0_R, H_u^0_R) basis, i.e., (h_d, h_u):
+   377→#
+   378→# M^2_even = | m_A^2 s_beta^2 + m_Z^2 c_beta^2     -(m_A^2 + m_Z^2) s_beta c_beta |
+   379→#            | -(m_A^2 + m_Z^2) s_beta c_beta         m_A^2 c_beta^2 + m_Z^2 s_beta^2 |
+   380→#
+   381→# where m_A^2 = -2 B_mu / sin(2beta) = m_Hu^2 + m_Hd^2 + 2 mu^2  (from EWSB conditions).
+   382→# At tan(beta) = 1: s_beta = c_beta = 1/sqrt(2), sin(2beta) = 1.
+   383→# So m_A^2 = -2 B_mu.
+   384→#
+   385→# Wait, sign convention. In the MSSM:
+   386→#   m_A^2 = 2 B_mu / sin(2 beta)  (with B_mu defined as the coefficient in V = -B_mu ...)
+   387→# or m_A^2 = -2 B_mu / sin(2 beta) depending on sign of B_mu.
+   388→#
+   389→# Let me just compute directly without relying on conventions.
+   390→#
+   391→# At tan(beta) = 1, the MSSM result simplifies. The D-flat direction is
+   392→# (h_u + h_d)/sqrt(2). The orthogonal direction (h_u - h_d)/sqrt(2) gets a mass from D-terms.
+   393→#
+   394→# In the rotated basis h = (h_u + h_d)/sqrt(2), H = (h_u - h_d)/sqrt(2):
+   395→# The D-term only contributes to H (the difference direction).
+   396→# M^2_H = gz2 v^2/4 = m_Z^2  (from D-terms alone)
+   397→# M^2_h = 0  (D-flat direction, no quartic => massless at tree level in MSSM)
+   398→#
+   399→# With the extra Yukawa F-terms:
+   400→#   V_F^{extra} = y_c^2 v_u^2/2 + y_b^2 v_d^2/2
+   401→#               = y_c^2 (v/sqrt(2) + h_u)^2/2 + y_b^2 (v/sqrt(2) + h_d)^2/2
+   402→#   Quadratic: y_c^2 h_u^2/2 + y_b^2 h_d^2/2
+   403→#   In rotated basis:
+   404→#     h_u = (h + H)/sqrt(2),  h_d = (h - H)/sqrt(2)
+   405→#     y_c^2 (h+H)^2/4 + y_b^2 (h-H)^2/4
+   406→#     = [(y_c^2 + y_b^2)/4] h^2 + [(y_c^2 + y_b^2)/4] H^2 + [(y_c^2 - y_b^2)/4] 2 h H
+   407→#     = [(y_c^2 + y_b^2)/4] (h^2 + H^2) + [(y_c^2 - y_b^2)/2] h H
+   408→#   So Yukawa F-terms add:
+   409→#     delta M^2_{hh} = (y_c^2 + y_b^2)/2
+   410→#     delta M^2_{HH} = (y_c^2 + y_b^2)/2
+   411→#     delta M^2_{hH} = (y_c^2 - y_b^2)/2
+   412→#
+   413→# But we also need the B_mu contribution. In the rotated basis:
+   414→#   -B_mu h_u h_d = -B_mu (h + H)(h - H)/2 = -B_mu (h^2 - H^2)/2
+   415→#   This contributes: -B_mu to M^2_{hh} and +B_mu to M^2_{HH}
+   416→#
+   417→# And the soft masses:
+   418→#   m_Hu^2 h_u^2/2 + m_Hd^2 h_d^2/2
+   419→#   = m_Hu^2 (h+H)^2/4 + m_Hd^2 (h-H)^2/4
+   420→#   = [(m_Hu^2 + m_Hd^2)/4](h^2 + H^2) + [(m_Hu^2 - m_Hd^2)/4]*2*h*H
+   421→#   Contributions: (m_Hu^2 + m_Hd^2)/2 to diagonal, (m_Hu^2 - m_Hd^2)/2 to off-diagonal
+   422→#
+   423→# Total mass matrix in (h, H) basis:
+   424→#   M^2_{hh} = (m_Hu^2 + m_Hd^2)/2 + (y_c^2 + y_b^2)/2 - B_mu
+   425→#   M^2_{HH} = (m_Hu^2 + m_Hd^2)/2 + (y_c^2 + y_b^2)/2 + B_mu + m_Z^2
+   426→#   M^2_{hH} = (m_Hu^2 - m_Hd^2)/2 + (y_c^2 - y_b^2)/2
+   427→#
+   428→# Wait, the m_Z^2 should be gz2 v^2/4.
+   429→m_Z_check = np.sqrt(gz2) * v / 2
+   430→print(f"  Cross-check: sqrt(g^2+g'^2) v/2 = {m_Z_check:.2f} MeV  (vs m_Z = {m_Z:.2f} MeV)")
+   431→print(f"  Discrepancy is because g,g' are MS-bar, m_Z is pole mass")
+   432→print(f"  We use m_Z = {m_Z/1e3:.4f} GeV consistently as the physical mass\n")
+   433→
+   434→# For consistency, use m_Z directly (it encodes gz2 v^2/4).
+   435→# But gz2 v^2/4 from our inputs:
+   436→D_term_mass2 = gz2 * v**2 / 4
+   437→print(f"  g_Z^2 v^2/4 = {D_term_mass2:.2f} MeV^2 = ({np.sqrt(D_term_mass2):.2f} MeV)^2")
+   438→print(f"  m_Z^2        = {m_Z**2:.2f} MeV^2")
+   439→print(f"  Using m_Z^2 = {m_Z**2:.2f} MeV^2 for D-term contribution\n")
+   440→
+   441→# From minimization constraint 2 (at mu_H = 0):
+   442→#   B_mu = (m_Hu^2 + m_Hd^2) + (y_c^2 + y_b^2)
+   443→# => (m_Hu^2 + m_Hd^2)/2 + (y_c^2 + y_b^2)/2 = B_mu/2
+   444→#
+   445→# From constraint 1: m_Hu^2 - m_Hd^2 = y_b^2 - y_c^2
+   446→# => (m_Hu^2 - m_Hd^2)/2 + (y_c^2 - y_b^2)/2 = 0
+   447→#
+   448→# Therefore:
+   449→#   M^2_{hh} = B_mu/2 - B_mu = -B_mu/2
+   450→#   M^2_{HH} = B_mu/2 + B_mu + m_Z^2 = 3 B_mu/2 + m_Z^2
+   451→#   M^2_{hH} = 0  (!)
+   452→#
+   453→# The mass matrix is diagonal in (h, H)!
+   454→# For M^2_{hh} > 0 we need B_mu < 0.
+   455→# The heavy state has mass^2 = 3|B_mu|/2 + m_Z^2 (for B_mu < 0).
+   456→# The light state has mass^2 = |B_mu|/2.
+   457→
+   458→print("  In rotated basis h = (h_u + h_d)/sqrt(2),  H = (h_u - h_d)/sqrt(2):")
+   459→print("  (h is D-flat direction, H is D-term direction)\n")
+   460→print("  After applying EWSB conditions (mu_H = 0):")
+   461→print("    M^2_{hh} = -B_mu / 2")
+   462→print("    M^2_{HH} = 3 B_mu / 2 + m_Z^2    [note: this should be 3|B_mu|/2+m_Z^2 for B<0]")
+   463→print("    M^2_{hH} = 0")
+   464→print("  The mass matrix is diagonal!")
+   465→print("  For physical masses (M^2 > 0), need B_mu < 0.\n")
+   466→
+   467→# --- CP-odd mass matrix ---
+   468→# The CP-odd fields: a_u, a_d
+   469→# From B_mu term: +B_mu a_u a_d (shown above)
+   470→# The D-terms don't contribute to CP-odd masses at tree level (they depend on |H|^2).
+   471→# The Yukawa F-terms |F_{M_c}|^2 = y_c^2 |H_u^0|^2 depend on |H_u^0|^2, not on the phase.
+   472→# So: y_c^2 [(v_u + h_u)^2 + a_u^2]/2 => y_c^2 a_u^2/2 contributes.
+   473→# Similarly y_b^2 a_d^2/2.
+   474→#
+   475→# Soft masses: m_Hu^2 a_u^2/2 + m_Hd^2 a_d^2/2
+   476→#
+   477→# CP-odd mass matrix in (a_u, a_d):
+   478→#   M^2_{a,11} = m_Hu^2 + y_c^2
+   479→#   M^2_{a,22} = m_Hd^2 + y_b^2
+   480→#   M^2_{a,12} = B_mu
+   481→#
+   482→# Wait: the B_mu term for CP-odd is:
+   483→#   -B_mu H_u^0 H_d^0 + h.c. contains +B_mu a_u a_d
+   484→#   So d^2/da_u da_d = B_mu.
+   485→# Hmm but we need to be careful: the term is
+   486→#   -B_mu [(v_u+h_u)(v_d+h_d) - a_u a_d]/...
+   487→# I showed above: -B_mu [(v_u+h_u)(v_d+h_d) - a_u a_d]
+   488→# CP-odd part: +B_mu a_u a_d
+   489→# BUT wait there's a factor issue. Let me recheck.
+   490→# -B_mu H_u^0 H_d^0 + h.c.  where H_u^0 = (v_u + h_u + i a_u)/√2
+   491→# = -2 Re[B_mu (v_u+h_u+ia_u)(v_d+h_d+ia_d)/2]
+   492→# = -B_mu Re[(v_u+h_u+ia_u)(v_d+h_d+ia_d)]
+   493→# = -B_mu [(v_u+h_u)(v_d+h_d) - a_u a_d]
+   494→# Yes. So CP-odd mass term: +B_mu a_u a_d.
+   495→# And the diagonal: from soft, m_Hu^2 a_u^2/2 etc.
+   496→#
+   497→# Hmm but there's also the Goldstone boson to worry about.
+   498→# One combination of (a_u, a_d) is eaten by Z.
+   499→# The orthogonal combination is the physical pseudoscalar A.
+   500→#
+   501→# At tan(beta)=1: Goldstone = (a_u + a_d)/sqrt(2), A = (a_u - a_d)/sqrt(2).
+   502→# Actually the Goldstone is G^0 = sin(beta) a_u + cos(beta) a_d = (a_u + a_d)/sqrt(2).
+   503→# Physical: A = cos(beta) a_u - sin(beta) a_d = (a_u - a_d)/sqrt(2).
+   504→#
+   505→# In the (G, A) = ((a_u+a_d)/sqrt(2), (a_u-a_d)/sqrt(2)) basis:
+   506→#   a_u = (G + A)/sqrt(2), a_d = (G - A)/sqrt(2)
+   507→#
+   508→#   m_Hu^2 a_u^2/2 + m_Hd^2 a_d^2/2 + B_mu a_u a_d
+   509→#   = m_Hu^2 (G+A)^2/4 + m_Hd^2 (G-A)^2/4 + B_mu (G+A)(G-A)/2
+   510→#   = [(m_Hu^2 + m_Hd^2)/4 + B_mu/2] G^2 + [(m_Hu^2 + m_Hd^2)/4 - B_mu/2] A^2
+   511→#     + [(m_Hu^2 - m_Hd^2)/2] G A
+   512→#
+   513→# Plus Yukawa: y_c^2 (G+A)^2/4 + y_b^2 (G-A)^2/4
+   514→#   = [(y_c^2 + y_b^2)/4] (G^2 + A^2) + [(y_c^2 - y_b^2)/2] G A
+   515→#
+   516→# Total:
+   517→#   M^2_{GG} = (m_Hu^2 + m_Hd^2)/2 + B_mu + (y_c^2 + y_b^2)/2
+   518→#            = B_mu/2 + B_mu = 3B_mu/2? No wait:
+   519→#            Using constraint: (m_Hu^2 + m_Hd^2) + (y_c^2 + y_b^2) = B_mu
+   520→#            => M^2_{GG} = B_mu/2 + B_mu = 3B_mu/2. But this should be 0 for Goldstone!
+   521→#
+   522→# There's an issue. The Goldstone must be massless.
+   523→# Let me reconsider: in the MSSM, the minimization conditions ensure that
+   524→# the Goldstone is massless. Let me check the linear terms too.
+   525→#
+   526→# Actually I think I'm overcounting. Let me use the full minimization conditions
+   527→# more carefully.
+   528→#
+   529→# The minimization dV/dv_u = 0 gives (with mu_H = 0):
+   530→#   (m_Hu^2 + y_c^2) v_u + gz2/8 v_u(v_u^2 - v_d^2) - B_mu v_d = 0
+   531→#   [Note: B_mu here has the sign from -B_mu *(-v_u v_d/2) derivative]
+   532→#
+   533→# Hmm I think there's a sign confusion. Let me restart cleanly.
+   534→
+   535→# ============================================================
+   536→# CLEAN DERIVATION
+   537→# ============================================================
+   538→
+   539→# The MSSM-like potential with extra Yukawa F-terms:
+   540→#
+   541→# V = (|mu|^2 + y_c^2)|H_u^0|^2 + (|mu|^2 + y_b^2)|H_d^0|^2
+   542→#     + m_Hu^2|H_u^0|^2 + m_Hd^2|H_d^0|^2
+   543→#     + b(H_u^0 H_d^0 + h.c.)
+   544→#     + g_Z^2/8 (|H_u^0|^2 - |H_d^0|^2)^2
+   545→#
+   546→# where b = -B_mu in some conventions. Let me use 'b' as the soft bilinear.
+   547→# With mu_H = 0 and defining:
+   548→#   m1^2 = m_Hd^2 + y_b^2
+   549→#   m2^2 = m_Hu^2 + y_c^2
+   550→#   b = soft bilinear (B-term, sign chosen so minimum has b > 0)
+   551→#
+   552→# V = m2^2 |H_u^0|^2 + m1^2 |H_d^0|^2 - b(H_u^0 H_d^0 + h.c.)
+   553→#     + g_Z^2/8 (|H_u^0|^2 - |H_d^0|^2)^2
+   554→#
+   555→# (I use -b to match the standard convention where b > 0 gives EWSB.)
+   556→#
+   557→# H_u^0 = (v_u + h_u + i a_u)/sqrt(2)
+   558→# H_d^0 = (v_d + h_d + i a_d)/sqrt(2)
+   559→#
+   560→# Minimization (tadpole conditions):
+   561→#   dV/dv_u = 0: m2^2 v_u - b v_d + gz2/4 v_u(v_u^2 - v_d^2) = 0
+   562→#   dV/dv_d = 0: m1^2 v_d - b v_u - gz2/4 v_d(v_u^2 - v_d^2) = 0
+   563→#
+   564→# At tan(beta)=1, v_u = v_d = v/sqrt(2):
+   565→#   D-term vanishes. Both equations give:
+   566→#   m2^2 - b = 0  => b = m2^2
+   567→#   m1^2 - b = 0  => b = m1^2
+   568→#   => m1^2 = m2^2 = b
+   569→#
+   570→# This means: m_Hd^2 + y_b^2 = m_Hu^2 + y_c^2 = b.
+   571→
+   572→print("=" * 65)
+   573→print("CLEAN DERIVATION (using standard MSSM notation)")
+   574→print("=" * 65)
+   575→print("\n  Define m1^2 = m_Hd^2 + y_b^2,  m2^2 = m_Hu^2 + y_c^2")
+   576→print("  Potential: V = m2^2|H_u|^2 + m1^2|H_d|^2 - b(H_u H_d + h.c.) + D-terms")
+   577→print("\n  At tan(beta) = 1:")
+   578→print("    m1^2 = m2^2 = b")
+   579→print("    i.e., m_Hu^2 + y_c^2 = m_Hd^2 + y_b^2 = b")
+   580→
+   581→# CP-even mass matrix in (h_d, h_u) basis (standard MSSM order):
+   582→# M^2_even = [[m_A^2 s^2 + m_Z^2 c^2, -(m_A^2 + m_Z^2) sc],
+   583→#             [-(m_A^2 + m_Z^2) sc,    m_A^2 c^2 + m_Z^2 s^2]]
+   584→#
+   585→# where m_A^2 = m1^2 + m2^2 = 2b, s = sin(beta) = 1/sqrt(2), c = cos(beta) = 1/sqrt(2)
+   586→# sc = 1/2, s^2 = c^2 = 1/2.
+   587→#
+   588→# M^2_even = [[b + m_Z^2/2, -(b + m_Z^2/2)],
+   589→#             [-(b + m_Z^2/2), b + m_Z^2/2]]
+   590→#
+   591→# But wait, this is the STANDARD MSSM result without the extra Yukawa quartic.
+   592→# The extra Yukawa terms modify the quartic, giving additional mass contributions.
+   593→# Let me reconsider.
+   594→#
+   595→# Actually, I already absorbed y_c^2, y_b^2 into m1^2, m2^2. But the Yukawa F-terms
+   596→# also provide quartic couplings? No -- y_c^2|H_u|^2 and y_b^2|H_d|^2 are MASS terms
+   597→# (quadratic), not quartic. They come from |F_{M_c}|^2 = |y_c H_u|^2.
+   598→# These are just shifts to the soft masses, already absorbed.
+   599→# The only quartic coupling is from D-terms, exactly as in the MSSM.
+   600→#
+   601→# So the mass matrix is exactly MSSM with m_A^2 = 2b:
+   602→
+   603→m_A2 = lambda b_val: 2 * b_val  # pseudoscalar mass squared
+   604→
+   605→# At tan(beta) = 1 (s = c = 1/sqrt(2)):
+   606→# M^2_even = [[m_A^2/2 + m_Z^2/2, -(m_A^2 + m_Z^2)/2],
+   607→#             [-(m_A^2 + m_Z^2)/2, m_A^2/2 + m_Z^2/2]]
+   608→#
+   609→# Eigenvalues: diag ± |off-diag|
+   610→#   m_H^2 = (m_A^2 + m_Z^2)/2 + (m_A^2 + m_Z^2)/2 = m_A^2 + m_Z^2
+   611→#   m_h^2 = (m_A^2 + m_Z^2)/2 - (m_A^2 + m_Z^2)/2 = 0
+   612→#
+   613→# The light Higgs is MASSLESS at tree level for tan(beta) = 1!
+   614→# This is the MSSM result: m_h^2 = (m_A^2 m_Z^2 - ...) wait let me use the formula:
+   615→#
+   616→# m_{h,H}^2 = (m_A^2 + m_Z^2)/2 ∓ sqrt[(m_A^2 + m_Z^2)^2/4 - m_A^2 m_Z^2 cos^2(2beta)]
+   617→#
+   618→# At cos(2beta) = 0:
+   619→#   m_h^2 = (m_A^2 + m_Z^2)/2 - (m_A^2 + m_Z^2)/2 = 0
+   620→#   m_H^2 = m_A^2 + m_Z^2
+   621→
+   622→print("\n--- CP-even Higgs mass matrix ---")
+   623→print("  m_A^2 = m1^2 + m2^2 = 2b  (pseudoscalar mass squared)")
+   624→print("  At tan(beta) = 1 (cos 2beta = 0):")
+   625→print("    m_h^2 = 0  (light Higgs is MASSLESS at tree level)")
+   626→print("    m_H^2 = m_A^2 + m_Z^2")
+   627→print(f"    m_H = sqrt(m_A^2 + m_Z^2)")
+   628→
+   629→# The MSSM tree-level upper bound:
+   630→# m_h <= m_Z |cos 2beta|
+   631→print(f"\n  MSSM tree-level upper bound: m_h <= m_Z |cos 2beta| = {m_Z * abs(cos2beta)/1e3:.4f} GeV")
+   632→print("  At tan(beta) = 1: the bound is ZERO.")
+   633→print("  This is the well-known tan(beta) = 1 problem of the MSSM.")
+   634→
+   635→# --- CP-odd mass ---
+   636→# m_A^2 = 2b (the physical pseudoscalar; one combination is the Goldstone G^0)
+   637→print("\n--- CP-odd sector ---")
+   638→print("  Physical pseudoscalar A^0: m_A^2 = 2b")
+   639→print("  Goldstone G^0: m_{G^0} = 0 (eaten by Z)")
+   640→
+   641→# --- Charged Higgs ---
+   642→# m_{H^pm}^2 = m_A^2 + m_W^2
+   643→m_W = 80.377e3  # MeV (PDG value)
+   644→m_W_from_g = g * v / 2
+   645→print(f"\n--- Charged Higgs ---")
+   646→print(f"  m_{{H^pm}}^2 = m_A^2 + m_W^2")
+   647→print(f"  m_W = g v / 2 = {m_W_from_g:.2f} MeV = {m_W_from_g/1e3:.4f} GeV")
+   648→print(f"  (PDG: m_W = {m_W/1e3:.3f} GeV)")
+   649→
+   650→# ---------------------------------------------------------------
+   651→# 5. F-term SUSY breaking and soft masses
+   652→# ---------------------------------------------------------------
+   653→print("\n" + "=" * 65)
+   654→print("SECTION 4: F-TERM SUSY BREAKING")
+   655→print("=" * 65)
+   656→
+   657→# The F-terms from meson VEVs:
+   658→# F_{M_c} = y_c v_u/sqrt(2) = y_c v/2 = m_c  (!)
+   659→# F_{M_b} = y_b v_d/sqrt(2) = y_b v/2 = m_b  (!)
+   660→#
+   661→# Wait: y_c = 2 m_c / v, so y_c v/2 = m_c. The F-term of the meson equals the quark mass!
+   662→# This is a direct consequence of the ISS structure.
+   663→
+   664→F_Mc_val = y_c * v / 2  # = m_c
+   665→F_Mb_val = y_b * v / 2  # = m_b
+   666→
+   667→print(f"\n  F_{{M_c}} = y_c v / 2 = {F_Mc_val:.2f} MeV  (= m_c!)")
+   668→print(f"  F_{{M_b}} = y_b v / 2 = {F_Mb_val:.2f} MeV  (= m_b!)")
+   669→print(f"  The F-term of each meson singlet equals the corresponding quark mass.")
+   670→
+   671→# The problem states F = C/v_EW for the SUSY-breaking scale.
+   672→F_scale = C / v_ew
+   673→print(f"\n  SUSY-breaking F-scale = C / v_EW = {F_scale:.4f} MeV = {F_scale*1e-3:.6f} GeV")
+   674→
+   675→# How do F-terms relate to soft masses?
+   676→# In gravity mediation: m_soft ~ F / M_Pl
+   677→# In gauge mediation: m_soft ~ (alpha/4pi) F/M_mess
+   678→# Here with direct coupling: the soft masses squared come from integrating out
+   679→# the SUSY-breaking sector.
+   680→#
+   681→# The simplest scenario: soft scalar masses arise from |F|^2/Lambda^2
+   682→# where Lambda is some mediation scale.
+   683→#
+   684→# But directly from the superpotential W = y_c H_u M_c:
+   685→# F_{H_u} = y_c <M_c> = y_c C/m_c = 2C/v
+   686→# This is the F-term of H_u itself! It gives a tadpole, not a mass.
+   687→# The soft mass squared from F_{M_c} is:
+   688→#   m_Hu^2 |_{F-term} = y_c^2 = (2 m_c/v)^2
+   689→
+   690→# The soft B-term:
+   691→# If both H_u and H_d get F-term VEVs through the meson coupling, then
+   692→# B_mu = y_c y_b <M_c><M_b> / ... Actually B-terms arise at loop level.
+   693→#
+   694→# At tree level, the effective soft masses from the F-terms are just
+   695→# the y^2 terms we've already identified.
+   696→
+   697→print(f"\n  Effective soft mass contributions from F-terms:")
+   698→m_Hu_F2 = y_c**2
+   699→m_Hd_F2 = y_b**2
+   700→print(f"    y_c^2 = (2 m_c / v)^2 = {m_Hu_F2:.6e}")
+   701→print(f"    y_b^2 = (2 m_b / v)^2 = {m_Hd_F2:.6e}")
+   702→print(f"    sqrt(y_c^2) = y_c = {np.sqrt(m_Hu_F2):.6e} = {np.sqrt(m_Hu_F2)*v_ew/2:.2f} MeV / (v/2)")
+   703→print(f"    sqrt(y_b^2) = y_b = {np.sqrt(m_Hd_F2):.6e} = {np.sqrt(m_Hd_F2)*v_ew/2:.2f} MeV / (v/2)")
+   704→
+   705→# The F-term of H_u from the meson coupling:
+   706→F_Hu = y_c * M_c_vev  # = 2C/v
+   707→F_Hd = y_b * M_b_vev  # = 2C/v
+   708→print(f"\n  F_{{H_u}} = y_c <M_c> = {F_Hu:.4f} MeV")
+   709→print(f"  F_{{H_d}} = y_b <M_b> = {F_Hd:.4f} MeV")
+   710→print(f"  Both equal 2C/v = {2*C/v_ew:.4f} MeV = 2 F_SUSY")
+   711→print(f"  F_SUSY = C/v = {F_scale:.4f} MeV")
+   712→
+   713→# The soft B-term can be estimated:
+   714→# B_mu ~ F_{H_u} F_{H_d} / M ~ (2C/v)^2 / M
+   715→# But at tree level with mu_H = 0, B = b = m1^2 = m2^2.
+   716→
+   717→# What value of b is needed?
+   718→# m1^2 = m_Hd^2 + y_b^2 = b
+   719→# m2^2 = m_Hu^2 + y_c^2 = b
+   720→# The sign of b must be positive (for EWSB).
+   721→# b sets the pseudoscalar mass: m_A^2 = 2b.
+   722→
+   723→print(f"\n  The soft bilinear b determines the pseudoscalar mass: m_A^2 = 2b")
+   724→print(f"  m_Hu^2 = b - y_c^2,  m_Hd^2 = b - y_b^2")
+   725→print(f"  For b = y_b^2: m_Hd^2 = 0, m_Hu^2 = y_b^2 - y_c^2 = {y_b**2 - y_c**2:.6e}")
+   726→print(f"  For b = y_c^2: m_Hu^2 = 0, m_Hd^2 = y_c^2 - y_b^2 = {y_c**2 - y_b**2:.6e}")
+   727→
+   728→# If the F-term scale sets b:
+   729→# b ~ F^2 / v^2 or b ~ y_c y_b (geometric mean)
+   730→b_geometric = y_c * y_b
+   731→print(f"\n  Geometric mean: b = y_c y_b = {b_geometric:.6e}")
+   732→print(f"  => m_A = sqrt(2 y_c y_b) = {np.sqrt(2*b_geometric)*1e3:.4f} * 10^3")
+   733→m_A_geom = np.sqrt(2 * b_geometric) * v_ew  # Convert to MeV
+   734→# Wait, y_c and y_b are dimensionless. b has dimensions of mass^2 only if
+   735→# we're not careful. Let me track dimensions.
+   736→#
+   737→# Actually, in my notation above, m1^2, m2^2, b all have dimensions of (mass)^2.
+   738→# y_c is dimensionless, y_c^2 is dimensionless. So m1^2 = m_Hd^2 + y_b^2
+   739→# doesn't make dimensional sense unless y_b^2 is really a mass^2.
+   740→#
+   741→# The issue: |F_{M_c}|^2 = y_c^2 |H_u^0|^2. This has dimension (mass)^4 since
+   742→# H_u^0 has dimension mass and y_c is dimensionless. Then V_F contains this as
+   743→# a mass^2 coefficient times |H_u^0|^2, so the coefficient y_c^2 is dimensionless.
+   744→# But m_Hu^2 has dimension mass^2!
+   745→#
+   746→# Ah, I see the error. The Yukawa F-term |F_{M_c}|^2 = y_c^2 |H_u^0|^2 contributes
+   747→# to the potential as y_c^2 |H_u^0|^2. Here y_c is dimensionless and |H_u^0|^2 has
+   748→# dimension mass^2. So this term has dimension mass^2, same as m_Hu^2 |H_u^0|^2.
+   749→# Both are dimension-2 operators (in 4D). So m_{Hu,effective}^2 = m_Hu^2 + y_c^2 is fine
+   750→# dimensionally: y_c^2 is a dimensionless number added to m_Hu^2/(mass unit)^2... no.
+   751→#
+   752→# Wait: in the Lagrangian, V has dimension mass^4. |H_u^0|^2 has dimension mass^2.
+   753→# So the coefficient must have dimension mass^2. m_Hu^2 has dimension mass^2. Good.
+   754→# y_c^2 is dimensionless. So y_c^2 |H_u|^2 has dimension mass^2. That's wrong
+   755→# for a term in V which needs dimension mass^4!
+   756→#
+   757→# The resolution: in 4D, the scalar field has dimension mass. H_u^0 has dim mass.
+   758→# |H_u^0|^2 has dim mass^2. The potential has dim mass^4. So any term in V of the
+   759→# form c |H|^2 needs c to have dim mass^2. And y_c^2 is dimensionless, so
+   760→# y_c^2 |H_u^0|^2 only has dim mass^2, not mass^4. Something is wrong.
+   761→#
+   762→# Let me recheck. F_{M_c} = dW/dM_c = y_c H_u^0. The superpotential has dim mass^3
+   763→# (in 4D). H_u has dim mass. M_c has dim mass. y_c is dimensionless. So
+   764→# W = y_c H_u M_c has dim mass^2... but it should be mass^3. So y_c must have dim mass.
+   765→#
+   766→# Ah right! In 4D SUSY, W has mass dimension 3. H_u and M_c each have dimension 1.
+   767→# So y_c has dimension 1 (mass). Then y_c = 2 m_c/v has dim mass/mass = dimensionless.
+   768→# That contradicts...
+   769→#
+   770→# Actually, the Yukawa coupling in the superpotential is:
+   771→# W = y H_u Q U^c  (for quarks), where y is dimensionless.
+   772→# But W = y_c H_u M_c where M_c is a singlet, has y_c dimensionless and
+   773→# [W] = [y_c][H_u][M_c] = 0 + 1 + 1 = 2, but [W] should be 3.
+   774→# So this coupling must have a mass scale: W = y_c H_u M_c * Lambda or similar.
+   775→#
+   776→# For the ISS model, M_c is a meson with dim mass, but the coupling might be
+   777→# W = (y_c/Lambda) H_u M_c with y_c dimensionless and Lambda a scale, or
+   778→# W = lambda H_u M_c with [lambda] = 1 (mass dimension 1).
+   779→#
+   780→# The problem statement says y_c = 2 m_c/v which has dim mass/mass = 0.
+   781→# So the F-term is F_{M_c} = y_c H_u^0, dim 0 + 1 = 1, but [F] should be [mass^2].
+   782→#
+   783→# I think the issue is that in the problem's convention, the meson M_c has been
+   784→# normalized so that it's dimensionless (M_c -> M_c/Lambda or similar), making
+   785→# y_c carry the mass dimension.
+   786→#
+   787→# But actually, for the scalar potential, what matters is:
+   788→# F_{M_c} = y_c v_u/sqrt(2) and |F_{M_c}|^2 appears in V.
+   789→# If y_c = 2m_c/v and v_u = v/sqrt(2), then:
+   790→# F_{M_c} = (2m_c/v)(v/2) = m_c (dim mass).
+   791→# |F_{M_c}|^2 = m_c^2 (dim mass^2).
+   792→#
+   793→# But V should have dim mass^4. |F|^2 alone can't appear directly in V—it should be
+   794→# |F|^2 in V means |dW/dphi|^2, which has dim (mass^3/mass)^2 = mass^4. Yes!
+   795→# W has dim 3, phi has dim 1, so dW/dphi has dim 2, and |dW/dphi|^2 has dim 4.
+   796→#
+   797→# So y_c DOES have mass dimension 1 (not 0). Let me recheck:
+   798→# If W = y_c H_u M_c, [W]=3, [H_u]=1, [M_c]=1, then [y_c]=1.
+   799→# y_c = 2m_c/v... but [m_c]=1, [v]=1, so [y_c]=0. Contradiction!
+   800→#
+   801→# The resolution is that m_c = y_top v/sqrt(2) gives y_top dimensionless, and
+   802→# the superpotential coupling is W = y_top H_u Q U^c with each superfield dim 1
+   803→# and y_top dim 0. That's [W] = 0+1+1+1 = 3. OK.
+   804→# But W = y_c H_u M_c has only two fields: [W] = [y_c]+1+1 = [y_c]+2.
+   805→# For [W]=3, we need [y_c]=1.
+   806→#
+   807→# So y_c has mass dimension 1 and y_c = 2m_c/v doesn't make sense dimensionally
+   808→# unless v is dimensionless... which it's not.
+   809→#
+   810→# I think the problem statement is using the EFFECTIVE coupling after M_c gets a VEV.
+   811→# The effective term in the potential is:
+   812→# |F_{H_u}|^2 = |y_c <M_c>|^2 = y_c^2 C^2/m_c^2 = (2m_c/v)^2 (C/m_c)^2 = 4C^2/v^2
+   813→# This has dim mass^4 if y_c is dimensionless and <M_c> = C/m_c has dim mass.
+   814→# But then |F_{M_c}|^2 = y_c^2 |H_u|^2 has dim 0 * mass^2 = mass^2, not mass^4.
+   815→#
+   816→# I think the subtlety is that the F-term |F_{M_c}|^2 = |dW/dM_c|^2 = |y_c H_u|^2
+   817→# If y_c has dim 1 (as required for [W]=3), then |y_c H_u|^2 has dim (1+1)^2... no,
+   818→# dim of |y_c H_u|^2 = 2*([y_c]+[H_u]) = 2*(1+1) = 4. Good.
+   819→# And y_c = some coupling with dim mass. Then |y_c|^2 |H_u|^2 is a mass^2 coefficient
+   820→# times |H_u|^2, which are both correct contributions to V (dim 4).
+   821→#
+   822→# So y_c has dim mass and y_c^2 has dim mass^2.
+   823→# y_c = 2m_c/v... if this has dim mass, then we'd need m_c/v to have dim mass,
+   824→# which means v is dimensionless. That's wrong.
+   825→#
+   826→# OK, I think the problem statement implicitly defines y_c as a dimensionless Yukawa,
+   827→# and the coupling in W involves another field or mass scale. For the purposes of
+   828→# this calculation, what matters is:
+   829→#
+   830→# The Yukawa interaction generates a quark mass: m_quark = y * v_VEV / sqrt(2)
+   831→# At tan(beta)=1, each doublet has VEV v/sqrt(2), so:
+   832→#   m_c = y_c * v_u / sqrt(2) = y_c * v / 2  =>  y_c = 2 m_c / v  (dimensionless)
+   833→#
+   834→# And the EFFECTIVE F-term contribution to the potential from the meson VEV is:
+   835→# V_F^{eff} = |y_c <M_c>|^2 + y_c^2 |H_u|^2 * (correction factors)
+   836→#
+   837→# For the Higgs mass computation, the key term is the quartic coupling, and
+   838→# y_c^2 |H_u|^2 acts as an ADDITIONAL mass-squared term, not a quartic.
+   839→# There is no new quartic from the Yukawa; it's just a mass shift.
+   840→#
+   841→# Bottom line: the MSSM tree-level result applies. The only quartic is from D-terms.
+   842→# At tan(beta)=1, the lightest Higgs is massless at tree level.
+   843→
+   844→# Let me just present the numerical results clearly.
+   845→
+   846→print("\n" + "=" * 65)
+   847→print("SECTION 5: NUMERICAL SUMMARY")
+   848→print("=" * 65)
+   849→
+   850→print(f"\n  Electroweak VEV: v = {v_ew/1e3:.4f} GeV")
+   851→print(f"  v_u = v_d = v/sqrt(2) = {v_u/1e3:.4f} GeV")
+   852→
+   853→print(f"\n  Yukawa couplings (dimensionless):")
+   854→print(f"    y_c = 2 m_c / v = 2 * {m_c:.1f} / {v_ew:.2f} = {y_c:.8f}")
+   855→print(f"    y_b = 2 m_b / v = 2 * {m_b:.1f} / {v_ew:.2f} = {y_b:.8f}")
+   856→print(f"    y_b / y_c = m_b / m_c = {m_b/m_c:.6f}")
+   857→
+   858→print(f"\n  Meson VEVs (ISS seesaw):")
+   859→print(f"    <M_c> = C / m_c = {C:.1f} / {m_c:.1f} = {M_c_vev:.4f} MeV")
+   860→print(f"    <M_b> = C / m_b = {C:.1f} / {m_b:.1f} = {M_b_vev:.4f} MeV")
+   861→print(f"    <M_b> / <M_c> = m_c / m_b = {m_c/m_b:.6f}")
+   862→
+   863→print(f"\n  F-term scale:")
+   864→print(f"    F = C / v = {C:.1f} / {v_ew:.2f} = {F_scale:.4f} MeV = {F_scale:.6f} MeV")
+   865→print(f"    sqrt(F) = {np.sqrt(F_scale*1e-3):.6f} GeV^{{1/2}}  (if F in GeV)")
+   866→print(f"    F in GeV = {F_scale/1e3:.6f} GeV")
+   867→
+   868→print(f"\n  Key products:")
+   869→print(f"    y_c <M_c> = {y_c * M_c_vev:.6f} MeV = 2C/v")
+   870→print(f"    y_b <M_b> = {y_b * M_b_vev:.6f} MeV = 2C/v")
+   871→print(f"    2C/v = {2*C/v_ew:.6f} MeV")
+   872→print(f"    These are equal: the ISS seesaw M_j = C/m_j cancels the flavor dependence.")
+   873→
+   874→print(f"\n  Meson F-terms (= quark masses):")
+   875→print(f"    F_{{M_c}} = y_c v/2 = {y_c * v_ew/2:.2f} MeV  (= m_c)")
+   876→print(f"    F_{{M_b}} = y_b v/2 = {y_b * v_ew/2:.2f} MeV  (= m_b)")
+   877→
+   878→# ---------------------------------------------------------------
+   879→# 6. Higgs spectrum at tree level
+   880→# ---------------------------------------------------------------
+   881→print("\n" + "=" * 65)
+   882→print("SECTION 6: TREE-LEVEL HIGGS SPECTRUM AT tan(beta) = 1")
+   883→print("=" * 65)
+   884→
+   885→print(f"\n  cos(2 beta) = cos(pi/2) = {cos2beta:.10f}")
+   886→print(f"\n  MSSM tree-level bound: m_h <= m_Z |cos 2beta| = {m_Z * abs(cos2beta):.6f} MeV")
+   887→print(f"  => m_h = 0 at tree level!")
+   888→
+   889→print(f"\n  This is independent of m_A (the pseudoscalar mass).")
+   890→print(f"  The full tree-level spectrum:")
+   891→print(f"    m_h = 0           (lightest CP-even)")
+   892→print(f"    m_H = sqrt(m_A^2 + m_Z^2)  (heavy CP-even)")
+   893→print(f"    m_A = sqrt(2b)    (CP-odd)")
+   894→print(f"    m_{{H^pm}} = sqrt(m_A^2 + m_W^2)  (charged)")
+   895→
+   896→# For numerical values, we need to fix b.
+   897→# The problem gives F = C/v_EW. If b comes from the F-term SUSY breaking,
+   898→# a natural scale is b ~ F^2 / v^2 ~ (C/v)^2 / v^2... no.
+   899→# Actually the soft bilinear b has dim mass^2. If the F-term generates it:
+   900→# b ~ F_{H_u} * F_{H_d} / (16 pi^2 M) for loop-level, or
+   901→# b ~ y_c y_b <M_c><M_b> = y_c y_b C^2 / (m_c m_b) at tree level
+   902→# Hmm, that's a dim-4 quantity divided by nothing...
+   903→#
+   904→# Let me just present results as a function of m_A.
+   905→
+   906→print(f"\n  Spectrum as a function of m_A:")
+   907→for m_A_val_GeV in [50, 100, 200, 300, 500, 1000]:
+   908→    m_A_val = m_A_val_GeV * 1e3  # MeV
+   909→    m_H_val = np.sqrt(m_A_val**2 + m_Z**2)
+   910→    m_Hpm_val = np.sqrt(m_A_val**2 + m_W_from_g**2)
+   911→    b_val = m_A_val**2 / 2
+   912→    print(f"    m_A = {m_A_val_GeV:6.0f} GeV  =>  m_H = {m_H_val/1e3:8.2f} GeV,  "
+   913→          f"m_{{H^pm}} = {m_Hpm_val/1e3:8.2f} GeV,  m_h = 0,  "
+   914→          f"b = {b_val/1e6:.2f} GeV^2")
+   915→
+   916→# ---------------------------------------------------------------
+   917→# 7. The tan(beta) = 1 problem and radiative corrections
+   918→# ---------------------------------------------------------------
+   919→print("\n" + "=" * 65)
+   920→print("SECTION 7: THE tan(beta) = 1 PROBLEM")
+   921→print("=" * 65)
+   922→
+   923→print("""
+   924→  At tree level with tan(beta) = 1, the lightest Higgs is massless.
+   925→  This is a well-known problem. The MSSM requires large radiative
+   926→  corrections (primarily from top/stop loops) to lift m_h to 125 GeV.
+   927→
+   928→  The one-loop correction from top/stop is approximately:
+   929→    Delta m_h^2 ≈ (3 y_t^4 v^2)/(8 pi^2) * [ln(m_stop^2/m_t^2) + ...]
+   930→
+   931→  At tan(beta) = 1, y_t = sqrt(2) m_t / v (each doublet contributes v/sqrt(2)):
+   932→""")
+   933→
+   934→m_t = 172.76e3  # MeV (top quark pole mass)
+   935→y_t = np.sqrt(2) * m_t / v_ew  # At tan(beta) = 1
+   936→print(f"  y_t = sqrt(2) m_t / v = sqrt(2) * {m_t/1e3:.2f} / {v_ew/1e3:.2f} = {y_t:.6f}")
+   937→print(f"  y_t^4 = {y_t**4:.6f}")
+   938→
+   939→# Radiative correction:
+   940→# Delta m_h^2 = 3 m_t^4 / (pi^2 v^2) * ln(m_stop^2/m_t^2)
+   941→# (using the leading-log approximation at tan(beta) = 1)
+   942→# Actually: Delta m_h^2 = 3 y_t^4 v^2 sin^4(beta) / (8 pi^2) * ln(m_stop^2/m_t^2)
+   943→# At sin(beta) = 1/sqrt(2): sin^4(beta) = 1/4
+   944→
+   945→# For m_h = 125 GeV:
+   946→m_h_target = 125.25e3  # MeV
+   947→# Delta m_h^2 = m_h_target^2
+   948→# 3 y_t^4 v^2 / (32 pi^2) * ln(m_stop^2/m_t^2) = m_h^2
+   949→# ln(m_stop^2/m_t^2) = 32 pi^2 m_h^2 / (3 y_t^4 v^2)
+   950→
+   951→log_ratio = 32 * np.pi**2 * m_h_target**2 / (3 * y_t**4 * v_ew**2)
+   952→m_stop_needed = m_t * np.exp(log_ratio / 2)
+   953→
+   954→print(f"\n  To get m_h = {m_h_target/1e3:.2f} GeV from top/stop loops alone:")
+   955→print(f"  ln(m_stop^2/m_t^2) = {log_ratio:.4f}")
+   956→print(f"  m_stop = {m_stop_needed/1e3:.0f} GeV")
+   957→print(f"  (This is extremely large — the tan(beta)=1 scenario needs enormous stop masses")
+   958→print(f"   or additional quartic couplings beyond MSSM to achieve m_h = 125 GeV.)")
+   959→
+   960→# NMSSM-like solution: extra singlet S with coupling lambda S H_u H_d
+   961→# adds quartic lambda^2 |H_u . H_d|^2 which at tan(beta) = 1 gives:
+   962→# Delta m_h^2 = lambda^2 v^2 sin^2(2 beta) / 2 = lambda^2 v^2 / 2
+   963→# For m_h = 125 GeV: lambda^2 = 2 m_h^2 / v^2
+   964→
+   965→lambda_needed = np.sqrt(2) * m_h_target / v_ew
+   966→print(f"\n  NMSSM-like singlet solution:")
+   967→print(f"  Extra quartic from lambda S H_u H_d: Delta m_h^2 = lambda^2 v^2 / 2")
+   968→print(f"  lambda = sqrt(2) m_h / v = {lambda_needed:.4f}")
+   969→print(f"  This is a perturbative value (lambda < 1). The NMSSM can accommodate tan(beta)=1.")
+   970→
+   971→# ---------------------------------------------------------------
+   972→# 8. Connection to ISS seesaw: the universal F-term
+   973→# ---------------------------------------------------------------
+   974→print("\n" + "=" * 65)
+   975→print("SECTION 8: ISS SEESAW STRUCTURE")
+   976→print("=" * 65)
+   977→
+   978→print(f"\n  The ISS seesaw gives meson VEVs <M_j> = C / m_j where:")
+   979→print(f"    C = Λ^3 / (m_u m_d m_s)^{{1/3}} * (m_u m_d m_s)^{{2/3}} = ...")
+   980→
+   981→# C computation from given quark masses
+   982→m_u = 2.16   # MeV
+   983→m_d = 4.67   # MeV
+   984→m_s = 93.4   # MeV
+   985→Lambda_QCD = 300.0  # MeV
+   986→
+   987→# C = Lambda^3 det(m)^{1/N} / m_j for flavor j? No.
+   988→# C is the SQCD seesaw scale: <M> ~ Lambda^3 / m in the one-flavor case.
+   989→# For N_f flavors: <M_ij> = Lambda^{3N_c - N_f} (m^{-1})_{ij} or similar.
+   990→# The problem just gives C = 882297 MeV^2. Let's verify:
+   991→# With N_c = 3, N_f = 3: Lambda^{3*3-3} = Lambda^6.
+   992→# <det M> = Lambda^6 / det(m_q) = 300^6 / (2.16 * 4.67 * 93.4)
+   993→det_mq = m_u * m_d * m_s
+   994→Lambda6 = Lambda_QCD**6
+   995→C_check = (Lambda6 / det_mq)**(1.0/3.0)  # Take cube root for per-flavor
+   996→print(f"    Lambda^6 = {Lambda6:.4e} MeV^6")
+   997→print(f"    det(m_q) = m_u m_d m_s = {det_mq:.4f} MeV^3")
+   998→print(f"    Lambda^6 / det(m_q) = {Lambda6/det_mq:.4e} MeV^3")
+   999→print(f"    (Lambda^6 / det(m_q))^{{1/3}} = {C_check:.4f} MeV  (cube root)")
+  1000→print(f"    (Lambda^6 / det(m_q))^{{1/3}} = {C_check:.2f} MeV")
+  1001→
+  1002→# Actually C = Lambda^2 * (Lambda / m_eff)^{1/something}. Let me try:
+  1003→# C = Lambda^3 / sqrt(det m_q)?
+  1004→C_try2 = Lambda_QCD**3 / np.sqrt(det_mq)
+  1005→print(f"\n    Lambda^3 / sqrt(det m_q) = {C_try2:.2f} MeV^{{3/2}} — wrong dim")
+  1006→
+  1007→# C = Lambda^2:
+  1008→print(f"    Lambda^2 = {Lambda_QCD**2:.0f} MeV^2")
+  1009→
+  1010→# Or maybe C as given is just an input. Let me verify the stated value:
+  1011→# C = 882297 MeV^2
+  1012→# Try: C = Lambda_QCD^3 / (m_u m_d m_s)^{1/3}
+  1013→geom_mean_mq = (m_u * m_d * m_s)**(1.0/3.0)
+  1014→C_try3 = Lambda_QCD**3 / geom_mean_mq
+  1015→print(f"    (m_u m_d m_s)^{{1/3}} = {geom_mean_mq:.4f} MeV")
+  1016→print(f"    Lambda^3 / (m_u m_d m_s)^{{1/3}} = {C_try3:.2f} MeV^2")
+  1017→
+  1018→# Try: C = Lambda_QCD^2 * something
+  1019→# 882297 / 90000 = 9.8
+  1020→# 882297 / Lambda^3 = 882297 / 27000000 = 0.0327
+  1021→print(f"\n    Given C = {C:.0f} MeV^2")
+  1022→print(f"    C / Lambda^2 = {C/Lambda_QCD**2:.4f}")
+  1023→print(f"    C / Lambda^3 = {C/Lambda_QCD**3:.6f} MeV^{{-1}}")
+  1024→
+  1025→# It's close to Lambda^3 / (geometric mean)
+  1026→print(f"    Lambda^3 / geom_mean = {C_try3:.2f} MeV^2  {'MATCHES' if abs(C_try3 - C)/C < 0.01 else 'does not match'} C")
+  1027→
+  1028→# Let me try the SQCD formula directly
+  1029→# For N_c = N_f = 3: CW superpotential gives
+  1030→# W_dyn = Lambda^6 / det(M)
+  1031→# Combined with W_mass = Tr(m M), the VEV is:
+  1032→# <M_ij> = Lambda^2 (det m / Lambda^{2N_f})^{1/N_c} (m^{-1})_ij
+  1033→#         = Lambda^2 (det m)^{1/3} / Lambda^2 * (m^{-1})_ij
+  1034→#         = (det m)^{1/3} (m^{-1})_ij
+  1035→#
+  1036→# For diagonal masses: <M_jj> = (m_u m_d m_s)^{1/3} / m_j
+  1037→#
+  1038→# Hmm that gives C = (m_u m_d m_s)^{1/3} = 9.57 MeV, way too small.
+  1039→#
+  1040→# For the ISS case with N_f > N_c, the formula is different.
+  1041→# The problem just states C = 882297 MeV^2. Let me accept it.
+  1042→
+  1043→# Alternative: Perhaps C = Λ^3 / <m_q> where <m_q> is some average
+  1044→C_alt = Lambda_QCD**3 / ((m_u + m_d + m_s) / 3)
+  1045→print(f"    Lambda^3 / <m_q>_arith = {C_alt:.2f} MeV^2")
+  1046→C_alt2 = Lambda_QCD**3 / np.sqrt(m_u * m_d * m_s / 3)
+  1047→# None of these match. The value C = 882297 is just an input.
+  1048→
+  1049→print(f"\n  Accepting C = {C:.0f} MeV^2 as given.")
+  1050→print(f"  The key structural result is:")
+  1051→print(f"    y_j <M_j> = (2 m_j / v)(C / m_j) = 2C/v = {2*C/v_ew:.4f} MeV")
+  1052→print(f"  This is FLAVOR-UNIVERSAL: the seesaw VEV M_j ~ 1/m_j cancels the")
+  1053→print(f"  Yukawa coupling y_j ~ m_j, leaving a universal F-term contribution.")
+  1054→
+  1055→# ---------------------------------------------------------------
+  1056→# 9. Summary table
+  1057→# ---------------------------------------------------------------
+  1058→print("\n" + "=" * 65)
+  1059→print("SUMMARY TABLE")
+  1060→print("=" * 65)
+  1061→
+  1062→print(f"""
+  1063→  Parameter                Value                  Unit
+  1064→  ─────────────────────────────────────────────────────
+  1065→  v_EW                     {v_ew/1e3:.4f}              GeV
+  1066→  v_u = v_d                {v_u/1e3:.4f}              GeV
+  1067→  tan(beta)                {tan_beta:.1f}
+  1068→  cos(2 beta)              {cos2beta:.10f}
+  1069→  y_c                      {y_c:.8f}           (dimensionless)
+  1070→  y_b                      {y_b:.8f}           (dimensionless)
+  1071→  y_t (tan β=1)            {y_t:.6f}              (dimensionless)
+  1072→  <M_c>                    {M_c_vev:.4f}              MeV
+  1073→  <M_b>                    {M_b_vev:.4f}              MeV
+  1074→  F = C/v                  {F_scale:.4f}              MeV
+  1075→  2C/v (universal)         {2*C/v_ew:.4f}              MeV
+  1076→  F_{{M_c}} = m_c            {m_c:.1f}                MeV
+  1077→  F_{{M_b}} = m_b            {m_b:.1f}                MeV
+  1078→  ─────────────────────────────────────────────────────
+  1079→  EWSB constraints (mu_H = 0, tan beta = 1):
+  1080→    m_Hu^2 + y_c^2 = m_Hd^2 + y_b^2 = b
+  1081→    m_A^2 = 2b   (free parameter)
+  1082→  ─────────────────────────────────────────────────────
+  1083→  Tree-level spectrum:
+  1084→    m_h                    0                      GeV
+  1085→    m_H                    sqrt(m_A^2 + m_Z^2)    GeV
+  1086→    m_A                    sqrt(2b)               GeV
+  1087→    m_{{H^pm}}               sqrt(m_A^2 + m_W^2)    GeV
+  1088→  ─────────────────────────────────────────────────────
+  1089→  Radiative m_h = 125 GeV requires:
+  1090→    m_stop = {m_stop_needed/1e3:.0f} GeV   (top/stop only, leading-log)
+  1091→    lambda = {lambda_needed:.4f}        (NMSSM singlet coupling)
+  1092→  ─────────────────────────────────────────────────────
+  1093→""")
+  1094→
+  1095→print("Done.")
+  1096→

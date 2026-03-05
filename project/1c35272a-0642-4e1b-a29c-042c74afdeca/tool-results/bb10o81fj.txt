@@ -1,0 +1,876 @@
+==============================================================================
+SECTION 0: REVIEW -- Minimal O'Raifeartaigh Koide seed
+==============================================================================
+
+Superpotential: W = f Phi_0 + m Phi_1 Phi_2 + g Phi_0 Phi_1^2
+Vacuum: phi_1 = 0, phi_0 = v (pseudo-modulus), F_0 = f != 0
+
+Fermionic mass matrix W_ij:
+  | 0    0    0  |
+  | 0   2gv   m  |
+  | 0    m    0  |
+
+Koide seed requires: t = gv/m = sqrt(3) = 1.7320508076
+  m_- = (2 - sqrt(3)) m = 0.267949 m
+  m_+ = (2 + sqrt(3)) m = 3.732051 m
+  sqrt(m_-)/sqrt(m_+) = 0.2679491924
+  2 - sqrt(3)         = 0.2679491924
+  Koide Q = 0.6666666667  (should be 2/3 = 0.6666666667)
+
+==============================================================================
+SECTION 1: ISS MODEL -- N_c=3, N_f=5
+==============================================================================
+
+Electric: SU(3) with 5 flavors
+Magnetic: SU(2) with 5 dual quarks
+  Dual quarks: q (2x5), q_tilde (2x5)
+  Meson singlet: Phi (5x5)
+  Total fields: Phi=25, q=10, q_tilde=10
+  Total complex d.o.f.: 45
+
+Magnetic superpotential:
+  W_mag = h Tr(q Phi q_tilde) - h mu^2 Tr(Phi)
+
+F-term for Phi:
+  F_Phi = h(q q_tilde - mu^2 I_{NfxNf})
+
+q q_tilde is 5x5 but has rank <= 2 (magnetic gauge group rank)
+So at most 2 eigenvalues of F_Phi can vanish.
+The remaining 3 eigenvalues have F != 0: SUSY is BROKEN by rank condition.
+
+==============================================================================
+SECTION 2: ISS VACUUM AND FIELD DECOMPOSITION
+==============================================================================
+
+At the metastable ISS vacuum:
+  q = (mu I_{2x2}, 0_{2x3}),  q_tilde^T = (mu I_{2x2}, 0_{2x3})
+
+  q q_tilde = mu^2 diag(1, 1, 0, 0, 0)
+
+  F_Phi = h mu^2 diag(0, 0, -1, -1, -1)
+
+Decompose Phi into blocks according to {1,2} vs {3,4,5}:
+
+  Phi = | Phi_Y (2x2)    Phi_Z (2x3) |
+        | Phi_Zt (3x2)   Phi_X (3x3) |
+
+  Y-sector {1,2}: F_Y = 0  (SUSY preserved, massive at tree level)
+  Z-sector:       mixed q-Phi sector (massive at tree level)
+  X-sector {3,4,5}: F_X = -h mu^2 I  (SUSY BROKEN, pseudo-moduli)
+
+The X-sector = {Phi_33, Phi_34, ..., Phi_55} is the O'Raifeartaigh sector!
+  - 9 complex fields (3x3 matrix)
+  - All have F != 0 at tree level
+  - The DIAGONAL entries Phi_33, Phi_44, Phi_55 are pseudo-moduli
+    (flat at tree level, lifted by Coleman-Weinberg)
+
+==============================================================================
+SECTION 3: FERMIONIC MASS MATRIX -- explicit construction
+==============================================================================
+
+The superpotential W = h Tr(q Phi q_tilde) - h mu^2 Tr(Phi)
+expanded around the vacuum q = q_tilde^T = (mu I_2, 0):
+
+Write q = q_0 + delta_q, q_tilde = q_tilde_0 + delta_q_tilde
+where q_0 = (mu I_2 | 0), q_tilde_0^T = (mu I_2 | 0)
+
+Second derivatives of W = h q_ia Phi_ab q_tilde_jb:
+
+  d^2W / (dPhi_ab dq_ic) = h delta_ac q_tilde_0_ib = h mu delta_ac delta_ib
+    (nonzero only for a=c, i=b, and b in {1,2})
+
+  d^2W / (dPhi_ab d(q_tilde)_jc) = h q_0_ja delta_bc = h mu delta_ja delta_bc
+    (nonzero only for j=a, b=c, and a in {1,2})
+
+  d^2W / (dq_ia d(q_tilde)_jb) = h Phi_0_ab delta_ij
+    (Phi_0 = 0 at the ISS vacuum, so this is ZERO)
+
+  d^2W / (dPhi_ab dPhi_cd) = 0  (no Phi^2 term in W)
+
+RESULT: The fermionic mass terms couple Phi to (q, q_tilde) but NOT
+        Phi to Phi or q to q_tilde (at tree level in the ISS vacuum).
+
+Specifically, the massive fermions at tree level are:
+  - The Y-sector: Phi_{ab} with a,b in {1,2} pairs with q, q_tilde
+  - The Z-sector: Phi_{a,alpha} with a in {1,2}, alpha in {3,4,5}
+    pairs with the corresponding q components
+
+The X-sector: Phi_{alpha,beta} with alpha,beta in {3,4,5}
+  has NO tree-level fermionic mass terms!
+  (because q_0 and q_tilde_0 are zero in directions 3,4,5)
+
+==============================================================================
+SECTION 4: EXPLICIT TREE-LEVEL MASS SPECTRUM
+==============================================================================
+
+Setting h*mu = M (the ISS mass scale) for clarity.
+
+--- Y-sector (directions 1,2): SU(2)_mag is Higgsed ---
+
+The Y-sector mixes Phi_{ab} (a,b in {1,2}) with q_{ia}, q_tilde_{jb}.
+This sector has SUSY-preserving masses (F_Y = 0).
+Tree-level mass: M = h*mu for the paired fermions.
+
+--- Z-sector (directions mixing {1,2} and {3,4,5}) ---
+
+Phi_{a,alpha} with a in {1,2}, alpha in {3,4,5}:
+  Couples to q_{i,alpha} via d^2W/(dPhi_{a,alpha} dq_{i,a})
+  This gives mass M = h*mu to 2x3 = 6 Dirac fermion pairs
+  (each Phi_{a,alpha} with a=1,2 pairs with the SU(2) doublet q_{i,alpha})
+
+--- X-sector (directions {3,4,5} only) ---
+
+Phi_{alpha,beta} with alpha,beta in {3,4,5}:
+  NO tree-level mass terms. These are the 9 massless fermions.
+  They include:
+    - 3 diagonal: Phi_33, Phi_44, Phi_55 (pseudo-moduli)
+    - 6 off-diagonal: Phi_34, Phi_35, Phi_43, Phi_45, Phi_53, Phi_54
+
+  The diagonal Phi_{alpha,alpha} are EXACTLY the O'Raifeartaigh
+  pseudo-moduli! Their fermionic partners are the goldstinos.
+
+  Among the 3 diagonal fermions, ONE linear combination is the
+  true goldstino (eaten by the gravitino in SUGRA). The other two
+  are pseudo-goldstinos that get CW masses.
+
+==============================================================================
+SECTION 5: ISS -> O'RAIFEARTAIGH MAPPING
+==============================================================================
+
+The ISS X-sector has the STRUCTURE of an O'Raifeartaigh model:
+
+O'Raifeartaigh:                    ISS X-sector:
+  Phi_0 (pseudo-modulus)    <->    Phi_{alpha,alpha} (diagonal, 3 fields)
+  Phi_1, Phi_2 (massive)   <->    (integrated out: q_{i,alpha} in Z-sector)
+  F_0 = f != 0             <->    F_{alpha,alpha} = -h mu^2
+
+KEY DIFFERENCE: The minimal O'Raifeartaigh has ONE pseudo-modulus.
+The ISS model has THREE (or more: 9 components of Phi_X).
+
+In the minimal O'R, the 3 fields are {Phi_0, Phi_1, Phi_2} with
+mass matrix eigenvalues (0, m_-, m_+).
+
+In the ISS, the X-sector fermions are ALL massless at tree level.
+The tree-level fermionic spectrum of the {3,4,5} sector is:
+  (0, 0, 0, 0, 0, 0, 0, 0, 0)  -- nine zeros!
+
+This is NOT a Koide seed (0, m_-, m_+) at tree level.
+
+The O'R structure appears only when we INTEGRATE OUT the heavy
+Z-sector fields and generate an effective superpotential for X.
+
+==============================================================================
+SECTION 6: EFFECTIVE SUPERPOTENTIAL FOR THE X-SECTOR
+==============================================================================
+
+After integrating out the massive Z-sector (q_{i,alpha} and Phi_{a,alpha}),
+the effective superpotential for Phi_X at leading order is:
+
+  W_eff = -h mu^2 Tr(Phi_X) + (higher order from integrating out Z)
+
+The leading correction from integrating out Z-sector fields
+(the q_{i,alpha} with mass h*mu from the Y-sector VEVs) gives:
+
+  delta_W ~ (h^2/M) Tr(Phi_X^2)  (one-loop threshold correction)
+
+But this is a LOOP effect, not a tree-level superpotential term.
+At tree level, W_eff = -h mu^2 Tr(Phi_X), which gives:
+  F_{alpha,beta} = -h mu^2 delta_{alpha,beta}
+  NO mass terms for Phi_X fermions
+
+The key insight: in the ISS model, the O'Raifeartaigh structure
+manifests DIFFERENTLY from the minimal 3-field model:
+
+  Minimal O'R: 3 fields, 1 massless + 2 massive at tree level
+  ISS X-sector: 9 fields, ALL massless at tree level,
+                masses generated entirely by Coleman-Weinberg
+
+==============================================================================
+SECTION 7: GENERALIZED ISS WITH FLAVOR-DEPENDENT MASSES
+==============================================================================
+
+The ISS model can be generalized by giving different masses to
+the electric quarks: W_tree = sum_i m_i Q_i Q_tilde_i
+
+This gives: mu_i^2 = m_i * Lambda (flavor-dependent)
+
+The magnetic superpotential becomes:
+  W_mag = h Tr(q Phi q_tilde) - h Tr(M^2 Phi)
+  where M^2 = diag(mu_1^2, mu_2^2, mu_3^2, mu_4^2, mu_5^2)
+
+At the ISS vacuum with non-degenerate masses:
+  q q_tilde = diag(mu_1^2, mu_2^2, 0, 0, 0)
+  (the two largest mu_i^2 are canceled)
+
+  F_{alpha,alpha} = -h mu_alpha^2   for alpha in {3,4,5}
+
+Now the F-terms in the X-sector are NON-DEGENERATE!
+If we identify:
+  alpha=3 -> s quark:  mu_3^2 = m_s * Lambda
+  alpha=4 -> c quark:  mu_4^2 = m_c * Lambda
+  alpha=5 -> b quark:  mu_5^2 = m_b * Lambda
+
+PDG quark masses: m_s = 93.4 MeV, m_c = 1270.0 MeV, m_b = 4180.0 MeV
+
+F-term ratios (proportional to quark masses):
+  F_3 : F_4 : F_5 = 93.4 : 1270.0 : 4180.0
+  F_3/F_4 = 0.073543
+  F_3/F_5 = 0.022344
+  F_4/F_5 = 0.303828
+
+==============================================================================
+SECTION 8: COLEMAN-WEINBERG MASSES WITH NON-DEGENERATE F-TERMS
+==============================================================================
+
+The one-loop CW effective potential for the pseudo-modulus Phi_{alpha,alpha}
+comes from the Z-sector fields that couple to it.
+
+For each pseudo-modulus Phi_{alpha,alpha}, the relevant loop involves
+the fields q_{i,alpha} (i=1,2) that get mass from the Y-sector VEV.
+
+The CW mass formula for pseudo-modulus alpha:
+  m_CW^2(alpha) ~ (h^4 / 16 pi^2) * F_alpha^2 / M^2
+  where F_alpha = h mu_alpha^2 and M = h mu (the Z-sector mass)
+
+For the case where mu_1 = mu_2 = mu (the two canceled directions),
+and mu_alpha^2 = m_alpha * Lambda for alpha in {3,4,5}:
+
+  m_CW^2(alpha) ~ (h^2 / 16 pi^2) * (m_alpha Lambda)^2 / mu^2
+
+  => m_CW(alpha) ~ (h / 4 pi) * m_alpha * Lambda / mu
+
+The CW mass is PROPORTIONAL to the electric quark mass m_alpha!
+
+CW mass ratios (in the simplified estimate):
+  m_CW(3) : m_CW(4) : m_CW(5) ~ 93.4 : 1270.0 : 4180.0
+  = m_s : m_c : m_b
+
+Koide ratio for CW masses (m_s, m_c, m_b) directly:
+  Q(m_s, m_c, m_b) = 0.458513  (target: 2/3 = 0.666667)
+
+Koide ratio with signed charges (-sqrt(m_s), sqrt(m_c), sqrt(m_b)):
+  Q = 0.674954  (target: 2/3 = 0.666667)
+  Deviation: 1.24%
+
+Seed triple (0, m_s, m_c):
+  Q = 0.664354  (target: 2/3 = 0.666667)
+  sqrt(m_s)/sqrt(m_c) = 0.271189  (target: 2-sqrt(3) = 0.267949)
+  Deviation: 1.21%
+
+==============================================================================
+SECTION 9: ISS AS GENERALIZED O'RAIFEARTAIGH
+==============================================================================
+
+In the ISS model with non-degenerate quark masses, the effective
+theory for the 3 diagonal pseudo-moduli Phi_33, Phi_44, Phi_55
+looks like a GENERALIZED O'Raifeartaigh model with 3 independent
+F-terms instead of 1.
+
+The effective superpotential (schematically):
+  W_eff = sum_{alpha=3}^5 [ -h mu_alpha^2 Phi_{alpha,alpha}
+          + (loop corrections involving q_{i,alpha}) ]
+
+For the mapping to work, we need to identify which ISS fields
+play the role of Phi_0, Phi_1, Phi_2 in the minimal O'R.
+
+Natural identification:
+  - Phi_55 (b-direction) = Phi_0 (pseudo-modulus, largest F-term)
+  - Phi_33 (s-direction) ~ Phi_1 (light)
+  - Phi_44 (c-direction) ~ Phi_2 (heavy)
+
+But the ISS model does NOT have a tree-level coupling like
+g Phi_0 Phi_1^2 between these diagonal elements.
+The O'R cubic coupling must emerge from integrating out Z-sector fields.
+
+The effective cubic coupling: After integrating out q_{i,alpha},
+the leading interaction between X-sector fields comes at one loop:
+
+  delta_W_eff ~ (h^3/M) Phi_{alpha,beta} Phi_{beta,gamma} Phi_{gamma,alpha}
+  (trace over flavor indices, with M = h*mu the Z-sector mass)
+
+For the diagonal components, this gives:
+  delta_W_eff ~ (h^3/M) sum_alpha Phi_{alpha,alpha}^3
+             + (h^3/M) sum_{alpha!=beta} Phi_{alpha,alpha} Phi_{alpha,beta} Phi_{beta,alpha}
+
+The second term couples diagonal to off-diagonal: this IS the O'R
+cubic coupling! Phi_{alpha,alpha} plays Phi_0, and Phi_{alpha,beta}
+with alpha!=beta plays Phi_1.
+
+==============================================================================
+SECTION 10: TREE-LEVEL FERMIONIC SPECTRUM OF {3,4,5} SECTOR
+==============================================================================
+
+At tree level in the ISS vacuum, the fermionic mass matrix for
+the FULL model (not just X-sector) in the {3,4,5} directions is:
+
+The relevant fields are:
+  - Phi_{alpha,beta} for alpha,beta in {3,4,5}: 9 fields
+  - q_{i,alpha} for i in {1,2}, alpha in {3,4,5}: 6 fields
+  - q_tilde_{i,alpha} for i in {1,2}, alpha in {3,4,5}: 6 fields
+  Total: 21 complex fields in the {3,4,5} flavor sector
+
+The nonzero W_ij entries coupling these fields are:
+  d^2W/(dPhi_{alpha,beta} dq_{i,gamma}) = h delta_{alpha,gamma} (q_tilde_0)_{i,beta}
+  d^2W/(dPhi_{alpha,beta} d(q_tilde)_{j,gamma}) = h (q_0)_{j,alpha} delta_{beta,gamma}
+
+At the ISS vacuum, q_0 and q_tilde_0 are nonzero only in directions {1,2}.
+So these W_ij vanish for alpha,beta,gamma all in {3,4,5}!
+
+CONCLUSION: The entire {3,4,5} sector is MASSLESS at tree level.
+The 9 Phi_{alpha,beta} fermions and 12 q/q_tilde fermions in these
+directions get NO tree-level mass.
+
+Actually, let's be more careful. The q_{i,alpha} with alpha in {3,4,5}
+DO couple to Phi_{a,alpha} with a in {1,2} (the Z-sector).
+Let's write the full mass matrix including Z-sector fields.
+
+Careful re-analysis of the Z-sector mass matrix:
+
+The Z-sector fields and their pairings:
+  Phi_{a,alpha} (a=1,2; alpha=3,4,5) pairs with q_tilde_{a,alpha}
+  Phi_{alpha,a} (alpha=3,4,5; a=1,2) pairs with q_{a,alpha}
+
+Each pair gets tree-level mass h*mu.
+Total: 6 + 6 = 12 Dirac mass pairings in the Z-sector.
+
+The X-sector fields Phi_{alpha,beta} (alpha,beta in {3,4,5})
+have NO tree-level mass couplings to anything.
+
+The remaining q/q_tilde fields in {3,4,5} directions:
+  q_{i,alpha} with i=1,2 and alpha=3,4,5 that are NOT paired
+  via the Z-sector...
+
+Wait: q_{i,alpha} has i=1,2 and alpha=3,4,5 -> 6 fields
+These pair with Phi_{alpha,b} where b matches i -> Phi_{alpha,i}
+  i.e., Phi_{3,1}, Phi_{3,2}, Phi_{4,1}, Phi_{4,2}, Phi_{5,1}, Phi_{5,2}
+These are the Phi_{alpha,a} Z-sector fields.
+So ALL q_{i,alpha} for alpha in {3,4,5} get paired with Z-sector Phi.
+
+Similarly q_tilde_{i,alpha} pair with Phi_{a,alpha} Z-sector.
+
+SUMMARY of tree-level fermionic spectrum in {3,4,5} flavor sector:
+
+  Massive (mass = h*mu each):
+    6 Dirac pairs: (Phi_{alpha,a}, q_{a,alpha})  for a=1,2, alpha=3,4,5
+    6 Dirac pairs: (Phi_{a,alpha}, q_tilde_{a,alpha})
+
+  Massless:
+    9 Weyl fermions: psi_{Phi_{alpha,beta}}  for alpha,beta in {3,4,5}
+    (these are the X-sector pseudo-moduli fermions)
+
+==============================================================================
+SECTION 11: EFFECTIVE O'RAIFEARTAIGH FOR DIAGONAL PSEUDO-MODULI
+==============================================================================
+
+Focus on the 3 diagonal pseudo-moduli: X_3 = Phi_33, X_4 = Phi_44, X_5 = Phi_55
+
+Each X_alpha has:
+  F_{X_alpha} = -h mu_alpha^2 = -h m_alpha Lambda
+
+The off-diagonal Phi_{alpha,beta} (alpha != beta) act as the 'massive'
+fields that mediate the O'R structure. But they are also massless at
+tree level!
+
+For a proper O'R mapping, we need an interaction
+  g X_alpha (Phi_{alpha,beta})^2
+which generates masses for Phi_{alpha,beta} when X_alpha gets a VEV.
+
+Such a coupling DOES NOT exist in the ISS superpotential.
+The ISS is a 'degenerate' O'R model where ALL pseudo-moduli are
+massless, and masses are generated purely by CW at one loop.
+
+This is the FUNDAMENTAL DIFFERENCE:
+  Minimal O'R: spectrum (0, m_-, m_+) at tree level -> Koide seed
+  ISS X-sector: spectrum (0, 0, 0, ..., 0) at tree level -> no Koide seed
+
+==============================================================================
+SECTION 12: CW SPECTRUM AND KOIDE CHECK
+==============================================================================
+
+The CW effective potential for pseudo-modulus X_alpha receives
+contributions from the massive Z-sector fields that couple to it.
+
+For each X_alpha = Phi_{alpha,alpha}, the one-loop CW potential is:
+
+  V_CW(X_alpha) = (1/64pi^2) STr[M^4(X_alpha) ln(M^2(X_alpha)/Lambda_UV^2)]
+
+where M(X_alpha) is the field-dependent mass matrix of the Z-sector
+fields that couple to X_alpha.
+
+In the ISS model, the Z-sector boson masses (squared) at
+X_alpha = x_alpha are:
+
+  m_B^2 = |h mu|^2 +/- |h^2 mu_alpha^2|  (SUSY split by F-term)
+
+  = (h mu)^2 (1 +/- (mu_alpha/mu)^2)
+
+The CW mass for X_alpha is then:
+
+  m_CW^2(alpha) = (h^4/16pi^2) |mu_alpha^2|^2 / |mu|^2 * f(mu_alpha^2/mu^2)
+
+where f(x) is a slowly varying function (logarithmic).
+
+In the limit F_alpha << M^2 (i.e., mu_alpha << mu):
+
+  m_CW^2(alpha) ~ (h^4 / 8 pi^2) * (mu_alpha^4 / mu^2) * log(2)
+
+  m_CW(alpha) / m_CW(beta) = mu_alpha^2 / mu_beta^2 = m_alpha / m_beta
+
+So the CW mass RATIOS for the pseudo-moduli are:
+  m_CW(s) : m_CW(c) : m_CW(b) = m_s : m_c : m_b
+  = 93.4 : 1270.0 : 4180.0
+  = 1 : 13.60 : 44.75
+
+IMPORTANT: These are SCALAR CW masses for the pseudo-moduli bosons.
+The FERMIONIC spectrum is different:
+  - One linear combination of psi_{X_3}, psi_{X_4}, psi_{X_5}
+    is the true goldstino (remains massless, eaten by gravitino)
+  - The other two get masses from higher-order CW corrections
+
+The goldstino direction is parallel to F_alpha:
+  |G> ~ F_3 |psi_3> + F_4 |psi_4> + F_5 |psi_5>
+       ~ m_s |psi_3> + m_c |psi_4> + m_b |psi_5>
+
+Normalized goldstino:
+  |G> = (0.021375) |psi_3> + (0.290640) |psi_4> + (0.956594) |psi_5>
+       (dominated by b-direction: 0.9566)
+
+==============================================================================
+SECTION 13: CAN THE CW SPECTRUM PRODUCE A KOIDE SEED?
+==============================================================================
+
+The 3 diagonal pseudo-moduli scalar masses are proportional to
+the quark masses: m_CW(alpha) ~ m_alpha.
+
+For a Koide SEED triple (0, m_-, m_+), we need one mass to vanish.
+In the ISS, ALL three get CW masses. No mass vanishes.
+
+However, we can ask: does the RATIO of CW masses satisfy Koide?
+
+Direct Koide (m_s, m_c, m_b): Q = 0.458513
+  Deviation from 2/3: -20.8154%  (absolute)
+
+Signed Koide (-sqrt(m_s), sqrt(m_c), sqrt(m_b)): Q = 0.674954
+  Deviation from 2/3: 1.24%
+
+Alternative: Koide ratio for CW mass^2 values (~ m_alpha^2):
+  Q(m_s^2, m_c^2, m_b^2) = 0.621362
+
+Key observation: In the ISS model, the CW mass ratios exactly
+track the quark mass ratios. No NEW structure emerges from the
+ISS dynamics -- the Koide property (or lack thereof) is inherited
+directly from the quark mass spectrum.
+
+==============================================================================
+SECTION 14: SEEKING THE O'RAIFEARTAIGH KOIDE SEED IN ISS
+==============================================================================
+
+The key question: can we find ISS parameters such that the effective
+fermionic spectrum of the {3,4,5} sector is a Koide seed (0, m_-, m_+)?
+
+Strategy: Consider the Z-sector fields that mix with X-sector at one loop.
+When we integrate them out, they generate an effective mass matrix for
+the X-sector fermions.
+
+The effective fermionic mass matrix (from integrating out Z-sector at
+one loop) for the diagonal pseudo-moduli is:
+
+  M_eff_{alpha,beta} ~ (h^3 mu / 16 pi^2) * delta_{alpha,beta}
+                        * (mu_alpha^2 / mu^2) * log_factor
+
+This is DIAGONAL with entries ~ m_alpha (the quark masses).
+For a Koide seed, we need eigenvalues (0, m_-, m_+).
+
+But there is no reason for any diagonal entry to vanish!
+Unless one quark mass vanishes: m_alpha = 0.
+
+CRITICAL INSIGHT:
+If we set m_3 = m_s = 0 (chiral limit for the strange quark),
+then mu_3 = 0 and F_3 = 0 and m_CW(3) = 0.
+The spectrum becomes (0, m_CW(c), m_CW(b)) ~ (0, m_c, m_b).
+
+This IS a Koide seed-like structure!
+Check: is (0, m_c, m_b) a Koide seed?
+
+  Q(0, m_c, m_b) = 0.541853  (target: 2/3 = 0.666667)
+  sqrt(m_c)/sqrt(m_b) = 0.551206  (target: 2-sqrt(3) = 0.267949)
+  Deviation of ratio: 105.7%
+
+Alternatively, in the sBootstrap the seed is (0, m_s, m_c):
+  Q(0, m_s, m_c) = 0.664354  (target: 2/3 = 0.666667)
+  sqrt(m_s)/sqrt(m_c) = 0.271189  (target: 2-sqrt(3) = 0.267949)
+  Deviation: 1.2%
+
+The sBootstrap seed (0, s, c) corresponds to ISS with m_b -> 0
+(chiral limit for the b quark). But this contradicts the ISS
+assignment where b is the LARGEST mass.
+
+The ISS assignment for Koide seed would need to be DIFFERENT:
+NOT (s, c, b) -> (3, 4, 5) but rather a different flavor assignment.
+
+==============================================================================
+SECTION 15: ISS WITH N_c=2, N_f=3 (MINIMAL CASE FOR KOIDE SEED)
+==============================================================================
+
+Electric: SU(2) with 3 flavors
+Magnetic: SU(1) (= U(1)!) with 3 dual quarks
+  Dual quarks: q (1x3), q_tilde (1x3)
+  Meson: Phi (3x3)
+
+  q q_tilde has rank 1: can cancel 1 out of 3 F-terms.
+  => 2 broken F-terms (= number of colors!)
+
+At the ISS vacuum:
+  q q_tilde = mu^2 diag(1, 0, 0)
+  F_Phi = h mu^2 diag(0, -1, -1)
+
+X-sector: Phi_{alpha,beta} with alpha,beta in {2,3}
+  4 complex fields, 2 diagonal pseudo-moduli
+
+This maps to an O'R model with 2 pseudo-moduli and 1 massive pair!
+
+With non-degenerate masses:
+  mu_2^2 = m_2 Lambda,  mu_3^2 = m_3 Lambda
+  F_2 = h m_2 Lambda,   F_3 = h m_3 Lambda
+
+CW masses: m_CW(2) ~ m_2,  m_CW(3) ~ m_3
+
+For a Koide seed, we need 3 masses with one vanishing.
+But we only have 2 pseudo-moduli. Including the goldstino gives (0, m_2, m_3).
+
+INCLUDING THE GOLDSTINO:
+  Fermionic spectrum: (0, m_CW(2), m_CW(3))
+  = (0, ~ m_2, ~ m_3)
+
+  For Koide seed ratio: need sqrt(m_2)/sqrt(m_3) = 2 - sqrt(3)
+  => m_2/m_3 = (2-sqrt(3))^2 = 7 - 4 sqrt(3) ~ 0.0718
+
+Required mass ratio: m_light / m_heavy = 0.071797
+
+  m_s / m_c = 0.073543  (target: 0.071797)
+  Deviation: 2.4%
+
+==============================================================================
+SECTION 16: O'RAIFEARTAIGH KOIDE CONDITION IN ISS PARAMETERS
+==============================================================================
+
+Recall the O'R result: Koide seed requires gv/m = sqrt(3).
+
+In the ISS model, the effective O'R parameters are:
+  f_eff = h mu_alpha^2  (the F-term, plays role of 'f' in O'R)
+  m_eff ~ h mu  (the Z-sector mass, plays role of 'm' in O'R)
+  g_eff ~ h^2/mu  (effective cubic from integrating out Z)
+  v_eff = <X_alpha>  (the pseudo-modulus VEV)
+
+The O'R Koide condition g_eff * v_eff / m_eff = sqrt(3) becomes:
+  (h^2/mu) * v / (h mu) = sqrt(3)
+  h v / mu^2 = sqrt(3)
+
+This fixes the pseudo-modulus VEV in terms of mu:
+  v = sqrt(3) mu^2 / h
+
+The CW potential determines v dynamically. The question is whether
+the CW-determined VEV satisfies this constraint.
+
+In the ISS model, the pseudo-modulus VEV is determined by:
+  V_CW'(v) = 0
+
+The CW potential for X_alpha at one loop gives (schematically):
+  V_CW(x) = (h^4/64pi^2) sum_Z [ M_Z^4(x) log(M_Z^2(x)/Lambda^2) ]
+
+The minimum is at x = 0 for the ISS model (the origin is the
+metastable vacuum). So v_eff = 0, not sqrt(3) mu^2/h.
+
+CONCLUSION: The ISS vacuum sits at v = 0 (origin in field space),
+which corresponds to gv/m = 0, NOT sqrt(3).
+The Koide seed condition is NOT naturally satisfied in ISS.
+
+==============================================================================
+SECTION 17: DEFORMING ISS TOWARD THE KOIDE SEED
+==============================================================================
+
+The ISS vacuum is at the origin in pseudo-moduli space (v = 0).
+For a Koide seed, we need v != 0 with gv/m = sqrt(3).
+
+Deformations that move the ISS vacuum away from origin:
+
+1. LINEAR DEFORMATION (ISS + tree-level mass for X):
+   Add delta_W = epsilon Tr(Phi_X^2)
+   This shifts the minimum to v ~ epsilon/h, but breaks
+   the R-symmetry and typically destabilizes the metastable vacuum.
+
+2. CUBIC DEFORMATION (direct O'R coupling):
+   Add delta_W = g' X_alpha (Phi_{alpha,beta})^2
+   This is a relevant deformation. With g' ~ h^2/mu (natural scale),
+   the O'R Koide condition becomes g' v / m_eff = sqrt(3),
+   which determines v ~ sqrt(3) m_eff / g' ~ sqrt(3) mu^3 / h.
+
+3. FLAVOR-DEPENDENT DEFORMATION:
+   Use different mu_alpha to create a hierarchy in the CW masses.
+   Even with v = 0, the CW mass RATIOS can satisfy Koide if
+   the quark mass ratios do.
+
+Option 3 is the most promising and connects to the sBootstrap:
+
+The CW mass ratios ARE the quark mass ratios.
+So the ISS Koide condition reduces to:
+  sqrt(m_s) / sqrt(m_c) = 2 - sqrt(3)  (the sBootstrap seed condition!)
+
+  Observed: sqrt(m_s)/sqrt(m_c) = 0.271189
+  Required: 2 - sqrt(3) = 0.267949
+  Deviation: 1.2%
+
+==============================================================================
+SECTION 18: FULL CW MASS WITH LOG FACTORS
+==============================================================================
+
+The exact one-loop CW mass for pseudo-modulus X_alpha in ISS:
+
+  m_CW^2(alpha) = (N_m * h^4 / 8 pi^2) * mu_alpha^4 / mu^2
+                   * [1 + (mu_alpha^2/mu^2) log(1 - mu_alpha^4/mu^4)]
+
+where N_m = 2 (magnetic colors), and we assumed mu_alpha < mu.
+
+In the limit mu_alpha << mu:
+  m_CW^2(alpha) ~ (N_m h^4 / 8 pi^2) * mu_alpha^4 / mu^2 * log(2)
+
+In the general case, mu_alpha^2 = m_alpha * Lambda and mu^2 = m_q Lambda
+(where m_q is the mass of the 'canceled' flavors 1,2).
+
+Using m_u = 2.16 MeV, m_d = 4.67 MeV for canceled flavors.
+
+mu_alpha^2 / mu_d^2 = m_alpha / m_d:
+  x_s = m_s/m_d = 20.00
+  x_c = m_c/m_d = 271.95
+  x_b = m_b/m_d = 895.07
+
+NOTE: x_c and x_b >> 1, so the limit mu_alpha << mu is VIOLATED!
+The ISS metastable vacuum requires mu_alpha < mu (i.e., m_alpha < m_q),
+but m_c >> m_d and m_b >> m_d.
+
+This means the ISS framework with u,d as 'canceled' flavors and s,c,b
+as 'broken' flavors is NOT self-consistent for the physical quark masses!
+
+Self-consistent ISS assignments (mu_alpha < mu for broken flavors):
+Need the 'canceled' flavors to be HEAVIER than the 'broken' ones.
+
+Possibility 1: canceled = {c, b}, broken = {u, d, s}
+  mu_u/mu_c = sqrt(m_u/m_c) = 0.0412 < 1  OK
+  mu_d/mu_c = sqrt(m_d/m_c) = 0.0606 < 1  OK
+  mu_s/mu_c = sqrt(m_s/m_c) = 0.2712 < 1  OK
+
+Possibility 2: canceled = {b, t}, broken = {u, d, s} or {s, c, ...}
+  (But t is above the ISS range)
+
+IMPORTANT REALIZATION: For the ISS metastable vacuum to exist,
+the 'canceled' (rank-condition) directions need the LARGEST mu_i^2.
+Since mu_i^2 ~ m_i Lambda, this means the canceled flavors should
+be the HEAVIEST quarks.
+
+For N_c=3, N_f=5 with quarks {u, d, s, c, b}:
+  Canceled: {c, b} (heaviest, rank 2)
+  Broken: {u, d, s} (lightest, rank condition)
+
+With correct assignment: canceled = {c, b}, broken = {u, d, s}
+
+  F-terms: F_u ~ m_u, F_d ~ m_d, F_s ~ m_s
+  CW masses: m_CW(u) ~ m_u, m_CW(d) ~ m_d, m_CW(s) ~ m_s
+
+  Koide Q(m_u, m_d, m_s) = 0.567043
+  (not close to 2/3 = 0.666667)
+
+Seed triple checks with light quarks:
+  (0, m_u, m_s): Q = 0.7708, sqrt(m_u)/sqrt(m_s) = 0.1521 vs 0.2679
+  (0, m_d, m_s): Q = 0.7013, sqrt(m_d)/sqrt(m_s) = 0.2236 vs 0.2679
+  (0, m_u, m_d): Q = 0.5181, sqrt(m_u)/sqrt(m_d) = 0.6801 vs 0.2679
+
+==============================================================================
+SECTION 19: ISS ASSIGNMENT THAT GIVES KOIDE SEED
+==============================================================================
+
+The sBootstrap Koide seed is (0, s, c) with signed charges.
+For this to emerge from ISS, we need:
+  - A massless pseudo-modulus (goldstino)
+  - Two massive pseudo-moduli with mass ratio m_s/m_c
+
+Option A: N_c = 2, N_f = 3 with flavors {b, s, c}
+  Canceled: {b} (heaviest, rank 1)
+  Broken: {s, c}
+  Spectrum: goldstino + (m_CW(s), m_CW(c)) ~ (0, m_s, m_c)
+
+  Koide Q(0, m_s, m_c) = 0.664354  (target: 0.666667)
+  sqrt(m_s)/sqrt(m_c) = 0.271189  (target: 0.267949)
+  Deviation: 1.2%
+
+Option B: N_c = 2, N_f = 3 with flavors {t, s, c}
+  Canceled: {t} (heaviest, rank 1)
+  Broken: {s, c}
+  Same Koide seed (0, m_s, m_c)
+
+The ISS parameter matching for the Koide seed condition gv/m = sqrt(3):
+
+  In ISS with Nc=2, Nf=3, the effective O'R parameters are:
+  The massive pair has mass M_Z = h * mu_b (from the canceled direction).
+  The F-terms are F_s = h mu_s^2 and F_c = h mu_c^2.
+
+  The O'R cubic coupling g_eff arises from integrating out the
+  Z-sector at one loop. But the key point is that the CW-generated
+  mass RATIO of the two pseudo-moduli determines the Koide seed.
+
+  m_CW(s) / m_CW(c) = (mu_s^2/mu_c^2) * sqrt(log_s/log_c)
+  where log_alpha = log(M_Z^2/(M_Z^2 - F_alpha))
+
+  In the limit F << M_Z^2:
+    m_CW(s)/m_CW(c) ~ mu_s^2/mu_c^2 = m_s/m_c
+
+  For Koide seed: (m_CW(s)/m_CW(c))^{1/2} = (m_s/m_c)^{1/2} = 2 - sqrt(3)
+  => m_s/m_c = (2-sqrt(3))^2 = 7 - 4 sqrt(3)
+
+  Actual m_s/m_c = 0.073543
+  Required = 0.071797
+  Deviation: 2.4%
+
+==============================================================================
+SECTION 20: EXACT CW MASS RATIO WITH LOG CORRECTIONS
+==============================================================================
+
+The exact one-loop CW mass squared for pseudo-modulus X_alpha is:
+
+  m_CW^2(alpha) = (h^4 / 8 pi^2) * [M_+^4 log M_+^2 - M_-^4 log M_-^2
+                   - 2 M_0^4 log M_0^2 + M_0^4] / M_0^2
+
+where M_0 = h mu_b (Z-sector mass),
+      M_pm^2 = M_0^2 +/- |F_alpha|
+
+Using canceled flavor = b: m_b = 4180.0 MeV
+  x_s = m_s/m_b = 0.022344
+  x_c = m_c/m_b = 0.303828
+
+Exact CW mass ratio m_CW(s)/m_CW(c):
+  G(x_s) = G(0.022344) = 0.00149779
+  G(x_c) = G(0.303828) = 0.27548655
+  m_CW(s)/m_CW(c) = sqrt(G_s/G_c) = 0.073735
+
+  Naive ratio (small x limit): sqrt(m_s/m_c) = 0.271189
+  Log correction factor: 0.271896
+
+  Seed charge ratio sqrt(m_CW(s)) / sqrt(m_CW(c)) = G_s^0.25/G_c^0.25 = 0.271542
+  Target: 2 - sqrt(3) = 0.267949
+  Deviation: 1.3%
+
+--- Trying different canceled flavors ---
+
+  cancel = b (4180.0 MeV):
+    x_s = 0.022344, x_c = 0.303828
+    G(x_s) = 0.00149779, G(x_c) = 0.27548655
+    sqrt(m_CW_s)/sqrt(m_CW_c) = 0.271542  (target: 0.267949)
+    Koide Q(0, m_CW_s, m_CW_c) = 0.872088  (target: 0.666667)
+    Deviation of seed ratio: 1.3%
+
+  cancel = t (172760.0 MeV):
+    x_s = 0.000541, x_c = 0.007351
+    G(x_s) = 0.00000088, G(x_c) = 0.00016212
+    sqrt(m_CW_s)/sqrt(m_CW_c) = 0.271189  (target: 0.267949)
+    Koide Q(0, m_CW_s, m_CW_c) = 0.872375  (target: 0.666667)
+    Deviation of seed ratio: 1.2%
+
+==============================================================================
+SECTION 21: KOIDE CONDITION ON QUARK MASS RATIOS
+==============================================================================
+
+The ISS Koide seed condition (including log corrections) is:
+  (G(m_s/m_X) / G(m_c/m_X))^{1/4} = 2 - sqrt(3)
+
+where m_X is the canceled flavor mass and G(x) = (1+x)^2 log(1+x) + (1-x)^2 log(1-x)
+
+In the limit m_s, m_c << m_X (small x):
+  G(x) ~ 2 x^2  (leading order)
+  So condition becomes: (m_s/m_c)^{1/2} = 2 - sqrt(3)
+  i.e., m_s/m_c = (2-sqrt(3))^2 ~ 0.0718
+
+  Actual: m_s/m_c = 0.073543
+  Required: 0.071797
+  Close but 2.4% off.
+
+Scanning for m_X that satisfies the Koide condition exactly:
+
+  No exact solution found in scanned range.
+  The deviation is always positive (ratio always > 2-sqrt(3)).
+  The log corrections push the ratio AWAY from Koide, not toward it.
+
+  Minimum deviation at m_X = 1000000.0 MeV:
+    ratio = 0.271189
+    deviation = 0.003240
+
+==============================================================================
+SECTION 22: SUMMARY AND CONCLUSIONS
+==============================================================================
+
+1. ISS STRUCTURE:
+   The ISS model (N_c=3, N_f=5) produces SUSY breaking by the rank
+   condition. The X-sector {3,4,5} has 9 pseudo-moduli with zero
+   tree-level fermionic masses. This is a 'degenerate' O'Raifeartaigh
+   model where ALL masses are loop-generated.
+
+2. O'RAIFEARTAIGH MAPPING:
+   The ISS X-sector maps to a GENERALIZED O'R model, but the mapping
+   is NOT to the minimal 3-field O'R. The key difference is that the
+   minimal O'R has tree-level masses (0, m_-, m_+) while ISS has
+   (0, 0, ..., 0) at tree level. The CW potential generates all masses.
+
+3. CW MASS SPECTRUM:
+   With non-degenerate quark masses (flavor-dependent mu_i),
+   the CW masses for the diagonal pseudo-moduli are proportional
+   to the quark masses: m_CW(alpha) ~ m_alpha.
+   Including the goldstino, the spectrum is (0, ~m_s, ~m_c) or
+   (0, ~m_s, ~m_c, ~m_b, ...) depending on the assignment.
+
+4. KOIDE SEED:
+   The spectrum (0, m_s, m_c) IS approximately a Koide seed:
+   sqrt(m_s)/sqrt(m_c) = 0.2712 vs 2-sqrt(3) = 0.2679
+   (deviation: 1.2%)
+
+   The Koide seed condition in the ISS framework reduces to a
+   condition on the ELECTRIC quark mass ratio m_s/m_c.
+   This is EXACTLY the sBootstrap seed condition!
+
+5. ISS PARAMETERS vs O'R gv/m = sqrt(3):
+   The O'R Koide condition gv/m = sqrt(3) translates in ISS to a
+   condition on the pseudo-modulus VEV, which is dynamically determined
+   by the CW potential. The ISS vacuum sits at v=0 (origin),
+   so the O'R condition is NOT directly satisfied.
+   However, the CW mass RATIOS can still produce a Koide seed
+   if the quark masses satisfy the seed ratio.
+
+6. THE ISS PROVIDES A UV COMPLETION:
+   The minimal O'R model has the Koide seed as a BOUNDARY CONDITION
+   (gv/m = sqrt(3) must be imposed). In the ISS model, this condition
+   becomes a condition on the quark mass spectrum -- which is an
+   INPUT from the electric theory. The ISS does not PREDICT the Koide
+   seed but rather TRANSMITS it from the electric quark mass ratios
+   to the magnetic pseudo-moduli spectrum.
+
+7. CONSISTENCY:
+   For the ISS vacuum to exist, the 'canceled' flavors must be the
+   heaviest. The natural assignment for the sBootstrap is:
+   - Canceled: c, b (or b, t) -- heaviest, stabilize the vacuum
+   - Broken: u, d, s (or u, d, s) -- lightest, F-terms nonzero
+   This does NOT directly produce the (0, s, c) seed, because both
+   s and c would need to be in the 'broken' sector, but c is too heavy.
+
+   Alternative: N_c=2, N_f=3 with flavors (X, s, c) where X is heavy.
+   Cancel X, break s and c. This gives spectrum (0, m_s, m_c) as a
+   Koide seed. The canceled flavor X could be b or t.
+
+8. NUMERICAL KOIDE CHECKS:
+
+  sBootstrap seed (0, m_s, m_c): Q = 0.664354, sqrt ratio = 0.2712 vs 0.2679 (dev 1.2%)
+  Full scb (-sqrt(m_s), sqrt(m_c), sqrt(m_b)): Q = 0.674954
+  Light quarks (0, m_u, m_s): Q = 0.770848, sqrt ratio = 0.1521 vs 0.2679 (dev 43.2%)
+  (0, m_u, m_d): Q = 0.518128, sqrt ratio = 0.6801 vs 0.2679 (dev 153.8%)
+  (0, m_d, m_s): Q = 0.701303, sqrt ratio = 0.2236 vs 0.2679 (dev 16.5%)
+  (0, m_c, m_b): Q = 0.541853, sqrt ratio = 0.5512 vs 0.2679 (dev 105.7%)
+
+==============================================================================
+END OF ANALYSIS
+==============================================================================

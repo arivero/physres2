@@ -1,0 +1,540 @@
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1576-whose quark-mass combination vanishes in the seed limit (i.e., the 
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1577-direction in flavor space where $m_i + m_j \to 0$ through GOR).
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1578-
+sbootstrap_v4d.tex.prelabel:1579:\subsection{F-term breaking: the O'Raifeartaigh mechanism}
+sbootstrap_v4d.tex.prelabel-1580-\label{subsec:fterm}
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1581-
+sbootstrap_v4d.tex.prelabel-1582-The VA relation \eqref{eq:pimu} tells us \emph{that} SUSY is broken at 
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1583-scale $f_\pi$. To understand \emph{how}, we need the microscopic 
+sbootstrap_v4d.tex.prelabel:1584:mechanism. The O'Raifeartaigh model \cite{ORaifeartaigh} is the simplest 
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1585-realization of spontaneous $F$-term SUSY breaking. With three chiral 
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1586-superfields, the superpotential
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1587-\begin{equation}
+--
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1609-\begin{center}
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1610-\begin{tabular}{llll}
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1611-\toprule
+sbootstrap_v4d.tex.prelabel:1612:O'Raifeartaigh & Flavor & Seed & After breaking \\
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1613-\midrule
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1614-$\Phi_0$ (massless) & $b$ / $B$ & $\zch = 0$ (flat direction) & $\zch_b = 64.65$ (mass generated) \\
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1615-$\Phi_1$ (light) & $s$ / $\pi$ & $\zch_s = 9.67$ & $\zch \to -9.67$ (sign-flipped) \\
+--
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1621-\end{center}
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1622-
+sbootstrap_v4d.tex.prelabel-1623-This parallel is \emph{structural}, not quantitative: the minimal 
+sbootstrap_v4d.tex.prelabel:1624:O'Raifeartaigh model gives $\Phi_1$ and $\Phi_2$ the same mass 
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1625-parameter $m$, whereas the seed triple has a mass ratio 
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1626-$m_s/m_c = (2 - \sqrt{3})^2 \approx 0.07$---far from degenerate. 
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1627-The hierarchy between the two massive members must come from 
+sbootstrap_v4d.tex.prelabel:1628:additional dynamics beyond the minimal O'Raifeartaigh superpotential. 
+sbootstrap_v4d.tex.prelabel:1629:What the O'Raifeartaigh structure \emph{does} provide is the essential 
+sbootstrap_v4d.tex.prelabel-1630-feature: a massless flat direction ($\Phi_0 = $ the $b$-direction) 
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1631-whose $F$-term is forced nonzero. The $b$ quark and $B$ meson are 
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1632-always present as flavor degrees of freedom; the seed configuration 
+--
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1636-flipping the sign of $\zch_s$, so that the same three flavors 
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1637-rearrange from $(0, s, c)$ into $(-s, c, b)$.
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1638-
+sbootstrap_v4d.tex.prelabel:1639:A striking difference from standard O'Raifeartaigh: the 
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1640-pseudo-modulus $\Phi_0$ normally acquires the \emph{smallest} mass 
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1641-in the spectrum (a loop-suppressed Coleman--Weinberg mass, 
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1642-parametrically $\sim g^2 f/16\pi^2 m$). In the sBootstrap bloom, 
+--
+sbootstrap_v4d.tex.prelabel-1811-The Volkov--Akulov realization of \S\ref{subsec:va} is not a third 
+sbootstrap_v4d.tex.prelabel-1812-mechanism: it is the low-energy, composite-level description of the 
+sbootstrap_v4d.tex.prelabel-1813-same F-term breaking. The VA relation \eqref{eq:pimu} \emph{sets the 
+sbootstrap_v4d.tex.prelabel:1814:scale} ($f_{\text{VA}} = f_\pi$); the O'Raifeartaigh/SQCD dynamics 
+sbootstrap_v4d.tex.prelabel-1815-of \S\ref{subsec:fterm} \emph{provides the mechanism} 
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1816-($\langle F\rangle \neq 0$).
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1817-
+--
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1865-comparison with $f_\pi$ requires specifying which physical quantity 
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1866-is being compared.
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1867-
+sbootstrap_v4d.tex.prelabel:1868:\subsection{The O'Raifeartaigh structure in SQCD}
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1869-
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1870-In Seiberg's SQCD with $N_f = N_c = 3$, the quantum constraint 
+sbootstrap_v4d.tex.prelabel-1871-\eqref{eq:seiberg} provides a natural setting for the 
+sbootstrap_v4d.tex.prelabel:1872:O'Raifeartaigh mechanism. The constraint $\det M - B\bar{B} = \Lambda^6$ 
+sbootstrap_v4d.tex.prelabel-1873-means the moduli space has a specific geometry: not all field directions 
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1874-are flat. When quark masses are added via a tree-level superpotential 
+sbootstrap_v4d.tex.prelabel-1875-$W_{\text{tree}} = m_i M^i{}_i$ (sum over flavors), the $F$-terms become:
+--
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1882-entry involving the lightest quark combination. In the exact chiral 
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1883-limit ($m_u = m_d = 0$), this entry is truly massless, and the 
+sbootstrap_v4d.tex.prelabel-1884-constraint \eqref{eq:seiberg} forces $\langle F\rangle \neq 0$ for 
+sbootstrap_v4d.tex.prelabel:1885:that entry. This is the dynamical O'Raifeartaigh mechanism: 
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1886-confinement (encoded in $\Lambda^6$) plays the role of the parameter 
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1887-$f$ in the superpotential, and the impossibility of setting all 
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-1888-$F$-terms to zero is a consequence of the strong dynamics rather 
+--
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-2292-universal ratio $2 - \sqrt{3}$ and operate at $v_0^2 \sim 
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-2293-230$--$350\MeV$, close to the lepton triple's $v_0^2 = 314\MeV$. 
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-2294-The massless member is the necessary condition for F-term 
+sbootstrap_v4d.tex.prelabel:2295:(O'Raifeartaigh) SUSY breaking. Upon breaking, seeds bloom into 
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-2296-full triples $(-s,c,b)$ and $(-\pi,D_s,B)$. The lepton triple 
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-2297-is the ``almost-seed'' that has barely bloomed.
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-2298-
+--
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-2359-non-abelian gauge theories,'' Nucl.\ Phys.\ B \textbf{435}, 129 
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-2360-(1995).
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-2361-
+sbootstrap_v4d.tex.prelabel:2362:\bibitem{ORaifeartaigh}
+sbootstrap_v4d.tex.prelabel:2363:L.~O'Raifeartaigh, ``Spontaneous symmetry breaking for chiral 
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-2364-scalar superfields,'' Nucl.\ Phys.\ B \textbf{96}, 331 (1975).
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-2365-
+/Users/arivero/phys3/sbootstrap_v4d.tex.prelabel-2366-\bibitem{FayetIliopoulos}
+--
+/Users/arivero/phys3/4.tex-564-whose quark-mass combination vanishes in the seed limit (i.e., the 
+/Users/arivero/phys3/4.tex-565-direction in flavor space where $m_i + m_j \to 0$ through GOR).
+/Users/arivero/phys3/4.tex-566-
+4.tex:567:\subsection{F-term breaking: the O'Raifeartaigh mechanism}
+4.tex-568-\label{subsec:fterm}
+/Users/arivero/phys3/4.tex-569-
+4.tex:570:The O'Raifeartaigh model \cite{ORaifeartaigh} is the simplest 
+/Users/arivero/phys3/4.tex-571-realization of spontaneous $F$-term SUSY breaking. With three chiral 
+/Users/arivero/phys3/4.tex-572-superfields, the superpotential
+/Users/arivero/phys3/4.tex-573-\begin{equation}
+--
+/Users/arivero/phys3/4.tex-595-\begin{center}
+/Users/arivero/phys3/4.tex-596-\begin{tabular}{lll}
+/Users/arivero/phys3/4.tex-597-\toprule
+4.tex:598:O'Raifeartaigh & Seed triple & After breaking \\
+/Users/arivero/phys3/4.tex-599-\midrule
+/Users/arivero/phys3/4.tex-600-$\Phi_0$ (massless) & 0 member & Lifted to $\zch < 0$ \\
+/Users/arivero/phys3/4.tex-601-$\Phi_1$ (mass $m$) & $\zch_a$ (light) & Shifted \\
+--
+/Users/arivero/phys3/4.tex-766-splitting; the D-term provides electromagnetic fine structure; the 
+/Users/arivero/phys3/4.tex-767-heavy sector is governed by its own dynamics.
+/Users/arivero/phys3/4.tex-768-
+4.tex:769:\subsection{The O'Raifeartaigh structure in SQCD}
+/Users/arivero/phys3/4.tex-770-
+/Users/arivero/phys3/4.tex-771-In Seiberg's SQCD with $N_f = N_c = 3$, the quantum constraint 
+4.tex-772-\eqref{eq:seiberg} provides a natural setting for the 
+4.tex:773:O'Raifeartaigh mechanism. The constraint $\det M - B\bar{B} = \Lambda^6$ 
+4.tex-774-means the moduli space has a specific geometry: not all field directions 
+/Users/arivero/phys3/4.tex-775-are flat. When quark masses are added via a tree-level superpotential 
+4.tex-776-$W_{\text{tree}} = m_i M^i{}_i$ (sum over flavors), the $F$-terms become:
+--
+/Users/arivero/phys3/4.tex-783-entry involving the lightest quark combination. In the exact chiral 
+/Users/arivero/phys3/4.tex-784-limit ($m_u = m_d = 0$), this entry is truly massless, and the 
+4.tex-785-constraint \eqref{eq:seiberg} forces $\langle F\rangle \neq 0$ for 
+4.tex:786:that entry. This is the dynamical O'Raifeartaigh mechanism: 
+/Users/arivero/phys3/4.tex-787-confinement (encoded in $\Lambda^6$) plays the role of the parameter 
+/Users/arivero/phys3/4.tex-788-$f$ in the superpotential, and the impossibility of setting all 
+/Users/arivero/phys3/4.tex-789-$F$-terms to zero is a consequence of the strong dynamics rather 
+--
+/Users/arivero/phys3/4.tex-1046-universal ratio $2 - \sqrt{3}$ and operate at $v_0^2 \sim 
+/Users/arivero/phys3/4.tex-1047-230$--$350\MeV$, close to the lepton triple's $v_0^2 = 314\MeV$. 
+/Users/arivero/phys3/4.tex-1048-The massless member is the necessary condition for F-term 
+4.tex:1049:(O'Raifeartaigh) SUSY breaking. Upon breaking, seeds bloom into 
+/Users/arivero/phys3/4.tex-1050-full triples $(-s,c,b)$ and $(-\pi,D_s,B)$. The lepton triple 
+/Users/arivero/phys3/4.tex-1051-is the ``almost-seed'' that has barely bloomed.
+/Users/arivero/phys3/4.tex-1052-
+--
+/Users/arivero/phys3/4.tex-1106-non-abelian gauge theories,'' Nucl.\ Phys.\ B \textbf{435}, 129 
+/Users/arivero/phys3/4.tex-1107-(1995).
+/Users/arivero/phys3/4.tex-1108-
+4.tex:1109:\bibitem{ORaifeartaigh}
+4.tex:1110:L.~O'Raifeartaigh, ``Spontaneous symmetry breaking for chiral 
+/Users/arivero/phys3/4.tex-1111-scalar superfields,'' Nucl.\ Phys.\ B \textbf{96}, 331 (1975).
+/Users/arivero/phys3/4.tex-1112-
+/Users/arivero/phys3/4.tex-1113-\bibitem{FayetIliopoulos}
+--
+/Users/arivero/phys3/sbootstrap_v4d.tex-48-how SUSY breaking proceeds through two mechanisms---F-term (chiral
+/Users/arivero/phys3/sbootstrap_v4d.tex-49-condensate, with Volkov--Akulov as its low-energy realization) and
+/Users/arivero/phys3/sbootstrap_v4d.tex-50-D-term (electromagnetic Fayet--Iliopoulos)---plus a separate
+sbootstrap_v4d.tex:51:heavy-sector origin for the $(c,b,t)$ triple. The O'Raifeartaigh
+/Users/arivero/phys3/sbootstrap_v4d.tex-52-superpotential produces the Koide seed spectrum exactly when
+/Users/arivero/phys3/sbootstrap_v4d.tex-53-$gv/m = \sqrt{3}$, reducing the energy-balance condition to a
+/Users/arivero/phys3/sbootstrap_v4d.tex-54-single constraint on the couplings. A Diophantine system on the
+--
+/Users/arivero/phys3/sbootstrap_v4d.tex-99-algebraically or string-theoretically generated object.
+/Users/arivero/phys3/sbootstrap_v4d.tex-100-
+/Users/arivero/phys3/sbootstrap_v4d.tex-101-Third, \textbf{the Koide condition constrains the superpotential}.
+sbootstrap_v4d.tex:102:The O'Raifeartaigh model---the simplest realization of $F$-term
+/Users/arivero/phys3/sbootstrap_v4d.tex-103-SUSY breaking with three chiral superfields---produces a fermionic
+/Users/arivero/phys3/sbootstrap_v4d.tex-104-mass spectrum that is an exact Koide seed triple when the ratio of
+/Users/arivero/phys3/sbootstrap_v4d.tex-105-the cubic coupling to the bilinear mass parameter satisfies
+--
+/Users/arivero/phys3/sbootstrap_v4d.tex-1554-whose quark-mass combination vanishes in the seed limit (i.e., the 
+/Users/arivero/phys3/sbootstrap_v4d.tex-1555-direction in flavor space where $m_i + m_j \to 0$ through GOR).
+/Users/arivero/phys3/sbootstrap_v4d.tex-1556-
+sbootstrap_v4d.tex:1557:\subsection{F-term breaking: the O'Raifeartaigh mechanism}
+sbootstrap_v4d.tex-1558-\label{subsec:fterm}
+/Users/arivero/phys3/sbootstrap_v4d.tex-1559-
+sbootstrap_v4d.tex-1560-The VA relation \eqref{eq:pimu} tells us \emph{that} SUSY is broken at 
+/Users/arivero/phys3/sbootstrap_v4d.tex-1561-scale $f_\pi$. To understand \emph{how}, we need the microscopic 
+sbootstrap_v4d.tex:1562:mechanism. The O'Raifeartaigh model \cite{ORaifeartaigh} is the simplest 
+/Users/arivero/phys3/sbootstrap_v4d.tex-1563-realization of spontaneous $F$-term SUSY breaking. With three chiral 
+/Users/arivero/phys3/sbootstrap_v4d.tex-1564-superfields, the superpotential
+/Users/arivero/phys3/sbootstrap_v4d.tex-1565-\begin{equation}
+--
+/Users/arivero/phys3/sbootstrap_v4d.tex-1587-\begin{center}
+/Users/arivero/phys3/sbootstrap_v4d.tex-1588-\begin{tabular}{llll}
+/Users/arivero/phys3/sbootstrap_v4d.tex-1589-\toprule
+sbootstrap_v4d.tex:1590:O'Raifeartaigh & Flavor & Seed & After breaking \\
+/Users/arivero/phys3/sbootstrap_v4d.tex-1591-\midrule
+/Users/arivero/phys3/sbootstrap_v4d.tex-1592-$\Phi_0$ (massless) & $b$ / $B$ & $\zch = 0$ (flat direction) & $\zch_b = 64.65$ (mass generated) \\
+/Users/arivero/phys3/sbootstrap_v4d.tex-1593-$\Phi_1$ (light) & $s$ / $\pi$ & $\zch_s = 9.67$ & $\zch \to -9.67$ (sign-flipped) \\
+--
+/Users/arivero/phys3/sbootstrap_v4d.tex-1598-\end{tabular}
+/Users/arivero/phys3/sbootstrap_v4d.tex-1599-\end{center}
+/Users/arivero/phys3/sbootstrap_v4d.tex-1600-
+sbootstrap_v4d.tex:1601:This parallel is more than structural: the minimal O'Raifeartaigh
+/Users/arivero/phys3/sbootstrap_v4d.tex-1602-model gives $\Phi_1$ and $\Phi_2$ a single mass parameter $m$, but the
+/Users/arivero/phys3/sbootstrap_v4d.tex-1603-\emph{fermionic} mass matrix at the vacuum ($\phi_1 = 0$,
+/Users/arivero/phys3/sbootstrap_v4d.tex-1604-$\phi_0 = v$) is
+--
+/Users/arivero/phys3/sbootstrap_v4d.tex-1647-the boundary $\zch_0 = 0$, and any infinitesimal rotation generates
+/Users/arivero/phys3/sbootstrap_v4d.tex-1648-a nonzero charge with definite sign.
+/Users/arivero/phys3/sbootstrap_v4d.tex-1649-
+sbootstrap_v4d.tex:1650:Explicit R-symmetry breaking in the O'Raifeartaigh model (adding a
+/Users/arivero/phys3/sbootstrap_v4d.tex-1651-term $\delta W \sim \varepsilon\,\Phi_0\Phi_2$) lifts the goldstino
+/Users/arivero/phys3/sbootstrap_v4d.tex-1652-mass as $m_0 \sim \varepsilon^2/m$, but simultaneously pushes
+/Users/arivero/phys3/sbootstrap_v4d.tex-1653-$Q$ away from $2/3$---no nonzero $\varepsilon$ preserves the Koide
+/Users/arivero/phys3/sbootstrap_v4d.tex-1654-condition. The Koide seed is an \emph{unstable fixed point} of the
+/Users/arivero/phys3/sbootstrap_v4d.tex-1655-R-breaking perturbation. In the dynamical (SQCD) realization, the
+/Users/arivero/phys3/sbootstrap_v4d.tex-1656-bloom must therefore be a nonperturbative rearrangement---not a
+sbootstrap_v4d.tex:1657:smooth deformation of the O'Raifeartaigh spectrum.
+/Users/arivero/phys3/sbootstrap_v4d.tex-1658-
+sbootstrap_v4d.tex:1659:A striking difference from standard O'Raifeartaigh: the 
+/Users/arivero/phys3/sbootstrap_v4d.tex-1660-pseudo-modulus $\Phi_0$ normally acquires the \emph{smallest} mass 
+/Users/arivero/phys3/sbootstrap_v4d.tex-1661-in the spectrum (a loop-suppressed Coleman--Weinberg mass, 
+/Users/arivero/phys3/sbootstrap_v4d.tex-1662-parametrically $\sim g^2 f/16\pi^2 m$). In the sBootstrap bloom, 
+--
+sbootstrap_v4d.tex-1832-The Volkov--Akulov realization of \S\ref{subsec:va} is not a third 
+sbootstrap_v4d.tex-1833-mechanism: it is the low-energy, composite-level description of the 
+sbootstrap_v4d.tex-1834-same F-term breaking. The VA relation \eqref{eq:pimu} \emph{sets the 
+sbootstrap_v4d.tex:1835:scale} ($f_{\text{VA}} = f_\pi$); the O'Raifeartaigh/SQCD dynamics 
+sbootstrap_v4d.tex-1836-of \S\ref{subsec:fterm} \emph{provides the mechanism} 
+/Users/arivero/phys3/sbootstrap_v4d.tex-1837-($\langle F\rangle \neq 0$).
+/Users/arivero/phys3/sbootstrap_v4d.tex-1838-
+--
+/Users/arivero/phys3/sbootstrap_v4d.tex-1886-comparison with $f_\pi$ requires specifying which physical quantity 
+/Users/arivero/phys3/sbootstrap_v4d.tex-1887-is being compared.
+/Users/arivero/phys3/sbootstrap_v4d.tex-1888-
+sbootstrap_v4d.tex:1889:\subsection{The O'Raifeartaigh structure in SQCD}
+/Users/arivero/phys3/sbootstrap_v4d.tex-1890-
+/Users/arivero/phys3/sbootstrap_v4d.tex-1891-In Seiberg's SQCD with $N_f = N_c = 3$, the quantum constraint 
+sbootstrap_v4d.tex-1892-\eqref{eq:seiberg} provides a natural setting for the 
+sbootstrap_v4d.tex:1893:O'Raifeartaigh mechanism. The constraint $\det M - B\bar{B} = \Lambda^6$ 
+sbootstrap_v4d.tex-1894-means the moduli space has a specific geometry: not all field directions 
+/Users/arivero/phys3/sbootstrap_v4d.tex-1895-are flat. When quark masses are added via a tree-level superpotential 
+sbootstrap_v4d.tex-1896-$W_{\text{tree}} = m_i M^i{}_i$ (sum over flavors), the $F$-terms become:
+--
+/Users/arivero/phys3/sbootstrap_v4d.tex-1903-entry involving the lightest quark combination. In the exact chiral 
+/Users/arivero/phys3/sbootstrap_v4d.tex-1904-limit ($m_u = m_d = 0$), this entry is truly massless, and the 
+sbootstrap_v4d.tex-1905-constraint \eqref{eq:seiberg} forces $\langle F\rangle \neq 0$ for 
+sbootstrap_v4d.tex:1906:that entry. This is the dynamical O'Raifeartaigh mechanism: 
+/Users/arivero/phys3/sbootstrap_v4d.tex-1907-confinement (encoded in $\Lambda^6$) plays the role of the parameter 
+/Users/arivero/phys3/sbootstrap_v4d.tex-1908-$f$ in the superpotential, and the impossibility of setting all 
+/Users/arivero/phys3/sbootstrap_v4d.tex-1909-$F$-terms to zero is a consequence of the strong dynamics rather 
+--
+/Users/arivero/phys3/sbootstrap_v4d.tex-2012-
+/Users/arivero/phys3/sbootstrap_v4d.tex-2013-The energy-balance condition therefore does \emph{not} arise from
+/Users/arivero/phys3/sbootstrap_v4d.tex-2014-simple RG running. It must instead be a \emph{boundary condition}
+sbootstrap_v4d.tex:2015:on the superpotential---as in the O'Raifeartaigh realization of
+sbootstrap_v4d.tex-2016-\S\ref{subsec:fterm}, where $gv = \sqrt{3}\,m$ produces the exact
+/Users/arivero/phys3/sbootstrap_v4d.tex-2017-Koide seed. The condition is set at the scale of SUSY breaking and
+/Users/arivero/phys3/sbootstrap_v4d.tex-2018-then preserved by the QCD-invariant mass ratios, rather than being
+--
+/Users/arivero/phys3/sbootstrap_v4d.tex-2096-and the fluctuations $z_k$ encode the deviations. As shown in
+sbootstrap_v4d.tex-2097-\S\ref{subsec:fixedpoint}, simple RG running drives $Q \to 1/3$
+/Users/arivero/phys3/sbootstrap_v4d.tex-2098-rather than $2/3$, so the energy-balance condition cannot be an
+sbootstrap_v4d.tex:2099:attractor in the usual sense. However, the O'Raifeartaigh
+sbootstrap_v4d.tex-2100-realization (\S\ref{subsec:fterm}) shows that the condition is a
+/Users/arivero/phys3/sbootstrap_v4d.tex-2101-boundary condition on the superpotential ($gv = \sqrt{3}\,m$).
+/Users/arivero/phys3/sbootstrap_v4d.tex-2102-The 1.2\% deviation of the quark seed ratio may then reflect
+--
+/Users/arivero/phys3/sbootstrap_v4d.tex-2502-
+/Users/arivero/phys3/sbootstrap_v4d.tex-2503-\subsection{What determines the Koide phase?}
+/Users/arivero/phys3/sbootstrap_v4d.tex-2504-The energy balance constrains but does not uniquely fix $\delta$.
+sbootstrap_v4d.tex:2505:The O'Raifeartaigh realization (\S\ref{subsec:fterm}) fixes the
+/Users/arivero/phys3/sbootstrap_v4d.tex-2506-seed ratio $gv/m = \sqrt{3}$ but leaves $\delta$ undetermined---the
+/Users/arivero/phys3/sbootstrap_v4d.tex-2507-phase controls how the seed blooms into a full triple. The bloom
+sbootstrap_v4d.tex-2508-is a phase rotation $\delta: 3\pi/4 \to \delta_{\text{phys}}$ at
+--
+/Users/arivero/phys3/sbootstrap_v4d.tex-2581-universal ratio $2 - \sqrt{3}$ and operate at $v_0^2 \sim 
+/Users/arivero/phys3/sbootstrap_v4d.tex-2582-230$--$350\MeV$, close to the lepton triple's $v_0^2 = 314\MeV$. 
+/Users/arivero/phys3/sbootstrap_v4d.tex-2583-The massless member is the necessary condition for F-term 
+sbootstrap_v4d.tex:2584:(O'Raifeartaigh) SUSY breaking. Upon breaking, seeds bloom into 
+/Users/arivero/phys3/sbootstrap_v4d.tex-2585-full triples $(-s,c,b)$ and $(-\pi,D_s,B)$. The lepton triple 
+/Users/arivero/phys3/sbootstrap_v4d.tex-2586-is the ``almost-seed'' that has barely bloomed.
+/Users/arivero/phys3/sbootstrap_v4d.tex-2587-
+/Users/arivero/phys3/sbootstrap_v4d.tex-2588-\paragraph{3.\ The seed condition is one superpotential constraint.}
+sbootstrap_v4d.tex:2589:The O'Raifeartaigh model with superpotential
+/Users/arivero/phys3/sbootstrap_v4d.tex-2590-$W = f\Phi_0 + m\Phi_1\Phi_2 + g\Phi_0\Phi_1^2$ produces a
+/Users/arivero/phys3/sbootstrap_v4d.tex-2591-fermionic spectrum $(0,\, m_-,\, m_+)$ that is an exact Koide
+/Users/arivero/phys3/sbootstrap_v4d.tex-2592-seed triple when $gv/m = \sqrt{3}$. The energy-balance condition
+--
+/Users/arivero/phys3/sbootstrap_v4d.tex-2638-The bloom from seed to full triple is a phase rotation
+sbootstrap_v4d.tex-2639-$\delta: 3\pi/4 \to \delta_{\text{phys}}$ in the Koide
+/Users/arivero/phys3/sbootstrap_v4d.tex-2640-parametrization, at fixed vacuum energy $v_0$; it is not a
+sbootstrap_v4d.tex:2641:continuous deformation of the O'Raifeartaigh spectrum (which would
+/Users/arivero/phys3/sbootstrap_v4d.tex-2642-break $Q = 2/3$) but a nonperturbative rearrangement.
+/Users/arivero/phys3/sbootstrap_v4d.tex-2643-The entire charged fermion and pseudoscalar meson
+sbootstrap_v4d.tex-2644-spectrum is then determined by a small number of parameters: the
+/Users/arivero/phys3/sbootstrap_v4d.tex-2645-vacuum charges $v_0$ of the three tuples, the Koide phases
+/Users/arivero/phys3/sbootstrap_v4d.tex-2646-$\delta$ that control the bloom, and the SUSY-breaking scale
+/Users/arivero/phys3/sbootstrap_v4d.tex-2647-$f_\pi$ that separates bosons from fermions. The
+sbootstrap_v4d.tex:2648:O'Raifeartaigh realization shows that the energy-balance condition
+/Users/arivero/phys3/sbootstrap_v4d.tex-2649-is a boundary condition on the superpotential ($gv = \sqrt{3}\,m$),
+/Users/arivero/phys3/sbootstrap_v4d.tex-2650-not an RG attractor. All quark Koide triples obligatorily mix
+/Users/arivero/phys3/sbootstrap_v4d.tex-2651-up-type and down-type mass eigenstates, and the residual free
+--
+/Users/arivero/phys3/sbootstrap_v4d.tex-2684-non-abelian gauge theories,'' Nucl.\ Phys.\ B \textbf{435}, 129 
+/Users/arivero/phys3/sbootstrap_v4d.tex-2685-(1995).
+/Users/arivero/phys3/sbootstrap_v4d.tex-2686-
+sbootstrap_v4d.tex:2687:\bibitem{ORaifeartaigh}
+sbootstrap_v4d.tex:2688:L.~O'Raifeartaigh, ``Spontaneous symmetry breaking for chiral 
+/Users/arivero/phys3/sbootstrap_v4d.tex-2689-scalar superfields,'' Nucl.\ Phys.\ B \textbf{96}, 331 (1975).
+/Users/arivero/phys3/sbootstrap_v4d.tex-2690-
+/Users/arivero/phys3/sbootstrap_v4d.tex-2691-\bibitem{FayetIliopoulos}
+--
+/Users/arivero/phys3/sbootstrap_v4c.tex-613-whose quark-mass combination vanishes in the seed limit (i.e., the 
+/Users/arivero/phys3/sbootstrap_v4c.tex-614-direction in flavor space where $m_i + m_j \to 0$ through GOR).
+/Users/arivero/phys3/sbootstrap_v4c.tex-615-
+sbootstrap_v4c.tex:616:\subsection{F-term breaking: the O'Raifeartaigh mechanism}
+sbootstrap_v4c.tex-617-\label{subsec:fterm}
+/Users/arivero/phys3/sbootstrap_v4c.tex-618-
+sbootstrap_v4c.tex-619-The VA relation \eqref{eq:pimu} tells us \emph{that} SUSY is broken at 
+/Users/arivero/phys3/sbootstrap_v4c.tex-620-scale $f_\pi$. To understand \emph{how}, we need the microscopic 
+sbootstrap_v4c.tex:621:mechanism. The O'Raifeartaigh model \cite{ORaifeartaigh} is the simplest 
+/Users/arivero/phys3/sbootstrap_v4c.tex-622-realization of spontaneous $F$-term SUSY breaking. With three chiral 
+/Users/arivero/phys3/sbootstrap_v4c.tex-623-superfields, the superpotential
+/Users/arivero/phys3/sbootstrap_v4c.tex-624-\begin{equation}
+--
+/Users/arivero/phys3/sbootstrap_v4c.tex-646-\begin{center}
+/Users/arivero/phys3/sbootstrap_v4c.tex-647-\begin{tabular}{llll}
+/Users/arivero/phys3/sbootstrap_v4c.tex-648-\toprule
+sbootstrap_v4c.tex:649:O'Raifeartaigh & Flavor & Seed & After breaking \\
+/Users/arivero/phys3/sbootstrap_v4c.tex-650-\midrule
+/Users/arivero/phys3/sbootstrap_v4c.tex-651-$\Phi_0$ (massless) & $b$ / $B$ & $\zch = 0$ (flat direction) & $\zch_b = 64.65$ (mass generated) \\
+/Users/arivero/phys3/sbootstrap_v4c.tex-652-$\Phi_1$ (light) & $s$ / $\pi$ & $\zch_s = 9.67$ & $\zch \to -9.67$ (sign-flipped) \\
+--
+/Users/arivero/phys3/sbootstrap_v4c.tex-658-\end{center}
+/Users/arivero/phys3/sbootstrap_v4c.tex-659-
+sbootstrap_v4c.tex-660-This parallel is \emph{structural}, not quantitative: the minimal 
+sbootstrap_v4c.tex:661:O'Raifeartaigh model gives $\Phi_1$ and $\Phi_2$ the same mass 
+/Users/arivero/phys3/sbootstrap_v4c.tex-662-parameter $m$, whereas the seed triple has a mass ratio 
+/Users/arivero/phys3/sbootstrap_v4c.tex-663-$m_s/m_c = (2 - \sqrt{3})^2 \approx 0.07$---far from degenerate. 
+/Users/arivero/phys3/sbootstrap_v4c.tex-664-The hierarchy between the two massive members must come from 
+sbootstrap_v4c.tex:665:additional dynamics beyond the minimal O'Raifeartaigh superpotential. 
+sbootstrap_v4c.tex:666:What the O'Raifeartaigh structure \emph{does} provide is the essential 
+sbootstrap_v4c.tex-667-feature: a massless flat direction ($\Phi_0 = $ the $b$-direction) 
+/Users/arivero/phys3/sbootstrap_v4c.tex-668-whose $F$-term is forced nonzero. The $b$ quark and $B$ meson are 
+/Users/arivero/phys3/sbootstrap_v4c.tex-669-always present as flavor degrees of freedom; the seed configuration 
+--
+/Users/arivero/phys3/sbootstrap_v4c.tex-673-flipping the sign of $\zch_s$, so that the same three flavors 
+/Users/arivero/phys3/sbootstrap_v4c.tex-674-rearrange from $(0, s, c)$ into $(-s, c, b)$.
+/Users/arivero/phys3/sbootstrap_v4c.tex-675-
+sbootstrap_v4c.tex:676:A striking difference from standard O'Raifeartaigh: the 
+/Users/arivero/phys3/sbootstrap_v4c.tex-677-pseudo-modulus $\Phi_0$ normally acquires the \emph{smallest} mass 
+/Users/arivero/phys3/sbootstrap_v4c.tex-678-in the spectrum (a loop-suppressed Coleman--Weinberg mass, 
+/Users/arivero/phys3/sbootstrap_v4c.tex-679-parametrically $\sim g^2 f/16\pi^2 m$). In the sBootstrap bloom, 
+--
+sbootstrap_v4c.tex-848-The Volkov--Akulov realization of \S\ref{subsec:va} is not a third 
+sbootstrap_v4c.tex-849-mechanism: it is the low-energy, composite-level description of the 
+sbootstrap_v4c.tex-850-same F-term breaking. The VA relation \eqref{eq:pimu} \emph{sets the 
+sbootstrap_v4c.tex:851:scale} ($f_{\text{VA}} = f_\pi$); the O'Raifeartaigh/SQCD dynamics 
+sbootstrap_v4c.tex-852-of \S\ref{subsec:fterm} \emph{provides the mechanism} 
+/Users/arivero/phys3/sbootstrap_v4c.tex-853-($\langle F\rangle \neq 0$).
+/Users/arivero/phys3/sbootstrap_v4c.tex-854-
+--
+/Users/arivero/phys3/sbootstrap_v4c.tex-902-comparison with $f_\pi$ requires specifying which physical quantity 
+/Users/arivero/phys3/sbootstrap_v4c.tex-903-is being compared.
+/Users/arivero/phys3/sbootstrap_v4c.tex-904-
+sbootstrap_v4c.tex:905:\subsection{The O'Raifeartaigh structure in SQCD}
+/Users/arivero/phys3/sbootstrap_v4c.tex-906-
+/Users/arivero/phys3/sbootstrap_v4c.tex-907-In Seiberg's SQCD with $N_f = N_c = 3$, the quantum constraint 
+sbootstrap_v4c.tex-908-\eqref{eq:seiberg} provides a natural setting for the 
+sbootstrap_v4c.tex:909:O'Raifeartaigh mechanism. The constraint $\det M - B\bar{B} = \Lambda^6$ 
+sbootstrap_v4c.tex-910-means the moduli space has a specific geometry: not all field directions 
+/Users/arivero/phys3/sbootstrap_v4c.tex-911-are flat. When quark masses are added via a tree-level superpotential 
+sbootstrap_v4c.tex-912-$W_{\text{tree}} = m_i M^i{}_i$ (sum over flavors), the $F$-terms become:
+--
+/Users/arivero/phys3/sbootstrap_v4c.tex-919-entry involving the lightest quark combination. In the exact chiral 
+/Users/arivero/phys3/sbootstrap_v4c.tex-920-limit ($m_u = m_d = 0$), this entry is truly massless, and the 
+sbootstrap_v4c.tex-921-constraint \eqref{eq:seiberg} forces $\langle F\rangle \neq 0$ for 
+sbootstrap_v4c.tex:922:that entry. This is the dynamical O'Raifeartaigh mechanism: 
+/Users/arivero/phys3/sbootstrap_v4c.tex-923-confinement (encoded in $\Lambda^6$) plays the role of the parameter 
+/Users/arivero/phys3/sbootstrap_v4c.tex-924-$f$ in the superpotential, and the impossibility of setting all 
+/Users/arivero/phys3/sbootstrap_v4c.tex-925-$F$-terms to zero is a consequence of the strong dynamics rather 
+--
+/Users/arivero/phys3/sbootstrap_v4c.tex-1329-universal ratio $2 - \sqrt{3}$ and operate at $v_0^2 \sim 
+/Users/arivero/phys3/sbootstrap_v4c.tex-1330-230$--$350\MeV$, close to the lepton triple's $v_0^2 = 314\MeV$. 
+/Users/arivero/phys3/sbootstrap_v4c.tex-1331-The massless member is the necessary condition for F-term 
+sbootstrap_v4c.tex:1332:(O'Raifeartaigh) SUSY breaking. Upon breaking, seeds bloom into 
+/Users/arivero/phys3/sbootstrap_v4c.tex-1333-full triples $(-s,c,b)$ and $(-\pi,D_s,B)$. The lepton triple 
+/Users/arivero/phys3/sbootstrap_v4c.tex-1334-is the ``almost-seed'' that has barely bloomed.
+/Users/arivero/phys3/sbootstrap_v4c.tex-1335-
+--
+/Users/arivero/phys3/sbootstrap_v4c.tex-1394-non-abelian gauge theories,'' Nucl.\ Phys.\ B \textbf{435}, 129 
+/Users/arivero/phys3/sbootstrap_v4c.tex-1395-(1995).
+/Users/arivero/phys3/sbootstrap_v4c.tex-1396-
+sbootstrap_v4c.tex:1397:\bibitem{ORaifeartaigh}
+sbootstrap_v4c.tex:1398:L.~O'Raifeartaigh, ``Spontaneous symmetry breaking for chiral 
+/Users/arivero/phys3/sbootstrap_v4c.tex-1399-scalar superfields,'' Nucl.\ Phys.\ B \textbf{96}, 331 (1975).
+/Users/arivero/phys3/sbootstrap_v4c.tex-1400-
+/Users/arivero/phys3/sbootstrap_v4c.tex-1401-\bibitem{FayetIliopoulos}
+--
+results/oraifeartaigh_koide.md:1:# O'Raifeartaigh Model Produces Exact Koide Seed
+/Users/arivero/phys3/results/oraifeartaigh_koide.md-2-
+/Users/arivero/phys3/results/oraifeartaigh_koide.md-3-## Result
+results/oraifeartaigh_koide.md:4:The minimal O'Raifeartaigh superpotential W = f Phi_0 + m Phi_a Phi_b + g Phi_0 Phi_a^2 produces a Koide seed triple (0, m_-, m_+) with Q = 2/3 EXACTLY when gv/m = sqrt(3), where v is the pseudo-modulus VEV.
+/Users/arivero/phys3/results/oraifeartaigh_koide.md-5-
+/Users/arivero/phys3/results/oraifeartaigh_koide.md-6-## Proof
+results/oraifeartaigh_koide.md-7-At the O'R vacuum (phi_a = 0, phi_0 = v), the fermionic mass matrix is:
+--
+/Users/arivero/phys3/sbootstrap_v4.tex-568-whose quark-mass combination vanishes in the seed limit (i.e., the 
+/Users/arivero/phys3/sbootstrap_v4.tex-569-direction in flavor space where $m_i + m_j \to 0$ through GOR).
+/Users/arivero/phys3/sbootstrap_v4.tex-570-
+sbootstrap_v4.tex:571:\subsection{F-term breaking: the O'Raifeartaigh mechanism}
+sbootstrap_v4.tex-572-\label{subsec:fterm}
+/Users/arivero/phys3/sbootstrap_v4.tex-573-
+sbootstrap_v4.tex:574:The O'Raifeartaigh model \cite{ORaifeartaigh} is the simplest 
+/Users/arivero/phys3/sbootstrap_v4.tex-575-realization of spontaneous $F$-term SUSY breaking. With three chiral 
+/Users/arivero/phys3/sbootstrap_v4.tex-576-superfields, the superpotential
+/Users/arivero/phys3/sbootstrap_v4.tex-577-\begin{equation}
+--
+/Users/arivero/phys3/sbootstrap_v4.tex-599-\begin{center}
+/Users/arivero/phys3/sbootstrap_v4.tex-600-\begin{tabular}{lll}
+/Users/arivero/phys3/sbootstrap_v4.tex-601-\toprule
+sbootstrap_v4.tex:602:O'Raifeartaigh & Seed triple & After breaking \\
+/Users/arivero/phys3/sbootstrap_v4.tex-603-\midrule
+/Users/arivero/phys3/sbootstrap_v4.tex-604-$\Phi_0$ (massless) & 0 member & Lifted to $\zch < 0$ \\
+/Users/arivero/phys3/sbootstrap_v4.tex-605-$\Phi_1$ (mass $m$) & $\zch_a$ (light) & Shifted \\
+--
+/Users/arivero/phys3/sbootstrap_v4.tex-611-\end{center}
+/Users/arivero/phys3/sbootstrap_v4.tex-612-
+sbootstrap_v4.tex-613-This parallel is \emph{structural}, not quantitative: the minimal 
+sbootstrap_v4.tex:614:O'Raifeartaigh model gives $\Phi_1$ and $\Phi_2$ the same mass 
+/Users/arivero/phys3/sbootstrap_v4.tex-615-parameter $m$, whereas the seed triple has a mass ratio 
+/Users/arivero/phys3/sbootstrap_v4.tex-616-$m_a/m_b = (2 - \sqrt{3})^2 \approx 0.07$---far from degenerate. 
+/Users/arivero/phys3/sbootstrap_v4.tex-617-The hierarchy between the two massive members must come from 
+sbootstrap_v4.tex:618:additional dynamics beyond the minimal O'Raifeartaigh superpotential, 
+/Users/arivero/phys3/sbootstrap_v4.tex-619-either through a generalized superpotential with two distinct mass 
+/Users/arivero/phys3/sbootstrap_v4.tex-620-parameters $W = f\Phi_0 + m_1\Phi_1\Phi_2 + g\Phi_0\Phi_1^2$ 
+/Users/arivero/phys3/sbootstrap_v4.tex-621-(where the Koide condition constrains $m_1/m_2$), or through loop 
+/Users/arivero/phys3/sbootstrap_v4.tex-622-corrections that split the initially degenerate pair. What the 
+sbootstrap_v4.tex:623:O'Raifeartaigh structure \emph{does} provide is the essential 
+sbootstrap_v4.tex-624-feature: a massless flat direction whose $F$-term is forced nonzero.
+/Users/arivero/phys3/sbootstrap_v4.tex-625-
+/Users/arivero/phys3/sbootstrap_v4.tex-626-The identification $f = \langle F_{\Phi_0}\rangle \sim f_\pi$ is the 
+--
+/Users/arivero/phys3/sbootstrap_v4.tex-809-comparison with $f_\pi$ requires specifying which physical quantity 
+/Users/arivero/phys3/sbootstrap_v4.tex-810-is being compared.
+/Users/arivero/phys3/sbootstrap_v4.tex-811-
+sbootstrap_v4.tex:812:\subsection{The O'Raifeartaigh structure in SQCD}
+/Users/arivero/phys3/sbootstrap_v4.tex-813-
+/Users/arivero/phys3/sbootstrap_v4.tex-814-In Seiberg's SQCD with $N_f = N_c = 3$, the quantum constraint 
+sbootstrap_v4.tex-815-\eqref{eq:seiberg} provides a natural setting for the 
+sbootstrap_v4.tex:816:O'Raifeartaigh mechanism. The constraint $\det M - B\bar{B} = \Lambda^6$ 
+sbootstrap_v4.tex-817-means the moduli space has a specific geometry: not all field directions 
+/Users/arivero/phys3/sbootstrap_v4.tex-818-are flat. When quark masses are added via a tree-level superpotential 
+sbootstrap_v4.tex-819-$W_{\text{tree}} = m_i M^i{}_i$ (sum over flavors), the $F$-terms become:
+--
+/Users/arivero/phys3/sbootstrap_v4.tex-826-entry involving the lightest quark combination. In the exact chiral 
+/Users/arivero/phys3/sbootstrap_v4.tex-827-limit ($m_u = m_d = 0$), this entry is truly massless, and the 
+sbootstrap_v4.tex-828-constraint \eqref{eq:seiberg} forces $\langle F\rangle \neq 0$ for 
+sbootstrap_v4.tex:829:that entry. This is the dynamical O'Raifeartaigh mechanism: 
+/Users/arivero/phys3/sbootstrap_v4.tex-830-confinement (encoded in $\Lambda^6$) plays the role of the parameter 
+/Users/arivero/phys3/sbootstrap_v4.tex-831-$f$ in the superpotential, and the impossibility of setting all 
+/Users/arivero/phys3/sbootstrap_v4.tex-832-$F$-terms to zero is a consequence of the strong dynamics rather 
+--
+/Users/arivero/phys3/sbootstrap_v4.tex-1111-universal ratio $2 - \sqrt{3}$ and operate at $v_0^2 \sim 
+/Users/arivero/phys3/sbootstrap_v4.tex-1112-230$--$350\MeV$, close to the lepton triple's $v_0^2 = 314\MeV$. 
+/Users/arivero/phys3/sbootstrap_v4.tex-1113-The massless member is the necessary condition for F-term 
+sbootstrap_v4.tex:1114:(O'Raifeartaigh) SUSY breaking. Upon breaking, seeds bloom into 
+/Users/arivero/phys3/sbootstrap_v4.tex-1115-full triples $(-s,c,b)$ and $(-\pi,D_s,B)$. The lepton triple 
+/Users/arivero/phys3/sbootstrap_v4.tex-1116-is the ``almost-seed'' that has barely bloomed.
+/Users/arivero/phys3/sbootstrap_v4.tex-1117-
+--
+/Users/arivero/phys3/sbootstrap_v4.tex-1171-non-abelian gauge theories,'' Nucl.\ Phys.\ B \textbf{435}, 129 
+/Users/arivero/phys3/sbootstrap_v4.tex-1172-(1995).
+/Users/arivero/phys3/sbootstrap_v4.tex-1173-
+sbootstrap_v4.tex:1174:\bibitem{ORaifeartaigh}
+sbootstrap_v4.tex:1175:L.~O'Raifeartaigh, ``Spontaneous symmetry breaking for chiral 
+/Users/arivero/phys3/sbootstrap_v4.tex-1176-scalar superfields,'' Nucl.\ Phys.\ B \textbf{96}, 331 (1975).
+/Users/arivero/phys3/sbootstrap_v4.tex-1177-
+/Users/arivero/phys3/sbootstrap_v4.tex-1178-\bibitem{FayetIliopoulos}
+--
+/Users/arivero/phys3/sbootstrap_v4b.tex-598-whose quark-mass combination vanishes in the seed limit (i.e., the 
+/Users/arivero/phys3/sbootstrap_v4b.tex-599-direction in flavor space where $m_i + m_j \to 0$ through GOR).
+/Users/arivero/phys3/sbootstrap_v4b.tex-600-
+sbootstrap_v4b.tex:601:\subsection{F-term breaking: the O'Raifeartaigh mechanism}
+sbootstrap_v4b.tex-602-\label{subsec:fterm}
+/Users/arivero/phys3/sbootstrap_v4b.tex-603-
+sbootstrap_v4b.tex-604-The VA relation \eqref{eq:pimu} tells us \emph{that} SUSY is broken at 
+/Users/arivero/phys3/sbootstrap_v4b.tex-605-scale $f_\pi$. To understand \emph{how}, we need the microscopic 
+sbootstrap_v4b.tex:606:mechanism. The O'Raifeartaigh model \cite{ORaifeartaigh} is the simplest 
+/Users/arivero/phys3/sbootstrap_v4b.tex-607-realization of spontaneous $F$-term SUSY breaking. With three chiral 
+/Users/arivero/phys3/sbootstrap_v4b.tex-608-superfields, the superpotential
+/Users/arivero/phys3/sbootstrap_v4b.tex-609-\begin{equation}
+--
+/Users/arivero/phys3/sbootstrap_v4b.tex-631-\begin{center}
+/Users/arivero/phys3/sbootstrap_v4b.tex-632-\begin{tabular}{llll}
+/Users/arivero/phys3/sbootstrap_v4b.tex-633-\toprule
+sbootstrap_v4b.tex:634:O'Raifeartaigh & Flavor & Seed & After breaking \\
+/Users/arivero/phys3/sbootstrap_v4b.tex-635-\midrule
+/Users/arivero/phys3/sbootstrap_v4b.tex-636-$\Phi_0$ (massless) & $b$ / $B$ & $\zch = 0$ (flat direction) & $\zch_b = 64.65$ (mass generated) \\
+/Users/arivero/phys3/sbootstrap_v4b.tex-637-$\Phi_1$ (light) & $s$ / $\pi$ & $\zch_s = 9.67$ & $\zch \to -9.67$ (sign-flipped) \\
+--
+/Users/arivero/phys3/sbootstrap_v4b.tex-643-\end{center}
+/Users/arivero/phys3/sbootstrap_v4b.tex-644-
+sbootstrap_v4b.tex-645-This parallel is \emph{structural}, not quantitative: the minimal 
+sbootstrap_v4b.tex:646:O'Raifeartaigh model gives $\Phi_1$ and $\Phi_2$ the same mass 
+/Users/arivero/phys3/sbootstrap_v4b.tex-647-parameter $m$, whereas the seed triple has a mass ratio 
+/Users/arivero/phys3/sbootstrap_v4b.tex-648-$m_s/m_c = (2 - \sqrt{3})^2 \approx 0.07$---far from degenerate. 
+/Users/arivero/phys3/sbootstrap_v4b.tex-649-The hierarchy between the two massive members must come from 
+sbootstrap_v4b.tex:650:additional dynamics beyond the minimal O'Raifeartaigh superpotential. 
+sbootstrap_v4b.tex:651:What the O'Raifeartaigh structure \emph{does} provide is the essential 
+sbootstrap_v4b.tex-652-feature: a massless flat direction ($\Phi_0 = $ the $b$-direction) 
+/Users/arivero/phys3/sbootstrap_v4b.tex-653-whose $F$-term is forced nonzero. The $b$ quark and $B$ meson are 
+/Users/arivero/phys3/sbootstrap_v4b.tex-654-always present as flavor degrees of freedom; the seed configuration 
+--
+sbootstrap_v4b.tex-821-The Volkov--Akulov realization of \S\ref{subsec:va} is not a third 
+sbootstrap_v4b.tex-822-mechanism: it is the low-energy, composite-level description of the 
+sbootstrap_v4b.tex-823-same F-term breaking. The VA relation \eqref{eq:pimu} \emph{sets the 
+sbootstrap_v4b.tex:824:scale} ($f_{\text{VA}} = f_\pi$); the O'Raifeartaigh/SQCD dynamics 
+sbootstrap_v4b.tex-825-of \S\ref{subsec:fterm} \emph{provides the mechanism} 
+/Users/arivero/phys3/sbootstrap_v4b.tex-826-($\langle F\rangle \neq 0$).
+/Users/arivero/phys3/sbootstrap_v4b.tex-827-
+--
+/Users/arivero/phys3/sbootstrap_v4b.tex-875-comparison with $f_\pi$ requires specifying which physical quantity 
+/Users/arivero/phys3/sbootstrap_v4b.tex-876-is being compared.
+/Users/arivero/phys3/sbootstrap_v4b.tex-877-
+sbootstrap_v4b.tex:878:\subsection{The O'Raifeartaigh structure in SQCD}
+/Users/arivero/phys3/sbootstrap_v4b.tex-879-
+/Users/arivero/phys3/sbootstrap_v4b.tex-880-In Seiberg's SQCD with $N_f = N_c = 3$, the quantum constraint 
+sbootstrap_v4b.tex-881-\eqref{eq:seiberg} provides a natural setting for the 
+sbootstrap_v4b.tex:882:O'Raifeartaigh mechanism. The constraint $\det M - B\bar{B} = \Lambda^6$ 
+sbootstrap_v4b.tex-883-means the moduli space has a specific geometry: not all field directions 
+/Users/arivero/phys3/sbootstrap_v4b.tex-884-are flat. When quark masses are added via a tree-level superpotential 
+sbootstrap_v4b.tex-885-$W_{\text{tree}} = m_i M^i{}_i$ (sum over flavors), the $F$-terms become:
+--
+/Users/arivero/phys3/sbootstrap_v4b.tex-892-entry involving the lightest quark combination. In the exact chiral 
+/Users/arivero/phys3/sbootstrap_v4b.tex-893-limit ($m_u = m_d = 0$), this entry is truly massless, and the 
+sbootstrap_v4b.tex-894-constraint \eqref{eq:seiberg} forces $\langle F\rangle \neq 0$ for 
+sbootstrap_v4b.tex:895:that entry. This is the dynamical O'Raifeartaigh mechanism: 
+/Users/arivero/phys3/sbootstrap_v4b.tex-896-confinement (encoded in $\Lambda^6$) plays the role of the parameter 
+/Users/arivero/phys3/sbootstrap_v4b.tex-897-$f$ in the superpotential, and the impossibility of setting all 
+/Users/arivero/phys3/sbootstrap_v4b.tex-898-$F$-terms to zero is a consequence of the strong dynamics rather 
+--
+/Users/arivero/phys3/sbootstrap_v4b.tex-1259-universal ratio $2 - \sqrt{3}$ and operate at $v_0^2 \sim 
+/Users/arivero/phys3/sbootstrap_v4b.tex-1260-230$--$350\MeV$, close to the lepton triple's $v_0^2 = 314\MeV$. 
+/Users/arivero/phys3/sbootstrap_v4b.tex-1261-The massless member is the necessary condition for F-term 
+sbootstrap_v4b.tex:1262:(O'Raifeartaigh) SUSY breaking. Upon breaking, seeds bloom into 
+/Users/arivero/phys3/sbootstrap_v4b.tex-1263-full triples $(-s,c,b)$ and $(-\pi,D_s,B)$. The lepton triple 
+/Users/arivero/phys3/sbootstrap_v4b.tex-1264-is the ``almost-seed'' that has barely bloomed.
+/Users/arivero/phys3/sbootstrap_v4b.tex-1265-
+--
+/Users/arivero/phys3/sbootstrap_v4b.tex-1320-non-abelian gauge theories,'' Nucl.\ Phys.\ B \textbf{435}, 129 
+/Users/arivero/phys3/sbootstrap_v4b.tex-1321-(1995).
+/Users/arivero/phys3/sbootstrap_v4b.tex-1322-
+sbootstrap_v4b.tex:1323:\bibitem{ORaifeartaigh}
+sbootstrap_v4b.tex:1324:L.~O'Raifeartaigh, ``Spontaneous symmetry breaking for chiral 
+/Users/arivero/phys3/sbootstrap_v4b.tex-1325-scalar superfields,'' Nucl.\ Phys.\ B \textbf{96}, 331 (1975).
+/Users/arivero/phys3/sbootstrap_v4b.tex-1326-
+/Users/arivero/phys3/sbootstrap_v4b.tex-1327-\bibitem{FayetIliopoulos}

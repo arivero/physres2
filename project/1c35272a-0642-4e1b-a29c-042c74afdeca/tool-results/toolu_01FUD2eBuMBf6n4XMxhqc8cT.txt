@@ -1,0 +1,1138 @@
+     1→     1→\documentclass[12pt,a4paper]{article}
+     2→     2→\usepackage[utf8]{inputenc}
+     3→     3→\usepackage[T1]{fontenc}
+     4→     4→\usepackage{amsmath,amssymb,amsfonts}
+     5→     5→\usepackage{mathtools}
+     6→     6→\usepackage{booktabs}
+     7→     7→\usepackage{array}
+     8→     8→\usepackage{geometry}
+     9→     9→\usepackage{hyperref}
+    10→    10→\usepackage{cite}
+    11→    11→\geometry{margin=2.5cm}
+    12→    12→
+    13→    13→\newcommand{\MeV}{\,\text{MeV}}
+    14→    14→\newcommand{\GeV}{\,\text{GeV}}
+    15→    15→\newcommand{\fpi}{f_\pi}
+    16→    16→\newcommand{\qqbar}{\langle\bar{q}q\rangle}
+    17→    17→\newcommand{\zch}{\mathfrak{z}}
+    18→    18→
+    19→    19→\title{A Tale of Two Tuples: Seed Triples, Signed Charges, \\
+    20→    20→and SUSY Breaking in the sBootstrap}
+    21→    21→
+    22→    22→\author{A.~Rivero\thanks{Manuscript prepared with AI assistance (Claude/Anthropic). 
+    23→    23→Continues the program of \cite{Rivero2005,Rivero2012}.}}
+    24→    24→\date{March 2026}
+    25→    25→
+    26→    26→\begin{document}
+    27→    27→\maketitle
+    28→    28→
+    29→    29→\begin{abstract}
+    30→    30→We reformulate the sBootstrap in terms of signed mass charges 
+    31→    31→$\zch = z_0 + z_i$ with $m = \zch^2$, and show that the Koide ratio 
+    32→    32→$Q = 2/3$ is the algebraic consequence of two conditions: 
+    33→    33→$\sum z_i = 0$ and $\langle z_i^2\rangle = z_0^2$ (perturbation 
+    34→    34→energies average to the vacuum energy). Allowing negative charges, 
+    35→    35→we find that pseudoscalar mesons satisfy a Koide triple 
+    36→    36→$(-\pi, D_s, B)$ to 0.1\%, and identify \emph{seed triples} with 
+    37→    37→one massless member---$(0, s, c)$ for quarks, $(0, \pi, D_s)$ for 
+    38→    38→mesons---as the pre-breaking configurations from which the full 
+    39→    39→spectrum emerges. These seed triples share the same analytical 
+    40→    40→structure (charge ratio $2-\sqrt{3}$) and, strikingly, the meson 
+    41→    41→seed $(0,\pi,D_s)$ has vacuum energy $v_0^2 \approx 351\MeV$, 
+    42→    42→close to the lepton triple's $v_0^2 \approx 314\MeV$. A third 
+    43→    43→tuple $(c,b,t)$ stands apart, having no meson counterpart because 
+    44→    44→top diquarks do not hadronize. We discuss the diquark sector---which 
+    45→    45→must fill the antisymmetric representation of $SU(5)$ flavor rather 
+    46→    46→than the symmetric, requiring additional dynamical input---and outline 
+    47→    47→how the three types of SUSY breaking (F-term, D-term, nonlinear 
+    48→    48→Volkov--Akulov) may map onto the three-tuple structure.
+    49→    49→\end{abstract}
+    50→    50→
+    51→    51→\tableofcontents
+    52→    52→
+    53→    53→%======================================================================
+    54→    54→\section{Introduction}
+    55→    55→\label{sec:intro}
+    56→    56→%======================================================================
+    57→    57→
+    58→    58→The sBootstrap \cite{Rivero2005,Rivero2012} proposes that the Standard 
+    59→    59→Model's pseudoscalar mesons and leptons fill common $\mathcal{N}=1$ 
+    60→    60→supermultiplets. Its foundational relation is
+    61→    61→\begin{equation}
+    62→    62→\label{eq:pimu}
+    63→    63→m_\pi^2 - m_\mu^2 \approx f_\pi^2\,,
+    64→    64→\end{equation}
+    65→    65→identifying the pion decay constant $f_\pi \approx 92.2\MeV$ as the 
+    66→    66→SUSY-breaking order parameter. In this paper we develop two themes 
+    67→    67→that change the structure of the program.
+    68→    68→
+    69→    69→First, \textbf{mass is the square of a signed charge}: $m = \zch^2$ 
+    70→    70→where $\zch = z_0 + z_i$ can be negative. The Koide ratio $Q = 2/3$ 
+    71→    71→is then not numerology but the energy-balance condition 
+    72→    72→$\langle z_i^2\rangle = z_0^2$. With signed charges, pseudoscalar 
+    73→    73→mesons satisfy Koide, and the spectrum organizes into \emph{seed 
+    74→    74→triples} with a massless member that grow into full triples upon 
+    75→    75→symmetry breaking.
+    76→    76→
+    77→    77→Second, \textbf{the full sBootstrap has three Koide tuples, not one}, 
+    78→    78→and the breaking structure must generate all three: a light sector 
+    79→    79→$(0,s,c) \to (-s,c,b)$ seen in both quarks and mesons, a lepton 
+    80→    80→sector $(e\!\approx\!0, \mu, \tau)$, and a heavy sector $(c,b,t)$ 
+    81→    81→that decouples from meson physics because the top quark does not 
+    82→    82→hadronize. The diquark partners of quarks, needed to complete the 
+    83→    83→SUSY multiplets, must fill the antisymmetric $\overline{10}$ of 
+    84→    84→$SU(5)$ flavor rather than the symmetric 15, requiring extra 
+    85→    85→dynamical input from the breaking sector.
+    86→    86→
+    87→    87→%======================================================================
+    88→    88→\section{The Koide Formula as Energy Balance}
+    89→    89→\label{sec:koide_algebra}
+    90→    90→%======================================================================
+    91→    91→
+    92→    92→\subsection{Charges, not masses}
+    93→    93→
+    94→    94→The fundamental variable is the signed mass charge $\zch = z_0 + z_i 
+    95→    95→\in \mathbb{R}$, with the physical mass $m = \zch^2 \geq 0$.
+    96→    96→
+    97→    97→\subsection{Derivation of $Q = 2/3$}
+    98→    98→
+    99→    99→For three charges $\zch_k = z_0 + z_k$ with $z_0$ the mean 
+   100→   100→($\sum z_k = 0$):
+   101→   101→\begin{equation}
+   102→   102→Q = \frac{\sum \zch_k^2}{(\sum \zch_k)^2} 
+   103→   103→= \frac{3z_0^2 + \sum z_k^2}{9z_0^2}
+   104→   104→= \frac{1}{3} + \frac{\langle z_k^2\rangle}{3z_0^2}\,.
+   105→   105→\end{equation}
+   106→   106→Therefore:
+   107→   107→\begin{equation}
+   108→   108→\boxed{Q = \frac{2}{3} \quad\Longleftrightarrow\quad 
+   109→   109→\langle z_k^2\rangle = z_0^2\,.}
+   110→   110→\end{equation}
+   111→   111→
+   112→   112→The two conditions are:
+   113→   113→\begin{enumerate}
+   114→   114→\item \textbf{Zero-sum perturbations:} $z_1 + z_2 + z_3 = 0$ 
+   115→   115→(definition of $z_0$ as the mean charge).
+   116→   116→\item \textbf{Energy balance:} The mean energy of the perturbations 
+   117→   117→equals the energy of the unperturbed charge: 
+   118→   118→$\langle z_k^2\rangle = z_0^2$.
+   119→   119→\end{enumerate}
+   120→   120→
+   121→   121→Condition~2 is the physics. It says the splitting scale matches the 
+   122→   122→base scale---the coefficient of variation equals unity: 
+   123→   123→$\sigma(\zch)/\bar{\zch} = 1$. This is neither perturbative 
+   124→   124→($\sigma \ll \bar{\zch}$, giving $Q \to 1/3$, all equal) nor 
+   125→   125→dominant ($\sigma \gg \bar{\zch}$, giving $Q \to 1$, one mass 
+   126→   126→dominates). The Koide value $2/3$ is the equipartition point.
+   127→   127→
+   128→   128→\subsection{Why one mass can vanish}
+   129→   129→
+   130→   130→If $\langle z_k^2\rangle = z_0^2$, a perturbation $z_k$ can reach 
+   131→   131→$|z_k| \sim z_0$, making $\zch_k = z_0 + z_k \approx 0$. A vanishing 
+   132→   132→mass is the \emph{natural extreme} of energy balance, not fine-tuning.
+   133→   133→
+   134→   134→%======================================================================
+   135→   135→\section{Seed Triples: The $(0, a, b)$ Structure}
+   136→   136→\label{sec:seeds}
+   137→   137→%======================================================================
+   138→   138→
+   139→   139→\subsection{Analytical condition}
+   140→   140→
+   141→   141→For a triple $(0, \zch_a, \zch_b)$ with one massless member, the 
+   142→   142→Koide ratio becomes:
+   143→   143→\begin{equation}
+   144→   144→Q = \frac{\zch_a^2 + \zch_b^2}{(\zch_a + \zch_b)^2}\,.
+   145→   145→\end{equation}
+   146→   146→Setting $Q = 2/3$ and writing $r = \zch_a/\zch_b$ (with $r < 1$):
+   147→   147→\begin{equation}
+   148→   148→3(r^2 + 1) = 2(r + 1)^2 \quad\Longrightarrow\quad r^2 - 4r + 1 = 0\,,
+   149→   149→\end{equation}
+   150→   150→giving:
+   151→   151→\begin{equation}
+   152→   152→\boxed{r = 2 - \sqrt{3} \approx 0.26795\,.}
+   153→   153→\end{equation}
+   154→   154→
+   155→   155→Equivalently, in mass space: 
+   156→   156→$m_{\text{light}}/m_{\text{heavy}} = (2 - \sqrt{3})^2 = 7 - 4\sqrt{3} 
+   157→   157→\approx 0.07180$.
+   158→   158→
+   159→   159→This is a \emph{universal} prediction: any Koide triple with one 
+   160→   160→massless member has the same charge ratio between the two massive 
+   161→   161→members, regardless of their absolute scale.
+   162→   162→
+   163→   163→\subsection{The quark seed: $(0, s, c)$}
+   164→   164→
+   165→   165→The strange and charm quark charges give:
+   166→   166→\begin{equation}
+   167→   167→\frac{\sqrt{m_s}}{\sqrt{m_c}} = \frac{9.67}{35.64} = 0.2712\,, 
+   168→   168→\qquad r_{\text{Koide}} = 0.2679\,, \qquad \text{deviation: } 1.2\%\,.
+   169→   169→\end{equation}
+   170→   170→
+   171→   171→This triple has $Q = 0.6644$, deviating from $2/3$ by only $0.35\%$. 
+   172→   172→Its vacuum energy is $v_0^2 = (\zch_s + \zch_c)^2/9 \approx 228\MeV$.
+   173→   173→
+   174→   174→A historical note: Harari and a collaborator observed that $(0, d, s)$ 
+   175→   175→was approximately a Koide triple, at a time when the up quark mass was 
+   176→   176→still thought to be possibly zero \cite{Harari}. With current masses, 
+   177→   177→$\sqrt{m_d}/\sqrt{m_s} = 0.224$, deviating from $2 - \sqrt{3}$ by 
+   178→   178→$16\%$---too large for a good Koide triple. But if $m_s$ were 
+   179→   179→$\sim 150\MeV$ and $m_d \sim 7\MeV$ (values common in that era), the 
+   180→   180→ratio improves considerably. The seed idea was already present, ahead 
+   181→   181→of its time.
+   182→   182→
+   183→   183→\subsection{The meson seed: $(0, \pi, D_s)$}
+   184→   184→
+   185→   185→The pion and $D_s$ meson charges give:
+   186→   186→\begin{equation}
+   187→   187→\frac{\sqrt{m_\pi}}{\sqrt{m_{D_s}}} = \frac{11.81}{44.37} = 0.2663\,, 
+   188→   188→\qquad r_{\text{Koide}} = 0.2679\,, \qquad \text{deviation: } 0.6\%\,.
+   189→   189→\end{equation}
+   190→   190→
+   191→   191→This gives $Q = 0.6679$, deviating by $0.18\%$. It is the 
+   192→   192→\textbf{meson counterpart} of the quark seed $(0, s, c)$---both 
+   193→   193→involve the strange-charm sector. Indeed, $D_s = c\bar{s}$ is the 
+   194→   194→meson that directly contains the $s$ and $c$ quarks.
+   195→   195→
+   196→   196→\subsection{The lepton triple as an ``almost-seed''}
+   197→   197→
+   198→   198→The charged lepton triple $(e, \mu, \tau)$ has $\zch_e = 0.715\MeV^{1/2}$, 
+   199→   199→which is small but nonzero. If $m_e$ were zero, we would need 
+   200→   200→$\sqrt{m_\mu}/\sqrt{m_\tau} = 2 - \sqrt{3} = 0.2679$; the actual value 
+   201→   201→is $0.2439$, deviating by $9\%$. So the leptons are \emph{not} an 
+   202→   202→exact seed---the electron, while very light, is not massless. But the 
+   203→   203→triple is clearly the same family: the near-critical Koide phase puts 
+   204→   204→one member close to zero.
+   205→   205→
+   206→   206→\subsection{Vacuum energy coincidence}
+   207→   207→
+   208→   208→The $v_0^2$ values of the seed triples cluster remarkably:
+   209→   209→
+   210→   210→\begin{center}
+   211→   211→\begin{tabular}{lcc}
+   212→   212→\toprule
+   213→   213→Triple & $v_0^2$ (MeV) & $v_0$ ($\MeV^{1/2}$) \\
+   214→   214→\midrule
+   215→   215→$(e, \mu, \tau)$ & 314 & 17.72 \\
+   216→   216→$(0, \pi, D_s)$ & 351 & 18.73 \\
+   217→   217→$(0, s, c)$ & 228 & 15.10 \\
+   218→   218→\bottomrule
+   219→   219→\end{tabular}
+   220→   220→\end{center}
+   221→   221→
+   222→   222→The lepton and meson seed triples share a vacuum energy around 
+   223→   223→310--350~MeV, squarely in the QCD scale range. This is the 
+   224→   224→sBootstrap connection made quantitative: \textbf{the lepton triple 
+   225→   225→and the meson seed triple operate at the same scale.}
+   226→   226→
+   227→   227→%======================================================================
+   228→   228→\section{A Tale of Two Tuples}
+   229→   229→\label{sec:two_tuples}
+   230→   230→%======================================================================
+   231→   231→
+   232→   232→\subsection{From seed to full triple}
+   233→   233→
+   234→   234→The seed triples grow into full triples upon symmetry breaking:
+   235→   235→
+   236→   236→\begin{center}
+   237→   237→\begin{tabular}{lccc}
+   238→   238→\toprule
+   239→   239→Sector & Seed triple & Full triple & $v_0^2$ (full) \\
+   240→   240→\midrule
+   241→   241→Quarks & $(0, s, c)$ & $(-s, c, b)$ & 913 MeV \\
+   242→   242→Mesons & $(0, \pi, D_s)$ & $(-\pi, D_s, B)$ & 1230 MeV \\
+   243→   243→Leptons & $(0 \approx e, \mu, \tau)$ & $(e, \mu, \tau)$ & 314 MeV \\
+   244→   244→\bottomrule
+   245→   245→\end{tabular}
+   246→   246→\end{center}
+   247→   247→
+   248→   248→In each case:
+   249→   249→\begin{itemize}
+   250→   250→\item The seed has a massless (or near-massless) member, two massive 
+   251→   251→members in the ratio $2 - \sqrt{3}$, and $Q \approx 2/3$.
+   252→   252→\item The full triple has \textbf{no} massless member: the zero has 
+   253→   253→been lifted (to $m_e$, or the sign-flipped strange/pion mass), and a 
+   254→   254→new heavy member ($b$ quark, $B$ meson) has appeared. The full triple 
+   255→   255→also satisfies $Q \approx 2/3$ but at a larger scale $v_0$.
+   256→   256→\end{itemize}
+   257→   257→
+   258→   258→The ``tale of two tuples'' is this: \textbf{each sector presents 
+   259→   259→first as a seed with a massless member, then ``blooms'' into a 
+   260→   260→full triple when SUSY breaks.} The massless member is the necessary 
+   261→   261→initial condition; the breaking lifts it and generates the full spectrum.
+   262→   262→
+   263→   263→\subsection{Precision summary}
+   264→   264→
+   265→   265→\begin{center}
+   266→   266→\begin{tabular}{lccc}
+   267→   267→\toprule
+   268→   268→Triple & $Q$ & Dev.\ from $2/3$ & $v_0^2$ (MeV) \\
+   269→   269→\midrule
+   270→   270→\multicolumn{4}{c}{\textit{Seed triples}} \\
+   271→   271→$(0, \pi, D_s)$ & 0.6679 & 0.18\% & 351 \\
+   272→   272→$(0, s, c)$ & 0.6644 & 0.35\% & 228 \\
+   273→   273→$(0 \approx e, \mu, \tau)$ & 0.6667 & 0.001\% & 314 \\
+   274→   274→\midrule
+   275→   275→\multicolumn{4}{c}{\textit{Full triples}} \\
+   276→   276→$(e, \mu, \tau)$ & 0.66666 & 0.001\% & 314 \\
+   277→   277→$(-\pi, D_s, B)$ & 0.6674 & 0.10\% & 1230 \\
+   278→   278→$(-s, c, b)$ & 0.6750 & 1.24\% & 913 \\
+   279→   279→$(c, b, t)$ & 0.6695 & 0.42\% & 22\,770 \\
+   280→   280→\bottomrule
+   281→   281→\end{tabular}
+   282→   282→\end{center}
+   283→   283→
+   284→   284→The lepton triple is unique: seed and full triple are nearly 
+   285→   285→identical, because the electron mass is small enough to serve as 
+   286→   286→the ``zero'' while being nonzero enough to make $Q$ extremely 
+   287→   287→precise.
+   288→   288→
+   289→   289→\subsection{Orthogonality of seed and full triples}
+   290→   290→
+   291→   291→Each Koide triple defines a perturbation vector 
+   292→   292→$\vec{z} = (z_1, z_2, z_3)$ constrained to the plane $\sum z_k = 0$ 
+   293→   293→with length $|\vec{z}|^2 = 3z_0^2$. The angle between seed and 
+   294→   294→full triples measures how much the breaking rotates the spectrum 
+   295→   295→in charge space:
+   296→   296→
+   297→   297→\begin{center}
+   298→   298→\begin{tabular}{lc}
+   299→   299→\toprule
+   300→   300→Pair of triples & Angle \\
+   301→   301→\midrule
+   302→   302→$(0,s,c)$ vs.\ $(-s,c,b)$ & $22^\circ$ \\
+   303→   303→$(0,\pi,D_s)$ vs.\ $(-\pi,D_s,B)$ & $26^\circ$ \\
+   304→   304→$(e,\mu,\tau)$ vs.\ $(0,\mu,\tau)$ & $0.8^\circ$ \\
+   305→   305→$(0,s,c)$ vs.\ $(0,\pi,D_s)$ & $0.3^\circ$ \\
+   306→   306→\bottomrule
+   307→   307→\end{tabular}
+   308→   308→\end{center}
+   309→   309→
+   310→   310→Two results are notable. First, the quark seed $(0,s,c)$ and meson 
+   311→   311→seed $(0,\pi,D_s)$ are \textbf{nearly parallel} ($0.3^\circ$): the 
+   312→   312→meson seed is the composite image of the quark seed, with the GOR 
+   313→   313→map preserving direction while changing scale. Second, the lepton 
+   314→   314→triple is essentially its own seed ($0.8^\circ$)---the bloom has 
+   315→   315→barely begun.
+   316→   316→
+   317→   317→%======================================================================
+   318→   318→\section{The Third Tuple: $(c, b, t)$}
+   319→   319→\label{sec:cbt}
+   320→   320→%======================================================================
+   321→   321→
+   322→   322→\subsection{A tuple without mesons}
+   323→   323→
+   324→   324→The triple $(c, b, t)$ with all positive signs gives $Q = 0.6695$, 
+   325→   325→deviating by $0.42\%$. Its vacuum energy $v_0^2 \approx 22.8\GeV$ 
+   326→   326→is far above the QCD scale.
+   327→   327→
+   328→   328→This triple has \textbf{no meson counterpart}: the top quark decays 
+   329→   329→weakly ($t \to Wb$, lifetime $\sim 5 \times 10^{-25}$~s) before the 
+   330→   330→strong interaction can bind it ($\tau_{\text{QCD}} \sim 1/\Lambda_{\text{QCD}} 
+   331→   331→\sim 10^{-24}$~s). No $T$-meson ($t\bar{q}$) exists. The meson matrix 
+   332→   332→$M^i{}_j$ extends only to $b$-flavored states; the top sector lives 
+   333→   333→purely at the quark level.
+   334→   334→
+   335→   335→\subsection{Diquarks and the top}
+   336→   336→
+   337→   337→In the sBootstrap, diquarks $[q_i q_j]$ are the scalar partners of 
+   338→   338→antiquarks $\bar{q}_k$, with the baryon acting as the SUSY generator 
+   339→   339→\cite{CattoGursey, Miyazawa}. For five active flavors 
+   340→   340→$(u, d, s, c, b)$, the diquarks form a representation of $SU(5)_f$.
+   341→   341→
+   342→   342→The top diquarks $[tq]$ are kinematic objects only---they do not 
+   343→   343→hadronize. Yet their masses should follow the same pattern as other 
+   344→   344→diquarks: \textbf{there is no dynamical reason for top diquark masses 
+   345→   345→to differ from the others}. The $(c,b,t)$ Koide triple governs the 
+   346→   346→quark masses that enter the diquark sector, and its energy balance 
+   347→   347→$\langle z_k^2\rangle = z_0^2$ constrains the possible diquark 
+   348→   348→spectrum even though the top diquarks are never observed as bound 
+   349→   349→states.
+   350→   350→
+   351→   351→\subsection{The $(c,b,t)$ triple has no seed}
+   352→   352→
+   353→   353→Unlike the $(0,s,c)$ and $(0,\pi,D_s)$ seeds, there is no obvious 
+   354→   354→$(0, x, y)$ seed for the $(c,b,t)$ triple. No pair of quarks in this 
+   355→   355→sector satisfies $\sqrt{m_{\text{light}}}/\sqrt{m_{\text{heavy}}} 
+   356→   356→\approx 2 - \sqrt{3}$: one has $\sqrt{m_c}/\sqrt{m_t} = 0.086$ 
+   357→   357→(too small) and $\sqrt{m_c}/\sqrt{m_b} = 0.551$ (too large).
+   358→   358→
+   359→   359→This means $(c,b,t)$ is \emph{not} a ``bloomed seed'' in the same 
+   360→   360→sense as $(-s,c,b)$. It may represent a fundamentally different 
+   361→   361→structure---a triple that was never seeded by a massless member but 
+   362→   362→instead emerged fully formed at a higher breaking scale, perhaps 
+   363→   363→connected to electroweak symmetry breaking rather than to chiral 
+   364→   364→symmetry breaking.
+   365→   365→
+   366→   366→%======================================================================
+   367→   367→\section{The Diquark Sector and SU(5) Flavor}
+   368→   368→\label{sec:diquarks}
+   369→   369→%======================================================================
+   370→   370→
+   371→   371→\subsection{Counting partners}
+   372→   372→
+   373→   373→In the full sBootstrap \cite{Rivero2005}, the scalar partners of 
+   374→   374→the Standard Model fermions include both mesons ($q\bar{q}$) and 
+   375→   375→diquarks ($qq$). For five active flavors, the meson matrix gives 
+   376→   376→$5 \times 5 = 25$ scalars. The diquarks $[q_i q_j]$ form a 
+   377→   377→representation of $SU(5)_f$:
+   378→   378→\begin{equation}
+   379→   379→\mathbf{5} \otimes \mathbf{5} = \overline{\mathbf{10}}_A 
+   380→   380→\oplus \mathbf{15}_S\,.
+   381→   381→\end{equation}
+   382→   382→
+   383→   383→The symmetric $\mathbf{15}_S$ gives 15 diquarks including 
+   384→   384→same-flavor states $[uu]$, $[dd]$, \ldots, while the antisymmetric 
+   385→   385→$\overline{\mathbf{10}}_A$ gives 10 diquarks with $i \neq j$ only.
+   386→   386→
+   387→   387→\subsection{Why antisymmetric?}
+   388→   388→
+   389→   389→For the sBootstrap to produce the exact count of scalar partners 
+   390→   390→matching the Standard Model fermion content, the diquarks must 
+   391→   391→transform in the \textbf{antisymmetric} $\overline{\mathbf{10}}$ 
+   392→   392→\cite{Rivero2005}. The argument:
+   393→   393→
+   394→   394→The 25 mesons account for the slepton and ``internal'' squark 
+   395→   395→sectors. The remaining squarks must come from diquarks. The 
+   396→   396→$\overline{\mathbf{10}}$ provides exactly 10 diquarks: $[ud]$, 
+   397→   397→$[us]$, $[uc]$, $[ub]$, $[ds]$, $[dc]$, $[db]$, $[sc]$, $[sb]$, 
+   398→   398→$[cb]$. With their antiparticles, this gives 20 scalar states. The 
+   399→   399→total $25 + 10 = 35$ (or $25 + 20 = 45$ counting antiparticles 
+   400→   400→separately) matches the scalar content of the Supersymmetric 
+   401→   401→Standard Model.
+   402→   402→
+   403→   403→The symmetric $\mathbf{15}$ would give 15 diquarks, overcounting 
+   404→   404→by 5 (the same-flavor states). Moreover, the exotic $+4/3$ charged 
+   405→   405→diquarks $[uu]$, $[uc]$, $[cc]$ have no lepton partner among known 
+   406→   406→particles---a fatal obstacle.
+   407→   407→
+   408→   408→\subsection{The Pauli problem}
+   409→   409→
+   410→   410→The antisymmetric flavor requirement conflicts with a naive 
+   411→   411→application of Fermi statistics. For spin-0, $L=0$ diquarks in 
+   412→   412→the color $\bar{3}$ (antisymmetric) channel:
+   413→   413→
+   414→   414→\begin{center}
+   415→   415→\begin{tabular}{lcl}
+   416→   416→\toprule
+   417→   417→Property & Symmetry & Wavefunction \\
+   418→   418→\midrule
+   419→   419→Color $\bar{3}$ & Antisymmetric & $\epsilon_{abc} q^b q^c$ \\
+   420→   420→Spin 0 & Antisymmetric & $(\uparrow\downarrow - \downarrow\uparrow)/\sqrt{2}$ \\
+   421→   421→Spatial $L=0$ & Symmetric & $\psi(r)$ \\
+   422→   422→\midrule
+   423→   423→Overall & Must be A & $A \times A \times S = S$ \quad$(\neq A!)$ \\
+   424→   424→\bottomrule
+   425→   425→\end{tabular}
+   426→   426→\end{center}
+   427→   427→
+   428→   428→The product is symmetric---\textbf{flavor must also be symmetric} 
+   429→   429→to make the overall wavefunction antisymmetric. But the sBootstrap 
+   430→   430→requires antisymmetric flavor.
+   431→   431→
+   432→   432→This is one of the deepest puzzles of the program. Possible 
+   433→   433→resolutions:
+   434→   434→\begin{itemize}
+   435→   435→\item \textbf{$L = 1$ diquarks:} Adding orbital angular momentum 
+   436→   436→introduces spatial antisymmetry. Then color(A) $\times$ spin(A) 
+   437→   437→$\times$ space(A) $\times$ flavor = overall A requires 
+   438→   438→flavor(S)---still wrong. But $L=1$ with spin-1 gives spin(S), 
+   439→   439→and then color(A) $\times$ spin(S) $\times$ space(A) $\times$ 
+   440→   440→flavor(?) = A requires flavor(A). This works but requires both 
+   441→   441→$L=1$ and spin-1 diquarks, departing from the simplest scalar 
+   442→   442→diquark picture.
+   443→   443→\item \textbf{Dynamical projection:} A binding mechanism that 
+   444→   444→effectively projects onto the flavor-antisymmetric channel, perhaps 
+   445→   445→through instanton effects or a condensate in the breaking sector.
+   446→   446→\item \textbf{The SO(32) route:} In the string-theoretic embedding 
+   447→   447→\cite{Rivero2005}, the $SO(32)$ spinor representation automatically 
+   448→   448→produces the correct antisymmetric structure. The Pauli constraint 
+   449→   449→is an artifact of treating diquarks as simple two-quark states; in 
+   450→   450→the string picture, they are fundamental objects of the open-string 
+   451→   451→sector and the symmetry is determined by the gauge group, not by 
+   452→   452→quark statistics.
+   453→   453→\end{itemize}
+   454→   454→
+   455→   455→\subsection{The SO(32) connection}
+   456→   456→
+   457→   457→The sBootstrap counting matches a decomposition of the $SO(32)$ gauge 
+   458→   458→group familiar from Type~I/heterotic string theory. Under 
+   459→   459→$SO(32) \supset SU(5) \times \ldots$, the adjoint or spinor 
+   460→   460→representations produce exactly the right combination of mesons 
+   461→   461→(in $\mathbf{5} \otimes \bar{\mathbf{5}}$) and antisymmetric 
+   462→   462→diquarks (in $\overline{\mathbf{10}}$). The 496-dimensional adjoint 
+   463→   463→of $SO(32)$ decomposes to include the 24 of $SU(5)$ (gauge bosons), 
+   464→   464→the $\mathbf{5} \otimes \bar{\mathbf{5}} = \mathbf{1} + \mathbf{24}$ 
+   465→   465→(mesons/sleptons), and the $\overline{\mathbf{10}} + \mathbf{10}$ 
+   466→   466→(diquarks/squarks).
+   467→   467→
+   468→   468→This is suggestive: the same structure that gives anomaly-free string 
+   469→   469→compactifications also gives the correct sBootstrap particle count 
+   470→   470→with the required antisymmetric diquarks. Whether this is a 
+   471→   471→coincidence or a hint of UV completion is an open question.
+   472→   472→
+   473→   473→%======================================================================
+   474→   474→\section{The Meson Koide Triple: $(-\pi, D_s, B)$}
+   475→   475→\label{sec:mesonkoide}
+   476→   476→%======================================================================
+   477→   477→
+   478→   478→With the pion charge negative, the triple $(-\pi, D_s, B)$ satisfies:
+   479→   479→\begin{equation}
+   480→   480→Q(-\pi, D_s, B) = 
+   481→   481→\frac{m_\pi + m_{D_s} + m_B}{(-\sqrt{m_\pi} + \sqrt{m_{D_s}} + \sqrt{m_B})^2}
+   482→   482→= 0.6674\,,
+   483→   483→\end{equation}
+   484→   484→deviating from $2/3$ by $0.10\%$---the second most precise Koide 
+   485→   485→triple known. The energy balance:
+   486→   486→\begin{equation}
+   487→   487→\frac{\langle z_k^2\rangle}{z_0^2} = 1.002\,.
+   488→   488→\end{equation}
+   489→   489→
+   490→   490→For comparison, the ``standard'' all-positive quark triples $(d,s,b)$ 
+   491→   491→and $(u,c,t)$ deviate from $Q = 2/3$ by 9.7\% and 27\% respectively 
+   492→   492→at $\overline{\text{MS}}$ masses. \textbf{The meson triple is more 
+   493→   493→precise than any quark triple} except $(c,b,t)$.
+   494→   494→
+   495→   495→The pion's negative charge has physical meaning: as a pseudo-Goldstone 
+   496→   496→boson, the pion would be massless ($\zch = 0$) if chiral symmetry were 
+   497→   497→exact. It sits just below zero ($\zch_\pi = -11.81$), approaching zero 
+   498→   498→from the negative side as $m_q \to 0$. The sign of $\zch$ encodes 
+   499→   499→Goldstone nature: pseudo-Goldstone bosons sit on the negative side 
+   500→   500→of the critical point, having crossed through zero from positive 
+   501→   501→territory during chiral symmetry breaking.
+   502→   502→
+   503→   503→%======================================================================
+   504→   504→\section{SUSY Breaking: From Seeds to Spectrum}
+   505→   505→\label{sec:breaking}
+   506→   506→%======================================================================
+   507→   507→
+   508→   508→The SUSY-breaking dynamics must accomplish three things simultaneously:
+   509→   509→generate the seed-to-bloom transition for each tuple, preserve the 
+   510→   510→energy-balance condition $\langle z_k^2\rangle = z_0^2$ through the 
+   511→   511→breaking, and produce the correct splitting between meson and lepton 
+   512→   512→masses at scale $f_\pi$. In this section we develop the framework in 
+   513→   513→detail, connecting the three standard SUSY-breaking mechanisms to the 
+   514→   514→three-tuple structure.
+   515→   515→
+   516→   516→\subsection{The Seiberg framework}
+   517→   517→
+   518→   518→The natural arena is $\mathcal{N}=1$ SQCD with gauge group $SU(3)_c$ 
+   519→   519→and $N_f$ flavors of chiral superfields $Q^i$, $\bar{Q}_j$ in the 
+   520→   520→fundamental and antifundamental representations. For $N_f = N_c = 3$ 
+   521→   521→(the case relevant to light QCD), Seiberg's exact results 
+   522→   522→\cite{Seiberg1995} establish that the theory confines, with the 
+   523→   523→low-energy degrees of freedom being the composite meson superfield
+   524→   524→\begin{equation}
+   525→   525→M^i{}_j = Q^i \cdot \bar{Q}_j\,,
+   526→   526→\end{equation}
+   527→   527→a $3\times 3$ matrix of chiral superfields, together with baryons 
+   528→   528→$B = \epsilon_{ijk}Q^iQ^jQ^k$ and $\bar{B}$. These satisfy the 
+   529→   529→quantum-modified constraint
+   530→   530→\begin{equation}
+   531→   531→\label{eq:seiberg}
+   532→   532→\det M - B\bar{B} = \Lambda^{2N_c}\,,
+   533→   533→\end{equation}
+   534→   534→where $\Lambda$ is the dynamical scale.
+   535→   535→
+   536→   536→Each entry $M^i{}_j$ is a chiral superfield containing a complex 
+   537→   537→scalar (the meson) and a Weyl fermion (the lepton, in the sBootstrap 
+   538→   538→identification). The scalar and fermion are degenerate in the SUSY 
+   539→   539→limit; SUSY breaking splits them.
+   540→   540→
+   541→   541→\subsection{The three chiral superfields of each seed}
+   542→   542→
+   543→   543→The seed triple $(0, \zch_a, \zch_b)$ maps naturally onto three 
+   544→   544→chiral superfields with the following mass structure before breaking:
+   545→   545→
+   546→   546→\begin{center}
+   547→   547→\begin{tabular}{lcl}
+   548→   548→\toprule
+   549→   549→Superfield & Mass & Role \\
+   550→   550→\midrule
+   551→   551→$\Phi_0$ & $m_0 = 0$ & Massless: flat direction \\
+   552→   552→$\Phi_a$ & $m_a = \zch_a^2$ & Light massive member \\
+   553→   553→$\Phi_b$ & $m_b = \zch_b^2$ & Heavy massive member \\
+   554→   554→\bottomrule
+   555→   555→\end{tabular}
+   556→   556→\end{center}
+   557→   557→
+   558→   558→The ratio $\zch_a/\zch_b = 2 - \sqrt{3}$ is enforced by the 
+   559→   559→Koide energy-balance condition applied to the seed.
+   560→   560→
+   561→   561→In the Seiberg description, these three superfields are entries of 
+   562→   562→the meson matrix $M^i{}_j$. For the $(0, s, c)$ seed, the relevant 
+   563→   563→entries involve the strange and charm quarks; $\Phi_0$ is the entry 
+   564→   564→whose quark-mass combination vanishes in the seed limit (i.e., the 
+   565→   565→direction in flavor space where $m_i + m_j \to 0$ through GOR).
+   566→   566→
+   567→   567→\subsection{F-term breaking: the O'Raifeartaigh mechanism}
+   568→   568→\label{subsec:fterm}
+   569→   569→
+   570→   570→The O'Raifeartaigh model \cite{ORaifeartaigh} is the simplest 
+   571→   571→realization of spontaneous $F$-term SUSY breaking. With three chiral 
+   572→   572→superfields, the superpotential
+   573→   573→\begin{equation}
+   574→   574→W = f\,\Phi_0 + m\,\Phi_1\Phi_2 + g\,\Phi_0\Phi_1^2
+   575→   575→\end{equation}
+   576→   576→gives $F$-terms:
+   577→   577→\begin{align}
+   578→   578→F_{\Phi_0}^* &= f + g\,\phi_1^2\,, \\
+   579→   579→F_{\Phi_1}^* &= m\,\phi_2 + 2g\,\phi_0\phi_1\,, \\
+   580→   580→F_{\Phi_2}^* &= m\,\phi_1\,.
+   581→   581→\end{align}
+   582→   582→If $f \neq 0$ and $m \neq 0$, then $F_{\Phi_2}^* = 0$ requires 
+   583→   583→$\phi_1 = 0$, but then $F_{\Phi_0}^* = f \neq 0$: SUSY is 
+   584→   584→\textbf{necessarily broken}. The key features are:
+   585→   585→\begin{enumerate}
+   586→   586→\item A massless field ($\Phi_0$) exists at tree level---it is the 
+   587→   587→pseudo-modulus.
+   588→   588→\item The breaking is triggered because $F_{\Phi_0}$ cannot vanish.
+   589→   589→\item After including loop corrections, $\Phi_0$ acquires a mass 
+   590→   590→(the Coleman--Weinberg potential lifts the flat direction).
+   591→   591→\end{enumerate}
+   592→   592→
+   593→   593→The structural parallel with the seed triples is precise:
+   594→   594→
+   595→   595→\begin{center}
+   596→   596→\begin{tabular}{lll}
+   597→   597→\toprule
+   598→   598→O'Raifeartaigh & Seed triple & After breaking \\
+   599→   599→\midrule
+   600→   600→$\Phi_0$ (massless) & 0 member & Lifted to $\zch < 0$ \\
+   601→   601→$\Phi_1$ (mass $m$) & $\zch_a$ (light) & Shifted \\
+   602→   602→$\Phi_2$ (mass $m$) & $\zch_b$ (heavy) & Shifted \\
+   603→   603→\midrule
+   604→   604→$f = \langle F\rangle$ & --- & $f_\pi$ \\
+   605→   605→\bottomrule
+   606→   606→\end{tabular}
+   607→   607→\end{center}
+   608→   608→
+   609→   609→The identification $f = \langle F_{\Phi_0}\rangle \sim f_\pi$ is the 
+   610→   610→sBootstrap's central claim: the SUSY-breaking $F$-term is the chiral 
+   611→   611→condensate parameter.
+   612→   612→
+   613→   613→In SQCD, this is realized dynamically rather than through a 
+   614→   614→superpotential: the chiral condensate $\qqbar \neq 0$ acts as the 
+   615→   615→nonzero $F$-term, the impossibility of restoring chiral symmetry 
+   616→   616→in the QCD vacuum is the dynamical analogue of $f \neq 0$, and the 
+   617→   617→pion---the would-be Goldstone boson that acquires mass from explicit 
+   618→   618→chiral breaking---plays the role of $\Phi_0$ whose mass is lifted 
+   619→   619→by loop corrections (here, by quark masses).
+   620→   620→
+   621→   621→\subsection{The Goldstino direction and the Volkov--Akulov realization}
+   622→   622→\label{subsec:va}
+   623→   623→
+   624→   624→When SUSY is spontaneously broken, a massless fermion appears: the 
+   625→   625→Goldstino, the fermionic analogue of the Goldstone boson. Its decay 
+   626→   626→constant $f_{\text{VA}}$ sets the SUSY-breaking scale through the 
+   627→   627→Volkov--Akulov Lagrangian \cite{VolkovAkulov1973}:
+   628→   628→\begin{equation}
+   629→   629→\mathcal{L}_{\text{VA}} = -f_{\text{VA}}^2 \det\!\left(
+   630→   630→\delta_\mu^\nu + \frac{i}{f_{\text{VA}}^2}\,\bar{\lambda}\bar{\sigma}^\nu
+   631→   631→\partial_\mu\lambda\right),
+   632→   632→\end{equation}
+   633→   633→where $\lambda$ is the Goldstino field. At low energies, the Goldstino 
+   634→   634→couples derivatively with strength $\sim 1/f_{\text{VA}}^2$, exactly 
+   635→   635→as the pion couples with strength $\sim 1/f_\pi^2$ in the chiral 
+   636→   636→Lagrangian.
+   637→   637→
+   638→   638→The sBootstrap identification is:
+   639→   639→\begin{equation}
+   640→   640→\label{eq:va_id}
+   641→   641→f_{\text{VA}} = f_\pi\,, \qquad 
+   642→   642→\text{Goldstino} = \text{muon (partner of }\pi\text{)}\,.
+   643→   643→\end{equation}
+   644→   644→More precisely, the muon is a \emph{pseudo-Goldstino}: in the 
+   645→   645→limit $m_q \to 0$ where the pion becomes exactly massless (a true 
+   646→   646→Goldstone boson), its fermionic partner also becomes massless (a 
+   647→   647→true Goldstino). The finite quark masses explicitly break both 
+   648→   648→chiral symmetry (giving $m_\pi \neq 0$) and the sBootstrap SUSY 
+   649→   649→(giving $m_\mu \neq m_\pi$), with the splitting controlled by 
+   650→   650→$f_\pi$:
+   651→   651→\begin{equation}
+   652→   652→m_\pi^2 - m_\mu^2 = f_\pi^2\,.
+   653→   653→\end{equation}
+   654→   654→
+   655→   655→This is the Volkov--Akulov relation for the pseudo-Goldstino: the 
+   656→   656→mass splitting between the scalar (pion) and its fermionic partner 
+   657→   657→(muon) is set by the SUSY-breaking scale squared.
+   658→   658→
+   659→   659→The VA mechanism is not a separate breaking from the F-term: it is 
+   660→   660→the \emph{low-energy, composite-level description} of the same 
+   661→   661→breaking. At the microscopic level, $\langle F\rangle \neq 0$ 
+   662→   662→in the meson superfield; at the composite level, this manifests 
+   663→   663→as the Goldstino coupling with $f_{\text{VA}} = f_\pi$. The two 
+   664→   664→descriptions are related by:
+   665→   665→\begin{equation}
+   666→   666→f_{\text{VA}}^2 = \langle F\rangle = \frac{|\qqbar|}{f_\pi}\,,
+   667→   667→\end{equation}
+   668→   668→consistent with the GOR relation $m_\pi^2 f_\pi^2 = 
+   669→   669→-(m_u + m_d)\qqbar$.
+   670→   670→
+   671→   671→\subsection{D-term breaking: electromagnetic splittings}
+   672→   672→\label{subsec:dterm}
+   673→   673→
+   674→   674→The unbroken $U(1)_{\text{em}}$ gauge symmetry allows a 
+   675→   675→Fayet--Iliopoulos (FI) term \cite{FayetIliopoulos}:
+   676→   676→\begin{equation}
+   677→   677→\mathcal{L}_{\text{FI}} = \xi\,D_{\text{em}}\,,
+   678→   678→\end{equation}
+   679→   679→which shifts scalar masses by $\delta m^2 = Q_{\text{em}}\,\xi$, 
+   680→   680→where $Q_{\text{em}}$ is the electric charge. This is the 
+   681→   681→supersymmetric version of the electromagnetic mass difference.
+   682→   682→
+   683→   683→In QCD without SUSY, the electromagnetic mass splitting of the 
+   684→   684→pion is given by the Das--Guralnik--Mathur--Low--Young (DGMLY) 
+   685→   685→formula \cite{DGMLY1967}:
+   686→   686→\begin{equation}
+   687→   687→m_{\pi^\pm}^2 - m_{\pi^0}^2 = \frac{3\alpha_{\text{em}}}{4\pi}\,
+   688→   688→\frac{m_\rho^2}{f_\pi^2}\,f_\pi^2 
+   689→   689→\approx (35.5\MeV)^2\,,
+   690→   690→\end{equation}
+   691→   691→which in the SUSY framework becomes a D-term contribution:
+   692→   692→\begin{equation}
+   693→   693→\xi \sim \frac{3\alpha_{\text{em}}}{4\pi}\,m_\rho^2 
+   694→   694→\sim (35\MeV)^2\,.
+   695→   695→\end{equation}
+   696→   696→
+   697→   697→In charge space, the D-term shifts $\zch$ by an amount proportional 
+   698→   698→to $Q_{\text{em}}$:
+   699→   699→\begin{equation}
+   700→   700→\zch \to \zch + \delta\zch\,, \qquad 
+   701→   701→\delta\zch \approx \frac{Q_{\text{em}}\,\xi}{2\zch}\,.
+   702→   702→\end{equation}
+   703→   703→For the pion ($Q_{\text{em}} = \pm 1$, $\zch \approx 11.8$): 
+   704→   704→$\delta\zch \approx 0.2\MeV^{1/2}$, matching the observed 
+   705→   705→$\zch_{\pi^\pm} - \zch_{\pi^0} = 11.82 - 11.62 = 0.20\MeV^{1/2}$.
+   706→   706→
+   707→   707→The D-term effect is subleading to the F-term: 
+   708→   708→$\xi \sim (35\MeV)^2$ versus $f_\pi^2 \sim (92\MeV)^2$. It 
+   709→   709→operates \emph{within} each supermultiplet entry, splitting charged 
+   710→   710→from neutral mesons, while the F-term splits bosons from fermions 
+   711→   711→across the supermultiplet.
+   712→   712→
+   713→   713→Witten's inequality \cite{Witten1983} guarantees 
+   714→   714→$m_{\pi^\pm} > m_{\pi^0}$ in QCD with electromagnetism---the 
+   715→   715→charged pion is always heavier. In the SUSY framework this 
+   716→   716→becomes the statement that the D-term contribution is positive 
+   717→   717→for $Q_{\text{em}} \neq 0$, consistent with the FI sign.
+   718→   718→
+   719→   719→\subsection{Mapping the three mechanisms to the three tuples}
+   720→   720→\label{subsec:mapping}
+   721→   721→
+   722→   722→The three-tuple structure suggests a layered breaking:
+   723→   723→
+   724→   724→\paragraph{Layer 1: F-term (chiral condensate, scale $\sim f_\pi$).}
+   725→   725→The chiral condensate $\qqbar \neq 0$ breaks both chiral symmetry 
+   726→   726→and the sBootstrap SUSY. This is the primary breaking, affecting 
+   727→   727→the light sector. The seed triples $(0, s, c)$ and $(0, \pi, D_s)$ 
+   728→   728→are the pre-breaking configurations; the massless member is the flat 
+   729→   729→direction whose $F$-term is forced nonzero by confinement. After 
+   730→   730→breaking:
+   731→   731→\begin{itemize}
+   732→   732→\item The zero member is lifted and acquires negative charge 
+   733→   733→($\zch < 0$), becoming the sign-flipped member of the full triple 
+   734→   734→($-s$, $-\pi$).
+   735→   735→\item The full triples $(-s,c,b)$ and $(-\pi, D_s, B)$ emerge, 
+   736→   736→incorporating the $b$-quark and $B$-meson sectors.
+   737→   737→\item The lepton triple $(e, \mu, \tau)$ is the fermionic shadow: 
+   738→   738→the leptons acquire masses through the same condensate, with the 
+   739→   739→muon as pseudo-Goldstino.
+   740→   740→\end{itemize}
+   741→   741→
+   742→   742→\paragraph{Layer 2: D-term (electromagnetism, scale $\sim \alpha_{\text{em}} m_\rho$).}
+   743→   743→The $U(1)_{\text{em}}$ FI term generates electromagnetic mass 
+   744→   744→splittings within each multiplet. This is a perturbative correction 
+   745→   745→on top of the F-term breaking, affecting only charged particles. 
+   746→   746→It does not create new Koide triples but shifts existing ones by 
+   747→   747→$O(\alpha_{\text{em}})$.
+   748→   748→
+   749→   749→\paragraph{Layer 3: The heavy sector (scale $\sim v_0^{(cbt)}$).}
+   750→   750→The $(c,b,t)$ triple at $v_0^2 \approx 22.8\GeV$ operates far 
+   751→   751→above the chiral scale. It has no seed (no massless member), no 
+   752→   752→meson shadow (top does not hadronize), and its breaking may be 
+   753→   753→connected to a different sector of the theory---possibly the 
+   754→   754→electroweak Higgs mechanism.
+   755→   755→
+   756→   756→This layered structure has a natural hierarchy:
+   757→   757→\begin{equation}
+   758→   758→\underbrace{f_\pi \sim 92\MeV}_{\text{F-term, chiral}} 
+   759→   759→\;\ll\; 
+   760→   760→\underbrace{\xi^{1/2} \sim 35\MeV}_{\text{D-term, EM}} 
+   761→   761→\;\ll\; 
+   762→   762→\underbrace{v_0^{(cbt)} \sim 151\MeV^{1/2}}_{\text{heavy sector}}\,,
+   763→   763→\end{equation}
+   764→   764→where the scales refer to different physical quantities (the 
+   765→   765→comparison is schematic). The F-term dominates the boson--fermion 
+   766→   766→splitting; the D-term provides electromagnetic fine structure; the 
+   767→   767→heavy sector is governed by its own dynamics.
+   768→   768→
+   769→   769→\subsection{The O'Raifeartaigh structure in SQCD}
+   770→   770→
+   771→   771→In Seiberg's SQCD with $N_f = N_c = 3$, the quantum constraint 
+   772→   772→\eqref{eq:seiberg} provides a natural setting for the 
+   773→   773→O'Raifeartaigh mechanism. The constraint $\det M - B\bar{B} = \Lambda^6$ 
+   774→   774→means the moduli space has a specific geometry: not all field directions 
+   775→   775→are flat. When quark masses are added via a tree-level superpotential 
+   776→   776→$W_{\text{tree}} = m_i M^i{}_i$ (sum over flavors), the $F$-terms become:
+   777→   777→\begin{equation}
+   778→   778→F_{M^i{}_j} = m_i\,\delta^i_j + \Lambda^6\,(\text{constraint terms})\,.
+   779→   779→\end{equation}
+   780→   780→
+   781→   781→For the seed triple $(0, s, c)$, the ``$0$'' member corresponds to a 
+   782→   782→direction in the meson matrix where the tree-level mass vanishes---the 
+   783→   783→entry involving the lightest quark combination. In the exact chiral 
+   784→   784→limit ($m_u = m_d = 0$), this entry is truly massless, and the 
+   785→   785→constraint \eqref{eq:seiberg} forces $\langle F\rangle \neq 0$ for 
+   786→   786→that entry. This is the dynamical O'Raifeartaigh mechanism: 
+   787→   787→confinement (encoded in $\Lambda^6$) plays the role of the parameter 
+   788→   788→$f$ in the superpotential, and the impossibility of setting all 
+   789→   789→$F$-terms to zero is a consequence of the strong dynamics rather 
+   790→   790→than a choice of superpotential.
+   791→   791→
+   792→   792→The ISS mechanism (Intriligator--Seiberg--Shih \cite{ISS2006}) makes 
+   793→   793→this precise: for $N_f$ slightly above $N_c$, SQCD has metastable 
+   794→   794→SUSY-breaking vacua where the rank condition prevents all $F$-terms 
+   795→   795→from vanishing. The sBootstrap case $N_f = N_c = 3$ is at the 
+   796→   796→boundary of the ISS window, suggesting that the SUSY breaking may 
+   797→   797→be long-lived but not absolutely stable---consistent with the 
+   798→   798→approximate nature of the Koide relations.
+   799→   799→
+   800→   800→\subsection{How the three supermultiplets join}
+   801→   801→
+   802→   802→The seed-to-bloom transition generates three separate Koide triples. 
+   803→   803→But the full sBootstrap requires these triples to be \emph{embedded 
+   804→   804→in a single $3\times 3$ meson matrix}. The entries of $M^i{}_j$ are:
+   805→   805→
+   806→   806→\begin{equation}
+   807→   807→M = \begin{pmatrix}
+   808→   808→u\bar{u} & u\bar{d} & u\bar{s} \\
+   809→   809→d\bar{u} & d\bar{d} & d\bar{s} \\
+   810→   810→s\bar{u} & s\bar{d} & s\bar{s}
+   811→   811→\end{pmatrix}
+   812→   812→\;\longleftrightarrow\;
+   813→   813→\begin{pmatrix}
+   814→   814→\pi^0/\eta & \pi^+ & K^+ \\
+   815→   815→\pi^- & \pi^0/\eta & K^0 \\
+   816→   816→K^- & \bar{K}^0 & \eta'
+   817→   817→\end{pmatrix}.
+   818→   818→\end{equation}
+   819→   819→
+   820→   820→When heavier quarks ($c$, $b$) are included, the matrix extends to 
+   821→   821→$5\times 5$ (or effectively $5\times 5$ minus the top row/column). 
+   822→   822→The Koide triples are specific \emph{slices} through this matrix:
+   823→   823→
+   824→   824→\begin{itemize}
+   825→   825→\item The lepton triple $(e, \mu, \tau)$ corresponds to the 
+   826→   826→fermionic components of specific matrix entries.
+   827→   827→\item The meson seed $(0, \pi, D_s)$ involves the $(u\bar{d})$, 
+   828→   828→$(c\bar{s})$ entries and a zero.
+   829→   829→\item The full meson triple $(-\pi, D_s, B)$ involves 
+   830→   830→$(u\bar{d})$, $(c\bar{s})$, $(u\bar{b})$.
+   831→   831→\end{itemize}
+   832→   832→
+   833→   833→The joining of the three supermultiplets is the central unsolved 
+   834→   834→problem: how does a single $5\times 5$ (or $3\times 3$) meson 
+   835→   835→matrix, subject to the Seiberg constraint, produce \emph{three} 
+   836→   836→Koide triples with different $v_0$ values, each satisfying 
+   837→   837→$\langle z_k^2\rangle = z_0^2$?
+   838→   838→
+   839→   839→\subsection{The energy balance as a fixed point}
+   840→   840→
+   841→   841→One possibility is that the energy-balance condition 
+   842→   842→$\langle z_k^2\rangle = z_0^2$ is a \emph{dynamical attractor}: 
+   843→   843→any set of three masses evolving under the SUSY-breaking dynamics 
+   844→   844→flows toward the Koide surface $Q = 2/3$. In the renormalization 
+   845→   845→group language, the Koide condition would be a fixed point of the 
+   846→   846→RG flow for the soft SUSY-breaking parameters.
+   847→   847→
+   848→   848→This is plausible if the breaking dynamics has an extremum (minimum 
+   849→   849→of effective potential, or maximum of entropy) at the equipartition 
+   850→   850→point $\sigma = \mu$. The condition $\langle z_k^2\rangle = z_0^2$ 
+   851→   851→says the variance of the charges equals their squared mean---this 
+   852→   852→is the maximum-entropy distribution for three positive-definite 
+   853→   853→quantities with a given mean, subject to a log-normal prior. If 
+   854→   854→the SUSY-breaking effective potential favors ``democratic'' 
+   855→   855→distributions of mass among the multiplet members, the Koide 
+   856→   856→condition would emerge as a thermodynamic consequence.
+   857→   857→
+   858→   858→The fact that the condition holds both for fundamental fermions 
+   859→   859→(leptons, quarks) and composite bosons (mesons) supports the 
+   860→   860→attractor interpretation: it is not specific to one sector but 
+   861→   861→operates universally wherever three related masses coexist.
+   862→   862→
+   863→   863→\subsection{What the $(c,b,t)$ triple tells us}
+   864→   864→
+   865→   865→The $(c,b,t)$ triple ($Q = 0.6695$, $v_0^2 = 22.8\GeV$) has 
+   866→   866→neither a seed nor a meson shadow. It operates at a scale far 
+   867→   867→above $\Lambda_{\text{QCD}}$, suggesting its origin is different:
+   868→   868→
+   869→   869→\begin{enumerate}
+   870→   870→\item It may be governed by the electroweak Higgs mechanism rather 
+   871→   871→than the chiral condensate. The top Yukawa $y_t \approx 1$ is 
+   872→   872→``natural'' in the sense that $m_t \approx v_{\text{EW}}/\sqrt{2}$; 
+   873→   873→the Koide condition on $(c,b,t)$ would then constrain the Yukawa 
+   874→   874→coupling matrix.
+   875→   875→\item It may represent a Volkov--Akulov realization at the 
+   876→   876→electroweak scale: if there is a second SUSY breaking at 
+   877→   877→$f' \sim v_{\text{EW}}$, the $(c,b,t)$ triple would be its 
+   878→   878→analog of the $(\pi, \mu)$ system, but with $f'$ replacing $f_\pi$.
+   879→   879→\item Or it may be a purely kinematic accident---the quark masses 
+   880→   880→happen to satisfy the Koide condition without a dynamical reason. 
+   881→   881→The 0.42\% precision makes this unlikely but not impossible.
+   882→   882→\end{enumerate}
+   883→   883→
+   884→   884→If interpretation (2) is correct, the sBootstrap has two breaking 
+   885→   885→scales:
+   886→   886→\begin{equation}
+   887→   887→f_{\text{chiral}} = f_\pi \approx 92\MeV\,, \qquad
+   888→   888→f_{\text{EW}} \sim v_{\text{EW}} \approx 246\GeV\,,
+   889→   889→\end{equation}
+   890→   890→and the full spectrum requires both. The light sector (leptons, 
+   891→   891→light mesons) is governed by $f_\pi$; the heavy sector (top, and 
+   892→   892→by extension charm and bottom through the Koide network) is 
+   893→   893→governed by $v_{\text{EW}}$. The charm and bottom quarks, 
+   894→   894→appearing in both the $(0,s,c)/(-s,c,b)$ light-sector triples 
+   895→   895→and the $(c,b,t)$ heavy-sector triple, are the ``bridges'' 
+   896→   896→between the two scales.
+   897→   897→
+   898→   898→%======================================================================
+   899→   899→\section{The Electron Mass and the Lepton Seed}
+   900→   900→\label{sec:electron}
+   901→   901→%======================================================================
+   902→   902→
+   903→   903→The charged lepton triple $(e, \mu, \tau)$ is the ``almost-seed'': 
+   904→   904→$\zch_e = 0.715\MeV^{1/2}$ is small but nonzero. The electron's 
+   905→   905→charge is near zero because of cancellation in $\zch_e = z_0 + z_e$:
+   906→   906→\begin{equation}
+   907→   907→v_0 = 17.72, \quad z_e = -17.00, \quad 
+   908→   908→\zch_e = 17.72 - 17.00 = 0.72\MeV^{1/2}\,.
+   909→   909→\end{equation}
+   910→   910→A 96\% cancellation. The mass $m_e = 0.72^2 = 0.52\MeV$ is the 
+   911→   911→square of something already small.
+   912→   912→
+   913→   913→The near-vanishing of $m_e$ is a structural property of the Koide 
+   914→   914→embedding, not fine-tuning: the energy balance allows perturbations 
+   915→   915→as large as $z_0$. Every Koide triple has one member with 
+   916→   916→$|\zch|/v_0$ small:
+   917→   917→
+   918→   918→\begin{center}
+   919→   919→\begin{tabular}{lccl}
+   920→   920→\toprule
+   921→   921→Triple & Lightest & $|\zch|/v_0$ & Character \\
+   922→   922→\midrule
+   923→   923→$(e, \mu, \tau)$ & $e$ & 0.040 & Almost-seed \\
+   924→   924→$(-\pi, D_s, B)$ & $\pi$ (neg.) & 0.337 & Full triple \\
+   925→   925→$(c, b, t)$ & $c$ & 0.236 & Full triple \\
+   926→   926→$(-s, c, b)$ & $s$ (neg.) & 0.320 & Full triple \\
+   927→   927→\bottomrule
+   928→   928→\end{tabular}
+   929→   929→\end{center}
+   930→   930→
+   931→   931→The electron is by far the most extreme case, consistent with the 
+   932→   932→lepton triple being nearest to its seed.
+   933→   933→
+   934→   934→%======================================================================
+   935→   935→\section{Symmetry Restoration}
+   936→   936→\label{sec:restoration}
+   937→   937→%======================================================================
+   938→   938→
+   939→   939→The broken spectrum reassembles as symmetry-breaking effects are 
+   940→   940→removed:
+   941→   941→
+   942→   942→\begin{enumerate}
+   943→   943→\item \textbf{Turn off QED:} Electromagnetic splittings vanish 
+   944→   944→($\pi^\pm = \pi^0$, $K^\pm = K^0$). D-term effects disappear.
+   945→   945→\item \textbf{Set $m_u = m_d$:} Exact isospin.
+   946→   946→\item \textbf{Set $m_s = m_d$:} $SU(3)_V$ restored, 
+   947→   947→$\pi = K = \eta$. Koide splitting $v_1 \to 0$; lepton partners 
+   948→   948→degenerate.
+   949→   949→\item \textbf{Send $m_q \to 0$:} Chiral limit, all meson charges 
+   950→   950→$\to 0$. If sBootstrap SUSY restores, all light lepton masses 
+   951→   951→vanish too. This is the seed configuration: $(0, 0, 0)$.
+   952→   952→\end{enumerate}
+   953→   953→
+   954→   954→The seed triples are the ``penultimate'' stage: one member has 
+   955→   955→reached zero, but the other two retain the $2 - \sqrt{3}$ ratio. 
+   956→   956→Full triples are the final broken state. The lepton triple, 
+   957→   957→trapped between seed and bloom, reveals the hierarchy: 
+   958→   958→chiral breaking $\to$ seed $\to$ bloom $\to$ full spectrum.
+   959→   959→
+   960→   960→The direction of the flow also matters: approaching the chiral 
+   961→   961→limit, the pion charge rises from $\zch = -11.81$ toward zero 
+   962→   962→from below. It crosses zero exactly in the chiral limit. This 
+   963→   963→means the pion was ``born negative''---its charge sign is set by 
+   964→   964→the direction of chiral symmetry breaking, and the seed 
+   965→   965→$(0, \pi, D_s)$ is the configuration at the moment of crossing.
+   966→   966→
+   967→   967→%======================================================================
+   968→   968→\section{Nature Abhors Chirality}
+   969→   969→\label{sec:chirality}
+   970→   970→%======================================================================
+   971→   971→
+   972→   972→A pattern across the Standard Model: every chiral structure is 
+   973→   973→eliminated in the infrared.
+   974→   974→
+   975→   975→\begin{center}
+   976→   976→\begin{tabular}{lcl}
+   977→   977→\toprule
+   978→   978→UV structure & IR survivor & Mechanism \\
+   979→   979→\midrule
+   980→   980→$SU(2)_L \times U(1)_Y$ & $U(1)_{\text{em}}$ & Higgs \\
+   981→   981→$SU(N_f)_L \times SU(N_f)_R$ & $SU(N_f)_V$ & $\qqbar$ condensate \\
+   982→   982→$U(1)_A$ & nothing & Anomaly \\
+   983→   983→$\bar{\theta}$-vacuum & $|\bar{\theta}| < 10^{-10}$ & Unknown \\
+   984→   984→Chiral color? & $SU(3)_C$ & Axigluon mass \\
+   985→   985→\bottomrule
+   986→   986→\end{tabular}
+   987→   987→\end{center}
+   988→   988→
+   989→   989→The sBootstrap adds: superspace chirality (boson vs.\ fermion 
+   990→   990→distinction within a multiplet) is broken by the same condensate 
+   991→   991→that breaks flavor chirality, with $f_{\text{SUSY}} = f_\pi$. The 
+   992→   992→energy-balance condition $\langle z_k^2\rangle = z_0^2$ may be 
+   993→   993→related: the breaking is ``as large as the background 
+   994→   994→allows''---maximal, not perturbative.
+   995→   995→
+   996→   996→%======================================================================
+   997→   997→\section{Open Problems}
+   998→   998→\label{sec:open}
+   999→   999→%======================================================================
+  1000→  1000→
+  1001→  1001→\subsection{The diquark statistics problem}
+  1002→  1002→The sBootstrap requires antisymmetric $\overline{\mathbf{10}}$ 
+  1003→  1003→diquarks; Pauli statistics for spin-0, $L=0$, color $\bar{3}$ 
+  1004→  1004→diquarks requires symmetric flavor. Extra dynamical input---$L=1$ 
+  1005→  1005→plus spin-1, instantons, or the $SO(32)$ embedding---is needed.
+  1006→  1006→
+  1007→  1007→\subsection{What determines the Koide phase?}
+  1008→  1008→The energy balance constrains but does not uniquely fix $\delta$. 
+  1009→  1009→The value $\delta_\ell \approx 2/9$ for leptons must come from 
+  1010→  1010→dynamics. Is it a fixed point?
+  1011→  1011→
+  1012→  1012→\subsection{Connecting the three tuples}
+  1013→  1013→The light sector (seed $\to$ bloom, scale $\sim \Lambda_{\text{QCD}}$) 
+  1014→  1014→and heavy sector ($c,b,t$, scale $\sim v_{\text{EW}}$) must connect. 
+  1015→  1015→The charm and bottom quarks appear in both, providing the links.
+  1016→  1016→
+  1017→  1017→\subsection{The baryon sector}
+  1018→  1018→In Seiberg's SQCD with $N_f = N_c = 3$, baryons are part of the 
+  1019→  1019→low-energy spectrum. Their SUSY partners are ``baryonic fermions'' 
+  1020→  1020→with no known candidates among observed particles.
+  1021→  1021→
+  1022→  1022→\subsection{The strong CP problem}
+  1023→  1023→The principle ``Nature abhors chirality'' predicts $\bar{\theta} = 0$ 
+  1024→  1024→but provides no mechanism.
+  1025→  1025→
+  1026→  1026→\subsection{The kaon--muon puzzle}
+  1027→  1027→The SUSY splitting $m_K^2 - m_\mu^2 \approx (482\MeV)^2$ is much 
+  1028→  1028→larger than $f_K^2 \approx (110\MeV)^2$, showing that the breaking 
+  1029→  1029→is strongly flavor-dependent.
+  1030→  1030→
+  1031→  1031→%======================================================================
+  1032→  1032→\section{Conclusions}
+  1033→  1033→\label{sec:conclusions}
+  1034→  1034→%======================================================================
+  1035→  1035→
+  1036→  1036→Three principal results:
+  1037→  1037→
+  1038→  1038→\paragraph{1.\ The Koide formula is energy equipartition.}
+  1039→  1039→$Q = 2/3$ is $\langle z_k^2\rangle = z_0^2$: perturbation energies 
+  1040→  1040→match the vacuum energy. The signed-charge framework resolves the 
+  1041→  1041→electron mass puzzle (near-cancellation, not fine-tuning) and reveals 
+  1042→  1042→that mesons satisfy Koide with $(-\pi, D_s, B)$ to $0.1\%$.
+  1043→  1043→
+  1044→  1044→\paragraph{2.\ Seed triples set the stage for SUSY breaking.}
+  1045→  1045→The quark seed $(0,s,c)$ and meson seed $(0,\pi,D_s)$ share the 
+  1046→  1046→universal ratio $2 - \sqrt{3}$ and operate at $v_0^2 \sim 
+  1047→  1047→230$--$350\MeV$, close to the lepton triple's $v_0^2 = 314\MeV$. 
+  1048→  1048→The massless member is the necessary condition for F-term 
+  1049→  1049→(O'Raifeartaigh) SUSY breaking. Upon breaking, seeds bloom into 
+  1050→  1050→full triples $(-s,c,b)$ and $(-\pi,D_s,B)$. The lepton triple 
+  1051→  1051→is the ``almost-seed'' that has barely bloomed.
+  1052→  1052→
+  1053→  1053→\paragraph{3.\ Three tuples require three breaking structures.}
+  1054→  1054→F-term breaking (via the massless seed member) generates the light 
+  1055→  1055→sector. D-term breaking ($U(1)_{\text{em}}$ FI parameter) provides 
+  1056→  1056→electromagnetic splittings. Volkov--Akulov nonlinear realization 
+  1057→  1057→sets the overall scale $f_{\text{VA}} = f_\pi$. The heavy triple 
+  1058→  1058→$(c,b,t)$ stands apart: no seed, no meson shadow, scale far above 
+  1059→  1059→$\Lambda_{\text{QCD}}$, possibly connected to electroweak breaking.
+  1060→  1060→
+  1061→  1061→The diquark sector, required to complete the SUSY multiplet count, 
+  1062→  1062→must fill the antisymmetric $\overline{\mathbf{10}}$ of $SU(5)_f$ 
+  1063→  1063→despite the apparent conflict with Fermi statistics---a problem 
+  1064→  1064→that may ultimately require the $SO(32)$ embedding for its 
+  1065→  1065→resolution.
+  1066→  1066→
+  1067→  1067→The organizing principle is that each sector of the spectrum begins 
+  1068→  1068→with a massless member (a seed), which is the necessary condition 
+  1069→  1069→for spontaneous SUSY breaking. The breaking lifts the zero, 
+  1070→  1070→generates the full triple, and the energy-balance condition 
+  1071→  1071→$\langle z_k^2\rangle = z_0^2$ is preserved as a fixed point 
+  1072→  1072→of the dynamics. The entire charged fermion and pseudoscalar meson 
+  1073→  1073→spectrum is then determined by a small number of parameters: the 
+  1074→  1074→vacuum charges $v_0$ of the three tuples, the Koide phases 
+  1075→  1075→$\delta$ that control the bloom, and the SUSY-breaking scale 
+  1076→  1076→$f_\pi$ that separates bosons from fermions.
+  1077→  1077→
+  1078→  1078→\begin{thebibliography}{99}
+  1079→  1079→\bibitem{Rivero2005}
+  1080→  1080→A.~Rivero, ``The sBootstrap,'' viXra:0503.001 (2005);
+  1081→  1081→``A prediction from the sBootstrap,'' viXra:0809.001 (2008);
+  1082→  1082→``sBootstrap and SO(32),'' unpublished notes.
+  1083→  1083→
+  1084→  1084→\bibitem{Rivero2012}
+  1085→  1085→A.~Rivero, ``A new Koide tuple: strange, charm, bottom,'' 
+  1086→  1086→arXiv:1111.7232 [hep-ph] (2011).
+  1087→  1087→
+  1088→  1088→\bibitem{Koide1983}
+  1089→  1089→Y.~Koide, ``New viewpoint of quark and lepton mass hierarchy,'' 
+  1090→  1090→Phys.\ Rev.\ D \textbf{28}, 252 (1983).
+  1091→  1091→
+  1092→  1092→\bibitem{CattoGursey}
+  1093→  1093→S.~Catto and F.~G\"ursey, ``Algebraic treatment of effective 
+  1094→  1094→supersymmetry,'' Nuovo Cim.\ A \textbf{86}, 201 (1985).
+  1095→  1095→
+  1096→  1096→\bibitem{Miyazawa}
+  1097→  1097→H.~Miyazawa, ``Baryon Number Changing Currents,'' 
+  1098→  1098→Prog.\ Theor.\ Phys.\ \textbf{36}, 1266 (1966).
+  1099→  1099→
+  1100→  1100→\bibitem{Harari}
+  1101→  1101→H.~Harari, H.~Haut, J.~Weyers, ``Quark masses and Cabibbo 
+  1102→  1102→angles,'' Phys.\ Lett.\ B \textbf{78}, 459 (1978).
+  1103→  1103→
+  1104→  1104→\bibitem{Seiberg1995}
+  1105→  1105→N.~Seiberg, ``Electric--magnetic duality in supersymmetric 
+  1106→  1106→non-abelian gauge theories,'' Nucl.\ Phys.\ B \textbf{435}, 129 
+  1107→  1107→(1995).
+  1108→  1108→
+  1109→  1109→\bibitem{ORaifeartaigh}
+  1110→  1110→L.~O'Raifeartaigh, ``Spontaneous symmetry breaking for chiral 
+  1111→  1111→scalar superfields,'' Nucl.\ Phys.\ B \textbf{96}, 331 (1975).
+  1112→  1112→
+  1113→  1113→\bibitem{FayetIliopoulos}
+  1114→  1114→P.~Fayet and J.~Iliopoulos, ``Spontaneously broken supergauge 
+  1115→  1115→symmetries and Goldstone spinors,'' Phys.\ Lett.\ B \textbf{51}, 
+  1116→  1116→461 (1974).
+  1117→  1117→
+  1118→  1118→\bibitem{Witten1983}
+  1119→  1119→E.~Witten, ``Some inequalities among hadron masses,'' 
+  1120→  1120→Phys.\ Rev.\ Lett.\ \textbf{51}, 2351 (1983).
+  1121→  1121→
+  1122→  1122→\bibitem{VolkovAkulov1973}
+  1123→  1123→D.~V.~Volkov and V.~P.~Akulov, ``Is the neutrino a Goldstone 
+  1124→  1124→particle?,'' Phys.\ Lett.\ B \textbf{46}, 109 (1973).
+  1125→  1125→
+  1126→  1126→\bibitem{GOR1968}
+  1127→  1127→M.~Gell-Mann, R.~J.~Oakes, B.~Renner, ``Behavior of current 
+  1128→  1128→divergences under $SU(3) \times SU(3)$,'' 
+  1129→  1129→Phys.\ Rev.\ \textbf{175}, 2195 (1968).
+  1130→  1130→
+  1131→  1131→\bibitem{FramptonGlashow1987}
+  1132→  1132→P.~H.~Frampton and S.~L.~Glashow, ``Chiral color: an alternative 
+  1133→  1133→to the standard model,'' Phys.\ Lett.\ B \textbf{190}, 157 (1987).
+  1134→  1134→
+  1135→  1135→\end{thebibliography}
+  1136→  1136→
+  1137→  1137→\end{document}
+  1138→  1138→

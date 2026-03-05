@@ -1,0 +1,1245 @@
+/home/codexssh/phys3/sbootstrap_v4c.tex-13-\newcommand{\MeV}{\,\text{MeV}}
+/home/codexssh/phys3/sbootstrap_v4c.tex-14-\newcommand{\GeV}{\,\text{GeV}}
+sbootstrap_v4c.tex:15:\newcommand{\fpi}{f_\pi}
+/home/codexssh/phys3/sbootstrap_v4c.tex-16-\newcommand{\qqbar}{\langle\bar{q}q\rangle}
+/home/codexssh/phys3/sbootstrap_v4c.tex-17-\newcommand{\zch}{\mathfrak{z}}
+--
+/home/codexssh/phys3/sbootstrap_v4c.tex-46-than the symmetric, requiring additional dynamical input---and outline 
+/home/codexssh/phys3/sbootstrap_v4c.tex-47-how SUSY breaking proceeds through two mechanisms---F-term (chiral 
+sbootstrap_v4c.tex:48:condensate, with Volkov--Akulov as its low-energy realization) and 
+/home/codexssh/phys3/sbootstrap_v4c.tex-49-D-term (electromagnetic Fayet--Iliopoulos)---plus a separate 
+/home/codexssh/phys3/sbootstrap_v4c.tex-50-heavy-sector origin for the $(c,b,t)$ triple.
+--
+/home/codexssh/phys3/sbootstrap_v4c.tex-63-\begin{equation}
+sbootstrap_v4c.tex-64-\label{eq:pimu}
+sbootstrap_v4c.tex:65:m_\pi^2 - m_\mu^2 \approx f_\pi^2\,,
+/home/codexssh/phys3/sbootstrap_v4c.tex-66-\end{equation}
+sbootstrap_v4c.tex:67:identifying the pion decay constant $f_\pi \approx 92.2\MeV$ as the 
+/home/codexssh/phys3/sbootstrap_v4c.tex-68-SUSY-breaking order parameter. Numerically, $m_\pi^2 - m_\mu^2 = 
+sbootstrap_v4c.tex:69:8{,}316\MeV^2$ versus $f_\pi^2 = 8{,}501\MeV^2$, a $2.2\%$ 
+/home/codexssh/phys3/sbootstrap_v4c.tex-70-discrepancy---comparable to the precision of the quark Koide triples 
+/home/codexssh/phys3/sbootstrap_v4c.tex-71-discussed below. In this paper we develop two themes 
+--
+/home/codexssh/phys3/sbootstrap_v4c.tex-549-
+/home/codexssh/phys3/sbootstrap_v4c.tex-550-The SUSY-breaking story begins with the foundational observation 
+sbootstrap_v4c.tex:551:\eqref{eq:pimu}: $m_\pi^2 - m_\mu^2 \approx f_\pi^2$. This is the 
+sbootstrap_v4c.tex:552:Volkov--Akulov mass formula for a pseudo-Goldstino---the muon---whose 
+/home/codexssh/phys3/sbootstrap_v4c.tex-553-superpartner---the pion---is a pseudo-Goldstone boson. The SUSY-breaking 
+sbootstrap_v4c.tex:554:scale is $f_\pi \approx 92\MeV$, and the breaking mechanism is chiral: 
+/home/codexssh/phys3/sbootstrap_v4c.tex-555-$\qqbar \neq 0$ breaks both chiral symmetry and the sBootstrap SUSY 
+sbootstrap_v4c.tex:556:simultaneously. The Volkov--Akulov realization is the \emph{physical 
+/home/codexssh/phys3/sbootstrap_v4c.tex-557-starting point}; what follows in this section is the SQCD machinery 
+/home/codexssh/phys3/sbootstrap_v4c.tex-558-that makes it precise.
+--
+/home/codexssh/phys3/sbootstrap_v4c.tex-561-transition for each tuple, preserve the energy-balance condition 
+/home/codexssh/phys3/sbootstrap_v4c.tex-562-$\langle z_k^2\rangle = z_0^2$ through the breaking, and produce 
+sbootstrap_v4c.tex:563:the correct splitting between meson and lepton masses at scale $f_\pi$.
+/home/codexssh/phys3/sbootstrap_v4c.tex-564-
+/home/codexssh/phys3/sbootstrap_v4c.tex-565-\subsection{The Seiberg framework}
+--
+/home/codexssh/phys3/sbootstrap_v4c.tex-618-
+sbootstrap_v4c.tex-619-The VA relation \eqref{eq:pimu} tells us \emph{that} SUSY is broken at 
+sbootstrap_v4c.tex:620:scale $f_\pi$. To understand \emph{how}, we need the microscopic 
+/home/codexssh/phys3/sbootstrap_v4c.tex-621-mechanism. The O'Raifeartaigh model \cite{ORaifeartaigh} is the simplest 
+/home/codexssh/phys3/sbootstrap_v4c.tex-622-realization of spontaneous $F$-term SUSY breaking. With three chiral 
+--
+/home/codexssh/phys3/sbootstrap_v4c.tex-653-$\Phi_2$ (heavy) & $c$ / $D_s$ & $\zch_c = 35.64$ & $\zch_c \approx 35.64$ (shifted) \\
+/home/codexssh/phys3/sbootstrap_v4c.tex-654-\midrule
+sbootstrap_v4c.tex:655: & & $f = 0$ (SUSY) & $f = f_\pi$ (broken) \\
+/home/codexssh/phys3/sbootstrap_v4c.tex-656-\bottomrule
+/home/codexssh/phys3/sbootstrap_v4c.tex-657-\end{tabular}
+--
+/home/codexssh/phys3/sbootstrap_v4c.tex-686-(superpotential) one.
+/home/codexssh/phys3/sbootstrap_v4c.tex-687-
+sbootstrap_v4c.tex:688:The identification $f = \langle F_{\Phi_0}\rangle \sim f_\pi$ is the 
+sbootstrap_v4c.tex-689-sBootstrap's central claim: the SUSY-breaking $F$-term is the chiral 
+/home/codexssh/phys3/sbootstrap_v4c.tex-690-condensate parameter.
+--
+/home/codexssh/phys3/sbootstrap_v4c.tex-698-by loop corrections (here, by quark masses).
+/home/codexssh/phys3/sbootstrap_v4c.tex-699-
+sbootstrap_v4c.tex:700:\subsection{The Goldstino direction and the Volkov--Akulov realization}
+sbootstrap_v4c.tex-701-\label{subsec:va}
+/home/codexssh/phys3/sbootstrap_v4c.tex-702-
+--
+/home/codexssh/phys3/sbootstrap_v4c.tex-704-Goldstino, the fermionic analogue of the Goldstone boson. Its decay 
+/home/codexssh/phys3/sbootstrap_v4c.tex-705-constant $f_{\text{VA}}$ sets the SUSY-breaking scale through the 
+sbootstrap_v4c.tex:706:Volkov--Akulov Lagrangian \cite{VolkovAkulov1973}:
+/home/codexssh/phys3/sbootstrap_v4c.tex-707-\begin{equation}
+/home/codexssh/phys3/sbootstrap_v4c.tex-708-\mathcal{L}_{\text{VA}} = -f_{\text{VA}}^2 \det\!\left(
+--
+/home/codexssh/phys3/sbootstrap_v4c.tex-712-where $\lambda$ is the Goldstino field. At low energies, the Goldstino 
+/home/codexssh/phys3/sbootstrap_v4c.tex-713-couples derivatively with strength $\sim 1/f_{\text{VA}}^2$, exactly 
+sbootstrap_v4c.tex:714:as the pion couples with strength $\sim 1/f_\pi^2$ in the chiral 
+/home/codexssh/phys3/sbootstrap_v4c.tex-715-Lagrangian.
+/home/codexssh/phys3/sbootstrap_v4c.tex-716-
+--
+/home/codexssh/phys3/sbootstrap_v4c.tex-718-\begin{equation}
+sbootstrap_v4c.tex-719-\label{eq:va_id}
+sbootstrap_v4c.tex:720:f_{\text{VA}} = f_\pi\,, \qquad 
+/home/codexssh/phys3/sbootstrap_v4c.tex-721-\text{Goldstino} = \text{muon (partner of }\pi\text{)}\,.
+/home/codexssh/phys3/sbootstrap_v4c.tex-722-\end{equation}
+--
+/home/codexssh/phys3/sbootstrap_v4c.tex-727-chiral symmetry (giving $m_\pi \neq 0$) and the sBootstrap SUSY 
+/home/codexssh/phys3/sbootstrap_v4c.tex-728-(giving $m_\mu \neq m_\pi$), with the splitting controlled by 
+sbootstrap_v4c.tex:729:$f_\pi$:
+/home/codexssh/phys3/sbootstrap_v4c.tex-730-\begin{equation}
+sbootstrap_v4c.tex:731:m_\pi^2 - m_\mu^2 = f_\pi^2\,.
+/home/codexssh/phys3/sbootstrap_v4c.tex-732-\end{equation}
+/home/codexssh/phys3/sbootstrap_v4c.tex-733-
+sbootstrap_v4c.tex:734:This is the Volkov--Akulov relation for the pseudo-Goldstino: the 
+/home/codexssh/phys3/sbootstrap_v4c.tex-735-mass splitting between the scalar (pion) and its fermionic partner 
+/home/codexssh/phys3/sbootstrap_v4c.tex-736-(muon) is set by the SUSY-breaking scale squared.
+--
+/home/codexssh/phys3/sbootstrap_v4c.tex-740-breaking. At the microscopic level, $\langle F\rangle \neq 0$ 
+/home/codexssh/phys3/sbootstrap_v4c.tex-741-in the meson superfield; at the composite level, this manifests 
+sbootstrap_v4c.tex:742:as the Goldstino coupling with $f_{\text{VA}} = f_\pi$. These 
+sbootstrap_v4c.tex:743:two quantities---the Goldstino decay constant and the pion decay 
+/home/codexssh/phys3/sbootstrap_v4c.tex-744-constant---are \emph{identified} in the sBootstrap; this is the 
+/home/codexssh/phys3/sbootstrap_v4c.tex-745-central claim, not a derivation.
+--
+/home/codexssh/phys3/sbootstrap_v4c.tex-747-The identification should not be confused with the standard relation 
+/home/codexssh/phys3/sbootstrap_v4c.tex-748-between the $F$-term VEV and the chiral condensate. In standard 
+sbootstrap_v4c.tex:749:SQCD, $\langle F\rangle \sim |\qqbar|/f_\pi \sim (250\MeV)^3/92\MeV 
+sbootstrap_v4c.tex:750:\approx 170{,}000\MeV^2$, while $f_\pi^2 \approx 8{,}500\MeV^2$---a 
+/home/codexssh/phys3/sbootstrap_v4c.tex-751-factor of $\sim 20$ discrepancy. The GOR relation 
+sbootstrap_v4c.tex:752:$m_\pi^2 f_\pi^2 = -(m_u + m_d)\qqbar$ connects these through the 
+/home/codexssh/phys3/sbootstrap_v4c.tex-753-small quark masses, but does not equate them. The sBootstrap 
+sbootstrap_v4c.tex:754:identification $f_{\text{VA}} = f_\pi$ is therefore a 
+/home/codexssh/phys3/sbootstrap_v4c.tex-755-\emph{low-energy effective} statement about the composite sector, 
+sbootstrap_v4c.tex-756-not a microscopic identity. It says: the scale at which SUSY 
+sbootstrap_v4c.tex:757:appears broken in the meson--lepton spectrum is $f_\pi$, regardless 
+/home/codexssh/phys3/sbootstrap_v4c.tex-758-of the microscopic $F$-term that produces this breaking.
+/home/codexssh/phys3/sbootstrap_v4c.tex-759-
+--
+/home/codexssh/phys3/sbootstrap_v4c.tex-774-quark masses that feed the GOR formula).
+/home/codexssh/phys3/sbootstrap_v4c.tex-775-\end{enumerate}
+sbootstrap_v4c.tex:776:The splitting between (1) and (2) is $f_\pi^2$---the VA relation. 
+sbootstrap_v4c.tex-777-The seed-to-bloom transition of \S\ref{sec:two_tuples} is the same 
+sbootstrap_v4c.tex-778-physics seen from the charge-space perspective: $m_q \neq 0$ lifts 
+--
+/home/codexssh/phys3/sbootstrap_v4c.tex-810-\begin{equation}
+/home/codexssh/phys3/sbootstrap_v4c.tex-811-m_{\pi^\pm}^2 - m_{\pi^0}^2 = \frac{3\alpha_{\text{em}}}{4\pi}\,
+sbootstrap_v4c.tex:812:\frac{m_\rho^2}{f_\pi^2}\,f_\pi^2 
+/home/codexssh/phys3/sbootstrap_v4c.tex-813-\approx (35.5\MeV)^2\,,
+/home/codexssh/phys3/sbootstrap_v4c.tex-814-\end{equation}
+--
+/home/codexssh/phys3/sbootstrap_v4c.tex-830-
+sbootstrap_v4c.tex-831-The D-term effect is subleading to the F-term: 
+sbootstrap_v4c.tex:832:$\xi \sim (35\MeV)^2$ versus $f_\pi^2 \sim (92\MeV)^2$. It 
+/home/codexssh/phys3/sbootstrap_v4c.tex-833-operates \emph{within} each supermultiplet entry, splitting charged 
+/home/codexssh/phys3/sbootstrap_v4c.tex-834-from neutral mesons, while the F-term splits bosons from fermions 
+--
+/home/codexssh/phys3/sbootstrap_v4c.tex-846-The tuple structure maps onto a layered breaking with two independent 
+/home/codexssh/phys3/sbootstrap_v4c.tex-847-mechanisms (F-term and D-term) plus a separate heavy-sector origin. 
+sbootstrap_v4c.tex:848:The Volkov--Akulov realization of \S\ref{subsec:va} is not a third 
+sbootstrap_v4c.tex-849-mechanism: it is the low-energy, composite-level description of the 
+sbootstrap_v4c.tex-850-same F-term breaking. The VA relation \eqref{eq:pimu} \emph{sets the 
+sbootstrap_v4c.tex:851:scale} ($f_{\text{VA}} = f_\pi$); the O'Raifeartaigh/SQCD dynamics 
+sbootstrap_v4c.tex-852-of \S\ref{subsec:fterm} \emph{provides the mechanism} 
+/home/codexssh/phys3/sbootstrap_v4c.tex-853-($\langle F\rangle \neq 0$).
+/home/codexssh/phys3/sbootstrap_v4c.tex-854-
+sbootstrap_v4c.tex:855:\paragraph{Layer 1: F-term/VA (chiral condensate, scale $\sim f_\pi$).}
+/home/codexssh/phys3/sbootstrap_v4c.tex-856-The chiral condensate $\qqbar \neq 0$ breaks both chiral symmetry 
+/home/codexssh/phys3/sbootstrap_v4c.tex-857-and the sBootstrap SUSY. This is the primary breaking, affecting 
+--
+/home/codexssh/phys3/sbootstrap_v4c.tex-889-\begin{align}
+sbootstrap_v4c.tex-890-\text{F-term (boson--fermion splitting):} &\quad 
+sbootstrap_v4c.tex:891:f_\pi \approx 92\MeV\,, \quad f_\pi^2 \approx 8{,}500\MeV^2\,; \\
+sbootstrap_v4c.tex-892-\text{D-term (EM fine structure):} &\quad 
+/home/codexssh/phys3/sbootstrap_v4c.tex-893-\xi^{1/2} \approx 35\MeV\,, \quad \xi \approx 1{,}200\MeV^2\,; \\
+--
+/home/codexssh/phys3/sbootstrap_v4c.tex-895-v_0^{(cbt)} \approx 172\MeV^{1/2}\,, \quad (v_0^{(cbt)})^2 \approx 29{,}600\MeV\,.
+/home/codexssh/phys3/sbootstrap_v4c.tex-896-\end{align}
+sbootstrap_v4c.tex:897:Comparing the squared scales: $f_\pi^2 \gg \xi$ (F-term dominates 
+/home/codexssh/phys3/sbootstrap_v4c.tex-898-over D-term by a factor $\sim 7$, consistent with the D-term being 
+/home/codexssh/phys3/sbootstrap_v4c.tex-899-a perturbative $O(\alpha_{\text{em}})$ correction). The heavy-sector 
+/home/codexssh/phys3/sbootstrap_v4c.tex-900-scale $(v_0^{(cbt)})^2$ carries dimensions of $\MeV$ (not $\MeV^2$) 
+/home/codexssh/phys3/sbootstrap_v4c.tex-901-because $v_0$ is a charge ($\MeV^{1/2}$), not an energy; direct 
+sbootstrap_v4c.tex:902:comparison with $f_\pi$ requires specifying which physical quantity 
+/home/codexssh/phys3/sbootstrap_v4c.tex-903-is being compared.
+/home/codexssh/phys3/sbootstrap_v4c.tex-904-
+--
+sbootstrap_v4c.tex-1099-a different reason: meson masses are \emph{not} simple functions 
+/home/codexssh/phys3/sbootstrap_v4c.tex-1100-of quark mass ratios. The pion mass is given by the GOR 
+sbootstrap_v4c.tex:1101:relation $m_\pi^2 f_\pi^2 = -(m_u + m_d)\qqbar$; the $D_s$ 
+/home/codexssh/phys3/sbootstrap_v4c.tex-1102-mass involves heavy-quark effective theory; and both receive 
+/home/codexssh/phys3/sbootstrap_v4c.tex-1103-chiral perturbation theory corrections. These nonperturbative 
+--
+/home/codexssh/phys3/sbootstrap_v4c.tex-1106-
+/home/codexssh/phys3/sbootstrap_v4c.tex-1107-\paragraph{A remarkable feature of the VA relation.} The 
+sbootstrap_v4c.tex:1108:foundational equation $m_\pi^2 - m_\mu^2 = f_\pi^2$ contains 
+sbootstrap_v4c.tex-1109-no QCD coupling constant: no $\alpha_s$, no $N_c$, no 
+/home/codexssh/phys3/sbootstrap_v4c.tex-1110-$\Lambda_{\text{QCD}}$. It is a pure mass relation among three 
+--
+sbootstrap_v4c.tex-1112-constant---holding to 2.2\%. In the sBootstrap, this is natural: 
+/home/codexssh/phys3/sbootstrap_v4c.tex-1113-the relation is a SUSY mass splitting, set by the breaking 
+sbootstrap_v4c.tex:1114:scale $f_\pi$, and SUSY mass relations do not involve the gauge 
+/home/codexssh/phys3/sbootstrap_v4c.tex-1115-coupling of the confining theory. Standard QCD \emph{explains} 
+sbootstrap_v4c.tex:1116:$f_\pi$ in terms of $\qqbar$ and $\alpha_s$; the sBootstrap 
+sbootstrap_v4c.tex:1117:\emph{uses} $f_\pi$ as the fundamental parameter, with QCD 
+/home/codexssh/phys3/sbootstrap_v4c.tex-1118-providing the dynamical origin but not appearing in the mass 
+sbootstrap_v4c.tex-1119-formula. The absence of QCD factors in \eqref{eq:pimu} is a 
+--
+/home/codexssh/phys3/sbootstrap_v4c.tex-1143-the Koide condition on $(c,b,t)$ would then constrain the Yukawa 
+/home/codexssh/phys3/sbootstrap_v4c.tex-1144-coupling matrix.
+sbootstrap_v4c.tex:1145:\item It may represent a Volkov--Akulov realization at the 
+sbootstrap_v4c.tex-1146-electroweak scale: if there is a second SUSY breaking at 
+/home/codexssh/phys3/sbootstrap_v4c.tex-1147-$f' \sim v_{\text{EW}}$, the $(c,b,t)$ triple would be its 
+sbootstrap_v4c.tex:1148:analog of the $(\pi, \mu)$ system, but with $f'$ replacing $f_\pi$.
+/home/codexssh/phys3/sbootstrap_v4c.tex-1149-\item Or it may be a purely kinematic accident---the quark masses 
+/home/codexssh/phys3/sbootstrap_v4c.tex-1150-happen to satisfy the Koide condition without a dynamical reason. 
+--
+sbootstrap_v4c.tex-1164-scales:
+/home/codexssh/phys3/sbootstrap_v4c.tex-1165-\begin{equation}
+sbootstrap_v4c.tex:1166:f_{\text{chiral}} = f_\pi \approx 92\MeV\,, \qquad
+/home/codexssh/phys3/sbootstrap_v4c.tex-1167-f_{\text{EW}} \sim v_{\text{EW}} \approx 246\GeV\,,
+/home/codexssh/phys3/sbootstrap_v4c.tex-1168-\end{equation}
+/home/codexssh/phys3/sbootstrap_v4c.tex-1169-and the full spectrum requires both. The light sector (leptons, 
+sbootstrap_v4c.tex:1170:light mesons) is governed by $f_\pi$; the heavy sector (top, and 
+/home/codexssh/phys3/sbootstrap_v4c.tex-1171-by extension charm and bottom through the Koide network) is 
+/home/codexssh/phys3/sbootstrap_v4c.tex-1172-governed by $v_{\text{EW}}$. The charm and bottom quarks, 
+--
+sbootstrap_v4c.tex-1268-The sBootstrap adds: superspace chirality (boson vs.\ fermion 
+/home/codexssh/phys3/sbootstrap_v4c.tex-1269-distinction within a multiplet) is broken by the same condensate 
+sbootstrap_v4c.tex:1270:that breaks flavor chirality, with $f_{\text{SUSY}} = f_\pi$. The 
+/home/codexssh/phys3/sbootstrap_v4c.tex-1271-energy-balance condition $\langle z_k^2\rangle = z_0^2$ may be 
+sbootstrap_v4c.tex-1272-related: the breaking is ``as large as the background 
+--
+/home/codexssh/phys3/sbootstrap_v4c.tex-1336-\paragraph{3.\ Two breaking mechanisms plus a heavy-sector origin.}
+/home/codexssh/phys3/sbootstrap_v4c.tex-1337-F-term breaking (via the massless seed member) generates the light 
+sbootstrap_v4c.tex:1338:sector; the Volkov--Akulov relation $f_{\text{VA}} = f_\pi$ is its 
+/home/codexssh/phys3/sbootstrap_v4c.tex-1339-low-energy realization, not a separate mechanism. D-term breaking 
+/home/codexssh/phys3/sbootstrap_v4c.tex-1340-($U(1)_{\text{em}}$ FI parameter) provides electromagnetic 
+--
+/home/codexssh/phys3/sbootstrap_v4c.tex-1361-vacuum charges $v_0$ of the three tuples, the Koide phases 
+/home/codexssh/phys3/sbootstrap_v4c.tex-1362-$\delta$ that control the bloom, and the SUSY-breaking scale 
+sbootstrap_v4c.tex:1363:$f_\pi$ that separates bosons from fermions.
+/home/codexssh/phys3/sbootstrap_v4c.tex-1364-
+/home/codexssh/phys3/sbootstrap_v4c.tex-1365-\begin{thebibliography}{99}
+--
+/home/codexssh/phys3/sbootstrap_v4c.tex-1408-Phys.\ Rev.\ Lett.\ \textbf{51}, 2351 (1983).
+/home/codexssh/phys3/sbootstrap_v4c.tex-1409-
+sbootstrap_v4c.tex:1410:\bibitem{VolkovAkulov1973}
+sbootstrap_v4c.tex:1411:D.~V.~Volkov and V.~P.~Akulov, ``Is the neutrino a Goldstone 
+/home/codexssh/phys3/sbootstrap_v4c.tex-1412-particle?,'' Phys.\ Lett.\ B \textbf{46}, 109 (1973).
+/home/codexssh/phys3/sbootstrap_v4c.tex-1413-
+--
+/home/codexssh/phys3/sbootstrap_v4.tex-13-\newcommand{\MeV}{\,\text{MeV}}
+/home/codexssh/phys3/sbootstrap_v4.tex-14-\newcommand{\GeV}{\,\text{GeV}}
+sbootstrap_v4.tex:15:\newcommand{\fpi}{f_\pi}
+/home/codexssh/phys3/sbootstrap_v4.tex-16-\newcommand{\qqbar}{\langle\bar{q}q\rangle}
+/home/codexssh/phys3/sbootstrap_v4.tex-17-\newcommand{\zch}{\mathfrak{z}}
+--
+/home/codexssh/phys3/sbootstrap_v4.tex-46-than the symmetric, requiring additional dynamical input---and outline 
+/home/codexssh/phys3/sbootstrap_v4.tex-47-how the three types of SUSY breaking (F-term, D-term, nonlinear 
+sbootstrap_v4.tex:48:Volkov--Akulov) may map onto the three-tuple structure.
+/home/codexssh/phys3/sbootstrap_v4.tex-49-\end{abstract}
+/home/codexssh/phys3/sbootstrap_v4.tex-50-
+--
+/home/codexssh/phys3/sbootstrap_v4.tex-61-\begin{equation}
+sbootstrap_v4.tex-62-\label{eq:pimu}
+sbootstrap_v4.tex:63:m_\pi^2 - m_\mu^2 \approx f_\pi^2\,,
+/home/codexssh/phys3/sbootstrap_v4.tex-64-\end{equation}
+sbootstrap_v4.tex:65:identifying the pion decay constant $f_\pi \approx 92.2\MeV$ as the 
+/home/codexssh/phys3/sbootstrap_v4.tex-66-SUSY-breaking order parameter. Numerically, $m_\pi^2 - m_\mu^2 = 
+sbootstrap_v4.tex:67:8{,}316\MeV^2$ versus $f_\pi^2 = 8{,}501\MeV^2$, a $2.2\%$ 
+/home/codexssh/phys3/sbootstrap_v4.tex-68-discrepancy---comparable to the precision of the quark Koide triples 
+/home/codexssh/phys3/sbootstrap_v4.tex-69-discussed below. In this paper we develop two themes 
+--
+/home/codexssh/phys3/sbootstrap_v4.tex-514-energy-balance condition $\langle z_k^2\rangle = z_0^2$ through the 
+/home/codexssh/phys3/sbootstrap_v4.tex-515-breaking, and produce the correct splitting between meson and lepton 
+sbootstrap_v4.tex:516:masses at scale $f_\pi$. In this section we develop the framework in 
+/home/codexssh/phys3/sbootstrap_v4.tex-517-detail, connecting the three standard SUSY-breaking mechanisms to the 
+/home/codexssh/phys3/sbootstrap_v4.tex-518-three-tuple structure.
+--
+/home/codexssh/phys3/sbootstrap_v4.tex-606-$\Phi_2$ (mass $m$) & $\zch_b$ (heavy) & Shifted \\
+/home/codexssh/phys3/sbootstrap_v4.tex-607-\midrule
+sbootstrap_v4.tex:608:$f = \langle F\rangle$ & --- & $f_\pi$ \\
+/home/codexssh/phys3/sbootstrap_v4.tex-609-\bottomrule
+/home/codexssh/phys3/sbootstrap_v4.tex-610-\end{tabular}
+--
+sbootstrap_v4.tex-624-feature: a massless flat direction whose $F$-term is forced nonzero.
+/home/codexssh/phys3/sbootstrap_v4.tex-625-
+sbootstrap_v4.tex:626:The identification $f = \langle F_{\Phi_0}\rangle \sim f_\pi$ is the 
+sbootstrap_v4.tex-627-sBootstrap's central claim: the SUSY-breaking $F$-term is the chiral 
+/home/codexssh/phys3/sbootstrap_v4.tex-628-condensate parameter.
+--
+/home/codexssh/phys3/sbootstrap_v4.tex-636-by loop corrections (here, by quark masses).
+/home/codexssh/phys3/sbootstrap_v4.tex-637-
+sbootstrap_v4.tex:638:\subsection{The Goldstino direction and the Volkov--Akulov realization}
+sbootstrap_v4.tex-639-\label{subsec:va}
+/home/codexssh/phys3/sbootstrap_v4.tex-640-
+--
+/home/codexssh/phys3/sbootstrap_v4.tex-642-Goldstino, the fermionic analogue of the Goldstone boson. Its decay 
+/home/codexssh/phys3/sbootstrap_v4.tex-643-constant $f_{\text{VA}}$ sets the SUSY-breaking scale through the 
+sbootstrap_v4.tex:644:Volkov--Akulov Lagrangian \cite{VolkovAkulov1973}:
+/home/codexssh/phys3/sbootstrap_v4.tex-645-\begin{equation}
+/home/codexssh/phys3/sbootstrap_v4.tex-646-\mathcal{L}_{\text{VA}} = -f_{\text{VA}}^2 \det\!\left(
+--
+/home/codexssh/phys3/sbootstrap_v4.tex-650-where $\lambda$ is the Goldstino field. At low energies, the Goldstino 
+/home/codexssh/phys3/sbootstrap_v4.tex-651-couples derivatively with strength $\sim 1/f_{\text{VA}}^2$, exactly 
+sbootstrap_v4.tex:652:as the pion couples with strength $\sim 1/f_\pi^2$ in the chiral 
+/home/codexssh/phys3/sbootstrap_v4.tex-653-Lagrangian.
+/home/codexssh/phys3/sbootstrap_v4.tex-654-
+--
+/home/codexssh/phys3/sbootstrap_v4.tex-656-\begin{equation}
+sbootstrap_v4.tex-657-\label{eq:va_id}
+sbootstrap_v4.tex:658:f_{\text{VA}} = f_\pi\,, \qquad 
+/home/codexssh/phys3/sbootstrap_v4.tex-659-\text{Goldstino} = \text{muon (partner of }\pi\text{)}\,.
+/home/codexssh/phys3/sbootstrap_v4.tex-660-\end{equation}
+--
+/home/codexssh/phys3/sbootstrap_v4.tex-665-chiral symmetry (giving $m_\pi \neq 0$) and the sBootstrap SUSY 
+/home/codexssh/phys3/sbootstrap_v4.tex-666-(giving $m_\mu \neq m_\pi$), with the splitting controlled by 
+sbootstrap_v4.tex:667:$f_\pi$:
+/home/codexssh/phys3/sbootstrap_v4.tex-668-\begin{equation}
+sbootstrap_v4.tex:669:m_\pi^2 - m_\mu^2 = f_\pi^2\,.
+/home/codexssh/phys3/sbootstrap_v4.tex-670-\end{equation}
+/home/codexssh/phys3/sbootstrap_v4.tex-671-
+sbootstrap_v4.tex:672:This is the Volkov--Akulov relation for the pseudo-Goldstino: the 
+/home/codexssh/phys3/sbootstrap_v4.tex-673-mass splitting between the scalar (pion) and its fermionic partner 
+/home/codexssh/phys3/sbootstrap_v4.tex-674-(muon) is set by the SUSY-breaking scale squared.
+--
+/home/codexssh/phys3/sbootstrap_v4.tex-678-breaking. At the microscopic level, $\langle F\rangle \neq 0$ 
+/home/codexssh/phys3/sbootstrap_v4.tex-679-in the meson superfield; at the composite level, this manifests 
+sbootstrap_v4.tex:680:as the Goldstino coupling with $f_{\text{VA}} = f_\pi$. These 
+sbootstrap_v4.tex:681:two quantities---the Goldstino decay constant and the pion decay 
+/home/codexssh/phys3/sbootstrap_v4.tex-682-constant---are \emph{identified} in the sBootstrap; this is the 
+/home/codexssh/phys3/sbootstrap_v4.tex-683-central claim, not a derivation.
+--
+/home/codexssh/phys3/sbootstrap_v4.tex-685-The identification should not be confused with the standard relation 
+/home/codexssh/phys3/sbootstrap_v4.tex-686-between the $F$-term VEV and the chiral condensate. In standard 
+sbootstrap_v4.tex:687:SQCD, $\langle F\rangle \sim |\qqbar|/f_\pi \sim (250\MeV)^3/92\MeV 
+sbootstrap_v4.tex:688:\approx 170{,}000\MeV^2$, while $f_\pi^2 \approx 8{,}500\MeV^2$---a 
+/home/codexssh/phys3/sbootstrap_v4.tex-689-factor of $\sim 20$ discrepancy. The GOR relation 
+sbootstrap_v4.tex:690:$m_\pi^2 f_\pi^2 = -(m_u + m_d)\qqbar$ connects these through the 
+/home/codexssh/phys3/sbootstrap_v4.tex-691-small quark masses, but does not equate them. The sBootstrap 
+sbootstrap_v4.tex:692:identification $f_{\text{VA}} = f_\pi$ is therefore a 
+/home/codexssh/phys3/sbootstrap_v4.tex-693-\emph{low-energy effective} statement about the composite sector, 
+sbootstrap_v4.tex-694-not a microscopic identity. It says: the scale at which SUSY 
+sbootstrap_v4.tex:695:appears broken in the meson--lepton spectrum is $f_\pi$, regardless 
+/home/codexssh/phys3/sbootstrap_v4.tex-696-of the microscopic $F$-term that produces this breaking.
+/home/codexssh/phys3/sbootstrap_v4.tex-697-
+--
+/home/codexssh/phys3/sbootstrap_v4.tex-724-\begin{equation}
+/home/codexssh/phys3/sbootstrap_v4.tex-725-m_{\pi^\pm}^2 - m_{\pi^0}^2 = \frac{3\alpha_{\text{em}}}{4\pi}\,
+sbootstrap_v4.tex:726:\frac{m_\rho^2}{f_\pi^2}\,f_\pi^2 
+/home/codexssh/phys3/sbootstrap_v4.tex-727-\approx (35.5\MeV)^2\,,
+/home/codexssh/phys3/sbootstrap_v4.tex-728-\end{equation}
+--
+/home/codexssh/phys3/sbootstrap_v4.tex-744-
+sbootstrap_v4.tex-745-The D-term effect is subleading to the F-term: 
+sbootstrap_v4.tex:746:$\xi \sim (35\MeV)^2$ versus $f_\pi^2 \sim (92\MeV)^2$. It 
+/home/codexssh/phys3/sbootstrap_v4.tex-747-operates \emph{within} each supermultiplet entry, splitting charged 
+/home/codexssh/phys3/sbootstrap_v4.tex-748-from neutral mesons, while the F-term splits bosons from fermions 
+--
+sbootstrap_v4.tex-760-The three-tuple structure suggests a layered breaking:
+/home/codexssh/phys3/sbootstrap_v4.tex-761-
+sbootstrap_v4.tex:762:\paragraph{Layer 1: F-term (chiral condensate, scale $\sim f_\pi$).}
+/home/codexssh/phys3/sbootstrap_v4.tex-763-The chiral condensate $\qqbar \neq 0$ breaks both chiral symmetry 
+/home/codexssh/phys3/sbootstrap_v4.tex-764-and the sBootstrap SUSY. This is the primary breaking, affecting 
+--
+/home/codexssh/phys3/sbootstrap_v4.tex-796-\begin{align}
+sbootstrap_v4.tex-797-\text{F-term (boson--fermion splitting):} &\quad 
+sbootstrap_v4.tex:798:f_\pi \approx 92\MeV\,, \quad f_\pi^2 \approx 8{,}500\MeV^2\,; \\
+sbootstrap_v4.tex-799-\text{D-term (EM fine structure):} &\quad 
+/home/codexssh/phys3/sbootstrap_v4.tex-800-\xi^{1/2} \approx 35\MeV\,, \quad \xi \approx 1{,}200\MeV^2\,; \\
+--
+/home/codexssh/phys3/sbootstrap_v4.tex-802-v_0^{(cbt)} \approx 151\MeV^{1/2}\,, \quad (v_0^{(cbt)})^2 \approx 22{,}800\MeV\,.
+/home/codexssh/phys3/sbootstrap_v4.tex-803-\end{align}
+sbootstrap_v4.tex:804:Comparing the squared scales: $f_\pi^2 \gg \xi$ (F-term dominates 
+/home/codexssh/phys3/sbootstrap_v4.tex-805-over D-term by a factor $\sim 7$, consistent with the D-term being 
+/home/codexssh/phys3/sbootstrap_v4.tex-806-a perturbative $O(\alpha_{\text{em}})$ correction). The heavy-sector 
+/home/codexssh/phys3/sbootstrap_v4.tex-807-scale $(v_0^{(cbt)})^2$ carries dimensions of $\MeV$ (not $\MeV^2$) 
+/home/codexssh/phys3/sbootstrap_v4.tex-808-because $v_0$ is a charge ($\MeV^{1/2}$), not an energy; direct 
+sbootstrap_v4.tex:809:comparison with $f_\pi$ requires specifying which physical quantity 
+/home/codexssh/phys3/sbootstrap_v4.tex-810-is being compared.
+/home/codexssh/phys3/sbootstrap_v4.tex-811-
+--
+/home/codexssh/phys3/sbootstrap_v4.tex-929-the Koide condition on $(c,b,t)$ would then constrain the Yukawa 
+/home/codexssh/phys3/sbootstrap_v4.tex-930-coupling matrix.
+sbootstrap_v4.tex:931:\item It may represent a Volkov--Akulov realization at the 
+sbootstrap_v4.tex-932-electroweak scale: if there is a second SUSY breaking at 
+/home/codexssh/phys3/sbootstrap_v4.tex-933-$f' \sim v_{\text{EW}}$, the $(c,b,t)$ triple would be its 
+sbootstrap_v4.tex:934:analog of the $(\pi, \mu)$ system, but with $f'$ replacing $f_\pi$.
+/home/codexssh/phys3/sbootstrap_v4.tex-935-\item Or it may be a purely kinematic accident---the quark masses 
+/home/codexssh/phys3/sbootstrap_v4.tex-936-happen to satisfy the Koide condition without a dynamical reason. 
+--
+sbootstrap_v4.tex-950-scales:
+/home/codexssh/phys3/sbootstrap_v4.tex-951-\begin{equation}
+sbootstrap_v4.tex:952:f_{\text{chiral}} = f_\pi \approx 92\MeV\,, \qquad
+/home/codexssh/phys3/sbootstrap_v4.tex-953-f_{\text{EW}} \sim v_{\text{EW}} \approx 246\GeV\,,
+/home/codexssh/phys3/sbootstrap_v4.tex-954-\end{equation}
+/home/codexssh/phys3/sbootstrap_v4.tex-955-and the full spectrum requires both. The light sector (leptons, 
+sbootstrap_v4.tex:956:light mesons) is governed by $f_\pi$; the heavy sector (top, and 
+/home/codexssh/phys3/sbootstrap_v4.tex-957-by extension charm and bottom through the Koide network) is 
+/home/codexssh/phys3/sbootstrap_v4.tex-958-governed by $v_{\text{EW}}$. The charm and bottom quarks, 
+--
+sbootstrap_v4.tex-1054-The sBootstrap adds: superspace chirality (boson vs.\ fermion 
+/home/codexssh/phys3/sbootstrap_v4.tex-1055-distinction within a multiplet) is broken by the same condensate 
+sbootstrap_v4.tex:1056:that breaks flavor chirality, with $f_{\text{SUSY}} = f_\pi$. The 
+/home/codexssh/phys3/sbootstrap_v4.tex-1057-energy-balance condition $\langle z_k^2\rangle = z_0^2$ may be 
+sbootstrap_v4.tex-1058-related: the breaking is ``as large as the background 
+--
+/home/codexssh/phys3/sbootstrap_v4.tex-1119-F-term breaking (via the massless seed member) generates the light 
+/home/codexssh/phys3/sbootstrap_v4.tex-1120-sector. D-term breaking ($U(1)_{\text{em}}$ FI parameter) provides 
+sbootstrap_v4.tex:1121:electromagnetic splittings. Volkov--Akulov nonlinear realization 
+sbootstrap_v4.tex:1122:sets the overall scale $f_{\text{VA}} = f_\pi$. The heavy triple 
+sbootstrap_v4.tex-1123-$(c,b,t)$ stands apart: no seed, no meson shadow, scale far above 
+/home/codexssh/phys3/sbootstrap_v4.tex-1124-$\Lambda_{\text{QCD}}$, possibly connected to electroweak breaking.
+--
+/home/codexssh/phys3/sbootstrap_v4.tex-1139-vacuum charges $v_0$ of the three tuples, the Koide phases 
+/home/codexssh/phys3/sbootstrap_v4.tex-1140-$\delta$ that control the bloom, and the SUSY-breaking scale 
+sbootstrap_v4.tex:1141:$f_\pi$ that separates bosons from fermions.
+/home/codexssh/phys3/sbootstrap_v4.tex-1142-
+/home/codexssh/phys3/sbootstrap_v4.tex-1143-\begin{thebibliography}{99}
+--
+/home/codexssh/phys3/sbootstrap_v4.tex-1185-Phys.\ Rev.\ Lett.\ \textbf{51}, 2351 (1983).
+/home/codexssh/phys3/sbootstrap_v4.tex-1186-
+sbootstrap_v4.tex:1187:\bibitem{VolkovAkulov1973}
+sbootstrap_v4.tex:1188:D.~V.~Volkov and V.~P.~Akulov, ``Is the neutrino a Goldstone 
+/home/codexssh/phys3/sbootstrap_v4.tex-1189-particle?,'' Phys.\ Lett.\ B \textbf{46}, 109 (1973).
+/home/codexssh/phys3/sbootstrap_v4.tex-1190-
+--
+/home/codexssh/phys3/results/oraifeartaigh_koide.md-8-W_ij = [[0, 0, 0], [0, 2gv, m], [0, m, 0]]
+/home/codexssh/phys3/results/oraifeartaigh_koide.md-9-
+results/oraifeartaigh_koide.md:10:Eigenvalues: 0 (goldstino), m_pm = sqrt(g^2 v^2 + m^2) pm gv.
+/home/codexssh/phys3/results/oraifeartaigh_koide.md-11-
+results/oraifeartaigh_koide.md-12-Setting sqrt(m_-)/sqrt(m_+) = 2 - sqrt(3) (the Koide seed ratio) requires:
+--
+/home/codexssh/phys3/4.tex-13-\newcommand{\MeV}{\,\text{MeV}}
+/home/codexssh/phys3/4.tex-14-\newcommand{\GeV}{\,\text{GeV}}
+4.tex:15:\newcommand{\fpi}{f_\pi}
+/home/codexssh/phys3/4.tex-16-\newcommand{\qqbar}{\langle\bar{q}q\rangle}
+/home/codexssh/phys3/4.tex-17-\newcommand{\zch}{\mathfrak{z}}
+--
+/home/codexssh/phys3/4.tex-46-than the symmetric, requiring additional dynamical input---and outline 
+/home/codexssh/phys3/4.tex-47-how the three types of SUSY breaking (F-term, D-term, nonlinear 
+4.tex:48:Volkov--Akulov) may map onto the three-tuple structure.
+/home/codexssh/phys3/4.tex-49-\end{abstract}
+/home/codexssh/phys3/4.tex-50-
+--
+/home/codexssh/phys3/4.tex-61-\begin{equation}
+4.tex-62-\label{eq:pimu}
+4.tex:63:m_\pi^2 - m_\mu^2 \approx f_\pi^2\,,
+/home/codexssh/phys3/4.tex-64-\end{equation}
+4.tex:65:identifying the pion decay constant $f_\pi \approx 92.2\MeV$ as the 
+/home/codexssh/phys3/4.tex-66-SUSY-breaking order parameter. In this paper we develop two themes 
+/home/codexssh/phys3/4.tex-67-that change the structure of the program.
+--
+/home/codexssh/phys3/4.tex-510-energy-balance condition $\langle z_k^2\rangle = z_0^2$ through the 
+/home/codexssh/phys3/4.tex-511-breaking, and produce the correct splitting between meson and lepton 
+4.tex:512:masses at scale $f_\pi$. In this section we develop the framework in 
+/home/codexssh/phys3/4.tex-513-detail, connecting the three standard SUSY-breaking mechanisms to the 
+/home/codexssh/phys3/4.tex-514-three-tuple structure.
+--
+/home/codexssh/phys3/4.tex-602-$\Phi_2$ (mass $m$) & $\zch_b$ (heavy) & Shifted \\
+/home/codexssh/phys3/4.tex-603-\midrule
+4.tex:604:$f = \langle F\rangle$ & --- & $f_\pi$ \\
+/home/codexssh/phys3/4.tex-605-\bottomrule
+/home/codexssh/phys3/4.tex-606-\end{tabular}
+/home/codexssh/phys3/4.tex-607-\end{center}
+/home/codexssh/phys3/4.tex-608-
+4.tex:609:The identification $f = \langle F_{\Phi_0}\rangle \sim f_\pi$ is the 
+4.tex-610-sBootstrap's central claim: the SUSY-breaking $F$-term is the chiral 
+/home/codexssh/phys3/4.tex-611-condensate parameter.
+--
+/home/codexssh/phys3/4.tex-619-by loop corrections (here, by quark masses).
+/home/codexssh/phys3/4.tex-620-
+4.tex:621:\subsection{The Goldstino direction and the Volkov--Akulov realization}
+4.tex-622-\label{subsec:va}
+/home/codexssh/phys3/4.tex-623-
+--
+/home/codexssh/phys3/4.tex-625-Goldstino, the fermionic analogue of the Goldstone boson. Its decay 
+/home/codexssh/phys3/4.tex-626-constant $f_{\text{VA}}$ sets the SUSY-breaking scale through the 
+4.tex:627:Volkov--Akulov Lagrangian \cite{VolkovAkulov1973}:
+/home/codexssh/phys3/4.tex-628-\begin{equation}
+/home/codexssh/phys3/4.tex-629-\mathcal{L}_{\text{VA}} = -f_{\text{VA}}^2 \det\!\left(
+--
+/home/codexssh/phys3/4.tex-633-where $\lambda$ is the Goldstino field. At low energies, the Goldstino 
+/home/codexssh/phys3/4.tex-634-couples derivatively with strength $\sim 1/f_{\text{VA}}^2$, exactly 
+4.tex:635:as the pion couples with strength $\sim 1/f_\pi^2$ in the chiral 
+/home/codexssh/phys3/4.tex-636-Lagrangian.
+/home/codexssh/phys3/4.tex-637-
+--
+/home/codexssh/phys3/4.tex-639-\begin{equation}
+4.tex-640-\label{eq:va_id}
+4.tex:641:f_{\text{VA}} = f_\pi\,, \qquad 
+/home/codexssh/phys3/4.tex-642-\text{Goldstino} = \text{muon (partner of }\pi\text{)}\,.
+/home/codexssh/phys3/4.tex-643-\end{equation}
+--
+/home/codexssh/phys3/4.tex-648-chiral symmetry (giving $m_\pi \neq 0$) and the sBootstrap SUSY 
+/home/codexssh/phys3/4.tex-649-(giving $m_\mu \neq m_\pi$), with the splitting controlled by 
+4.tex:650:$f_\pi$:
+/home/codexssh/phys3/4.tex-651-\begin{equation}
+4.tex:652:m_\pi^2 - m_\mu^2 = f_\pi^2\,.
+/home/codexssh/phys3/4.tex-653-\end{equation}
+/home/codexssh/phys3/4.tex-654-
+4.tex:655:This is the Volkov--Akulov relation for the pseudo-Goldstino: the 
+/home/codexssh/phys3/4.tex-656-mass splitting between the scalar (pion) and its fermionic partner 
+/home/codexssh/phys3/4.tex-657-(muon) is set by the SUSY-breaking scale squared.
+--
+/home/codexssh/phys3/4.tex-661-breaking. At the microscopic level, $\langle F\rangle \neq 0$ 
+/home/codexssh/phys3/4.tex-662-in the meson superfield; at the composite level, this manifests 
+4.tex:663:as the Goldstino coupling with $f_{\text{VA}} = f_\pi$. The two 
+4.tex-664-descriptions are related by:
+/home/codexssh/phys3/4.tex-665-\begin{equation}
+4.tex:666:f_{\text{VA}}^2 = \langle F\rangle = \frac{|\qqbar|}{f_\pi}\,,
+/home/codexssh/phys3/4.tex-667-\end{equation}
+4.tex:668:consistent with the GOR relation $m_\pi^2 f_\pi^2 = 
+/home/codexssh/phys3/4.tex-669--(m_u + m_d)\qqbar$.
+/home/codexssh/phys3/4.tex-670-
+--
+/home/codexssh/phys3/4.tex-686-\begin{equation}
+/home/codexssh/phys3/4.tex-687-m_{\pi^\pm}^2 - m_{\pi^0}^2 = \frac{3\alpha_{\text{em}}}{4\pi}\,
+4.tex:688:\frac{m_\rho^2}{f_\pi^2}\,f_\pi^2 
+/home/codexssh/phys3/4.tex-689-\approx (35.5\MeV)^2\,,
+/home/codexssh/phys3/4.tex-690-\end{equation}
+--
+/home/codexssh/phys3/4.tex-706-
+4.tex-707-The D-term effect is subleading to the F-term: 
+4.tex:708:$\xi \sim (35\MeV)^2$ versus $f_\pi^2 \sim (92\MeV)^2$. It 
+/home/codexssh/phys3/4.tex-709-operates \emph{within} each supermultiplet entry, splitting charged 
+/home/codexssh/phys3/4.tex-710-from neutral mesons, while the F-term splits bosons from fermions 
+--
+4.tex-722-The three-tuple structure suggests a layered breaking:
+/home/codexssh/phys3/4.tex-723-
+4.tex:724:\paragraph{Layer 1: F-term (chiral condensate, scale $\sim f_\pi$).}
+/home/codexssh/phys3/4.tex-725-The chiral condensate $\qqbar \neq 0$ breaks both chiral symmetry 
+/home/codexssh/phys3/4.tex-726-and the sBootstrap SUSY. This is the primary breaking, affecting 
+--
+4.tex-756-This layered structure has a natural hierarchy:
+/home/codexssh/phys3/4.tex-757-\begin{equation}
+4.tex:758:\underbrace{f_\pi \sim 92\MeV}_{\text{F-term, chiral}} 
+/home/codexssh/phys3/4.tex-759-\;\ll\; 
+/home/codexssh/phys3/4.tex-760-\underbrace{\xi^{1/2} \sim 35\MeV}_{\text{D-term, EM}} 
+--
+/home/codexssh/phys3/4.tex-873-the Koide condition on $(c,b,t)$ would then constrain the Yukawa 
+/home/codexssh/phys3/4.tex-874-coupling matrix.
+4.tex:875:\item It may represent a Volkov--Akulov realization at the 
+4.tex-876-electroweak scale: if there is a second SUSY breaking at 
+/home/codexssh/phys3/4.tex-877-$f' \sim v_{\text{EW}}$, the $(c,b,t)$ triple would be its 
+4.tex:878:analog of the $(\pi, \mu)$ system, but with $f'$ replacing $f_\pi$.
+/home/codexssh/phys3/4.tex-879-\item Or it may be a purely kinematic accident---the quark masses 
+/home/codexssh/phys3/4.tex-880-happen to satisfy the Koide condition without a dynamical reason. 
+--
+4.tex-885-scales:
+/home/codexssh/phys3/4.tex-886-\begin{equation}
+4.tex:887:f_{\text{chiral}} = f_\pi \approx 92\MeV\,, \qquad
+/home/codexssh/phys3/4.tex-888-f_{\text{EW}} \sim v_{\text{EW}} \approx 246\GeV\,,
+/home/codexssh/phys3/4.tex-889-\end{equation}
+/home/codexssh/phys3/4.tex-890-and the full spectrum requires both. The light sector (leptons, 
+4.tex:891:light mesons) is governed by $f_\pi$; the heavy sector (top, and 
+/home/codexssh/phys3/4.tex-892-by extension charm and bottom through the Koide network) is 
+/home/codexssh/phys3/4.tex-893-governed by $v_{\text{EW}}$. The charm and bottom quarks, 
+--
+4.tex-989-The sBootstrap adds: superspace chirality (boson vs.\ fermion 
+/home/codexssh/phys3/4.tex-990-distinction within a multiplet) is broken by the same condensate 
+4.tex:991:that breaks flavor chirality, with $f_{\text{SUSY}} = f_\pi$. The 
+/home/codexssh/phys3/4.tex-992-energy-balance condition $\langle z_k^2\rangle = z_0^2$ may be 
+4.tex-993-related: the breaking is ``as large as the background 
+--
+/home/codexssh/phys3/4.tex-1054-F-term breaking (via the massless seed member) generates the light 
+/home/codexssh/phys3/4.tex-1055-sector. D-term breaking ($U(1)_{\text{em}}$ FI parameter) provides 
+4.tex:1056:electromagnetic splittings. Volkov--Akulov nonlinear realization 
+4.tex:1057:sets the overall scale $f_{\text{VA}} = f_\pi$. The heavy triple 
+4.tex-1058-$(c,b,t)$ stands apart: no seed, no meson shadow, scale far above 
+/home/codexssh/phys3/4.tex-1059-$\Lambda_{\text{QCD}}$, possibly connected to electroweak breaking.
+--
+/home/codexssh/phys3/4.tex-1074-vacuum charges $v_0$ of the three tuples, the Koide phases 
+/home/codexssh/phys3/4.tex-1075-$\delta$ that control the bloom, and the SUSY-breaking scale 
+4.tex:1076:$f_\pi$ that separates bosons from fermions.
+/home/codexssh/phys3/4.tex-1077-
+/home/codexssh/phys3/4.tex-1078-\begin{thebibliography}{99}
+--
+/home/codexssh/phys3/4.tex-1120-Phys.\ Rev.\ Lett.\ \textbf{51}, 2351 (1983).
+/home/codexssh/phys3/4.tex-1121-
+4.tex:1122:\bibitem{VolkovAkulov1973}
+4.tex:1123:D.~V.~Volkov and V.~P.~Akulov, ``Is the neutrino a Goldstone 
+/home/codexssh/phys3/4.tex-1124-particle?,'' Phys.\ Lett.\ B \textbf{46}, 109 (1973).
+/home/codexssh/phys3/4.tex-1125-
+--
+/home/codexssh/phys3/results/consistency_review.md-294-### 6.9 The pion-muon relation
+/home/codexssh/phys3/results/consistency_review.md-295-
+results/consistency_review.md:296:Line 69: m_pi^2 - m_mu^2 = 8,316 MeV^2 versus f_pi^2 = 8,501 MeV^2, a 2.2% discrepancy.
+results/consistency_review.md-297-Line 2029: "holding to 2.2%." Consistent.
+results/consistency_review.md:298:Line 1653: m_pi^2 - m_mu^2 = f_pi^2 (stated as exact equality in the VA section). This is the idealized SUSY relation; the 2.2% discrepancy is the breaking correction. The section correctly qualifies this elsewhere.
+/home/codexssh/phys3/results/consistency_review.md-299-
+/home/codexssh/phys3/results/consistency_review.md-300-### 6.10 The Koide phase
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex-13-\newcommand{\MeV}{\,\text{MeV}}
+/home/codexssh/phys3/sbootstrap_v4d.tex-14-\newcommand{\GeV}{\,\text{GeV}}
+sbootstrap_v4d.tex:15:\newcommand{\fpi}{f_\pi}
+/home/codexssh/phys3/sbootstrap_v4d.tex-16-\newcommand{\qqbar}{\langle\bar{q}q\rangle}
+/home/codexssh/phys3/sbootstrap_v4d.tex-17-\newcommand{\zch}{\mathfrak{z}}
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex-47-proving that the diquark cannot be a $qq$ composite---and outline 
+/home/codexssh/phys3/sbootstrap_v4d.tex-48-how SUSY breaking proceeds through two mechanisms---F-term (chiral
+sbootstrap_v4d.tex:49:condensate, with Volkov--Akulov as its low-energy realization) and
+/home/codexssh/phys3/sbootstrap_v4d.tex-50-D-term (electromagnetic Fayet--Iliopoulos)---plus a separate
+/home/codexssh/phys3/sbootstrap_v4d.tex-51-heavy-sector origin for the $(c,b,t)$ triple. The O'Raifeartaigh
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex-72-\begin{equation}
+sbootstrap_v4d.tex-73-\label{eq:pimu}
+sbootstrap_v4d.tex:74:m_\pi^2 - m_\mu^2 \approx f_\pi^2\,,
+/home/codexssh/phys3/sbootstrap_v4d.tex-75-\end{equation}
+sbootstrap_v4d.tex:76:identifying the pion decay constant $f_\pi \approx 92.2\MeV$ as the 
+/home/codexssh/phys3/sbootstrap_v4d.tex-77-SUSY-breaking order parameter. Numerically, $m_\pi^2 - m_\mu^2 = 
+sbootstrap_v4d.tex:78:8{,}316\MeV^2$ versus $f_\pi^2 = 8{,}501\MeV^2$, a $2.2\%$ 
+/home/codexssh/phys3/sbootstrap_v4d.tex-79-discrepancy---comparable to the precision of the quark Koide triples 
+/home/codexssh/phys3/sbootstrap_v4d.tex-80-discussed below. In this paper we develop two themes 
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex-1510-
+/home/codexssh/phys3/sbootstrap_v4d.tex-1511-The SUSY-breaking story begins with the foundational observation 
+sbootstrap_v4d.tex:1512:\eqref{eq:pimu}: $m_\pi^2 - m_\mu^2 \approx f_\pi^2$. This is the 
+sbootstrap_v4d.tex:1513:Volkov--Akulov mass formula for a pseudo-Goldstino---the muon---whose 
+/home/codexssh/phys3/sbootstrap_v4d.tex-1514-superpartner---the pion---is a pseudo-Goldstone boson. The SUSY-breaking 
+sbootstrap_v4d.tex:1515:scale is $f_\pi \approx 92\MeV$, and the breaking mechanism is chiral: 
+/home/codexssh/phys3/sbootstrap_v4d.tex-1516-$\qqbar \neq 0$ breaks both chiral symmetry and the sBootstrap SUSY 
+sbootstrap_v4d.tex:1517:simultaneously. The Volkov--Akulov realization is the \emph{physical 
+/home/codexssh/phys3/sbootstrap_v4d.tex-1518-starting point}; what follows in this section is the SQCD machinery 
+/home/codexssh/phys3/sbootstrap_v4d.tex-1519-that makes it precise.
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex-1522-transition for each tuple, preserve the energy-balance condition 
+/home/codexssh/phys3/sbootstrap_v4d.tex-1523-$\langle z_k^2\rangle = z_0^2$ through the breaking, and produce 
+sbootstrap_v4d.tex:1524:the correct splitting between meson and lepton masses at scale $f_\pi$.
+/home/codexssh/phys3/sbootstrap_v4d.tex-1525-
+/home/codexssh/phys3/sbootstrap_v4d.tex-1526-\subsection{The Seiberg framework}
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex-1579-
+sbootstrap_v4d.tex-1580-The VA relation \eqref{eq:pimu} tells us \emph{that} SUSY is broken at 
+sbootstrap_v4d.tex:1581:scale $f_\pi$. To understand \emph{how}, we need the microscopic 
+/home/codexssh/phys3/sbootstrap_v4d.tex-1582-mechanism. The O'Raifeartaigh model \cite{ORaifeartaigh} is the simplest 
+/home/codexssh/phys3/sbootstrap_v4d.tex-1583-realization of spontaneous $F$-term SUSY breaking. With three chiral 
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex-1614-$\Phi_2$ (heavy) & $c$ / $D_s$ & $\zch_c = 35.64$ & $\zch_c \approx 35.64$ (shifted) \\
+/home/codexssh/phys3/sbootstrap_v4d.tex-1615-\midrule
+sbootstrap_v4d.tex:1616: & & $f = 0$ (SUSY) & $f = f_\pi$ (broken) \\
+/home/codexssh/phys3/sbootstrap_v4d.tex-1617-\bottomrule
+/home/codexssh/phys3/sbootstrap_v4d.tex-1618-\end{tabular}
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex-1626-  W_{ij} = \begin{pmatrix} 0 & 0 & 0 \\ 0 & 2gv & m \\ 0 & m & 0 \end{pmatrix},
+/home/codexssh/phys3/sbootstrap_v4d.tex-1627-\end{equation*}
+sbootstrap_v4d.tex:1628:with eigenvalues $0$ (the goldstino) and $m_\pm = \sqrt{g^2v^2 + m^2} \pm gv$.
+/home/codexssh/phys3/sbootstrap_v4d.tex-1629-The mass ratio $m_-/m_+ = (\sqrt{t^2+1} - t)^2$, where $t = gv/m$,
+/home/codexssh/phys3/sbootstrap_v4d.tex-1630-is \emph{not} unity.  Setting $\sqrt{m_-}/\sqrt{m_+} = 2 - \sqrt{3}$
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex-1669-
+/home/codexssh/phys3/sbootstrap_v4d.tex-1670-Explicit R-symmetry breaking in the O'Raifeartaigh model (adding a
+sbootstrap_v4d.tex:1671:term $\delta W \sim \varepsilon\,\Phi_0\Phi_2$) lifts the goldstino
+/home/codexssh/phys3/sbootstrap_v4d.tex-1672-mass as $m_0 \sim \varepsilon^2/m$, but simultaneously pushes
+/home/codexssh/phys3/sbootstrap_v4d.tex-1673-$Q$ away from $2/3$---no nonzero $\varepsilon$ preserves the Koide
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex-1689-(superpotential) one.
+/home/codexssh/phys3/sbootstrap_v4d.tex-1690-
+sbootstrap_v4d.tex:1691:The identification $f = \langle F_{\Phi_0}\rangle \sim f_\pi$ is the 
+sbootstrap_v4d.tex-1692-sBootstrap's central claim: the SUSY-breaking $F$-term is the chiral 
+/home/codexssh/phys3/sbootstrap_v4d.tex-1693-condensate parameter.
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex-1701-by loop corrections (here, by quark masses).
+/home/codexssh/phys3/sbootstrap_v4d.tex-1702-
+sbootstrap_v4d.tex:1703:\subsection{The Goldstino direction and the Volkov--Akulov realization}
+sbootstrap_v4d.tex-1704-\label{subsec:va}
+/home/codexssh/phys3/sbootstrap_v4d.tex-1705-
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex-1707-Goldstino, the fermionic analogue of the Goldstone boson. Its decay 
+/home/codexssh/phys3/sbootstrap_v4d.tex-1708-constant $f_{\text{VA}}$ sets the SUSY-breaking scale through the 
+sbootstrap_v4d.tex:1709:Volkov--Akulov Lagrangian \cite{VolkovAkulov1973}:
+/home/codexssh/phys3/sbootstrap_v4d.tex-1710-\begin{equation}
+/home/codexssh/phys3/sbootstrap_v4d.tex-1711-\mathcal{L}_{\text{VA}} = -f_{\text{VA}}^2 \det\!\left(
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex-1715-where $\lambda$ is the Goldstino field. At low energies, the Goldstino 
+/home/codexssh/phys3/sbootstrap_v4d.tex-1716-couples derivatively with strength $\sim 1/f_{\text{VA}}^2$, exactly 
+sbootstrap_v4d.tex:1717:as the pion couples with strength $\sim 1/f_\pi^2$ in the chiral 
+/home/codexssh/phys3/sbootstrap_v4d.tex-1718-Lagrangian.
+/home/codexssh/phys3/sbootstrap_v4d.tex-1719-
+sbootstrap_v4d.tex-1720-The sBootstrap identification is:
+/home/codexssh/phys3/sbootstrap_v4d.tex-1721-\begin{equation}
+sbootstrap_v4d.tex:1722:f_{\text{VA}} = f_\pi\,, \qquad 
+/home/codexssh/phys3/sbootstrap_v4d.tex-1723-\text{Goldstino} = \text{muon (partner of }\pi\text{)}\,.
+/home/codexssh/phys3/sbootstrap_v4d.tex-1724-\end{equation}
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex-1729-chiral symmetry (giving $m_\pi \neq 0$) and the sBootstrap SUSY 
+/home/codexssh/phys3/sbootstrap_v4d.tex-1730-(giving $m_\mu \neq m_\pi$), with the splitting controlled by 
+sbootstrap_v4d.tex:1731:$f_\pi$:
+/home/codexssh/phys3/sbootstrap_v4d.tex-1732-\begin{equation}
+sbootstrap_v4d.tex:1733:m_\pi^2 - m_\mu^2 = f_\pi^2\,.
+/home/codexssh/phys3/sbootstrap_v4d.tex-1734-\end{equation}
+/home/codexssh/phys3/sbootstrap_v4d.tex-1735-
+sbootstrap_v4d.tex:1736:This is the Volkov--Akulov relation for the pseudo-Goldstino: the 
+/home/codexssh/phys3/sbootstrap_v4d.tex-1737-mass splitting between the scalar (pion) and its fermionic partner 
+/home/codexssh/phys3/sbootstrap_v4d.tex-1738-(muon) is set by the SUSY-breaking scale squared.
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex-1742-breaking. At the microscopic level, $\langle F\rangle \neq 0$ 
+/home/codexssh/phys3/sbootstrap_v4d.tex-1743-in the meson superfield; at the composite level, this manifests 
+sbootstrap_v4d.tex:1744:as the Goldstino coupling with $f_{\text{VA}} = f_\pi$. These 
+sbootstrap_v4d.tex:1745:two quantities---the Goldstino decay constant and the pion decay 
+/home/codexssh/phys3/sbootstrap_v4d.tex-1746-constant---are \emph{identified} in the sBootstrap; this is the 
+/home/codexssh/phys3/sbootstrap_v4d.tex-1747-central claim, not a derivation.
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex-1760-$m_\pi^2 \fpi^2 = -(m_u + m_d)\qqbar$, connects these through the
+/home/codexssh/phys3/sbootstrap_v4d.tex-1761-small quark masses but does not equate them. The sBootstrap 
+sbootstrap_v4d.tex:1762:identification $f_{\text{VA}} = f_\pi$ is therefore a 
+/home/codexssh/phys3/sbootstrap_v4d.tex-1763-\emph{low-energy effective} statement about the composite sector, 
+sbootstrap_v4d.tex-1764-not a microscopic identity. It says: the scale at which SUSY 
+sbootstrap_v4d.tex:1765:appears broken in the meson--lepton spectrum is $f_\pi$, regardless 
+/home/codexssh/phys3/sbootstrap_v4d.tex-1766-of the microscopic $F$-term that produces this breaking.
+/home/codexssh/phys3/sbootstrap_v4d.tex-1767-
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex-1782-quark masses that feed the GOR formula).
+/home/codexssh/phys3/sbootstrap_v4d.tex-1783-\end{enumerate}
+sbootstrap_v4d.tex:1784:The splitting between (1) and (2) is $f_\pi^2$---the VA relation. 
+sbootstrap_v4d.tex-1785-The seed-to-bloom transition of \S\ref{sec:two_tuples} is the same 
+sbootstrap_v4d.tex-1786-physics seen from the charge-space perspective: $m_q \neq 0$ lifts 
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex-1836-
+sbootstrap_v4d.tex-1837-The D-term effect is subleading to the F-term: 
+sbootstrap_v4d.tex:1838:$\xi \sim (35\MeV)^2$ versus $f_\pi^2 \sim (92\MeV)^2$. It 
+/home/codexssh/phys3/sbootstrap_v4d.tex-1839-operates \emph{within} each supermultiplet entry, splitting charged 
+/home/codexssh/phys3/sbootstrap_v4d.tex-1840-from neutral mesons, while the F-term splits bosons from fermions 
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex-1850-The tuple structure maps onto a layered breaking with two independent 
+/home/codexssh/phys3/sbootstrap_v4d.tex-1851-mechanisms (F-term and D-term) plus a separate heavy-sector origin. 
+sbootstrap_v4d.tex:1852:The Volkov--Akulov realization of \S\ref{subsec:va} is not a third 
+sbootstrap_v4d.tex-1853-mechanism: it is the low-energy, composite-level description of the 
+sbootstrap_v4d.tex-1854-same F-term breaking. The VA relation \eqref{eq:pimu} \emph{sets the 
+sbootstrap_v4d.tex:1855:scale} ($f_{\text{VA}} = f_\pi$); the O'Raifeartaigh/SQCD dynamics 
+sbootstrap_v4d.tex-1856-of \S\ref{subsec:fterm} \emph{provides the mechanism} 
+/home/codexssh/phys3/sbootstrap_v4d.tex-1857-($\langle F\rangle \neq 0$).
+/home/codexssh/phys3/sbootstrap_v4d.tex-1858-
+sbootstrap_v4d.tex:1859:\paragraph{Layer 1: F-term/VA (chiral condensate, scale $\sim f_\pi$).}
+/home/codexssh/phys3/sbootstrap_v4d.tex-1860-The chiral condensate $\qqbar \neq 0$ breaks both chiral symmetry 
+/home/codexssh/phys3/sbootstrap_v4d.tex-1861-and the sBootstrap SUSY. This is the primary breaking, affecting 
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex-1893-\begin{align}
+sbootstrap_v4d.tex-1894-\text{F-term (boson--fermion splitting):} &\quad 
+sbootstrap_v4d.tex:1895:f_\pi \approx 92\MeV\,, \quad f_\pi^2 \approx 8{,}500\MeV^2\,; \\
+sbootstrap_v4d.tex-1896-\text{D-term (EM fine structure):} &\quad 
+/home/codexssh/phys3/sbootstrap_v4d.tex-1897-\xi^{1/2} \approx 35\MeV\,, \quad \xi \approx 1{,}200\MeV^2\,; \\
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex-1899-v_0^{(cbt)} \approx 172\MeV^{1/2}\,, \quad (v_0^{(cbt)})^2 \approx 29{,}600\MeV\,.
+/home/codexssh/phys3/sbootstrap_v4d.tex-1900-\end{align}
+sbootstrap_v4d.tex:1901:Comparing the squared scales: $f_\pi^2 \gg \xi$ (F-term dominates 
+/home/codexssh/phys3/sbootstrap_v4d.tex-1902-over D-term by a factor $\sim 7$, consistent with the D-term being 
+/home/codexssh/phys3/sbootstrap_v4d.tex-1903-a perturbative $O(\alpha_{\text{em}})$ correction). The heavy-sector 
+/home/codexssh/phys3/sbootstrap_v4d.tex-1904-scale $(v_0^{(cbt)})^2$ carries dimensions of $\MeV$ (not $\MeV^2$) 
+/home/codexssh/phys3/sbootstrap_v4d.tex-1905-because $v_0$ is a charge ($\MeV^{1/2}$), not an energy; direct 
+sbootstrap_v4d.tex:1906:comparison with $f_\pi$ requires specifying which physical quantity 
+/home/codexssh/phys3/sbootstrap_v4d.tex-1907-is being compared.
+/home/codexssh/phys3/sbootstrap_v4d.tex-1908-
+--
+sbootstrap_v4d.tex-2138-a different reason: meson masses are \emph{not} simple functions 
+/home/codexssh/phys3/sbootstrap_v4d.tex-2139-of quark mass ratios. The pion mass is given by the GOR 
+sbootstrap_v4d.tex:2140:relation $m_\pi^2 f_\pi^2 = -(m_u + m_d)\qqbar$; the $D_s$ 
+/home/codexssh/phys3/sbootstrap_v4d.tex-2141-mass involves heavy-quark effective theory; and both receive 
+/home/codexssh/phys3/sbootstrap_v4d.tex-2142-chiral perturbation theory corrections. These nonperturbative 
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex-2145-
+/home/codexssh/phys3/sbootstrap_v4d.tex-2146-\paragraph{A remarkable feature of the VA relation.} The 
+sbootstrap_v4d.tex:2147:foundational equation $m_\pi^2 - m_\mu^2 = f_\pi^2$ contains 
+sbootstrap_v4d.tex-2148-no QCD coupling constant: no $\alpha_s$, no $N_c$, no 
+/home/codexssh/phys3/sbootstrap_v4d.tex-2149-$\Lambda_{\text{QCD}}$. It is a pure mass relation among three 
+--
+sbootstrap_v4d.tex-2151-constant---holding to 2.2\%. In the sBootstrap, this is natural: 
+/home/codexssh/phys3/sbootstrap_v4d.tex-2152-the relation is a SUSY mass splitting, set by the breaking 
+sbootstrap_v4d.tex:2153:scale $f_\pi$, and SUSY mass relations do not involve the gauge 
+/home/codexssh/phys3/sbootstrap_v4d.tex-2154-coupling of the confining theory. Standard QCD \emph{explains} 
+sbootstrap_v4d.tex:2155:$f_\pi$ in terms of $\qqbar$ and $\alpha_s$; the sBootstrap 
+sbootstrap_v4d.tex:2156:\emph{uses} $f_\pi$ as the fundamental parameter, with QCD 
+/home/codexssh/phys3/sbootstrap_v4d.tex-2157-providing the dynamical origin but not appearing in the mass 
+sbootstrap_v4d.tex-2158-formula. The absence of QCD factors in \eqref{eq:pimu} is a 
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex-2182-the Koide condition on $(c,b,t)$ would then constrain the Yukawa 
+/home/codexssh/phys3/sbootstrap_v4d.tex-2183-coupling matrix.
+sbootstrap_v4d.tex:2184:\item It may represent a Volkov--Akulov realization at the 
+sbootstrap_v4d.tex-2185-electroweak scale: if there is a second SUSY breaking at 
+/home/codexssh/phys3/sbootstrap_v4d.tex-2186-$f' \sim v_{\text{EW}}$, the $(c,b,t)$ triple would be its 
+sbootstrap_v4d.tex:2187:analog of the $(\pi, \mu)$ system, but with $f'$ replacing $f_\pi$.
+/home/codexssh/phys3/sbootstrap_v4d.tex-2188-\item Or it may be a purely kinematic accident---the quark masses 
+/home/codexssh/phys3/sbootstrap_v4d.tex-2189-happen to satisfy the Koide condition without a dynamical reason. 
+--
+sbootstrap_v4d.tex-2226-scales:
+/home/codexssh/phys3/sbootstrap_v4d.tex-2227-\begin{equation}
+sbootstrap_v4d.tex:2228:f_{\text{chiral}} = f_\pi \approx 92\MeV\,, \qquad
+/home/codexssh/phys3/sbootstrap_v4d.tex-2229-f_{\text{EW}} \sim v_{\text{EW}} \approx 246\GeV\,,
+/home/codexssh/phys3/sbootstrap_v4d.tex-2230-\end{equation}
+/home/codexssh/phys3/sbootstrap_v4d.tex-2231-and the full spectrum requires both. The light sector (leptons, 
+sbootstrap_v4d.tex:2232:light mesons) is governed by $f_\pi$; the heavy sector (top, and 
+/home/codexssh/phys3/sbootstrap_v4d.tex-2233-by extension charm and bottom through the Koide network) is 
+/home/codexssh/phys3/sbootstrap_v4d.tex-2234-governed by $v_{\text{EW}}$. The charm and bottom quarks, 
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex-2320-\end{equation*}
+/home/codexssh/phys3/sbootstrap_v4d.tex-2321-%
+sbootstrap_v4d.tex:2322:which is precisely the Volkov--Akulov relation~\eqref{eq:pimu}.
+/home/codexssh/phys3/sbootstrap_v4d.tex-2323-
+/home/codexssh/phys3/sbootstrap_v4d.tex-2324-The top quark, with $m_t\gg\Lambda_{\text{QCD}}$, does not hadronize and
+--
+sbootstrap_v4d.tex-2543-The sBootstrap adds: superspace chirality (boson vs.\ fermion 
+/home/codexssh/phys3/sbootstrap_v4d.tex-2544-distinction within a multiplet) is broken by the same condensate 
+sbootstrap_v4d.tex:2545:that breaks flavor chirality, with $f_{\text{SUSY}} = f_\pi$. The 
+/home/codexssh/phys3/sbootstrap_v4d.tex-2546-energy-balance condition $\langle z_k^2\rangle = z_0^2$ may be 
+sbootstrap_v4d.tex-2547-related: the breaking is ``as large as the background
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex-2657-\paragraph{4.\ Two breaking mechanisms plus a heavy-sector origin.}
+/home/codexssh/phys3/sbootstrap_v4d.tex-2658-F-term breaking (via the massless seed member) generates the light 
+sbootstrap_v4d.tex:2659:sector; the Volkov--Akulov relation $f_{\text{VA}} = f_\pi$ is its 
+/home/codexssh/phys3/sbootstrap_v4d.tex-2660-low-energy realization, not a separate mechanism. D-term breaking 
+/home/codexssh/phys3/sbootstrap_v4d.tex-2661-($U(1)_{\text{em}}$ FI parameter) provides electromagnetic 
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex-2767-Phys.\ Rev.\ Lett.\ \textbf{51}, 2351 (1983).
+/home/codexssh/phys3/sbootstrap_v4d.tex-2768-
+sbootstrap_v4d.tex:2769:\bibitem{VolkovAkulov1973}
+sbootstrap_v4d.tex:2770:D.~V.~Volkov and V.~P.~Akulov, ``Is the neutrino a Goldstone 
+/home/codexssh/phys3/sbootstrap_v4d.tex-2771-particle?,'' Phys.\ Lett.\ B \textbf{46}, 109 (1973).
+/home/codexssh/phys3/sbootstrap_v4d.tex-2772-
+--
+/home/codexssh/phys3/results/bloom_mechanism.md-17-
+/home/codexssh/phys3/results/bloom_mechanism.md-18-### 3. R-Breaking Instability
+results/bloom_mechanism.md:19:Explicit R-symmetry breaking (delta_W ~ epsilon*Phi_0*Phi_2) lifts goldstino mass
+/home/codexssh/phys3/results/bloom_mechanism.md-20-as m_0 ~ epsilon^2/m, but pushes Q away from 2/3. No nonzero epsilon preserves
+/home/codexssh/phys3/results/bloom_mechanism.md-21-the Koide condition. The seed is an UNSTABLE FIXED POINT.
+--
+/home/codexssh/phys3/sbootstrap_v4b.tex-13-\newcommand{\MeV}{\,\text{MeV}}
+/home/codexssh/phys3/sbootstrap_v4b.tex-14-\newcommand{\GeV}{\,\text{GeV}}
+sbootstrap_v4b.tex:15:\newcommand{\fpi}{f_\pi}
+/home/codexssh/phys3/sbootstrap_v4b.tex-16-\newcommand{\qqbar}{\langle\bar{q}q\rangle}
+/home/codexssh/phys3/sbootstrap_v4b.tex-17-\newcommand{\zch}{\mathfrak{z}}
+--
+/home/codexssh/phys3/sbootstrap_v4b.tex-46-than the symmetric, requiring additional dynamical input---and outline 
+/home/codexssh/phys3/sbootstrap_v4b.tex-47-how SUSY breaking proceeds through two mechanisms---F-term (chiral 
+sbootstrap_v4b.tex:48:condensate, with Volkov--Akulov as its low-energy realization) and 
+/home/codexssh/phys3/sbootstrap_v4b.tex-49-D-term (electromagnetic Fayet--Iliopoulos)---plus a separate 
+/home/codexssh/phys3/sbootstrap_v4b.tex-50-heavy-sector origin for the $(c,b,t)$ triple.
+--
+/home/codexssh/phys3/sbootstrap_v4b.tex-63-\begin{equation}
+sbootstrap_v4b.tex-64-\label{eq:pimu}
+sbootstrap_v4b.tex:65:m_\pi^2 - m_\mu^2 \approx f_\pi^2\,,
+/home/codexssh/phys3/sbootstrap_v4b.tex-66-\end{equation}
+sbootstrap_v4b.tex:67:identifying the pion decay constant $f_\pi \approx 92.2\MeV$ as the 
+/home/codexssh/phys3/sbootstrap_v4b.tex-68-SUSY-breaking order parameter. Numerically, $m_\pi^2 - m_\mu^2 = 
+sbootstrap_v4b.tex:69:8{,}316\MeV^2$ versus $f_\pi^2 = 8{,}501\MeV^2$, a $2.2\%$ 
+/home/codexssh/phys3/sbootstrap_v4b.tex-70-discrepancy---comparable to the precision of the quark Koide triples 
+/home/codexssh/phys3/sbootstrap_v4b.tex-71-discussed below. In this paper we develop two themes 
+--
+/home/codexssh/phys3/sbootstrap_v4b.tex-534-
+/home/codexssh/phys3/sbootstrap_v4b.tex-535-The SUSY-breaking story begins with the foundational observation 
+sbootstrap_v4b.tex:536:\eqref{eq:pimu}: $m_\pi^2 - m_\mu^2 \approx f_\pi^2$. This is the 
+sbootstrap_v4b.tex:537:Volkov--Akulov mass formula for a pseudo-Goldstino---the muon---whose 
+/home/codexssh/phys3/sbootstrap_v4b.tex-538-superpartner---the pion---is a pseudo-Goldstone boson. The SUSY-breaking 
+sbootstrap_v4b.tex:539:scale is $f_\pi \approx 92\MeV$, and the breaking mechanism is chiral: 
+/home/codexssh/phys3/sbootstrap_v4b.tex-540-$\qqbar \neq 0$ breaks both chiral symmetry and the sBootstrap SUSY 
+sbootstrap_v4b.tex:541:simultaneously. The Volkov--Akulov realization is the \emph{physical 
+/home/codexssh/phys3/sbootstrap_v4b.tex-542-starting point}; what follows in this section is the SQCD machinery 
+/home/codexssh/phys3/sbootstrap_v4b.tex-543-that makes it precise.
+--
+/home/codexssh/phys3/sbootstrap_v4b.tex-546-transition for each tuple, preserve the energy-balance condition 
+/home/codexssh/phys3/sbootstrap_v4b.tex-547-$\langle z_k^2\rangle = z_0^2$ through the breaking, and produce 
+sbootstrap_v4b.tex:548:the correct splitting between meson and lepton masses at scale $f_\pi$.
+/home/codexssh/phys3/sbootstrap_v4b.tex-549-
+/home/codexssh/phys3/sbootstrap_v4b.tex-550-\subsection{The Seiberg framework}
+--
+/home/codexssh/phys3/sbootstrap_v4b.tex-603-
+sbootstrap_v4b.tex-604-The VA relation \eqref{eq:pimu} tells us \emph{that} SUSY is broken at 
+sbootstrap_v4b.tex:605:scale $f_\pi$. To understand \emph{how}, we need the microscopic 
+/home/codexssh/phys3/sbootstrap_v4b.tex-606-mechanism. The O'Raifeartaigh model \cite{ORaifeartaigh} is the simplest 
+/home/codexssh/phys3/sbootstrap_v4b.tex-607-realization of spontaneous $F$-term SUSY breaking. With three chiral 
+--
+/home/codexssh/phys3/sbootstrap_v4b.tex-638-$\Phi_2$ (heavy) & $c$ / $D_s$ & $\zch_c = 35.64$ & $\zch_c \approx 35.64$ (shifted) \\
+/home/codexssh/phys3/sbootstrap_v4b.tex-639-\midrule
+sbootstrap_v4b.tex:640: & & $f = 0$ (SUSY) & $f = f_\pi$ (broken) \\
+/home/codexssh/phys3/sbootstrap_v4b.tex-641-\bottomrule
+/home/codexssh/phys3/sbootstrap_v4b.tex-642-\end{tabular}
+--
+/home/codexssh/phys3/sbootstrap_v4b.tex-659-rearrange from $(0, s, c)$ into $(-s, c, b)$.
+/home/codexssh/phys3/sbootstrap_v4b.tex-660-
+sbootstrap_v4b.tex:661:The identification $f = \langle F_{\Phi_0}\rangle \sim f_\pi$ is the 
+sbootstrap_v4b.tex-662-sBootstrap's central claim: the SUSY-breaking $F$-term is the chiral 
+/home/codexssh/phys3/sbootstrap_v4b.tex-663-condensate parameter.
+--
+/home/codexssh/phys3/sbootstrap_v4b.tex-671-by loop corrections (here, by quark masses).
+/home/codexssh/phys3/sbootstrap_v4b.tex-672-
+sbootstrap_v4b.tex:673:\subsection{The Goldstino direction and the Volkov--Akulov realization}
+sbootstrap_v4b.tex-674-\label{subsec:va}
+/home/codexssh/phys3/sbootstrap_v4b.tex-675-
+--
+/home/codexssh/phys3/sbootstrap_v4b.tex-677-Goldstino, the fermionic analogue of the Goldstone boson. Its decay 
+/home/codexssh/phys3/sbootstrap_v4b.tex-678-constant $f_{\text{VA}}$ sets the SUSY-breaking scale through the 
+sbootstrap_v4b.tex:679:Volkov--Akulov Lagrangian \cite{VolkovAkulov1973}:
+/home/codexssh/phys3/sbootstrap_v4b.tex-680-\begin{equation}
+/home/codexssh/phys3/sbootstrap_v4b.tex-681-\mathcal{L}_{\text{VA}} = -f_{\text{VA}}^2 \det\!\left(
+--
+/home/codexssh/phys3/sbootstrap_v4b.tex-685-where $\lambda$ is the Goldstino field. At low energies, the Goldstino 
+/home/codexssh/phys3/sbootstrap_v4b.tex-686-couples derivatively with strength $\sim 1/f_{\text{VA}}^2$, exactly 
+sbootstrap_v4b.tex:687:as the pion couples with strength $\sim 1/f_\pi^2$ in the chiral 
+/home/codexssh/phys3/sbootstrap_v4b.tex-688-Lagrangian.
+/home/codexssh/phys3/sbootstrap_v4b.tex-689-
+--
+/home/codexssh/phys3/sbootstrap_v4b.tex-691-\begin{equation}
+sbootstrap_v4b.tex-692-\label{eq:va_id}
+sbootstrap_v4b.tex:693:f_{\text{VA}} = f_\pi\,, \qquad 
+/home/codexssh/phys3/sbootstrap_v4b.tex-694-\text{Goldstino} = \text{muon (partner of }\pi\text{)}\,.
+/home/codexssh/phys3/sbootstrap_v4b.tex-695-\end{equation}
+--
+/home/codexssh/phys3/sbootstrap_v4b.tex-700-chiral symmetry (giving $m_\pi \neq 0$) and the sBootstrap SUSY 
+/home/codexssh/phys3/sbootstrap_v4b.tex-701-(giving $m_\mu \neq m_\pi$), with the splitting controlled by 
+sbootstrap_v4b.tex:702:$f_\pi$:
+/home/codexssh/phys3/sbootstrap_v4b.tex-703-\begin{equation}
+sbootstrap_v4b.tex:704:m_\pi^2 - m_\mu^2 = f_\pi^2\,.
+/home/codexssh/phys3/sbootstrap_v4b.tex-705-\end{equation}
+/home/codexssh/phys3/sbootstrap_v4b.tex-706-
+sbootstrap_v4b.tex:707:This is the Volkov--Akulov relation for the pseudo-Goldstino: the 
+/home/codexssh/phys3/sbootstrap_v4b.tex-708-mass splitting between the scalar (pion) and its fermionic partner 
+/home/codexssh/phys3/sbootstrap_v4b.tex-709-(muon) is set by the SUSY-breaking scale squared.
+--
+/home/codexssh/phys3/sbootstrap_v4b.tex-713-breaking. At the microscopic level, $\langle F\rangle \neq 0$ 
+/home/codexssh/phys3/sbootstrap_v4b.tex-714-in the meson superfield; at the composite level, this manifests 
+sbootstrap_v4b.tex:715:as the Goldstino coupling with $f_{\text{VA}} = f_\pi$. These 
+sbootstrap_v4b.tex:716:two quantities---the Goldstino decay constant and the pion decay 
+/home/codexssh/phys3/sbootstrap_v4b.tex-717-constant---are \emph{identified} in the sBootstrap; this is the 
+/home/codexssh/phys3/sbootstrap_v4b.tex-718-central claim, not a derivation.
+--
+/home/codexssh/phys3/sbootstrap_v4b.tex-720-The identification should not be confused with the standard relation 
+/home/codexssh/phys3/sbootstrap_v4b.tex-721-between the $F$-term VEV and the chiral condensate. In standard 
+sbootstrap_v4b.tex:722:SQCD, $\langle F\rangle \sim |\qqbar|/f_\pi \sim (250\MeV)^3/92\MeV 
+sbootstrap_v4b.tex:723:\approx 170{,}000\MeV^2$, while $f_\pi^2 \approx 8{,}500\MeV^2$---a 
+/home/codexssh/phys3/sbootstrap_v4b.tex-724-factor of $\sim 20$ discrepancy. The GOR relation 
+sbootstrap_v4b.tex:725:$m_\pi^2 f_\pi^2 = -(m_u + m_d)\qqbar$ connects these through the 
+/home/codexssh/phys3/sbootstrap_v4b.tex-726-small quark masses, but does not equate them. The sBootstrap 
+sbootstrap_v4b.tex:727:identification $f_{\text{VA}} = f_\pi$ is therefore a 
+/home/codexssh/phys3/sbootstrap_v4b.tex-728-\emph{low-energy effective} statement about the composite sector, 
+sbootstrap_v4b.tex-729-not a microscopic identity. It says: the scale at which SUSY 
+sbootstrap_v4b.tex:730:appears broken in the meson--lepton spectrum is $f_\pi$, regardless 
+/home/codexssh/phys3/sbootstrap_v4b.tex-731-of the microscopic $F$-term that produces this breaking.
+/home/codexssh/phys3/sbootstrap_v4b.tex-732-
+--
+/home/codexssh/phys3/sbootstrap_v4b.tex-747-quark masses that feed the GOR formula).
+/home/codexssh/phys3/sbootstrap_v4b.tex-748-\end{enumerate}
+sbootstrap_v4b.tex:749:The splitting between (1) and (2) is $f_\pi^2$---the VA relation. 
+sbootstrap_v4b.tex-750-The seed-to-bloom transition of \S\ref{sec:two_tuples} is the same 
+sbootstrap_v4b.tex-751-physics seen from the charge-space perspective: $m_q \neq 0$ lifts 
+--
+/home/codexssh/phys3/sbootstrap_v4b.tex-783-\begin{equation}
+/home/codexssh/phys3/sbootstrap_v4b.tex-784-m_{\pi^\pm}^2 - m_{\pi^0}^2 = \frac{3\alpha_{\text{em}}}{4\pi}\,
+sbootstrap_v4b.tex:785:\frac{m_\rho^2}{f_\pi^2}\,f_\pi^2 
+/home/codexssh/phys3/sbootstrap_v4b.tex-786-\approx (35.5\MeV)^2\,,
+/home/codexssh/phys3/sbootstrap_v4b.tex-787-\end{equation}
+--
+/home/codexssh/phys3/sbootstrap_v4b.tex-803-
+sbootstrap_v4b.tex-804-The D-term effect is subleading to the F-term: 
+sbootstrap_v4b.tex:805:$\xi \sim (35\MeV)^2$ versus $f_\pi^2 \sim (92\MeV)^2$. It 
+/home/codexssh/phys3/sbootstrap_v4b.tex-806-operates \emph{within} each supermultiplet entry, splitting charged 
+/home/codexssh/phys3/sbootstrap_v4b.tex-807-from neutral mesons, while the F-term splits bosons from fermions 
+--
+/home/codexssh/phys3/sbootstrap_v4b.tex-819-The tuple structure maps onto a layered breaking with two independent 
+/home/codexssh/phys3/sbootstrap_v4b.tex-820-mechanisms (F-term and D-term) plus a separate heavy-sector origin. 
+sbootstrap_v4b.tex:821:The Volkov--Akulov realization of \S\ref{subsec:va} is not a third 
+sbootstrap_v4b.tex-822-mechanism: it is the low-energy, composite-level description of the 
+sbootstrap_v4b.tex-823-same F-term breaking. The VA relation \eqref{eq:pimu} \emph{sets the 
+sbootstrap_v4b.tex:824:scale} ($f_{\text{VA}} = f_\pi$); the O'Raifeartaigh/SQCD dynamics 
+sbootstrap_v4b.tex-825-of \S\ref{subsec:fterm} \emph{provides the mechanism} 
+/home/codexssh/phys3/sbootstrap_v4b.tex-826-($\langle F\rangle \neq 0$).
+/home/codexssh/phys3/sbootstrap_v4b.tex-827-
+sbootstrap_v4b.tex:828:\paragraph{Layer 1: F-term/VA (chiral condensate, scale $\sim f_\pi$).}
+/home/codexssh/phys3/sbootstrap_v4b.tex-829-The chiral condensate $\qqbar \neq 0$ breaks both chiral symmetry 
+/home/codexssh/phys3/sbootstrap_v4b.tex-830-and the sBootstrap SUSY. This is the primary breaking, affecting 
+--
+/home/codexssh/phys3/sbootstrap_v4b.tex-862-\begin{align}
+sbootstrap_v4b.tex-863-\text{F-term (boson--fermion splitting):} &\quad 
+sbootstrap_v4b.tex:864:f_\pi \approx 92\MeV\,, \quad f_\pi^2 \approx 8{,}500\MeV^2\,; \\
+sbootstrap_v4b.tex-865-\text{D-term (EM fine structure):} &\quad 
+/home/codexssh/phys3/sbootstrap_v4b.tex-866-\xi^{1/2} \approx 35\MeV\,, \quad \xi \approx 1{,}200\MeV^2\,; \\
+--
+/home/codexssh/phys3/sbootstrap_v4b.tex-868-v_0^{(cbt)} \approx 172\MeV^{1/2}\,, \quad (v_0^{(cbt)})^2 \approx 29{,}600\MeV\,.
+/home/codexssh/phys3/sbootstrap_v4b.tex-869-\end{align}
+sbootstrap_v4b.tex:870:Comparing the squared scales: $f_\pi^2 \gg \xi$ (F-term dominates 
+/home/codexssh/phys3/sbootstrap_v4b.tex-871-over D-term by a factor $\sim 7$, consistent with the D-term being 
+/home/codexssh/phys3/sbootstrap_v4b.tex-872-a perturbative $O(\alpha_{\text{em}})$ correction). The heavy-sector 
+/home/codexssh/phys3/sbootstrap_v4b.tex-873-scale $(v_0^{(cbt)})^2$ carries dimensions of $\MeV$ (not $\MeV^2$) 
+/home/codexssh/phys3/sbootstrap_v4b.tex-874-because $v_0$ is a charge ($\MeV^{1/2}$), not an energy; direct 
+sbootstrap_v4b.tex:875:comparison with $f_\pi$ requires specifying which physical quantity 
+/home/codexssh/phys3/sbootstrap_v4b.tex-876-is being compared.
+/home/codexssh/phys3/sbootstrap_v4b.tex-877-
+--
+/home/codexssh/phys3/sbootstrap_v4b.tex-1077-the Koide condition on $(c,b,t)$ would then constrain the Yukawa 
+/home/codexssh/phys3/sbootstrap_v4b.tex-1078-coupling matrix.
+sbootstrap_v4b.tex:1079:\item It may represent a Volkov--Akulov realization at the 
+sbootstrap_v4b.tex-1080-electroweak scale: if there is a second SUSY breaking at 
+/home/codexssh/phys3/sbootstrap_v4b.tex-1081-$f' \sim v_{\text{EW}}$, the $(c,b,t)$ triple would be its 
+sbootstrap_v4b.tex:1082:analog of the $(\pi, \mu)$ system, but with $f'$ replacing $f_\pi$.
+/home/codexssh/phys3/sbootstrap_v4b.tex-1083-\item Or it may be a purely kinematic accident---the quark masses 
+/home/codexssh/phys3/sbootstrap_v4b.tex-1084-happen to satisfy the Koide condition without a dynamical reason. 
+--
+sbootstrap_v4b.tex-1098-scales:
+/home/codexssh/phys3/sbootstrap_v4b.tex-1099-\begin{equation}
+sbootstrap_v4b.tex:1100:f_{\text{chiral}} = f_\pi \approx 92\MeV\,, \qquad
+/home/codexssh/phys3/sbootstrap_v4b.tex-1101-f_{\text{EW}} \sim v_{\text{EW}} \approx 246\GeV\,,
+/home/codexssh/phys3/sbootstrap_v4b.tex-1102-\end{equation}
+/home/codexssh/phys3/sbootstrap_v4b.tex-1103-and the full spectrum requires both. The light sector (leptons, 
+sbootstrap_v4b.tex:1104:light mesons) is governed by $f_\pi$; the heavy sector (top, and 
+/home/codexssh/phys3/sbootstrap_v4b.tex-1105-by extension charm and bottom through the Koide network) is 
+/home/codexssh/phys3/sbootstrap_v4b.tex-1106-governed by $v_{\text{EW}}$. The charm and bottom quarks, 
+--
+sbootstrap_v4b.tex-1202-The sBootstrap adds: superspace chirality (boson vs.\ fermion 
+/home/codexssh/phys3/sbootstrap_v4b.tex-1203-distinction within a multiplet) is broken by the same condensate 
+sbootstrap_v4b.tex:1204:that breaks flavor chirality, with $f_{\text{SUSY}} = f_\pi$. The 
+/home/codexssh/phys3/sbootstrap_v4b.tex-1205-energy-balance condition $\langle z_k^2\rangle = z_0^2$ may be 
+sbootstrap_v4b.tex-1206-related: the breaking is ``as large as the background 
+--
+/home/codexssh/phys3/sbootstrap_v4b.tex-1266-\paragraph{3.\ Two breaking mechanisms plus a heavy-sector origin.}
+/home/codexssh/phys3/sbootstrap_v4b.tex-1267-F-term breaking (via the massless seed member) generates the light 
+sbootstrap_v4b.tex:1268:sector; the Volkov--Akulov relation $f_{\text{VA}} = f_\pi$ is its 
+/home/codexssh/phys3/sbootstrap_v4b.tex-1269-low-energy realization, not a separate mechanism. D-term breaking 
+/home/codexssh/phys3/sbootstrap_v4b.tex-1270-($U(1)_{\text{em}}$ FI parameter) provides electromagnetic 
+--
+/home/codexssh/phys3/sbootstrap_v4b.tex-1288-vacuum charges $v_0$ of the three tuples, the Koide phases 
+/home/codexssh/phys3/sbootstrap_v4b.tex-1289-$\delta$ that control the bloom, and the SUSY-breaking scale 
+sbootstrap_v4b.tex:1290:$f_\pi$ that separates bosons from fermions.
+/home/codexssh/phys3/sbootstrap_v4b.tex-1291-
+/home/codexssh/phys3/sbootstrap_v4b.tex-1292-\begin{thebibliography}{99}
+--
+/home/codexssh/phys3/sbootstrap_v4b.tex-1334-Phys.\ Rev.\ Lett.\ \textbf{51}, 2351 (1983).
+/home/codexssh/phys3/sbootstrap_v4b.tex-1335-
+sbootstrap_v4b.tex:1336:\bibitem{VolkovAkulov1973}
+sbootstrap_v4b.tex:1337:D.~V.~Volkov and V.~P.~Akulov, ``Is the neutrino a Goldstone 
+/home/codexssh/phys3/sbootstrap_v4b.tex-1338-particle?,'' Phys.\ Lett.\ B \textbf{46}, 109 (1973).
+/home/codexssh/phys3/sbootstrap_v4b.tex-1339-
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-13-\newcommand{\MeV}{\,\text{MeV}}
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-14-\newcommand{\GeV}{\,\text{GeV}}
+sbootstrap_v4d.tex.prelabel:15:\newcommand{\fpi}{f_\pi}
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-16-\newcommand{\qqbar}{\langle\bar{q}q\rangle}
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-17-\newcommand{\zch}{\mathfrak{z}}
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-47-proving that the diquark cannot be a $qq$ composite---and outline 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-48-how SUSY breaking proceeds through two mechanisms---F-term (chiral 
+sbootstrap_v4d.tex.prelabel:49:condensate, with Volkov--Akulov as its low-energy realization) and 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-50-D-term (electromagnetic Fayet--Iliopoulos)---plus a separate 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-51-heavy-sector origin for the $(c,b,t)$ triple.
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-64-\begin{equation}
+sbootstrap_v4d.tex.prelabel-65-\label{eq:pimu}
+sbootstrap_v4d.tex.prelabel:66:m_\pi^2 - m_\mu^2 \approx f_\pi^2\,,
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-67-\end{equation}
+sbootstrap_v4d.tex.prelabel:68:identifying the pion decay constant $f_\pi \approx 92.2\MeV$ as the 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-69-SUSY-breaking order parameter. Numerically, $m_\pi^2 - m_\mu^2 = 
+sbootstrap_v4d.tex.prelabel:70:8{,}316\MeV^2$ versus $f_\pi^2 = 8{,}501\MeV^2$, a $2.2\%$ 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-71-discrepancy---comparable to the precision of the quark Koide triples 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-72-discussed below. In this paper we develop two themes 
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1512-
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1513-The SUSY-breaking story begins with the foundational observation 
+sbootstrap_v4d.tex.prelabel:1514:\eqref{eq:pimu}: $m_\pi^2 - m_\mu^2 \approx f_\pi^2$. This is the 
+sbootstrap_v4d.tex.prelabel:1515:Volkov--Akulov mass formula for a pseudo-Goldstino---the muon---whose 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1516-superpartner---the pion---is a pseudo-Goldstone boson. The SUSY-breaking 
+sbootstrap_v4d.tex.prelabel:1517:scale is $f_\pi \approx 92\MeV$, and the breaking mechanism is chiral: 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1518-$\qqbar \neq 0$ breaks both chiral symmetry and the sBootstrap SUSY 
+sbootstrap_v4d.tex.prelabel:1519:simultaneously. The Volkov--Akulov realization is the \emph{physical 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1520-starting point}; what follows in this section is the SQCD machinery 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1521-that makes it precise.
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1524-transition for each tuple, preserve the energy-balance condition 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1525-$\langle z_k^2\rangle = z_0^2$ through the breaking, and produce 
+sbootstrap_v4d.tex.prelabel:1526:the correct splitting between meson and lepton masses at scale $f_\pi$.
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1527-
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1528-\subsection{The Seiberg framework}
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1581-
+sbootstrap_v4d.tex.prelabel-1582-The VA relation \eqref{eq:pimu} tells us \emph{that} SUSY is broken at 
+sbootstrap_v4d.tex.prelabel:1583:scale $f_\pi$. To understand \emph{how}, we need the microscopic 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1584-mechanism. The O'Raifeartaigh model \cite{ORaifeartaigh} is the simplest 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1585-realization of spontaneous $F$-term SUSY breaking. With three chiral 
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1616-$\Phi_2$ (heavy) & $c$ / $D_s$ & $\zch_c = 35.64$ & $\zch_c \approx 35.64$ (shifted) \\
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1617-\midrule
+sbootstrap_v4d.tex.prelabel:1618: & & $f = 0$ (SUSY) & $f = f_\pi$ (broken) \\
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1619-\bottomrule
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1620-\end{tabular}
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1649-(superpotential) one.
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1650-
+sbootstrap_v4d.tex.prelabel:1651:The identification $f = \langle F_{\Phi_0}\rangle \sim f_\pi$ is the 
+sbootstrap_v4d.tex.prelabel-1652-sBootstrap's central claim: the SUSY-breaking $F$-term is the chiral 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1653-condensate parameter.
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1661-by loop corrections (here, by quark masses).
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1662-
+sbootstrap_v4d.tex.prelabel:1663:\subsection{The Goldstino direction and the Volkov--Akulov realization}
+sbootstrap_v4d.tex.prelabel-1664-\label{subsec:va}
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1665-
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1667-Goldstino, the fermionic analogue of the Goldstone boson. Its decay 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1668-constant $f_{\text{VA}}$ sets the SUSY-breaking scale through the 
+sbootstrap_v4d.tex.prelabel:1669:Volkov--Akulov Lagrangian \cite{VolkovAkulov1973}:
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1670-\begin{equation}
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1671-\mathcal{L}_{\text{VA}} = -f_{\text{VA}}^2 \det\!\left(
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1675-where $\lambda$ is the Goldstino field. At low energies, the Goldstino 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1676-couples derivatively with strength $\sim 1/f_{\text{VA}}^2$, exactly 
+sbootstrap_v4d.tex.prelabel:1677:as the pion couples with strength $\sim 1/f_\pi^2$ in the chiral 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1678-Lagrangian.
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1679-
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1681-\begin{equation}
+sbootstrap_v4d.tex.prelabel-1682-\label{eq:va_id}
+sbootstrap_v4d.tex.prelabel:1683:f_{\text{VA}} = f_\pi\,, \qquad 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1684-\text{Goldstino} = \text{muon (partner of }\pi\text{)}\,.
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1685-\end{equation}
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1690-chiral symmetry (giving $m_\pi \neq 0$) and the sBootstrap SUSY 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1691-(giving $m_\mu \neq m_\pi$), with the splitting controlled by 
+sbootstrap_v4d.tex.prelabel:1692:$f_\pi$:
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1693-\begin{equation}
+sbootstrap_v4d.tex.prelabel:1694:m_\pi^2 - m_\mu^2 = f_\pi^2\,.
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1695-\end{equation}
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1696-
+sbootstrap_v4d.tex.prelabel:1697:This is the Volkov--Akulov relation for the pseudo-Goldstino: the 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1698-mass splitting between the scalar (pion) and its fermionic partner 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1699-(muon) is set by the SUSY-breaking scale squared.
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1703-breaking. At the microscopic level, $\langle F\rangle \neq 0$ 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1704-in the meson superfield; at the composite level, this manifests 
+sbootstrap_v4d.tex.prelabel:1705:as the Goldstino coupling with $f_{\text{VA}} = f_\pi$. These 
+sbootstrap_v4d.tex.prelabel:1706:two quantities---the Goldstino decay constant and the pion decay 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1707-constant---are \emph{identified} in the sBootstrap; this is the 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1708-central claim, not a derivation.
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1710-The identification should not be confused with the standard relation 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1711-between the $F$-term VEV and the chiral condensate. In standard 
+sbootstrap_v4d.tex.prelabel:1712:SQCD, $\langle F\rangle \sim |\qqbar|/f_\pi \sim (250\MeV)^3/92\MeV 
+sbootstrap_v4d.tex.prelabel:1713:\approx 170{,}000\MeV^2$, while $f_\pi^2 \approx 8{,}500\MeV^2$---a 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1714-factor of $\sim 20$ discrepancy. The GOR relation 
+sbootstrap_v4d.tex.prelabel:1715:$m_\pi^2 f_\pi^2 = -(m_u + m_d)\qqbar$ connects these through the 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1716-small quark masses, but does not equate them. The sBootstrap 
+sbootstrap_v4d.tex.prelabel:1717:identification $f_{\text{VA}} = f_\pi$ is therefore a 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1718-\emph{low-energy effective} statement about the composite sector, 
+sbootstrap_v4d.tex.prelabel-1719-not a microscopic identity. It says: the scale at which SUSY 
+sbootstrap_v4d.tex.prelabel:1720:appears broken in the meson--lepton spectrum is $f_\pi$, regardless 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1721-of the microscopic $F$-term that produces this breaking.
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1722-
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1737-quark masses that feed the GOR formula).
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1738-\end{enumerate}
+sbootstrap_v4d.tex.prelabel:1739:The splitting between (1) and (2) is $f_\pi^2$---the VA relation. 
+sbootstrap_v4d.tex.prelabel-1740-The seed-to-bloom transition of \S\ref{sec:two_tuples} is the same 
+sbootstrap_v4d.tex.prelabel-1741-physics seen from the charge-space perspective: $m_q \neq 0$ lifts 
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1773-\begin{equation}
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1774-m_{\pi^\pm}^2 - m_{\pi^0}^2 = \frac{3\alpha_{\text{em}}}{4\pi}\,
+sbootstrap_v4d.tex.prelabel:1775:\frac{m_\rho^2}{f_\pi^2}\,f_\pi^2 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1776-\approx (35.5\MeV)^2\,,
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1777-\end{equation}
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1793-
+sbootstrap_v4d.tex.prelabel-1794-The D-term effect is subleading to the F-term: 
+sbootstrap_v4d.tex.prelabel:1795:$\xi \sim (35\MeV)^2$ versus $f_\pi^2 \sim (92\MeV)^2$. It 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1796-operates \emph{within} each supermultiplet entry, splitting charged 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1797-from neutral mesons, while the F-term splits bosons from fermions 
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1809-The tuple structure maps onto a layered breaking with two independent 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1810-mechanisms (F-term and D-term) plus a separate heavy-sector origin. 
+sbootstrap_v4d.tex.prelabel:1811:The Volkov--Akulov realization of \S\ref{subsec:va} is not a third 
+sbootstrap_v4d.tex.prelabel-1812-mechanism: it is the low-energy, composite-level description of the 
+sbootstrap_v4d.tex.prelabel-1813-same F-term breaking. The VA relation \eqref{eq:pimu} \emph{sets the 
+sbootstrap_v4d.tex.prelabel:1814:scale} ($f_{\text{VA}} = f_\pi$); the O'Raifeartaigh/SQCD dynamics 
+sbootstrap_v4d.tex.prelabel-1815-of \S\ref{subsec:fterm} \emph{provides the mechanism} 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1816-($\langle F\rangle \neq 0$).
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1817-
+sbootstrap_v4d.tex.prelabel:1818:\paragraph{Layer 1: F-term/VA (chiral condensate, scale $\sim f_\pi$).}
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1819-The chiral condensate $\qqbar \neq 0$ breaks both chiral symmetry 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1820-and the sBootstrap SUSY. This is the primary breaking, affecting 
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1852-\begin{align}
+sbootstrap_v4d.tex.prelabel-1853-\text{F-term (boson--fermion splitting):} &\quad 
+sbootstrap_v4d.tex.prelabel:1854:f_\pi \approx 92\MeV\,, \quad f_\pi^2 \approx 8{,}500\MeV^2\,; \\
+sbootstrap_v4d.tex.prelabel-1855-\text{D-term (EM fine structure):} &\quad 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1856-\xi^{1/2} \approx 35\MeV\,, \quad \xi \approx 1{,}200\MeV^2\,; \\
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1858-v_0^{(cbt)} \approx 172\MeV^{1/2}\,, \quad (v_0^{(cbt)})^2 \approx 29{,}600\MeV\,.
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1859-\end{align}
+sbootstrap_v4d.tex.prelabel:1860:Comparing the squared scales: $f_\pi^2 \gg \xi$ (F-term dominates 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1861-over D-term by a factor $\sim 7$, consistent with the D-term being 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1862-a perturbative $O(\alpha_{\text{em}})$ correction). The heavy-sector 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1863-scale $(v_0^{(cbt)})^2$ carries dimensions of $\MeV$ (not $\MeV^2$) 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1864-because $v_0$ is a charge ($\MeV^{1/2}$), not an energy; direct 
+sbootstrap_v4d.tex.prelabel:1865:comparison with $f_\pi$ requires specifying which physical quantity 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1866-is being compared.
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-1867-
+--
+sbootstrap_v4d.tex.prelabel-2062-a different reason: meson masses are \emph{not} simple functions 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-2063-of quark mass ratios. The pion mass is given by the GOR 
+sbootstrap_v4d.tex.prelabel:2064:relation $m_\pi^2 f_\pi^2 = -(m_u + m_d)\qqbar$; the $D_s$ 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-2065-mass involves heavy-quark effective theory; and both receive 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-2066-chiral perturbation theory corrections. These nonperturbative 
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-2069-
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-2070-\paragraph{A remarkable feature of the VA relation.} The 
+sbootstrap_v4d.tex.prelabel:2071:foundational equation $m_\pi^2 - m_\mu^2 = f_\pi^2$ contains 
+sbootstrap_v4d.tex.prelabel-2072-no QCD coupling constant: no $\alpha_s$, no $N_c$, no 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-2073-$\Lambda_{\text{QCD}}$. It is a pure mass relation among three 
+--
+sbootstrap_v4d.tex.prelabel-2075-constant---holding to 2.2\%. In the sBootstrap, this is natural: 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-2076-the relation is a SUSY mass splitting, set by the breaking 
+sbootstrap_v4d.tex.prelabel:2077:scale $f_\pi$, and SUSY mass relations do not involve the gauge 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-2078-coupling of the confining theory. Standard QCD \emph{explains} 
+sbootstrap_v4d.tex.prelabel:2079:$f_\pi$ in terms of $\qqbar$ and $\alpha_s$; the sBootstrap 
+sbootstrap_v4d.tex.prelabel:2080:\emph{uses} $f_\pi$ as the fundamental parameter, with QCD 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-2081-providing the dynamical origin but not appearing in the mass 
+sbootstrap_v4d.tex.prelabel-2082-formula. The absence of QCD factors in \eqref{eq:pimu} is a 
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-2106-the Koide condition on $(c,b,t)$ would then constrain the Yukawa 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-2107-coupling matrix.
+sbootstrap_v4d.tex.prelabel:2108:\item It may represent a Volkov--Akulov realization at the 
+sbootstrap_v4d.tex.prelabel-2109-electroweak scale: if there is a second SUSY breaking at 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-2110-$f' \sim v_{\text{EW}}$, the $(c,b,t)$ triple would be its 
+sbootstrap_v4d.tex.prelabel:2111:analog of the $(\pi, \mu)$ system, but with $f'$ replacing $f_\pi$.
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-2112-\item Or it may be a purely kinematic accident---the quark masses 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-2113-happen to satisfy the Koide condition without a dynamical reason. 
+--
+sbootstrap_v4d.tex.prelabel-2127-scales:
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-2128-\begin{equation}
+sbootstrap_v4d.tex.prelabel:2129:f_{\text{chiral}} = f_\pi \approx 92\MeV\,, \qquad
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-2130-f_{\text{EW}} \sim v_{\text{EW}} \approx 246\GeV\,,
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-2131-\end{equation}
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-2132-and the full spectrum requires both. The light sector (leptons, 
+sbootstrap_v4d.tex.prelabel:2133:light mesons) is governed by $f_\pi$; the heavy sector (top, and 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-2134-by extension charm and bottom through the Koide network) is 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-2135-governed by $v_{\text{EW}}$. The charm and bottom quarks, 
+--
+sbootstrap_v4d.tex.prelabel-2231-The sBootstrap adds: superspace chirality (boson vs.\ fermion 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-2232-distinction within a multiplet) is broken by the same condensate 
+sbootstrap_v4d.tex.prelabel:2233:that breaks flavor chirality, with $f_{\text{SUSY}} = f_\pi$. The 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-2234-energy-balance condition $\langle z_k^2\rangle = z_0^2$ may be 
+sbootstrap_v4d.tex.prelabel-2235-related: the breaking is ``as large as the background
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-2299-\paragraph{3.\ Two breaking mechanisms plus a heavy-sector origin.}
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-2300-F-term breaking (via the massless seed member) generates the light 
+sbootstrap_v4d.tex.prelabel:2301:sector; the Volkov--Akulov relation $f_{\text{VA}} = f_\pi$ is its 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-2302-low-energy realization, not a separate mechanism. D-term breaking 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-2303-($U(1)_{\text{em}}$ FI parameter) provides electromagnetic 
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-2326-vacuum charges $v_0$ of the three tuples, the Koide phases 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-2327-$\delta$ that control the bloom, and the SUSY-breaking scale 
+sbootstrap_v4d.tex.prelabel:2328:$f_\pi$ that separates bosons from fermions.
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-2329-
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-2330-\begin{thebibliography}{99}
+--
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-2373-Phys.\ Rev.\ Lett.\ \textbf{51}, 2351 (1983).
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-2374-
+sbootstrap_v4d.tex.prelabel:2375:\bibitem{VolkovAkulov1973}
+sbootstrap_v4d.tex.prelabel:2376:D.~V.~Volkov and V.~P.~Akulov, ``Is the neutrino a Goldstone 
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-2377-particle?,'' Phys.\ Lett.\ B \textbf{46}, 109 (1973).
+/home/codexssh/phys3/sbootstrap_v4d.tex.prelabel-2378-
+--
+/home/codexssh/phys3/sources/physics_calc_v2.py-79-
+sources/physics_calc_v2.py-80-# Note: pi0 and eta have very similar (Gamma/M^3)^(-1/2) ~ 564 GeV
+sources/physics_calc_v2.py:81:# This is because Gamma(P -> gamma gamma) ~ alpha^2 * M^3 / (64 pi^3 f_pi^2)
+sources/physics_calc_v2.py:82:# and f_pi ~ 92 MeV. Let's check:
+sources/physics_calc_v2.py:83:f_pi = 92.07  # MeV, PDG pion decay constant
+/home/codexssh/phys3/sources/physics_calc_v2.py-84-alpha = 1/137.036
+sources/physics_calc_v2.py:85:Gamma_theory_pi0 = alpha**2 * m_pi0**3 / (64 * np.pi**3 * f_pi**2)
+sources/physics_calc_v2.py-86-print(f"\n  Theory check (chiral anomaly):")
+sources/physics_calc_v2.py:87:print(f"  Gamma(pi0->gg) = alpha^2 * m_pi0^3 / (64*pi^3*f_pi^2)")
+sources/physics_calc_v2.py-88-print(f"                 = {Gamma_theory_pi0*1e6:.3f} eV  (vs PDG 7.73 eV)")
+sources/physics_calc_v2.py:89:print(f"  The 1/(64 pi^3 f_pi^2) factor gives (Gamma/M^3)^(-1/2):")
+sources/physics_calc_v2.py:90:fac = alpha**2 / (64 * np.pi**3 * f_pi**2)
+sources/physics_calc_v2.py-91-print(f"  = 1/sqrt({fac:.6g}) MeV = {1/np.sqrt(fac)/1000:.4f} GeV")
+/home/codexssh/phys3/sources/physics_calc_v2.py-92-

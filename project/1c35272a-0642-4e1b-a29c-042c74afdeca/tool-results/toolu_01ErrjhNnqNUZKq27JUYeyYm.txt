@@ -1,0 +1,1205 @@
+     1→"""
+     2→Complete particle spectrum of an N=1 SUSY model.
+     3→
+     4→Field content:
+     5→  M^i_j  (3x3 complex meson matrix):  9 complex scalars + 9 Weyl fermions
+     6→  X      (Lagrange multiplier):        1 complex scalar  + 1 Weyl fermion
+     7→  B, Btilde (baryons):                 2 complex scalars + 2 Weyl fermions
+     8→  H_u, H_d (Higgs doublets):           4 complex scalars + 4 Weyl fermions
+     9→  Total: 16 complex scalars (32 real), 16 Weyl fermions
+    10→
+    11→Superpotential:
+    12→  W = sum_i m_i M^i_i + X(det M - B Btilde - Lambda^6)
+    13→      + y_c H_u^0 M^c_c + y_b H_d^0 M^b_b
+    14→
+    15→where det M = full 3x3 determinant of the meson matrix.
+    16→
+    17→Soft SUSY-breaking:
+    18→  V_soft = mtilde^2 Tr(M^dag M) + (B_mu sum_i m_i M^i_i + h.c.)
+    19→
+    20→Vacuum:
+    21→  <M^i_i> = C/m_i (diagonal seesaw), off-diagonal = 0
+    22→  <X> = -C/Lambda^6, <B> = <Btilde> = 0
+    23→  <H_u> = (0, v/sqrt(2)), <H_d> = (v/sqrt(2), 0)
+    24→  C = Lambda^2 (m_u m_d m_s)^{1/3}
+    25→
+    26→Pure linear algebra computation. No theory labels.
+    27→"""
+    28→
+    29→import numpy as np
+    30→from numpy.linalg import eigvalsh, eigh, eigvals
+    31→
+    32→# ═══════════════════════════════════════════════════════════════════════════
+    33→# Parameters
+    34→# ═══════════════════════════════════════════════════════════════════════════
+    35→m_u = 2.16       # MeV
+    36→m_d = 4.67       # MeV
+    37→m_s = 93.4       # MeV
+    38→m_c = 1270.0     # MeV
+    39→m_b = 4180.0     # MeV
+    40→LAM = 300.0      # MeV
+    41→v = 246220.0     # MeV (full EW vev, 246.22 GeV)
+    42→f_pi = 92.0      # MeV
+    43→
+    44→# Yukawa couplings (convention: m = y v / sqrt(2), so y = sqrt(2) m / v = 2m/v with v_full)
+    45→# Using the problem's convention: y_c = 2 m_c / v, y_b = 2 m_b / v
+    46→y_c = 2.0 * m_c / v
+    47→y_b = 2.0 * m_b / v
+    48→
+    49→# Soft SUSY breaking
+    50→m_tilde_sq = f_pi**2   # = (92)^2 MeV^2
+    51→B_mu = f_pi             # = 92 MeV
+    52→
+    53→# Derived quantities
+    54→m_arr = np.array([m_u, m_d, m_s])
+    55→C = LAM**2 * np.prod(m_arr)**(1.0/3.0)
+    56→LAM6 = LAM**6
+    57→
+    58→# Meson VEVs (Seiberg seesaw)
+    59→M_u = C / m_u
+    60→M_d = C / m_d
+    61→M_s = C / m_s
+    62→M_vev = np.array([M_u, M_d, M_s])
+    63→
+    64→# X VEV
+    65→X0 = -C / LAM6
+    66→
+    67→# Higgs VEVs
+    68→v_hu = v / np.sqrt(2)  # <H_u^0>
+    69→v_hd = v / np.sqrt(2)  # <H_d^0>
+    70→
+    71→# Determinant check
+    72→det_M = M_u * M_d * M_s
+    73→
+    74→print("=" * 72)
+    75→print("COMPLETE PARTICLE SPECTRUM: N=1 SUSY MODEL")
+    76→print("=" * 72)
+    77→
+    78→print("\n--- Parameter verification ---")
+    79→print(f"  m_u = {m_u} MeV,  m_d = {m_d} MeV,  m_s = {m_s} MeV")
+    80→print(f"  m_c = {m_c} MeV,  m_b = {m_b} MeV")
+    81→print(f"  Lambda = {LAM} MeV,  v = {v} MeV")
+    82→print(f"  y_c = 2*m_c/v = {y_c:.8e}")
+    83→print(f"  y_b = 2*m_b/v = {y_b:.8e}")
+    84→print(f"  f_pi = {f_pi} MeV,  m_tilde^2 = {m_tilde_sq:.0f} MeV^2,  B_mu = {B_mu} MeV")
+    85→print(f"  C = Lambda^2 (m_u m_d m_s)^(1/3) = {C:.6f} MeV^2")
+    86→
+    87→# Verify C
+    88→C_check = 300.0**2 * (2.16 * 4.67 * 93.4)**(1.0/3.0)
+    89→print(f"  C (verify) = {C_check:.6f} MeV^2")
+    90→
+    91→print(f"\n  M_u = C/m_u = {M_u:.4f} MeV")
+    92→print(f"  M_d = C/m_d = {M_d:.4f} MeV")
+    93→print(f"  M_s = C/m_s = {M_s:.4f} MeV")
+    94→print(f"  X_0 = -C/Lambda^6 = {X0:.8e}")
+    95→print(f"  det M / Lambda^6 = {det_M/LAM6:.14f}  (should be 1)")
+    96→print(f"  <H_u^0> = v/sqrt(2) = {v_hu:.4f} MeV")
+    97→print(f"  <H_d^0> = v/sqrt(2) = {v_hd:.4f} MeV")
+    98→
+    99→# ═══════════════════════════════════════════════════════════════════════════
+   100→# TASK 1: Fermion mass matrix W_IJ = d^2 W / (d Phi_I d Phi_J)
+   101→# ═══════════════════════════════════════════════════════════════════════════
+   102→print("\n" + "=" * 72)
+   103→print("TASK 1: FERMION MASS MATRIX (16x16)")
+   104→print("=" * 72)
+   105→
+   106→# Field ordering (16 Weyl fermions):
+   107→# 0: M^u_u,  1: M^u_d,  2: M^u_s
+   108→# 3: M^d_u,  4: M^d_d,  5: M^d_s
+   109→# 6: M^s_u,  7: M^s_d,  8: M^s_s
+   110→# 9: X
+   111→# 10: B,  11: Btilde
+   112→# 12: H_u^+,  13: H_u^0,  14: H_d^0,  15: H_d^-
+   113→
+   114→NAMES = ['Muu','Mud','Mus','Mdu','Mdd','Mds','Msu','Msd','Mss',
+   115→         'X', 'B', 'Bt', 'Hu+','Hu0','Hd0','Hd-']
+   116→
+   117→def idx_M(i, j):
+   118→    """Index in the 16-field list for meson M^i_j (i,j in 0,1,2)."""
+   119→    return 3*i + j
+   120→
+   121→W = np.zeros((16, 16))
+   122→
+   123→# --- det M second derivatives ---
+   124→# det M = M^u_u(M^d_d M^s_s - M^d_s M^s_d) - M^u_d(M^d_u M^s_s - M^d_s M^s_u)
+   125→#       + M^u_s(M^d_u M^s_d - M^d_d M^s_u)
+   126→#
+   127→# At diagonal vacuum M = diag(M_u, M_d, M_s), off-diag = 0:
+   128→# d(det M)/dM^i_i = cofactor(i,i) = product of other two diagonal entries
+   129→# d^2(det M)/dM^i_i dM^j_j = M_k  (k = third diagonal, i != j)
+   130→# d^2(det M)/dM^i_j dM^j_i = (-1)^... cofactor of the 2x2 minor
+   131→#
+   132→# Explicitly for off-diagonal pairs at diagonal vacuum:
+   133→# d^2(det M)/(dM^u_d dM^d_u) = +M_s  (from the -M^u_d * M^d_u * M^s_s term)
+   134→# Wait, let's be very careful. det M expanded:
+   135→# det M = M^u_u M^d_d M^s_s - M^u_u M^d_s M^s_d
+   136→#       - M^u_d M^d_u M^s_s + M^u_d M^d_s M^s_u
+   137→#       + M^u_s M^d_u M^s_d - M^u_s M^d_d M^s_u
+   138→#
+   139→# Second derivatives at the diagonal vacuum:
+   140→# d^2/dM^u_u dM^d_d = M^s_s -> M_s
+   141→# d^2/dM^u_u dM^s_s = M^d_d -> M_d
+   142→# d^2/dM^d_d dM^s_s = M^u_u -> M_u
+   143→#
+   144→# d^2/dM^u_d dM^d_u: The terms containing both M^u_d and M^d_u:
+   145→#   -M^u_d M^d_u M^s_s => d^2/dM^u_d dM^d_u = -M^s_s = -M_s
+   146→#
+   147→# d^2/dM^u_s dM^s_u: Terms with both:
+   148→#   -M^u_s M^d_d M^s_u => d^2/dM^u_s dM^s_u = -M^d_d = -M_d
+   149→#
+   150→# d^2/dM^d_s dM^s_d: Terms with both:
+   151→#   -M^u_u M^d_s M^s_d => d^2/dM^d_s dM^s_d = -M^u_u = -M_u
+   152→#
+   153→# d^2/dM^u_d dM^d_s: Terms with M^u_d and M^d_s:
+   154→#   +M^u_d M^d_s M^s_u => d^2/dM^u_d dM^d_s = M^s_u -> 0 at diagonal vacuum
+   155→#
+   156→# All other mixed off-diagonal second derivatives vanish at diagonal vacuum.
+   157→
+   158→# Actually, let me redo this more carefully using the Levi-Civita formula:
+   159→# det M = epsilon^{ijk} M^u_i M^d_j M^s_k
+   160→# d^2(det M)/dM^a_i dM^b_j = epsilon^{abl} ... No, indices don't work that way.
+   161→#
+   162→# Let's use: det M = sum_{sigma in S_3} sgn(sigma) M^1_{sigma(1)} M^2_{sigma(2)} M^3_{sigma(3)}
+   163→# where I'm using 1=u, 2=d, 3=s for row indices and sigma permutes column indices.
+   164→#
+   165→# d(det M)/dM^a_b = sum_{sigma: sigma(a)=b} sgn(sigma) prod_{c != a} M^c_{sigma(c)}
+   166→# = cofactor(a,b)
+   167→#
+   168→# d^2(det M)/dM^a_b dM^c_d (a != c):
+   169→# = sum_{sigma: sigma(a)=b, sigma(c)=d} sgn(sigma) M^e_{sigma(e)} where e = third row
+   170→# At diagonal vacuum, M^e_{sigma(e)} = M_e * delta_{e, sigma(e)}
+   171→# So we need sigma(a)=b, sigma(c)=d, sigma(e)=e.
+   172→# This means: the permutation maps a->b, c->d, e->e.
+   173→# If b=a and d=c (diagonal-diagonal): sigma is identity, sgn = +1, value = M_e
+   174→# If b != a or d != c: sigma is a transposition (a b)(c d) or identity only if...
+   175→# Actually if sigma(a)=b, sigma(c)=d, sigma(e)=e and a,c,e are distinct rows, b,d,e must
+   176→# be a permutation of columns. sigma = (a->b, c->d, e->e).
+   177→# For this to be a valid permutation, {b,d,e} must be {a,c,e} permuted = {1,2,3}.
+   178→# If e = e (it's fixed), then {b,d} must be a permutation of {a,c}.
+   179→# Case 1: b=a, d=c => identity perm on those, sgn(sigma) = +1 (sigma = id if also e->e)
+   180→# Case 2: b=c, d=a => transposition of a,c, sgn(sigma) = -1
+   181→#
+   182→# So d^2(det M)/dM^a_b dM^c_d at diagonal vacuum:
+   183→# = M_e * [delta_{b,a} delta_{d,c} - delta_{b,c} delta_{d,a}]   (a != c)
+   184→# where e is the third row index.
+   185→#
+   186→# This gives:
+   187→# d^2/dM^a_a dM^c_c = M_e * (1 - 0) = M_e   [diagonal-diagonal, agrees]
+   188→# d^2/dM^a_c dM^c_a = M_e * (0 - 1) = -M_e  [off-diagonal pair]
+   189→# d^2/dM^a_b dM^c_d = 0 for other combinations
+   190→
+   191→# Now build X * d^2(det M)/dM^a_b dM^c_d contributions:
+   192→
+   193→# Diagonal-diagonal meson couplings (from X * det M term)
+   194→for a in range(3):
+   195→    for c in range(3):
+   196→        if a != c:
+   197→            e = 3 - a - c  # third index
+   198→            i_a = idx_M(a, a)
+   199→            i_c = idx_M(c, c)
+   200→            W[i_a, i_c] += X0 * M_vev[e]
+   201→
+   202→# Off-diagonal meson pair couplings
+   203→for a in range(3):
+   204→    for c in range(3):
+   205→        if a != c:
+   206→            e = 3 - a - c
+   207→            i_ac = idx_M(a, c)  # M^a_c
+   208→            i_ca = idx_M(c, a)  # M^c_a
+   209→            W[i_ac, i_ca] += X0 * (-M_vev[e])
+   210→
+   211→# Diagonal meson - X couplings: W_{M^a_a, X} = cofactor(a,a) = prod_{c != a} M_c
+   212→for a in range(3):
+   213→    others = [M_vev[c] for c in range(3) if c != a]
+   214→    cof = others[0] * others[1]
+   215→    i_a = idx_M(a, a)
+   216→    W[i_a, 9] += cof
+   217→    W[9, i_a] += cof
+   218→
+   219→# Baryon - anti-baryon: W_{B, Bt} = -X0
+   220→W[10, 11] += -X0
+   221→W[11, 10] += -X0
+   222→
+   223→# Yukawa couplings: y_c H_u^0 M^c_c and y_b H_d^0 M^b_b
+   224→# In the problem, M^c_c = M^d_d (c is the second flavor = index 1 in u,d,s labeling)
+   225→# Wait — the problem says "M^c_c" and "M^b_b" where c=charm, b=bottom.
+   226→# But the meson matrix is 3x3 with i,j = u,d,s. The Yukawa couples H_u to M^c_c
+   227→# which maps to the SECOND diagonal entry M^d_d (since c is the second-generation quark,
+   228→# and in the sBootstrap/seesaw picture, the (u,d,s) meson M^d_d maps to charm via
+   229→# the Seiberg dual). Actually, let me re-read the problem.
+   230→#
+   231→# The problem states: "y_c H_u^0 M^c_c + y_b H_d^0 M^b_b"
+   232→# The meson matrix indices i,j run over u,d,s. But the Yukawa couples to
+   233→# M^c_c and M^b_b which use quark flavor indices c (charm) and b (bottom).
+   234→# In the ISS/seesaw framework, the meson field M^i_j = Q^i Qbar_j, and the
+   235→# Seiberg dual maps M^i_i with VEV C/m_i. The charm and bottom quark masses
+   236→# emerge from the Yukawa couplings to specific diagonal entries.
+   237→#
+   238→# Looking at the earlier code (sqcd_yukawa_spectrum.py), the Yukawa y_j couples
+   239→# to M^j_j. With the 3-flavor (u,d,s) structure:
+   240→# - M^d_d (index 4 in the 9-meson ordering) has VEV C/m_d, and the Yukawa y_c
+   241→#   to this gives a fermion mass that reproduces m_c after EWSB
+   242→# - M^s_s (index 8) has VEV C/m_s, and y_b reproduces m_b
+   243→#
+   244→# But the problem says M^c_c and M^b_b, treating c,b as flavor labels equal to
+   245→# the (d,s) entries. Let me follow the problem literally:
+   246→# "y_c H_u^0 M^c_c" — here c is the charm quark index. In the 3x3 matrix with
+   247→# i,j = u,d,s, this maps to the entry labeled by "charm" which through Seiberg
+   248→# duality corresponds to the d-quark entry (ISS maps heavy <-> light).
+   249→# However, re-reading the problem more carefully, it just says i,j = u,d,s for
+   250→# the meson matrix. The Yukawa terms y_c H_u^0 M^c_c and y_b H_d^0 M^b_b must
+   251→# then mean M^c_c = M^{d}_{d} and M^b_b = M^{s}_{s} (mapping charm->d, bottom->s
+   252→# through the seesaw: the charm mass emerges from the d-entry, bottom from s-entry).
+   253→#
+   254→# Actually the simplest reading: the superpotential is written with M^c_c meaning
+   255→# the (c,c) diagonal entry, where c = the second flavor index. Given i,j = u,d,s
+   256→# and the sBootstrap identification: u<->u, d<->c, s<->b (via seesaw duality),
+   257→# M^c_c ≡ M^d_d (index 4) and M^b_b ≡ M^s_s (index 8).
+   258→#
+   259→# This is consistent with the earlier scripts. So:
+   260→# W_{H_u^0, M^d_d} = y_c, W_{H_d^0, M^s_s} = y_b
+   261→
+   262→# Yukawa: y_c H_u^0 M^d_d
+   263→# H_u^0 is field index 13, M^d_d is field index 4
+   264→W[13, 4] += y_c
+   265→W[4, 13] += y_c
+   266→
+   267→# Yukawa: y_b H_d^0 M^s_s
+   268→# H_d^0 is field index 14, M^s_s is field index 8
+   269→W[14, 8] += y_b
+   270→W[8, 14] += y_b
+   271→
+   272→# Verify symmetry
+   273→assert np.allclose(W, W.T), "Fermion mass matrix is not symmetric!"
+   274→
+   275→print("\nFermion mass matrix W_IJ (16x16):")
+   276→print("Nonzero entries:")
+   277→for i in range(16):
+   278→    for j in range(i, 16):
+   279→        if abs(W[i, j]) > 1e-30:
+   280→            print(f"  W[{NAMES[i]:>4s}, {NAMES[j]:>4s}] = {W[i,j]:+.10e}")
+   281→
+   282→# Diagonalize
+   283→fermion_evals, fermion_evecs = eigh(W)
+   284→
+   285→print("\nFermion mass eigenvalues (Weyl fermion masses):")
+   286→print(f"  {'n':>3}  {'eigenvalue (MeV)':>22}  {'|mass| (MeV)':>16}")
+   287→for i, ev in enumerate(fermion_evals):
+   288→    print(f"  {i+1:3d}  {ev:+22.10e}  {abs(ev):16.10e}")
+   289→
+   290→# Count zero, positive, negative
+   291→tol = 1e-15
+   292→n_zero_f = np.sum(np.abs(fermion_evals) < tol)
+   293→n_pos_f = np.sum(fermion_evals > tol)
+   294→n_neg_f = np.sum(fermion_evals < -tol)
+   295→print(f"\n  Zero eigenvalues (|lambda| < {tol}): {n_zero_f}")
+   296→print(f"  Positive: {n_pos_f}")
+   297→print(f"  Negative: {n_neg_f}")
+   298→
+   299→# Block structure analysis
+   300→print("\n--- Block structure ---")
+   301→
+   302→# Central 4x4: {M^u_u, M^d_d, M^s_s, X} = indices {0, 4, 8, 9}
+   303→ci = [0, 4, 8, 9]
+   304→W_central = W[np.ix_(ci, ci)]
+   305→print("\nCentral 4x4 block {Muu, Mdd, Mss, X}:")
+   306→clabels = ['Muu','Mdd','Mss','X']
+   307→for k, row in enumerate(W_central):
+   308→    print(f"  {clabels[k]:>4s}  " + "  ".join(f"{val:+.6e}" for val in row))
+   309→ev_central = eigvalsh(W_central)
+   310→print(f"  Eigenvalues: {[f'{v:.6e}' for v in ev_central]}")
+   311→
+   312→# Off-diagonal meson 2x2 blocks
+   313→print("\nOff-diagonal meson 2x2 blocks:")
+   314→offdiag_pairs = [
+   315→    ((0, 1), (1, 0), "Mud-Mdu", 2),   # M^u_d, M^d_u; third flavor = s
+   316→    ((0, 2), (2, 0), "Mus-Msu", 1),   # M^u_s, M^s_u; third = d
+   317→    ((1, 2), (2, 1), "Mds-Msd", 0),   # M^d_s, M^s_d; third = u
+   318→]
+   319→for (a, b), (c, d), label, e in offdiag_pairs:
+   320→    i1 = idx_M(a, b)
+   321→    i2 = idx_M(c, d)
+   322→    val = W[i1, i2]
+   323→    print(f"  {label}: W[{i1},{i2}] = {val:+.10e}, eigenvalues = +/-{abs(val):.10e}")
+   324→
+   325→# Baryon block
+   326→print(f"\nBaryon 2x2 block {{B, Bt}}:")
+   327→val_bb = W[10, 11]
+   328→print(f"  W[B, Bt] = {val_bb:+.10e}, eigenvalues = +/-{abs(val_bb):.10e}")
+   329→
+   330→# Higgs couplings
+   331→print(f"\nHiggs couplings:")
+   332→print(f"  W[Hu0, Mdd] = {W[13, 4]:+.10e}  (y_c)")
+   333→print(f"  W[Hd0, Mss] = {W[14, 8]:+.10e}  (y_b)")
+   334→print(f"  H_u^+ (index 12): all zero (decoupled)")
+   335→print(f"  H_d^- (index 15): all zero (decoupled)")
+   336→
+   337→# Identify Dirac pairs
+   338→print("\n--- Physical fermion spectrum (Dirac masses from W_IJ) ---")
+   339→print("Nonzero eigenvalues come in +/- pairs; each pair = one Dirac fermion")
+   340→print("Zero eigenvalues = massless Weyl fermions")
+   341→
+   342→# Sort by absolute value
+   343→sorted_idx = np.argsort(np.abs(fermion_evals))
+   344→print(f"\n{'n':>3}  {'eigenvalue':>22}  {'|mass|':>16}  Identification")
+   345→for i in sorted_idx:
+   346→    ev = fermion_evals[i]
+   347→    evec = fermion_evecs[:, i]
+   348→    # Find dominant component
+   349→    dom_idx = np.argmax(np.abs(evec))
+   350→    dom_frac = evec[dom_idx]**2
+   351→    ident = f"dominant: {NAMES[dom_idx]} ({dom_frac:.3f})"
+   352→    print(f"  {i+1:3d}  {ev:+22.10e}  {abs(ev):16.10e}  {ident}")
+   353→
+   354→
+   355→# ═══════════════════════════════════════════════════════════════════════════
+   356→# TASK 2: Scalar mass-squared matrix (32x32 real)
+   357→# ═══════════════════════════════════════════════════════════════════════════
+   358→print("\n\n" + "=" * 72)
+   359→print("TASK 2: SCALAR MASS-SQUARED MATRIX (32x32)")
+   360→print("=" * 72)
+   361→
+   362→# For each complex scalar phi_I, write phi_I = (phi_I^R + i phi_I^I)/sqrt(2)
+   363→# where phi_I^R and phi_I^I are real fields.
+   364→#
+   365→# The scalar potential contributions:
+   366→# (a) |F_I|^2 = |dW/dphi_I|^2 evaluated at the vacuum
+   367→# (b) W_IJ W*_KJ contributions to the mass matrix
+   368→# (c) Soft SUSY-breaking: m_tilde^2 Tr(M^dag M) + B_mu terms
+   369→#
+   370→# The mass-squared matrix for real fields (phi_1^R, phi_1^I, phi_2^R, phi_2^I, ...):
+   371→#
+   372→# From |F_I|^2: V = sum_I |F_I|^2 where F_I = dW/dphi_I
+   373→# The second-order expansion around the vacuum:
+   374→# delta V = sum_{IJ} [W*_IK W_JK + W_IK W*_JK] delta phi_I^* delta phi_J / 2
+   375→#         + sum_{IJ} [W_IJK F*_K delta phi_J delta phi_K + h.c.] (third-derivative terms)
+   376→#
+   377→# At a SUSY vacuum (F_I = 0), the mass-squared matrix simplifies:
+   378→# m^2_{IJ} (complex basis) = sum_K W*_IK W_JK  (for phi_I^*, phi_J combination)
+   379→# This gives m^2_scalar = W^dag W in the complex basis.
+   380→#
+   381→# However, we also have soft breaking terms. And the vacuum is NOT exactly SUSY
+   382→# (the soft terms break SUSY explicitly).
+   383→#
+   384→# Let me be more careful. The full scalar potential is:
+   385→# V = sum_I |F_I|^2 + V_soft + V_D
+   386→#
+   387→# where F_I = dW/dphi_I (evaluated with VEVs substituted for background).
+   388→#
+   389→# The expansion to second order around the VEV <phi_I> requires computing
+   390→# F_I at the vacuum and the second-derivative matrix.
+   391→#
+   392→# F-term contributions to the scalar mass matrix:
+   393→# V_F = sum_I |dW/dphi_I|^2
+   394→# d^2 V_F / d(Re phi_J) d(Re phi_K) involves W_IJ W*_IK + F*_I W_IJK + h.c.
+   395→#
+   396→# At a point where F_I = 0 (SUSY vacuum), the scalar mass matrix from F-terms
+   397→# is simply (W^dag W)_JK for the complex scalar mass matrix.
+   398→# In real components, it becomes a 32x32 matrix.
+   399→#
+   400→# For BROKEN SUSY (F_I != 0), we need the full expression including W_IJK F*_I.
+   401→# But computing all third derivatives is complex. Let me first check whether
+   402→# F_I = 0 at this vacuum.
+   403→
+   404→# --- F-terms at the vacuum ---
+   405→print("\n--- F-terms at the vacuum ---")
+   406→# F_I = dW/dphi_I at <phi> = vacuum values
+   407→
+   408→# The superpotential is:
+   409→# W = sum_i m_i M^i_i + X(det M - B Bt - LAM^6) + y_c Hu0 Mdd + y_b Hd0 Mss
+   410→
+   411→# F_{M^u_u} = m_u + X * d(det M)/dM^u_u + 0
+   412→# d(det M)/dM^u_u at diagonal vacuum = M_d * M_s
+   413→F_Muu = m_u + X0 * M_d * M_s
+   414→print(f"  F_Muu = m_u + X0 * M_d * M_s = {m_u} + ({X0:.6e})*{M_d:.4f}*{M_s:.4f} = {F_Muu:.6e}")
+   415→
+   416→# F_{M^d_d} = m_d + X * M_u * M_s + y_c * Hu0_vev
+   417→F_Mdd = m_d + X0 * M_u * M_s + y_c * v_hu
+   418→print(f"  F_Mdd = m_d + X0 * M_u * M_s + y_c * v_hu = {F_Mdd:.6e}")
+   419→
+   420→# F_{M^s_s} = m_s + X * M_u * M_d + y_b * Hd0_vev
+   421→F_Mss = m_s + X0 * M_u * M_d + y_b * v_hd
+   422→print(f"  F_Mss = m_s + X0 * M_u * M_d + y_b * v_hd = {F_Mss:.6e}")
+   423→
+   424→# F_{M^i_j} (off-diagonal) = X * d(det M)/dM^i_j
+   425→# At diagonal vacuum, d(det M)/dM^i_j = 0 for i != j
+   426→# So F_{M^i_j} = 0 for all off-diagonal mesons
+   427→print(f"  F_Mij (off-diagonal) = 0 (all)")
+   428→
+   429→# F_X = det M - B*Bt - LAM^6 = LAM^6 - 0 - LAM^6 = 0
+   430→F_X = det_M - LAM6
+   431→print(f"  F_X = det M - LAM^6 = {F_X:.6e}")
+   432→
+   433→# F_B = -X * Bt = -X * 0 = 0, F_Bt = -X * B = 0
+   434→print(f"  F_B = F_Bt = 0")
+   435→
+   436→# F_{Hu+} = 0 (no Hu+ coupling in W at this vacuum)
+   437→# F_{Hu0} = y_c * Mdd_vev = y_c * M_d
+   438→F_Hu0 = y_c * M_d
+   439→print(f"  F_Hu0 = y_c * M_d = {y_c:.6e} * {M_d:.4f} = {F_Hu0:.6e}")
+   440→
+   441→# F_{Hd0} = y_b * Mss_vev = y_b * M_s
+   442→F_Hd0 = y_b * M_s
+   443→print(f"  F_Hd0 = y_b * M_s = {y_b:.6e} * {M_s:.4f} = {F_Hd0:.6e}")
+   444→
+   445→print(f"  F_Hu+ = 0,  F_Hd- = 0")
+   446→
+   447→# Check: at the Seiberg seesaw vacuum WITHOUT Yukawa, m_i + X * cofactor = 0.
+   448→# The Yukawa terms add y_c * v_hu to F_Mdd and y_b * v_hd to F_Mss.
+   449→# These are nonzero, so SUSY IS broken (by Yukawa + EWSB).
+   450→# Also F_Hu0 and F_Hd0 are nonzero.
+   451→
+   452→print(f"\n  SUSY breaking check:")
+   453→print(f"  Without Yukawa: F_Muu = {m_u + X0 * M_d * M_s:.6e} (= 0 by seesaw)")
+   454→print(f"  Without Yukawa: F_Mdd = {m_d + X0 * M_u * M_s:.6e} (= 0 by seesaw)")
+   455→print(f"  Without Yukawa: F_Mss = {m_s + X0 * M_u * M_d:.6e} (= 0 by seesaw)")
+   456→print(f"  Yukawa shifts:  delta F_Mdd = y_c * v_hu = {y_c * v_hu:.6e}")
+   457→print(f"                  delta F_Mss = y_b * v_hd = {y_b * v_hd:.6e}")
+   458→print(f"  Higgs F-terms:  F_Hu0 = {F_Hu0:.6e}")
+   459→print(f"                  F_Hd0 = {F_Hd0:.6e}")
+   460→print(f"\n  SUSY is broken by Yukawa + EWSB (F_Mdd, F_Mss, F_Hu0, F_Hd0 != 0)")
+   461→
+   462→# Now build the full scalar mass-squared matrix.
+   463→# Since F_I != 0, we need the complete expression:
+   464→# (m^2_scalar)_{JK} = sum_I W*_{IJ} W_{IK}  (from |F|^2 expansion, "F-flat" piece)
+   465→# plus W_{IJK} F*_I + W*_{IJK} F_I terms (the "F-cross" piece involving third derivatives)
+   466→# plus soft terms.
+   467→#
+   468→# For the complex scalar mass matrix:
+   469→# M^2_{JK} = sum_I (W_bar)_{IJ} W_{IK}  [acts on (delta phi_K)]
+   470→# M^2_{JK bar} = sum_I W_{IJL} F*_I  [acts on (delta phi_K^*)] — this mixes phi and phi*
+   471→#
+   472→# In the real (phi^R, phi^I) basis, we get a 32x32 matrix.
+   473→#
+   474→# Let me construct this in the complex basis first.
+   475→# The holomorphic mass matrix M^2_hol_{JK} = sum_I W_{IJK} F*_I (third derivative)
+   476→# contributes to the (phi, phi) and (phi*, phi*) blocks.
+   477→# The anti-holomorphic matrix M^2_ahol = (M^2_hol)* contributes to conjugate blocks.
+   478→# The Hermitian piece M^2_H_{JK} = sum_I W*_{IJ} W_{IK} contributes to (phi*, phi).
+   479→
+   480→# For the full 32x32 real matrix, in the basis
+   481→# (phi_1^R, phi_1^I, phi_2^R, phi_2^I, ...) we have:
+   482→# m^2_real = [[ Re(M^2_H + M^2_hol),  Im(-M^2_H + M^2_hol) ],
+   483→#             [ Im(M^2_H + M^2_hol),   Re(M^2_H - M^2_hol)  ]]
+   484→#
+   485→# But this mixes all 32 components. Let me use a simpler approach:
+   486→# construct the mass matrix numerically by direct differentiation.
+   487→
+   488→# Since all VEVs and couplings are REAL in this problem, the holomorphic
+   489→# and anti-holomorphic pieces are also real, simplifying things.
+   490→
+   491→# Step 1: Build M^2_H = W^dag W (the "SUSY-preserving" piece)
+   492→# WARNING: W has condition number ~4e21. Computing W @ W directly and then
+   493→# diagonalizing gives numerically corrupted eigenvalues for the small modes.
+   494→# The correct eigenvalues of W^2 are lambda_i^2 where lambda_i are eigenvalues of W.
+   495→# We use the eigensystem of W itself (which is well-conditioned enough) to reconstruct W^2.
+   496→M2_H = W.T @ W   # W is real and symmetric, so W^dag W = W^T W = W^2
+   497→
+   498→# The correct M2_H eigenvalues are the squares of W's eigenvalues:
+   499→m2_H_evals_correct = np.sort(fermion_evals**2)
+   500→
+   501→print("\n\n--- Scalar mass-squared matrix from |F|^2 (SUSY piece: W^2) ---")
+   502→print(f"NOTE: W has condition number ~ {np.max(np.abs(fermion_evals))/np.min(np.abs(fermion_evals[np.abs(fermion_evals) > 1e-20])):.1e}")
+   503→print(f"Direct diagonalization of W^2 is numerically unreliable for small eigenvalues.")
+   504→print(f"Using eigenvalues of W squared instead (lambda_i^2):")
+   505→print(f"Correct eigenvalues of W^dag W = W^2 (16 complex scalars):")
+   506→for i, ev in enumerate(m2_H_evals_correct):
+   507→    print(f"  {i+1:3d}  {ev:+.8e} MeV^2  (sqrt = {np.sqrt(abs(ev)):.6e} MeV)")
+   508→
+   509→# Step 2: Third-derivative contributions
+   510→# W_{IJK} = d^3 W / (dphi_I dphi_J dphi_K)
+   511→# The nonzero third derivatives come from the X * det M term:
+   512→# d^3(X det M)/dphi_I dphi_J dphi_K:
+   513→# - d^3/dX dM^a_a dM^b_b = cofactor(a,b) = M_c for a != b (c = third)
+   514→#   Wait, d^2(det M)/dM^a_a dM^b_b = M_c, so d^3(X det M)/dX dM^a_a dM^b_b = M_c
+   515→#   But this is already included in W_IJ. Third derivatives need THREE different fields.
+   516→#
+   517→# For X det M: d^3/dX dM^a_b dM^c_d = d^2(det M)/dM^a_b dM^c_d = +/- M_e or 0
+   518→# (as computed above, but now it's a third derivative of W involving X and two mesons)
+   519→#
+   520→# For the det M expansion with more than 2 meson derivatives:
+   521→# d^3(det M)/dM^a_i dM^b_j dM^c_k = epsilon_{abc} epsilon_{ijk} (the Levi-Civita)
+   522→# d^3(X det M)/dM^a_i dM^b_j dM^c_k = X * epsilon_{abc} epsilon_{ijk}
+   523→#
+   524→# Plus: d^3(X det M)/dX dM^a_i dM^b_j = d^2(det M)/dM^a_i dM^b_j
+   525→# (already computed, = +/- M_e at diagonal vacuum)
+   526→#
+   527→# So the third derivatives W_{IJK} are:
+   528→# W_{X, M^a_b, M^c_d} = d^2(det M)/dM^a_b dM^c_d (at vacuum)
+   529→# W_{M^a_i, M^b_j, M^c_k} = X * epsilon_{abc} epsilon_{ijk}
+   530→
+   531→# The F-cross contribution to scalar mass is:
+   532→# (M^2_hol)_{JK} = sum_I W_{IJK} F*_I
+   533→#
+   534→# Since F_I are real in our case, F*_I = F_I.
+   535→
+   536→# Build the holomorphic mass matrix
+   537→F_vec = np.zeros(16)
+   538→F_vec[0] = F_Muu  # practically 0
+   539→F_vec[4] = F_Mdd  # = y_c * v_hu (dominant from Yukawa)
+   540→F_vec[8] = F_Mss  # = y_b * v_hd (dominant from Yukawa)
+   541→F_vec[9] = F_X    # = 0
+   542→F_vec[13] = F_Hu0  # = y_c * M_d
+   543→F_vec[14] = F_Hd0  # = y_b * M_s
+   544→
+   545→print(f"\nF-term vector:")
+   546→for i in range(16):
+   547→    if abs(F_vec[i]) > 1e-30:
+   548→        print(f"  F[{NAMES[i]:>4s}] = {F_vec[i]:+.10e}")
+   549→
+   550→# Build third derivative tensor W_IJK (sparse)
+   551→# Only nonzero components:
+   552→# (1) W_{X, M^a_b, M^c_d} = d^2(det M)/dM^a_b dM^c_d  (for a != c)
+   553→# (2) W_{M^a_i, M^b_j, M^c_k} = X0 * epsilon_{abc} epsilon_{ijk}
+   554→# (3) No Yukawa third derivatives (y_c H_u^0 M^d_d is bilinear => W_{IJK}=0 for Yukawa)
+   555→
+   556→# The holomorphic mass matrix from third derivatives:
+   557→M2_hol = np.zeros((16, 16))
+   558→
+   559→# Contribution (1): W_{X, M^a_b, M^c_d} * F_X
+   560→# F_X = 0, so this contributes nothing.
+   561→
+   562→# Contribution (1): W_{X, M^a_b, M^c_d} * F_{M^e_f}
+   563→# For J=X(9), K=M^a_b, I=M^c_d: M2_hol[9, idx_M(a,b)] += W_{M^c_d, X, M^a_b} * F_{M^c_d}
+   564→# Actually, M2_hol[J,K] = sum_I W_{IJK} F_I
+   565→# So for the X-meson-meson terms:
+   566→# W_{X, M^a_b, M^c_d} is symmetric in all three indices.
+   567→# M2_hol[J,K] gets contributions when any of the three index slots is I.
+   568→
+   569→# Let me enumerate. The third derivative W_{X, M^a_a, M^b_b} = M_e (the VEV of third diagonal)
+   570→# for a != b, where e = 3-a-b.
+   571→# And W_{X, M^a_c, M^c_a} = -M_e for a != c, e = 3-a-c.
+   572→
+   573→# Type (1) contributions to M2_hol:
+   574→# Pick I = X (index 9): W_{9, J, K} * F[9] = 0 (since F_X = 0)
+   575→# Pick I = M^a_b: W_{idx_M(a,b), J, K} * F[idx_M(a,b)]
+   576→# For this, we need W_{M^a_b, X, M^c_d} and W_{M^a_b, M^c_d, M^e_f}
+   577→
+   578→# This is getting complex. Let me build the W_IJK tensor directly.
+   579→# Since it's sparse, I'll use a dictionary.
+   580→
+   581→from itertools import permutations
+   582→
+   583→def levi_civita(p):
+   584→    """Sign of permutation p of (0,1,2)."""
+   585→    n = len(p)
+   586→    p = list(p)
+   587→    sign = 1
+   588→    for i in range(n):
+   589→        while p[i] != i:
+   590→            sign *= -1
+   591→            j = p[i]
+   592→            p[i], p[j] = p[j], p[i]
+   593→    return sign
+   594→
+   595→# Build W3 as a symmetric tensor using a clean accumulation approach.
+   596→# First accumulate ALL contributions to each UNORDERED triple (as a sorted tuple),
+   597→# then distribute correctly to the symmetric tensor.
+   598→#
+   599→# The superpotential W = ... + X * det M + ...
+   600→# Third derivatives of X * det M:
+   601→#   (1) d^3/dX dM^a_b dM^c_d = d^2(det M)/dM^a_b dM^c_d
+   602→#       Nonzero at diagonal vacuum only for:
+   603→#       - a != c, b=a, d=c: d^2(det)/dM^a_a dM^c_c = M_e (e = third)
+   604→#       - a != c, b=c, d=a: d^2(det)/dM^a_c dM^c_a = -M_e
+   605→#   (2) d^3/dM^a_i dM^b_j dM^c_k = X * eps_{abc} eps_{ijk}
+   606→#       (a,b,c) and (i,j,k) each a permutation of (0,1,2)
+   607→
+   608→# Accumulate into a dict keyed by sorted (unordered) triple of field indices.
+   609→# Each entry stores the CORRECT symmetric tensor value W_{IJK}.
+   610→W3_accum = {}  # key = sorted tuple, value = W_{IJK} (same for all permutations)
+   611→
+   612→# Type (1): W_{X(9), M^a_b, M^c_d} = d^2(det M)/dM^a_b dM^c_d
+   613→# Enumerate unique unordered triples: for each distinct pair (a,c) with a < c
+   614→for a in range(3):
+   615→    for c in range(a+1, 3):
+   616→        e = 3 - a - c
+   617→        # Diagonal-diagonal: W_{X, M^a_a, M^c_c} = M_e
+   618→        key = tuple(sorted([9, idx_M(a,a), idx_M(c,c)]))
+   619→        W3_accum[key] = W3_accum.get(key, 0) + M_vev[e]
+   620→        # Off-diagonal pair: W_{X, M^a_c, M^c_a} = -M_e
+   621→        key = tuple(sorted([9, idx_M(a,c), idx_M(c,a)]))
+   622→        W3_accum[key] = W3_accum.get(key, 0) + (-M_vev[e])
+   623→
+   624→# Type (2): W_{M^a_i, M^b_j, M^c_k} = X0 * eps_{abc} eps_{ijk}
+   625→# The symmetric tensor value is the SAME for all permutations of the three
+   626→# field indices (I,J,K). Summing over all 36 row/col permutations counts
+   627→# each unordered triple 6 times (for 3 distinct fields) with the same sign.
+   628→# So: accumulate the sum and divide by 6 to get the per-triple value.
+   629→W3_type2_raw = {}
+   630→for perm_row in permutations(range(3)):
+   631→    for perm_col in permutations(range(3)):
+   632→        sign = levi_civita(list(perm_row)) * levi_civita(list(perm_col))
+   633→        val = X0 * sign
+   634→        i1 = idx_M(perm_row[0], perm_col[0])
+   635→        i2 = idx_M(perm_row[1], perm_col[1])
+   636→        i3 = idx_M(perm_row[2], perm_col[2])
+   637→        key = tuple(sorted([i1, i2, i3]))
+   638→        W3_type2_raw[key] = W3_type2_raw.get(key, 0) + val
+   639→
+   640→for key, raw_val in W3_type2_raw.items():
+   641→    # Each unordered triple appears 6 times in the sum (for distinct fields),
+   642→    # all with the same value. Divide by 6 to get W_{IJK}.
+   643→    W3_accum[key] = W3_accum.get(key, 0) + raw_val / 6.0
+   644→
+   645→# Now build the full symmetric W3 tensor as a dict
+   646→W3 = {}
+   647→for sorted_key, val in W3_accum.items():
+   648→    I, J, K = sorted_key
+   649→    for perm in [(I,J,K),(I,K,J),(J,I,K),(J,K,I),(K,I,J),(K,J,I)]:
+   650→        W3[perm] = W3.get(perm, 0) + val
+   651→
+   652→# Build M2_hol[J,K] = sum_I W3[(I,J,K)] * F_vec[I]
+   653→for (I, J, K), val in W3.items():
+   654→    M2_hol[J, K] += val * F_vec[I]
+   655→
+   656→# Symmetrize (should already be symmetric)
+   657→M2_hol = 0.5 * (M2_hol + M2_hol.T)
+   658→
+   659→print(f"\nHolomorphic mass matrix M2_hol (from W_IJK F_I):")
+   660→print(f"  Nonzero entries:")
+   661→for i in range(16):
+   662→    for j in range(i, 16):
+   663→        if abs(M2_hol[i,j]) > 1e-20:
+   664→            print(f"    M2_hol[{NAMES[i]:>4s}, {NAMES[j]:>4s}] = {M2_hol[i,j]:+.8e}")
+   665→
+   666→# Step 3: Soft SUSY-breaking contributions
+   667→# V_soft = m_tilde^2 Tr(M^dag M) + (B_mu sum_i m_i M^i_i + h.c.)
+   668→#
+   669→# m_tilde^2 Tr(M^dag M) = m_tilde^2 sum_{i,j} |M^i_j|^2
+   670→# This gives a universal mass-squared m_tilde^2 for all 9 meson scalars (both Re and Im parts).
+   671→#
+   672→# B_mu sum_i m_i M^i_i + h.c. = B_mu (m_u M^u_u + m_d M^d_d + m_s M^s_s) + h.c.
+   673→# At the vacuum, expanding M^i_i = <M^i_i> + delta M^i_i:
+   674→# B_mu m_i (M_i + delta M^i_i) + h.c. = B_mu m_i M_i + B_mu m_i delta M^i_i + h.c.
+   675→# The linear term B_mu m_i delta M^i_i + h.c. is a tadpole (shifts the vacuum).
+   676→# The mass contribution: B_mu m_i is real, and M^i_i = (phi^R + i phi^I)/sqrt(2),
+   677→# so B_mu m_i M^i_i + h.c. = 2 B_mu m_i phi^R / sqrt(2) = sqrt(2) B_mu m_i phi^R
+   678→# This is a LINEAR term, not quadratic. No mass contribution from B_mu at second order.
+   679→#
+   680→# Actually, in the standard treatment, B_mu term in the Lagrangian V = B_mu m M + h.c.
+   681→# with M complex, this is V = B_mu m (phi^R + i phi^I)/sqrt(2) + h.c.
+   682→# = sqrt(2) B_mu m phi^R  (if B_mu, m are real)
+   683→# This is indeed linear. It shifts the vacuum but doesn't directly contribute to masses.
+   684→# However, if we're expanding around the CORRECT vacuum (which includes the B_mu shift),
+   685→# then the vacuum equations absorb this linear term.
+   686→#
+   687→# The quadratic soft terms are:
+   688→# From m_tilde^2: diagonal mass m_tilde^2 for each meson scalar component
+   689→# From B_mu: this term is linear in the fields, not quadratic.
+   690→# So the soft contribution to the scalar mass matrix is just m_tilde^2 for mesons.
+   691→#
+   692→# Wait, I need to reconsider. The B_mu term in the MSSM-like context is:
+   693→# V_soft = B_mu (H_u H_d + h.c.) which IS bilinear in Higgs fields.
+   694→# But in this problem, V_soft = B_mu sum_i m_i M^i_i + h.c. which is LINEAR in M.
+   695→# This is a standard soft "A-term" style or linear soft term.
+   696→# For the mass matrix, it contributes nothing at second order.
+   697→# The mass matrix gets:
+   698→# - m_tilde^2 for meson real and imaginary parts (from Tr(M^dag M))
+   699→# - Nothing from B_mu at second order (it's linear)
+   700→
+   701→M2_soft = np.zeros((16, 16))
+   702→# m_tilde^2 for all 9 meson fields (indices 0-8)
+   703→for i in range(9):
+   704→    M2_soft[i, i] = m_tilde_sq
+   705→
+   706→print(f"\nSoft mass contributions:")
+   707→print(f"  m_tilde^2 = {m_tilde_sq:.0f} MeV^2 for all 9 meson scalars")
+   708→print(f"  B_mu term is linear in fields => no quadratic mass contribution")
+   709→
+   710→# Step 4: Build the full 32x32 real scalar mass matrix
+   711→# In the real basis (phi_1^R, phi_1^I, phi_2^R, phi_2^I, ...):
+   712→#
+   713→# The 32x32 matrix has 2x2 blocks for each pair of fields.
+   714→# For the (phi_J, phi_K) entry, the 2x2 block is:
+   715→#
+   716→# From M^2_H (Hermitian piece, always real for real W):
+   717→# M^2_H_{JK} contributes to both (R,R) and (I,I) blocks equally.
+   718→#
+   719→# From M^2_hol (holomorphic piece):
+   720→# M^2_hol_{JK} is real in our case.
+   721→# It contributes +M^2_hol to (R,R) and -M^2_hol to (I,I).
+   722→# (Because phi phi = (phi^R + i phi^I)^2/2 = ((phi^R)^2 - (phi^I)^2 + 2i phi^R phi^I)/2)
+   723→#
+   724→# From M^2_soft:
+   725→# Diagonal, same for R and I parts.
+   726→#
+   727→# Full 2x2 block for (J,K):
+   728→# [[M^2_H + M^2_hol + M^2_soft,  0                ],
+   729→#  [0,                            M^2_H - M^2_hol + M^2_soft]]
+   730→# (No R-I mixing because everything is real in our model.)
+   731→#
+   732→# Actually, for the (phi_J^R, phi_K^I) and (phi_J^I, phi_K^R) entries,
+   733→# the contributions vanish because M^2_H is real symmetric and M^2_hol is real symmetric.
+   734→# The general formula for complex fields:
+   735→# V = M^2_H_{JK} phi*_J phi_K + 1/2 M^2_hol_{JK} phi_J phi_K + h.c.
+   736→# = M^2_H_{JK} (phiR_J phiR_K + phiI_J phiI_K)/2
+   737→#   + M^2_hol_{JK} (phiR_J phiR_K - phiI_J phiI_K)/2
+   738→#   [the cross terms phiR phiI cancel because M^2_hol is symmetric and real]
+   739→#
+   740→# So:
+   741→# m^2_{R_J R_K} = M^2_H_{JK} + M^2_hol_{JK} + M^2_soft_{JK}  (for J in meson sector)
+   742→# m^2_{I_J I_K} = M^2_H_{JK} - M^2_hol_{JK} + M^2_soft_{JK}
+   743→# m^2_{R_J I_K} = 0
+   744→
+   745→M2_scalar_32 = np.zeros((32, 32))
+   746→
+   747→for J in range(16):
+   748→    for K in range(16):
+   749→        # Real-Real block
+   750→        M2_scalar_32[2*J, 2*K] = M2_H[J, K] + M2_hol[J, K] + M2_soft[J, K]
+   751→        # Imag-Imag block
+   752→        M2_scalar_32[2*J+1, 2*K+1] = M2_H[J, K] - M2_hol[J, K] + M2_soft[J, K]
+   753→        # Real-Imag = 0 (already initialized)
+   754→
+   755→# Symmetrize
+   756→M2_scalar_32 = 0.5 * (M2_scalar_32 + M2_scalar_32.T)
+   757→
+   758→scalar_evals = eigvalsh(M2_scalar_32)
+   759→
+   760→print(f"\n--- Scalar mass-squared eigenvalues (32 real d.o.f.) ---")
+   761→print(f"{'n':>3}  {'m^2 (MeV^2)':>22}  {'m (MeV)':>16}  {'m^2 > 0?':>10}")
+   762→for i, ev in enumerate(scalar_evals):
+   763→    m_val = np.sqrt(abs(ev)) if ev >= 0 else -np.sqrt(abs(ev))
+   764→    sign = "YES" if ev > -1e-10 else "NO (tachyon)"
+   765→    print(f"  {i+1:3d}  {ev:+22.10e}  {m_val:+16.6e}  {sign}")
+   766→
+   767→n_tachyon = np.sum(scalar_evals < -1e-10)
+   768→n_zero_s = np.sum(np.abs(scalar_evals) < 1e-10)
+   769→n_pos_s = np.sum(scalar_evals > 1e-10)
+   770→print(f"\n  Tachyonic (m^2 < 0): {n_tachyon}")
+   771→print(f"  Zero (|m^2| < 1e-10): {n_zero_s}")
+   772→print(f"  Positive: {n_pos_s}")
+   773→
+   774→# --- NUMERICAL RELIABILITY WARNING ---
+   775→# The 32x32 matrix is numerically ill-conditioned due to the ~10^21 dynamic range
+   776→# from the X-Mss sector (~10^10 MeV) to the baryon sector (~10^-9 MeV).
+   777→# The tachyonic modes are NUMERICAL ARTIFACTS from the condition number of W^2.
+   778→# Eigenvalues of W^2 should all be non-negative (W is symmetric, W^2 = W^T W is PSD).
+   779→# The correct scalar spectrum has:
+   780→#   - For each fermion eigenvalue lambda_i: two scalar modes with mass-squared
+   781→#     lambda_i^2 + M2_hol_{ii} + M2_soft_{ii}  (R part)  and
+   782→#     lambda_i^2 - M2_hol_{ii} + M2_soft_{ii}  (I part)
+   783→#
+   784→# To get RELIABLE scalar masses for the light sector, we analyze block by block:
+   785→
+   786→print(f"\n\n--- BLOCK-BY-BLOCK SCALAR MASS ANALYSIS (numerically reliable) ---")
+   787→
+   788→# The fermion mass matrix decomposes into independent blocks:
+   789→# (a) Central block: {Muu(0), Mdd(4), Mss(8), X(9), Hu0(13), Hd0(14)} -- coupled via W
+   790→# (b) Off-diag meson pair: {Mud(1), Mdu(3)} -- 2x2
+   791→# (c) Off-diag meson pair: {Mus(2), Msu(6)} -- 2x2
+   792→# (d) Off-diag meson pair: {Mds(5), Msd(7)} -- 2x2
+   793→# (e) Baryon pair: {B(10), Bt(11)} -- 2x2
+   794→# (f) Decoupled: Hu+(12) -- 1x1, mass = 0
+   795→# (g) Decoupled: Hd-(15) -- 1x1, mass = 0
+   796→
+   797→def scalar_block_masses(W_block, M2_hol_block, M2_soft_block, block_name, field_names_block):
+   798→    """Compute scalar mass-squared eigenvalues for a single block."""
+   799→    n = len(W_block)
+   800→    # Build the 2n x 2n real scalar mass matrix for this block
+   801→    M2_H_block = W_block @ W_block  # This is reliable for small blocks
+   802→    M2_R = M2_H_block + M2_hol_block + M2_soft_block  # Real-Real
+   803→    M2_I = M2_H_block - M2_hol_block + M2_soft_block  # Imag-Imag
+   804→
+   805→    # For 2n x 2n: [[M2_R, 0], [0, M2_I]]
+   806→    M2_full = np.zeros((2*n, 2*n))
+   807→    M2_full[:n, :n] = M2_R
+   808→    M2_full[n:, n:] = M2_I
+   809→    evals = eigvalsh(M2_full)
+   810→
+   811→    print(f"\n  Block: {block_name}")
+   812→    print(f"  Fields: {field_names_block}")
+   813→    fermion_evals_block = eigvalsh(W_block)
+   814→    print(f"  Fermion masses: {[f'{abs(v):.6e}' for v in sorted(fermion_evals_block, key=abs)]}")
+   815→    for i, ev in enumerate(evals):
+   816→        m_val = np.sqrt(abs(ev))
+   817→        ri = "R" if i < n else "I"
+   818→        tach = " [tachyon!]" if ev < -1e-10 else ""
+   819→        print(f"    m^2_{i+1}({ri}) = {ev:+.8e} MeV^2  (|m| = {m_val:.6e} MeV){tach}")
+   820→    return evals
+   821→
+   822→# Block (b): Mud(1) - Mdu(3) off-diagonal pair
+   823→idx_b = [1, 3]
+   824→W_b = W[np.ix_(idx_b, idx_b)]
+   825→hol_b = M2_hol[np.ix_(idx_b, idx_b)]
+   826→soft_b = M2_soft[np.ix_(idx_b, idx_b)]
+   827→evals_b = scalar_block_masses(W_b, hol_b, soft_b, "ud off-diagonal", ["Mud", "Mdu"])
+   828→
+   829→# Block (c): Mus(2) - Msu(6)
+   830→idx_c = [2, 6]
+   831→W_c = W[np.ix_(idx_c, idx_c)]
+   832→hol_c = M2_hol[np.ix_(idx_c, idx_c)]
+   833→soft_c = M2_soft[np.ix_(idx_c, idx_c)]
+   834→evals_c = scalar_block_masses(W_c, hol_c, soft_c, "us off-diagonal", ["Mus", "Msu"])
+   835→
+   836→# Block (d): Mds(5) - Msd(7)
+   837→idx_d = [5, 7]
+   838→W_d = W[np.ix_(idx_d, idx_d)]
+   839→hol_d = M2_hol[np.ix_(idx_d, idx_d)]
+   840→soft_d = M2_soft[np.ix_(idx_d, idx_d)]
+   841→evals_d = scalar_block_masses(W_d, hol_d, soft_d, "ds off-diagonal", ["Mds", "Msd"])
+   842→
+   843→# Block (e): B(10) - Bt(11)
+   844→idx_e = [10, 11]
+   845→W_e = W[np.ix_(idx_e, idx_e)]
+   846→hol_e = M2_hol[np.ix_(idx_e, idx_e)]
+   847→soft_e = M2_soft[np.ix_(idx_e, idx_e)]
+   848→evals_e = scalar_block_masses(W_e, hol_e, soft_e, "baryon pair", ["B", "Bt"])
+   849→
+   850→# Block (f): Hu+(12)
+   851→idx_f = [12]
+   852→W_f = W[np.ix_(idx_f, idx_f)]
+   853→hol_f = M2_hol[np.ix_(idx_f, idx_f)]
+   854→soft_f = M2_soft[np.ix_(idx_f, idx_f)]
+   855→evals_f = scalar_block_masses(W_f, hol_f, soft_f, "Hu+ (decoupled)", ["Hu+"])
+   856→
+   857→# Block (g): Hd-(15)
+   858→idx_g = [15]
+   859→W_g = W[np.ix_(idx_g, idx_g)]
+   860→hol_g = M2_hol[np.ix_(idx_g, idx_g)]
+   861→soft_g = M2_soft[np.ix_(idx_g, idx_g)]
+   862→evals_g = scalar_block_masses(W_g, hol_g, soft_g, "Hd- (decoupled)", ["Hd-"])
+   863→
+   864→# Block (a): Central block {Muu(0), Mdd(4), Mss(8), X(9), Hu0(13), Hd0(14)}
+   865→# This block has a huge dynamic range. Analyze it carefully.
+   866→idx_a = [0, 4, 8, 9, 13, 14]
+   867→W_a = W[np.ix_(idx_a, idx_a)]
+   868→hol_a = M2_hol[np.ix_(idx_a, idx_a)]
+   869→soft_a = M2_soft[np.ix_(idx_a, idx_a)]
+   870→print(f"\n  Block: central (Muu, Mdd, Mss, X, Hu0, Hd0)")
+   871→print(f"  WARNING: condition number ~ 10^21; scalar eigenvalues for light modes unreliable")
+   872→evals_a = scalar_block_masses(W_a, hol_a, soft_a, "central block", ["Muu","Mdd","Mss","X","Hu0","Hd0"])
+   873→
+   874→# Collect all block eigenvalues for the reliable supertrace
+   875→all_block_evals = np.concatenate([evals_a, evals_b, evals_c, evals_d, evals_e, evals_f, evals_g])
+   876→all_block_evals = np.sort(all_block_evals)
+   877→print(f"\n  Total scalar eigenvalues from blocks: {len(all_block_evals)} (should be 32)")
+   878→print(f"  Sum of block eigenvalues: {np.sum(all_block_evals):+.10e}")
+   879→print(f"  Sum from 32x32 matrix:    {np.sum(scalar_evals):+.10e}")
+   880→print(f"  (These should agree if blocks don't couple.)")
+   881→
+   882→
+   883→# ═══════════════════════════════════════════════════════════════════════════
+   884→# TASK 3: SM Identification
+   885→# ═══════════════════════════════════════════════════════════════════════════
+   886→print("\n\n" + "=" * 72)
+   887→print("TASK 3: SM PARTICLE IDENTIFICATION")
+   888→print("=" * 72)
+   889→
+   890→# The 16 chiral superfields and their SM associations:
+   891→# Meson diagonal M^i_i: these are neutral color-singlet scalars.
+   892→#   VEVs ~ C/m_i (large). Fluctuations around these VEVs = neutral mesons.
+   893→#   In the Seiberg dual picture, these correspond to quark bilinears.
+   894→#   The seesaw M_j = C/m_j means the CW spectrum tracks quark mass ratios.
+   895→#   After the Yukawa coupling, M^d_d mixes with H_u^0 to produce charm-mass states,
+   896→#   and M^s_s mixes with H_d^0 to produce bottom-mass states.
+   897→#
+   898→# Meson off-diagonal M^i_j (i != j): charged/flavor-changing mesons.
+   899→#   These get masses from the X * det M coupling.
+   900→#   Masses ~ |X| * M_k (tiny in MeV terms).
+   901→#
+   902→# X: Lagrange multiplier. Its fermion partner is very light.
+   903→# B, Btilde: baryons. Get mass ~ |X| (extremely light).
+   904→# H_u, H_d: Higgs doublets. The neutral components couple to mesons via Yukawa.
+   905→#   After EWSB, the charged components (H_u^+, H_d^-) remain as charged Higgs.
+   906→
+   907→# Fermion identification:
+   908→print("\n--- Fermion mass spectrum and SM identification ---")
+   909→print(f"\n{'n':>3}  {'Mass (MeV)':>16}  {'Dominant field':>20}  {'SM identification':>30}")
+   910→
+   911→# Get sorted eigenvalues with eigenvectors
+   912→fermion_sorted_idx = np.argsort(np.abs(fermion_evals))
+   913→for rank, i in enumerate(fermion_sorted_idx):
+   914→    ev = fermion_evals[i]
+   915→    evec = fermion_evecs[:, i]
+   916→    # Find top 2 dominant components
+   917→    abs_evec = np.abs(evec)
+   918→    top2 = np.argsort(abs_evec)[-2:][::-1]
+   919→    dom1_name = NAMES[top2[0]]
+   920→    dom1_frac = evec[top2[0]]**2
+   921→    dom2_name = NAMES[top2[1]]
+   922→    dom2_frac = evec[top2[1]]**2
+   923→
+   924→    # SM identification logic
+   925→    if abs(ev) < 1e-15:
+   926→        sm_id = "massless (Goldstino or decoupled)"
+   927→    elif dom1_name in ['Hu+', 'Hd-']:
+   928→        sm_id = "charged Higgsino (decoupled)"
+   929→    elif dom1_name in ['B', 'Bt']:
+   930→        sm_id = "baryon fermion (exotic)"
+   931→    elif dom1_name == 'X':
+   932→        sm_id = "X-fermion (pseudo-modulus partner)"
+   933→    elif dom1_name in ['Muu', 'Mdd', 'Mss']:
+   934→        if abs(abs(ev) - abs(X0 * M_vev[0])) / max(abs(ev), 1e-30) < 0.01:
+   935→            sm_id = "diagonal meson fermion (light neutral)"
+   936→        else:
+   937→            sm_id = "diagonal meson fermion"
+   938→    elif 'M' in dom1_name:
+   939→        sm_id = "off-diagonal meson fermion (flavor-changing)"
+   940→    elif dom1_name == 'Hu0':
+   941→        sm_id = "neutral Higgsino (up-type)"
+   942→    elif dom1_name == 'Hd0':
+   943→        sm_id = "neutral Higgsino (down-type)"
+   944→    else:
+   945→        sm_id = "unidentified"
+   946→
+   947→    print(f"  {rank+1:3d}  {abs(ev):16.8e}  {dom1_name:>5s}({dom1_frac:.3f})+{dom2_name:>4s}({dom2_frac:.3f})  {sm_id}")
+   948→
+   949→
+   950→# ═══════════════════════════════════════════════════════════════════════════
+   951→# TASK 4: Supertrace
+   952→# ═══════════════════════════════════════════════════════════════════════════
+   953→print("\n\n" + "=" * 72)
+   954→print("TASK 4: SUPERTRACE STr[M^2]")
+   955→print("=" * 72)
+   956→
+   957→# STr[M^2] = sum_bosons m^2 - 2 * sum_fermions m^2
+   958→# The factor of 2 for fermions accounts for the two helicity states of a Dirac fermion
+   959→# formed from a Weyl pair. But our fermion eigenvalues are for Weyl fermions.
+   960→# For a Weyl fermion with mass m, m^2_fermion = m^2.
+   961→# For 16 Weyl fermions, the fermion contribution is sum of m_i^2.
+   962→#
+   963→# Actually, the supertrace formula for N=1 SUSY:
+   964→# STr M^2 = Tr m^2_scalar - 2 Tr m^2_fermion
+   965→# where m^2_scalar are the 32 real scalar mass-squared eigenvalues,
+   966→# and m^2_fermion are the squared masses of the 16 Weyl fermions
+   967→# (each Weyl contributes m_i^2 once, not twice).
+   968→# Wait, the standard formula:
+   969→# STr M^2 = sum_{J} (-1)^{2J} (2J+1) Tr m^2_J
+   970→# For scalars (J=0): 1 * Tr m^2_scalar
+   971→# For Weyl fermions (J=1/2): -2 * Tr m^2_Weyl = -2 * sum |m_i|^2
+   972→#
+   973→# But we have 32 REAL scalars and 16 Weyl fermions (= 32 real d.o.f. each).
+   974→# Supertrace: STr M^2 = sum_{32 real scalars} m^2_i - 2 * sum_{16 Weyl} m^2_i
+   975→#
+   976→# Note: For a massive Weyl fermion with eigenvalue lambda, the mass-squared is lambda^2.
+   977→# For the fermion mass matrix W_IJ, the mass-squared eigenvalues are eigenvalues of W^T W = W^2.
+   978→# The trace of W^2 gives sum of lambda_i^2.
+   979→
+   980→# ANALYTICAL COMPUTATION of the supertrace (avoids numerical issues):
+   981→#
+   982→# STr M^2 = sum_{32 real scalars} m^2_i - 2 * sum_{16 Weyl} m^2_i
+   983→#
+   984→# The scalar mass-squared matrix has the form:
+   985→#   m^2_{RR} = M2_H + M2_hol + M2_soft  (16x16)
+   986→#   m^2_{II} = M2_H - M2_hol + M2_soft  (16x16)
+   987→#   m^2_{RI} = 0  (no R-I mixing for real couplings)
+   988→#
+   989→# where M2_H = W^2 (positive semi-definite), M2_hol = sum_I W_{IJK} F_I, M2_soft = diagonal.
+   990→#
+   991→# Supertrace:
+   992→#   STr = Tr(m^2_{RR}) + Tr(m^2_{II}) - 2*Tr(W^2)
+   993→#       = Tr(M2_H + M2_hol + M2_soft) + Tr(M2_H - M2_hol + M2_soft) - 2*Tr(M2_H)
+   994→#       = 2*Tr(M2_H) + 2*Tr(M2_soft) - 2*Tr(M2_H)
+   995→#       = 2*Tr(M2_soft)
+   996→#
+   997→# The M2_hol (holomorphic) piece cancels in R + I traces.
+   998→# The M2_H = W^2 piece cancels between scalar and fermion sectors.
+   999→# ONLY the soft terms survive.
+  1000→
+  1001→Tr_M2_soft = np.trace(M2_soft)
+  1002→STr_analytical = 2.0 * Tr_M2_soft
+  1003→print(f"\n  ANALYTICAL supertrace:")
+  1004→print(f"  Tr(M2_soft) = {Tr_M2_soft:.2f}  (= 9 * m_tilde^2 = 9 * {m_tilde_sq:.0f})")
+  1005→print(f"  STr[M^2] = 2 * Tr(M2_soft) = {STr_analytical:.2f} MeV^2")
+  1006→print(f"           = 18 * f_pi^2 = 18 * {f_pi}^2 = {18 * f_pi**2:.0f} MeV^2")
+  1007→print(f"           = {STr_analytical:.0f} MeV^2")
+  1008→
+  1009→# Verify components:
+  1010→print(f"\n  Derivation:")
+  1011→sum_fermion_m2 = np.sum(fermion_evals**2)
+  1012→Tr_W2 = np.trace(W @ W)
+  1013→print(f"  Tr(W^2) = {Tr_W2:.8e}")
+  1014→print(f"  sum(lambda_fermion^2) = {sum_fermion_m2:.8e}")
+  1015→print(f"  Tr(W^2) - sum(lambda^2) = {Tr_W2 - sum_fermion_m2:.4e}  (= 0 analytically, check)")
+  1016→print(f"  Tr(M2_hol) = {np.trace(M2_hol):.4e}  (cancels in R+I)")
+  1017→print(f"  2*Tr(M2_soft) = {2*Tr_M2_soft:.0f}")
+  1018→
+  1019→# Numerical STr from the 32x32 matrix (unreliable for verification):
+  1020→sum_scalar_m2 = np.sum(scalar_evals)
+  1021→STr_numerical = sum_scalar_m2 - 2.0 * sum_fermion_m2
+  1022→print(f"\n  Numerical check (32x32, affected by condition number ~10^21):")
+  1023→print(f"  sum_scalar(32x32) = {sum_scalar_m2:+.8e}")
+  1024→print(f"  2*sum_fermion = {2*sum_fermion_m2:+.8e}")
+  1025→print(f"  STr_numerical = {STr_numerical:+.8e}")
+  1026→print(f"  STr_analytical = {STr_analytical:+.8e}")
+  1027→print(f"  Discrepancy = {abs(STr_numerical - STr_analytical):.4e} (numerical error from condition number)")
+  1028→
+  1029→# Block-by-block STr verification:
+  1030→sum_scalar_blocks = np.sum(all_block_evals)
+  1031→STr_blocks = sum_scalar_blocks - 2.0 * sum_fermion_m2
+  1032→print(f"\n  Block-by-block STr: {STr_blocks:+.8e}")
+  1033→print(f"  Block sum scalar = {sum_scalar_blocks:+.8e}")
+  1034→print(f"  Discrepancy from analytical = {abs(STr_blocks - STr_analytical):.4e}")
+  1035→
+  1036→print(f"\n  RESULT: STr[M^2] = 2 * 9 * m_tilde^2 = {STr_analytical:.0f} MeV^2")
+  1037→print(f"  For unbroken SUSY (m_tilde = 0): STr = 0.")
+  1038→print(f"  The nonzero STr is entirely due to the soft mass m_tilde^2 = f_pi^2.")
+  1039→print(f"  The Yukawa-induced F-terms do NOT contribute to the supertrace")
+  1040→print(f"  (they cancel between R and I scalar components).")
+  1041→
+  1042→
+  1043→# ═══════════════════════════════════════════════════════════════════════════
+  1044→# TASK 5: Complete spectrum table
+  1045→# ═══════════════════════════════════════════════════════════════════════════
+  1046→print("\n\n" + "=" * 72)
+  1047→print("TASK 5: COMPLETE SPECTRUM TABLE")
+  1048→print("=" * 72)
+  1049→
+  1050→# Build a unified spectrum table
+  1051→# For fermions: eigenvalue of W_IJ, mass = |eigenvalue|
+  1052→# For scalars: eigenvalue of M^2_32, mass = sqrt(|eigenvalue|)
+  1053→
+  1054→print("\n--- FERMION SPECTRUM ---")
+  1055→print(f"{'#':>3}  {'Mass |m| (MeV)':>18}  {'Spin':>5}  {'Dominant':>12}  {'SM identification'}")
+  1056→print("-" * 80)
+  1057→
+  1058→# Sort fermions by |mass|
+  1059→f_sorted = sorted(enumerate(fermion_evals), key=lambda x: abs(x[1]))
+  1060→for rank, (idx, ev) in enumerate(f_sorted):
+  1061→    evec = fermion_evecs[:, idx]
+  1062→    dom_idx = np.argmax(np.abs(evec))
+  1063→    dom_name = NAMES[dom_idx]
+  1064→    mass = abs(ev)
+  1065→
+  1066→    # Charge assignment
+  1067→    # M^i_j: neutral (Q=0) for diagonal, various for off-diagonal
+  1068→    # X: Q=0, B: Q depends on baryon number, Bt: opposite
+  1069→    # Hu+: Q=+1, Hu0: Q=0, Hd0: Q=0, Hd-: Q=-1
+  1070→    charge = "0"
+  1071→    if dom_name == 'Hu+':
+  1072→        charge = "+1"
+  1073→    elif dom_name == 'Hd-':
+  1074→        charge = "-1"
+  1075→
+  1076→    # Identification
+  1077→    if mass < 1e-15:
+  1078→        ident = "massless Weyl (decoupled)"
+  1079→    elif dom_name in ['Hu+']:
+  1080→        ident = "charged Higgsino (exotic)"
+  1081→    elif dom_name in ['Hd-']:
+  1082→        ident = "charged Higgsino (exotic)"
+  1083→    elif dom_name in ['B', 'Bt']:
+  1084→        ident = "baryonic fermion"
+  1085→    elif dom_name == 'X':
+  1086→        ident = "X-ino (pseudo-modulus fermion)"
+  1087→    elif dom_name in ['Mud', 'Mdu']:
+  1088→        ident = "off-diag meson (ud sector)"
+  1089→    elif dom_name in ['Mus', 'Msu']:
+  1090→        ident = "off-diag meson (us sector)"
+  1091→    elif dom_name in ['Mds', 'Msd']:
+  1092→        ident = "off-diag meson (ds sector)"
+  1093→    elif dom_name in ['Muu']:
+  1094→        ident = "diag meson fermion (uu)"
+  1095→    elif dom_name in ['Mdd']:
+  1096→        ident = "diag meson fermion / charm"
+  1097→    elif dom_name in ['Mss']:
+  1098→        ident = "diag meson fermion / bottom"
+  1099→    elif dom_name in ['Hu0']:
+  1100→        ident = "neutral Higgsino (up)"
+  1101→    elif dom_name in ['Hd0']:
+  1102→        ident = "neutral Higgsino (down)"
+  1103→    else:
+  1104→        ident = "mixed"
+  1105→
+  1106→    print(f"  {rank+1:3d}  {mass:18.8e}  {0.5:>5.1f}  Q={charge:>3s} {dom_name:>5s}  {ident}")
+  1107→
+  1108→print("\n--- SCALAR SPECTRUM ---")
+  1109→print(f"{'#':>3}  {'m^2 (MeV^2)':>22}  {'|m| (MeV)':>16}  {'Spin':>5}  {'Type':>8}  {'SM identification'}")
+  1110→print("-" * 90)
+  1111→
+  1112→# For scalars, identify which complex field each eigenstate belongs to
+  1113→# The 32x32 matrix is in the basis (phi_1^R, phi_1^I, phi_2^R, phi_2^I, ...)
+  1114→# So eigenstate n has components along phi_I^R and phi_I^I.
+  1115→
+  1116→scalar_evecs_all = np.linalg.eigh(M2_scalar_32)[1]
+  1117→
+  1118→s_sorted = sorted(enumerate(scalar_evals), key=lambda x: abs(x[1]))
+  1119→for rank, (idx, m2) in enumerate(s_sorted):
+  1120→    evec = scalar_evecs_all[:, idx]
+  1121→    # Find dominant complex field
+  1122→    field_weights = np.zeros(16)
+  1123→    for I in range(16):
+  1124→        field_weights[I] = evec[2*I]**2 + evec[2*I+1]**2
+  1125→    dom_field = np.argmax(field_weights)
+  1126→    dom_name = NAMES[dom_field]
+  1127→    dom_frac = field_weights[dom_field]
+  1128→
+  1129→    # Check if R or I component dominates
+  1130→    is_real = evec[2*dom_field]**2 > evec[2*dom_field+1]**2
+  1131→    ri_label = "R" if is_real else "I"
+  1132→
+  1133→    mass = np.sqrt(abs(m2))
+  1134→    sign = "+" if m2 >= 0 else "-"
+  1135→
+  1136→    # Identification
+  1137→    if abs(m2) < 1e-10:
+  1138→        ident = "massless (Goldstone or flat direction)"
+  1139→    elif dom_name in ['Hu+']:
+  1140→        ident = f"charged Higgs scalar ({ri_label})"
+  1141→    elif dom_name in ['Hd-']:
+  1142→        ident = f"charged Higgs scalar ({ri_label})"
+  1143→    elif dom_name in ['B', 'Bt']:
+  1144→        ident = f"baryonic scalar ({ri_label})"
+  1145→    elif dom_name == 'X':
+  1146→        ident = f"X-scalar ({ri_label})"
+  1147→    elif 'M' in dom_name and len(dom_name) == 3 and dom_name[1] != dom_name[2]:
+  1148→        ident = f"off-diag meson scalar ({ri_label})"
+  1149→    elif 'M' in dom_name:
+  1150→        ident = f"diag meson scalar ({ri_label})"
+  1151→    elif dom_name in ['Hu0']:
+  1152→        ident = f"neutral Higgs (up, {ri_label})"
+  1153→    elif dom_name in ['Hd0']:
+  1154→        ident = f"neutral Higgs (down, {ri_label})"
+  1155→    else:
+  1156→        ident = f"mixed ({ri_label})"
+  1157→
+  1158→    print(f"  {rank+1:3d}  {m2:+22.8e}  {mass:16.8e}  {0:>5d}  {sign+'m^2':>8s}  {dom_name:>5s} {ident}")
+  1159→
+  1160→
+  1161→# ═══════════════════════════════════════════════════════════════════════════
+  1162→# Summary and consistency checks
+  1163→# ═══════════════════════════════════════════════════════════════════════════
+  1164→print("\n\n" + "=" * 72)
+  1165→print("SUMMARY AND CONSISTENCY CHECKS")
+  1166→print("=" * 72)
+  1167→
+  1168→print(f"\n  Total fields: 16 complex scalars (32 real) + 16 Weyl fermions")
+  1169→print(f"  Fermion mass eigenvalues: {len(fermion_evals)}")
+  1170→print(f"  Scalar mass-squared eigenvalues: {len(scalar_evals)}")
+  1171→
+  1172→print(f"\n  Supertrace: STr[M^2] = {STr_analytical:+.0f} MeV^2  (analytical)")
+  1173→print(f"  = 2 * 9 * m_tilde^2 = 18 * f_pi^2 = {18*m_tilde_sq:.0f} MeV^2")
+  1174→print(f"  Nonzero STr confirms SUSY breaking by soft terms.")
+  1175→
+  1176→print(f"\n  SUSY breaking pattern:")
+  1177→print(f"    F_Mdd = {F_Mdd:.6e} MeV (from y_c Yukawa)")
+  1178→print(f"    F_Mss = {F_Mss:.6e} MeV (from y_b Yukawa)")
+  1179→print(f"    F_Hu0 = {F_Hu0:.6e} MeV (from y_c * M_d)")
+  1180→print(f"    F_Hd0 = {F_Hd0:.6e} MeV (from y_b * M_s)")
+  1181→print(f"    |F|^2 = {F_Mdd**2 + F_Mss**2 + F_Hu0**2 + F_Hd0**2:.6e} MeV^2")
+  1182→print(f"    sqrt(|F|) = {np.sqrt(abs(F_Mdd**2 + F_Mss**2 + F_Hu0**2 + F_Hd0**2)**0.5):.4f} MeV")
+  1183→
+  1184→# Scale hierarchy
+  1185→print(f"\n  Scale hierarchy:")
+  1186→ferm_masses = np.sort(np.abs(fermion_evals))
+  1187→scal_masses = np.sort(np.sqrt(np.abs(scalar_evals)))
+  1188→print(f"    Heaviest fermion: {ferm_masses[-1]:.6e} MeV")
+  1189→print(f"    Lightest nonzero fermion: {ferm_masses[ferm_masses > 1e-15][0]:.6e} MeV" if np.any(ferm_masses > 1e-15) else "    All fermions massless")
+  1190→print(f"    Heaviest scalar: {scal_masses[-1]:.6e} MeV")
+  1191→print(f"    Lightest nonzero scalar: {scal_masses[scal_masses > 1e-5][0]:.6e} MeV" if np.any(scal_masses > 1e-5) else "    All scalars massless")
+  1192→
+  1193→# CW spectrum tracking
+  1194→print(f"\n  ISS/CW spectrum ratios (fermion masses proportional to 1/m_quark):")
+  1195→# The off-diagonal meson pair masses are |X0| * M_k = |X0| * C/m_k
+  1196→# Ratios:
+  1197→print(f"    |X|*M_u / |X|*M_s = M_u/M_s = m_s/m_u = {m_s/m_u:.2f}")
+  1198→print(f"    |X|*M_d / |X|*M_s = M_d/M_s = m_s/m_d = {m_s/m_d:.2f}")
+  1199→print(f"    |X|*M_u / |X|*M_d = M_u/M_d = m_d/m_u = {m_d/m_u:.2f}")
+  1200→print(f"    These ratios are the INVERSE of the quark mass ratios (seesaw duality).")
+  1201→
+  1202→print("\n" + "=" * 72)
+  1203→print("COMPUTATION COMPLETE")
+  1204→print("=" * 72)
+  1205→
