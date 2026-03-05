@@ -2381,6 +2381,50 @@ up-type quark with a down-type from a \emph{different} generation,
 related by a cyclic permutation; this is the same
 structure that appears in the CKM off-diagonal entries.
 
+\paragraph{Charge decomposition and the seesaw.}
+The Koide condition $Q=2/3$ is equivalent to
+$\langle z_k^2\rangle = z_0^2$ (\S\ref{sec:koide_algebra}),
+an energy balance between the mean charge $z_0$ and
+the perturbations $z_k = \zch_k - z_0$.
+The dual Koide on $(1/m_d,1/m_s,1/m_b)$ admits the
+\emph{same} decomposition in terms of dual charges
+$\xi_k = 1/\sqrt{m_k}$: writing $\xi_k = \xi_0 + \xi'_k$,
+one finds $\langle\xi_k'^{\,2}\rangle/\xi_0^2 = 0.996$
+($0.4\%$ from unity), closer to exact energy balance than
+the direct triple $(-s,c,b)$ at $1.025$ ($2.5\%$).
+
+However, the seesaw map $\zch \to 1/\zch$ does \emph{not}
+preserve the Koide parametrization
+$\zch_k = z_0(1+\sqrt{2}\cos(\delta+2\pi k/3))$.
+Substituting $1/\zch_k = \xi_0(1+\sqrt{2}\cos(\delta'+2\pi k/3))$
+and requiring the product $\zch_k \cdot 1/\zch_k = 1$
+leads to a quadratic in $\cos\psi_k$ that must hold for
+three distinct cosine values---impossible unless
+one $\zch_k = 0$ (the seed).
+The seed self-duality $Q(0,a,b) = Q(0,1/a,1/b)$ is
+thus the \emph{unique} fixed point of the seesaw:
+the electric and magnetic Koide conditions coincide
+only at the SUSY-preserving vacuum where one mass
+vanishes.
+
+This means the three independent Koide triples
+decompose into two sectors:
+\begin{itemize}
+\item \textbf{Electric} (charges $\zch = \pm\sqrt{m}$):
+$(-s,c,b)$ and $(c,b,t)$, constraining $\{s,c,b,t\}$.
+\item \textbf{Magnetic} (charges $\xi = 1/\sqrt{m}$):
+$(1/d,1/s,1/b)$, constraining $\{d,s,b\}$.
+\end{itemize}
+The dual charges $\xi_j = \sqrt{\langle M^j{}_j\rangle}/\Lambda$
+are literally the square roots of the Seiberg meson VEVs:
+the magnetic Koide is an energy balance on the meson
+condensate, not on quark masses.
+Together with the $v_0$-doubling
+($\sqrt{m_b} = 3\sqrt{m_s} + \sqrt{m_c}$),
+these four constraints leave only $m_u$, $m_d$, and
+the overall scale $m_s$ as free parameters---consistent
+with the parameter budget of~\S\ref{subsec:superpotential}.
+
 Among all $\binom{5}{3} = 10$ quark triples, $(d,s,b)$ is the
 unique triple with inverse-mass Koide ratio within 1\% of $2/3$;
 the next closest is $(d,s,c)$ at 4.2\% deviation---a 19:1 margin.
