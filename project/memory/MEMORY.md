@@ -4,7 +4,7 @@
 - **User**: Alejandro Rivero, physicist, University of Zaragoza
 - **Project**: sBootstrap research program — proposing SM fermions/scalars fill common SUSY supermultiplets with SU(5) flavor symmetry
 - **Published paper**: arXiv:2407.05397, EPJC 84, 1058 (2024)
-- **Working directory**: /Users/arivero/phys3
+- **Working directory**: /home/codexssh/phys3 (remote dev environment)
 
 ## Critical Architecture: Manhattan Compartmentalization
 
@@ -86,7 +86,12 @@ The goal is to get a SUSY Lagrangian for the full theory, including Yukawa coupl
 - **Top quark scheme (Round 22)**: 171.3 GeV is between m_t(m_t)=162.5 and m_t^pole=172.57. At 2-loop MSbar conversion: m_t(m_t)≈161.3 GeV, pull=-1.1σ. Chain mixes scales (m_s at 2 GeV, heavy quarks at m_q). O(1 GeV) scheme ambiguity
 - **Lepton STr (Round 22)**: SU(2) s-confining sector = SU(3) O'R ⊕ free massless L₂. STr=0 identically. B-term ±2gf identical. L₂ pseudo-modulus stabilized at CW with mass suppressed by (m/Λ_L)⁶
 - **CW mass**: m_CW ≈ 13 MeV at Seiberg vacuum. Factor 320 below m_b (not "five orders"). Bloom must be nonperturbative.
-- **Three-instanton potential**: (det M)³/Λ¹⁸ is the lowest Z₁₈-singlet holomorphic operator beyond Seiberg constraint. Generates cos(9δ). V₀^{1/4} ~ 65-85 MeV (comparable to f_π). Quark phases NOT at Z₉ minima — different selection mechanism for quarks vs leptons.
+- **Three-instanton potential**: (det M)³/Λ¹⁸ is the lowest Z₁₈-singlet holomorphic operator. Exact identity: ∏_k[1+√2 cos(δ+2πk/3)] = −1/2 + cos(3δ)/√2. So [f(δ)]⁶ contains ALL harmonics cos(3nδ) n=0..6. cos(9δ) is only 34% of dominant cos(3δ). Actual potential has **6 minima** not 9. The claim "generates cos(9δ) potential" was sloppy — now corrected in paper.
+- **Cartan rigidity (proven)**: r⃗ = Σ√m_k w⃗_k = (z₀√6/2)(sin(δ+π/3), cos(δ+π/3)). So θ = π/6−δ is an EXACT algebraic identity for all δ,z₀ — not just numerically verified. Bloom = rigid rotation at fixed R = z₀√6/2, no radial component. Added to paper.
+- **Type I chiral spectrum (Round 22 continued)**: 3×[(10,1)+(5̄,3)+(5,3̄)] from D9 branes. Antisymmetric **10** (not 15). ε=+1 forced because odd-dimension blocks (n=3) cannot support Sp-type projection. Paper corrected.
+- **V_cb structural failure**: Fritzsch 6-zero texture gives |V_cb| ≥ 0.059 vs PDG 0.042 (40% too large, known since 1990s). V_us works fine (−0.9σ). Need 5-zero texture or RG running for V_cb. Noted in paper.
+- **v₀-doubling coefficient**: 3 = 2+1. The 2 comes from z₀-doubling; the 1 from sign flip (√m_s enters seed with +1, bloom with −1). Now derived and clarified in paper.
+- **Monopole additive structure**: Σ√m_k (additive) requires N_f = N_c with color-flavor locking. For N_f > N_c: multiplicative ∏√m_k. ISS has N_f=4 > N_c=3 so must integrate out one flavor first.
 - **Cabibbo/GST (Round 8)**: GST sin θ_C = √(m_d/m_s) = 0.2236 (−0.9% from PDG). Better than Weinberg-Oakes (−3.3%) or Fritzsch (−20.5%). Koide does NOT hold for (u,d,s) or (u,c,t) — lightest quarks outside Koide manifold.
 - **Dual Koide prediction (Round 8)**: Exact Q(1/m)=2/3 predicts m_b = 4562 MeV (9% off PDG). Poor prediction because Koide quadratic amplifies small Q deviations. v₀-doubling (0.07%) far superior. But compatible within 0.14σ in m_d.
 - **Full spectrum (Round 7, CORRECTED R14-16)**: STr[M²] = 18 f_π² = 152352 MeV² (only soft mass survives). NO tachyonic modes (F_X = 0). Off-diagonal meson masses = 2f_π² (positive). Mesino masses 11-494 eV (inverse hierarchy). CW corrections positive, 10⁻⁹ of tree.
