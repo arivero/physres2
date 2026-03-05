@@ -1028,6 +1028,108 @@ sBootstrap potential to test the low-energy extrapolation;
 (f)~an $\alpha$-cluster model calculation of the Hoyle state energy
 with the $92\MeV$ sigma exchange.
 
+%======================================================================
+\section{Historical note: why not in the 1970s?}
+\label{sec:history}
+%======================================================================
+
+The application of supersymmetry to hadronic physics at the QCD
+scale---which is what this paper and its companions carry out---could
+in principle have been pursued in the 1970s.  That it was not, and
+that SUSY instead migrated to the Planck scale, reflects a sequence
+of historical contingencies and missing technical tools.
+
+\paragraph{Miyazawa's priority (1966).}
+Hadronic supersymmetry predates spacetime SUSY by eight years.
+Miyazawa~\cite{Miyazawa} proposed a baryon--meson superalgebra in
+1966, connecting spin-$0$ mesons to spin-$1/2$ baryons---precisely
+the structure the sBootstrap realises in the confined phase.
+But Miyazawa's construction had no Lagrangian; it was an algebraic
+observation without dynamical content.  Catto and
+G\"ursey~\cite{CattoGursey} extended it in 1985 as an effective
+hadronic symmetry, but by then the community had moved on.
+
+\paragraph{QCD killed the motivation (1973--74).}
+The discovery of asymptotic freedom and the rapid success of
+QCD~\cite{GrossWilczek1973} in explaining deep inelastic scattering,
+jets, and the charmonium spectrum made hadronic SUSY appear
+redundant.  The reasoning: if the fundamental theory (QCD) is known,
+approximate symmetries of the hadron spectrum are curiosities, not
+organizing principles.  The unstated assumption was that nothing
+exact could come from an approximate symmetry---an assumption
+contradicted by Seiberg's later proof that the confined phase of
+$\mathcal{N}=1$ SQCD has its own \emph{exact} low-energy Lagrangian.
+
+\paragraph{The mass degeneracy objection.}
+Naive SUSY predicts degenerate boson--fermion partners: $m_\pi =
+m_\mu$, $m_K = m_\Lambda$, etc.  In the 1970s, no controlled
+mechanism existed to break SUSY at a scale as low as $\fpi$.
+The identification $m_\pi^2 - m_\mu^2 = \fpi^2$---treating the
+splitting, not the degeneracy, as the fundamental
+relation---requires the O'Raifeartaigh mechanism, Coleman--Weinberg
+stabilisation, and the Seiberg seesaw.  O'Raifeartaigh's model
+existed since 1975~\cite{ORaifeartaigh}, but connecting it to the
+pion--muon system requires the composite identification
+(muon = mesino), which in turn requires the bootstrap counting
+argument $rs = 2N$, $r(r+1)/2 = 2N$.
+
+\paragraph{Supergravity pulled the scale up (1976).}
+The gauging of SUSY into supergravity~\cite{FvNF1976}
+identified the gravitino mass as the SUSY-breaking order parameter.
+Since gravity is Planck-suppressed, the natural breaking scale
+became $M_{\text{SUSY}} \sim M_{\text{Planck}}$ or, after
+phenomenological adjustment, the TeV scale.
+The possibility of SUSY breaking at $92\MeV$---fourteen orders of
+magnitude below the Planck scale---became unthinkable.  The
+implicit logic was: SUSY is a spacetime symmetry, therefore its
+breaking scale must be set by spacetime (gravity), not by
+the strong interaction.
+
+\paragraph{Strings cemented the paradigm (1984).}
+The Green--Schwarz anomaly cancellation made $SO(32)$ the natural
+gauge group for the heterotic and Type~I string, with SUSY required
+for consistency at the string scale ($M_s \sim M_{\text{Planck}}$).
+SUSY became inseparable from quantum gravity.
+The possibility that the \emph{same} $SO(32)$ group could organise
+hadronic composites at the QCD scale---through Chan--Paton labels
+identifying $5 \times 3 + 1 = 16$ quarks---was not considered.
+
+\paragraph{The missing tools (1994--2006).}
+The technical ingredients needed for the sBootstrap programme were
+developed within high-energy SUSY, for entirely different purposes:
+\begin{itemize}
+\item Seiberg duality (1994--95)~\cite{Seiberg1995}: provides the
+  exact confined-phase Lagrangian for $\mathrm{SU}(N_c)$ SQCD.
+  Without this, one cannot write the meson superpotential
+  $W = \text{Tr}(\hat{m}\,M) + X(\det M - B\tilde{B} - \Lambda^6)$.
+\item ISS metastable vacua (2006)~\cite{ISS2006}: establishes that
+  SUSY breaking in the magnetic dual is generic and
+  long-lived at \emph{any} scale.  Before ISS, dynamical SUSY
+  breaking required special gauge groups.
+\item The Koide formula (1981) and its quark extensions:
+  the empirical input that identifies $Q = 2/3$ as the structural
+  invariant.  Not taken seriously for quarks until the chain
+  $(-s,c,b) \to (c,b,t)$ was noticed.
+\end{itemize}
+Each of these tools was developed for the
+TeV-to-Planck programme; the sBootstrap repurposes them at the
+hadronic scale, completing a circle from Miyazawa (1966) through
+Seiberg (1995) back to nuclear physics.
+
+\paragraph{The role of QCD and strings.}
+The sBootstrap does not replace QCD; it uses QCD.  Seiberg duality
+\emph{is} a statement about $\mathcal{N}=1$ SQCD: the same
+asymptotically free gauge theory that confines quarks into hadrons.
+The string-inspired element---the $SO(32)$ embedding of
+$\mathrm{SU}(5)_{\text{flavor}} \times \mathrm{SU}(3)_{\text{color}}$
+via $5 \times 3 + 1 = 16$ Chan--Paton labels---provides what QCD
+alone cannot: the specific representation content
+$(\mathbf{24},\mathbf{1}) \oplus (\mathbf{15},\bar{\mathbf{3}})
+\oplus (\overline{\mathbf{15}},\mathbf{3})$ and its anomaly
+cancellation.  The historical path through supergravity and strings
+was not a wrong turn but a necessary detour: the tools developed
+along that path are precisely what makes the sBootstrap possible.
+
 \begin{thebibliography}{99}
 
 \bibitem{Rivero2005}
@@ -1115,6 +1217,15 @@ E.~G.~Adelberger et~al., ``Solar fusion cross sections.
 II. The $pp$ chain and CNO cycles,''
 Rev.\ Mod.\ Phys.\ \textbf{83}, 195 (2011),
 arXiv:1004.2318.
+
+\bibitem{GrossWilczek1973}
+D.~J.~Gross and F.~Wilczek, ``Ultraviolet behavior of non-abelian
+gauge theories,'' Phys.\ Rev.\ Lett.\ \textbf{30}, 1343 (1973).
+
+\bibitem{FvNF1976}
+D.~Z.~Freedman, P.~van~Nieuwenhuizen, S.~Ferrara,
+``Progress toward a theory of supergravity,''
+Phys.\ Rev.\ D \textbf{13}, 3214 (1976).
 
 \end{thebibliography}
 
