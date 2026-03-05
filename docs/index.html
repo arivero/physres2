@@ -19,7 +19,7 @@ layout: null
   <ul>
     {% for file in site.static_files %}
       {% if file.extname == '.pdf' %}
-        <li><a href="{{ file.path }}">{{ file.name }}</a></li>
+        <li><a href="{{ file.name }}">{{ file.name }}</a></li>
       {% endif %}
     {% endfor %}
   </ul>
