@@ -976,9 +976,12 @@ This Lagrangian produces: (i)~the O'Raifeartaigh seed condition ($gv/m = \sqrt{3
 correction $K_{\text{bion}}$, whose minimum enforces
 $\sqrt{m_b} = 3\sqrt{m_s} + \sqrt{m_c}$;
 (iv)~the Yukawa couplings for the heavy sector;
-(v)~the $\cos(9\delta)$ potential that selects
-the lepton mass-spectrum phase, via the three-instanton operator
-$(\det M^{(3)})^3/\Lambda_{\text{eff}}^{18}$.
+(v)~a mechanism selecting the lepton mass-spectrum phase
+(the three-instanton operator $(\det M^{(3)})^3/\Lambda_{\text{eff}}^{18}$
+generates a $\cos(9\delta)$ potential, but numerical evaluation shows
+that leptons do not sit at its minima; the observed phase satisfies
+$\delta \bmod 2\pi/3 \approx 2/9\;\text{rad}$, not $2\pi/9$,
+suggesting a different selection mechanism).
 
 The two-doublet structure has a direct consequence for the mass
 triples. Since the quark mass triples obligatorily mix up-type
@@ -1097,15 +1100,18 @@ the K\"ahler correction contains a term
 + \lambda_2\,|S_{\mathrm{bloom}} - 2\,S_{\mathrm{seed}}|^2\,.
 \end{equation}
 The second factor is a perfect square that vanishes at the minimum.
-Setting $S_{\mathrm{bloom}} = 2\,S_{\mathrm{seed}}$ gives the
-$v_0$-doubling condition:
+Setting $S_{\mathrm{bloom}} = 2\,S_{\mathrm{seed}}$ gives
+$-\sqrt{m_s} + \sqrt{m_c} + \sqrt{m_b}
+  = 2(\sqrt{m_s} + \sqrt{m_c})$,
+hence the $v_0$-doubling condition:
 \begin{equation}
 \boxed{\sqrt{m_b}
-= N_c\,\sqrt{m_s} + \sqrt{m_c}
 = 3\sqrt{m_s} + \sqrt{m_c}\,.}
 \end{equation}
-
-The integer coefficient is the number of colours.
+The integer coefficient $3 = 2 + 1$: the factor~$2$ comes from
+$z_0$-doubling; the extra~$1$ from the sign flip ($\sqrt{m_s}$
+enters the seed with $+1$ but the bloom with $-1$, adding
+$2\sqrt{m_s}$ to the right-hand side).
 
 \textbf{Evaluation.} Using the predicted $m_c = 1301$ MeV:
 \begin{equation}
@@ -1716,12 +1722,17 @@ under any $R$-breaking, and the instability points in the right
 direction. The bloom magnitude, however, requires a nonperturbative
 mechanism.
 
-A dynamical origin for the lepton phase exists in SQCD: for $N_f = N_c = 3$,
-instantons break $U(1)_{R+2A} \to \mathbb{Z}_{18}$, which contains
-$\mathbb{Z}_9$ as a subgroup. The three-instanton operator
-$(\det M)^3/\Lambda^{18}$ generates a $\cos(9\delta)$ potential whose
-minima include the observed lepton mass-spectrum phase to $0.9\sigma$
-in~$m_\tau$.
+A natural candidate for a dynamical origin is the instanton structure of
+SQCD: for $N_f = N_c = 3$, instantons break $U(1)_{R+2A} \to \mathbb{Z}_{18}$,
+which contains $\mathbb{Z}_9$ as a subgroup. The three-instanton operator
+$(\det M)^3/\Lambda^{18}$ generates a $\cos(9\delta)$ potential.
+However, numerical evaluation shows that the observed lepton phase
+($\delta \bmod 2\pi/3 \approx 0.2222 \approx 2/9\;\text{rad}$, confirmed
+to 31~ppm and $0.83\sigma$ in~$m_\tau$) does \emph{not} coincide with
+a $\mathbb{Z}_9$ minimum ($\delta = n \cdot 2\pi/9$); the offset
+$9\delta \bmod 2\pi \approx 2.0$~rad is $32\%$ of a full cycle.
+The ``$2/9$ radian'' coincidence involves a transcendental
+$1/\pi$ factor and awaits an explanation.
 
 For the quark sector, the combined potential of the frozen-sign bion
 (which opposes the bloom) and the three-instanton term (which drives
