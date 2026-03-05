@@ -1074,6 +1074,114 @@ $Q(a,b) = Q(1/a,\,1/b)$ identically.
 The seed $(0, m_s, m_c)$ sits at this self-dual point:
 its Koide ratio is the same whether evaluated on quark masses or
 on Seiberg-dual meson VEVs $\propto 1/m_i$.
+A systematic scan over all $\binom{6}{3} = 20$ quark triplets from
+$\{u,d,s,c,b,t\}$, allowing each entry to appear as $\sqrt{m_k}$
+or $1/\sqrt{m_k}$ with independent signs (640 cases total), confirms
+that $(1/m_d,1/m_s,1/m_b)$ achieves the globally best Koide
+approximation among all quark triples with deviation $|Q-2/3| =
+0.00144$, outperforming even $(c,b,t)$ at $0.00397$.  Ranks 2--5 in
+the scan are occupied by mixed triples of the form $(\sqrt{m_s},
+\sqrt{m_c}, \pm 1/\sqrt{m_X})$ with $X = b$ or $t$, all clustering
+near $Q \approx 0.664$.  These mixed triples are moreover
+dimensionally ill-defined: $\sqrt{m}$ carries units
+$\MeV^{+1/2}$ while $1/\sqrt{m}$ carries $\MeV^{-1/2}$, so
+their sum---and hence $Q$---is physically meaningless.
+A direct unit-dependence test confirms this: $Q(\sqrt{m_s},\sqrt{m_c},1/\sqrt{m_b})$
+equals $0.664$ when masses are expressed in MeV but $0.434$ in GeV,
+while $Q(1/m_d,1/m_s,1/m_b)$ and $Q(m_c,m_b,m_t)$ are
+unit-independent, as required of any physical ratio.
+Equivalently, any mixed triple can be rendered dimensionally consistent
+by interpreting the inverse entry as a seesawed mass
+$m_3 = M^2/m_c$; setting $Q = 2/3$ then predicts $m_3$,
+and the scale $M^2 = m_\mathrm{exp}\,m_\mathrm{pred}$ is merely
+a derived label with no independent content.
+Setting aside the mixed cases, the remaining near-Koide hits are not independent
+coincidences either.  For any two masses $A < B$, the degenerate ratio
+$Q(A,B,0) \equiv (A+B)/(\sqrt{A}+\sqrt{B})^2$ equals $2/3$ exactly
+when $B/A = (2+\sqrt{3})^2 = 7+4\sqrt{3} \approx 13.93$.
+The actual ratio $m_c/m_s = 1270/93.4 \approx 13.59$ is only $2.4\%$
+below this threshold, giving $Q(m_s,m_c,0) = 0.664$.
+Since $1/\sqrt{m_b}$ and $1/\sqrt{m_t}$ are negligible compared
+to $\sqrt{m_s}+\sqrt{m_c} \approx 45\,\MeV^{1/2}$, appending any
+heavy-quark inverse as a third entry merely perturbs $Q(m_s,m_c,0)$
+by order $10^{-4}$.
+Ranks 2--5 therefore all reduce to the near-seed position of the
+$(s,c)$ pair and carry no additional Koide information.  The three
+genuinely independent near-Koide quark triples are
+$(-s,c,b)$, $(c,b,t)$, and $(1/d,1/s,1/b)$.
+
+The structure becomes transparent when the six quarks are
+grouped into three doublets
+$(t,s)\times(u,b)\times(c,d)$,
+each Koide triple selecting one element from each pair.
+Including limits $m_u\!\to\! 0$ and $m_t\!\to\!\infty$,
+there are $3\times 3\times 2 = 18$ base mass triples spanning
+$2^3 = 8$ families.  Only four of the eight produce
+$|Q - 2/3| < 1.5\%$:
+%
+\begin{center}
+\small
+\begin{tabular}{lllr}
+\textbf{Family} & \textbf{Best triple} & \textbf{Type} & $|Q-\tfrac{2}{3}|$ \\
+\hline
+SBD & $(1/s,\,1/b,\,1/d)$     & all-inverse  & $0.22\%$ \\
+SUC & $(s,\,0,\,c)$            & seed limit   & $0.35\%$ \\
+TBC & $(t,\,b,\,c)$            & all-direct   & $0.60\%$ \\
+SBC & $(-s,\,b,\,c)$           & signed       & $1.25\%$ \\
+\end{tabular}
+\end{center}
+%
+The remaining four families---TUC, TUD, TBD, SUD---deviate
+by $4.6\%$ or more, with TUC worst at $27\%$.
+The SUC seed is the pair Koide $Q(m_s,m_c,0) = 0.664$ already
+derived above.
+The doublets $(t,s)$, $(u,b)$, $(c,d)$ pair each
+up-type quark with a down-type from a \emph{different} generation,
+related by a cyclic permutation---the same
+structure that appears in the CKM off-diagonal entries.
+
+\paragraph{Charge decomposition and the seesaw.}
+The Koide condition $Q=2/3$ is equivalent to the energy-balance
+condition $\langle z_k^2\rangle = z_0^2$ (see \S2),
+where $z_0$ is the mean charge and $z_k = \zch_k - z_0$ are the
+perturbations.
+The dual Koide on $(1/m_d,1/m_s,1/m_b)$ admits the
+\emph{same} decomposition in terms of dual charges
+$\xi_k = 1/\sqrt{m_k}$: writing $\xi_k = \xi_0 + \xi'_k$,
+one finds $\langle\xi_k'^{\,2}\rangle/\xi_0^2 = 0.996$
+($0.4\%$ from unity), closer to exact energy balance than
+the direct triple $(-s,c,b)$ at $1.025$ ($2.5\%$).
+
+However, the seesaw map $\zch \to 1/\zch$ does \emph{not}
+preserve the Koide parametrization
+$\zch_k = z_0(1+\sqrt{2}\cos(\delta+2\pi k/3))$.
+Substituting $1/\zch_k = \xi_0(1+\sqrt{2}\cos(\delta'+2\pi k/3))$
+and requiring the product $\zch_k \cdot 1/\zch_k = 1$
+leads to a quadratic in $\cos\psi_k$ that must hold for
+three distinct cosine values---impossible unless
+one $\zch_k = 0$ (the seed).
+The seed self-duality $Q(0,a,b) = Q(0,1/a,1/b)$ is
+thus the \emph{unique} fixed point of the seesaw:
+the electric and magnetic Koide conditions coincide
+only at the SUSY-preserving vacuum where one mass vanishes.
+
+The three independent Koide triples therefore
+decompose into two sectors:
+\begin{itemize}
+\item \textbf{Electric} (charges $\zch = \pm\sqrt{m}$):
+$(-s,c,b)$ and $(c,b,t)$, constraining $\{s,c,b,t\}$.
+\item \textbf{Magnetic} (charges $\xi = 1/\sqrt{m}$):
+$(1/d,1/s,1/b)$, constraining $\{d,s,b\}$.
+\end{itemize}
+The dual charges $\xi_j = \sqrt{\langle M^j{}_j\rangle}/\Lambda$
+are literally the square roots of the Seiberg meson VEVs:
+the magnetic Koide is an energy balance on the meson
+condensate, not on quark masses.
+Together with the $v_0$-doubling
+($\sqrt{m_b} = 3\sqrt{m_s} + \sqrt{m_c}$),
+these four constraints leave only $m_u$, $m_d$, and
+the overall scale $m_s$ as free parameters.
+
 Among all $\binom{5}{3} = 10$ quark triples, $(d,s,b)$ is the
 unique triple with inverse-mass Koide ratio within 1\% of $2/3$;
 the next closest is $(d,s,c)$ at 4.2\% deviation---a 19:1 margin.
