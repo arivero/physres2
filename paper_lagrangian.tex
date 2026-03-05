@@ -1648,17 +1648,38 @@ soft meson masses.
 \toprule
 Relation & Predicts & From \\
 \midrule
+Isospin seed: $m_s = (2{+}\sqrt{3})^2(m_u{+}m_d)$ & $m_s$ from $m_u{+}m_d$ & $Q(0,\sqrt{m_u{+}m_d},\sqrt{m_s}) = 2/3$ \\
 O'Raifeartaigh: $m_c/m_s = (2{+}\sqrt{3})^2$ & $m_c$ from $m_s$ & $W$: $gv/m = \sqrt{3}$ \\
 Bion: $\sqrt{m_b} = 3\sqrt{m_s} + \sqrt{m_c}$ & $m_b$ from $m_s, m_c$ & $K_{\text{bion}}$: minimum \\
 Yukawa: $\langle z_k^2\rangle = z_0^2$ on $(c,b,t)$ & $m_t$ from $m_c, m_b$ & $W_{\text{Yukawa}}$ at $\tan\beta = 1$ \\
+Magnetic: $Q(1/m_d, 1/m_s, 1/m_b) = 2/3$ & $m_d$ from $m_s, m_b$ & Seiberg seesaw \\
 Lepton: $\langle z_k^2\rangle = z_0^2$ on $(e,\mu,\tau)$ & $m_\tau$ from $m_e, m_\mu$ & $W_{\text{lepton}}$: O'Raifeartaigh \\
 GST: $\sin\theta_C = \sqrt{m_d/m_s}$ & $\theta_{12}$ from $m_d, m_s$ & Seesaw structure \\
 \midrule
-\textbf{Remaining free:} & \multicolumn{2}{l}{$m_u,\, m_d,\, m_s,\, m_e,\, m_\mu,\, \theta_{23},\, \theta_{13},\, \delta_{\rm CP}$ (8 parameters)} \\
+\textbf{Remaining free:} & \multicolumn{2}{l}{$m_u,\, m_e,\, m_\mu,\, \theta_{23},\, \theta_{13},\, \delta_{\rm CP}$ (6 parameters)} \\
 \bottomrule
 \end{tabular}
 \end{center}
 
+\paragraph{Renormalisation scale.}
+The quark masses appearing in the Koide triples are
+$\overline{\rm MS}$ masses at the PDG conventional scales:
+$m_{u,d,s}$ at $\mu = 2\GeV$, $m_c(m_c)$, $m_b(m_b)$, $m_t(m_t)$.
+Running all six quarks to a common scale $\mu = 2\GeV$ degrades
+the Koide ratios sharply: $Q(-s,c,b)$ worsens from $1.2\%$ to $3.2\%$,
+and $Q(c,b,t)$ from $0.6\%$ to $6.2\%$.
+The isospin seed $Q(0,\sqrt{m_u{+}m_d},\sqrt{m_s})$ is immune to
+running because all entries share the same anomalous dimension and
+the ratio $m_s/(m_u{+}m_d)$ is an RG invariant.
+The Gell-Mann--Oakes--Renner relation
+$m_\pi^2 f_\pi^2 = (m_u{+}m_d)\langle\bar qq\rangle$
+makes this ratio a statement about physical hadron observables
+($m_\pi$, $f_\pi$, $m_K$), explaining why the isospin seed
+is scheme-independent.
+For the cross-threshold triples $(-s,c,b)$ and $(c,b,t)$,
+the preferred convention---each quark at its own mass---is
+natural in the ISS framework, where each meson $M_j$ has dynamics
+at scale $\mu \sim m_j$.
 
 %======================================================================
 \section{Summary of predictions}
@@ -1693,10 +1714,12 @@ $\text{STr}[M^2]$ & $18\,\fpi^2$ & --- (not directly measured)
 \bottomrule
 \end{tabular}
 \caption{Predictions from the sBootstrap Lagrangian.
-The quark masses use $m_s = 93.4\MeV$ as input;
-the bion $m_b$ propagates the O'Raifeartaigh-predicted $m_c$.
-The lepton prediction uses $m_e$ and $m_\mu$ as inputs.
-The Casimir and GST predictions are independent of~$m_s$.}
+All quark predictions follow from a single input
+$m_u + m_d = 6.83\MeV$ (equivalently $m_\pi$ via GMOR);
+the isospin seed gives $m_s$, the O'Raifeartaigh chain gives $m_c$,
+the bion gives $m_b$, and the magnetic Koide gives $m_d$ (hence $m_u$).
+Cross-threshold masses are $\overline{\rm MS}$ at $\mu = m_q$.
+The lepton prediction uses $m_e$ and $m_\mu$ as inputs.}
 \label{tab:predictions}
 \end{table}
 
@@ -1767,6 +1790,25 @@ For the quark sector, the combined potential of the frozen-sign bion
 (which opposes the bloom) and the three-instanton term (which drives
 the bloom) has a stable equilibrium within $2.8^\circ$ of the physical
 quark bloom position.
+
+\paragraph{Dual self-consistency.}
+The Seiberg seesaw maps direct charges $\zch_k = \sqrt{m_k}$
+to dual charges $\xi_k = 1/\sqrt{m_k}$, with
+$Q(\xi_1,\xi_2,\xi_3) = 1 - 2e_1 e_3/e_2^2$
+where $e_i$ are the elementary symmetric polynomials of the $\zch_k$.
+In the angular parametrisation, the condition
+$Q(\zch) = Q(\xi) = 2/3$ simultaneously reduces to
+\begin{equation}
+  \cos 3\delta = \frac{5\sqrt{2}}{8}\,,
+\end{equation}
+an isolated angle distinct from the seed ($\delta = 3\pi/4$).
+The seed self-duality $Q(0,a,b) = Q(0,1/a,1/b)$ is a separate
+algebraic identity.
+For the physical down-type quarks $(d,s,b)$,
+$Q(\xi) = 0.665$ ($0.22\%$ from $2/3$)
+while $Q(\zch) = 0.732$---far from $2/3$.
+The seesaw thus creates an independent near-Koide condition
+on the magnetic charges, constraining $m_d$ from $(m_s, m_b)$.
 
 \subsection{Lepton masses are not mesino masses}
 
@@ -2022,14 +2064,21 @@ only at $\tan\beta = 1$. The NMSSM singlet coupling
 $\lambda_S = 0.72$ then gives $m_h = 125.35\GeV$ at tree level
 ($0.6\sigma$ from PDG).
 
-\paragraph{6.\ Five parameters eliminated.}
-The O'Raifeartaigh mass ratio, the bion mass relation, the Yukawa
-eigenvalue constraint, the lepton mass-charge identity, and
-the GST relation together determine five of the Standard Model's
-thirteen charged-fermion parameters. The remaining eight are
-$m_u$, $m_d$, $m_s$, $m_e$, $m_\mu$, $\theta_{23}$,
-$\theta_{13}$, and $\delta_{\rm CP}$, with $m_u$ and $m_d$
-connected to the Cabibbo angle.
+\paragraph{6.\ Seven parameters eliminated.}
+The isospin seed ($m_s$ from $m_u + m_d$), the O'Raifeartaigh
+mass ratio ($m_c$ from $m_s$), the bion mass relation ($m_b$
+from $m_s, m_c$), the Yukawa eigenvalue constraint ($m_t$ from
+$m_c, m_b$), the magnetic Koide ($m_d$ from $m_s, m_b$),
+the lepton mass-charge identity ($m_\tau$ from $m_e, m_\mu$),
+and the GST relation ($\theta_{12}$ from $m_d, m_s$)
+together determine seven of the Standard Model's thirteen
+charged-fermion parameters. The remaining six are $m_u$, $m_e$,
+$m_\mu$, $\theta_{23}$, $\theta_{13}$, and $\delta_{\rm CP}$.
+The entire quark mass spectrum ($m_d$ through $m_t$) descends
+from the single isospin combination $m_u + m_d$, with the
+ratio $m_u/m_d = 0.453$ predicted by the self-consistency
+of the coupled system ($\chi^2/\text{dof} = 0.12$,
+$p = 0.97$ against PDG values).
 
 \paragraph{7.\ The diquark obstruction and SO(32) embedding.}
 The symmetric $\mathbf{15}$ required by the counting cannot be

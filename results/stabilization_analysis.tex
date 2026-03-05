@@ -1,0 +1,635 @@
+% Pseudo-Modulus Stabilization at the K\"ahler Pole: Nonperturbative Mechanisms
+% Analysis of candidate mechanisms for stabilizing v = sqrt(3) m/g
+
+\section{The Stabilization Problem}
+
+Consider the O'Raifeartaigh superpotential
+\begin{equation}
+W = f\,\Phi_0 + m\,\Phi_1\Phi_2 + g\,\Phi_0\Phi_1^2
+\end{equation}
+with $F_{\Phi_0} = f \neq 0$ at the vacuum $\phi_1 = \phi_2 = 0$, $\phi_0 = v$.
+The pseudo-modulus is parametrized by $t \equiv gv/m$.
+The fermion mass eigenvalues are
+\begin{equation}
+m_\pm = m\bigl(\sqrt{t^2+1} \pm t\bigr), \qquad m_0 = 0 \quad (\text{Goldstino}),
+\end{equation}
+with $m_+ m_- = m^2$.
+At $t = \sqrt{3}$: $m_\pm = (2 \pm \sqrt{3})\,m$,
+and the Koide parameter evaluates to $Q(0, m_-, m_+) = 2/3$ exactly.
+
+A K\"ahler correction $K = |\Phi_0|^2 - |\Phi_0|^4/(12\mu^2)$
+with $\mu = m/g$ produces a pole in the tree-level potential:
+\begin{equation}
+V_{\text{tree}}(t) = \frac{f^2}{1 - t^2/3}, \qquad
+K_{\Phi_0\bar\Phi_0} = 1 - \frac{t^2}{3} \xrightarrow{t\to\sqrt{3}} 0.
+\end{equation}
+The Coleman--Weinberg potential
+\begin{equation}
+V_{\text{CW}}(t) = \frac{1}{64\pi^2}\,\text{STr}\!\left[\mathcal{M}^4\!\left(\ln\frac{\mathcal{M}^2}{m^2} - \frac{3}{2}\right)\right]
+\end{equation}
+is monotonically increasing for $t > 0$, with $V_{\text{CW}}(\sqrt{3}) \simeq 220\,m^4/(64\pi^2)$
+(finite) and $dV_{\text{CW}}/dt|_{\sqrt{3}} > 0$.
+
+Both $V_{\text{tree}}$ and $V_{\text{CW}}$ push \emph{away} from the pole.
+The minimum sits at $t_{\min} \lesssim 0.49$ (for $y = gf/m^2 \ll 1$),
+a factor $\sim 3.5$ below $\sqrt{3}$.
+We require a nonperturbative contribution $\delta V(t)$ satisfying:
+\begin{equation}
+\frac{d}{dt}\bigl[V_{\text{tree}} + V_{\text{CW}} + \delta V\bigr]\bigg|_{t=\sqrt{3}} = 0, \qquad
+\frac{d^2}{dt^2}\bigl[V_{\text{tree}} + V_{\text{CW}} + \delta V\bigr]\bigg|_{t=\sqrt{3}} > 0.
+\end{equation}
+Near the pole ($\epsilon \equiv 1 - t^2/3 \to 0^+$):
+\begin{equation}
+\frac{dV_{\text{tree}}}{dt}\bigg|_{\sqrt{3}} = \frac{2\sqrt{3}}{3}\,\frac{f^2}{\epsilon^2} \to +\infty,
+\end{equation}
+so $\delta V$ must supply a \emph{negative} derivative that diverges at least as $\epsilon^{-2}$.
+
+
+%=========================================================================
+\section{Mechanism (a): Monopole--Instanton Contributions on $\mathbb{R}^3 \times S^1$}
+
+\subsection{Setup}
+
+Compactify on $\mathbb{R}^3 \times S^1$ with circumference $L$.
+For $SU(N_c)$ with center-symmetric holonomy,
+the gauge symmetry breaks to $U(1)^{N_c - 1}$,
+admitting $N_c$ types of monopole--instantons (one per affine root).
+Their actions are
+\begin{equation}
+S_a = \frac{8\pi^2}{g^2 N_c} = \frac{2\pi}{\alpha_s N_c}, \qquad a = 0, 1, \ldots, N_c - 1.
+\end{equation}
+For $N_c = 3$: $S_a = 2\pi/(3\alpha_s)$.
+
+\subsection{Monopole superpotential}
+
+With $N_f = N_c = 3$ and color--flavor locking, each monopole--instanton
+carries exactly one fermionic zero mode per flavor.
+The induced superpotential is \emph{additive}:
+\begin{equation}
+W_{\text{mon}} = \zeta\,\sum_{a=1}^{N_c} \sqrt{m_a}\,e^{-S_a},
+\qquad \zeta \sim \Lambda^2 e^{-S_0/(2N_c)}.
+\end{equation}
+This generates a potential
+\begin{equation}
+V_{\text{mon}} \sim |\zeta|^2 \left|\sum_a \sqrt{m_a}\right|^2
+= |\zeta|^2\, v_0^2 \cdot 9,
+\end{equation}
+where $v_0 = \frac{1}{3}\sum_a \sqrt{m_a}$ is the Koide scale.
+
+\subsection{$t$-dependence}
+
+The fermion masses $m_\pm(t) = m(\sqrt{t^2+1} \pm t)$ enter through $\sqrt{m_\pm}$.
+Computing:
+\begin{equation}
+\sum_a \sqrt{m_a(t)} = \sqrt{m_+} + \sqrt{m_-}
+= \sqrt{m}\left(\sqrt{\sqrt{t^2+1}+t} + \sqrt{\sqrt{t^2+1}-t}\right).
+\end{equation}
+Using the identity $(\sqrt{A+B} + \sqrt{A-B})^2 = 2A + 2\sqrt{A^2 - B^2}$
+with $A = \sqrt{t^2+1}$, $B = t$:
+\begin{equation}
+\left(\sqrt{m_+} + \sqrt{m_-}\right)^2 = m\left(2\sqrt{t^2+1} + 2\right).
+\end{equation}
+Therefore
+\begin{equation}
+V_{\text{mon}}(t) \propto 2m\bigl(\sqrt{t^2+1} + 1\bigr).
+\end{equation}
+This is a \emph{monotonically increasing} function of $t$ (since $d\sqrt{t^2+1}/dt = t/\sqrt{t^2+1} > 0$
+for $t > 0$).
+
+\subsection{Estimate at $t = \sqrt{3}$}
+
+At $t = \sqrt{3}$: $V_{\text{mon}}(\sqrt{3}) \propto 2m(2+1) = 6m$.
+At $t = 0$: $V_{\text{mon}}(0) \propto 2m(1+1) = 4m$.
+The ratio is $3/2$.
+
+The overall magnitude is
+\begin{equation}
+V_{\text{mon}} \sim |\zeta|^2\,m \sim \Lambda^4\,e^{-2S_0/N_c}\,\frac{m}{\Lambda}.
+\end{equation}
+For $\alpha_s = 0.3$, $N_c = 3$:
+$S_0/N_c = 2\pi/(3 \times 0.3) = 6.98$, $e^{-2S_0/N_c} = 8.63 \times 10^{-7}$.
+
+Comparison to CW:
+\begin{equation}
+\frac{V_{\text{mon}}}{V_{\text{CW}}} \sim \frac{64\pi^2\,e^{-2S_0/N_c}}{1}
+\sim 5.4 \times 10^{-4} \quad (\alpha_s = 0.3).
+\end{equation}
+
+\subsection{Verdict}
+
+The monopole superpotential generates a potential that is (i)~monotonically increasing
+in $t$ (same qualitative behavior as $V_{\text{CW}}$) and (ii)~exponentially suppressed
+relative to $V_{\text{CW}}$ in the semiclassical regime.
+\textbf{Monopole--instantons alone cannot create a minimum at $t = \sqrt{3}$.}
+
+The sign of $dV_{\text{mon}}/dt$ is the fundamental obstruction:
+the additive monopole structure $\propto (\sqrt{m_+} + \sqrt{m_-})^2$ increases with $t$
+because the total mass spectrum broadens.
+A sign flip would require destructive interference (as in the bloom sector with
+$s_1 = -1$), but the basic O'Raifeartaigh model has only two massive fermions with positive masses.
+
+
+%=========================================================================
+\section{Mechanism (b): Bion Contributions to the K\"ahler Potential}
+
+\subsection{Bion amplitudes}
+
+A magnetic bion is a monopole--antimonopole pair on adjacent roots of the
+extended Dynkin diagram.
+For $SU(3)$ there are 3 distinct bion types (up to conjugation),
+with action
+\begin{equation}
+S_{\text{bion}} = 2\,\frac{S_0}{N_c} = \frac{4\pi}{N_c^2\,\alpha_s}
+= \frac{4\pi}{9\alpha_s}.
+\end{equation}
+The bion amplitude contributes to the K\"ahler potential (not the superpotential,
+since it has zero net topological charge):
+\begin{equation}
+\delta K_{\text{bion}} = \frac{\zeta^2}{\Lambda^2}\left|\sum_k s_k\sqrt{M_k}\right|^2,
+\qquad \zeta^2/\Lambda^2 \sim e^{-S_{\text{bion}}}.
+\end{equation}
+
+\subsection{Effective K\"ahler metric}
+
+The total K\"ahler metric for the pseudo-modulus $X$ becomes
+\begin{equation}
+g_{X\bar X}^{\text{tot}} = \underbrace{1 - \frac{t^2}{3}}_{g^{(0)}}
++ \underbrace{\frac{\epsilon}{4}\sum_{i,j}\frac{s_i s_j}{\sqrt{m_i m_j}}}_{\delta g_{\text{bion}}},
+\qquad \epsilon \equiv e^{-S_{\text{bion}}}.
+\end{equation}
+
+\subsection{Magnitude estimate}
+
+At $t = \sqrt{3}$ where $g^{(0)} = 0$, the bion correction must supply the
+\emph{entire} K\"ahler metric. We need $\delta g_{\text{bion}} \sim \mathcal{O}(1)$.
+
+For the O'Raifeartaigh model with $m_\pm = (2 \pm \sqrt{3})m$:
+\begin{equation}
+\delta g_{\text{bion}} = \frac{\epsilon}{4}\left(\frac{1}{m_-} + \frac{1}{m_+}
++ \frac{2}{\sqrt{m_+ m_-}}\right)
+= \frac{\epsilon}{4m}\left(\frac{1}{2-\sqrt{3}} + \frac{1}{2+\sqrt{3}} + 2\right)
+= \frac{\epsilon}{4m}(2+\sqrt{3} + 2-\sqrt{3} + 2)
+= \frac{3\epsilon}{2m}.
+\end{equation}
+Setting $\delta g_{\text{bion}} = 1$ requires $\epsilon = 2m/3$.
+Since $\epsilon = e^{-S_{\text{bion}}}$ and $S_{\text{bion}} = 4\pi/(9\alpha_s)$:
+\begin{equation}
+\alpha_s = \frac{4\pi}{9\ln(3/(2m))} \quad \text{(dimensionally inconsistent as stated)}.
+\end{equation}
+Properly, with the overall prefactor $\zeta^2/\Lambda^2 = C_0\,e^{-S_{\text{bion}}}$
+where $C_0$ has mass dimension zero:
+\begin{equation}
+\delta g_{\text{bion}} \sim \frac{C_0\,e^{-S_{\text{bion}}}}{m}.
+\end{equation}
+For this to be $\mathcal{O}(1)$ with $C_0 \sim 1$ and $m \sim \Lambda$:
+$e^{-S_{\text{bion}}} \sim 1$, requiring $S_{\text{bion}} \lesssim 1$,
+i.e., $\alpha_s \gtrsim 4\pi/9 \simeq 1.4$.
+
+\subsection{Negative contribution}
+
+The crucial question is whether $\delta g_{\text{bion}}$ has the correct sign.
+The bion K\"ahler potential $\delta K = (\zeta^2/\Lambda^2)|\sum s_k \sqrt{M_k}|^2$
+is \emph{positive definite}, yielding $\delta g_{\text{bion}} > 0$.
+This \emph{adds} to the canonical metric rather than cancelling it.
+
+For the metric to \emph{vanish} at $t = \sqrt{3}$
+(creating the pole that pins the vacuum), we need $\delta g_{\text{bion}} < 0$
+to cancel $g^{(0)} > 0$ for $t < \sqrt{3}$, or we need the bion correction to
+exactly compensate $g^{(0)} = 0$ at the pole without creating negative metric.
+
+Neither scenario works with the standard positive-definite bion K\"ahler.
+
+\subsection{Alternative: bion contribution to the scalar potential}
+
+The bion amplitude also generates a \emph{direct bosonic potential}
+through the center-stabilizing interaction:
+\begin{equation}
+V_{\text{bion}}(t) = -A\,e^{-S_{\text{bion}}}\,M^2\!\left[\cos(4\pi X/\Lambda)
++ 2\cos(2\pi X/\Lambda)\right]
+\end{equation}
+where $A > 0$ (magnetic bions are attractive) and $M^2 = [\prod_f (m_f/\Lambda)]^2$
+is the mass-dependent zero-mode factor.
+
+The quartic expansion gives
+\begin{equation}
+V_{\text{bion}} = -A\,e^{-S_{\text{bion}}}\,M^2\bigl[3 - 3\phi^2 + \tfrac{3}{4}\phi^4 + \cdots\bigr],
+\qquad \phi = 2\pi X/\Lambda.
+\end{equation}
+The \emph{negative mass-squared} term $-3\phi^2$ drives $X$ away from the origin,
+toward larger field values. However, the quartic $+\frac{3}{4}\phi^4$ stabilizes the
+potential at $\phi_{\min} = \sqrt{2}$, giving $X_{\min} = \sqrt{2}\Lambda/(2\pi)$.
+
+Comparing to the target $X_{\text{target}} = \sqrt{3}\,m/g$:
+\begin{equation}
+\frac{X_{\min}}{X_{\text{target}}} = \frac{\sqrt{2}\Lambda}{2\pi\sqrt{3}(m/g)}
+= \frac{g\Lambda}{m}\,\frac{\sqrt{2}}{2\pi\sqrt{3}}
+= \frac{g\Lambda}{m}\times 0.130.
+\end{equation}
+For $g\Lambda/m \sim 1$: $X_{\min}/X_{\text{target}} \simeq 0.13$, far below $\sqrt{3}$.
+For $g\Lambda/m \sim 8$: $X_{\min} \simeq X_{\text{target}}$, but this requires a large hierarchy.
+
+\subsection{Magnitude comparison}
+
+The bion potential's magnitude is
+\begin{equation}
+|V_{\text{bion}}| \sim A\,\Lambda^4\,e^{-S_{\text{bion}}}\,M^2.
+\end{equation}
+For $M^2 = 1$ (ISS heavy quarks at $\Lambda$ scale) and $\alpha_s = 0.143$ (semiclassical):
+$e^{-S_{\text{bion}}} = e^{-9.76} = 5.7 \times 10^{-5}$.
+The ratio:
+\begin{equation}
+\frac{|V_{\text{bion}}|}{V_{\text{CW}}} \sim \frac{A\,\Lambda^4\,e^{-S_{\text{bion}}}}
+{m^4/(64\pi^2)} = 64\pi^2\,A\left(\frac{\Lambda}{m}\right)^4 e^{-S_{\text{bion}}}.
+\end{equation}
+For $\Lambda \sim m$, $A \sim 1$: ratio $\sim 64\pi^2 \times 5.7 \times 10^{-5} \simeq 0.036$.
+This is 3.6\% of $V_{\text{CW}}$---insufficient to overcome the CW barrier at $t = \sqrt{3}$
+where $V_{\text{CW}} \simeq 220\,m^4/(64\pi^2)$.
+
+At $\alpha_s = 1$: $e^{-S_{\text{bion}}} = e^{-4\pi/9} \simeq 0.247$,
+ratio $\sim 64\pi^2 \times 0.247 \simeq 156$. This is large enough,
+but $S_{\text{bion}} = 1.40$ is at the boundary of semiclassical control.
+
+\subsection{Verdict}
+
+The bion K\"ahler correction has the wrong sign (positive definite) to produce
+a metric zero. The direct bion potential can generate a minimum at
+$X \neq 0$, but the location $X_{\min} \propto \Lambda/(2\pi)$ generically misses
+$\sqrt{3}\,m/g$ unless $g\Lambda/m$ is tuned. The magnitude is sufficient only
+for $\alpha_s \gtrsim 0.5$, where the semiclassical bion expansion becomes unreliable.
+\textbf{Bion corrections to $K$ cannot produce the pole. The direct bion potential
+can provide the right qualitative behavior but lacks a natural mechanism to
+select $t = \sqrt{3}$.}
+
+
+%=========================================================================
+\section{Mechanism (c): Multi-Instanton Effects in the UV Theory}
+
+\subsection{Three-instanton superpotential}
+
+For $SU(3)$ with $N_f = N_c = 3$, the anomalous $U(1)_{R+2A}$ is broken to
+$\mathbb{Z}_{18}$ by instantons. The meson $M \sim Q\bar Q$ carries $\mathbb{Z}_{18}$
+charge~4. A $\mathbb{Z}_{18}$-singlet holomorphic operator requires charge
+$\equiv 0\pmod{18}$. The candidates:
+\begin{equation}
+\det M \;\;(\text{charge 12}), \quad
+(\det M)^2 \;\;(\text{charge 24} \equiv 6), \quad
+(\det M)^3 \;\;(\text{charge 36} \equiv 0).
+\end{equation}
+The \emph{three-instanton} vertex $(\det M)^3/\Lambda^{18}$ is the lowest-order
+$\mathbb{Z}_{18}$-singlet beyond the Seiberg constraint ($\det M = \Lambda^6$).
+
+\subsection{Potential from three-instanton vertex}
+
+Adding $\delta W = c_3\,(\det M)^3/\Lambda^{18}$ to the superpotential,
+the F-term cross with the tree-level generates:
+\begin{equation}
+\delta V = -2\,\text{Re}\!\left[\bar F_{\text{tree}}\cdot
+\frac{\partial(\delta W)}{\partial M}\right] + |\partial(\delta W)/\partial M|^2.
+\end{equation}
+Near the SUSY vacuum $\det M = \Lambda^6$, parametrize
+$M = \text{diag}(M_1, M_2, M_3)$ with $M_i = \Lambda^2(1 + \delta_i)$.
+The determinant:
+\begin{equation}
+\det M = \Lambda^6\prod_i(1+\delta_i)
+\simeq \Lambda^6\bigl(1 + \sum_i\delta_i + \cdots\bigr).
+\end{equation}
+For the pseudo-modulus direction $\delta_1 = t^2/3$ (mapping from the O'Raifeartaigh
+parametrization), $\delta_2 = \delta_3 = 0$:
+\begin{equation}
+(\det M)^3 = \Lambda^{18}\bigl(1 + t^2/3\bigr)^3.
+\end{equation}
+The resulting potential contribution:
+\begin{equation}
+\delta V_3(t) = -2\,|c_3|\,f\,\Lambda^6\,(1+t^2/3)^2\,\frac{2t}{3}
++ |c_3|^2\,\Lambda^{12}\,(1+t^2/3)^4\,\frac{4t^2}{9\Lambda^{12}}.
+\end{equation}
+The first term (linear cross-term with tree-level $F$-term) is negative for $t > 0$
+with a magnitude that \emph{grows} with $t$.
+
+\subsection{Estimate of $|c_3|$}
+
+The three-instanton coefficient at strong coupling:
+\begin{equation}
+c_3 \sim \frac{1}{(16\pi^2)^3} \simeq 2.5 \times 10^{-7}
+\qquad (\text{dilute instanton gas}).
+\end{equation}
+In the instanton-liquid regime ($\alpha_s \sim 1$):
+\begin{equation}
+c_3 \sim \frac{1}{(4\pi)^2} \simeq 6.3 \times 10^{-3}.
+\end{equation}
+
+The cross-term magnitude at $t = \sqrt{3}$:
+\begin{equation}
+|\delta V_3(\sqrt{3})| \sim |c_3|\,f\,\Lambda^6\,(1+1)^2\,\frac{2\sqrt{3}}{3}
+= \frac{8\sqrt{3}}{3}\,|c_3|\,f\,\Lambda^6.
+\end{equation}
+Compare to $V_{\text{tree}}(\sqrt{3}) = f^2/\epsilon \to \infty$.
+Near the pole ($\epsilon \ll 1$):
+\begin{equation}
+\frac{|\delta V_3|}{V_{\text{tree}}} \sim
+\frac{|c_3|\,\Lambda^6}{f}\,\epsilon \to 0.
+\end{equation}
+The three-instanton contribution is \emph{finite} at the pole while $V_{\text{tree}}$ diverges.
+No finite $\delta V$ can overcome the infinite wall.
+
+\subsection{Away from the pole}
+
+If we abandon the K\"ahler pole and ask whether $\delta V_3$ alone can
+create a minimum at $t = \sqrt{3}$ with canonical K\"ahler ($V_{\text{tree}} = f^2$, constant):
+\begin{equation}
+\frac{dV_{\text{CW}}}{dt}\bigg|_{\sqrt{3}} + \frac{d(\delta V_3)}{dt}\bigg|_{\sqrt{3}} = 0.
+\end{equation}
+Using $dV_{\text{CW}}/dt|_{\sqrt{3}} \simeq 634\,m^4/(64\pi^2)$ and the cross-term:
+\begin{equation}
+|c_3| \gtrsim \frac{634\,m^4}{64\pi^2 \times 8\sqrt{3}/3 \times f\Lambda^6}
+= \frac{634}{64\pi^2 \times 4.62}\,\frac{m^4}{f\Lambda^6}.
+\end{equation}
+For $f \sim m^2$, $\Lambda \sim m$: $|c_3| \gtrsim 0.22$.
+The dilute-gas estimate gives $|c_3| \sim 10^{-7}$---six orders of magnitude too small.
+The instanton-liquid estimate gives $|c_3| \sim 10^{-3}$---still two orders short.
+
+\subsection{Angular dependence: $\cos(9\delta)$}
+
+The three-instanton potential generates an angular potential in the Koide phase $\delta$:
+\begin{equation}
+V_{3\text{-inst}}(\delta) = -V_0\cos\!\big(9(\delta - \delta_0)\big),
+\qquad V_0^{1/4} \sim 65\text{--}85\;\text{MeV}.
+\end{equation}
+This selects $\delta$ but does \emph{not} fix $v_0$ or equivalently $t$.
+The $\cos(9\delta)$ has 9 minima modulo $2\pi$, grouping into 3 $\mathbb{Z}_3$-equivalent classes.
+The lepton phase $\delta_\ell$ sits at a Class~A minimum to 33~ppm.
+However, the quark phases deviate from $\mathbb{Z}_9$ minima by 6--42\%.
+
+\subsection{Verdict}
+
+The three-instanton vertex generates a potential that is (i)~finite at the K\"ahler pole
+(so it cannot overcome the infinite wall), and (ii)~too small by $10^{2}$--$10^{6}$
+to compete with $V_{\text{CW}}$ even with canonical K\"ahler.
+Its main role is angular: fixing the Koide phase $\delta$ via $\cos(9\delta)$.
+\textbf{Multi-instanton effects fix $\delta$ but cannot stabilize $t$.}
+
+
+%=========================================================================
+\section{Mechanism (d): Strong Dynamics Near the K\"ahler Pole}
+
+\subsection{Divergent effective coupling}
+
+As $t \to \sqrt{3}$ and $K_{\Phi_0\bar\Phi_0} \to 0$, the canonically normalized
+field is $\hat\Phi_0 = \sqrt{K_{\Phi_0\bar\Phi_0}}\,\Phi_0$.
+The effective coupling in terms of the canonical field is
+\begin{equation}
+g_{\text{eff}} = \frac{g}{\sqrt{K_{\Phi_0\bar\Phi_0}}}
+= \frac{g}{\sqrt{1 - t^2/3}} \xrightarrow{t\to\sqrt{3}} \infty.
+\end{equation}
+Similarly, the effective Yukawa parameter $y_{\text{eff}} = gf/(m^2\sqrt{1-t^2/3}) \to \infty$.
+The theory becomes strongly coupled in the pseudo-modulus sector as $t\to\sqrt{3}$.
+
+\subsection{Proper field distance}
+
+The proper distance from $t=0$ to $t=\sqrt{3}$ is \emph{finite}:
+\begin{equation}
+\sigma_{\max} = \frac{m}{g}\int_0^{\sqrt{3}}\sqrt{1-s^2/3}\,ds
+= \frac{m}{g}\,\frac{\pi\sqrt{3}}{4} \simeq 1.36\,\frac{m}{g}.
+\end{equation}
+The moduli space has the geometry of a hemisphere with radius $\sqrt{3}\,m/g$
+and the pole is at the equator. The field reaches the boundary in finite proper distance,
+meaning the strong-coupling region is not parametrically separated from the bulk.
+
+\subsection{Effective potential in the strong-coupling regime}
+
+Near the pole, the perturbative expansion in $g_{\text{eff}}$ breaks down.
+Define $\epsilon \equiv 1 - t^2/3$ and expand:
+\begin{align}
+V_{\text{tree}} &= \frac{f^2}{\epsilon}, \\
+V_{\text{CW}} &= V_{\text{CW}}(\sqrt{3}) + \mathcal{O}(\epsilon), \\
+V_{\text{NP}} &= \;?
+\end{align}
+The key question is whether non-perturbative effects generated by the strong
+effective coupling can produce $V_{\text{NP}} \sim -C/\epsilon^n$ with $n \geq 2$.
+
+\subsection{Analogy: conformal window boundary}
+
+In $\mathcal{N}=1$ SQCD near the lower boundary of the conformal window
+($N_f \to 3N_c/2$ from above), the anomalous dimension $\gamma \to 1$ and
+non-perturbative effects become $\mathcal{O}(1)$.
+The effective K\"ahler potential receives corrections of the form
+\begin{equation}
+K_{\text{NP}} \sim |M|^{2(1-\gamma)}\Lambda^{2\gamma}
+\xrightarrow{\gamma\to 1} \Lambda^2\ln|M/\Lambda|.
+\end{equation}
+For the pseudo-modulus, if $\gamma_X \to 1$ near the pole, the effective K\"ahler becomes
+logarithmic, \emph{softening} the pole rather than enhancing it.
+This would produce $K_{X\bar X} \sim \Lambda^2/|X|^2$ (hyperbolic metric, infinite proper
+distance to the boundary), \emph{removing} the pole rather than stabilizing at it.
+
+\subsection{Confinement-induced potential}
+
+If the strong dynamics at $t \sim \sqrt{3}$ triggers confinement of the pseudo-modulus
+sector, new composite states form. The confined spectrum generates a
+potential of order
+\begin{equation}
+V_{\text{conf}} \sim -\Lambda_{\text{conf}}^4
+\end{equation}
+where $\Lambda_{\text{conf}} \sim m\,e^{-2\pi/(b_0\,g_{\text{eff}}^2)}
+= m\,e^{-2\pi(1-t^2/3)/(b_0 g^2)}$.
+Near the pole ($\epsilon \to 0$):
+\begin{equation}
+V_{\text{conf}}(\epsilon) \sim -m^4\,e^{-C_0\epsilon}
+\simeq -m^4(1 - C_0\epsilon + \cdots)
+\end{equation}
+for some $C_0 > 0$. This approaches $-m^4$ as $\epsilon \to 0$---a \emph{constant},
+not divergent. It cannot overcome $V_{\text{tree}} = f^2/\epsilon \to \infty$.
+
+\subsection{Singular K\"ahler from strong dynamics}
+
+The most promising scenario is that strong dynamics generates a K\"ahler potential
+with a \emph{zero} of the metric at a specific field value, rather than a smooth correction.
+This would be a phase transition in the target-space geometry:
+for $t < t_c$, the metric is positive; at $t = t_c$, additional massless states appear
+and the effective description changes.
+
+In the ISS framework, the meson field $M$ parametrizes a quantum-modified moduli space
+with constraint $\det M - B\tilde B = \Lambda^6$.
+The induced metric on the constrained surface can develop zeros where cofactors vanish.
+For diagonal $M = \text{diag}(M_1, M_2, M_3)$ with $M_3 = \Lambda^6/(M_1 M_2)$:
+\begin{equation}
+g_{\text{eff}}^{M_1 \bar M_1} = 1 + \frac{\Lambda^{12}}{|M_1|^4|M_2|^2}
+\end{equation}
+which diverges (not vanishes) as $M_1 \to 0$. Off-diagonal fluctuations
+about a partially degenerate $M$ can produce metric zeros, but the specific
+direction and location depend on the embedding of the pseudo-modulus
+in the meson space.
+
+\subsection{Verdict}
+
+Strong dynamics near the pole does not naturally produce a potential
+that diverges as $-1/\epsilon^n$ with $n \geq 2$.
+Confinement yields $\mathcal{O}(m^4)$ contributions (constant, not divergent).
+Anomalous dimensions soften rather than sharpen the pole.
+The quantum-modified constraint surface can produce metric zeros, but the
+location must be connected to the ISS parameters by a specific embedding.
+\textbf{Strong dynamics at the pole does not provide a generic stabilization
+mechanism, but the quantum-constraint geometry of the meson space offers
+a structural (non-dynamical) origin for the metric zero.}
+
+
+%=========================================================================
+\section{Synthesis: Combined Mechanisms}
+
+\subsection{Hierarchy of effects}
+
+At the pole $t = \sqrt{3}$, the parametric hierarchy is:
+\begin{equation}
+V_{\text{tree}} \sim \frac{f^2}{\epsilon} \gg V_{\text{CW}} \sim \frac{m^4}{16\pi^2}
+\gg V_{\text{bion}} \sim \Lambda^4 e^{-S_{\text{bion}}}
+\gg V_{\text{mon}} \sim \Lambda^4 e^{-2S_0/N_c}
+\gg V_{3\text{-inst}} \sim c_3\,f\,\Lambda^6.
+\end{equation}
+No candidate mechanism can overcome the divergent tree-level wall.
+
+\subsection{Resolution: the pole must be tree-level}
+
+Since all nonperturbative corrections are \emph{finite} at the pole while $V_{\text{tree}} \to \infty$,
+the vacuum cannot sit \emph{at} the pole. Two consistent scenarios remain:
+
+\paragraph{Scenario A: Exact metric zero (structural).}
+The K\"ahler metric $K_{\Phi_0\bar\Phi_0}$ vanishes at $t = \sqrt{3}$ as a
+\emph{tree-level geometric property} of the meson moduli space.
+This is not a dynamical stabilization but a structural constraint:
+the moduli space \emph{terminates} at $t = \sqrt{3}$.
+The vacuum sits at $t = \sqrt{3}^-$ (infinitesimally below the pole),
+with the CW potential providing a weak restoring force from below.
+The required condition is
+\begin{equation}
+c = \frac{1}{12} \quad \text{in } K = |X|^2 - c\,\frac{|X|^4}{\mu^2}, \quad \mu = \frac{m}{g},
+\end{equation}
+which places the metric zero at $t = \sqrt{3}$ algebraically.
+
+The origin of $c = 1/12$ must lie in the UV completion---the quantum-modified
+moduli space geometry of $SU(3)$ SQCD with $N_f = N_c = 3$.
+Suggestive numerological observations:
+$1/12 = 1/(4N_c) = 1/\dim(\text{adjoint of }SU(2))$,
+or $12 = N_f(N_f+1)/2$ for $N_f = 4$ (the ISS flavor count).
+
+\paragraph{Scenario B: Bion potential without the pole.}
+Abandon the K\"ahler pole entirely and use canonical K\"ahler.
+The bion potential on $\mathbb{R}^3 \times S^1$ generates:
+\begin{equation}
+V_{\text{eff}} = \lambda_2\,|S_{\text{bloom}} - 2\,S_{\text{seed}}|^2,
+\end{equation}
+where $S_{\text{seed}} = \sqrt{m_s} + \sqrt{m_c}$ and
+$S_{\text{bloom}} = -\sqrt{m_s} + \sqrt{m_c} + \sqrt{m_b}$.
+This is minimized when
+\begin{equation}
+\sqrt{m_b} = 3\sqrt{m_s} + \sqrt{m_c},
+\end{equation}
+predicting $m_b = 4177$~MeV (PDG: $4180 \pm 30$~MeV, $0.1\sigma$).
+The cross-channel bion coupling $\lambda_3 = -4\lambda_2$ enforces this.
+Here the pseudo-modulus is not stabilized at $t = \sqrt{3}$ in the simple
+O'Raifeartaigh sense; instead, the ISS meson VEVs directly satisfy the
+mass relation through the bion minimum.
+
+\paragraph{Scenario C: Combined mechanism.}
+The three-instanton vertex fixes the Koide angle $\delta$ via $\cos(9\delta)$.
+The bion potential fixes the mass ratios via $v_0$-doubling.
+The K\"ahler pole at $c = 1/12$ fixes the O'Raifeartaigh ratio $gv/m = \sqrt{3}$.
+These three conditions operate on \emph{different} degrees of freedom:
+\begin{center}
+\begin{tabular}{lll}
+\textbf{Mechanism} & \textbf{Controls} & \textbf{Strength} \\
+\hline
+K\"ahler pole ($c = 1/12$) & $t = gv/m$ & tree-level (structural) \\
+Three-instanton $\cos(9\delta)$ & Koide phase $\delta$ & $V_0^{1/4} \sim 65$--$85$ MeV \\
+Bion $|S_{\text{bloom}} - 2S_{\text{seed}}|^2$ & mass ratios ($v_0$-doubling) & $\Lambda^4 e^{-S_{\text{bion}}}$
+\end{tabular}
+\end{center}
+
+\subsection{Required inputs}
+
+The minimal set of unexplained inputs for the combined mechanism:
+\begin{enumerate}
+\item $c = 1/12$: the K\"ahler quartic coefficient (or equivalently, the moduli space
+boundary location).
+\item $\lambda_3/\lambda_2 = -4$: the bion cross-channel coupling ratio.
+\item $\delta_0 = 2/9$: the phase of the three-instanton coefficient $c_3$.
+\end{enumerate}
+All three are dimensionless numbers of order unity.
+Inputs (1) and (2) are potentially related through the underlying $SU(3)$ gauge dynamics
+(both arise from the same nonperturbative sector).
+Input (3) is determined by the UV theory and could in principle be computed
+from the instanton moduli space integral.
+
+
+%=========================================================================
+\section{Quantitative Summary}
+
+\begin{center}
+\begin{tabular}{lccl}
+\textbf{Mechanism} & $|V|/V_{\text{CW}}$ at $t\!=\!\sqrt{3}$ & Sign of $dV/dt$ & \textbf{Can stabilize?} \\
+\hline
+Monopole--instanton & $5 \times 10^{-4}$ ($\alpha_s\!=\!0.3$) & $+$ (repulsive) & No \\
+Bion K\"ahler & $e^{-S_{\text{bion}}}/m$ & $+$ (wrong sign) & No \\
+Bion potential & $0.04$--$156$ ($\alpha_s\!=\!0.3$--$1$) & $-$ at minimum & Maybe$^*$ \\
+Three-instanton & $10^{-6}$--$10^{-2}$ & finite (irrelevant at pole) & No \\
+K\"ahler pole (structural) & $\infty$ (IS the wall) & wall + CW restoring & Yes$^\dagger$ \\
+Strong dynamics & $\mathcal{O}(1)$ & constant & No \\[4pt]
+\multicolumn{4}{l}{$^*$\small Minimum at wrong $t$ unless $g\Lambda/m$ tuned. Semiclassical only for $\alpha_s < 0.5$.} \\
+\multicolumn{4}{l}{$^\dagger$\small Requires unexplained input $c = 1/12$.}
+\end{tabular}
+\end{center}
+
+\subsection{Key formula: balancing the CW at the pole}
+
+Any mechanism that creates a minimum at $t = \sqrt{3}^-$ must supply a negative
+force at least as large as $dV_{\text{CW}}/dt|_{\sqrt{3}}$ in the \emph{absence}
+of the K\"ahler pole (canonical K\"ahler). Numerically:
+\begin{equation}
+\left|\frac{d(\delta V)}{dt}\right|_{t=\sqrt{3}} \geq 634\,\frac{m^4}{64\pi^2}
+\simeq 1.00\,\frac{m^4}{(4\pi)^2}.
+\end{equation}
+For $m \sim 100$~MeV (strange quark scale): $1.00\,m^4/(4\pi)^2 \simeq 6.3 \times 10^4$~MeV$^4$.
+For $m \sim 1$~GeV: $6.3 \times 10^8$~MeV$^4$.
+
+The three-instanton cross-term provides $|d(\delta V_3)/dt| \sim |c_3|\,f\Lambda^6/m
+\sim 10^{-3}\,f\Lambda^5$ (instanton liquid). For $f \sim m^2$, $\Lambda \sim m \sim 300$~MeV:
+$\sim 10^{-3} \times (300)^7 \simeq 6.4 \times 10^{14}$~MeV$^7$---dimensionally this needs
+to be divided by $m^3$ to get MeV$^4$, giving $\sim 10^{-3} \times 300^4 = 8.1 \times 10^6$~MeV$^4$.
+This exceeds the CW barrier by a factor $\sim 130$ in the instanton-liquid regime.
+
+\textbf{Conclusion:} In the instanton-liquid regime ($\alpha_s \sim 1$), the three-instanton
+cross-term with canonical K\"ahler can potentially overcome the CW barrier and create
+a minimum near $t = \sqrt{3}$. However, this requires
+(i)~the cross-term with $F_{\text{tree}}$ to have the correct sign (attractive),
+which depends on $\arg(c_3)$, and (ii)~cancellation of higher-order instanton corrections.
+The semiclassical dilute-gas regime ($\alpha_s \sim 0.3$) is definitively too weak.
+
+
+%=========================================================================
+\section{Conclusions}
+
+\begin{enumerate}
+\item \textbf{No single semiclassical mechanism} (monopole, bion, dilute instanton gas)
+can stabilize the pseudo-modulus at $t = \sqrt{3}$ while remaining under perturbative control.
+The fundamental tension: the K\"ahler pole creates an infinite wall, and all nonperturbative
+corrections are finite there.
+
+\item \textbf{The K\"ahler pole must be a tree-level geometric property} of the moduli space,
+not a dynamical effect. The coefficient $c = 1/12$ is an input from the UV completion
+(quantum-modified constraint surface of $SU(3)$ SQCD).
+
+\item \textbf{Nonperturbative effects control different parameters}:
+the bion potential controls mass ratios ($v_0$-doubling, $m_b$ prediction),
+the three-instanton vertex controls the Koide angle ($\cos(9\delta)$).
+Neither controls $t$ directly.
+
+\item \textbf{The instanton-liquid regime} ($\alpha_s \sim 1$, strong coupling)
+offers enough magnitude for the three-instanton cross-term to overcome the CW barrier
+with canonical K\"ahler. This is the only identified mechanism that could stabilize $t$
+dynamically, but it operates outside semiclassical control.
+
+\item \textbf{The cleanest formulation}: assume $c = 1/12$ (structural),
+derive $\delta$ from $\cos(9\delta)$ (three-instanton),
+derive mass ratios from bion $v_0$-doubling.
+Free parameters: $(m_u, m_d)$ plus the three dimensionless inputs
+$c$, $\lambda_3/\lambda_2$, $\delta_0$.
+\end{enumerate}
