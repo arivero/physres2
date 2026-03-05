@@ -994,9 +994,9 @@ This Lagrangian produces: (i)~the O'Raifeartaigh seed condition ($gv/m = \sqrt{3
 correction $K_{\text{bion}}$, whose minimum enforces
 $\sqrt{m_b} = 3\sqrt{m_s} + \sqrt{m_c}$;
 (iv)~the Yukawa couplings for the heavy sector;
-(v)~a $\cos(9\delta)$ potential from the three-instanton operator
+(v)~a $\delta$-dependent potential from the three-instanton operator
 $(\det M^{(3)})^3/\Lambda_{\text{eff}}^{18}$, which selects
-discrete values of the bloom angle.
+discrete bloom angles (Section~\ref{sec:bloom}).
 
 The two-doublet structure has a direct consequence for the mass
 triples. Since the quark mass triples obligatorily mix up-type
@@ -1748,8 +1748,20 @@ mechanism.
 A natural candidate for a dynamical origin is the instanton structure of
 SQCD: for $N_f = N_c = 3$, instantons break $U(1)_{R+2A} \to \mathbb{Z}_{18}$,
 which contains $\mathbb{Z}_9$ as a subgroup. The three-instanton operator
-$(\det M)^3/\Lambda^{18}$ generates a $\cos(9\delta)$ potential
-whose minima select discrete bloom angles.
+$W_3 = c_3(\det M)^3/\Lambda^{18}$ generates a $\delta$-dependent
+potential. To see the harmonic content, note the exact identity
+\begin{equation}
+  \prod_{k=1}^{3}\bigl[1 + \sqrt{2}\cos(\delta + 2\pi k/3)\bigr]
+  = -\tfrac{1}{2} + \tfrac{\cos 3\delta}{\sqrt{2}}\,,
+\end{equation}
+so $\det M = z_0^6\,f(\delta)^2$ with
+$f = -1/2 + \cos(3\delta)/\sqrt{2}$.
+The potential $|W_3|^2 \propto f(\delta)^{12}$ contains all harmonics
+$\cos(3n\delta)$ for $n = 0,\ldots,6$; the $\cos(9\delta)$ term
+(the unique $\mathbb{Z}_9$ harmonic) carries only $34\%$ of the
+amplitude of the dominant $\cos(3\delta)$ mode.
+The effective potential therefore has six minima per $2\pi$ cycle,
+not nine.
 
 For the quark sector, the combined potential of the frozen-sign bion
 (which opposes the bloom) and the three-instanton term (which drives
