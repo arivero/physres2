@@ -45,12 +45,17 @@ Both sectors admit an O'Raifeartaigh deformation whose
 Coleman--Weinberg-stabilized vacuum at $gv/m = \sqrt{3}$ fixes a
 structural mass ratio $(2+\sqrt{3})^2 \approx 13.93$ and enforces an
 algebraic identity $\langle z_k^2 \rangle = z_0^2$ on the
-mass charges $m_k = (z_0 + z_k)^2$. From the strange quark mass alone,
-the Lagrangian predicts $m_c = 1301$ MeV (+2.0\%), $m_b = 4233$ MeV
-(+1.3\%), and $m_t = 171\,250$ MeV ($-$0.9\%). The lepton sector predicts
-$m_\tau = 1776.97$ MeV (+0.006\%). In total five of the Standard Model's
+mass charges $m_k = (z_0 + z_k)^2$. From the single input $m_u + m_d$
+(equivalently $m_\pi$ via GMOR), the isospin seed predicts $m_s$,
+the O'Raifeartaigh chain predicts $m_c = 1301\MeV$ (+2.0\%),
+$m_b = 4233\MeV$ (+1.3\%), and $m_t = 171\,250\MeV$ ($-$0.9\%);
+the magnetic Koide predicts $m_d$ and hence $m_u/m_d = 0.453$.
+The lepton sector predicts
+$m_\tau = 1776.97$ MeV (+0.006\%), and the GST relation predicts
+the Cabibbo angle.
+In total seven of the Standard Model's
 thirteen charged-fermion-sector parameters are determined, reducing the
-free parameter count from thirteen to eight.
+free parameter count from thirteen to six.
 \end{abstract}
 
 %======================================================================
@@ -158,8 +163,8 @@ heavy triple $(m_c, m_b, m_t)$ to satisfy $\langle z_k^2 \rangle = z_0^2$
 with all positive mass charges. This reduces to a quadratic equation for $\sqrt{m_t}$
 whose physical solution, using the predicted $m_c$ and $m_b$ as inputs,
 gives $m_t = 171\,250$ MeV (PDG: $172\,760 \pm 300$ MeV, 0.9\%
-deviation). Thus from the single input $m_s$, the theory produces the
-masses of all three heavy quarks.
+deviation). With the isospin seed giving $m_s$ from $m_u + m_d$,
+the entire heavy quark spectrum descends from a single input.
 
 The lepton sector is governed by the same algebraic structure. The
 $\mathrm{SU}(2)$ confining theory with $N_f = 3$ is $s$-confining
@@ -173,25 +178,28 @@ directly predicts $m_\tau = 1776.97$ MeV
 from the inputs $m_e$ and $m_\mu$, matching the PDG value $1776.86 \pm
 0.12$ MeV to 0.006\%.
 
-Two further predictions follow from the Lagrangian. The identification
-of the Seiberg Lagrange multiplier $X$ with the NMSSM singlet $S$
-generates a Higgs quartic through the $|F_X|^2$ term. At $\tan\beta =
-1$ the tree-level Higgs mass is $m_h = \lambda v/\sqrt{2}$, and
-requiring $m_h = 125.35$ GeV fixes $\lambda = 0.72$. The Cabibbo angle
-emerges from the tachyonic off-diagonal meson condensate: the ratio of
-condensate amplitudes in the $(u,s)$ and $(u,d)$ sectors is exactly
-$\sqrt{m_d/m_s}$, reproducing the Gatto--Sartori--Tonin relation
+Two further predictions follow from the Lagrangian. An NMSSM singlet $S$
+(separate from the Seiberg Lagrange multiplier $X$)
+generates a Higgs quartic through $\lambda_S S H_u \cdot H_d$.
+At $\tan\beta = 1$ the tree-level Higgs mass is
+$m_h = \lambda_S v/\sqrt{2}$, and
+$m_h = 125.35\GeV$ fixes $\lambda_S = 0.72$. The Cabibbo angle
+emerges from the seesaw-inverted mass hierarchy: the Fritzsch texture
+of the mass matrix $M \propto \hat{m}^{-T}$ gives the
+Gatto--Sartori--Tonin relation
 $\sin\theta_C = \sqrt{m_d/m_s} = 0.224$ (PDG: 0.225).
 
 The parameter budget of the theory is as follows. The Standard Model's
 charged fermion sector has thirteen free parameters: nine masses and four
-CKM angles. In this theory, the O'Raifeartaigh mass ratio determines
+CKM angles. In this theory, the isospin seed determines
+$m_s$ from $m_u + m_d$; the O'Raifeartaigh mass ratio determines
 $m_c$ from $m_s$; the bion mass relation determines $m_b$ from $m_s$
 and $m_c$; the Yukawa eigenvalue constraint determines $m_t$ from $m_c$
-and $m_b$; the mass-charge identity determines $m_\tau$ from $m_e$
+and $m_b$; the magnetic Koide determines $m_d$ (hence $m_u$) from
+$m_s$ and $m_b$; the mass-charge identity determines $m_\tau$ from $m_e$
 and $m_\mu$; and the Gatto--Sartori--Tonin relation determines
-$\theta_{12}$ from $m_d$ and $m_s$. Five parameters are eliminated. The
-remaining eight free parameters are $m_u$, $m_d$, $m_s$, $m_e$, $m_\mu$,
+$\theta_{12}$ from $m_d$ and $m_s$. Seven parameters are eliminated. The
+remaining six free parameters are $m_u$, $m_e$, $m_\mu$,
 $\theta_{23}$, $\theta_{13}$, and $\delta_{\rm CP}$.
 
 The paper is organized as follows. Section~\ref{sec:bootstrap} presents
@@ -1222,29 +1230,38 @@ an $\mathcal{O}(1\GeV)$ scheme ambiguity. The prediction is
 therefore stated as $m_t = 171.3 \pm 1.5\GeV$, where the
 uncertainty reflects this scheme mismatch.
 
-\subsection{The complete $m_s$ chain}
+\subsection{The complete mass chain}
 
-Three heavy quark masses from one input:
+Five quark masses from one input:
 \begin{equation}
 \boxed{
 \begin{aligned}
-m_s &= 93.4\;\mathrm{MeV} \quad\text{(input)}\\[4pt]
+m_u + m_d &= 6.83\;\mathrm{MeV} \quad\text{(input)}\\[4pt]
+&\xrightarrow{\;Q(0,\sqrt{m_u{+}m_d},\sqrt{m_s})\approx 2/3\;}
+m_s = 95.1\;\mathrm{MeV} \quad[+1.8\%]\\[4pt]
 &\xrightarrow{\;R_{\mathrm{OR}} = 7 + 4\sqrt{3}\;}
 m_c = 1301\;\mathrm{MeV} \quad[+2.0\%]\\[4pt]
 &\xrightarrow{\;\sqrt{m_b} = 3\sqrt{m_s} + \sqrt{m_c}\;}
 m_b = 4233\;\mathrm{MeV} \quad[+1.3\%]\\[4pt]
 &\xrightarrow{\;\langle z_k^2\rangle = z_0^2\text{ on }(c,b,t)\;}
-m_t = 171{,}250\;\mathrm{MeV} \quad[-0.9\%]
+m_t = 171{,}250\;\mathrm{MeV} \quad[-0.9\%]\\[4pt]
+&\xrightarrow{\;Q(1/\sqrt{m_d},1/\sqrt{m_s},1/\sqrt{m_b})\approx 2/3\;}
+m_d = 4.6\;\mathrm{MeV} \quad[-1.5\%]
 \end{aligned}
 }
 \end{equation}
 
-The chain spans a factor of 1834 in mass (from $m_s$ to $m_t$),
-controlled by three structural constants of the Lagrangian: the
+The chain spans a factor of $2.5 \times 10^4$ in mass
+(from $m_u + m_d$ to $m_t$),
+controlled by four structural constants of the Lagrangian: the
+isospin seed ratio, the
 O'Raifeartaigh mass ratio $R_{\mathrm{OR}}$, the bion doubling
 (with coefficient $N_c = 3$), and the eigenvalue sum rule
-$\langle z_k^2\rangle = z_0^2$. None of these is fitted; each is an algebraic
+$\langle z_k^2\rangle = z_0^2$; plus the magnetic Koide from
+the Seiberg seesaw. None of these is fitted; each is an algebraic
 consequence of the superpotential at its stabilised vacuum.
+The isospin and magnetic Koide are approximate ($Q \approx 2/3$,
+bloomed from the exact seed); the remaining three are exact.
 
 
 %======================================================================
@@ -1360,7 +1377,7 @@ $$
 $$
 With the O'Raifeartaigh scale $m \sim z_0^2 \approx 314\MeV$ and
 $g \sim O(1)$, a confinement scale $\Lambda_L \sim 9$--$12\GeV$
-places $m_{L_2}$ in the atmospheric neutrino window $9$--$50\meV$.
+places $m_{L_2}$ in the atmospheric neutrino window $9$--$50$\,meV.
 No large hierarchy is needed: the suppression is a power law, not
 an exponential.
 Whether this pseudo-modulus can be identified with a
@@ -1698,7 +1715,7 @@ and $Q(c,b,t)$ from $0.6\%$ to $6.2\%$.
 The isospin seed $Q(0,\sqrt{m_u{+}m_d},\sqrt{m_s})$ is immune to
 running because all entries share the same anomalous dimension and
 the ratio $m_s/(m_u{+}m_d)$ is an RG invariant.
-The Gell-Mann--Oakes--Renner relation
+The Gell-Mann--Oakes--Renner relation~\cite{GOR1968}
 $m_\pi^2 f_\pi^2 = (m_u{+}m_d)\langle\bar qq\rangle$
 makes this ratio a statement about physical hadron observables
 ($m_\pi$, $f_\pi$, $m_K$), explaining why the isospin seed
@@ -1726,17 +1743,23 @@ at scale $\mu \sim m_j$.
 \toprule
 Quantity & Predicted & PDG 2024 & Source \\
 \midrule
+$m_s$ & $95.1\MeV$ & $93.4 \pm 8.6$ ($0.2\sigma$)
+  & Isospin seed \\
 $m_c$ & $1{,}301\MeV$ & $1{,}275 \pm 25$ ($1.0\sigma$)
   & O'Raifeartaigh: $gv/m = \sqrt{3}$ \\
 $m_b$ & $4{,}233\MeV$ & $4{,}180 \pm 30$ ($1.8\sigma$)
   & Bion K\"ahler \\
 $m_t$ & $171.3 \pm 1.5\GeV$ & $172.76 \pm 0.30$
   & Yukawa eigenvalue constraint \\
+$m_d$ & $4.6\MeV$ & $4.67 \pm 0.48$ ($0.1\sigma$)
+  & Magnetic Koide \\
+$m_u/m_d$ & $0.453$ & $0.46 \pm 0.05$ ($0.2\sigma$)
+  & Self-consistency \\
 $m_\tau$ & $1776.97\MeV$ & $1776.86 \pm 0.12$ ($0.9\sigma$)
   & Lepton mass-charge identity \\
 $\sin^2\theta_W$ & $0.22310$ & $0.22320 \pm 0.00026$ ($0.4\sigma$)
   & Casimir equation \\
-$V_{us}$ & $0.224$ & $0.2250 \pm 0.0007$ ($2.0\sigma$)
+$V_{us}$ & $0.2236$ & $0.2243 \pm 0.0008$ ($0.9\sigma$)
   & GST relation \\
 $m_h$ & $125.35\GeV$ & $125.25 \pm 0.17$ ($0.6\sigma$)
   & NMSSM: $\lambda_S v/\sqrt{2}$ \\
@@ -1776,6 +1799,7 @@ conflict. The exotic $+4/3$-charged
 diquarks of the $\mathbf{15}$ would be a testable consequence.
 
 \subsection{The bloom mechanism}
+\label{sec:bloom}
 
 The mass-charge identity constrains but does not uniquely fix the
 angular parameter $\delta$ that controls how the seed develops into a
@@ -2091,12 +2115,15 @@ boundary condition on the superpotential, not an RG attractor
 the opposite extreme).
 
 \paragraph{3.\ The quark mass chain from a single input.}
-From $m_s = 93.4\MeV$ alone, the Lagrangian predicts
+From the isospin combination $m_u + m_d = 6.83\MeV$
+(equivalently $m_\pi$ via GMOR), the Lagrangian predicts
+$m_s = 95.1\MeV$ ($+1.8\%$),
 $m_c = 1301\MeV$ ($+2.0\%$), $m_b = 4233\MeV$ ($+1.3\%$),
-and $m_t = 171.3 \pm 1.5\GeV$ ($-0.9\%$), via three structural
-constants: the O'Raifeartaigh mass ratio $(2{+}\sqrt{3})^2$, the
-bion doubling with coefficient $N_c = 3$, and the Yukawa eigenvalue
-constraint $\langle z_k^2\rangle = z_0^2$ on the $(c,b,t)$ charges.
+$m_t = 171.3 \pm 1.5\GeV$ ($-0.9\%$), and $m_d = 4.6\MeV$ ($-1.5\%$),
+via the isospin seed, the O'Raifeartaigh mass ratio $(2{+}\sqrt{3})^2$,
+the bion doubling with coefficient $N_c = 3$, the Yukawa eigenvalue
+constraint $\langle z_k^2\rangle = z_0^2$, and the magnetic Koide
+from the Seiberg seesaw.
 
 \paragraph{4.\ The lepton sector from SU(2) $s$-confinement.}
 A separate $SU(2)$ confining sector with $N_f = 3$ produces the
