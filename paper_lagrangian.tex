@@ -1349,6 +1349,25 @@ This is the most precise prediction in the programme. Unlike the quark
 triples, the lepton triple uses unambiguous pole masses and requires no
 $\overline{\mathrm{MS}}$ conventions.
 
+\paragraph{Neutrino mass (schematic).}
+The pseudo-modulus $L_2$ is massless at tree level and couples to the
+rest of the spectrum only through the $s$-confining operator
+$L_1 L_2 L_3/\Lambda_L^3$. Its Coleman--Weinberg mass is therefore
+suppressed by $(m/\Lambda_L)^6$:
+$$
+  m_{L_2} \sim \frac{g^2 m}{4\pi}
+    \left(\frac{m}{\Lambda_L}\right)^{\!6}\,.
+$$
+With the O'Raifeartaigh scale $m \sim z_0^2 \approx 314\MeV$ and
+$g \sim O(1)$, a confinement scale $\Lambda_L \sim 9$--$12\GeV$
+places $m_{L_2}$ in the atmospheric neutrino window $9$--$50\meV$.
+No large hierarchy is needed: the suppression is a power law, not
+an exponential.
+Whether this pseudo-modulus can be identified with a
+physical neutrino depends on its quantum numbers under the
+electroweak group---a question that requires specifying the embedding
+of SU(2)$_{\rm conf}$ into the full gauge structure.
+
 \subsection{Parameter counting for the lepton sector}
 
 Two parameters determine three lepton masses:
@@ -1475,14 +1494,22 @@ This is not an independent prediction of the superpotential
 but a structural property of the seesaw-inverted mass hierarchy.
 The free parameters $m_u$ and $m_d$ sit outside the mass chain;
 the GST relation connects them to the CKM matrix.
-The six-texture-zero Fritzsch ansatz gives the analogous relation
-$|V_{cb}| = |\sqrt{m_s/m_b} - e^{i\psi}\sqrt{m_c/m_t}|$; numerically
-$\sqrt{m_s/m_b} = 0.149$ and $\sqrt{m_c/m_t} = 0.088$,
-so $|V_{cb}| \geq 0.061$ for any phase~$\psi$, overshooting
-the PDG value $0.0422$ by $40\%$.  This structural failure of
-the original Fritzsch texture (known since the 1990s) signals
-that the 2--3 sector requires a modified texture or
-running effects beyond tree level.
+The ISS model with $N_f = 4$ confines four flavors $(u,d,s,c)$.
+The CKM matrix is determined by off-diagonal entries in the UV mass
+matrix $\hat\mu$ \emph{within} each electroweak sector: cross-block
+entries connecting up-type to down-type give zero CKM mixing
+(the Schur complement of the seesaw-inverted matrix is diagonal).
+With only four flavors, the maximum CKM structure is $2\times 2$
+(the Cabibbo angle). The 2--3 mixing $V_{cb}$ requires the
+top and bottom quarks, but $N_f = 5$ lies outside the
+ISS conformal window $N_c < N_f < 3N_c/2 = 4.5$.
+The six-texture-zero Fritzsch ansatz, applied formally to
+the $3\times 3$ case, gives
+$|V_{cb}| = |\sqrt{m_s/m_b} - e^{i\psi}\sqrt{m_c/m_t}| \geq 0.061$,
+overshooting the PDG value $0.0422$ by $40\%$.
+This structural failure (known since the 1990s)
+signals that the 2--3 sector requires either a modified texture,
+RG running, or a separate mechanism for the top--bottom coupling.
 
 \subsection{The Casimir eigenvalue equation}
 
@@ -1792,10 +1819,25 @@ amplitude of the dominant $\cos(3\delta)$ mode.
 The effective potential therefore has six minima per $2\pi$ cycle,
 not nine.
 
-For the quark sector, the combined potential of the frozen-sign bion
-(which opposes the bloom) and the three-instanton term (which drives
-the bloom) has a stable equilibrium within $2.8^\circ$ of the physical
-quark bloom position.
+The bion K\"ahler potential $\delta K \sim |v_0 - 2v_0^{\rm seed}|^2$
+constrains the overall scale $z_0$ (radial direction in the
+Cartan plane), while the three-instanton $F$-term potential constrains
+the angle~$\delta$.
+For the physical $(-s,c,b)$ triple, the bloom angle
+$\delta_{\rm phys} = 159^\circ$
+lies $24^\circ$ past the seed and $21^\circ$ before the nearest
+instanton well at $180^\circ$, at a \emph{maximum} of the
+combined effective potential
+$V_{\rm eff} = -|f|^{2p} + r\,(S-3)^2$
+for all powers $p$ and positive $r$.
+The physical point is therefore a \emph{saddle}:
+stable in the radial direction (bion minimum), unstable in the
+angular direction (instanton-driven).
+This is the same metastability structure as the ISS vacuum itself---the
+angular instability is slow and the configuration is long-lived.
+The bloom angle remains an open problem;
+it may be fixed by the overdetermination of the mass chain
+rather than by a simple potential minimum.
 
 \paragraph{Dual self-consistency.}
 The Seiberg seesaw maps direct charges $\zch_k = \sqrt{m_k}$
