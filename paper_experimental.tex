@@ -367,6 +367,190 @@ the qualitative point is that the sBootstrap provides \emph{both}
 the pion and sigma parameters from a single Lagrangian---precisely the
 information needed to compute nuclear binding.
 
+\subsection{The $dt$ astrophysical $S$-factor}
+
+The nuclear cross-section at low energy is parameterized by the
+astrophysical $S$-factor:
+\begin{equation}
+  \sigma(E) = \frac{S(E)}{E}\,\exp\!\left(-\sqrt{E_G/E}\right),
+\end{equation}
+where $E_G = 2\pi^2 \alpha^2 \mu_N c^2 \approx 0.50\MeV$ is the
+Gamow energy for $d$--$t$ ($\mu_N$ the nuclear reduced mass,
+$Z_1 = Z_2 = 1$).  For the reaction
+$d(t,n){}^4\text{He}$, the $S$-factor at low energy is dominated
+by the $J^\pi = 3/2^+$ resonance in ${}^5\text{He}$ at
+$E_R \approx 64\keV$ above the $d$--$t$ threshold.
+
+The $S$-factor is well measured above $\sim 5\keV$, but stellar
+burning in the solar core ($T \approx 1.5\keV$) and the margins of
+inertial confinement fusion (ICF) ignition ($T \sim 5$--$10\keV$)
+rely on theoretical extrapolation.  The R-matrix analysis
+parameterizes $S(E)$ in terms of resonance energies and reduced
+widths, which in turn depend on the nuclear potential at the
+channel radius.
+
+The sBootstrap modifies two potential ingredients:
+\begin{itemize}
+\item OPEP with $g_{\pi NN} = 13.12$ (versus the standard
+  $13.17$): a $0.76\%$ change in $g_{\pi NN}^2$, hence a $0.76\%$
+  shift in the tensor and central OPEP.
+\item The scalar-isoscalar exchange at $92\MeV$ (range $2.16\,\text{fm}$)
+  instead of the phenomenological $\sigma$ at $\sim 500\MeV$
+  (range $0.4\,\text{fm}$).
+\end{itemize}
+The OPEP correction is small.  The sigma modification is potentially
+large: the $dt$ scattering wave function at the channel radius
+($r_c \approx 5\,\text{fm}$) is exponentially sensitive to the
+potential tail.  A Yukawa tail $e^{-r/2.16\,\text{fm}}$ at
+$r = 5\,\text{fm}$ gives $e^{-2.3} = 0.10$, whereas
+$e^{-r/0.4\,\text{fm}} = e^{-12.5} \approx 4 \times 10^{-6}$:
+the sBootstrap sigma is a factor $\sim 2.5 \times 10^4$ stronger
+at the channel radius.
+
+A quantitative $S$-factor calculation requires an R-matrix analysis
+with the sBootstrap potential.  The prediction is that the low-energy
+$S(E)$ extrapolation differs from the standard potential-model result
+due to the longer-range scalar attraction.  At stellar energies
+($E \sim 1\keV$), where the Gamow penetration factor
+$e^{-\sqrt{E_G/E}} \sim e^{-22}$ dominates, even a modest change
+in the pre-exponential factor is significant for stellar
+nucleosynthesis rates.
+
+\subsection{The solar $pp$ $S$-factor}
+
+The $pp$ reaction $p + p \to d + e^+ + \nu_e$ proceeds through the
+weak interaction and has an astrophysical $S$-factor
+$S_{11}(0) = (4.01 \pm 0.03) \times 10^{-25}\MeV\cdot\text{barn}$~\cite{AdelbergerSFactor2011}.
+The $0.7\%$ theoretical uncertainty is dominated by the
+overlap of the $pp$ scattering wave function with the deuteron
+bound-state wave function at zero separation.
+
+Both wave functions are determined by the $NN$ potential.  The $pp$
+scattering wave function at short range depends on the strong
+interaction, specifically on the scattering length $a_{pp}$ and
+effective range $r_{pp}$.  The deuteron wave function's asymptotic
+normalization depends on the potential tail.
+
+The sBootstrap contribution is twofold:
+\begin{enumerate}
+\item The potential parameters ($g_{\pi NN}$, $m_\pi$, $m_\sigma$,
+  $g_{\sigma NN}$) are fixed rather than fitted.  This eliminates
+  the model dependence of the nuclear wave functions.
+\item The longer-range sigma exchange modifies the wave function
+  overlap integral.  The effect is largest at the nuclear surface
+  ($r \sim 2\,\text{fm}$), where the sigma Yukawa tail is significant.
+\end{enumerate}
+
+A $0.35\%$ shift in $g_{\pi NN}$ propagates into $\sim 0.7\%$ in
+the OPEP potential, comparable to the current theoretical uncertainty
+in $S_{11}$.  If the sBootstrap potential gives a different wave
+function overlap, the solar $pp$ rate---and hence the predicted
+solar neutrino flux---shifts correspondingly.  The solar neutrino
+measurements by SNO, Borexino, and Super-Kamiokande currently
+constrain $S_{11}$ to $\sim 1\%$; a competitive $S_{11}$ from the
+sBootstrap potential would be a stringent test.
+
+\subsection{The $\alpha$--$\alpha$ potential and the Hoyle state}
+\label{subsec:hoyle}
+
+The triple-alpha process $3\alpha \to {}^{12}\text{C}$ is the
+bottleneck of stellar helium burning and the origin of all
+terrestrial carbon.  It proceeds through a two-step resonance:
+\begin{equation}
+  \alpha + \alpha \to {}^8\text{Be}^*\,,\qquad
+  {}^8\text{Be}^* + \alpha \to {}^{12}\text{C}^*
+  \;(\text{Hoyle state, }7.654\MeV)\,.
+\end{equation}
+The Hoyle state lies only $\Delta E = 379.47 \pm 0.15\keV$ above the
+$3\alpha$ threshold.  This near-degeneracy has long been considered
+a fine-tuning: a $\sim 4\%$ shift in $\Delta E$ would suppress
+carbon production by orders of magnitude, preventing carbon-based
+life~\cite{Hoyle1954,OberhumerCSoto2000}.
+
+The Hoyle state energy depends on the nuclear potential at the
+$\alpha$-cluster scale ($r \sim 3$--$4\,\text{fm}$): the
+$\alpha$--$\alpha$ potential at medium range determines the energy
+of the $0^+$ resonance in ${}^{12}\text{C}$.
+
+The sBootstrap enters through the scalar-isoscalar exchange.  The
+standard nuclear force models use a phenomenological $\sigma$ at
+$400$--$550\MeV$ (range $0.35$--$0.5\,\text{fm}$), which is
+essentially a contact interaction at the $\alpha$-cluster scale.
+The sBootstrap diagonal mode at $92\MeV$ has range $2.16\,\text{fm}$
+--- comparable to the $\alpha$--$\alpha$ separation in ${}^{12}\text{C}$
+($\sim 3\,\text{fm}$).  At this distance:
+\begin{align}
+  \text{sBootstrap:}\quad &
+    \frac{e^{-3.0/2.16}}{3.0/2.16} = \frac{e^{-1.39}}{1.39}
+    = \frac{0.249}{1.39} = 0.179\,,\\
+  \text{Standard:}\quad &
+    \frac{e^{-3.0/0.44}}{3.0/0.44} = \frac{e^{-6.8}}{6.8}
+    = \frac{0.0011}{6.8} = 1.6 \times 10^{-4}\,.
+\end{align}
+The sBootstrap sigma Yukawa factor at the $\alpha$-cluster distance
+is $\sim 1{,}100$ times larger than the standard sigma.
+
+This means the sBootstrap scalar exchange provides a qualitatively
+different medium-range $\alpha$--$\alpha$ attraction: not a
+short-range contact term but a finite-range Yukawa with substantial
+strength at $3\,\text{fm}$.  The Hoyle state energy is determined
+by the depth and shape of the $\alpha$--$\alpha$ potential well in
+this regime.
+
+The provocative possibility is that the Hoyle state near-degeneracy
+($\Delta E / E_{\text{Hoyle}} = 5.0\%$) is not a fine-tuning but
+a \emph{consequence} of the sBootstrap scalar mass: the $92\MeV$
+diagonal mode, through its long-range $\alpha$--$\alpha$ attraction,
+naturally places the Hoyle state close to threshold.  Testing this
+requires an $\alpha$-cluster model calculation with the sBootstrap
+potential, which we leave to future work.  But the numerology is
+suggestive: the Hoyle state sits at the $\alpha$-cluster distance
+($\sim 3\,\text{fm}$) set by the sBootstrap sigma range
+($2.16\,\text{fm}$), not by the standard sigma range
+($0.4\,\text{fm}$).
+
+\subsection{Nuclear equation of state at high compression}
+
+In ICF, DT fuel is compressed to
+$\rho \sim 300$--$1000\,\text{g/cm}^3$ (corresponding to
+$100$--$350\times$ liquid density) before ignition.  At these
+densities, the average internuclear separation is
+\begin{equation}
+  d \sim \left(\frac{m_N}{\rho}\right)^{1/3}
+  = \left(\frac{1.67 \times 10^{-24}\,\text{g}}{300\,\text{g/cm}^3}\right)^{1/3}
+  \approx 1.8\,\text{fm}\,,
+\end{equation}
+comparable to the sBootstrap sigma range ($2.16\,\text{fm}$).
+The nuclear equation of state (EOS) at these densities depends on
+the $NN$ potential: repulsion at short range ($< 0.5\,\text{fm}$)
+stiffens the EOS, while attraction at medium range softens it.
+
+The standard nuclear EOS models (Skyrme, relativistic mean field)
+parameterize the medium-range attraction with coupling constants
+fitted to nuclear binding energies and saturation properties.  The
+sBootstrap fixes these parameters from the Lagrangian:
+\begin{itemize}
+\item Saturation density: determined by the balance of OPEP
+  (tensor repulsion at short range) and sigma attraction.  A lighter
+  sigma pushes saturation to lower density (the attraction turns on
+  at larger $r$).
+\item Compression modulus: $K \approx 240 \pm 20\MeV$.  The
+  sBootstrap sigma at $92\MeV$ gives a softer EOS near
+  saturation, potentially reducing $K$.
+\item Symmetry energy: dominated by the isovector channel ($\rho$
+  meson exchange), which the sBootstrap does not modify at leading
+  order.
+\end{itemize}
+
+For ICF, a softer EOS means less pressure is needed to reach a given
+compression, but the ignition threshold also shifts.  The net effect
+on ICF performance depends on the interplay between compression and
+heating, which requires radiation-hydrodynamics simulation with the
+sBootstrap EOS.  The prediction is that the sBootstrap EOS differs
+from standard Skyrme parameterizations at $\rho \gtrsim
+100\,\text{g/cm}^3$, where the internuclear separation enters the
+sigma exchange range.
+
 %======================================================================
 \section{The muon mass and muon-catalyzed fusion}
 \label{sec:muon}
@@ -815,6 +999,22 @@ the nuclear scale:
 \item The pion decay phase space is $\propto \fpi^4$ in the SUSY limit:
   the pion lifetime is controlled by the fourth power of the
   SUSY-breaking scale.
+
+\item The $dt$ and $pp$ astrophysical $S$-factors are in principle
+  computable from the sBootstrap potential without fitted nuclear
+  parameters.  The longer-range sigma at $92\MeV$ modifies the
+  wave function overlap at the nuclear surface.
+
+\item The Hoyle state near-degeneracy ($\Delta E = 379\keV$ above
+  $3\alpha$ threshold) may be a consequence rather than a fine-tuning:
+  the sBootstrap sigma range ($2.16\,\text{fm}$) matches the
+  $\alpha$-cluster separation, and the Yukawa factor at that distance
+  is $1{,}100\times$ larger than the standard sigma.
+
+\item The nuclear equation of state at ICF-relevant compressions
+  ($\rho \sim 300$--$1000\,\text{g/cm}^3$, internuclear distance
+  $\sim 1.8\,\text{fm}$) enters the sBootstrap sigma exchange range
+  and is expected to be softer than standard Skyrme parameterizations.
 \end{enumerate}
 
 The most urgent experimental tests are: (a)~measuring or bounding
@@ -822,7 +1022,11 @@ a scalar-isoscalar state below $100\MeV$; (b)~improving fifth-force
 limits at $0.1$--$10\,\text{mm}$ range; (c)~lattice QCD computation
 of MSbar quark masses to $1\%$ to test the dual Koide; (d)~a
 precision comparison of $g_{\pi NN}$ and $g_A$ to test whether the
-``correct'' $\fpi$ for the GT relation is $\sqrt{m_\pi^2 - m_\mu^2}$.
+``correct'' $\fpi$ for the GT relation is $\sqrt{m_\pi^2 - m_\mu^2}$;
+(e)~an R-matrix calculation of $S(E)$ for $d(t,n)\alpha$ with the
+sBootstrap potential to test the low-energy extrapolation;
+(f)~an $\alpha$-cluster model calculation of the Hoyle state energy
+with the $92\MeV$ sigma exchange.
 
 \begin{thebibliography}{99}
 
@@ -894,6 +1098,23 @@ Nature \textbf{321}, 127 (1986).
 D.~J.~Kapner et~al., ``Tests of the gravitational inverse-square law
 below the dark-energy length scale,''
 Phys.\ Rev.\ Lett.\ \textbf{98}, 021101 (2007).
+
+\bibitem{Hoyle1954}
+F.~Hoyle, ``On nuclear reactions occurring in very hot stars.
+I. The synthesis of elements from carbon to nickel,''
+Astrophys.\ J.\ Suppl.\ \textbf{1}, 121 (1954).
+
+\bibitem{OberhumerCSoto2000}
+H.~Oberhummer, A.~Cs\'ot\'o, H.~Schlattl,
+``Stellar production rates of carbon and its abundance in the
+universe,'' Science \textbf{289}, 88 (2000),
+arXiv:astro-ph/0007178.
+
+\bibitem{AdelbergerSFactor2011}
+E.~G.~Adelberger et~al., ``Solar fusion cross sections.
+II. The $pp$ chain and CNO cycles,''
+Rev.\ Mod.\ Phys.\ \textbf{83}, 195 (2011),
+arXiv:1004.2318.
 
 \end{thebibliography}
 
