@@ -217,10 +217,10 @@ structure. Section~\ref{sec:electroweak} discusses the NMSSM Higgs
 sector, the Cabibbo angle, and the electroweak predictions.
 Section~\ref{sec:spectrum} presents the complete particle spectrum and
 parameter budget.
-Section~\ref{sec:strings} interprets the Lagrangian as a low-scale
-Type~I superstring on $T^6/\mathbb{Z}_3$, showing how the $SO(32)$
-adjoint contains the sBootstrap composites and how the orbifold geometry
-connects to the mass-charge structure.
+Section~\ref{sec:strings} offers a speculative UV interpretation
+as a low-scale Type~I superstring on $T^6/\mathbb{Z}_3$; this section
+is not required for the mass predictions and may be skipped by readers
+uninterested in string constructions.
 Section~\ref{sec:open} discusses the remaining open problems ---
 the 15 versus $\overline{10}$ Pauli conflict, the
 nonperturbative bloom mechanism, and the mesino mass hierarchy ---
@@ -1649,8 +1649,8 @@ top and bottom quarks, but $N_f = 5$ lies outside the
 ISS conformal window $N_c < N_f < 3N_c/2 = 4.5$.
 The six-texture-zero Fritzsch ansatz, applied formally to
 the $3\times 3$ case, gives
-$|V_{cb}| = |\sqrt{m_s/m_b} - e^{i\psi}\sqrt{m_c/m_t}| \geq 0.061$,
-overshooting the PDG value $0.0422$ by $40\%$.
+$|V_{cb}| = |\sqrt{m_s/m_b} - e^{i\psi}\sqrt{m_c/m_t}| \geq 0.064$,
+overshooting the PDG value $0.0422$ by more than $50\%$.
 This structural failure (known since the 1990s)
 signals that the 2--3 sector requires either a modified texture,
 RG running, or a separate mechanism for the top--bottom coupling.
@@ -2013,8 +2013,6 @@ $\sin^2\theta_W$ & $0.22310$ & $0.22320 \pm 0.00026$ ($0.4\sigma$)
   & Casimir equation \\
 $V_{us}$ & $0.2236$ & $0.2243 \pm 0.0008$ ($0.9\sigma$)
   & GST relation \\
-$m_\nu$ & $49.2$\,meV & $\lesssim 50$\,meV (atmospheric)
-  & Top--neutrino duality: $\fpi^2/m_t$ \\
 $m_h$ & $125.35\GeV$ & $125.25 \pm 0.17$ ($0.6\sigma$)
   & NMSSM: $\lambda_S v/\sqrt{2}$ \\
 $\tan\beta$ & $1$ & --- (not directly measured)
@@ -2531,6 +2529,41 @@ $\mathbf{15}$; thus the Miyazawa route alone does not resolve the
 conflict. The exotic $+4/3$-charged
 diquarks of the $\mathbf{15}$ would be a testable consequence.
 
+\paragraph{Orientifold routes to the symmetric $\mathbf{15}$.}
+The $\mathbb{Z}_3$ orbifold of Section~\ref{sec:strings}
+produces the antisymmetric~$\mathbf{10}$ because the
+$SU(5)$ Chan-Paton block has odd dimension ($n_1 = 5$),
+which cannot support an Sp-type ($\varepsilon = -1$)
+projection.  Three natural modifications fail to
+circumvent this:
+\begin{enumerate}
+\item \emph{D5-branes.}  Adding D5-branes at fixed points
+  shifts the twisted tadpole.  The only even-$n_1$ solution
+  is $n_1 = 4$ (twisted tadpole~$=4$), giving $SU(4)$
+  rather than $SU(5)$.
+\item \emph{Discrete torsion.}  Flipping the twisted-sector
+  sign reverses the tadpole condition to
+  $n_0 - n_1 = -1$, giving $n_1 = 17/3$ --- not an integer.
+\item \emph{Changing the gauge group.}  The constraint
+  $n_0 + 2n_1 = 16$, $n_0 - n_1 = 1$ has the unique
+  solution $n_1 = 5$; no other integer satisfies both.
+\end{enumerate}
+Two viable routes remain, both involving deformations away
+from the strict orbifold point.  First, in \emph{magnetized
+brane models} (intersecting branes on~$T^6$), the chiral
+spectrum arises from intersection numbers $I_{aa'}$ of a
+brane stack~$a$ with its orientifold image~$a'$.  The
+symmetric~$\mathbf{15}$ appears when $a$ wraps cycles
+intersecting $O^-$~planes, and three generations require
+$I_{aa'} = 3$.  Second, \emph{local $O5^-$~planes} at
+the $\mathbb{Z}_3$ fixed points can flip the projection
+from antisymmetric to symmetric at the locus where the
+$SU(5)$ matter lives, even though the global gauge group
+remains~$SO(32)$.  Both mechanisms select a specific
+region of the Type~I moduli space; the sBootstrap's
+requirement of the symmetric~$\mathbf{15}$ is thus
+a \emph{moduli constraint} on the string vacuum.
+
 \subsection{The bloom mechanism}
 \label{sec:bloom}
 
@@ -2722,30 +2755,8 @@ neutrino is massless; in the magnetic frame the neutrino acquires
 a Majorana mass while the top is massless.  The two particles are
 at opposite extremes of the mass spectrum ($m_t/m_\nu \sim 10^{12}$),
 and their product $m_t \times m_\nu$ would be set by the
-duality scale.
-
-Numerically, the product is suggestive.  If the heaviest neutrino
-mass is $m_\nu \approx 49\MeV$ (the atmospheric scale
-$\sqrt{\Delta m^2_{\text{atm}}} \approx 50$\,meV), then
-\begin{equation}
-  \sqrt{m_t \times m_\nu}
-  \;=\; \sqrt{172{,}760 \times 0.049}
-  \;=\; 92.0\MeV
-  \;\approx\; \fpi\,.
-\end{equation}
-This would give the duality relation
-\begin{equation}
-  m_t \times m_\nu \;=\; \fpi^2\,,
-\end{equation}
-identifying the SUSY-breaking order parameter~$\fpi$ as the
-geometric mean of the top and neutrino masses.  The prediction
-$m_\nu = \fpi^2/m_t^{\text{pole}} = 49.2$\,meV lies
-squarely in the atmospheric neutrino window and is testable
-by next-generation experiments (KATRIN, Project~8, JUNO).
-The relation connects the two particles that sit outside
-the main composite spectrum --- the top (Chan-Paton singlet)
-and the neutrino (pseudo-modulus) --- through the scale
-that splits their supermultiplets.
+duality scale --- in M-theory, by the geometry of the
+compact 7-manifold.
 
 Whether this duality can be made precise --- and whether the
 $G_2$-holonomy manifold required for $\mathcal{N}=1$ in four
@@ -2832,11 +2843,12 @@ natural UV completion containing both the $\mathbf{24}$ and
 $\mathbf{15} \oplus \overline{\mathbf{15}}$; the alternative
 $E_8 \times E_8$ is algebraically blocked. A $\mathbb{Z}_3$ orbifold
 on the $SU(3)$ root lattice gives three generations and connects the
-instanton structure to the bloom potential. The bloom mechanism,
-the orientifold projection (which currently produces the antisymmetric
-$\mathbf{10}$ rather than the symmetric $\mathbf{15}$), and a
-Lagrangian derivation of the Diophantine counting remain the central
-open problems.
+instanton structure to the bloom potential. The bloom mechanism
+and a Lagrangian derivation of the Diophantine counting remain the
+central open problems; the orientifold projection (which at the
+$\mathbb{Z}_3$ orbifold point produces the antisymmetric~$\mathbf{10}$)
+may be resolved by magnetized branes or local $O5^-$ planes that
+flip the projection to the symmetric~$\mathbf{15}$.
 
 The empirical evidence for the mass-charge identity---the
 precision of the lepton prediction, the accuracy of the meson

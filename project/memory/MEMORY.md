@@ -29,6 +29,22 @@ See: [manhattan_design.md](manhattan_design.md) for full rationale.
 - `notes.md` — reading notes on all 14 papers
 - `4.tex`, `sbootstrap_v4*.tex` — paper drafts under revision
 
+## Paper Status (March 2026)
+- **paper_lagrangian.tex**: 38 pages, 12 sections. The main working paper.
+- **talk_lagrangian.tex**: 33-slide Beamer talk (24 main + 9 backup). Compiles clean.
+- **Session N+1 COMPLETE**: Items D (Yukawa identity), A (spectrum flow), B (supermultiplets), dual identity derivation, notation cleanup.
+- **Session N+1.5 COMPLETE**: New §10 "Hadronic superstrings" (7 subsections), M-theory uplift, Beamer talk with backup slides.
+- **Session N+2 (this session)**: QCD-RG invariance paragraph added (backed by `calculations/rg_running_qcd.py`), PMNS paragraph added, preon/Cabibbo history paragraph added, orbifold V_cb candidate (ε₁³≈0.066) noted in Cabibbo section. RETRACTED: "m_t×m_ν=f_π²" was a unit error (meV≠10⁻³ MeV; actually 10⁻⁹ MeV). Removed from paper/talk/table.
+- **All "Koide" removed** from paper. Use "mass-charge identity" language. Q replaced with ⟨z_k²⟩/z_0² notation.
+
+## Next Steps (prioritized)
+1. ~~QCD-RG invariance paragraph~~ DONE
+2. ~~PMNS paragraph~~ DONE
+3. ~~m_t × m_ν product~~ DONE — result: NO simple relation found. Original "m_t×m_ν = f_π²" was a unit error (meV ≠ 10⁻³ MeV). With correct units, √(m_t × 50 meV) = 93 keV, not 93 MeV.
+4. **CKM beyond Cabibbo** — PARTIALLY DONE. Orbifold gives ε₁³ = 0.066 (56% above PDG 0.042). 5-zero texture can fit but needs definite D_d. Still the hardest open problem. `calculations/ckm_orbifold.py` has the analysis.
+5. **15 vs 10 orientifold** — DONE. Standard Z₃ gives 10 (n₁=5 odd, no Sp). D5-branes give SU(4) not SU(5). Discrete torsion gives 17/3 (not integer). Two viable routes: magnetized branes (intersecting O⁻ planes) or local O5⁻ at fixed points. Both are moduli constraints on the Type I vacuum. Added to paper + `calculations/orientifold_15vs10.py`.
+6. **Editorial pass** — 38 pages, substantial new material. Consistency check needed.
+
 ## North Star (user instruction, March 2026)
 The goal is to get a SUSY Lagrangian for the full theory, including Yukawa couplings from the Higgs mechanism. All decisions about paper structure, what to emphasize, what agents to run should point toward this goal.
 
@@ -69,7 +85,12 @@ The goal is to get a SUSY Lagrangian for the full theory, including Yukawa coupl
 - **CKM = UV input (Round 16D)**: All 7 IR mechanisms killed. CKM comes from UV Fritzsch texture, transmitted by seesaw.
 - **ISS dictionary CORRECTED (March 2026)**: O'R parameters map as g→h, m→hμ, v→⟨X⟩. So gv/m = h⟨X⟩/(hμ) = ⟨X⟩/μ — **h cancels completely**. Koide seed fixes ⟨X⟩/μ=√3 (pseudo-modulus VEV), NOT h=√3. At one-loop CW, ⟨X⟩=0; nonzero VEV requires nonperturbative mechanism (three-instanton candidate). m_c/m_s = (2+√3)² ≈ 13.93
 - **v₀-doubling is non-holomorphic**: Cannot come from superpotential (z_k ~ 1/√M is non-holomorphic). Must be Kähler potential or nonperturbative
-- **Parameter budget**: Only 2-3 free parameters (m_u, m_d, m_s/Λ). Seed Koide fixes m_c, v₀-doubling fixes m_b, ⟨X⟩/μ=√3 imposed. (c,b,t) is overdetermination test
+- **Isospin seed**: Q(0, √(m_u+m_d), √m_s) = 0.6649 (0.27% from 2/3). Predicts m_s = (2+√3)²(m_u+m_d) = 95.1 MeV (0.36σ). USER CONCERN: this is "put all mass in d, leave u massless" — NOT isospin average. Connects to m_u=0 and chiral limit.
+- **One-parameter quark spectrum**: Coupled system (isospin seed + O'R chain + bion + magnetic Koide) has exactly 1 free param (S = m_u+m_d). Predicts m_u/m_d = 0.453. χ²/dof = 0.125, p = 0.97. All 5 masses sub-sigma.
+- **Magnetic Koide exact**: Q(1/√m_d, 1/√m_s, 1/√m_b) = 0.665. Seesaw transmits: Q(√M) = Q(1/√m) exactly. Formula: Q(1/z) = 1 − 2e₁e₃/e₂². Predicts m_d = 4.605 MeV (−0.13σ).
+- **Dual self-consistency**: For BOTH Q(z)=Q(1/z)=2/3: requires cos(3δ) = 5√2/8. Distinct constraint from seed.
+- **Parameter budget (UPDATED)**: 6 free params remain: m_u, m_e, m_μ, θ₂₃, θ₁₃, δ_CP. Seven eliminated from SM's 13. Seed Koide fixes m_c, v₀-doubling fixes m_b, ⟨X⟩/μ=√3 imposed, isospin seed fixes m_s, magnetic Koide fixes m_d, GST fixes θ_C, overlap/chain fixes m_t.
+- **Kähler pole = tree-level geometric**: Monopole-instantons, bions, three-instantons ALL fail to create minimum at t=√3. Must be tree-level input (c = −1/12 in Kähler)
 - **D-term immunity**: Fermion masses untouched by scalar D-terms in N=1 SUSY → lepton Koide protected. Meson Koide affected by D-terms but shift is only 0.03% (below 0.10% precision)
 - **Cartan angle relation**: θ = π/6 - δ (mod 2π), verified numerically. No special angles
 - **Fractional instantons**: Monopole-instantons on R³×S¹ produce EXACTLY the Σ√m_k structure. Each of N_c=3 monopoles carries √m_i factor. Additive contributions → W_mon ~ ζ(√m₁+√m₂+√m₃). This is v₀. See Ünsal 2008.
@@ -90,12 +111,21 @@ The goal is to get a SUSY Lagrangian for the full theory, including Yukawa coupl
 - **Cartan rigidity (proven)**: r⃗ = Σ√m_k w⃗_k = (z₀√6/2)(sin(δ+π/3), cos(δ+π/3)). So θ = π/6−δ is an EXACT algebraic identity for all δ,z₀ — not just numerically verified. Bloom = rigid rotation at fixed R = z₀√6/2, no radial component. Added to paper.
 - **Type I chiral spectrum (Round 22 continued)**: 3×[(10,1)+(5̄,3)+(5,3̄)] from D9 branes. Antisymmetric **10** (not 15). ε=+1 forced because odd-dimension blocks (n=3) cannot support Sp-type projection. Paper corrected.
 - **V_cb structural failure**: Fritzsch 6-zero texture gives |V_cb| ≥ 0.059 vs PDG 0.042 (40% too large, known since 1990s). V_us works fine (−0.9σ). Need 5-zero texture or RG running for V_cb. Noted in paper.
+- **V_cb orbifold candidate**: ε₁³ = exp(-π√3/2) ≈ 0.066, from product over 3 tori of Z₃ worldsheet suppression exp(-2π√3/12) per T². Overshoots PDG 0.042 by 56%, but right order. Added to paper as candidate.
+- **Top-neutrino duality**: m_t × m_ν does NOT equal f_π². The "prediction" was a unit error: 49 meV = 49×10⁻⁹ MeV, not 0.049 MeV. With correct units √(m_t × 50 meV) = 93 keV. f_π²/m_t = 49 keV (cosmologically excluded). Removed from paper. The duality scale remains unidentified.
+- **QCD-RG invariance (numerically verified)**: Pure QCD running preserves Q to machine epsilon (10⁻¹⁶). Degradation when running to common scale comes from discrete Nf threshold matching, not continuous running. Script: `calculations/rg_running_qcd.py`.
+- **Preon history**: The GST relation sin θ_C ≈ √(m_d/m_s) motivated preon models (quark substructure). In sBootstrap, the "substructure" is the SQCD seesaw, not preons. Added historical note to paper.
 - **v₀-doubling coefficient**: 3 = 2+1. The 2 comes from z₀-doubling; the 1 from sign flip (√m_s enters seed with +1, bloom with −1). Now derived and clarified in paper.
 - **Monopole additive structure**: Σ√m_k (additive) requires N_f = N_c with color-flavor locking. For N_f > N_c: multiplicative ∏√m_k. ISS has N_f=4 > N_c=3 so must integrate out one flavor first.
-- **Cabibbo/GST (Round 8)**: GST sin θ_C = √(m_d/m_s) = 0.2236 (−0.9% from PDG). Better than Weinberg-Oakes (−3.3%) or Fritzsch (−20.5%). Koide does NOT hold for (u,d,s) or (u,c,t) — lightest quarks outside Koide manifold.
+- **Cabibbo/GST (Round 8)**: GST sin θ_C = √(m_d/m_s) = 0.2236 (−0.3% from PDG, 1.4σ). Better than Weinberg-Oakes (−3.3%) or Fritzsch (−20.5%). Koide does NOT hold for (u,d,s) or (u,c,t) — lightest quarks outside Koide manifold.
 - **Dual Koide prediction (Round 8)**: Exact Q(1/m)=2/3 predicts m_b = 4562 MeV (9% off PDG). Poor prediction because Koide quadratic amplifies small Q deviations. v₀-doubling (0.07%) far superior. But compatible within 0.14σ in m_d.
 - **Full spectrum (Round 7, CORRECTED R14-16)**: STr[M²] = 18 f_π² = 152352 MeV² (only soft mass survives). NO tachyonic modes (F_X = 0). Off-diagonal meson masses = 2f_π² (positive). Mesino masses 11-494 eV (inverse hierarchy). CW corrections positive, 10⁻⁹ of tree.
 - **Superpotential (CORRECTED R15)**: W = Tr(m̂M) + X(det M − BB̃ − Λ⁶) + c₃(det M)³/Λ¹⁸ + y_c H_u M^c_c + y_b H_d M^b_b + y_t H_u Q^t Q̄_t + λ_S S H_u·H_d + κ/3 S³. Note S ≠ X.
+- **M-theory uplift route**: Type I → T-dual → Type I' (massive IIA + O8/D8) → M-theory on S¹. Never touches E₈×E₈. Electric-magnetic dualities (Seiberg seesaw, dual identity) geometrize in M-theory.
+- **Top–neutrino duality (Rivero conjecture)**: D=11 SUGRA: 128 bosonic = 84 (3-form) + 44 (graviton). Graviton: 44 = 32 (SO(32) fundamental) + 12 (neutral composites, r²+s²−1). The "12" has dual interpretations: electric frame = top (Dirac mass), magnetic frame = neutrino (Majorana mass). m_t × m_ν set by duality/geometric scale.
+- **PMNS from confinement mechanism**: SU(3) Seiberg seesaw → hierarchical texture → small CKM. SU(2) s-confining W_dyn = L₁L₂L₃/Λ³ → S₃-democratic → large PMNS. Same Lagrangian explains both mixing patterns.
+- **QCD-RG invariance**: Mass-charge ratio Σm_k/(Σ√m_k)² depends only on mass RATIOS. Under QCD all quarks share universal γ_m, so ratio is exactly μ-independent. EW corrections break this but are "off" in the confined sector. Explains mixed-scale convention.
+- **String scale**: M_s ~ 1 GeV requires ≥4 large extra dims. n=4: R~1μm (marginally safe), n=6: R~0.6nm (safe). Formula: R ~ (g_s² M_Pl²/M_s^{n+2})^{1/n}.
 
 ## Sycophancy Problem — Project-Specific Impact
 
