@@ -166,13 +166,12 @@ gives $m_t = 171\,250$ MeV (PDG: $172\,760 \pm 300$ MeV, 0.9\%
 deviation). With the isospin seed giving $m_s$ from $m_u + m_d$,
 the entire heavy quark spectrum descends from a single input.
 
-The lepton sector is governed by the same algebraic structure. The
-$\mathrm{SU}(2)$ confining theory with $N_f = 3$ is $s$-confining
-($N_f = N_c + 1$); its infrared dynamics is captured by three
-antisymmetric composites and a singlet, deformed by an O'Raifeartaigh
-superpotential stabilized at the same $gv/m = \sqrt{3}$. Because the
-SU(2) theory has no magnetic bion mechanism, the physical spectrum stays
-close to the O'Raifeartaigh seed. The mass-charge identity
+The lepton sector is governed by the same algebraic structure.
+In the sBootstrap, charged leptons are the fermionic partners of
+mesons; their mass matrix therefore inherits the O'Raifeartaigh
+form, stabilized at the same $gv/m = \sqrt{3}$.  Because the
+lepton sector has no magnetic bion mechanism, the physical spectrum
+stays close to the O'Raifeartaigh seed. The mass-charge identity
 $\langle z_k^2 \rangle = z_0^2$ applied to $(m_e, m_\mu, m_\tau)$
 directly predicts $m_\tau = 1776.97$ MeV
 from the inputs $m_e$ and $m_\mu$, matching the PDG value $1776.86 \pm
@@ -212,8 +211,8 @@ vacuum, and proves the mass-charge identity $\langle z_k^2\rangle = z_0^2$.
 Section~\ref{sec:predictions} derives the bion mass relation and the
 Yukawa eigenvalue constraint, assembling the complete $m_s$ chain that
 predicts $m_c$, $m_b$, and $m_t$. Section~\ref{sec:leptons} presents the
-lepton sector as $s$-confining SU(2) SQCD with the same O'Raifeartaigh
-structure. Section~\ref{sec:electroweak} discusses the NMSSM Higgs
+lepton sector, whose O'Raifeartaigh structure mirrors the quark sector
+through the Miyazawa superpartner identification. Section~\ref{sec:electroweak} discusses the NMSSM Higgs
 sector, the Cabibbo angle, and the electroweak predictions.
 Section~\ref{sec:spectrum} presents the complete particle spectrum and
 parameter budget.
@@ -1359,30 +1358,26 @@ seed); the remaining three are exact.
 \label{sec:leptons}
 %======================================================================
 
-\subsection{SU(2) SQCD with $N_f = 3$}
+\subsection{The O'Raifeartaigh structure for leptons}
 
-The lepton sector is described by a \emph{separate} confining gauge
-theory: $SU(2)$ SQCD with $N_f = 3$ fundamental flavors. This is an
-$s$-confining theory ($N_f = N_c + 1 = 3$), meaning the infrared
-dynamics is entirely captured by gauge-invariant composites with a
-smooth confining superpotential (no chiral symmetry breaking, no runaway).
-
-The UV fields are three chiral superfields in the fundamental of SU(2):
-$\Psi^i_a$ with $i = 1,2,3$ (flavor) and $a = 1,2$ (color). The
-confined degrees of freedom are the antisymmetric composites
-$L^{ij} = \epsilon^{ab}\Psi^i_a\Psi^j_b$ ($i < j$), giving three
-independent chiral superfields $L_1 = L^{12}$, $L_2 = L^{13}$,
-$L_3 = L^{23}$, each a gauge singlet under $SU(2)$.
-
-The dynamical superpotential from $s$-confinement is the Pfaffian:
-$W_{\text{dyn}} = L_1 L_2 L_3 / \Lambda_L^3$.
+In the sBootstrap, the charged leptons are the fermionic partners
+of the mesons: they sit in the same supermultiplets split by
+SUSY breaking at scale~$\fpi$.  The same O'Raifeartaigh
+algebraic structure that generates the quark mass hierarchy
+should therefore apply to the lepton sector, with three chiral
+superfields $L_1, L_2, L_3$ playing the role of the lepton
+generation eigenstates.  The identification of these fields
+with specific meson superfields (i.e.\ the supermultiplet
+restoration problem) remains open
+(Section~\ref{sec:open}).
 
 \subsection{O'Raifeartaigh deformation}
 
-Adding a singlet $X_L$ and the standard O'Raifeartaigh couplings gives
+The O'Raifeartaigh superpotential for the lepton sector has
+the same algebraic form as the quark sector
+(Section~\ref{sec:lagrangian}):
 \begin{equation}
-W_{\text{lepton}} = f\, X_L + m\, L_1 L_3 + g\, X_L L_1^2
-  + \frac{1}{\Lambda_L^3}\, L_1 L_2 L_3\,.
+W_{\text{lepton}} = f\, X_L + m\, L_1 L_3 + g\, X_L L_1^2\,.
 \end{equation}
 
 The metastable SUSY-breaking vacuum sits at
@@ -1399,22 +1394,30 @@ $(0,\; 0,\; (2-\sqrt{3})m,\; (2+\sqrt{3})m)$,
 where the two zero eigenvalues correspond to the goldstino ($\psi_{X_L}$)
 and the pseudo-modulus fermion ($\psi_{L_2}$).
 
-The K\"ahler potential for the lepton sector is
+The K\"ahler potential has the same pole structure:
 \begin{equation}
 K_{\text{lepton}} = |X_L|^2\!\left(1 - \frac{|X_L|^2}{3\mu_K^2}\right)
   + |L_1|^2 + |L_2|^2 + |L_3|^2\,,
 \end{equation}
-with the pole condition $\mu_K = \sqrt{2}\,m/g$.
-
-The $s$-confining term $L_1 L_2 L_3/\Lambda_L^3$ has all second
-derivatives proportional to fields, hence contributes nothing to the
-mass matrices at $\langle L_k\rangle = 0$. The spectrum is therefore
-precisely the SU(3) O'Raifeartaigh spectrum plus one extra massless
+with $\mu_K = \sqrt{2}\,m/g$.
+The spectrum is precisely the SU(3) O'Raifeartaigh spectrum of
+Section~\ref{sec:lagrangian}, plus one extra massless
 chiral multiplet ($L_2$), which is a pseudo-modulus stabilised by the
 CW potential with a mass suppressed by $(m/\Lambda_L)^6$.
 The scalar $B$-term structure ($\pm 2gf$ splitting between
 $\sigma$ and $\pi$ sectors) and the identity
 $\mathrm{STr}[\mathcal{M}^2] = 0$ carry over identically.
+
+This algebraic identity between the quark and lepton sectors
+is the \emph{consequence} of the Miyazawa superpartner
+identification: the leptons and mesons sit in the same
+supermultiplets, so their mass matrices share the same
+O'Raifeartaigh structure. The different mass scale
+($m_{\text{OR}}^{\text{leptons}} = 471\MeV$ versus
+$m_{\text{OR}}^{\text{quarks}} = 93\MeV$) reflects the
+Seiberg seesaw inversion $\langle M_j\rangle \propto 1/m_j$,
+which maps the quark mass hierarchy to the inverse meson
+mass hierarchy.
 
 \subsection{Lepton mass prediction}
 
@@ -1423,9 +1426,9 @@ $(0,\, (2-\sqrt{3})m_{\text{OR}},\, (2+\sqrt{3})m_{\text{OR}})$
 with $m_{\text{OR}} = (m_e + m_\mu + m_\tau)/4 = 470.76\MeV$.
 The mass-charge identity $\langle z_k^2\rangle = z_0^2$ is satisfied exactly at the seed.
 
-Because the SU(2) theory has no magnetic bion mechanism (the
-monopole-instanton structure of SU(2) does not produce the
-$v_0$-doubling effect), the physical spectrum stays close to the
+Because the lepton sector has no magnetic bion mechanism (the
+bion-driven $v_0$-doubling requires $N_c = 3$ color, absent for
+leptons), the physical spectrum stays close to the
 O'Raifeartaigh seed. The bloom is a tiny $2.3^\circ$ rotation in
 the angular parameter $\delta$, at nearly fixed $v_0$. The
 mass-charge identity applied to the charged lepton masses gives:
@@ -1457,47 +1460,37 @@ triples, the lepton triple uses unambiguous pole masses and requires no
 $\overline{\mathrm{MS}}$ conventions.
 
 \paragraph{Neutrino mass (schematic).}
-The pseudo-modulus $L_2$ is massless at tree level and couples to the
-rest of the spectrum only through the $s$-confining operator
-$L_1 L_2 L_3/\Lambda_L^3$. Its Coleman--Weinberg mass is therefore
+The pseudo-modulus $L_2$ is massless at tree level. If a higher-order
+coupling $L_1 L_2 L_3/\Lambda_L^3$ is present (as would arise from
+a confining UV completion), the Coleman--Weinberg mass is
 suppressed by $(m/\Lambda_L)^6$:
 $$
   m_{L_2} \sim \frac{g^2 m}{4\pi}
     \left(\frac{m}{\Lambda_L}\right)^{\!6}\,.
 $$
-With the O'Raifeartaigh scale $m \sim z_0^2 \approx 314\MeV$ and
-$g \sim O(1)$, a confinement scale $\Lambda_L \sim 9$--$12\GeV$
+With $m \sim z_0^2 \approx 314\MeV$ and
+$g \sim O(1)$, a scale $\Lambda_L \sim 9$--$12\GeV$
 places $m_{L_2}$ in the atmospheric neutrino window $9$--$50$\,meV.
-No large hierarchy is needed: the suppression is a power law, not
-an exponential.
+The suppression is a power law, not an exponential.
 Whether this pseudo-modulus can be identified with a
 physical neutrino depends on its quantum numbers under the
-electroweak group---a question that requires specifying the embedding
-of SU(2)$_{\rm conf}$ into the full gauge structure.
+electroweak group.
 
-\paragraph{Large neutrino mixing from democratic confinement.}
-The $s$-confining superpotential $W_{\rm dyn} = L_1 L_2 L_3 / \Lambda_L^3$
-treats all three composites democratically: it is invariant under
-the full permutation group~$S_3$.  The O'Raifeartaigh deformation
-breaks this symmetry, but the dynamical superpotential remains
-the dominant coupling of the pseudo-modulus~$L_2$ to the rest of
-the spectrum.  If $L_2$ is identified with a neutrino, its
-flavour couplings inherit the $S_3$ structure, which is the
-natural source of large mixing angles.
-
-This contrasts sharply with the quark sector.  There, the Seiberg
+\paragraph{Quark--lepton mixing contrast.}
+In the quark sector, the Seiberg
 seesaw $\langle M_j\rangle = C/m_j$ creates a hierarchical
 texture (the Fritzsch matrix) that produces small CKM angles
-via $\sin\theta_C = \sqrt{m_d/m_s}$.  The same Lagrangian
-thus explains both small quark mixing and large lepton mixing
-through two different confinement mechanisms:
+via $\sin\theta_C = \sqrt{m_d/m_s}$.  In the lepton sector,
+if the cubic coupling $L_1 L_2 L_3$ is present, it treats
+all three fields democratically (invariant under~$S_3$),
+providing a natural source of large PMNS mixing angles:
 \begin{center}
 \begin{tabular}{lll}
 \toprule
-Sector & Confinement & Mixing \\
+Sector & Texture & Mixing \\
 \midrule
-Quarks (SU(3)) & Seiberg seesaw (hierarchical) & small CKM \\
-Leptons (SU(2)) & $s$-confinement (democratic) & large PMNS \\
+Quarks & Seiberg seesaw (hierarchical) & small CKM \\
+Leptons & $L_1 L_2 L_3$ coupling (democratic) & large PMNS \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -2651,15 +2644,38 @@ while $\langle z_k^2\rangle/z_0^2 = 1.10$---far from unity.
 The seesaw thus creates an independent near-identity condition
 on the dual charges, constraining $m_d$ from $(m_s, m_b)$.
 
-\subsection{Lepton masses are not mesino masses}
+\subsection{Supermultiplet restoration}
 
-The fermion mass matrix $W_{IJ}$ at the Seiberg vacuum has
-light eigenvalues ($\sim 10^{-3}$--$10^{-2}\MeV$) too small
-and too degenerate ($\langle z_k^2\rangle/z_0^2 = 0.44$, far from unity) to reproduce lepton masses.
-The obstruction is structural: K\"ahler rescaling is a congruence
-transformation that preserves the rank of~$W_{IJ}$ and cannot generate
-new mass eigenvalues. Lepton masses therefore require the separate
-SU(2) confining sector described in Section~\ref{sec:leptons}.
+The central open problem of the sBootstrap is to identify the
+exact supermultiplet pairings: which meson is degenerate with
+which lepton in the SUSY limit ($f \to 0$, soft terms off)?
+
+In the O'Raifeartaigh superpotential at $f = 0$, the fermion
+and scalar mass matrices become degenerate: each fermion
+eigenvalue~$m_k$ has a scalar partner with the same mass.
+Turning $f$ back on splits each pair by the $B$-term~$\pm 2gf$,
+and the founding relation $m_\pi^2 - m_\mu^2 \approx \fpi^2$
+is precisely this SUSY-breaking mass splitting for one such pair.
+
+The supermultiplets do \emph{not} align with Standard Model
+generations. The quark content of each multiplet pairs up-type
+with down-type quarks across generations --- schematically
+$(t,s)$, $(u,b)$, $(c,d)$ --- so that the observed generation
+structure $(u,d)$, $(c,s)$, $(t,b)$ emerges only after SUSY
+breaking rearranges the mass eigenstates. The CKM matrix
+measures the misalignment between these two bases.
+
+The mesino masses at the Seiberg vacuum ($\sim 10^{-3}$--$10^{-2}\MeV$,
+with $\langle z_k^2\rangle/z_0^2 = 0.44$) are too small and too
+degenerate to serve as lepton masses. This does not mean that
+a separate confining sector is needed; rather, it means that the
+lepton masses are the \emph{tree-level} fermion eigenvalues of
+the O'Raifeartaigh mass matrix --- the same eigenvalues
+$(0,\, m_-,\, m_+)$ that generate the quark spectrum --- transmitted
+to the lepton sector through the Miyazawa superpartner identification.
+A complete derivation requires solving the supermultiplet
+restoration problem: tracking each fermion--scalar pair from the
+SUSY limit through the breaking pattern to the physical spectrum.
 
 \subsection{The baryon sector}
 
@@ -2805,9 +2821,10 @@ the bion doubling with coefficient $N_c = 3$, the Yukawa eigenvalue
 constraint $\langle z_k^2\rangle = z_0^2$, and the dual mass-charge identity
 from the Seiberg seesaw.
 
-\paragraph{4.\ The lepton sector from SU(2) $s$-confinement.}
-A separate $SU(2)$ confining sector with $N_f = 3$ produces the
-same O'Raifeartaigh seed spectrum, predicting
+\paragraph{4.\ The lepton sector from O'Raifeartaigh.}
+The same O'Raifeartaigh algebraic structure applies to the
+lepton sector --- as expected from the Miyazawa superpartner
+identification of leptons with mesons --- predicting
 $m_\tau = 1776.97\MeV$ ($+0.006\%$, $0.9\sigma$) from
 $m_e$ and $m_\mu$.
 
