@@ -1095,6 +1095,142 @@ print("up-type and down-type mass matrices are SEPARATELY diagonalized.")
 print("This is the missing piece.")
 
 # =====================================================================
+# 17. Where does the Yukawa-Higgs coupling come from?
+# =====================================================================
+print("\n" + "=" * 70)
+print("ORIGIN OF THE YUKAWA-HIGGS COUPLING")
+print("=" * 70)
+print()
+
+# The superpotential has:
+# W_Yukawa = y_c H_u M^c_c + y_b H_d M^b_b + y_t H_u Q^t Q̄_t
+# where H_u, H_d are elementary Higgs doublets.
+#
+# Question: WHY does this coupling exist? Where does H come from?
+#
+# In the ISS, the meson M^i_j = Q^i Q_j / Lambda is a composite.
+# The Higgs H is an ELEMENTARY field added by hand.
+# The Yukawa y_j is a free parameter.
+#
+# But the flavor-universal identity y_j M_j = sqrt(2) C/v_EW
+# (where C = Lambda^2 (prod m_j)^{1/3}) means the Yukawa
+# is NOT free — it's determined by the seesaw.
+# This suggests the Yukawa is not fundamental but emergent.
+
+print("The Yukawa coupling y_j H M_j is currently POSTULATED.")
+print("The flavor-universal identity y_j M_j = √2 C/v_EW")
+print("suggests it's not free — determined by the seesaw.")
+print()
+
+# Possibility 1: Composite Higgs
+# If H is itself a meson-like composite, then y_j H M_j is
+# a 3-body meson coupling, determined by the confining dynamics.
+print("POSSIBILITY 1: Composite Higgs")
+print("  H could be a special meson: e.g., the diagonal meson M^t_t")
+print("  (top-top sector). The top is the 'elephant' — the only")
+print("  quark with a Yukawa of order 1. If H ~ M^t_t / Lambda,")
+print("  then the Yukawa becomes a meson-meson coupling.")
+print("  Problem: M^t_t has color, H doesn't.")
+print()
+
+# Possibility 2: Composite Z/W
+# If the electroweak gauge bosons are vector mesons of SU(5)_f,
+# the Higgs mechanism would be confinement + chiral symmetry breaking.
+print("POSSIBILITY 2: Composite W/Z (vector mesons)")
+print("  The SU(5)_f adjoint (24) contains the electroweak generators.")
+print("  If the W and Z are vector mesons in the 24, then:")
+print("  - SU(2)_L × U(1)_Y is an approximate symmetry of the")
+print("    confined sector, not a fundamental gauge symmetry.")
+print("  - 'Gauge' boson masses come from the CONFINEMENT scale,")
+print("    not from the Higgs VEV.")
+print("  - The Higgs would be unnecessary — EW symmetry breaking")
+print("    IS the confinement transition.")
+print()
+
+# Check: vector meson masses in SU(5)_f
+# The ρ meson (vector, ud̄) has mass 775 MeV.
+# The SU(5) adjoint has 24 vector mesons.
+# The EW gauge bosons (W, Z, γ) would be COMBINATIONS of these.
+#
+# But m_W = 80.4 GeV >> m_ρ = 0.775 GeV. Factor 100!
+# A composite W at 80 GeV would require a confinement scale
+# Lambda ~ 80 GeV, not Lambda ~ 300 MeV.
+
+m_W = 80379  # MeV
+m_rho = 775  # MeV
+print(f"Mass scale problem:")
+print(f"  m_W = {m_W:.0f} MeV")
+print(f"  m_ρ = {m_rho:.0f} MeV")
+print(f"  Ratio: {m_W/m_rho:.0f}")
+print(f"  A composite W requires confinement at ~80 GeV,")
+print(f"  not at ~300 MeV (QCD scale).")
+print()
+
+# But in the sBootstrap, the string scale M_s ~ 1 GeV.
+# And the HEAVY vector mesons of SU(5)_f could be at a
+# DIFFERENT scale than the light pseudoscalars.
+# In QCD, m_ρ/f_pi ~ 8.4 (KSRF relation).
+# If there's a SECOND confinement scale at ~10 GeV,
+# the vector mesons there would be at ~80 GeV.
+#
+# The ISS has TWO scales: Lambda (confinement) and mu (mass parameter).
+# Lambda = 300 MeV, but the NMSSM singlet S has lambda_S = 0.72
+# giving m_h = 125 GeV. The EW scale v = 246 GeV.
+# Could there be vector mesons at the EW scale?
+
+print("The sBootstrap has two scales:")
+print(f"  Lambda = 300 MeV (QCD confinement)")
+print(f"  v_EW = 246000 MeV (electroweak)")
+print(f"  Ratio: {246000/300:.0f}")
+print()
+print("If the W/Z are composite, they live at the EW scale,")
+print("not the QCD scale. This requires a SECOND confined sector")
+print("at Lambda_EW ~ 246 GeV, or a mechanism that promotes QCD")
+print("vector mesons to the EW scale (e.g., through the seesaw).")
+print()
+print("The Seiberg seesaw inverts masses: M_j ~ Lambda^2/m_j.")
+print("For the top: M_t ~ (300)^2/172760 ~ 0.52 MeV (lightest meson).")
+print("For the vector mesons, the analog would be:")
+print("  m_V ~ Lambda^2 * (something involving the quark mass matrix)")
+print("  If m_V ~ Lambda^4/m_q^2, then for the top:")
+print(f"  m_V ~ {300**4/172760**2:.1f} MeV — way too small.")
+print()
+print("But wait — the seesaw MESON VEVs are much larger than Lambda:")
+m_u_q = 2.16  # MeV
+Lambda = 300.0
+M_u_VEV = Lambda**2 / m_u_q
+M_d_VEV = Lambda**2 / 4.70
+M_s_VEV = Lambda**2 / 93.4
+M_c_VEV = Lambda**2 / 1275.0
+print(f"  <M_u> = Lambda^2/m_u = {M_u_VEV:.0f} MeV = {M_u_VEV/1000:.1f} GeV")
+print(f"  <M_d> = Lambda^2/m_d = {M_d_VEV:.0f} MeV = {M_d_VEV/1000:.1f} GeV")
+print(f"  <M_s> = Lambda^2/m_s = {M_s_VEV:.0f} MeV = {M_s_VEV/1000:.0f} GeV")
+print(f"  <M_c> = Lambda^2/m_c = {M_c_VEV:.0f} MeV")
+print()
+print(f"  <M_u> = {M_u_VEV/1000:.1f} GeV — comparable to v_EW/6!")
+print(f"  The SEESAW puts the light-quark meson VEVs at O(10-40) GeV,")
+print(f"  which is the right ballpark for electroweak physics.")
+print()
+print(f"  If vector meson masses scale with meson VEVs rather than Lambda,")
+print(f"  then m_V ~ h * <M_j> where h is the ISS Yukawa coupling.")
+print(f"  For h ~ O(1) and <M_u> ~ 42 GeV: m_V ~ 42 GeV (half of m_W).")
+print(f"  For h ~ 2: m_V ~ 84 GeV (close to m_W = 80.4 GeV!).")
+print()
+print(f"  This suggests the EW scale v ~ 246 GeV might be")
+print(f"  DETERMINED by the seesaw: v ~ sum of <M_j> or similar.")
+v_from_seesaw = np.sqrt(M_u_VEV**2 + M_d_VEV**2 + M_s_VEV**2 + M_c_VEV**2)
+print(f"  sqrt(sum <M_j>^2) = {v_from_seesaw:.0f} MeV = {v_from_seesaw/1000:.1f} GeV")
+print(f"  Compare v_EW = 246 GeV")
+print(f"  Ratio: {v_from_seesaw/246000:.2f}")
+print()
+print("CONCLUSION: A composite W/Z from QCD-scale confinement")
+print("doesn't work with m_V ~ Lambda. But the seesaw-inverted")
+print("meson VEVs reach 10-40 GeV, suggesting the EW scale may")
+print("be an OUTPUT of the seesaw, not an independent input.")
+print("The Yukawa-Higgs coupling would then be a meson-meson interaction")
+print("dressed by the seesaw. This deserves further investigation.")
+
+# =====================================================================
 # 11. Consistency: does the non-universal splitting reproduce
 #     the meson spectrum at higher order?
 # =====================================================================
