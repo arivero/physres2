@@ -654,6 +654,447 @@ print("of the Koide condition gv/m = √3. It controls both the mass hierarchy")
 print("and the SUSY-breaking splitting pattern simultaneously.")
 
 # =====================================================================
+# 14. CKM = supermultiplet misalignment
+# =====================================================================
+print("\n" + "=" * 70)
+print("CKM = SUPERMULTIPLET MISALIGNMENT")
+print("=" * 70)
+print()
+
+# KEY INSIGHT: The cross-generation pairings (t,s), (u,b), (c,d)
+# define a "SUSY basis" for quarks. The CKM matrix rotates from
+# the mass eigenbasis to this SUSY basis.
+#
+# In the SUSY limit, each supermultiplet has:
+#   - One up-type quark (u, c, or t)
+#   - One down-type quark (d, s, or b)
+#   - One charged lepton (e, mu, or tau)
+#   - Scalar partners (mesons)
+#
+# The SUSY-basis assignment is:
+#   Multiplet A: (c, d, e) — eigenvalue 0 → bloom gives small masses
+#   Multiplet B: (u, s, mu) — eigenvalue m_- → light fermions
+#   Multiplet C: (t, b, tau) — eigenvalue m_+ → heavy fermions
+#
+# Wait — but the MEMORY says (t,s), (u,b), (c,d). Let me think
+# about which assignment is correct.
+#
+# The O'R eigenvalues are (0, m_-, m_+) = (0, (2-√3)m, (2+√3)m).
+# The quark masses from the chain:
+#   m_s ∝ m_-² (from isospin seed)
+#   m_c ∝ m_+² (from O'R ratio: m_c/m_s = (2+√3)²)
+#   m_d, m_u from bloom of zero eigenvalue
+#   m_b from v0-doubling (bion mechanism)
+#   m_t from direct Yukawa (elephant)
+#
+# So the O'R eigenvalue grouping for quarks is:
+#   Eigenvalue 0:  u (bloom) — lightest up-type
+#   Eigenvalue m_-: s — strange quark
+#   Eigenvalue m_+: c — charm quark
+#
+# These are all SAME-CHARGE quarks (u is +2/3, s is -1/3, c is +2/3).
+# But the supermultiplets must contain BOTH up-type and down-type!
+#
+# The cross-generation pairings come from the SEESAW INVERSION:
+# The meson M^i_j mixes flavor i (up-type) with flavor j (down-type).
+# The diagonal mesons M^i_i are the VEVs.
+# The off-diagonal mesons M^u_s, M^c_d, etc. are the physical mesons.
+#
+# The Miyazawa superpartner of the meson M^i_j is a baryon-like
+# state with quantum numbers of q_i and q_j. So the supermultiplet
+# containing M^c_d also contains the (c,d) quark pair.
+#
+# The ISS seesaw vacuum is M_i = mu^2/m_i (diagonal). The off-diagonal
+# meson mass matrix (fluctuations around the vacuum) is block-diagonal:
+# the paper says three independent 2×2 blocks (us, ds, ud).
+# The block connecting flavors i and j has mass proportional to
+# sqrt(M_i * M_j) ~ mu^2/sqrt(m_i * m_j).
+
+print("The seesaw vacuum: M_i = mu^2 / m_i (diagonal mesons)")
+print()
+
+# Quark masses (PDG 2024, MSbar at 2 GeV for light quarks)
+m_u_q = 2.16   # MeV
+m_d_q = 4.70   # MeV
+m_s_q = 93.5   # MeV
+m_c_q = 1275.  # MeV (MSbar at m_c)
+m_b_q = 4180.  # MeV (MSbar at m_b)
+m_t_q = 172760.  # MeV (pole)
+
+mu_sq = 1.0  # normalized
+
+print("Meson VEVs (proportional to 1/m_q):")
+for name, mq in [('u', m_u_q), ('d', m_d_q), ('s', m_s_q),
+                  ('c', m_c_q), ('b', m_b_q)]:
+    print(f"  M_{name} ~ 1/{mq:.1f} = {1/mq:.4f}")
+
+print()
+print("Off-diagonal meson masses ~ sqrt(M_i * M_j) ~ 1/sqrt(m_i * m_j):")
+print()
+
+flavors = [('u', m_u_q), ('d', m_d_q), ('s', m_s_q), ('c', m_c_q), ('b', m_b_q)]
+print(f"  {'':>6s}", end="")
+for name, _ in flavors:
+    print(f"  {name:>8s}", end="")
+print()
+
+for n1, m1 in flavors:
+    print(f"  {n1:>6s}", end="")
+    for n2, m2 in flavors:
+        if n1 == n2:
+            print(f"  {'---':>8s}", end="")
+        else:
+            val = 1.0/np.sqrt(m1 * m2)
+            print(f"  {val:>8.4f}", end="")
+    print()
+
+print()
+print("The HEAVIEST off-diagonal mesons connect the LIGHTEST quarks:")
+print("  M^u_d ~ 1/sqrt(2.16 * 4.70) = 1/sqrt(10.15) = 0.314")
+print("  M^u_s ~ 1/sqrt(2.16 * 93.5) = 1/sqrt(202) = 0.070")
+print("  M^d_s ~ 1/sqrt(4.70 * 93.5) = 1/sqrt(439) = 0.048")
+print()
+print("The LIGHTEST off-diagonal mesons connect the HEAVIEST quarks:")
+print(f"  M^c_b ~ 1/sqrt({m_c_q} * {m_b_q}) = {1/np.sqrt(m_c_q*m_b_q):.6f}")
+print(f"  M^c_s ~ 1/sqrt({m_c_q} * {m_s_q}) = {1/np.sqrt(m_c_q*m_s_q):.6f}")
+
+# =====================================================================
+# 15. The CKM connection
+# =====================================================================
+print("\n" + "=" * 70)
+print("THE CKM CONNECTION")
+print("=" * 70)
+print()
+
+print("THESIS: The CKM matrix is the rotation between two bases:")
+print("  1. MASS basis: quarks ordered by mass (u,c,t) and (d,s,b)")
+print("  2. SUSY basis: quarks grouped by supermultiplet")
+print()
+print("If the supermultiplet pairings are (t,s), (u,b), (c,d),")
+print("then the SUSY-basis 'down' quark for each up-type is:")
+print("  u → b  (not d)")
+print("  c → d  (not s)")
+print("  t → s  (not b)")
+print()
+print("The CKM matrix V connects mass eigenstates to SUSY eigenstates:")
+print("  |d_SUSY(u)>  = V_ud|d> + V_us|s> + V_ub|b>")
+print("  |d_SUSY(c)>  = V_cd|d> + V_cs|s> + V_cb|b>")
+print("  |d_SUSY(t)>  = V_td|d> + V_ts|s> + V_tb|b>")
+print()
+print("For the pairings (u,b), (c,d), (t,s):")
+print("  u pairs with b → V_ub should be large (it's NOT: V_ub = 0.004)")
+print("  c pairs with d → V_cd should be large (it IS: V_cd = 0.225)")
+print("  t pairs with s → V_ts should be large (it IS: V_ts = 0.040)")
+print()
+print("PROBLEM: (u,b) pairing predicts large V_ub, but V_ub = 0.004 is tiny!")
+print()
+
+# Let's check: what pairings are consistent with the CKM?
+# The CKM matrix (magnitudes):
+V_CKM = np.array([
+    [0.97435, 0.22500, 0.00369],  # u → d, s, b
+    [0.22486, 0.97349, 0.04182],  # c → d, s, b
+    [0.00857, 0.04110, 0.99912],  # t → d, s, b
+])
+
+print("CKM matrix (magnitudes):")
+labels_up = ['u', 'c', 't']
+labels_down = ['d', 's', 'b']
+for i in range(3):
+    for j in range(3):
+        print(f"  V_{labels_up[i]}{labels_down[j]} = {V_CKM[i,j]:.5f}", end="")
+    print()
+
+print()
+print("The DOMINANT element in each row gives the 'natural' pairing:")
+for i in range(3):
+    j_max = np.argmax(V_CKM[i])
+    print(f"  {labels_up[i]} → {labels_down[j_max]} (V = {V_CKM[i,j_max]:.5f})")
+
+print()
+print("So the CKM says the natural pairings are (u,d), (c,s), (t,b)")
+print("— exactly the STANDARD generations!")
+print()
+print("The cross-generation pairings (t,s), (u,b), (c,d) from the")
+print("sBootstrap are NOT the dominant CKM elements. They correspond to:")
+print(f"  (t,s): V_ts = {V_CKM[2,1]:.5f} — small (2-3 mixing)")
+print(f"  (u,b): V_ub = {V_CKM[0,2]:.5f} — tiny (1-3 mixing)")
+print(f"  (c,d): V_cd = {V_CKM[1,0]:.5f} — sizable (Cabibbo)")
+print()
+
+# What IS the supermultiplet assignment that makes physical sense?
+# The O'R eigenvalues are (0, m_-, m_+). The quark masses from the chain:
+#   eigenvalue 0 → u (lightest up-type) AND d (lightest down-type, via bloom)
+#   eigenvalue m_- → s (strange)
+#   eigenvalue m_+ → c (charm)
+# The O'R only has N_f = 4, so b and t are OUTSIDE.
+#
+# Within the ISS, the 4 flavors (u,d,s,c) pair as:
+#   eigenvalue 0: (u,d) — bloom pair
+#   eigenvalue m_-: (s,?) — but s is the only flavor at this eigenvalue
+#   eigenvalue m_+: (c,?) — same issue
+#
+# The problem: with N_f=4, we have 2 up-type (u,c) and 2 down-type (d,s).
+# The O'R assigns them to eigenvalues (0, m_-, m_+), but there are 4
+# quarks and only 3 eigenvalues. The Seiberg seesaw doubles:
+# each eigenvalue has BOTH an up-type and a down-type occupant.
+
+print("=" * 70)
+print("O'R EIGENVALUE OCCUPANCY (N_f = 4)")
+print("=" * 70)
+print()
+print("The O'R has 3 eigenvalues: (0, m_-, m_+)")
+print("N_f = 4 quarks: u, d, s, c")
+print()
+print("Mass chain assignment:")
+print("  eigenvalue 0: u (up-type, from bloom)")
+print("  eigenvalue m_-: d, s (down-types, from isospin seed)")
+print("  eigenvalue m_+: c (up-type, from O'R ratio)")
+print()
+print("Wait — d and s BOTH at eigenvalue m_-?")
+print("No: the isospin seed is m_s = (2+√3)² × (m_u+m_d).")
+print("The seed assigns: m_s from m_-, and m_u+m_d from eigenvalue 0.")
+print("Then m_d is separated from m_u by the bloom.")
+print()
+print("So the actual O'R assignment is:")
+print("  eigenvalue 0:   (u, d) — both from bloom of zero eigenvalue")
+print("  eigenvalue m_-: s — from isospin seed")
+print("  eigenvalue m_+: c — from O'R ratio")
+print()
+print("This means (u,d) are in the SAME supermultiplet!")
+print("And the 'cross-generation' label is misleading — within N_f=4,")
+print("the natural pairing IS the standard (u,d), (c,s).")
+print()
+print("The cross-generation pairings (t,s), (u,b), (c,d) only arise")
+print("when b and t are included. These are OUTSIDE the ISS window.")
+print("The ISS gives (u,d) and (c,s) — consistent with the CKM!")
+print()
+
+# Now the key question: how do b and t enter?
+print("=" * 70)
+print("EXTENDING BEYOND ISS: b AND t")
+print("=" * 70)
+print()
+print("b enters through v0-doubling (bion mechanism):")
+print("  m_b from sqrt(m_b) = 3*sqrt(m_s) + sqrt(m_c)")
+print("  This is a NONPERTURBATIVE mechanism, not ISS.")
+print()
+print("t enters through direct Yukawa y_t H_u Q^t Q_bar_t:")
+print("  m_t = y_t * v_EW")
+print("  The top is the 'elephant' — not confined.")
+print()
+print("Since b and t enter through DIFFERENT mechanisms than (u,d,s,c),")
+print("their supermultiplet assignments are NOT determined by the O'R")
+print("eigenvalue structure. They could pair with ANY ISS flavor.")
+print()
+
+# The CKM determines the pairing:
+# V_tb ≈ 1 means t and b are in the same weak-eigenstate
+# But the SUSY pairing could be different.
+# The question is: in the extended (N_f=6) theory, which
+# supermultiplet does each quark belong to?
+
+# The Seiberg seesaw at N_f=4:
+# M^i_j = Q^i Q_j / Lambda
+# The diagonal mesons: M^u_u, M^d_d, M^s_s, M^c_c
+# These pair (u,u), (d,d), (s,s), (c,c) — not cross-generation.
+# The off-diagonal mesons: M^u_d (pion), M^u_s (kaon), M^c_s (D_s), etc.
+# These are the scalar partners of the quarks.
+
+print("The N_f=4 meson matrix M^i_j:")
+print("  Rows: up-type quarks (u, c)")
+print("  Cols: down-type quarks (d, s)")
+print("  (In the full 4×4, both up and down quarks appear in both rows/cols)")
+print()
+print("Schematically for the 4×4 M^i_j with i,j in {u,d,s,c}:")
+print("  M^u_d = pion-like (ud-bar)")
+print("  M^u_s = kaon-like (us-bar)")
+print("  M^c_d = D-like (cd-bar)")
+print("  M^c_s = D_s-like (cs-bar)")
+print()
+print("The meson M^c_d contains a charm and an anti-down quark.")
+print("Its fermionic partner (mesino) carries the same quantum numbers.")
+print("In the SUSY limit, the (c,d) pair shares a supermultiplet")
+print("WITH the meson M^c_d and a lepton.")
+print()
+print("So within N_f=4, the supermultiplet pairings are:")
+print("  M^u_d → (u,d) pair → electron? (lightest)")
+print("  M^u_s → (u,s) pair → ?")
+print("  M^c_d → (c,d) pair → ?")
+print("  M^c_s → (c,s) pair → muon? (middle)")
+print()
+
+# The CKM tells us which pairing is 'aligned':
+# V_ud ≈ 1, V_cs ≈ 1 → (u,d) and (c,s) are the aligned pairs.
+# The Cabibbo angle rotates between (u,d)↔(u,s) and (c,d)↔(c,s).
+# So the CKM is the rotation between
+#   aligned pairs: (u,d), (c,s)
+#   misaligned pairs: (u,s), (c,d)
+
+print("The Cabibbo rotation:")
+print("  cos(theta_C) × (u,d) + sin(theta_C) × (u,s) = (u, d_mass)")
+print("  -sin(theta_C) × (c,d) + cos(theta_C) × (c,s) = (c, s_mass)")
+print()
+print("The SUSY-basis pairings ARE the mass-basis pairings (u,d), (c,s)")
+print("up to the Cabibbo rotation. The cross-generation pairings")
+print("(u,s) and (c,d) are the Cabibbo-ROTATED versions.")
+print()
+print("THIS RESOLVES THE CONFUSION about 'cross-generation pairings':")
+print("The (t,s), (u,b), (c,d) pairings from the sBootstrap literature")
+print("refer to the SU(5) representation content, NOT the O'R eigenvalue")
+print("grouping. The O'R gives (u,d), (c,s), consistent with CKM.")
+print()
+print("The remaining question: how do b and t fit?")
+print("  Option A: (t,b) is a third supermultiplet (standard generations)")
+print("  Option B: t and b enter the (u,d,s,c) system non-trivially")
+print("  The v0-doubling √m_b = 3√m_s + √m_c MIXES all three")
+print("  ISS eigenvalues → b is a coherent superposition, not a")
+print("  single eigenvalue. This is where V_cb comes from.")
+
+# =====================================================================
+# 16. V_cb from v0-doubling mixing
+# =====================================================================
+print("\n" + "=" * 70)
+print("V_cb FROM v0-DOUBLING MIXING")
+print("=" * 70)
+print()
+
+# The v0-doubling formula: sqrt(m_b) = 3*sqrt(m_s) + sqrt(m_c)
+# In the O'R basis, the eigenvalues are:
+#   eigenvalue 0 → u,d sector
+#   eigenvalue m_- → s sector
+#   eigenvalue m_+ → c sector
+#
+# The b quark mass is: sqrt(m_b) = 3*sqrt(m_s) + sqrt(m_c)
+# This means sqrt(m_b) is a LINEAR COMBINATION of sqrt(m_s) and sqrt(m_c).
+# In the O'R eigenvalue basis:
+#   |b> = alpha * |m_-> + beta * |m_+>
+# where alpha*sqrt(m_-) = 3*sqrt(m_s) and beta*sqrt(m_+) = sqrt(m_c)
+#
+# But actually the v0-doubling is in the Koide parametrization space.
+# Let me think about this more carefully.
+
+# The key insight: the b quark enters the ISS system through the
+# bion mechanism, which RELATES its mass to s and c.
+# sqrt(m_b) = 3*sqrt(m_s) + sqrt(m_c)
+#
+# The coefficients (3, 1) define a direction in the (s, c) plane.
+# The CKM 2-3 rotation mixes s and b. Let's see if the v0-doubling
+# coefficients give the right mixing angle.
+
+# v0-doubling: sqrt(m_b) = 3*sqrt(m_s) + sqrt(m_c)
+# This is NOT a unitary rotation. It's a mass relation.
+# But the ratio of contributions tells us the "overlap":
+
+coeff_s = 3 * np.sqrt(m_s_q)  # contribution from s
+coeff_c = np.sqrt(m_c_q)       # contribution from c
+sqrt_mb = coeff_s + coeff_c
+mb_pred = sqrt_mb**2
+
+print(f"v0-doubling: √m_b = 3×√m_s + √m_c")
+print(f"  3×√m_s = 3×{np.sqrt(m_s_q):.3f} = {coeff_s:.3f}")
+print(f"  √m_c = {coeff_c:.3f}")
+print(f"  √m_b(pred) = {sqrt_mb:.3f} → m_b(pred) = {mb_pred:.0f} MeV")
+print(f"  m_b(PDG) = {m_b_q:.0f} MeV")
+print(f"  Deviation: {abs(mb_pred - m_b_q)/m_b_q*100:.2f}%")
+print()
+
+# The fraction of √m_b coming from s vs c:
+frac_s = coeff_s / sqrt_mb
+frac_c = coeff_c / sqrt_mb
+print(f"Fractional contributions to √m_b:")
+print(f"  From s: {frac_s:.4f} ({frac_s*100:.1f}%)")
+print(f"  From c: {frac_c:.4f} ({frac_c*100:.1f}%)")
+print()
+
+# If we interpret this as a mixing angle:
+# |b> = cos(alpha) |s_SUSY> + sin(alpha) |c_SUSY>
+# where cos(alpha) = frac_s, sin(alpha) = frac_c
+# (This is NOT normalized as a unitary rotation, but let's see...)
+alpha_mix = np.arctan2(frac_c, frac_s)
+print(f"Mixing angle alpha = arctan(frac_c/frac_s) = {alpha_mix:.4f} rad = {alpha_mix*180/np.pi:.2f}°")
+print(f"  sin(alpha) = {np.sin(alpha_mix):.4f}")
+print(f"  cos(alpha) = {np.cos(alpha_mix):.4f}")
+print()
+
+# The CKM element V_cb:
+V_cb_PDG = 0.04182
+print(f"V_cb (PDG) = {V_cb_PDG}")
+print(f"sin(alpha) = {np.sin(alpha_mix):.4f}")
+print(f"  Ratio V_cb/sin(alpha) = {V_cb_PDG/np.sin(alpha_mix):.4f}")
+print()
+
+# Hmm, sin(alpha) ~ 0.55, way too large for V_cb ~ 0.04.
+# The v0-doubling coefficients (3,1) don't directly give V_cb.
+# But maybe V_cb comes from the DIFFERENCE between the
+# v0-doubling direction and the mass eigenstate direction?
+
+# Let me try a different approach: the CKM is the overlap between
+# the up-type mass basis and the down-type mass basis.
+# In the ISS, the down-type mass matrix has eigenvalues m_d, m_s.
+# The b enters as sqrt(m_b) = 3*sqrt(m_s) + sqrt(m_c).
+# The c is up-type, not down-type, so this mixes SECTORS.
+
+# Actually, the v0-doubling relates b to (s,c) — it's a relation
+# between a down-type quark (b) and the O'R eigenvalues that
+# correspond to both up-type (c) and down-type (s) quarks.
+# This means b is NOT purely in the down-type eigenvalue space.
+# The component of b in the up-type direction is what gives V_cb.
+
+# In the O'R, the eigenvalue m_- gives s (down-type) and
+# eigenvalue m_+ gives c (up-type). If b is a mixture:
+# sqrt(m_b) = 3*sqrt(m_s) + sqrt(m_c)
+# then b has a "c component" of strength ~ sqrt(m_c)/sqrt(m_b).
+
+V_cb_est = np.sqrt(m_c_q) / np.sqrt(m_b_q)
+print(f"Naive estimate: V_cb ~ √(m_c/m_b) = √({m_c_q}/{m_b_q}) = {V_cb_est:.4f}")
+print(f"V_cb (PDG) = {V_cb_PDG}")
+print(f"  Ratio: {V_cb_est/V_cb_PDG:.2f}")
+print()
+
+# √(m_c/m_b) = 0.552 — too large by factor 13!
+# But remember the Fritzsch texture gives V_cb ~ |√(m_s/m_b) - e^{i*psi}*√(m_c/m_t)|
+# Let's compute that:
+V_cb_fritzsch_max = np.sqrt(m_s_q/m_b_q) + np.sqrt(m_c_q/m_t_q)
+V_cb_fritzsch_min = abs(np.sqrt(m_s_q/m_b_q) - np.sqrt(m_c_q/m_t_q))
+print(f"Fritzsch: V_cb = |√(m_s/m_b) - e^{{iψ}}√(m_c/m_t)|")
+print(f"  √(m_s/m_b) = {np.sqrt(m_s_q/m_b_q):.4f}")
+print(f"  √(m_c/m_t) = {np.sqrt(m_c_q/m_t_q):.4f}")
+print(f"  Max: {V_cb_fritzsch_max:.4f}")
+print(f"  Min: {V_cb_fritzsch_min:.4f}")
+print(f"  PDG: {V_cb_PDG:.4f}")
+print()
+
+# The minimum Fritzsch value 0.064 overshoots PDG 0.042 by 50%.
+# But look at the two terms:
+# √(m_s/m_b) = 0.1496 — this is the m_- eigenvalue contribution
+# √(m_c/m_t) = 0.0859 — this is the m_+ eigenvalue contribution
+# Their difference = 0.064 — still too large.
+# To get 0.042, we need either:
+# (a) A different phase than real (complex Fritzsch)
+# (b) RG running from the ISS scale to m_t
+# (c) A correction from the bion mechanism
+
+# The orbifold suppression ε₁³ = e^{-π√3/2} ≈ 0.066 is in the right range!
+# And the v0-doubling coefficient 3 might be related:
+# √m_b = 3√m_s + √m_c → the "3" is the v0-doubling factor
+# If V_cb ~ ε₁³ ~ 0.066, and the v0-doubling mixes b with the ISS,
+# then V_cb might be the GEOMETRIC FACTOR from the orbifold,
+# not the mass ratio.
+
+print("CANDIDATE: V_cb from orbifold suppression")
+print(f"  ε₁³ = e^{{-π√3/2}} = {np.exp(-np.pi*np.sqrt(3)/2):.4f}")
+print(f"  V_cb (PDG) = {V_cb_PDG:.4f}")
+print(f"  Ratio: {np.exp(-np.pi*np.sqrt(3)/2)/V_cb_PDG:.2f}")
+print()
+print("Neither mass ratios nor orbifold factors give V_cb precisely.")
+print("The v0-doubling formula √m_b = 3√m_s + √m_c tells us that")
+print("the b quark is a SPECIFIC superposition in the (m_-, m_+) basis,")
+print("but translating this to V_cb requires knowing how the")
+print("up-type and down-type mass matrices are SEPARATELY diagonalized.")
+print("This is the missing piece.")
+
+# =====================================================================
 # 11. Consistency: does the non-universal splitting reproduce
 #     the meson spectrum at higher order?
 # =====================================================================
