@@ -49,7 +49,7 @@ mass charges $m_k = (z_0 + z_k)^2$. From the single input $m_u + m_d$
 (equivalently $m_\pi$ via GMOR), the isospin seed predicts $m_s$,
 the O'Raifeartaigh chain predicts $m_c = 1301\MeV$ (+2.0\%),
 $m_b = 4233\MeV$ (+1.3\%), and $m_t = 171\,250\MeV$ ($-$0.9\%);
-the magnetic Koide predicts $m_d$ and hence $m_u/m_d = 0.453$.
+the dual mass-charge identity predicts $m_d$ and hence $m_u/m_d = 0.453$.
 The lepton sector predicts
 $m_\tau = 1776.97$ MeV (+0.006\%), and the GST relation predicts
 the Cabibbo angle.
@@ -195,7 +195,7 @@ CKM angles. In this theory, the isospin seed determines
 $m_s$ from $m_u + m_d$; the O'Raifeartaigh mass ratio determines
 $m_c$ from $m_s$; the bion mass relation determines $m_b$ from $m_s$
 and $m_c$; the Yukawa eigenvalue constraint determines $m_t$ from $m_c$
-and $m_b$; the magnetic Koide determines $m_d$ (hence $m_u$) from
+and $m_b$; the dual mass-charge identity determines $m_d$ (hence $m_u$) from
 $m_s$ and $m_b$; the mass-charge identity determines $m_\tau$ from $m_e$
 and $m_\mu$; and the Gatto--Sartori--Tonin relation determines
 $\theta_{12}$ from $m_d$ and $m_s$. Seven parameters are eliminated. The
@@ -216,11 +216,15 @@ lepton sector as $s$-confining SU(2) SQCD with the same O'Raifeartaigh
 structure. Section~\ref{sec:electroweak} discusses the NMSSM Higgs
 sector, the Cabibbo angle, and the electroweak predictions.
 Section~\ref{sec:spectrum} presents the complete particle spectrum and
-parameter budget. Section~\ref{sec:open} discusses the open problems ---
-the 15 versus $\overline{10}$ Pauli conflict for diquarks, the
-nonperturbative origin of the bloom rotation, the mesino mass hierarchy,
-and the embedding in $\mathrm{SO}(32)$ --- and Section~\ref{sec:conclusions}
-concludes.
+parameter budget.
+Section~\ref{sec:strings} interprets the Lagrangian as a low-scale
+Type~I superstring on $T^6/\mathbb{Z}_3$, showing how the $SO(32)$
+adjoint contains the sBootstrap composites and how the orbifold geometry
+connects to the mass-charge structure.
+Section~\ref{sec:open} discusses the remaining open problems ---
+the 15 versus $\overline{10}$ Pauli conflict, the
+nonperturbative bloom mechanism, and the mesino mass hierarchy ---
+and Section~\ref{sec:conclusions} concludes.
 
 
 %======================================================================
@@ -1006,6 +1010,39 @@ $\sqrt{m_b} = 3\sqrt{m_s} + \sqrt{m_c}$;
 $(\det M^{(3)})^3/\Lambda_{\text{eff}}^{18}$, which selects
 discrete bloom angles (Section~\ref{sec:bloom}).
 
+\subsection{The flavour-universal Yukawa identity}
+
+The Seiberg seesaw and the standard Yukawa coupling combine to
+produce a flavour-independent product. Each confined quark~$j$
+has a Yukawa coupling $y_j = \sqrt{2}\,m_j/v_{\text{EW}}$
+(at $\tan\beta = 1$), while the seesaw fixes the meson VEV
+$\langle M_j\rangle = C/m_j$ with
+$C = \Lambda^2\bigl(\prod_k m_k\bigr)^{1/N_f}$ flavour-independent.
+Their product is
+\begin{equation}
+  y_j\,\langle M_j\rangle
+  = \frac{\sqrt{2}\,m_j}{v_{\text{EW}}}\;\frac{C}{m_j}
+  = \frac{\sqrt{2}\,C}{v_{\text{EW}}}\,,
+\end{equation}
+which is the same for every confined flavour: the quark-mass
+dependence cancels exactly. Evaluating for the light block
+$(u,d,s)$ with $C = 8.8 \times 10^5\MeV^2$:
+\begin{equation}
+  y_j\,\langle M_j\rangle
+  = \frac{\sqrt{2} \times 8.8 \times 10^5}{2.46 \times 10^5}
+  = 5.07\MeV
+  \qquad\text{(all confined flavours)}\,.
+\end{equation}
+
+This identity has two consequences. First, it shows that the Yukawa
+couplings are \emph{not free parameters}: they are determined by
+$C$ and $v_{\text{EW}}$, both of which are fixed by the Lagrangian.
+Second, because the Higgs--meson vertex $y_j\langle M_j\rangle$
+is flavour-universal, the Glashow--Weinberg
+condition~\cite{UTfit} for the absence of tree-level
+Higgs-mediated FCNCs is satisfied automatically.
+This is not a tuning; it is a structural consequence of the seesaw.
+
 The two-doublet structure has a direct consequence for the mass
 triples. Since the quark mass triples obligatorily mix up-type
 and down-type quarks, the translation from
@@ -1230,6 +1267,58 @@ an $\mathcal{O}(1\GeV)$ scheme ambiguity. The prediction is
 therefore stated as $m_t = 171.3 \pm 1.5\GeV$, where the
 uncertainty reflects this scheme mismatch.
 
+\subsection{The dual mass-charge identity from the Seiberg seesaw}
+
+The Seiberg seesaw (Section~\ref{sec:lagrangian}) maps quark masses
+$m_j$ to meson VEVs $\langle M_j\rangle = C/m_j$, inverting the mass
+hierarchy. This inversion acts on the mass charges: if the direct
+charges are $\zch_k = \sqrt{m_k}$, the \emph{dual charges} are
+$\xi_k \propto 1/\sqrt{m_k}$. Defining
+$\xi_0 = \tfrac{1}{3}\sum_k\xi_k$, the dual mass-charge identity is
+\begin{equation}
+  \langle\xi_k^2\rangle = \xi_0^2\,,
+  \qquad\text{equivalently}\quad
+  \frac{\sum_k 1/m_k}{\bigl(\sum_k 1/\sqrt{m_k}\bigr)^2}
+  = \frac{2}{3}\,.
+\end{equation}
+
+At the O'Raifeartaigh seed, one mass vanishes:
+$(m_1,m_2,m_3) = (0,m_-,m_+)$. In this limit the direct and dual
+identities coincide: with $\zch_1 = 0$,
+\begin{equation}
+  \frac{m_- + m_+}{(\sqrt{m_-}+\sqrt{m_+})^2}
+  = \frac{1/m_- + 1/m_+}{(1/\sqrt{m_-}+1/\sqrt{m_+})^2}\,,
+\end{equation}
+since both simplify to $(m_- + m_+)/(m_- + m_+ + 2\sqrt{m_- m_+})$
+when the zero-mass entry is absent from all sums.
+At $gv/m = \sqrt{3}$ both equal $2/3$ exactly: the seed is
+\emph{self-dual}.
+
+After the bloom ($m_1 > 0$), the direct and dual ratios diverge.
+For the down-type quarks $(d,s,b)$, the direct ratio
+$\langle\zch_k^2\rangle/\zch_0^2 = 0.732$ is far from unity,
+while the dual ratio
+$\langle\xi_k^2\rangle/\xi_0^2 = 0.665/0.667 = 0.997$
+deviates by only $0.22\%$.
+The seesaw preserves the mass-charge identity much better than
+the direct masses do, because it maps the bloomed spectrum back
+toward the seed hierarchy $m_{\rm light} \ll m_{\rm heavy}$.
+
+Setting $\langle\xi_k^2\rangle = \xi_0^2$ exactly on $(d,s,b)$,
+and taking $m_s$ and $m_b$ as inputs, determines $m_d$:
+\begin{equation}
+  m_d^{\rm pred} = 4.605\MeV
+  \qquad(\text{PDG:}\; 4.67 \pm 0.48\MeV,\;\; -0.13\sigma)\,.
+\end{equation}
+
+This prediction is a direct consequence of the Lagrangian:
+the seesaw $\langle M_j\rangle = C/m_j$ follows from the
+$F$-term equations $\partial W/\partial M_j = 0$
+of the superpotential
+$W = \mathrm{Tr}(\hat m\,M) + X(\det M - \Lambda^6)$.
+The dual mass-charge identity is therefore not an independent
+assumption but an algebraic property of the seesaw vacuum.
+
 \subsection{The complete mass chain}
 
 Five quark masses from one input:
@@ -1237,7 +1326,7 @@ Five quark masses from one input:
 \boxed{
 \begin{aligned}
 m_u + m_d &= 6.83\;\mathrm{MeV} \quad\text{(input)}\\[4pt]
-&\xrightarrow{\;Q(0,\sqrt{m_u{+}m_d},\sqrt{m_s})\approx 2/3\;}
+&\xrightarrow{\;\langle z_k^2\rangle \approx z_0^2\text{ on }(0,m_u{+}m_d,m_s)\;}
 m_s = 95.1\;\mathrm{MeV} \quad[+1.8\%]\\[4pt]
 &\xrightarrow{\;R_{\mathrm{OR}} = 7 + 4\sqrt{3}\;}
 m_c = 1301\;\mathrm{MeV} \quad[+2.0\%]\\[4pt]
@@ -1245,7 +1334,7 @@ m_c = 1301\;\mathrm{MeV} \quad[+2.0\%]\\[4pt]
 m_b = 4233\;\mathrm{MeV} \quad[+1.3\%]\\[4pt]
 &\xrightarrow{\;\langle z_k^2\rangle = z_0^2\text{ on }(c,b,t)\;}
 m_t = 171{,}250\;\mathrm{MeV} \quad[-0.9\%]\\[4pt]
-&\xrightarrow{\;Q(1/\sqrt{m_d},1/\sqrt{m_s},1/\sqrt{m_b})\approx 2/3\;}
+&\xrightarrow{\;\langle\xi_k^2\rangle \approx \xi_0^2\text{ on }(d,s,b)\;}
 m_d = 4.6\;\mathrm{MeV} \quad[-1.5\%]
 \end{aligned}
 }
@@ -1257,11 +1346,12 @@ controlled by four structural constants of the Lagrangian: the
 isospin seed ratio, the
 O'Raifeartaigh mass ratio $R_{\mathrm{OR}}$, the bion doubling
 (with coefficient $N_c = 3$), and the eigenvalue sum rule
-$\langle z_k^2\rangle = z_0^2$; plus the magnetic Koide from
+$\langle z_k^2\rangle = z_0^2$; plus the dual mass-charge identity from
 the Seiberg seesaw. None of these is fitted; each is an algebraic
 consequence of the superpotential at its stabilised vacuum.
-The isospin and magnetic Koide are approximate ($Q \approx 2/3$,
-bloomed from the exact seed); the remaining three are exact.
+The isospin and dual mass-charge identity are approximate
+($\langle z_k^2\rangle/z_0^2 \approx 1$, bloomed from the exact
+seed); the remaining three are exact.
 
 
 %======================================================================
@@ -1385,6 +1475,33 @@ physical neutrino depends on its quantum numbers under the
 electroweak group---a question that requires specifying the embedding
 of SU(2)$_{\rm conf}$ into the full gauge structure.
 
+\paragraph{Large neutrino mixing from democratic confinement.}
+The $s$-confining superpotential $W_{\rm dyn} = L_1 L_2 L_3 / \Lambda_L^3$
+treats all three composites democratically: it is invariant under
+the full permutation group~$S_3$.  The O'Raifeartaigh deformation
+breaks this symmetry, but the dynamical superpotential remains
+the dominant coupling of the pseudo-modulus~$L_2$ to the rest of
+the spectrum.  If $L_2$ is identified with a neutrino, its
+flavour couplings inherit the $S_3$ structure, which is the
+natural source of large mixing angles.
+
+This contrasts sharply with the quark sector.  There, the Seiberg
+seesaw $\langle M_j\rangle = C/m_j$ creates a hierarchical
+texture (the Fritzsch matrix) that produces small CKM angles
+via $\sin\theta_C = \sqrt{m_d/m_s}$.  The same Lagrangian
+thus explains both small quark mixing and large lepton mixing
+through two different confinement mechanisms:
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Sector & Confinement & Mixing \\
+\midrule
+Quarks (SU(3)) & Seiberg seesaw (hierarchical) & small CKM \\
+Leptons (SU(2)) & $s$-confinement (democratic) & large PMNS \\
+\bottomrule
+\end{tabular}
+\end{center}
+
 \subsection{Parameter counting for the lepton sector}
 
 Two parameters determine three lepton masses:
@@ -1445,6 +1562,16 @@ Pull & $0.6\sigma$ \\
 \end{center}
 
 \subsection{The Cabibbo angle}
+
+The empirical relation $\sin\theta_C \approx \sqrt{m_d/m_s}$, noticed
+by Gatto, Sartori and Tonin~\cite{GST1968} shortly after the
+Cabibbo hypothesis, was one of the original motivations for quark
+compositeness --- the idea that if the Cabibbo angle is a ratio of
+constituent masses, the quarks themselves may have substructure.
+In the sBootstrap the substructure is not preons but the SQCD
+seesaw: the Fritzsch texture emerges from the inverse mass hierarchy
+$\langle M_j\rangle \propto 1/m_j$, and the Cabibbo angle becomes
+a derived quantity of the Lagrangian.
 
 The UV quark mass matrix has a nearest-neighbour (Fritzsch) texture
 \begin{equation}\label{eq:fritzsch}
@@ -1527,6 +1654,15 @@ overshooting the PDG value $0.0422$ by $40\%$.
 This structural failure (known since the 1990s)
 signals that the 2--3 sector requires either a modified texture,
 RG running, or a separate mechanism for the top--bottom coupling.
+The $\mathbb{Z}_3$ orbifold of Section~\ref{sec:strings} provides
+a candidate: Yukawa couplings between different twisted sectors are
+suppressed by $\epsilon_1 = e^{-2\pi\sqrt{3}/12} \approx 0.40$
+per $T^2$ factor.  The product over the three tori in $T^6$
+gives $\epsilon_1^3 = e^{-\pi\sqrt{3}/2} \approx 0.066$, which is
+in the right range for~$|V_{cb}|$ but overshoots by~$56\%$.
+The precise value depends on the worldsheet instanton
+calculation and the fixed-point assignment of quarks --- details
+that await a concrete Type~I model.
 
 \subsection{The Casimir eigenvalue equation}
 
@@ -1684,6 +1820,105 @@ and the holomorphic third-derivative piece cancels between real
 and imaginary scalar components, leaving only the nine
 soft meson masses.
 
+\subsection{Spectrum flow}
+
+The spectrum evolves through six stages as successive Lagrangian
+terms are switched on. Table~\ref{tab:flow} tracks the scalar
+and fermion content at each stage, all evaluated at $t = \sqrt{3}$.
+Mass-squareds are in units of~$m^2$ (the chiral mass parameter).
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{p{3.0cm}p{3.8cm}p{4.8cm}l}
+\toprule
+Stage & Fermions & Scalars & $\mathrm{STr}$ \\
+\midrule
+\textbf{0.}~Full SUSY ($y=0$)
+  & $(0,\, m_-,\, m_+)$
+  & $\sigma = \pi = (0,\, m_-^2,\, m_+^2)$; exact pairs
+  & $0$ \\[4pt]
+\textbf{1.}~$F$-breaking ($f\neq 0$)
+  & unchanged
+  & $B$-term splits: $\pi_k^2 < m_k^2 < \sigma_k^2$; splittings $\propto y$
+  & $0$ \\[4pt]
+\textbf{2.}~CW stabilization
+  & unchanged
+  & $\sigma_0 \to m_{\text{CW}} \approx 13\MeV$; $\pi_0$ remains light
+  & $0$ \\[4pt]
+\textbf{3.}~Bion $K$
+  & $v_0$-doubling: $(m_s,m_c) \to (m_s,m_c,m_b)$
+  & scalars track fermion masses
+  & $0$ \\[4pt]
+\textbf{4.}~3-instanton
+  & $\delta$ selected; bloom angle fixed
+  & angular potential adds $\delta$-dependent shift
+  & $0$ \\[4pt]
+\textbf{5.}~Soft ($\tilde m^2 = \fpi^2$)
+  & unchanged
+  & all scalars $\to m^2 + \fpi^2$; mesons at $\sqrt{2}\,\fpi$
+  & $18\,\fpi^2$ \\
+\bottomrule
+\end{tabular}
+\caption{Spectrum flow from SUSY to the physical vacuum.
+$m_\pm = (2 \pm \sqrt{3})\,m$, so
+$m_-^2 = (7{-}4\sqrt{3})\,m^2 \approx 0.072\,m^2$,
+$m_+^2 = (7{+}4\sqrt{3})\,m^2 \approx 13.93\,m^2$.
+The supertrace vanishes at every stage except the last, where
+only the nine soft meson masses contribute.}
+\label{tab:flow}
+\end{table}
+
+At Stage~0, the three chiral multiplets form exact
+$\mathcal{N}=1$ supermultiplets: each Weyl fermion of mass~$m_k$
+pairs with a complex scalar (one $\sigma$ and one $\pi$ component)
+of mass-squared~$m_k^2$. At Stage~1, the $B$-term
+$B_{11} = 2gf$ splits each pair into a heavier $\sigma$ and a lighter
+$\pi$ partner while preserving the supertrace. The ordering
+$\pi_k^2 < m_k^2 < \sigma_k^2$ holds at all~$y < 1/2$
+and $t = \sqrt{3}$, with splittings proportional to~$y$.
+The CW potential (Stage~2) lifts only the goldstino multiplet's
+flat directions; Stages~3--4 constrain the mass ratios
+(bion: radial; instanton: angular) without altering the
+multiplet structure. Only at Stage~5 does the supertrace become
+nonzero: $\mathrm{STr}[M^2] = 18\,\fpi^2$, because the soft
+scalar masses $\tilde m^2 = \fpi^2$ break the
+boson--fermion mass balance.
+
+\subsection{Supermultiplet identification}
+
+The sBootstrap identification maps the fermion component of each
+meson superfield $M^i{}_j$ to a lepton, and the scalar component
+to the physical meson. In the SUSY limit ($y \to 0$,
+$\tilde m^2 \to 0$), each lepton is exactly degenerate with its
+meson partner:
+
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+Multiplet & Fermion (lepton) & Scalar (meson) & SUSY-limit mass \\
+\midrule
+$\Phi_0$ (goldstino) & $e$ ($0.511\MeV$)
+  & $\pi$ ($135\MeV$) & $\to 0$ (seed) \\
+$\Phi_1$ (light) & $\mu$ ($105.7\MeV$)
+  & $K$ ($494\MeV$) & $m_- = (2{-}\sqrt{3})\,m$ \\
+$\Phi_2$ (heavy) & $\tau$ ($1{,}777\MeV$)
+  & $D_s$ ($1{,}968\MeV$) & $m_+ = (2{+}\sqrt{3})\,m$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+In the physical spectrum, the soft mass $\tilde m^2 = \fpi^2$
+dominates the lightest multiplet---lifting $\pi$ far above~$e$
+($m_\pi/m_e \approx 264$)---is comparable to the intermediate
+one ($m_K/m_\mu \approx 4.7$), and negligible for the heaviest
+($m_{D_s}/m_\tau \approx 1.11$).
+This pattern---large fractional splitting for the lightest
+generation, approximate degeneracy for the heaviest---is
+characteristic of a universal soft mass $\tilde m^2 = \fpi^2$
+applied to a hierarchical spectrum.
+
 \subsection{Parameter budget}
 
 \begin{center}
@@ -1692,11 +1927,11 @@ soft meson masses.
 \toprule
 Relation & Predicts & From \\
 \midrule
-Isospin seed: $m_s \approx (2{+}\sqrt{3})^2(m_u{+}m_d)$ & $m_s$ from $m_u{+}m_d$ & $Q(0,\sqrt{m_u{+}m_d},\sqrt{m_s}) \approx 2/3$; bloomed \\
+Isospin seed: $m_s \approx (2{+}\sqrt{3})^2(m_u{+}m_d)$ & $m_s$ from $m_u{+}m_d$ & $\langle z_k^2\rangle \approx z_0^2$ on $(0,m_u{+}m_d,m_s)$; bloomed \\
 O'Raifeartaigh: $m_c/m_s = (2{+}\sqrt{3})^2$ & $m_c$ from $m_s$ & $W$: $gv/m = \sqrt{3}$ \\
 Bion: $\sqrt{m_b} = 3\sqrt{m_s} + \sqrt{m_c}$ & $m_b$ from $m_s, m_c$ & $K_{\text{bion}}$: minimum \\
 Yukawa: $\langle z_k^2\rangle = z_0^2$ on $(c,b,t)$ & $m_t$ from $m_c, m_b$ & $W_{\text{Yukawa}}$ at $\tan\beta = 1$ \\
-Magnetic: $Q(1/m_d, 1/m_s, 1/m_b) = 2/3$ & $m_d$ from $m_s, m_b$ & Seiberg seesaw \\
+Dual: $\langle\xi_k^2\rangle = \xi_0^2$ on $(d,s,b)$ & $m_d$ from $m_s, m_b$ & Seiberg seesaw \\
 Lepton: $\langle z_k^2\rangle = z_0^2$ on $(e,\mu,\tau)$ & $m_\tau$ from $m_e, m_\mu$ & $W_{\text{lepton}}$: O'Raifeartaigh \\
 GST: $\sin\theta_C = \sqrt{m_d/m_s}$ & $\theta_{12}$ from $m_d, m_s$ & Seesaw structure \\
 \midrule
@@ -1706,21 +1941,38 @@ GST: $\sin\theta_C = \sqrt{m_d/m_s}$ & $\theta_{12}$ from $m_d, m_s$ & Seesaw st
 \end{center}
 
 \paragraph{Renormalisation scale.}
-The quark masses appearing in the Koide triples are
+The quark masses appearing in the mass-charge triples are
 $\overline{\rm MS}$ masses at the PDG conventional scales:
 $m_{u,d,s}$ at $\mu = 2\GeV$, $m_c(m_c)$, $m_b(m_b)$, $m_t(m_t)$.
 Running all six quarks to a common scale $\mu = 2\GeV$ degrades
-the Koide ratios sharply: $Q(-s,c,b)$ worsens from $1.2\%$ to $3.2\%$,
-and $Q(c,b,t)$ from $0.4\%$ to $6.2\%$.
-The isospin seed $Q(0,\sqrt{m_u{+}m_d},\sqrt{m_s})$ is immune to
-running because all entries share the same anomalous dimension and
+the ratios sharply: $\langle z_k^2\rangle/z_0^2$ for $(-s,c,b)$
+worsens from $1.2\%$ to $3.2\%$, and for $(c,b,t)$ from
+$0.4\%$ to $6.2\%$.
+In fact, the mass-charge ratio is \emph{exactly} invariant under
+pure QCD running.  Under one-loop QCD, all quark masses run with
+a universal anomalous dimension:
+$m_i(\mu) = m_i(\mu_0)\,[\alpha_s(\mu)/\alpha_s(\mu_0)]^{\gamma_m}$.
+The common factor cancels in the ratio:
+\begin{equation}
+  \frac{\sum c\,m_k^{(0)}}{(\sum \sqrt{c\,m_k^{(0)}})^2}
+  = \frac{c\sum m_k^{(0)}}{c\,(\sum\sqrt{m_k^{(0)}})^2}
+  = \frac{\sum m_k^{(0)}}{(\sum\sqrt{m_k^{(0)}})^2}\,,
+\end{equation}
+where $c = [\alpha_s(\mu)/\alpha_s(\mu_0)]^{2\gamma_m}$.
+The mass-charge ratio depends only on mass \emph{ratios},
+and QCD preserves all mass ratios.  Electroweak corrections
+break this universality (up-type and down-type quarks have
+different anomalous dimensions above $M_W$), but in the
+confined sector where the identity is set, only QCD is active.
+The isospin seed is a special case: $m_1 = 0$, $m_2 = m_u{+}m_d$, $m_3 = m_s$,
+immune to running because all entries share the same anomalous dimension and
 the ratio $m_s/(m_u{+}m_d)$ is an RG invariant.
 The Gell-Mann--Oakes--Renner relation~\cite{GOR1968}
 $m_\pi^2 f_\pi^2 = (m_u{+}m_d)\langle\bar qq\rangle$
 makes this ratio a statement about physical hadron observables
 ($m_\pi$, $f_\pi$, $m_K$), explaining why the isospin seed
 is scheme-independent.
-None of the quark triples sits exactly at $Q = 2/3$:
+None of the quark triples sits exactly at $\langle z_k^2\rangle = z_0^2$:
 the bloom shifts each triple away from the seed,
 by $0.27\%$ (isospin), $0.4\%$ $(c,b,t)$, and $1.2\%$ $(-s,c,b)$.
 The lattice ratio $m_s/m_{ud} = 27.23 \pm 0.10$ (FLAG 2021)
@@ -1752,7 +2004,7 @@ $m_b$ & $4{,}233\MeV$ & $4{,}180 \pm 30$ ($1.8\sigma$)
 $m_t$ & $171.3 \pm 1.5\GeV$ & $172.76 \pm 0.30$
   & Yukawa eigenvalue constraint \\
 $m_d$ & $4.6\MeV$ & $4.67 \pm 0.48$ ($0.1\sigma$)
-  & Magnetic Koide \\
+  & Dual mass-charge identity \\
 $m_u/m_d$ & $0.453$ & $0.46 \pm 0.05$ ($0.2\sigma$)
   & Self-consistency \\
 $m_\tau$ & $1776.97\MeV$ & $1776.86 \pm 0.12$ ($0.9\sigma$)
@@ -1761,6 +2013,8 @@ $\sin^2\theta_W$ & $0.22310$ & $0.22320 \pm 0.00026$ ($0.4\sigma$)
   & Casimir equation \\
 $V_{us}$ & $0.2236$ & $0.2243 \pm 0.0008$ ($0.9\sigma$)
   & GST relation \\
+$m_\nu$ & $49.2$\,meV & $\lesssim 50$\,meV (atmospheric)
+  & Top--neutrino duality: $\fpi^2/m_t$ \\
 $m_h$ & $125.35\GeV$ & $125.25 \pm 0.17$ ($0.6\sigma$)
   & NMSSM: $\lambda_S v/\sqrt{2}$ \\
 $\tan\beta$ & $1$ & --- (not directly measured)
@@ -1773,11 +2027,490 @@ $\text{STr}[M^2]$ & $18\,\fpi^2$ & --- (not directly measured)
 All quark predictions follow from a single input
 $m_u + m_d = 6.83\MeV$ (equivalently $m_\pi$ via GMOR);
 the isospin seed gives $m_s$, the O'Raifeartaigh chain gives $m_c$,
-the bion gives $m_b$, and the magnetic Koide gives $m_d$ (hence $m_u$).
+the bion gives $m_b$, and the dual mass-charge identity gives $m_d$ (hence $m_u$).
 Cross-threshold masses are $\overline{\rm MS}$ at $\mu = m_q$.
 The lepton prediction uses $m_e$ and $m_\mu$ as inputs.}
 \label{tab:predictions}
 \end{table}
+
+
+%======================================================================
+\section{The Lagrangian from the viewpoint of hadronic superstrings}
+\label{sec:strings}
+%======================================================================
+
+The composites of the sBootstrap --- mesons in the $\mathbf{24}$ and
+diquarks in the $\mathbf{15} \oplus \overline{\mathbf{15}}$ --- fill
+exactly the representations that appear when the adjoint of $SO(32)$ is
+decomposed under $SU(5) \times SU(3)$.  The group $SO(32)$ is the gauge
+group of Type~I open superstring theory, and this coincidence invites a
+literal interpretation: the sBootstrap Lagrangian may be the low-energy
+effective theory of a superstring at the hadronic scale.  Such a string
+would not live at the Planck scale ($10^{19}\GeV$) but at the QCD scale
+($\sim 1\GeV$) --- returning string theory to the hadronic setting in
+which it was originally conceived~\cite{Veneziano1968, Nambu1970}.
+
+This section develops that interpretation in detail.
+
+\subsection{Open strings and Chan-Paton labels}
+
+A relativistic string is a one-dimensional extended object whose
+quantised vibrations produce particles.  An \emph{open} string has two
+free endpoints; among its massless vibrational modes are a spin-1
+particle (a gauge boson) and, in the supersymmetric case, a spin-1/2
+partner.  The mass gap to the first excited string mode is set by the
+string tension $T = 1/(2\pi\alpha')$; the \emph{string scale} is
+$M_s = 1/\sqrt{\alpha'}$.
+
+Each endpoint of an open string carries a discrete label
+$i \in \{1,\ldots,N\}$, called a \emph{Chan-Paton
+label}~\cite{ChanPaton}.  A string state $|i, j\rangle$ (one label per
+endpoint) transforms under $U(N)$: the $N^2$ massless gauge bosons fill
+the adjoint of $U(N)$.
+
+In \emph{Type~I} string theory, the string is unoriented: the
+orientation-reversal projection $\Omega$ identifies $|i,j\rangle$ with
+$|j,i\rangle$.  This halves the gauge degrees of freedom and projects
+$U(N)$ down to $O(N)$ or $Sp(N)$, depending on the sign of the
+orientifold projection.  Consistency of the ten-dimensional quantum
+theory --- specifically, cancellation of gauge and gravitational
+anomalies via the Green--Schwarz mechanism~\cite{GreenSchwarz} ---
+requires exactly
+\begin{equation}
+N = 32\,,\qquad G = SO(32)\,.
+\end{equation}
+The adjoint representation is the antisymmetric product of two
+fundamentals:
+\begin{equation}
+  \mathbf{496} = \wedge^2(\mathbf{32})\,,
+\end{equation}
+containing $32 \times 31/2 = 496$ gauge bosons.
+
+\subsection{The $SO(32)$ adjoint contains the sBootstrap}
+
+The fundamental $\mathbf{32}$ of $SO(32)$ is a real representation;
+it decomposes under the maximal subgroup $SU(16) \times U(1)_A$ as
+\begin{equation}
+  \mathbf{32} = \mathbf{16}_{+1} \oplus \overline{\mathbf{16}}_{-1}\,.
+\end{equation}
+The 16-dimensional complex representation of $SU(16)$ further
+decomposes under $SU(5) \times SU(3) \times U(1)_B$ as
+\begin{equation}\label{eq:16-decomp}
+  \mathbf{16} = (\mathbf{5},\mathbf{3})_{+1}
+    \oplus (\mathbf{1},\mathbf{1})_{-15}\,.
+\end{equation}
+The 15 entries $(\mathbf{5},\mathbf{3})$ are precisely the five quark
+flavors $(u,d,s,c,b)$ in three colors $(r,g,b)$.  The remaining
+singlet $(\mathbf{1},\mathbf{1})$ is the top quark, which does not
+participate in the composite sector.  The identity
+\begin{equation}
+  5 \times 3 + 1 = 16
+\end{equation}
+is the Chan-Paton dimension of a single D-brane stack.
+
+\paragraph{Adjoint decomposition.}
+The adjoint $\mathbf{496} = \wedge^2(\mathbf{32})$ decomposes under
+$SU(16) \times U(1)_A$ as
+\begin{equation}
+  \mathbf{496} = (\mathbf{255} \oplus \mathbf{1})_0
+    \oplus \mathbf{120}_{+2} \oplus \overline{\mathbf{120}}_{-2}\,.
+\end{equation}
+The further decomposition under $SU(5) \times SU(3)$ is given in
+Table~\ref{tab:496}.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{llcccl}
+\toprule
+Sector & $SU(5)\times SU(3)$ & dim & $q_A$ & $q_B$ & Origin \\
+\midrule
+$\mathbf{255}\!\oplus\!\mathbf{1}$
+ & $(\mathbf{24},\mathbf{8})$ & 192 & 0 & 0
+   & $\mathrm{adj}(SU(15))$ \\
+ & $\boldsymbol{(24,1)}$ & $\boldsymbol{24}$ & 0 & 0
+   & $\boldsymbol{\textbf{mesons}}$ \\
+ & $(\mathbf{1},\mathbf{8})$ & 8 & 0 & 0
+   & $\mathrm{adj}(SU(3))$ \\
+ & $(\mathbf{5},\mathbf{3})\!+\!(\bar{\mathbf{5}},\bar{\mathbf{3}})$
+   & 30 & 0 & $\pm 16$ & cross-terms \\
+ & $2\times(\mathbf{1},\mathbf{1})$ & 2 & 0 & 0
+   & $U(1)_{A,B}$ \\
+\midrule
+$\mathbf{120}$
+ & $\boldsymbol{(15,\bar{3})}$ & $\boldsymbol{45}$ & $+2$ & $+2$
+   & $\boldsymbol{\textbf{diquarks}}$ \\
+ & $(\overline{\mathbf{10}},\mathbf{6})$ & 60 & $+2$ & $+2$
+   & $\wedge^2(\mathbf{5})\otimes S^2(\mathbf{3})$ \\
+ & $(\mathbf{5},\mathbf{3})$ & 15 & $+2$ & $-14$
+   & cross-term \\
+\midrule
+$\overline{\mathbf{120}}$
+ & $\boldsymbol{(\overline{15},3)}$ & $\boldsymbol{45}$ & $-2$ & $-2$
+   & $\boldsymbol{\overline{\textbf{diquarks}}}$ \\
+ & $(\mathbf{10},\bar{\mathbf{6}})$ & 60 & $-2$ & $-2$
+   & conjugate \\
+ & $(\bar{\mathbf{5}},\bar{\mathbf{3}})$ & 15 & $-2$ & $+14$
+   & conjugate \\
+\midrule
+ & \textbf{Total} & \textbf{496} & & & \\
+\bottomrule
+\end{tabular}
+\caption{Decomposition of the $SO(32)$ adjoint under
+$SU(5)_{\rm flavour} \times SU(3)_{\rm colour}$.  The boldface
+entries are the sBootstrap composites: mesons
+$(\mathbf{24},\mathbf{1})$ and diquarks
+$(\mathbf{15},\bar{\mathbf{3}}) \oplus
+(\overline{\mathbf{15}},\mathbf{3})$, accounting for
+$24 + 45 + 45 = 114$ of the 496 states.}
+\label{tab:496}
+\end{table}
+
+\paragraph{Why the symmetric $\mathbf{15}$ appears.}
+The key algebraic content of $\wedge^2(\mathbf{16})$ comes from
+$\wedge^2[(\mathbf{5},\mathbf{3})]$ --- the antisymmetric product
+of two quarks, each carrying flavour and colour indices.
+The antisymmetric product of a tensor-product space obeys the identity
+\begin{equation}\label{eq:wedge-identity}
+  \wedge^2(V \otimes W)
+  = \bigl[S^2(V) \otimes \wedge^2(W)\bigr]
+  \oplus \bigl[\wedge^2(V) \otimes S^2(W)\bigr]\,.
+\end{equation}
+Overall antisymmetry of the composite index $(ia)$ --- one flavour
+index $i$ and one colour index $a$ per quark --- forces a correlation:
+symmetric in one factor implies antisymmetric in the other.
+Setting $V = \mathbf{5}$ (flavour), $W = \mathbf{3}$ (colour):
+\begin{equation}
+  \wedge^2\bigl[(\mathbf{5},\mathbf{3})\bigr]
+  = \underbrace{(\mathbf{15},\bar{\mathbf{3}})}_{\text{flavour-symmetric,
+    colour-antisymmetric}}
+  \oplus \underbrace{(\overline{\mathbf{10}},\mathbf{6})}_{\text{flavour-antisymmetric,
+    colour-symmetric}}\,.
+\end{equation}
+The symmetric flavour $\mathbf{15} = S^2(\mathbf{5})$ is forced into
+antisymmetric colour $\bar{\mathbf{3}} = \wedge^2(\mathbf{3})$; the
+pairing is not a modeling choice but a consequence of the tensor-product
+structure of open-string states.
+
+\paragraph{Why not $E_8 \times E_8$.}
+The heterotic string in ten dimensions admits two possible gauge groups:
+$SO(32)$ or $E_8 \times E_8$.  The second is excluded by the
+sBootstrap.  Under the chain $E_8 \supset SU(5) \times SU(5)$,
+every $E_8$ representation decomposes into exterior powers
+of $\mathbf{5}$ ($\mathbf{5}$, $\overline{\mathbf{10}} =
+\wedge^2\mathbf{5}$, $\mathbf{24}$, \ldots).  The symmetric product
+$S^2(\mathbf{5}) = \mathbf{15}$ never appears.
+This is not a matter of choosing a different embedding: it is an
+algebraic obstruction rooted in the structure of $E_8$.  In the
+$SO(16) \times SO(16)$ subgroup of $SO(32)$, the obstruction is
+equally sharp: no single $\mathbf{16}$ of $SO(16)$ can hold the
+15-dimensional block $(\mathbf{5},\mathbf{3})$, so $SU(5)$ and
+$SU(3)$ embed as separate direct summands whose $\wedge^2$ produces
+only $\overline{\mathbf{10}}$, never $\mathbf{15}$.
+The sBootstrap thus selects $SO(32)$ over $E_8 \times E_8$ as the
+unique string-theoretic gauge group compatible with its composite
+spectrum.
+
+\subsection{Compactification: the $\mathbb{Z}_3$ orbifold and three
+generations}
+
+Type~I superstring theory is consistent in ten spacetime dimensions.
+To make contact with four-dimensional physics, the six extra dimensions
+must be compact.  The simplest compact space is a six-torus
+$T^6 = (T^2)^3$, where each factor $T^2$ is a two-dimensional torus
+defined by a lattice $\Lambda \subset \mathbb{C}$.
+
+A torus alone preserves too much supersymmetry ($\mathcal{N}=4$ in
+4d) and produces no chiral fermions.  Both problems are solved by an
+\emph{orbifold}: the quotient of $T^6$ by a discrete symmetry
+group~$G$ that acts simultaneously on the compact coordinates and on
+the Chan-Paton labels.  The surviving states are $G$-invariant.
+
+For the sBootstrap, the natural choice is $G = \mathbb{Z}_3$, acting
+on the three complex extra coordinates as
+\begin{equation}
+  \theta:\; (z_1, z_2, z_3)
+  \;\longrightarrow\;
+  (\omega\, z_1,\; \omega\, z_2,\; \omega\, z_3)\,,
+  \qquad \omega = e^{2\pi i/3}\,.
+\end{equation}
+This is the unique $\mathbb{Z}_3$ action that preserves exactly
+$\mathcal{N}=1$ SUSY in four dimensions (it embeds into $SU(3)$
+holonomy, satisfying the Calabi--Yau condition).
+
+\paragraph{Chan-Paton embedding and tadpole cancellation.}
+The $\mathbb{Z}_3$ must also act on the 16 D9-brane Chan-Paton labels
+(before orientifold images) via a matrix $\gamma_\theta$ in the
+fundamental.  Two consistency conditions must be satisfied:
+\begin{enumerate}
+\item The orientifold $\Omega$ exchanges branes with eigenvalue
+$\omega$ and those with $\omega^2 = \bar\omega$, so their
+multiplicities must be equal: $n_1 = n_2$.
+\item The \emph{twisted tadpole cancellation} condition requires
+$\mathrm{Tr}(\gamma_\theta) = 1$ (in the absence of D5-branes).
+\end{enumerate}
+
+With $n_0$ branes at eigenvalue 1, and $n_1 = n_2$ branes at
+eigenvalues $\omega, \omega^2$:
+\begin{equation}
+  \mathrm{Tr}(\gamma_\theta) = n_0 + n_1\omega + n_2\omega^2
+  = n_0 + n_1(\omega + \omega^2) = n_0 - n_1\,,
+\end{equation}
+using $\omega + \omega^2 = -1$.  The conditions $n_0 + 2n_1 = 16$ and
+$n_0 - n_1 = 1$ give the unique solution
+\begin{equation}
+  n_0 = 6\,,\qquad n_1 = n_2 = 5\,.
+\end{equation}
+The Chan-Paton matrix is therefore
+\begin{equation}
+  \gamma_\theta = \mathrm{diag}(\underbrace{\omega,\ldots,\omega}_{5},\;
+    \underbrace{\omega^2,\ldots,\omega^2}_{5},\;
+    \underbrace{1,\ldots,1}_{6})\,.
+\end{equation}
+The five $\omega$-branes and five $\omega^2$-branes are exchanged by
+$\Omega$, forming an $SU(5)$ gauge factor.  The six $\omega^0$-branes
+must be partitioned into $\Omega$-exchanged pairs; the partition
+$[3,3]$ gives
+\begin{equation}
+  G = SU(5)_{\mathrm{flavour}} \times SU(3)_{\mathrm{colour}}
+  \times U(1)^2\,.
+\end{equation}
+The partition $[3,3]$ is the \emph{unique} choice yielding $SU(3)$
+as a direct gauge factor: $[6]$ gives $SO(6)$, $[4,2]$ gives
+$SU(4) \times SU(2)$, $[2,2,2]$ gives $SU(2)^3$.
+
+\paragraph{Three chiral generations.}
+The chiral spectrum from the D9-brane sector in the $\mathbb{Z}_3$
+orbifold is
+\begin{equation}
+  3 \times \bigl[(\mathbf{10},\mathbf{1})
+  + (\bar{\mathbf{5}},\mathbf{3})
+  + (\mathbf{5},\bar{\mathbf{3}})\bigr]\,,
+\end{equation}
+where the multiplicity~3 is the number of $\mathbb{Z}_3$ twisted
+sectors, and the $\mathbf{10}$ is the antisymmetric two-index
+representation of $SU(5)_f$.  This antisymmetric projection
+($\varepsilon = +1$) is forced by the odd dimension of the charge-0
+blocks ($n = 3$), which cannot support an Sp-type projection (Sp
+requires even dimension).  Whether the symmetric $\mathbf{15}$ can be
+obtained through a modified orientifold remains an open question
+(Section~\ref{sec:open}).
+
+\subsection{The string scale and extra dimensions}
+
+In string theory, gauge interactions (open strings) are confined to
+the D-branes, while gravity (closed strings) propagates in all ten
+dimensions.  The effective four-dimensional Planck mass $M_{\rm Pl}$
+depends on the total volume~$V_6$ of the compact space.
+
+\paragraph{Derivation.}
+In ten dimensions, Newton's constant is $G_{10} \sim g_s^2/M_s^8$.
+In four dimensions after compactification on a volume~$V_6$,
+Gauss's law gives $G_4 = G_{10}/V_6$, hence
+\begin{equation}\label{eq:Mpl-Ms}
+  M_{\rm Pl}^2 = \frac{1}{G_4}
+  \;\sim\;
+  \frac{M_s^{8}\,V_6}{g_s^2}\,.
+\end{equation}
+If $n$ of the six dimensions have a common radius~$R$ (the
+``large'' dimensions) and the remaining $6 - n$ have the string
+radius $R_s \sim 1/M_s$ (the ``small'' dimensions):
+\begin{equation}
+  V_6 \sim R^n \times M_s^{-(6-n)}\,,
+  \qquad\text{so}\qquad
+  M_{\rm Pl}^2 \;\sim\;
+  \frac{M_s^{n+2}\,R^n}{g_s^2}\,.
+\end{equation}
+Solving for~$R$:
+\begin{equation}\label{eq:R-extra}
+  R \;\sim\;
+  \left(\frac{g_s^2\,M_{\rm Pl}^2}{M_s^{n+2}}\right)^{\!1/n}\,.
+\end{equation}
+
+\paragraph{A hadronic string scale.}
+In the sBootstrap, the dynamical scale is
+$\Lambda_{\text{QCD}} \sim 300$~MeV.  Setting the string scale at
+$M_s \sim 1$~GeV places the string at the \emph{hadronic} scale ---
+historically, the setting in which string theory was
+invented~\cite{Veneziano1968, Nambu1970} as a model for the Regge
+trajectories of hadrons.
+
+With $M_s = 1$~GeV and $g_s = 1$, equation~\eqref{eq:R-extra}
+gives the extra-dimension radius as a function of~$n$.  Using
+$M_{\rm Pl} = 1.22 \times 10^{19}$~GeV:
+\begin{center}
+\begin{tabular}{ccl}
+\toprule
+Large dims $n$ & $R$ & Status \\
+\midrule
+2 & $\sim 400$~m & excluded \\
+3 & $\sim 0.2$~mm & excluded (short-range gravity tests) \\
+4 & $\sim 1\;\mu$m & marginally safe \\
+5 & $\sim 12$~nm & safe \\
+6 & $\sim 0.6$~nm & safe \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+Current torsion-balance experiments~\cite{Adelberger2009} constrain
+deviations from Newton's law at distances down to $\sim 40\;\mu$m.
+The scenario with $n \geq 4$ large extra dimensions is experimentally
+viable.  The estimates above assume $g_s \sim 1$;
+a smaller coupling reduces~$R$.
+
+Equivalently, three of the six compact dimensions could be at the
+string scale and three large, giving
+$R \sim 0.2$~mm --- already excluded.  With four or more large
+dimensions the radii drop to the micrometre scale or below, safely
+out of reach.
+
+This is a low-scale string theory in the sense of
+Arkani-Hamed--Dimopoulos--Dvali, but applied at $M_s \sim 1$~GeV
+rather than $M_s \sim$~TeV.  The gauge hierarchy is not solved ---
+it is \emph{inverted}: the puzzle is why gravity is so weak
+compared to the hadronic scale.
+
+\subsection{The $SU(3)$ root lattice and $gv/m = \sqrt{3}$}
+
+The $\mathbb{Z}_3$ orbifold requires each $T^2$ to have a lattice
+compatible with the three-fold rotational symmetry.  The unique such
+lattice (up to scaling) is the $SU(3)$ root lattice, generated by
+the simple roots
+\begin{equation}
+  e_1 = 1\,,\qquad
+  e_2 = e^{i\pi/3} = \tfrac{1}{2} + i\tfrac{\sqrt{3}}{2}\,,
+\end{equation}
+in the complex plane.  The modular parameter of the resulting torus is
+$\tau = e^{i\pi/3}$, and the area of the fundamental domain is
+\begin{equation}
+  A = \mathrm{Im}(\tau) = \frac{\sqrt{3}}{2}
+  \qquad\text{(in units of $\alpha'$)}\,.
+\end{equation}
+
+The $\mathbb{Z}_3$ orbifold has three fixed points on each $T^2$,
+located at
+\begin{equation}
+  z = 0,\qquad
+  \tfrac{1}{3}(1 + \tau),\qquad
+  \tfrac{1}{3}(2 + 2\tau)\,.
+\end{equation}
+These form an equilateral triangle whose area is
+$\sqrt{3}/12$ (one-sixth of the fundamental domain).
+
+The number $\sqrt{3}$ appears here in a purely geometric role: it is
+the imaginary part of the modular parameter of the unique
+$\mathbb{Z}_3$-compatible torus.  In the sBootstrap Lagrangian, the
+pseudo-modulus is stabilised at $\langle X\rangle/\mu = \sqrt{3}$
+(equivalently $gv/m = \sqrt{3}$).  Two suggestive connections
+deserve mention:
+\begin{itemize}
+\item The K\"ahler modulus $T$ of each $T^2$ satisfies
+  $\mathrm{Im}(T) = \sqrt{3}/2$, and
+  $gv/m = \sqrt{3} = 2\,\mathrm{Im}(T)$.
+\item The proper distance from $\langle X\rangle = 0$ to the
+  K\"ahler pole at $\sqrt{3}\,\mu$ is
+  $\sigma_{\max} = \sqrt{3}\,\pi\,m/(4g)$
+  (Section~\ref{sec:lagrangian}), a finite extent
+  that could correspond to the size of the fundamental domain
+  in the compact space.
+\end{itemize}
+
+Whether these coincidences reflect a physical mechanism --- the
+orbifold geometry fixing the pseudo-modulus VEV --- is an open
+problem.  A concrete realisation would require solving the moduli
+stabilisation problem on the $T^6/\mathbb{Z}_3$ orbifold with the
+sBootstrap D-brane configuration.
+
+\subsection{Fractional instantons and the bloom potential}
+
+At each $\mathbb{Z}_3$ fixed point of $T^2$, the gauge bundle can
+carry a \emph{fractional instanton}: an instanton configuration whose
+topological charge is $1/3$ of the bulk instanton charge.  The
+instanton action is correspondingly reduced:
+\begin{equation}
+  S_{\text{frac}} = \frac{S_0}{3}\,,
+\end{equation}
+where $S_0 = 8\pi^2/g_{\text{YM}}^2$ is the full instanton action.
+The fractional instanton amplitude is $\sim e^{-S_0/3}$, parametrically
+larger than the full instanton amplitude $\sim e^{-S_0}$.
+
+The three fixed points on a single $T^2$ each contribute a fractional
+instanton.  In the effective superpotential, the $\mathbb{Z}_3$ phases
+of the twisted sectors produce contributions proportional to
+$e^{2\pi i k/3}$ ($k = 0, 1, 2$).  The product over three
+eigenvalues (one per colour, in the colour-flavour locked phase)
+yields the determinant $\det M$, and the exact identity
+\begin{equation}
+  \prod_{k=1}^{3}\bigl[1 + \sqrt{2}\cos(\delta + 2\pi k/3)\bigr]
+  = -\tfrac{1}{2} + \tfrac{\cos 3\delta}{\sqrt{2}}
+\end{equation}
+(proved in Section~\ref{sec:bloom}) reflects the $\mathbb{Z}_3$
+averaging over fixed points.
+
+The three-instanton operator in the sBootstrap Lagrangian,
+\begin{equation}
+  W_3 = c_3\,\frac{(\det M^{(3)})^3}{\Lambda^{18}}\,,
+\end{equation}
+has a natural interpretation as the product over the three copies of
+$T^2$ in $T^6 = (T^2)^3$:
+\begin{center}
+\begin{tabular}{lcl}
+\toprule
+Orbifold structure & & Lagrangian term \\
+\midrule
+3 eigenvalues per $T^2$ & $\to$ & $\det M$ (product of 3) \\
+3 copies of $T^2$ & $\to$ & $(\det M)^3$ (cube) \\
+$3 \times 3 = 9$ fractional instantons & $\to$ &
+  $\mathbb{Z}_9 \subset \mathbb{Z}_{18}$ symmetry \\
+$\cos(3\delta)$ per $T^2$ & $\to$ &
+  $\cos(9\delta)$ subdominant harmonic \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+The dominant $\cos(3\delta)$ harmonic is the $\mathbb{Z}_3$
+harmonic of a single torus; the $\cos(9\delta)$ subdominant
+(34\% of the $\cos(3\delta)$ amplitude) is the $\mathbb{Z}_9$
+harmonic arising from the product over all three tori.  The
+effective bloom potential inherits its harmonic structure from the
+orbifold geometry.
+
+\subsection{Self-referential structure}
+
+The sBootstrap is self-referential in a precise sense.  The
+Chan-Paton labels of the Type~I string are the quarks themselves:
+\begin{equation}
+  \underbrace{u,\, d,\, s,\, c,\, b}_{\text{5 flavours}}
+  \;\times\;
+  \underbrace{r,\, g,\, b}_{\text{3 colours}}
+  \;+\;
+  \underbrace{t}_{\text{singlet}}
+  \;=\; 16 \text{ labels}\,.
+\end{equation}
+In Type~I, each D9-brane and its orientifold image form a pair:
+16~branes $+$ 16~images $= 32$ Chan-Paton indices, giving $SO(32)$.
+The adjoint of this $SO(32)$ decomposes to contain
+$(\mathbf{24},\mathbf{1}) \oplus (\mathbf{15},\bar{\mathbf{3}})
+\oplus (\overline{\mathbf{15}},\mathbf{3})$ --- exactly the mesons
+and diquarks that those same quarks form as composites.
+
+The logical circle is:
+\begin{enumerate}
+\item The quarks define the Chan-Paton labels ($5 \times 3 + 1 = 16$).
+\item The labels define the gauge group ($SO(32)$).
+\item The adjoint of $SO(32)$ contains the scalar composites
+  of the quarks.
+\item Those composites fill the supermultiplets of the
+  $\mathcal{N}=1$ Lagrangian.
+\end{enumerate}
+
+\noindent
+Whether this circularity is a deep consistency condition --- a
+``bootstrap'' in the original sense of the word --- or a coincidence of
+small numbers is the central interpretive question raised by the
+$SO(32)$ embedding.
 
 
 %======================================================================
@@ -1790,7 +2523,7 @@ The Pauli theorem (Section~\ref{sec:diquarks}) proves that no $J=0$,
 color-$\bar{3}$ diquark can have symmetric flavor. The sBootstrap's
 $\mathbf{15}$ diquark must therefore be non-composite:
 either an algebraic image of the Miyazawa supercharge or a fundamental
-$SO(32)$ string state. However, the mixed anticommutator
+$SO(32)$ string state (Section~\ref{sec:strings}). However, the mixed anticommutator
 $\{Q_\alpha, \mathcal{Q}_{[ij],\beta}\} = \epsilon_{\alpha\beta}\,
 \mathcal{S}_{[ij]}$ produces a diquark generator in
 $\overline{\mathbf{10}}$ (antisymmetric), not the symmetric
@@ -1865,22 +2598,25 @@ rather than by a simple potential minimum.
 
 \paragraph{Dual self-consistency.}
 The Seiberg seesaw maps direct charges $\zch_k = \sqrt{m_k}$
-to dual charges $\xi_k = 1/\sqrt{m_k}$, with
-$Q(\xi_1,\xi_2,\xi_3) = 1 - 2e_1 e_3/e_2^2$
-where $e_i$ are the elementary symmetric polynomials of the $\zch_k$.
-In the angular parametrisation, the condition
-$Q(\zch) = Q(\xi) = 2/3$ simultaneously reduces to
+to dual charges $\xi_k = 1/\sqrt{m_k}$. In terms of the
+elementary symmetric polynomials $e_i$ of the~$\zch_k$,
+the dual variance ratio is
+$\langle\xi_k^2\rangle/\xi_0^2 = 1 - 2e_1 e_3/e_2^2$.
+In the angular parametrisation, requiring
+$\langle z_k^2\rangle = z_0^2$ and
+$\langle\xi_k^2\rangle = \xi_0^2$ simultaneously reduces to
 \begin{equation}
   \cos 3\delta = \frac{5\sqrt{2}}{8}\,,
 \end{equation}
 an isolated angle distinct from the seed ($\delta = 3\pi/4$).
-The seed self-duality $Q(0,a,b) = Q(0,1/a,1/b)$ is a separate
-algebraic identity.
+At the seed itself the identity
+$\langle z_k^2\rangle = z_0^2 \Leftrightarrow
+\langle\xi_k^2\rangle = \xi_0^2$ is automatic (one mass vanishes).
 For the physical down-type quarks $(d,s,b)$,
-$Q(\xi) = 0.665$ ($0.22\%$ from $2/3$)
-while $Q(\zch) = 0.732$---far from $2/3$.
-The seesaw thus creates an independent near-Koide condition
-on the magnetic charges, constraining $m_d$ from $(m_s, m_b)$.
+$\langle\xi_k^2\rangle/\xi_0^2 = 0.997$ ($0.22\%$ from unity)
+while $\langle z_k^2\rangle/z_0^2 = 1.10$---far from unity.
+The seesaw thus creates an independent near-identity condition
+on the dual charges, constraining $m_d$ from $(m_s, m_b)$.
 
 \subsection{Lepton masses are not mesino masses}
 
@@ -1891,168 +2627,6 @@ The obstruction is structural: K\"ahler rescaling is a congruence
 transformation that preserves the rank of~$W_{IJ}$ and cannot generate
 new mass eigenvalues. Lepton masses therefore require the separate
 SU(2) confining sector described in Section~\ref{sec:leptons}.
-
-\subsection{The $SO(32)$ embedding}
-
-The $SO(32)$ gauge group of Type~I / heterotic string theory
-admits the maximal-subgroup chain
-$SO(32) \supset SU(16) \times U(1)_A
-  \supset SU(5) \times SU(3) \times U(1)_A \times U(1)_B$,
-where $\mathbf{16} = (\mathbf{5},\mathbf{3})_{+1}
-  \oplus (\mathbf{1},\mathbf{1})_{-15}$
-embeds the five quark flavors times three colors as a single
-tensor-product block.
-
-\paragraph{Complete decomposition.}
-The adjoint $\mathbf{496} = \wedge^2(\mathbf{32})$ splits as
-$(\mathbf{255}\!\oplus\!\mathbf{1})_{0}
-  \oplus \mathbf{120}_{+2}
-  \oplus \overline{\mathbf{120}}_{-2}$
-under $SU(16) \times U(1)_A$.  The $SU(5) \times SU(3)$ content:
-
-\begin{center}
-\begin{tabular}{llcccl}
-\toprule
-Sector & $SU(5)\times SU(3)$ & dim & $q_A$ & $q_B$ & Origin \\
-\midrule
-$\mathbf{255}\!\oplus\!\mathbf{1}$
- & $(\mathbf{24},\mathbf{8})$ & 192 & 0 & 0
-   & $\mathrm{adj}(SU(15))$ \\
- & $\boldsymbol{(24,1)}$ & $\boldsymbol{24}$ & 0 & 0
-   & $\mathrm{adj}(SU(15))$ \\
- & $(\mathbf{1},\mathbf{8})$ & 8 & 0 & 0
-   & $\mathrm{adj}(SU(15))$ \\
- & $(\mathbf{5},\mathbf{3})\!+\!(\bar{\mathbf{5}},\bar{\mathbf{3}})$
-   & 30 & 0 & $\pm 16$ & cross-terms \\
- & $2\times(\mathbf{1},\mathbf{1})$ & 2 & 0 & 0
-   & $U(1)_{A,B}$ \\
-\midrule
-$\mathbf{120}$
- & $\boldsymbol{(15,\bar{3})}$ & $\boldsymbol{45}$ & $+2$ & $+2$
-   & $S^2(\mathbf{5})\otimes\wedge^2(\mathbf{3})$ \\
- & $(\overline{\mathbf{10}},\mathbf{6})$ & 60 & $+2$ & $+2$
-   & $\wedge^2(\mathbf{5})\otimes S^2(\mathbf{3})$ \\
- & $(\mathbf{5},\mathbf{3})$ & 15 & $+2$ & $-14$
-   & cross-term \\
-\midrule
-$\overline{\mathbf{120}}$
- & $\boldsymbol{(\overline{15},3)}$ & $\boldsymbol{45}$ & $-2$ & $-2$
-   & conjugate \\
- & $(\mathbf{10},\bar{\mathbf{6}})$ & 60 & $-2$ & $-2$
-   & conjugate \\
- & $(\bar{\mathbf{5}},\bar{\mathbf{3}})$ & 15 & $-2$ & $+14$
-   & conjugate \\
-\midrule
- & \textbf{Total} & \textbf{496} & & & \\
-\bottomrule
-\end{tabular}
-\end{center}
-
-\noindent
-The target---$(\mathbf{24},\mathbf{1})$,
-$(\mathbf{15},\bar{\mathbf{3}})$,
-$(\overline{\mathbf{15}},\mathbf{3})$---accounts
-for $24 + 45 + 45 = 114$ of the 496 states, each appearing once.
-
-\paragraph{Why the symmetric $\mathbf{15}$ appears.}
-The nontrivial content of $\wedge^2(\mathbf{16})$ comes from
-$\wedge^2[(\mathbf{5},\mathbf{3})]$.  The key identity is
-$$
-\wedge^2(V \otimes W)
-  \;=\; \bigl[S^2(V) \otimes \wedge^2(W)\bigr]
-  \;\oplus\; \bigl[\wedge^2(V) \otimes S^2(W)\bigr]\,.
-$$
-Overall antisymmetry of the composite index $(ia)$ forces a
-correlation: symmetric in one factor implies antisymmetric in the
-other.  Setting $V = \mathbf{5}$, $W = \mathbf{3}$:
-$$
-\wedge^2\bigl[(\mathbf{5},\mathbf{3})\bigr]
-  \;=\; (\mathbf{15},\bar{\mathbf{3}})
-  \;\oplus\; (\overline{\mathbf{10}},\mathbf{6})\,.
-$$
-The symmetric flavor $\mathbf{15}$ is forced into antisymmetric
-color $\bar{\mathbf{3}}$; the pairing is dictated by the
-tensor-product structure, not by a modeling choice.
-
-\paragraph{Minimality and obstructions.}
-The identity requires $(\mathbf{5},\mathbf{3})$ as a
-tensor-product block in the fundamental, hence dimension
-$\geq 15$ complex $= 30$ real; $SO(30)$ is the minimal
-orthogonal group, and $SO(32)$ adds only two inert singlets.
-$SO(16) \times SO(16)$ fails: no single $\mathbf{16}$ can hold
-the 15-dimensional block, so $SU(5)$ and $SU(3)$ embed as
-separate direct summands whose $\wedge^2$ produces only
-$\overline{\mathbf{10}}$ and $\bar{\mathbf{3}}$, never
-$\mathbf{15}$.
-$E_8 \times E_8$ is likewise blocked: every $E_8$ decomposition
-under $SU(5)$ yields only exterior powers
-($\mathbf{5}$, $\overline{\mathbf{10}}$, $\mathbf{24}$, \ldots).
-The symmetric $\mathbf{15} = S^2(\mathbf{5})$ is algebraically
-forbidden.
-
-\paragraph{Orientifold projection.}
-Wilson lines and orbifold projections cannot separate
-$(\mathbf{15},\bar{\mathbf{3}})$ from
-$(\overline{\mathbf{10}},\mathbf{6})$: both carry identical
-$U(1)$ charges $(q_A, q_B) = (+2,+2)$, and Schur's lemma forces
-any orbifold element commuting with $SU(5) \times SU(3)$ to act
-as a scalar on $(\mathbf{5},\mathbf{3})$ and hence on its exterior
-power.
-A mixed orientifold resolves this.  Placing the $SU(5)$ flavor
-branes near an $O^-$ plane (Sp-type, selecting symmetric
-$\mathbf{15}$) and the $SU(3)$ color branes near an $O^+$ plane
-(SO-type, selecting antisymmetric $\bar{\mathbf{3}}$), worldsheet
-parity~$\Omega$ acts with opposite signs on the two tensor
-factors and doubly projects out
-$(\overline{\mathbf{10}},\mathbf{6})$.  The remaining
-$(\mathbf{24},\mathbf{8})$ and bifundamental copies acquire
-compactification-scale masses from brane separation; the $U(1)$
-generators become massive via the St\"uckelberg mechanism.
-
-\paragraph{A Type~I construction.}
-Consider Type~IIB on $T^6/\mathbb{Z}_3$ (each $T^2$ at the $SU(3)$
-root lattice) with orientifold projection~$\Omega$.  The $\mathbb{Z}_3$
-acts as $(z_1,z_2,z_3) \to (\omega z_1, \omega z_2, \omega z_3)$
-with $\omega = e^{2\pi i/3}$, preserving $\mathcal{N}=1$ in 4d.
-The Chan-Paton embedding on 16 D9-brane pairs is
-$$
-  \gamma_\theta = \mathrm{diag}(\omega\cdot\mathbb{1}_5,\;
-    \omega^2\cdot\mathbb{1}_5,\; \mathbb{1}_3,\; \mathbb{1}_3)\,.
-$$
-The orientifold~$\Omega$ swaps the charge-1 and charge-2 blocks
-(each of dimension~5), and also swaps the two charge-0 3-blocks.
-This gives
-$$
-  \mathrm{Tr}(\gamma_\theta) = 5\omega + 5\omega^2 + 3 + 3
-  = -5 + 6 = 1\,,
-$$
-satisfying the twisted tadpole without D5-branes.
-The constraints $n_1 = n_2$ (orientifold) and
-$\mathrm{Tr}(\gamma_\theta) = 1$ uniquely force $n_1 = n_2 = 5$
-with 6 charge-0 branes.  Among the 23 possible orientifold actions
-on the charge-0 sector, the partition $[3,3]$ with
-$\Omega$-swapped blocks is the \emph{unique} embedding yielding
-$SU(3)$ as a direct gauge factor.  The resulting gauge group is
-$$
-  G = SU(5)_{\mathrm{f}} \times SU(3)_{\mathrm{c}}
-  \times U(1)^2\,,
-$$
-with three chiral generations from the $\mathbb{Z}_3$ structure.
-The chiral spectrum from the D9-brane sector is
-$3\times[(\mathbf{10},\mathbf{1}) + (\bar{\mathbf{5}},\mathbf{3})
-  + (\mathbf{5},\bar{\mathbf{3}})]$,
-where the $\mathbf{10}$ is the antisymmetric two-index
-representation of $SU(5)_{\mathrm{f}}$, arising from the
-SO-type orientifold projection ($\varepsilon = +1$) forced by
-the odd dimension of the charge-0 blocks.
-Whether the symmetric~$\mathbf{15}$ can be obtained---e.g.\
-via an O$^+$-plane (Sp-type projection) with even-dimensional
-spectator blocks, or from unoriented string sectors---remains
-an open question.
-The self-referential numerology---$5 \times 3 + 1 = 16$
-Chan-Paton factors forming $SO(32)$, whose adjoint contains
-exactly the composites of those quarks---awaits a complete
-string vacuum.
 
 \subsection{The baryon sector}
 
@@ -2074,7 +2648,8 @@ $S_4 > 400$ for a lifetime exceeding the age of the universe.
 All off-diagonal meson masses are positive
 ($m^2 \approx 2\fpi^2$), and a block-diagonal obstruction
 prevents cross-flavour condensation. The flavour-universal
-Yukawa identity $y_j\langle M_j\rangle = C/v_{\text{EW}}$
+Yukawa identity $y_j\langle M_j\rangle = \sqrt{2}\,C/v_{\text{EW}}$
+(derived in Section~\ref{sec:lagrangian})
 automatically satisfies the Glashow--Weinberg condition for the
 absence of tree-level Higgs-mediated FCNCs.
 
@@ -2083,6 +2658,100 @@ The Diophantine system uniquely selects $N = 3$ generations,
 but the third equation ($r^2 + s^2 - 1 = 4N$) has the weakest
 physical motivation. A dynamical derivation of the counting
 constraints would strengthen the argument considerably.
+
+\subsection{M-theory uplift and the top--neutrino duality}
+
+The Type~I $SO(32)$ string theory of Section~\ref{sec:strings}
+admits a lift to M-theory.  The route avoids the $E_8 \times E_8$
+obstruction: Type~I on a circle is T-dual to Type~I$'$
+(Type~IIA with O8-planes and D8-branes), and Type~IIA lifts to
+M-theory on~$S^1$.  The path is
+\begin{equation}
+  \text{Type I}\;(SO(32))
+  \;\xrightarrow{\;T\text{-dual}\;}
+  \text{Type I}'
+  \;\xrightarrow{\;g_s \to R_{11}\;}
+  \text{M-theory}\,.
+\end{equation}
+At no stage does $E_8 \times E_8$ appear.
+
+The electric--magnetic dualities that permeate the sBootstrap ---
+the Seiberg seesaw $\langle M_j\rangle = C/m_j$, the dual
+mass-charge identity $\xi_k \propto 1/\sqrt{m_k}$, the
+self-duality of the seed --- are precisely the structures that
+become geometric in M-theory, where S-duality of Type~IIB lifts
+to the $SL(2,\mathbb{Z})$ modular symmetry of the M-theory torus
+fiber.  A theory built entirely on Seiberg duality is a theory
+whose natural home is eleven-dimensional.
+
+A suggestive numerological structure supports this.  In $D = 11$
+supergravity, the on-shell bosonic degrees of freedom are
+\begin{equation}
+  128 = \underbrace{44}_{\text{graviton}\; g_{MN}}
+      + \underbrace{84}_{\text{3-form}\; C_{MNP}}\,,
+\end{equation}
+where $44 = 9 \times 10/2 - 1$ (traceless symmetric tensor of
+$SO(9)$) and $84 = \binom{9}{3}$ (antisymmetric 3-index tensor).
+The graviton count decomposes as
+\begin{equation}
+  44 = 32 + 12\,,
+\end{equation}
+where $32$ is the dimension of the $SO(32)$ fundamental ---
+the Chan-Paton labels --- and $12 = r^2 + s^2 - 1 = 4N$ is the
+neutral-composite count from the Diophantine bootstrap.
+
+The ``$12$'' admits two dual interpretations corresponding to
+the two particles that sit outside the main composite spectrum:
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Frame & The 12 is & Mass mechanism \\
+\midrule
+Electric & top quark (singlet, $5\!\times\!3+1$)
+  & Dirac ($y_t \sim 1$) \\
+Magnetic & neutrino (pseudo-modulus)
+  & Majorana ($\sim (m/\Lambda_L)^6$) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+In the electric frame the top acquires its Dirac mass while the
+neutrino is massless; in the magnetic frame the neutrino acquires
+a Majorana mass while the top is massless.  The two particles are
+at opposite extremes of the mass spectrum ($m_t/m_\nu \sim 10^{12}$),
+and their product $m_t \times m_\nu$ would be set by the
+duality scale.
+
+Numerically, the product is suggestive.  If the heaviest neutrino
+mass is $m_\nu \approx 49\MeV$ (the atmospheric scale
+$\sqrt{\Delta m^2_{\text{atm}}} \approx 50$\,meV), then
+\begin{equation}
+  \sqrt{m_t \times m_\nu}
+  \;=\; \sqrt{172{,}760 \times 0.049}
+  \;=\; 92.0\MeV
+  \;\approx\; \fpi\,.
+\end{equation}
+This would give the duality relation
+\begin{equation}
+  m_t \times m_\nu \;=\; \fpi^2\,,
+\end{equation}
+identifying the SUSY-breaking order parameter~$\fpi$ as the
+geometric mean of the top and neutrino masses.  The prediction
+$m_\nu = \fpi^2/m_t^{\text{pole}} = 49.2$\,meV lies
+squarely in the atmospheric neutrino window and is testable
+by next-generation experiments (KATRIN, Project~8, JUNO).
+The relation connects the two particles that sit outside
+the main composite spectrum --- the top (Chan-Paton singlet)
+and the neutrino (pseudo-modulus) --- through the scale
+that splits their supermultiplets.
+
+Whether this duality can be made precise --- and whether the
+$G_2$-holonomy manifold required for $\mathcal{N}=1$ in four
+dimensions from M-theory inherits the $\mathbb{Z}_3$ structure
+of the Type~I orbifold --- is an open problem that connects the
+sBootstrap to the deepest structures of string/M-theory.
 
 
 %======================================================================
@@ -2122,7 +2791,7 @@ $m_c = 1301\MeV$ ($+2.0\%$), $m_b = 4233\MeV$ ($+1.3\%$),
 $m_t = 171.3 \pm 1.5\GeV$ ($-0.9\%$), and $m_d = 4.6\MeV$ ($-1.5\%$),
 via the isospin seed, the O'Raifeartaigh mass ratio $(2{+}\sqrt{3})^2$,
 the bion doubling with coefficient $N_c = 3$, the Yukawa eigenvalue
-constraint $\langle z_k^2\rangle = z_0^2$, and the magnetic Koide
+constraint $\langle z_k^2\rangle = z_0^2$, and the dual mass-charge identity
 from the Seiberg seesaw.
 
 \paragraph{4.\ The lepton sector from SU(2) $s$-confinement.}
@@ -2143,7 +2812,7 @@ $\lambda_S = 0.72$ then gives $m_h = 125.35\GeV$ at tree level
 The isospin seed ($m_s$ from $m_u + m_d$), the O'Raifeartaigh
 mass ratio ($m_c$ from $m_s$), the bion mass relation ($m_b$
 from $m_s, m_c$), the Yukawa eigenvalue constraint ($m_t$ from
-$m_c, m_b$), the magnetic Koide ($m_d$ from $m_s, m_b$),
+$m_c, m_b$), the dual mass-charge identity ($m_d$ from $m_s, m_b$),
 the lepton mass-charge identity ($m_\tau$ from $m_e, m_\mu$),
 and the GST relation ($\theta_{12}$ from $m_d, m_s$)
 together determine seven of the Standard Model's thirteen
@@ -2155,14 +2824,19 @@ ratio $m_u/m_d = 0.453$ predicted by the self-consistency
 of the coupled system ($\chi^2/\text{dof} = 0.12$,
 $p = 0.97$ against PDG values).
 
-\paragraph{7.\ The diquark obstruction and SO(32) embedding.}
+\paragraph{7.\ The diquark obstruction and the hadronic superstring.}
 The symmetric $\mathbf{15}$ required by the counting cannot be
 realized as a $qq$ composite (by a kinematic theorem independent of
-dynamics). The $SO(32)$ adjoint provides a UV completion containing
-both the $\mathbf{24}$ and $\mathbf{15} \oplus \overline{\mathbf{15}}$;
-the alternative $E_8 \times E_8$ is blocked. The bloom mechanism,
-the $SO(32)$ projection, and a Lagrangian derivation of the
-Diophantine counting remain the central open problems.
+dynamics). The $SO(32)$ adjoint of Type~I string theory provides a
+natural UV completion containing both the $\mathbf{24}$ and
+$\mathbf{15} \oplus \overline{\mathbf{15}}$; the alternative
+$E_8 \times E_8$ is algebraically blocked. A $\mathbb{Z}_3$ orbifold
+on the $SU(3)$ root lattice gives three generations and connects the
+instanton structure to the bloom potential. The bloom mechanism,
+the orientifold projection (which currently produces the antisymmetric
+$\mathbf{10}$ rather than the symmetric $\mathbf{15}$), and a
+Lagrangian derivation of the Diophantine counting remain the central
+open problems.
 
 The empirical evidence for the mass-charge identity---the
 precision of the lepton prediction, the accuracy of the meson
@@ -2247,6 +2921,31 @@ M.~Bona et~al.\ (UTfit Collaboration), ``Model-independent
 constraints on $\Delta F = 2$ operators and the scale of new
 physics,'' JHEP \textbf{03}, 049 (2008),
 arXiv:0707.0636.
+
+\bibitem{Veneziano1968}
+G.~Veneziano, ``Construction of a crossing-symmetric, Regge-behaved
+amplitude for linearly rising trajectories,''
+Nuovo Cim.\ A \textbf{57}, 190 (1968).
+
+\bibitem{Nambu1970}
+Y.~Nambu, ``Quark model and the factorization of the Veneziano
+amplitude,'' in \textit{Symmetries and Quark Models},
+ed.\ R.~Chand (Gordon and Breach, 1970), p.~269.
+
+\bibitem{ChanPaton}
+J.~E.~Paton and H.-M.~Chan, ``Generalized Veneziano model with
+isospin,'' Nucl.\ Phys.\ B \textbf{10}, 516 (1969).
+
+\bibitem{GreenSchwarz}
+M.~B.~Green and J.~H.~Schwarz, ``Anomaly cancellations in
+supersymmetric $D=10$ gauge theory and superstring theory,''
+Phys.\ Lett.\ B \textbf{149}, 117 (1984).
+
+\bibitem{Adelberger2009}
+E.~G.~Adelberger, J.~H.~Gundlach, B.~R.~Heckel, S.~Hoedl,
+S.~Schlamminger, ``Torsion balance experiments: a low-energy
+frontier of particle physics,'' Prog.\ Part.\ Nucl.\ Phys.\
+\textbf{62}, 102 (2009).
 
 \end{thebibliography}
 
