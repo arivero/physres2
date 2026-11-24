@@ -448,9 +448,8 @@ modulo $2\pi/3$).
 The lepton triple is unique: seed and full triple are nearly
 identical, because the electron mass is small enough to serve as
 the ``zero'' while being nonzero enough to make $Q$ extremely
-precise. The $(-s,c,b)$ triple has the worst deviation (1.24\%);
-this is expected because the bloom is a nonperturbative process
-that does not exactly preserve $Q$. The $v_0$-doubling constrains
+precise. The $(-s,c,b)$ triple has the largest deviation (1.24\%).
+This number measures the departure from the Koide cone. The $v_0$-doubling constrains
 $m_b$ independently (to 0.07\% via $\sqrt{m_b} = 3\sqrt{m_s} +
 \sqrt{m_c}$), so the 1.24\% Koide deviation is the residual after
 the more fundamental $v_0$-constraint is satisfied.
@@ -1830,13 +1829,11 @@ parameter $m$ are individually undetermined, but their ratio is fixed.
 This is the microscopic content of the energy-balance condition
 $\langle z_k^2\rangle = z_0^2$ applied to the seed.
 
-The $b$ quark and $B$ meson are
-always present as flavor degrees of freedom; the seed configuration
-$(0, s, c)$ means the $b$-direction sits at the flat direction before
-breaking. The bloom is not particle creation but mass generation:
-breaking lifts $\Phi_0$ from zero to $\zch_b \neq 0$, simultaneously
-flipping the sign of $\zch_s$, so that the same three flavors
-rearrange from $(0, s, c)$ into $(-s, c, b)$.
+The $b$ quark and $B$ meson are present as flavor degrees of freedom in
+the seed assignment. The proposed rearrangement from $(0,s,c)$ to
+$(-s,c,b)$ gives the $b$ direction a mass and flips the sign of
+$\zch_s$. Relating this flavor mass to a mass in the rigid model
+requires an operator identification.
 
 \paragraph{The bloom as a phase rotation.}
 In the Koide parametrization~\eqref{eq:koide_angle}, the seed sits at
@@ -1854,26 +1851,23 @@ The deformation $\delta W=\varepsilon\Phi_0\Phi_2$ explicitly
 breaks R symmetry and preserves rigid supersymmetry. With the canonical
 K\"ahler metric, stationarity gives $W_{ij}\overline{W_j}=0$. Thus
 at any stationary vacuum with a nonzero F-term the fermion mass matrix
-has a zero mode. The old seed background ceases to be stationary.
+has a zero mode. At the old seed $(\phi_0,\phi_1,\phi_2)=(v,0,0)$
+and for real parameters, the three components of
+$W_{ij}\overline{W_j}$ are
+$(\varepsilon^2 v,m\varepsilon v,\varepsilon f)$.
+For $\varepsilon f\ne0$ this background ceases to be stationary.
 For nonzero $f,m,g,\varepsilon$, the three F-equations admit
 $\Phi_1^2=-f/(3g)$, $\Phi_0=-m\Phi_1/\varepsilon$ and
 $\Phi_2=-2f/(3\varepsilon)$, giving two supersymmetric vacua.
 This perturbation consequently gives no criterion deciding between
 a smooth flavour-mass deformation and a nonperturbative bloom.
 
-A striking difference from standard O'Raifeartaigh: the 
-pseudo-modulus $\Phi_0$ normally acquires the \emph{smallest} mass 
-in the spectrum (a loop-suppressed Coleman--Weinberg mass, 
-parametrically $\sim g^2 f/16\pi^2 m$). In the sBootstrap bloom, 
-the $b$-direction acquires the \emph{largest} mass 
-($m_b \gg m_s$ and $m_b > m_c$). The bloom is far more dramatic than a 
-perturbative CW lifting---it is a nonperturbative, strong-dynamics 
-effect in which confinement generates a mass of order $\Lambda_{\text{QCD}}^2/m_q$, 
-not $g^2/(16\pi^2)$. Numerically, the one-loop CW mass for the
-pseudo-modulus at the Seiberg vacuum is $m_{\text{CW}} \approx 13\MeV$,
-more than two orders of magnitude below the physical $m_b = 4{,}180\MeV$.
-This inversion is a signature of the dynamical (SQCD) realization
-versus the perturbative (superpotential) one.
+The Coleman--Weinberg potential lifts the scalar pseudo-modulus.
+The quoted one-loop estimate at the Seiberg vacuum,
+$m_{\text{CW}}\approx13\MeV$, is more than two orders of magnitude
+below the physical $m_b=4{,}180\MeV$. A confinement contribution of
+order $\Lambda_{\text{QCD}}^2/m_q$ is one proposed source of a large
+flavor mass. The scalar estimate alone leaves its origin open.
 
 \paragraph{A candidate mechanism: fractional instantons.}
 On $\mathbb{R}^3 \times S^1$, SU($N_c$) instantons fractionalize into
@@ -2062,6 +2056,7 @@ numbers appropriate to the broken hadronic generator. The muon's
 charge is inherited from the pion multiplet it partners.
 
 \subsection{D-term breaking: electromagnetic splittings}
+\label{subsec:dterm}
 The unbroken $U(1)_{\text{em}}$ gauge symmetry allows a 
 Fayet--Iliopoulos (FI) term \cite{FayetIliopoulos}:
 \begin{equation}
@@ -2837,7 +2832,7 @@ chiral symmetry breaking.
 
 The two-doublet structure has a direct consequence for the Koide
 triples. Since the quark Koide triples obligatorily mix up-type
-and down-type quarks (\S\ref{subsec:cbt}), the translation from
+and down-type quarks (\S\ref{sec:cbt}), the translation from
 masses to Yukawa couplings depends on~$\tan\beta$.
 For the $(c,b,t)$ triple, with $c$ and $t$ receiving mass
 from $H_u$ and $b$ from~$H_d$:
@@ -3359,9 +3354,10 @@ The O'Raifeartaigh realization (\S\ref{subsec:fterm}) fixes the
 seed ratio $gv/m = \sqrt{3}$ but leaves $\delta$ undetermined---the
 phase controls how the seed blooms into a full triple. The bloom
 is a phase rotation $\delta: 3\pi/4 \to \delta_{\text{phys}}$ at
-fixed $v_0$, but explicit R-breaking perturbations push $Q$ away
-from $2/3$ at any nonzero strength, making the seed an unstable
-fixed point. The bloom must therefore be nonperturbative.
+fixed $v_0$. In the rigid model the Goldstino stays massless at a
+stationary supersymmetry-breaking vacuum. A smooth flavor spectrum
+can follow the phase rotation if its two heavy masses also vary.
+The seed ratio alone gives no equation for that response.
 
 The lepton phase satisfies $\delta_\ell \bmod 2\pi/3 = 2/9$ to
 $33\,\text{ppm}$ ($0.9\sigma$ in $m_\tau$; $3.1\sigma$ after
@@ -3651,6 +3647,7 @@ scheme, and no argument selects this scheme over $\overline{\text{MS}}$;
 tantalizingly close to $M_H = 125.25\GeV$ but with a spin mismatch.
 
 \subsection{The Higgs mass at $\tan\beta = 1$}
+\label{subsec:higgs_open}
 At $\tan\beta = 1$, the $D$-term quartic
 $(g^2+g'^2)(|H_u|^2 - |H_d|^2)^2/8$ vanishes on the
 $D$-flat direction $H_u = H_d$.  The tree-level lightest
@@ -3680,6 +3677,7 @@ NMSSM soft potential, leaving $\langle S\rangle$ as a free
 parameter of order the electroweak scale.
 
 \subsection{Vacuum stability, CKM mixing, and the Oakes relation}
+\label{subsec:ckm_open}
 
 For $N_f = N_c = 3$, the Seiberg description uses
 composites $M$, $B$, $\tilde B$ subject to the quantum-modified
@@ -4070,15 +4068,15 @@ candidate is a fundamental string-theoretic state from the
 $SO(32)$ adjoint.
 
 The organizing principle is that each sector of the spectrum begins
-with a massless member (a seed), which is the necessary condition
-for spontaneous SUSY breaking. The breaking lifts the zero,
-generates the full triple, and the energy-balance condition
+with a massless member (a seed). Spontaneously broken rigid SUSY
+requires a massless Goldstino. Generating a third nonzero flavor mass
+requires a separate mechanism. The energy-balance condition
 $\langle z_k^2\rangle = z_0^2$ constrains the initial conditions.
 The bloom from seed to full triple is a phase rotation
 $\delta: 3\pi/4 \to \delta_{\text{phys}}$ in the Koide
-parametrization, at fixed Koide scale $v_0$; its dynamical origin requires additional input.
-The bloom mechanism (preceding section) identifies the
-dynamical origin of $\delta$: the adiabatic bion potential is
+parametrization, at fixed Koide scale $v_0$.
+The preceding section proposes a dynamical origin for $\delta$.
+In that model the adiabatic bion potential is
 exactly flat on the Koide manifold, but with frozen topological signs
 it provides a restoring force opposing the bloom; the three-instanton
 potential $-\cos(9\delta)$ drives $\delta$ away from the seed, and their
