@@ -275,13 +275,24 @@ Throughout this paper, quark masses follow PDG conventions:
 $m_s(2\GeV) = 93.4\MeV$, $m_c(m_c) = 1.27\GeV$,
 $m_b(m_b) = 4.18\GeV$, $m_t = 172.76\GeV$ (pole mass). This is a
 mixed convention, with the light quark evaluated at 2~GeV and heavier
-quarks at their own scale. QCD mass ratios are RG invariants at
-leading order (the anomalous dimension $\gamma_m$ is flavor-universal),
-so $Q$ is scheme-independent. However, the seed ratio
-$\sqrt{m_s}/\sqrt{m_c}$ uses masses at \emph{different} scales:
-at a common $\overline{\text{MS}}$ scale the ratio shifts to
-$\sim 0.29$, worsening the seed match from 1.2\% to $\sim 8\%$.
-This is a significant limitation of the quark seed claim. The meson
+quarks at their own scale. QCD mass ratios at a common scale are RG
+invariants (in a mass-independent scheme the anomalous dimension and the
+light-quark decoupling are flavor-universal at every order), so $Q$
+evaluated at one common scale does not depend on which scale is chosen.
+However, the seed ratio $\sqrt{m_s}/\sqrt{m_c}$ uses masses at
+\emph{different} scales. At a common $\overline{\text{MS}}$ scale it is
+$0.282$ at one loop and $0.291$ at three loops (running calibrated
+against CRunDec, \texttt{calculations/check\_rg\_running\_qcd.py}), so
+the seed match worsens from 1.2\% to $5.3$--$8.7\%$. The same convention
+dependence affects the other cross-threshold relations: at a common scale
+the seed condition gives $m_c(m_c) = 1.41$--$1.51\GeV$ from $m_s(2\GeV)$,
+the $v_0$-doubling gives $m_b(m_b) = 3.27$--$3.58\GeV$, and the
+$(c,b,t)$ identity with $\overline{\text{MS}}$ masses gives
+$m_t(m_t) = 98$--$111\GeV$, while the dual identity on $(d,s,b)$ stays
+within $0.2\%$ of $2/3$ (inputs $m_c(m_c) = 1.275\GeV$,
+$m_t(m_t) = 162.5\GeV$; \texttt{calculations/rg\_running\_qcd.py}).
+This is a significant limitation of the quark seed claim and of the
+predictions built on it. The meson
 seed, which uses unambiguous physical (pole) masses, is free of this
 scheme issue and provides the cleaner test of the seed hypothesis.
 
@@ -767,9 +778,10 @@ $M_1$. Running all masses to a common $\overline{\text{MS}}$ scale
 would change the individual deviations in Table~\ref{tab:scaling_pred}
 but not the structural point: the $\times 3$ scaling produces a
 recognizable quark triple. As noted in \S\ref{subsec:exactseed},
-QCD mass \emph{ratios} are RG invariants at leading order, so the
-Koide condition itself is scheme-independent, but the comparison
-of absolute masses to PDG values carries an $O(\alpha_s)$ ambiguity.
+QCD mass \emph{ratios} at a common scale are RG invariants, so the
+Koide condition evaluated at one common scale does not depend on that
+scale, but the comparison of masses quoted at different reference
+scales to PDG values carries an $O(\alpha_s)$ ambiguity.
 
 \subsection{The second scaling fails}
 Iterating the scaling rule:
@@ -2694,14 +2706,16 @@ $\gamma_m$:
 \begin{equation}
 m_i(\mu) = m_i(\mu_0)\left(\frac{\alpha_s(\mu)}{\alpha_s(\mu_0)}\right)^{\gamma_m/\beta_0},
 \end{equation}
-so the ratio $m_s(\mu)/m_c(\mu)$---and therefore 
-$\sqrt{m_s}/\sqrt{m_c}$---is an RG invariant of QCD. Higher-order 
-corrections break this invariance, but only at the $O(\alpha_s^2)$ 
-level, far too small to account for 1.2\%.
+so the ratio $m_s(\mu)/m_c(\mu)$---and therefore
+$\sqrt{m_s}/\sqrt{m_c}$---is an RG invariant of QCD. In a
+mass-independent scheme this holds at every order, because the
+anomalous dimension is flavor-universal.
 
-The quark seed deviation is therefore \emph{intrinsic}: the 
-$\overline{\text{MS}}$ mass ratio $m_s/m_c$ is a fixed number 
-(at any QCD scale), and it misses the Koide target by 1.2\%. 
+The quark seed deviation is therefore \emph{intrinsic}: the
+$\overline{\text{MS}}$ ratio at any common scale is
+$\sqrt{m_s/m_c} = 0.282$--$0.291$ (one to three loops), $5.3$--$8.7\%$
+above $2-\sqrt3$. The $1.2\%$ in the table compares $m_s(2\GeV)$ with
+$m_c(m_c)$, two different scales. 
 Three possible explanations present themselves:
 
 \paragraph{Electroweak running.} Above the electroweak scale, 

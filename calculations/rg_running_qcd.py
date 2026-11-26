@@ -1,434 +1,413 @@
 #!/usr/bin/env python3
 """
-QCD RG running of quark masses: verify that the mass-charge ratio
-Q = sum(m_k) / (sum(sqrt(m_k)))^2 is exactly preserved under pure QCD.
+QCD running of MS-bar quark masses and the common-scale flavour table.
 
-Under one-loop QCD, m_i(mu) = m_i(mu0) * [alpha_s(mu)/alpha_s(mu0)]^gamma_m,
-with gamma_m = 12/(33-2*Nf) universal (flavor-independent).
+Language: Python 3 (numpy, scipy).
 
-This script:
-1. Runs all 6 quark masses from their PDG scales to a common scale mu
-2. Computes Q for each mass triple at every scale
-3. Shows Q is EXACTLY preserved (to machine precision) under pure QCD
-4. Shows Q CHANGES when electroweak corrections (different gamma for u/d) are included
+Library part (importable; used by check_rg_running_qcd.py):
+  * alpha_s_1loop          fixed-n_f one-loop coupling (corrected: one factor of pi)
+  * alpha_s_fixed_nf       fixed-n_f coupling at 1, 2 or 3 loops
+  * mass_factor_fixed_nf   m(mu1)/m(mu0) at fixed n_f, RunDec c-function
+  * alpha_s_at             coupling at any scale with segment-by-segment n_f
+  * run_mass               MS-bar mass between any two scales, same path
+  * active_nf              threshold convention
+
+Conventions (all stated once here):
+  * a = alpha_s/pi; d a / d ln mu^2 = -sum_i beta_i a^(i+2);
+    d ln m / d ln mu^2 = -sum_i gamma_i a^(i+1)  (RunDec normalisation,
+    Chetyrkin-Kuhn-Steinhauser, hep-ph/0004189; Herren-Steinhauser,
+    arXiv:1703.03751).
+  * L-loop running uses beta_0..beta_{L-1}, gamma_0..gamma_{L-1}; the mass
+    factor is c(a1)/c(a0) with c expanded to order a^(L-1) (RunDec eq. 10),
+    exactly as CRunDec's mMS2mMS.
+  * Matching: at mu_h = m_h(m_h) (MS-bar heavy mass) with L-loop decoupling,
+    i.e. terms through a^(L-1): alpha^(nl) = alpha^(nl+1) (1 + 11/72 a^2),
+    m^(nl) = m^(nl+1) (1 + 89/432 a^2). At one loop both are continuous.
+  * Active flavours: n_f(mu) counts the heavy flavours with mu_h <= mu, so a
+    point exactly at a threshold belongs to the theory in which that quark is
+    active (m_c(m_c) is a 4-flavour, m_b(m_b) a 5-flavour, m_t(m_t) a
+    6-flavour quantity). Any call can override n_f at either endpoint.
+  * Decoupled heavy flavour (a heavy quark's mass below its own threshold):
+    'eft'  - the mass parameter is run segment by segment in the active
+             theory, with the same matching as a light mass (default);
+    'full' - the mass is run in the theory where the quark is active, with
+             the coupling of that theory continued below threshold.
+    Both are prescriptions; their difference is quoted as a convention
+    uncertainty.
+
+Report part (python3 calculations/rg_running_qcd.py): the flavour table at
+the published reference scales and at a common scale, before/after the
+one-loop fix, at 1/2/3 loops, both prescriptions, with uncertainties.
 """
 
 import numpy as np
+from scipy.integrate import solve_ivp
 
-# PDG 2024 MSbar masses at conventional scales
-# Light quarks at mu = 2 GeV, heavy quarks at mu = m_q
-masses_pdg = {
-    'u': (2.16, 2.0),     # (mass MeV, scale GeV)
-    'd': (4.67, 2.0),
-    's': (93.4, 2.0),
-    'c': (1275.0, 1.275),
-    'b': (4180.0, 4.18),
-    't': (162500.0, 162.5),  # MSbar at m_t
+ZETA3 = 1.2020569031595942
+
+# Reference coupling: PDG-style MS-bar alpha_s^(5)(M_Z)
+MZ = 91.1876          # GeV
+ALPHA_S_MZ = 0.1179
+ALPHA_S_MZ_ERR = 0.0009
+
+# Matching scales mu_h = m_h(m_h) (GeV), keyed by n_f above the threshold
+THRESHOLDS = {4: 1.275, 5: 4.18, 6: 162.5}
+
+# PDG MS-bar inputs at published reference scales: (mass MeV, scale GeV,
+# minus error MeV, plus error MeV). Light quarks at 2 GeV, heavy at m_q(m_q).
+MASSES_PDG = {
+    'u': (2.16, 2.0, 0.26, 0.49),
+    'd': (4.67, 2.0, 0.17, 0.48),
+    's': (93.4, 2.0, 3.4, 8.6),
+    'c': (1275.0, 1.275, 25.0, 25.0),
+    'b': (4180.0, 4.18, 20.0, 30.0),
+    't': (162500.0, 162.5, 1500.0, 2100.0),
 }
+OWN_NF = {'u': 3, 'd': 3, 's': 3, 'c': 4, 'b': 5, 't': 6}
 
-# One-loop QCD beta function: alpha_s running
-# d(alpha_s)/d(ln mu^2) = -b0 * alpha_s^2 / (2*pi)
-# b0 = (33 - 2*Nf) / (12*pi)
-# Solution: 1/alpha_s(mu) = 1/alpha_s(mu0) + b0/(2*pi) * ln(mu^2/mu0^2)
 
-def alpha_s_1loop(mu, mu0, alpha0, Nf):
-    """One-loop running of alpha_s from mu0 to mu with Nf active flavors."""
-    b0 = (33 - 2*Nf) / (12 * np.pi)
+# ----------------------------------------------------------------------
+# Coefficients
+# ----------------------------------------------------------------------
+def beta_coeffs(nf):
+    return (
+        (11.0 - 2.0 * nf / 3.0) / 4.0,
+        (102.0 - 38.0 * nf / 3.0) / 16.0,
+        (2857.0 / 2.0 - 5033.0 * nf / 18.0 + 325.0 * nf**2 / 54.0) / 64.0,
+    )
+
+
+def gamma_coeffs(nf):
+    return (
+        1.0,
+        (202.0 / 3.0 - 20.0 * nf / 9.0) / 16.0,
+        (1249.0 + (-2216.0 / 27.0 - 160.0 * ZETA3 / 3.0) * nf
+         - 140.0 * nf**2 / 81.0) / 64.0,
+    )
+
+
+def gamma_m(nf):
+    """One-loop exponent gamma_0/beta_0 = 12/(33 - 2 n_f) of alpha_s."""
+    return 12.0 / (33 - 2 * nf)
+
+
+def active_nf(mu):
+    """Active flavours at mu (GeV); a point exactly at mu_h has the quark active."""
+    nf = 3
+    for n in (4, 5, 6):
+        if mu >= THRESHOLDS[n]:
+            nf = n
+    return nf
+
+
+# ----------------------------------------------------------------------
+# Fixed-n_f running
+# ----------------------------------------------------------------------
+def alpha_s_1loop(mu, mu0, alpha0, nf):
+    """One-loop alpha_s at fixed n_f:
+    1/alpha(mu) = 1/alpha0 + b0 ln(mu^2/mu0^2),  b0 = (33 - 2 n_f)/(12 pi).
+    (The pre-2026-11 version divided b0 by pi a second time.)"""
+    b0 = (33 - 2 * nf) / (12 * np.pi)
+    return alpha0 / (1 + alpha0 * b0 * np.log(mu**2 / mu0**2))
+
+
+def alpha_s_1loop_old(mu, mu0, alpha0, nf):
+    """The former implementation, kept only to document the error."""
+    b0 = (33 - 2 * nf) / (12 * np.pi)
     return alpha0 / (1 + alpha0 * b0 * np.log(mu**2 / mu0**2) / np.pi)
 
-# QCD anomalous dimension for quark mass
-def gamma_m(Nf):
-    """One-loop quark mass anomalous dimension gamma_m = 4/(b0_coeff)
-    m(mu) = m(mu0) * (alpha_s(mu)/alpha_s(mu0))^(gamma_m)
-    gamma_m = 12/(33-2Nf)  [from gamma_m = 4/b0, b0 = (33-2Nf)/3]
-    """
-    return 12.0 / (33 - 2*Nf)
 
-def run_mass_qcd(m0, mu0, mu, alpha0_at_mu0, Nf):
-    """Run quark mass from scale mu0 to scale mu using 1-loop QCD."""
-    alpha0 = alpha0_at_mu0
-    alpha_mu = alpha_s_1loop(mu, mu0, alpha0, Nf)
-    gm = gamma_m(Nf)
-    return m0 * (alpha_mu / alpha0) ** gm
+def alpha_s_fixed_nf(alpha0, mu0, mu1, nf, loops=1):
+    """alpha_s^(nf)(mu1) from alpha_s^(nf)(mu0); exact solution of the
+    truncated RGE (analytic at one loop, numerical otherwise)."""
+    if mu0 == mu1:
+        return alpha0
+    if loops == 1:
+        return alpha_s_1loop(mu1, mu0, alpha0, nf)
+    b = beta_coeffs(nf)[:loops]
 
-def mass_charge_ratio(masses):
-    """Compute Q = sum(m_k) / (sum(sqrt(m_k)))^2 for a triple."""
-    m = np.array(masses)
-    return np.sum(m) / np.sum(np.sqrt(m))**2
+    def rhs(_, y):
+        a = y[0]
+        return [-sum(bi * a**(i + 2) for i, bi in enumerate(b))]
 
-# Reference alpha_s values
-alpha_s_MZ = 0.1179  # at M_Z = 91.1876 GeV
-MZ = 91.1876  # GeV
+    sol = solve_ivp(rhs, (0.0, np.log(mu1**2 / mu0**2)), [alpha0 / np.pi],
+                    method='DOP853', rtol=1e-13, atol=1e-16)
+    return sol.y[0, -1] * np.pi
 
-print("=" * 75)
-print("QCD RG INVARIANCE OF THE MASS-CHARGE RATIO")
-print("=" * 75)
 
-# ============================================================
-# Part 1: Analytic proof — the ratio is exactly scale-independent
-# ============================================================
-print("\n--- Part 1: Analytic argument ---")
-print("Under pure QCD, m_i(mu) = m_i(mu0) * c(mu)^(gamma_m)")
-print("where c(mu) = alpha_s(mu)/alpha_s(mu0) is FLAVOR-INDEPENDENT.")
-print()
-print("Q = sum(c^gamma * m_i) / (sum(sqrt(c^gamma * m_i)))^2")
-print("  = c^gamma * sum(m_i) / (c^(gamma/2) * sum(sqrt(m_i)))^2")
-print("  = c^gamma * sum(m_i) / (c^gamma * (sum(sqrt(m_i)))^2)")
-print("  = sum(m_i) / (sum(sqrt(m_i)))^2")
-print()
-print("The common factor c^gamma cancels EXACTLY. QED.")
+def c_function(alpha, nf, loops=1):
+    """RunDec c-function truncated at order a^(loops-1)."""
+    a = alpha / np.pi
+    b, g = beta_coeffs(nf), gamma_coeffs(nf)
+    B1, B2 = b[1] / b[0], b[2] / b[0]
+    C0, C1, C2 = g[0] / b[0], g[1] / b[0], g[2] / b[0]
+    terms = [1.0,
+             (C1 - B1 * C0) * a,
+             0.5 * ((C1 - B1 * C0)**2 + C2 - B1 * C1 + B1**2 * C0 - B2 * C0) * a**2]
+    return a**C0 * sum(terms[:loops])
 
-# ============================================================
-# Part 2: Numerical verification — run masses to common scale
-# ============================================================
-print("\n--- Part 2: Numerical verification ---")
 
-# Run alpha_s from M_Z down to various scales using appropriate Nf thresholds
-def alpha_s_at_scale(mu_GeV):
-    """Get alpha_s at arbitrary scale mu, with proper threshold matching."""
-    # Start from M_Z with Nf=5
-    alpha = alpha_s_MZ
-    mu_ref = MZ
+def mass_factor_fixed_nf(alpha0, alpha1, nf, loops=1):
+    """m(mu1)/m(mu0) at fixed n_f given alpha_s at both scales."""
+    return c_function(alpha1, nf, loops) / c_function(alpha0, nf, loops)
 
-    thresholds = [
-        (4.18, 5, 4),    # below m_b: Nf goes from 5 to 4
-        (1.275, 4, 3),   # below m_c: Nf goes from 4 to 3
-    ]
 
-    if mu_GeV >= MZ:
-        # Run up: check if we cross m_t threshold
-        if mu_GeV > 162.5:
-            alpha = alpha_s_1loop(162.5, mu_ref, alpha, 5)
-            mu_ref = 162.5
-            alpha = alpha_s_1loop(mu_GeV, mu_ref, alpha, 6)
-        else:
-            alpha = alpha_s_1loop(mu_GeV, mu_ref, alpha, 5)
+# ----------------------------------------------------------------------
+# Decoupling at mu_h = m_h(m_h)
+# ----------------------------------------------------------------------
+def dec_alpha(alpha, down, loops):
+    """alpha^(nl) <-> alpha^(nl+1) at mu = m_h(m_h); terms through a^(loops-1)."""
+    if loops < 3:
         return alpha
+    a = alpha / np.pi
+    return alpha * (1 + 11.0 / 72.0 * a**2) if down else alpha * (1 - 11.0 / 72.0 * a**2)
 
-    # Run down through thresholds
-    for thresh, nf_above, nf_below in thresholds:
-        if mu_GeV >= thresh:
-            alpha = alpha_s_1loop(mu_GeV, mu_ref, alpha, nf_above)
-            return alpha
+
+def dec_mass(m, alpha, down, loops):
+    """m^(nl) <-> m^(nl+1) at mu = m_h(m_h); alpha in the theory being left."""
+    if loops < 3:
+        return m
+    a = alpha / np.pi
+    return m * (1 + 89.0 / 432.0 * a**2) if down else m * (1 - 89.0 / 432.0 * a**2)
+
+
+# ----------------------------------------------------------------------
+# Segment-by-segment running
+# ----------------------------------------------------------------------
+def _path(mu0, nf0, mu1, nf1):
+    """Segments [(mu_start, mu_end, nf)] and crossings between them."""
+    segs, mu, nf = [], mu0, nf0
+    while nf != nf1:
+        if nf1 > nf:
+            mth = THRESHOLDS[nf + 1]
+            segs.append((mu, mth, nf, +1))
+            nf += 1
         else:
-            alpha = alpha_s_1loop(thresh, mu_ref, alpha, nf_above)
-            mu_ref = thresh
+            mth = THRESHOLDS[nf]
+            segs.append((mu, mth, nf, -1))
+            nf -= 1
+        mu = mth
+    segs.append((mu, mu1, nf, 0))
+    return segs
 
-    # Below m_c
-    alpha = alpha_s_1loop(mu_GeV, mu_ref, alpha, 3)
+
+def alpha_s_path(alpha0, mu0, nf0, mu1, nf1, loops=1):
+    """alpha_s^(nf1)(mu1) from alpha_s^(nf0)(mu0) through the active theories."""
+    alpha = alpha0
+    for start, end, nf, step in _path(mu0, nf0, mu1, nf1):
+        alpha = alpha_s_fixed_nf(alpha, start, end, nf, loops)
+        if step:
+            alpha = dec_alpha(alpha, down=(step < 0), loops=loops)
     return alpha
 
-def run_all_masses_to_scale(mu_target_GeV):
-    """Run all 6 quark masses to a common scale mu_target using pure QCD."""
-    result = {}
 
-    for name, (m0_MeV, mu0_GeV) in masses_pdg.items():
-        # Determine Nf at the starting scale
-        if mu0_GeV >= 162.5:
-            nf_start = 6
-        elif mu0_GeV >= 4.18:
-            nf_start = 5
-        elif mu0_GeV >= 1.275:
-            nf_start = 4
-        else:
-            nf_start = 3
+def alpha_s_at(mu, nf=None, loops=1, alpha_mz=ALPHA_S_MZ):
+    """alpha_s^(nf)(mu) from alpha_s^(5)(M_Z); nf defaults to active_nf(mu)."""
+    nf = active_nf(mu) if nf is None else nf
+    return alpha_s_path(alpha_mz, MZ, 5, mu, nf, loops)
 
-        alpha_start = alpha_s_at_scale(mu0_GeV)
 
-        # Simple running: use appropriate Nf for the target scale
-        if mu_target_GeV >= 162.5:
-            nf_target = 6
-        elif mu_target_GeV >= 4.18:
-            nf_target = 5
-        elif mu_target_GeV >= 1.275:
-            nf_target = 4
-        else:
-            nf_target = 3
+def run_mass(m0, mu0, mu1, nf0=None, nf1=None, loops=1, alpha_mz=ALPHA_S_MZ):
+    """MS-bar mass m^(nf1)(mu1) from m^(nf0)(mu0), segment by segment,
+    with alpha_s obtained from alpha_s^(5)(M_Z) along the same rules."""
+    nf0 = active_nf(mu0) if nf0 is None else nf0
+    nf1 = active_nf(mu1) if nf1 is None else nf1
+    alpha = alpha_s_at(mu0, nf0, loops, alpha_mz)
+    return run_mass_path(m0, alpha, mu0, nf0, mu1, nf1, loops)
 
-        # For pure QCD: gamma_m is universal at fixed Nf
-        # The key point: even if we naively use different Nf regions,
-        # mass RATIOS are preserved because both masses see the same running
-        alpha_target = alpha_s_at_scale(mu_target_GeV)
 
-        # Run from starting scale to target
-        # Use the running factor for the appropriate Nf
-        gm = gamma_m(nf_target)
-        ratio = (alpha_target / alpha_start) ** gm
-
-        result[name] = m0_MeV * ratio
-
-    return result
-
-# But the CORRECT way to show the invariance is simpler:
-# At any fixed scale, ALL masses scale by the SAME factor.
-# So let's just demonstrate that.
-
-print("\nKey insight: Under pure QCD, ALL masses scale by the same factor c^gamma.")
-print("Mass ratios are EXACTLY preserved, hence Q is EXACTLY preserved.")
-print()
-
-# The triples to check
-triples = {
-    'lepton-analogue (-s,c,b)': ('s', 'c', 'b'),
-    'heavy (c,b,t)':            ('c', 'b', 't'),
-    'isospin (0, u+d, s)':      None,  # special case
-}
-
-# Compute Q at PDG scales (each quark at its own scale)
-print("Q at PDG conventional scales (each quark at its own MSbar scale):")
-m = {k: v[0] for k, v in masses_pdg.items()}
-
-Q_scb = mass_charge_ratio([-m['s'], m['c'], m['b']])  # signed sqrt for -s
-# For (-s,c,b): z_k = (-sqrt(m_s), sqrt(m_c), sqrt(m_b))
-ms, mc, mb, mt = m['s'], m['c'], m['b'], m['t']
-mu_q, md = m['u'], m['d']
-
-# Q for (-s,c,b) with signed charges
-def Q_signed(m1, m2, m3, signs=(1,1,1)):
-    """Q with signed sqrt: z_k = sign_k * sqrt(m_k)"""
-    z = [s * np.sqrt(mi) for s, mi in zip(signs, [m1, m2, m3])]
-    z0 = sum(z) / 3
-    var_z = sum((zk - z0)**2 for zk in z) / 3
-    return var_z / z0**2 if z0 != 0 else float('inf')
-
-# Standard Q (all positive)
-def Q_pos(m1, m2, m3):
-    return (m1 + m2 + m3) / (np.sqrt(m1) + np.sqrt(m2) + np.sqrt(m3))**2
-
-# (-s,c,b): signed
-Q1 = Q_signed(ms, mc, mb, signs=(-1, 1, 1))
-# (c,b,t): all positive
-Q2 = Q_pos(mc, mb, mt)
-# Isospin: (0, m_u+m_d, m_s)
-Q3 = Q_pos(0, mu_q + md, ms)
-# Leptons: (e, mu, tau) — for reference, not QCD-affected
-me, mmu, mtau = 0.511, 105.658, 1776.86
-Q_lep = Q_pos(me, mmu, mtau)
-
-print(f"  Q(-s,c,b)   = {Q1:.6f}   (deviation from 2/3: {abs(Q1 - 2/3)/(2/3)*100:.2f}%)")
-print(f"  Q(c,b,t)    = {Q2:.6f}   (deviation from 2/3: {abs(Q2 - 2/3)/(2/3)*100:.2f}%)")
-print(f"  Q(0,u+d,s)  = {Q3:.6f}   (deviation from 2/3: {abs(Q3 - 2/3)/(2/3)*100:.2f}%)")
-print(f"  Q(e,mu,tau) = {Q_lep:.6f}   (deviation from 2/3: {abs(Q_lep - 2/3)/(2/3)*100:.3f}%)")
-
-# ============================================================
-# Part 3: Run ALL quarks to a common scale and show Q changes
-# ============================================================
-print("\n--- Part 3: Running to common scale mu = 2 GeV ---")
-print("(All quarks run to the SAME scale using QCD with proper thresholds)")
-
-# Run each mass to mu = 2 GeV
-# This is where the paper says Q degrades. WHY?
-# Because different quarks start at DIFFERENT Nf regimes!
-# m_s starts at 2 GeV with Nf=3 → running to 2 GeV: factor 1
-# m_c starts at 1.275 GeV with Nf=4 → running to 2 GeV crosses threshold
-# m_b starts at 4.18 GeV with Nf=5 → running down to 2 GeV crosses two thresholds
-# m_t starts at 162.5 GeV with Nf=6 → running down crosses three thresholds
-
-# The CORRECT statement: if all masses are at the SAME initial scale with
-# the SAME Nf, pure QCD running preserves Q exactly.
-# The degradation comes from THRESHOLD MATCHING at quark mass boundaries,
-# where Nf changes — this is a discrete effect, not continuous running.
-
-print("\nBut wait — this requires careful thinking about what 'QCD running' means.")
-print()
-
-# Let's do it properly: run each mass with proper threshold matching
-def run_mass_with_thresholds(m0_MeV, mu0_GeV, mu_target_GeV):
-    """Run a single quark mass from mu0 to mu_target with threshold matching."""
-    # Thresholds (GeV) with Nf above and below
-    thresholds_up = [(1.275, 3, 4), (4.18, 4, 5), (162.5, 5, 6)]
-    thresholds_down = [(162.5, 6, 5), (4.18, 5, 4), (1.275, 4, 3)]
-
-    m = m0_MeV
-    mu = mu0_GeV
-
-    if mu_target_GeV > mu:  # running up
-        for thresh, nf_below, nf_above in thresholds_up:
-            if mu < thresh <= mu_target_GeV:
-                alpha_mu = alpha_s_at_scale(mu)
-                alpha_thresh = alpha_s_at_scale(thresh - 1e-6)
-                gm = gamma_m(nf_below + 1)  # Nf below threshold
-                m = m * (alpha_thresh / alpha_mu) ** gm
-                mu = thresh
-            elif mu < thresh:
-                break
-        # Final stretch
-        alpha_mu = alpha_s_at_scale(mu)
-        alpha_target = alpha_s_at_scale(mu_target_GeV)
-        # Determine Nf at target
-        if mu_target_GeV >= 162.5: nf = 6
-        elif mu_target_GeV >= 4.18: nf = 5
-        elif mu_target_GeV >= 1.275: nf = 4
-        else: nf = 3
-        gm = gamma_m(nf)
-        m = m * (alpha_target / alpha_mu) ** gm
-    else:  # running down
-        for thresh, nf_above, nf_below in thresholds_down:
-            if mu > thresh >= mu_target_GeV:
-                alpha_mu = alpha_s_at_scale(mu)
-                alpha_thresh = alpha_s_at_scale(thresh + 1e-6)
-                gm = gamma_m(nf_above)
-                m = m * (alpha_thresh / alpha_mu) ** gm
-                mu = thresh
-            elif mu > thresh:
-                continue
-        # Final stretch
-        alpha_mu = alpha_s_at_scale(mu)
-        alpha_target = alpha_s_at_scale(mu_target_GeV)
-        if mu_target_GeV >= 162.5: nf = 6
-        elif mu_target_GeV >= 4.18: nf = 5
-        elif mu_target_GeV >= 1.275: nf = 4
-        else: nf = 3
-        gm = gamma_m(nf)
-        m = m * (alpha_target / alpha_mu) ** gm
-
+def run_mass_path(m0, alpha0, mu0, nf0, mu1, nf1, loops=1):
+    """m^(nf1)(mu1) from m^(nf0)(mu0) given alpha_s^(nf0)(mu0)."""
+    alpha, m = alpha0, m0
+    for start, end, nf, step in _path(mu0, nf0, mu1, nf1):
+        a_end = alpha_s_fixed_nf(alpha, start, end, nf, loops)
+        m *= mass_factor_fixed_nf(alpha, a_end, nf, loops)
+        alpha = a_end
+        if step:
+            m = dec_mass(m, alpha, down=(step < 0), loops=loops)
+            alpha = dec_alpha(alpha, down=(step < 0), loops=loops)
     return m
 
-# Simple approach: the EXACT statement is that within a FIXED Nf regime,
-# Q is exactly preserved because gamma_m is universal.
-# Let's demonstrate this cleanly.
 
-print("=== CLEAN DEMONSTRATION ===")
-print()
-print("Within a fixed Nf regime, all masses scale by the SAME factor.")
-print("Therefore Q is EXACTLY preserved.")
-print()
+def run_quark(name, mu1, loops=1, prescription='eft', alpha_mz=ALPHA_S_MZ, m0=None):
+    """Mass of quark `name` at mu1 starting from its PDG reference point."""
+    mref, muref = MASSES_PDG[name][:2]
+    m0 = mref if m0 is None else m0
+    nf0 = active_nf(muref)
+    if prescription == 'full' and mu1 < THRESHOLDS.get(OWN_NF[name], 0.0):
+        # stay in the theory where the quark is active
+        return run_mass(m0, muref, mu1, nf0, OWN_NF[name], loops, alpha_mz)
+    return run_mass(m0, muref, mu1, nf0, None, loops, alpha_mz)
 
-# Take 3 arbitrary masses and scale them all by the same factor
-test_masses = [93.4, 1275.0, 4180.0]  # s, c, b in MeV
-Q_original = Q_pos(*test_masses)
 
-print(f"Original masses: {test_masses}")
-print(f"Q = {Q_original:.15f}")
-print()
+# ----------------------------------------------------------------------
+# Former (pre-fix) common-target helper, kept to document 'before' numbers
+# ----------------------------------------------------------------------
+def _alpha_old(mu):
+    alpha, mu_ref = ALPHA_S_MZ, MZ
+    if mu >= MZ:
+        if mu > 162.5:
+            return alpha_s_1loop_old(mu, 162.5, alpha_s_1loop_old(162.5, MZ, alpha, 5), 6)
+        return alpha_s_1loop_old(mu, MZ, alpha, 5)
+    for th, nfa in ((4.18, 5), (1.275, 4)):
+        if mu >= th:
+            return alpha_s_1loop_old(mu, mu_ref, alpha, nfa)
+        alpha, mu_ref = alpha_s_1loop_old(th, mu_ref, alpha, nfa), th
+    return alpha_s_1loop_old(mu, mu_ref, alpha, 3)
 
-# Scale all by various factors (simulating QCD running at fixed Nf)
-for c_factor in [0.5, 0.8, 1.0, 1.2, 2.0, 5.0, 0.01, 100.0]:
-    scaled = [m * c_factor for m in test_masses]
-    Q_scaled = Q_pos(*scaled)
-    print(f"  Scale factor c = {c_factor:8.3f}:  Q = {Q_scaled:.15f}  "
-          f"delta = {abs(Q_scaled - Q_original):.2e}")
 
-print()
-print("Q is preserved to machine precision for ANY overall scale factor.")
-print("This is the content of the QCD-RG invariance theorem:")
-print("since gamma_m is universal, all masses get the same c^gamma factor,")
-print("which cancels in the ratio Q = sum(m)/sum(sqrt(m))^2.")
+def run_mass_old(m0, mu0, mu1):
+    """The former run_mass_with_thresholds (extra pi, n_f+1 below crossings)."""
+    m, mu = m0, mu0
+    nf_of = lambda x: 6 if x >= 162.5 else 5 if x >= 4.18 else 4 if x >= 1.275 else 3
+    if mu1 > mu:
+        for th, nfb, _ in [(1.275, 3, 4), (4.18, 4, 5), (162.5, 5, 6)]:
+            if mu < th <= mu1:
+                m *= (_alpha_old(th - 1e-6) / _alpha_old(mu)) ** gamma_m(nfb + 1)
+                mu = th
+            elif mu < th:
+                break
+    else:
+        for th, nfa, _ in [(162.5, 6, 5), (4.18, 5, 4), (1.275, 4, 3)]:
+            if mu > th >= mu1:
+                m *= (_alpha_old(th + 1e-6) / _alpha_old(mu)) ** gamma_m(nfa)
+                mu = th
+    return m * (_alpha_old(mu1) / _alpha_old(mu)) ** gamma_m(nf_of(mu1))
 
-# ============================================================
-# Part 4: Why does running to common scale DEGRADE Q?
-# ============================================================
-print()
-print("=" * 75)
-print("WHY RUNNING TO A COMMON SCALE DEGRADES Q")
-print("=" * 75)
-print()
-print("The PDG convention evaluates each quark at its OWN scale:")
-print("  m_s at mu=2 GeV, m_c at mu=m_c, m_b at mu=m_b, m_t at mu=m_t")
-print()
-print("Running all to mu=2 GeV crosses flavor THRESHOLDS where Nf changes.")
-print("At each threshold, the anomalous dimension gamma_m changes discretely.")
-print("This means different quarks see DIFFERENT total running factors,")
-print("breaking the universality that preserves Q.")
-print()
 
-# Demonstrate by running masses to mu=2 GeV with proper thresholds
-mu_target = 2.0  # GeV
-print(f"Running to common scale mu = {mu_target} GeV:")
-print()
+# ----------------------------------------------------------------------
+# Flavour observables
+# ----------------------------------------------------------------------
+def koide_Q(masses, signs=(1, 1, 1)):
+    """Q = sum m / (sum s_k sqrt m_k)^2; Q = 2/3 on the Koide surface."""
+    m = np.asarray(masses, dtype=float)
+    return m.sum() / np.dot(signs, np.sqrt(m))**2
 
-# For each quark, compute the effective overall scaling factor
-for name, (m0, mu0) in masses_pdg.items():
-    m_run = run_mass_with_thresholds(m0, mu0, mu_target)
-    factor = m_run / m0
-    print(f"  {name}: m({mu0} GeV) = {m0:.1f} MeV  →  m({mu_target} GeV) = {m_run:.1f} MeV"
-          f"  (factor = {factor:.4f})")
 
-print()
-print("Note: the running factors differ because each quark passes through")
-print("different numbers of Nf thresholds. This is the source of Q degradation.")
+def koide_dev(masses, signs=(1, 1, 1)):
+    """delta = <z^2>/(2 z0^2) - 1 = (3/2) Q - 1, in percent."""
+    return 100.0 * (1.5 * koide_Q(masses, signs) - 1.0)
 
-# Actually compute Q at mu=2 GeV
-ms_2 = run_mass_with_thresholds(93.4, 2.0, 2.0)   # already there
-mc_2 = run_mass_with_thresholds(1275.0, 1.275, 2.0)
-mb_2 = run_mass_with_thresholds(4180.0, 4.18, 2.0)
-mt_2 = run_mass_with_thresholds(162500.0, 162.5, 2.0)
 
-Q_scb_2 = Q_signed(ms_2, mc_2, mb_2, signs=(-1, 1, 1))
-Q_cbt_2 = Q_pos(mc_2, mb_2, mt_2)
+TRIPLES = {
+    '(-s,c,b)': (('s', 'c', 'b'), (-1, 1, 1)),
+    '(c,b,t)': (('c', 'b', 't'), (1, 1, 1)),
+    '(0,u+d,s)': None,
+}
 
-print()
-print("Q at conventional PDG scales vs Q at common mu=2 GeV:")
-print(f"  Q(-s,c,b) at PDG:    {Q1:.4f}  (dev from 2/3: {abs(Q1-2/3)/(2/3)*100:.2f}%)")
-print(f"  Q(-s,c,b) at 2 GeV:  {Q_scb_2:.4f}  (dev from 2/3: {abs(Q_scb_2-2/3)/(2/3)*100:.2f}%)")
-print()
-print(f"  Q(c,b,t) at PDG:     {Q2:.4f}  (dev from 2/3: {abs(Q2-2/3)/(2/3)*100:.2f}%)")
-print(f"  Q(c,b,t) at 2 GeV:   {Q_cbt_2:.4f}  (dev from 2/3: {abs(Q_cbt_2-2/3)/(2/3)*100:.2f}%)")
 
-# ============================================================
-# Part 5: The ISS natural convention
-# ============================================================
-print()
-print("=" * 75)
-print("THE ISS NATURAL CONVENTION: EACH MESON AT ITS OWN SCALE")
-print("=" * 75)
-print()
-print("In the ISS framework, each meson M_j has dynamics at scale mu ~ m_j.")
-print("The seesaw M_j = C/m_j gives the meson VEV at that scale.")
-print("The mass-charge identity is therefore evaluated with each quark")
-print("at its own scale — which is exactly the PDG convention.")
-print()
-print("This is not a lucky choice of scheme: it is the NATURAL convention")
-print("of the ISS magnetic dual theory. The mass-charge identity is a")
-print("property of the superpotential at each meson's dynamical scale.")
-print()
+def table_values(mset):
+    out = {}
+    out['(-s,c,b)'] = koide_dev([mset['s'], mset['c'], mset['b']], (-1, 1, 1))
+    out['(c,b,t)'] = koide_dev([mset['c'], mset['b'], mset['t']])
+    out['(0,u+d,s)'] = 100.0 * (1.5 * (mset['u'] + mset['d'] + mset['s'])
+                                / (np.sqrt(mset['u'] + mset['d']) + np.sqrt(mset['s']))**2 - 1.0)
+    out['sqrt(ms/mc)'] = np.sqrt(mset['s'] / mset['c'])
+    return out
 
-# ============================================================
-# Part 6: Sweep Q vs scale (for the paper figure, if desired)
-# ============================================================
-print("=" * 75)
-print("Q(-s,c,b) AND Q(c,b,t) VERSUS SCALE (for reference)")
-print("=" * 75)
-print()
-print(f"{'mu (GeV)':>10}  {'Q(-s,c,b)':>12}  {'dev%':>8}  {'Q(c,b,t)':>12}  {'dev%':>8}")
-print("-" * 60)
 
-for log_mu in np.linspace(-0.5, 2.5, 25):
-    mu = 10**log_mu
-    if mu < 0.5 or mu > 200:
-        continue
+def masses_at(mu, loops=1, prescription='eft', alpha_mz=ALPHA_S_MZ, inputs=None):
+    inputs = inputs or {}
+    return {q: run_quark(q, mu, loops, prescription, alpha_mz, inputs.get(q))
+            for q in MASSES_PDG}
 
-    ms_mu = run_mass_with_thresholds(93.4, 2.0, mu)
-    mc_mu = run_mass_with_thresholds(1275.0, 1.275, mu)
-    mb_mu = run_mass_with_thresholds(4180.0, 4.18, mu)
-    mt_mu = run_mass_with_thresholds(162500.0, 162.5, mu)
 
-    Q_scb_mu = Q_signed(ms_mu, mc_mu, mb_mu, signs=(-1, 1, 1))
-    Q_cbt_mu = Q_pos(mc_mu, mb_mu, mt_mu)
+def affected_predictions(loops=1):
+    """Mass relations re-evaluated with all masses at one common scale
+    (eft prescription; the common scale drops out). Returned masses are
+    converted back to the published reference points with the same running."""
+    from scipy.optimize import brentq
+    M = masses_at(2.0, loops, 'eft')
+    Rc = M['c'] / MASSES_PDG['c'][0]
+    Rb = M['b'] / MASSES_PDG['b'][0]
+    Rt = M['t'] / MASSES_PDG['t'][0]
+    seed_mc = (2 + np.sqrt(3))**2 * M['s'] / Rc
+    v0_mb = (3 * np.sqrt(M['s']) + np.sqrt(M['c']))**2 / Rb
+    cbt_mt = brentq(lambda mt: koide_Q([M['c'], M['b'], mt]) - 2 / 3, 1e4, 1e7) / Rt
+    dual = koide_Q([1 / M['d'], 1 / M['s'], 1 / M['b']])
+    return {'seed m_c(m_c)': seed_mc, 'v0-doubling m_b(m_b)': v0_mb,
+            'Koide(c,b,t) m_t(m_t)': cbt_mt, 'dual Q(1/m_d,1/m_s,1/m_b)': dual}
 
-    dev_scb = abs(Q_scb_mu - 2/3)/(2/3)*100
-    dev_cbt = abs(Q_cbt_mu - 2/3)/(2/3)*100
 
-    print(f"{mu:10.2f}  {Q_scb_mu:12.6f}  {dev_scb:7.2f}%  {Q_cbt_mu:12.6f}  {dev_cbt:7.2f}%")
+def main():
+    from scipy.optimize import brentq
+    print("=" * 78)
+    print("QCD running of MS-bar quark masses and the common-scale flavour table")
+    print("=" * 78)
+    print(f"alpha_s^(5)(M_Z) = {ALPHA_S_MZ} +- {ALPHA_S_MZ_ERR},  M_Z = {MZ} GeV")
+    print("matching at mu_h = m_h(m_h):", {k: v for k, v in THRESHOLDS.items()})
+    print("inputs (MS-bar, MeV @ GeV):",
+          {q: f"{v[0]}@{v[1]}" for q, v in MASSES_PDG.items()})
 
-print()
-print("=" * 75)
-print("CONCLUSION")
-print("=" * 75)
-print()
-print("1. Pure QCD with fixed Nf: Q is EXACTLY preserved (machine epsilon).")
-print("   This is because gamma_m is flavor-universal; the common scaling")
-print("   factor cancels in the ratio.")
-print()
-print("2. Running to a common scale with threshold matching: Q CHANGES.")
-print("   The degradation comes from discrete Nf changes at flavor thresholds,")
-print("   not from continuous running.")
-print()
-print("3. The PDG convention (each quark at its own scale) is the NATURAL")
-print("   convention of the ISS framework, where each meson M_j has")
-print("   dynamics at scale mu ~ m_j.")
-print()
-print("4. The paper's statement is correct: 'the mass-charge ratio is")
-print("   exactly invariant under pure QCD running' — within a fixed-Nf")
-print("   regime, the ratio cannot change. The degradation seen when")
-print("   running to 2 GeV is a threshold effect, not a running effect.")
+    print("\n--- Fixed n_f = 5, one loop, from M_Z (compare CRunDec rows in issue #3) ---")
+    for mu in (10.0, 20.0):
+        a_new = alpha_s_fixed_nf(ALPHA_S_MZ, MZ, mu, 5, 1)
+        a_old = alpha_s_1loop_old(mu, MZ, ALPHA_S_MZ, 5)
+        print(f"  mu = {mu:4.0f} GeV: alpha_s = {a_new:.9f} (old {a_old:.9f}); "
+              f"m(mu)/m(MZ) = {mass_factor_fixed_nf(ALPHA_S_MZ, a_new, 5, 1):.9f} "
+              f"(old {(a_old/ALPHA_S_MZ)**gamma_m(5):.9f})")
+
+    pdg = {q: v[0] for q, v in MASSES_PDG.items()}
+    t_pdg = table_values(pdg)
+    print("\n--- Flavour table, delta = (3/2)Q - 1 in % ---")
+    keys = ['(-s,c,b)', '(c,b,t)', '(0,u+d,s)', 'sqrt(ms/mc)']
+    hdr = f"  {'masses':44s}" + "".join(f"{k:>13s}" for k in keys)
+    print(hdr)
+    print(f"  {'published reference scales (mixed)':44s}"
+          + "".join(f"{t_pdg[k]:13.4f}" for k in keys))
+    old2 = {q: run_mass_old(v[0], v[1], 2.0) for q, v in MASSES_PDG.items()}
+    t_old = table_values(old2)
+    print(f"  {'common 2 GeV, former code (before)':44s}"
+          + "".join(f"{t_old[k]:13.4f}" for k in keys))
+    rows = {}
+    for loops in (1, 2, 3):
+        for presc in ('eft', 'full'):
+            for mu in (2.0, MZ):
+                t = table_values(masses_at(mu, loops, presc))
+                rows[(loops, presc, mu)] = t
+                lab = f"common {mu:g} GeV, {loops}-loop, {presc}"
+                print(f"  {lab:44s}" + "".join(f"{t[k]:13.4f}" for k in keys))
+
+    # uncertainties on the 1-loop eft common-scale values at 2 GeV
+    base = rows[(1, 'eft', 2.0)]
+    print("\n--- Uncertainties on the common-scale values (2 GeV, 1-loop, eft) ---")
+    for k in keys:
+        loop_spread = max(abs(rows[(l, 'eft', 2.0)][k] - base[k]) for l in (2, 3))
+        presc = abs(rows[(1, 'full', 2.0)][k] - base[k])
+        da = max(abs(table_values(masses_at(2.0, 1, 'eft', ALPHA_S_MZ + s * ALPHA_S_MZ_ERR))[k]
+                     - base[k]) for s in (-1, 1))
+        inp = 0.0
+        for q, (m, _, lo, hi) in MASSES_PDG.items():
+            d = max(abs(table_values(masses_at(2.0, 1, 'eft', inputs={q: m + e}))[k] - base[k])
+                    for e in (-lo, hi))
+            inp += d**2
+        print(f"  {k:12s} value {base[k]:9.4f}   loop order {loop_spread:.4f}   "
+              f"alpha_s {da:.4f}   heavy-quark prescription {presc:.4f}   "
+              f"input masses {np.sqrt(inp):.4f}")
+
+    print("\n--- Mass relations: published reference scales vs one common scale ---")
+    mixed = {'seed m_c(m_c)': (2 + np.sqrt(3))**2 * pdg['s'],
+             'v0-doubling m_b(m_b)': (3 * np.sqrt(pdg['s']) + np.sqrt(pdg['c']))**2,
+             'Koide(c,b,t) m_t(m_t)': brentq(lambda mt: koide_Q([pdg['c'], pdg['b'], mt]) - 2 / 3,
+                                             1e4, 1e7),
+             'dual Q(1/m_d,1/m_s,1/m_b)': koide_Q([1 / pdg['d'], 1 / pdg['s'], 1 / pdg['b']])}
+    aff = {L: affected_predictions(L) for L in (1, 2, 3)}
+    print(f"  {'relation':28s}{'mixed scales':>14s}{'common 1-loop':>15s}"
+          f"{'2-loop':>11s}{'3-loop':>11s}   (masses in MeV)")
+    for k in mixed:
+        print(f"  {k:28s}{mixed[k]:14.4f}" + "".join(f"{aff[L][k]:13.4f}" for L in (1, 2, 3)))
+
+    print("\n--- Control: three active masses run from a common scale ---")
+    trip = {'s': 93.4, 'c': 1275.0, 'b': 4180.0}
+    Q0 = koide_Q(list(trip.values()))
+    for mu1, loops in ((10.0, 1), (40.0, 2), (91.1876, 3)):
+        run = [run_mass(m, 5.0, mu1, 5, 5, loops) for m in trip.values()]
+        print(f"  5 GeV -> {mu1:7.3f} GeV, n_f = 5, {loops}-loop: "
+              f"|Q - Q0| = {abs(koide_Q(run) - Q0):.1e}")
+    run = [run_mass(m, 2.0, 91.1876, None, None, 3) for m in trip.values()]
+    print(f"  2 GeV -> M_Z across m_b, 3-loop with matching: |Q - Q0| = "
+          f"{abs(koide_Q(run) - Q0):.1e}")
+
+
+if __name__ == "__main__":
+    main()

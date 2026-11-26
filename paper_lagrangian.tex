@@ -1934,31 +1934,76 @@ GST: $\sin\theta_C = \sqrt{m_d/m_s}$ & $\theta_{12}$ from $m_d, m_s$ & Seesaw st
 \end{center}
 
 \paragraph{Renormalisation scale.}
-The quark masses appearing in the mass-charge triples are
-$\overline{\rm MS}$ masses at the PDG conventional scales:
-$m_{u,d,s}$ at $\mu = 2\GeV$, $m_c(m_c)$, $m_b(m_b)$, $m_t(m_t)$.
-Running all six quarks to a common scale $\mu = 2\GeV$ degrades
-the ratios sharply: $\langle z_k^2\rangle/z_0^2$ for $(-s,c,b)$
-worsens from $1.2\%$ to $3.2\%$, and for $(c,b,t)$ from
-$0.4\%$ to $6.2\%$.
-In fact, the mass-charge ratio is \emph{exactly} invariant under
-pure QCD running.  Under one-loop QCD, all quark masses run with
-a universal anomalous dimension:
-$m_i(\mu) = m_i(\mu_0)\,[\alpha_s(\mu)/\alpha_s(\mu_0)]^{\gamma_m}$.
-The common factor cancels in the ratio:
+\label{par:renscale}
+The quark masses in the mass-charge triples are $\overline{\rm MS}$
+masses at the PDG reference scales: $m_{u,d,s}(2\GeV)$, $m_c(m_c)$,
+$m_b(m_b)$ and $m_t(m_t) = 162.5\GeV$, each defined in the theory in
+which that quark is active. Write
+$\delta \equiv \langle z_k^2\rangle/(2z_0^2) - 1 = \tfrac32 Q - 1$.
+At these mixed scales $\delta = +1.2\%$ for $(-s,c,b)$ and $-0.6\%$ for
+$(c,b,t)$; the value $+0.4\%$ quoted below for $(c,b,t)$ uses the pole
+mass $m_t = 172.76\GeV$ instead of $m_t(m_t)$.
+
+To compare at one scale, each mass is run from its reference point
+segment by segment in the active theory, starting from
+$\alpha_s^{(5)}(M_Z) = 0.1179$, with $\overline{\rm MS}$ decoupling at
+$\mu_h = m_h(m_h)$ ($1.275$, $4.18$, $162.5\GeV$). The running agrees
+with CRunDec~3.1~\cite{CRunDec} at one, two and three loops to
+$5\times10^{-9}$, including single and multiple threshold crossings and
+endpoints exactly at a threshold
+(\texttt{calculations/check\_rg\_running\_qcd.py}, Python). A heavy quark
+below its own threshold is a decoupled flavour; its mass parameter is
+run in the active effective theory, and running it instead in the theory
+where it is active gives the ``prescription'' entry below. The common
+scale itself drops out: with this convention the values at $2\GeV$ and
+at $M_Z$ coincide, exactly at one and two loops and up to the
+$O(\alpha_s^4)$ truncation of the matching at three loops.
+\begin{center}
+\small
+\begin{tabular}{lcccc}
+\toprule
+ & mixed scales & \multicolumn{3}{c}{one common scale} \\
+ & & 1 loop & 2 loops & 3 loops \\
+\midrule
+$\delta(-s,c,b)$ & $+1.18\%$ & $+3.13\%$ & $+4.26\%$ & $+4.57\%$ \\
+$\delta(c,b,t)$ & $-0.61\%$ & $+6.12\%$ & $+7.69\%$ & $+7.93\%$ \\
+$\delta(0,m_u{+}m_d,m_s)$ & $-0.26\%$ & $-0.26\%$ & $-0.26\%$ & $-0.26\%$ \\
+$\sqrt{m_s/m_c}$ (seed: $0.2679$) & $0.2707$ & $0.2822$ & $0.2892$ & $0.2912$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+At one loop the common-scale values carry these uncertainties: for
+$(-s,c,b)$, $\pm1.2\%$ from the input masses (mostly $m_s$), $\pm0.04\%$
+from $\alpha_s(M_Z) \pm 0.0009$ and $0.006\%$ from the prescription; for
+$(c,b,t)$, $\pm0.24\%$, $\pm0.07\%$ and $0.35\%$. The shift from one to
+three loops ($+1.4\%$ and $+1.8\%$) exceeds the $\alpha_s$ and
+prescription effects, because $m_c(m_c)$ sits where the perturbative
+series converges slowly. An earlier version of this paragraph quoted
+$3.2\%$ and $6.2\%$; the calibrated one-loop values are $3.1\%$ and
+$6.1\%$. The running code then in the repository divided the one-loop
+coefficient by $\pi$ twice, which gave $1.5\%$ and $1.1\%$.
+
+At a common scale the mass-charge ratio is exactly invariant under QCD
+running. In a mass-independent scheme the anomalous dimension and the
+light-quark decoupling constants are flavour-universal at every order,
+so all active masses acquire the same factor; at one loop
+$m_i(\mu) = m_i(\mu_0)\,[\alpha_s(\mu)/\alpha_s(\mu_0)]^{\gamma_m}$ with
+$\gamma_m = 12/(33 - 2n_f)$, and
 \begin{equation}
   \frac{\sum c\,m_k^{(0)}}{(\sum \sqrt{c\,m_k^{(0)}})^2}
   = \frac{c\sum m_k^{(0)}}{c\,(\sum\sqrt{m_k^{(0)}})^2}
   = \frac{\sum m_k^{(0)}}{(\sum\sqrt{m_k^{(0)}})^2}\,,
 \end{equation}
-where $c = [\alpha_s(\mu)/\alpha_s(\mu_0)]^{2\gamma_m}$.
-The mass-charge ratio depends only on mass \emph{ratios},
-and QCD preserves all mass ratios.  Electroweak corrections
-break this universality (up-type and down-type quarks have
-different anomalous dimensions above $M_W$), but in the
-confined sector where the identity is set, only QCD is active.
+where $c = [\alpha_s(\mu)/\alpha_s(\mu_0)]^{\gamma_m}$. The difference
+between the mixed-scale and common-scale columns therefore comes entirely
+from bringing inputs quoted at different reference scales to one scale.
+For the same reason a ratio-invariance test cannot validate the running:
+the one-loop error above cancels in it. Electroweak corrections break the
+universality (up-type and down-type quarks have different anomalous
+dimensions above $M_W$), but in the confined sector where the identity is
+set only QCD is active.
 The isospin seed is a special case: $m_1 = 0$, $m_2 = m_u{+}m_d$, $m_3 = m_s$,
-immune to running because all entries share the same anomalous dimension and
+all three at $2\GeV$, so its value is the same in both columns and
 the ratio $m_s/(m_u{+}m_d)$ is an RG invariant.
 The Gell-Mann--Oakes--Renner relation~\cite{GOR1968}
 $m_\pi^2 f_\pi^2 = (m_u{+}m_d)\langle\bar qq\rangle$
@@ -1966,15 +2011,30 @@ makes this ratio a statement about physical hadron observables
 ($m_\pi$, $f_\pi$, $m_K$), explaining why the isospin seed
 is scheme-independent.
 None of the quark triples sits exactly at $\langle z_k^2\rangle = z_0^2$:
+at the published reference scales
 the bloom shifts each triple away from the seed,
 by $0.27\%$ (isospin), $0.4\%$ $(c,b,t)$, and $1.2\%$ $(-s,c,b)$.
 The lattice ratio $m_s/m_{ud} = 27.23 \pm 0.10$ (FLAG 2021)
 resolves the isospin bloom at $6.3\sigma$ from the
 exact seed value $2(2{+}\sqrt{3})^2 = 27.86$.
 For the cross-threshold triples $(-s,c,b)$ and $(c,b,t)$,
-the preferred convention---each quark at its own mass---is
+the convention of each quark at its own mass is
 natural in the ISS framework, where each meson $M_j$ has dynamics
-at scale $\mu \sim m_j$.
+at scale $\mu \sim m_j$; it remains a convention.
+
+\paragraph{Predictions affected by the scale convention.}
+Every relation that combines masses from different reference scales
+depends on that convention. Evaluated with all masses at one common
+scale (one to three loops) and converted back to the reference points:
+the seed condition gives $m_c(m_c) = 1.41$--$1.51\GeV$ from
+$m_s(2\GeV)$ (mixed scales: $1.301\GeV$); the $v_0$-doubling relation
+gives $m_b(m_b) = 3.27$--$3.58\GeV$ (mixed: $4.19\GeV$); the $(c,b,t)$
+mass-charge identity gives $m_t(m_t) = 98$--$111\GeV$ (mixed:
+$168.6\GeV$). The dual identity on $(d,s,b)$ moves from $Q = 0.6652$ to
+$0.6671$--$0.6679$ and stays within $0.2\%$ of $2/3$. The isospin seed
+and the GST relation involve only masses at $2\GeV$ and are unaffected.
+The predictions in Table~\ref{tab:predictions} use the mixed
+reference-scale convention.
 
 %======================================================================
 \section{Summary of predictions}
@@ -2019,7 +2079,9 @@ All quark predictions follow from a single input
 $m_u + m_d = 6.83\MeV$ (equivalently $m_\pi$ via GMOR);
 the isospin seed gives $m_s$, the O'Raifeartaigh chain gives $m_c$,
 the bion gives $m_b$, and the dual mass-charge identity gives $m_d$ (hence $m_u$).
-Cross-threshold masses are $\overline{\rm MS}$ at $\mu = m_q$.
+Cross-threshold masses are $\overline{\rm MS}$ at $\mu = m_q$
+(mixed reference-scale convention; common-scale values in the
+paragraph on predictions affected by the scale convention).
 The lepton prediction uses $m_e$ and $m_\mu$ as inputs.}
 \label{tab:predictions}
 \end{table}
@@ -3029,6 +3091,11 @@ angle, and broken $SU(3)$,'' Phys.\ Lett.\ B \textbf{28}, 128 (1968).
 \bibitem{VolkovAkulov1973}
 D.~V.~Volkov and V.~P.~Akulov, ``Is the neutrino a Goldstone
 particle?,'' Phys.\ Lett.\ B \textbf{46}, 109 (1973).
+
+\bibitem{CRunDec}
+F.~Herren, M.~Steinhauser, ``Version 3 of RunDec and CRunDec,''
+Comput.\ Phys.\ Commun.\ \textbf{224}, 333 (2018),
+arXiv:1703.03751 [hep-ph].
 
 \bibitem{GOR1968}
 M.~Gell-Mann, R.~J.~Oakes, B.~Renner, ``Behavior of current
