@@ -21,7 +21,10 @@ The SUSY vacuum at $B = \bar{B} = 0$ gives:
 
 $$m_j M_j = C \quad \text{(constant for all $j$)}$$
 
-where $C = \Lambda^2 (\prod_k m_k)^{1/3}$ and $M_j = C/m_j$.
+where $C^3 = \Lambda^6 \prod_k m_k$ and $M_j = C/m_j$. The cubic has three roots
+$C_k = \omega^k C_0$ with $\omega = e^{2\pi i/3}$ and $C_0 = \Lambda^2(\prod_k m_k)^{1/3}$:
+these are the three supersymmetric vacua. The tables below use the real root $C_0$.
+All three vacua leave to infinity in the chiral limit $m_u = m_d \to 0$ (Section 7).
 
 This is the **Seiberg seesaw**: $M_j \propto 1/m_j$.
 
@@ -252,7 +255,156 @@ where $M_j = \Lambda^2 (m_d m_s m_b)^{1/3}/m_j$.
 
 ---
 
+## 7. Chiral limit $m_u = m_d = 0$: no finite vacuum, Affleck–Dine–Seiberg runaway (issue #2)
+
+**Status.** Known physics (Affleck–Dine–Seiberg 1984; Seiberg 1994;
+Intriligator–Seiberg, hep-th/9509066, §§4.1–4.2). It corrects the earlier
+reading of this limit as a dynamical O'Raifeartaigh mechanism with a
+Goldstino at a finite vacuum. The soft-mass stabilization in 7.5 is a
+standard construction evaluated here; it rests on the stated extra input.
+Script: `calculations/sqcd_chiral_limit_runaway.py` (Python 3, sympy + numpy).
+Manuscript: `sbootstrap_v4d.tex`, subsection "The chiral limit of SQCD and
+the Affleck–Dine–Seiberg runaway" (`subsec:sqcd_runaway`).
+
+### 7.1 Constrained rank-one F-term system
+
+$$W = m_s M_{33} + X(\det M - B\tilde B - \Lambda_3^6),\qquad m_s \neq 0 .$$
+
+F-terms:
+
+- $W_{M_{ij}} = m_s\,\delta_{i3}\delta_{j3} + X\,\mathrm{cof}(M)_{ij}$ (nine equations)
+- $W_B = -X\tilde B$, $W_{\tilde B} = -XB$
+- $W_X = \det M - B\tilde B - \Lambda_3^6$
+
+No finite common zero. $W_{M_{33}} = 0$ requires $X \neq 0$. Then
+$W_B = W_{\tilde B} = 0$ give $B = \tilde B = 0$, and $W_X = 0$ gives
+$\det M = \Lambda_3^6 \neq 0$. The cofactor matrix
+$\Lambda_3^6 (M^{-1})^T$ has rank 3 and cannot equal the rank-1 matrix
+$-m_s E_{33}/X$.
+
+Ideal-membership certificate (verified symbolically by the script):
+
+$$m_s\Lambda_3^6 = \Lambda_3^6 W_{M_{33}} - \mathrm{cof}(M)_{33}\Big(\sum_j M_{1j}W_{M_{1j}} + B\,W_B - X\,W_X\Big).$$
+
+It uses $\sum_j M_{1j}\,\mathrm{cof}(M)_{1j} = \det M$ (row-1 Laplace expansion;
+row 1 carries no mass term).
+
+### 7.2 The runaway trajectory: all F-terms
+
+$$M = \mathrm{diag}(t,\,t,\,\Lambda_3^6/t^2),\qquad B = \tilde B = 0,\qquad X = -m_s/t^2 .$$
+
+| F-term | value on the trajectory |
+|---|---|
+| $W_{M_{11}}$, $W_{M_{22}}$ | $-m_s\Lambda_3^6/t^3$ |
+| $W_{M_{33}}$ | $m_s + X t^2 = 0$ |
+| $W_{M_{ij}}$, $i \neq j$ | 0 (cofactors of a diagonal matrix) |
+| $W_X$ | $t\cdot t\cdot\Lambda_3^6/t^2 - \Lambda_3^6 = 0$ |
+| $W_B$, $W_{\tilde B}$ | 0 |
+
+### 7.3 Large-field potential in weakly Higgsed coordinates
+
+For $|t| \gg \Lambda_3^2$ the light squarks have D-flat VEVs
+$Q = \tilde Q^T = \sqrt{t}\,\mathrm{diag}(1,1)$ embedded in colour. Two
+flavours Higgs $SU(3)$ completely, at weak coupling. The induced light-meson
+Kähler potential is $K = 2\,\mathrm{Tr}\sqrt{M^\dagger M}$, so
+$K_{t\bar t} = 1/(2|t|)$ and $g^{11} = g^{22} = 2|t|$.
+
+Constrained description. The physical F-term is the projection of
+$dW_{\rm tree} = m_s\,dM_{33}$ onto the tangent space of $\det M = \Lambda_3^6$,
+$V = |a|^2 - |\langle a,n\rangle|^2/|n|^2$ with $n = d\det M$. With
+$|n_{11}| = |n_{22}| = |\Lambda_3|^6/|t|$ and $|n_{33}| = |t|^2$:
+
+$$V = \frac{4|m_s|^2|\Lambda_3|^{12}}{|t|^5}\left[1 + \frac{4|\Lambda_3|^{12}}{g^{33}|t|^5}\right]^{-1} \to \frac{4|m_s|^2|\Lambda_3|^{12}}{|t|^5}.$$
+
+The limit holds for any $g^{33}$ that falls more slowly than $|t|^{-5}$;
+the script checks $g^{33} = 1$ and $g^{33} = 2|M_{33}|$. A canonical meson
+metric on the light entries would give $2|m_s|^2|\Lambda_3|^{12}/|t|^6$:
+meson-coordinate derivatives alone give the wrong power.
+
+Two-flavour ADS description. Integrating out $M_{33}$ and $X$
+holomorphically on $B = 0$, $M_{3a} = M_{a3} = 0$:
+
+$$W_{\rm eff} = m_s M_{33}\big|_{\det M = \Lambda_3^6} = \frac{\Lambda_2^7}{\det M_{\rm light}},\qquad \Lambda_2^7 = m_s\Lambda_3^6 .$$
+
+In squark coordinates each of the four nonzero squarks has
+$|\partial W/\partial Q| = |\Lambda_2|^7/v^5$, so
+$V = 4|\Lambda_2|^{14}/v^{10}$ with $v^2 = |t|$. This equals the constrained
+result. On the D-flat manifold $V$ is homogeneous of degree $-10$ in $v$, so
+it has no stationary point in the weakly coupled region. $V > 0$ at every
+finite point and $V \to 0$ along the runaway. Near $|t| \sim \Lambda_3^2$
+the Kähler metric is not calculable; no local minimum there has a derivation.
+
+### 7.4 Massive control: three branches, equal-light-mass limit
+
+With all three masses nonzero, $X\,\mathrm{cof}(M) = -\mathrm{diag}(m_i)$
+gives $X\det M\,(M^{-1})^T = -\mathrm{diag}(m_i)$, so $M$ is diagonal with
+$m_i M_{ii} = C \equiv -X\Lambda_3^6$ and $C^3 = \Lambda_3^6 m_u m_d m_s$.
+For $m_u = m_d = m$:
+
+$$M_{uu} = M_{dd} = t_k = \omega^k\Lambda_3^2 (m_s/m)^{1/3},\qquad M_{ss} = \Lambda_3^6/t_k^2 = \omega^k\Lambda_3^2(m/m_s)^{2/3},\qquad X = -m_s/t_k^2 .$$
+
+Every branch lies exactly on the runaway trajectory of 7.2 at $t = t_k$ and is
+the two-flavour ADS vacuum $t_k^3 = \Lambda_2^7/m$. As $m \to 0$ at fixed
+$m_s$, the light meson VEVs $M_{uu} = M_{dd}$ diverge as $m^{-1/3}$ on all
+three branches; $M_{ss}$ and $X$ vanish as $m^{2/3}$.
+
+Numbers ($\Lambda_3 = 300$ MeV, $m_s = 93.4$ MeV; identical moduli on the
+three branches, phases $\omega^k$; F-term residuals $< 10^{-14}$):
+
+| $m$ (MeV) | $\lvert M_{uu}\rvert = \lvert M_{dd}\rvert$ (MeV²) | $\lvert M_{ss}\rvert$ (MeV²) | $\lvert X\rvert$ (MeV⁻⁴) |
+|---|---|---|---|
+| 4.67 | $2.443\times10^5$ | $1.221\times10^4$ | $1.565\times10^{-9}$ |
+| 1 | $4.083\times10^5$ | $4.372\times10^3$ | $5.601\times10^{-10}$ |
+| $10^{-1}$ | $8.797\times10^5$ | $9.419\times10^2$ | $1.207\times10^{-10}$ |
+| $10^{-2}$ | $1.895\times10^6$ | $2.029\times10^2$ | $2.600\times10^{-11}$ |
+| $10^{-3}$ | $4.083\times10^6$ | $4.372\times10^1$ | $5.601\times10^{-12}$ |
+| $10^{-4}$ | $8.797\times10^6$ | $9.419$ | $1.207\times10^{-12}$ |
+| $10^{-6}$ | $4.083\times10^7$ | $0.4372$ | $5.601\times10^{-14}$ |
+
+Fitted exponents: $M_{uu} \sim m^{-0.3333}$, $M_{ss} \sim m^{0.6667}$,
+$X \sim m^{0.6667}$.
+
+### 7.5 What has a derivation; a stabilized deformation
+
+- $m_u = m_d = 0$, $m_s \neq 0$: no vacuum at finite fields; runaway.
+- $m_u, m_d, m_s \neq 0$: three finite supersymmetric vacua ($F = 0$).
+- Neither case contains a Goldstino. The manuscript statements placing a
+  Goldstino or $\langle F\rangle \neq 0$ at a broken vacuum in this chiral
+  limit are now marked as sBootstrap hypotheses.
+
+A finite vacuum requires extra input. Controlled example: soft squark masses
+$\tilde m^2(|Q|^2 + |\tilde Q|^2)$ for the two light flavours. On the D-flat
+direction $V = 4|\Lambda_2|^{14}/v^{10} + 4\tilde m^2 v^2$, stationary at
+
+$$v_0^{12} = 5|m_s|^2|\Lambda_3|^{12}/\tilde m^2 .$$
+
+Weak coupling needs $v_0 \gg \Lambda_3$, i.e. $\tilde m \ll m_s$
+($v_0/\Lambda_3 = 2.47$ at $\tilde m = m_s/100$). The script builds the full
+two-flavour theory (12 complex squarks, $SU(3)$ D-terms with $g = 1$,
+8 gauginos) at $\tilde m = 10^{-2} m_s$ and finds:
+
+| quantity | result |
+|---|---|
+| stationarity | $\max\lvert\partial V\rvert = 2\times10^{-16}$, D-flat |
+| scalar zero modes | 12 = 8 eaten + 3 pions ($SU(2)_L\times SU(2)_R\to SU(2)_V$) + 1 $R$-axion |
+| scalar triplet | $12\tilde m^2/5$ |
+| radial singlet | $12\tilde m^2$ |
+| heavy scalars | $\mathcal O(g^2v_0^2)$ (vector multiplets) |
+| negative modes | none |
+| light fermions | $\tilde m/\sqrt5$ (triplet), $\sqrt5\,\tilde m$ (singlet) |
+| massless fermions | none (explicit breaking: no Goldstino) |
+
+The Hessian is cross-checked against finite differences. In this vacuum
+$m_\pi^2 - m_\psi^2 = -\tilde m^2/5$, opposite in sign to the manuscript's
+$m_\pi^2 - m_\mu^2 = f_\pi^2$. For $\tilde m \sim f_\pi \approx m_s$,
+$v_0/\Lambda_3 = 1.15$: the minimum sits at strong coupling and is not
+controlled. No stabilized finite vacuum of the chiral-limit theory is
+claimed.
+
+---
+
 ## Computation files
 
 - `sqcd_spectrum_final.py` -- main computation (correct Koide convention)
+- `sqcd_chiral_limit_runaway.py` -- Section 7: rank-one F-term certificate, runaway potential, ADS matching, massive branches, soft-mass stabilization
 - `sqcd_spectrum_v2.py`, `sqcd_spectrum_calc.py` -- earlier versions (wrong Koide convention in `koide_Q`; the standard Koide formula is $Q = \sum m / (\sum \sqrt{m})^2$, not $Q = (\sum \sqrt{m})^2 / (3\sum m)$)
