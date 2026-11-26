@@ -62,10 +62,10 @@ separate $H_u$, $H_d$ doublets),
 $D$-terms, and soft breaking from a spurion with
 $\langle F\rangle = f_\pi^2$---and show that the mixed up/down-type
 Koide triples require $\tan\beta = 1$ for the mass-level condition
-to equal a Yukawa-level condition.  A negative quartic
-K\"ahler correction $c = -1/12$ stabilizes the pseudo-modulus at
-$\langle X\rangle = \sqrt{3}\,\mu$ (the K\"ahler pole), while the
-$v_0$-doubling originates in the K\"ahler sector via a bion
+to equal a Yukawa-level condition. A zero of the K\"ahler metric
+gives an infinite potential on the broken branch. A regular metric can
+stabilize a chosen seed radius, whose microscopic origin remains open.
+The proposed $v_0$-doubling originates in the K\"ahler sector via a bion
 correction $|\!\sum s_k\sqrt{\hat m_k}|^2$ from
 monopole-instantons on $\mathbb{R}^3\times S^1$; a
 three-instanton superpotential $(\det M)^3/\Lambda^{18}$
@@ -158,8 +158,8 @@ following are first reported here: the signed-charge formalism
 and the meson Koide triple $(-\pi, D_s, B)$; the seed-triple
 concept and the universal ratio $2 - \sqrt{3}$; the
 $v_0$-doubling relation $\sqrt{m_b} = 3\sqrt{m_s} + \sqrt{m_c}$;
-the O'Raifeartaigh derivation $gv/m = \sqrt{3}$ and its
-K\"ahler stabilization at the pole $c = -1/12$; the Pauli theorem
+the O'Raifeartaigh seed condition $gv/m = \sqrt{3}$ and a
+regular conditional realization of its radius; the Pauli theorem
 for symmetric diquarks; the bloom instability under perturbative
 $R$-breaking; the dual Koide on $(d,s,b)$ and its connection to
 the Seiberg seesaw; the bion K\"ahler mechanism for the
@@ -2206,31 +2206,33 @@ $\langle X\rangle = 0$.  Polynomial superpotential deformations
 either vanish at the vacuum, reinforce $v = 0$, or produce
 minima at $gv/m \ll \sqrt{3}$.
 
-A negative quartic K\"ahler correction resolves this:
-\begin{equation*}
-  K = |X|^2 + \frac{c}{\Lambda_K^2}\,|X|^4\,,
-  \qquad c < 0\,.
-\end{equation*}
-The tree-level potential becomes
-$V_{\text{tree}} = f^2/(1 + 4c\,v^2/\Lambda_K^2)$, which has
-a pole at $v_{\text{pole}} = \Lambda_K/(2\sqrt{|c|})$.
-Near the pole the CW contribution is negligible
-($V_{\text{CW}} \sim 10^{-4}\,m^4 \ll V_{\text{tree}}$),
-and the effective potential is minimized at $v_{\text{pole}}$.
-Demanding $v_{\text{pole}} = \sqrt{3}\,m/g$ gives the exact condition
-\begin{equation*}
-  c = -\,\frac{\Lambda_K^2}{12\,m^2}\,.
-\end{equation*}
-With $\Lambda_K = m$ this is $c = -1/12$, an algebraic result:
-$\Lambda_K/(2\sqrt{1/12}) = \sqrt{12}/2 = \sqrt{3}$.
-No numerical tuning is required.
-At this VEV the fermion spectrum is
-$(0,\, (2{-}\sqrt{3})\,m,\, (2{+}\sqrt{3})\,m)$
-with $Q = 4/6 = 2/3$ exactly
-(since $(\sqrt{2{-}\sqrt{3}} + \sqrt{2{+}\sqrt{3}})^2 = 4 + 2 = 6$),
-confirming the Koide seed. The K\"ahler metric
-$K_{X\bar X} = 1 - v^2/(3m^2)$ vanishes at $v = \sqrt{3}\,m$,
-signaling the boundary of the effective field theory.
+Write $s=|X|^2$ and $G(s)=K_{X\bar X}$. On $\phi=\tilde\phi=0$
+with $f\ne0$ the rigid tree potential is $V=|f|^2/G(s)$. The ansatz
+$K=s+cs^2/\Lambda_K^2$ with $c<0$ gives $G=1+4cs/\Lambda_K^2$.
+The potential increases monotonically on $G>0$ and diverges at its boundary.
+Placing that boundary at $g|X|/m=\sqrt3$ requires
+$c=-g^2\Lambda_K^2/(12m^2)$, or $c=-1/12$ for $\Lambda_K=m/g$.
+The boundary cannot support the proposed finite-energy vacuum.
+
+A regular comparison fixes a radius $s_0>0$ independently and takes
+\begin{equation}
+ G(s)=1+\lambda_K\frac{4ss_0}{(s+s_0)^2},\qquad \lambda_K>0 .
+ \label{eq:regular-seed-metric}
+\end{equation}
+This positive metric integrates to a radial K\"ahler potential by
+$(sK'(s))'=G(s)$. Its maximum is $G_0=1+\lambda_K$ at $s=s_0$.
+Canonical normalization gives the radial mass squared
+$-2s_0|f|^2G''(s_0)/G_0^3=\lambda_K|f|^2/(s_0G_0^3)>0$.
+The phase is flat at this order. With canonical heavy fields
+$A=\phi$, $B=\tilde\phi$, their quadratic potential is
+$|mB+2gXA|^2+m^2|A|^2+2\operatorname{Re}(\bar f g A^2)/G_0$.
+It is positive definite exactly when $m^2>2|fg|/G_0$, as follows by
+minimizing over $B$ and the phase of $A$. The Goldstino stays massless.
+The heavy fermion singular masses are $\sqrt{m^2+g^2s_0}\pm g\sqrt{s_0}$
+for real positive $m,g$. They give $(2\pm\sqrt3)m$ and the seed ratio
+$Q=2/3$ if $g^2s_0=3m^2$. The example establishes local radial stability
+with that input. Predicting $s_0$, its loop shift and the phase requires
+a microscopic action.
 
 The ISS mechanism (Intriligator--Seiberg--Shih \cite{ISS2006}) 
 establishes metastable SUSY-breaking vacua for $N_c < N_f < 3N_c/2$, 
@@ -2912,19 +2914,20 @@ The total Lagrangian is
   + \mathcal{L}_{\text{soft}}\,,
 \end{equation*}
 %
-with K\"ahler potential (canonical plus stabilization and bion corrections),
+with K\"ahler potential (canonical plus quartic and bion corrections),
 %
 \begin{equation*}
   K = \underbrace{\operatorname{Tr}(M^\dagger M) + |X|^2 + |B|^2
     + |\bar B|^2 + |H_u|^2 + |H_d|^2 + |S|^2}_{K_{\text{can}}}
-  \underbrace{{}-\,\frac{|X|^4}{12\,\mu^2}}_{K_{\text{stab}}}
+  \underbrace{{}-\,\frac{|X|^4}{12\,\mu^2}}_{K_{\text{quartic}}}
   + \underbrace{\frac{\zeta^2}{\Lambda^2}\,
     \Bigl|\sum_{k=1}^{N_c} s_k \sqrt{\hat m_k}\,\Bigr|^2}_{K_{\text{bion}}}\,,
 \end{equation*}
-The stabilization term $K_{\text{stab}} = -|X|^4/(12\mu^2)$ is the
-negative quartic K\"ahler correction from \S\ref{subsec:superpotential}
-(with $\Lambda_K = \mu$, $c = -1/12$); it pins the pseudo-modulus at
-$\langle X\rangle = \sqrt{3}\,\mu$ via the K\"ahler pole.
+The quartic term gives a zero of the $X$ metric at $|X|=\sqrt3\,\mu$.
+On a branch with nonzero $F_X$ this point has divergent potential.
+Equation~\eqref{eq:regular-seed-metric} gives a separate regular example
+in the rigid pseudo-modulus model.
+
 The monopole fugacity is $\zeta \propto e^{-S_0/(2N_c)}$,
 $\hat m_k$ are the current quark masses (the couplings in
 $W \ni \operatorname{Tr}(\hat m\,M)$), and
@@ -3433,20 +3436,13 @@ The \emph{modulus} direction $|\Phi_0|$ is a separate question:
 the CW potential stabilizes $|\langle\Phi_0\rangle|$ at zero,
 but the Koide seed requires $\langle X\rangle/\mu = \sqrt{3}$
 (\S\ref{subsec:superpotential}).
-A negative quartic K\"ahler correction $c\,|X|^4/\Lambda_K^2$
-with $c = -\Lambda_K^2/(12\mu^2)$ pins the pseudo-modulus at
-the K\"ahler pole $v_{\text{pole}} = \sqrt{3}\,\mu$ exactly
-(an algebraic result, not numerical tuning;
-see \S\ref{subsec:superpotential}).
-This coefficient is \emph{not} radiatively generated: the
-one-loop CW quartic in the O'Raifeartaigh model has $c_4 = -20/3$
-at $gf/m^2 = 1$ (exact), which is orders of magnitude too large;
-the ISS one-loop potential produces a positive quartic ($c_{\text{eff}} = +0.014$),
-the wrong sign entirely. The K\"ahler pole mechanism is therefore a
-tree-level statement about the effective K\"ahler potential,
-not a consequence of one-loop dynamics.  However, magnetic bions
-on $\mathbb{R}^3 \times S^1$ generate a quartic K\"ahler correction
-of the correct sign.
+A negative quartic term can place the zero of the metric at that coordinate.
+The potential diverges there on the broken branch.
+Equation~\eqref{eq:regular-seed-metric} instead exhibits the input that
+selects a finite radius. A calculation of a quartic coefficient tests the
+metric near the origin; obtaining a vacuum also requires the full potential
+and a regular positive metric at its stationary point.
+
 The bion-induced coefficient
 $c_{\text{bion}} = -3\pi^2\,e^{-4\pi/(N_c^2\alpha_s)}\,M^2/\alpha_s^2$
 (where $M^2 = [\prod_f(m_f/\Lambda)]^2$ is the zero-mode mass factor)
@@ -3540,7 +3536,7 @@ An O'Raifeartaigh deformation
 breaks SUSY at a metastable vacuum ($F_{X_L} = f$) while the
 Pfaffian provides a distant SUSY-restoring vacuum.
 At $t \equiv g\langle X_L\rangle/m = \sqrt{3}$
-(selected by a K\"ahler pole, as in the quark sector),
+(a supplied seed radius, as in the quark-sector comparison),
 the fermion mass matrix has the spectrum
 $(0,\,(2-\sqrt{3})m,\,(2+\sqrt{3})m)$
 with $Q = 2/3$ \emph{exactly}.
@@ -3763,7 +3759,7 @@ $W_B = m_B\,B\tilde B$ to the superpotential lifts the baryonic
 flat direction without affecting the seesaw vacuum
 (since $B = \tilde B = 0$ there): the meson masses $M_i$, the off-diagonal meson spectrum,
 and the Higgs sector are all unchanged.
-With the K\"ahler pole confining $X$ near $X_{\text{seesaw}}$,
+Conditional on independent regular stabilization of $X$ near $X_{\text{seesaw}}$,
 any $m_B \gtrsim 1\;\MeV$ eliminates vacuum~(B) entirely.
 The natural scale $m_B \sim \Lambda = 300\;\MeV$
 (arising from instanton corrections in the confining phase) lifts
@@ -3893,8 +3889,8 @@ Claim & Status & Comment \\
 $Q = 2/3$ iff $\langle z_k^2\rangle = z_0^2$ & Derived & Algebra (\S\ref{sec:koide_algebra}) \\
 Seed ratio $= 2-\sqrt{3}$ & Derived & From $Q = 2/3$ + one zero \\
 O'R seed at $gv/m = \sqrt{3}$ & Derived & Fermion eigenvalues \\
-K\"ahler stabilization: $c = -1/12$ & Derived & Pole condition (\S\ref{subsec:superpotential}) \\
-$\langle X\rangle/\mu = \sqrt{3}$ in magnetic dual & Derived & ISS dictionary \\
+Regular radial stabilization & Conditional & Radius $s_0$ in Eq.~\eqref{eq:regular-seed-metric} \\
+$\langle X\rangle/\mu = \sqrt{3}$ in magnetic dual & Input & Seed spectrum at this radius \\
 Pauli theorem (no symmetric $J{=}0$ diquark) & Derived & Angular momentum \\
 Diophantine: $(N,r,s) = (3,3,2)$ unique & Derived & Number theory \\
 Cyclic echo ($t \to c \to s \to \text{stall} \to c$) & Derived & Algebraic necessity \\
@@ -3919,7 +3915,7 @@ $m_b = 4{,}177 \pm 40\MeV$ from bion minimum & Derived & $0.06\sigma$; requires 
 $N_f = 4$ unique in ISS window & Derived & Only integer in $(3, 4.5)$ \\
 ISS vacuum cosmologically stable & Derived & $S_{\text{bounce}} \gg 1$ for $h \sim O(1)$ \\
 ISS CW does not transmit Koide & Derived & $Q_{\text{CW}} \to 1/3$ (affine map) \\
-$c = -1/12$ from bion K\"ahler & Derived & At $\alpha_s = 0.143$ (ISS) \\
+$c = -1/12$ from bion K\"ahler & Conditional & Coefficient estimate at $\alpha_s = 0.143$ (ISS) \\
 $\text{STr}[M^2] = 18\,\fpi^2$ & Derived & Soft mass only (canonical K\"ahler) \\
 $m_h = \lambda_S v/\sqrt{2} = 125\GeV$ & Input & NMSSM singlet $S \neq X$; $\lambda_S = 0.72$ \\
 $\cos(9\delta)$ from $(\det M)^3/\Lambda^{18}$ & Derived & $\mathbb{Z}_{18}$ charge counting \\
@@ -3966,20 +3962,14 @@ The massless member is the necessary condition for F-term
 full triples $(-s,c,b)$ and $(-\pi,D_s,B)$. The lepton triple 
 is the ``almost-seed'' that has barely bloomed.
 
-\paragraph{3.\ The seed condition is one superpotential constraint,
-stabilized by a K\"ahler pole.}
-The O'Raifeartaigh model with superpotential
-$W = f\Phi_0 + m\Phi_1\Phi_2 + g\Phi_0\Phi_1^2$ produces a
-fermionic spectrum $(0,\, m_-,\, m_+)$ that is an exact Koide
-seed triple when $gv/m = \sqrt{3}$. The one-loop CW potential
-alone stabilizes the pseudo-modulus at $v = 0$; a negative
-quartic K\"ahler correction $c\,|\Phi_0|^4/\Lambda_K^2$ with
-$c = -\Lambda_K^2/(12m^2)$ pins it at the K\"ahler pole
-$v = \sqrt{3}\,m/g$ exactly. The Koide seed emerges at
-$M_0 = 2m/3$.  The coefficient $c = -1/12$ is not radiatively
-generated but arises from magnetic bions on
-$\mathbb{R}^3 \times S^1$ at $\alpha_s = 0.143$
-in the ISS magnetic dual.
+\paragraph{3.\ The seed condition fixes a ratio of scales.}
+For $W=fX+mAB+gXA^2$ the fermionic seed requires $g|X|/m=\sqrt3$,
+giving $M_0=2m/3$. The canonical one-loop vacuum is at the origin.
+The negative quartic ansatz gives an infinite wall; a regular metric can
+give the desired radius with positive radial and heavy curvatures under
+the conditions of Eq.~\eqref{eq:regular-seed-metric}. The value of that
+radius remains a matching input. The quoted magnetic bion estimate
+concerns a coefficient at a specified coupling.
 
 \paragraph{4.\ Two breaking mechanisms plus a heavy-sector origin.}
 F-term breaking (via the massless seed member) generates the light 
@@ -4010,8 +4000,8 @@ equation and the choice of renormalization scheme remain open.
 \paragraph{7.\ An explicit Lagrangian with two to three free parameters.}
 The full $\mathcal{N}=1$ Lagrangian
 (\S\ref{subsec:superpotential}) comprises a K\"ahler potential
-with a negative quartic correction $c = -1/12$ (stabilizing
-the pseudo-modulus at $gv/m = \sqrt{3}$) and a bion correction
+with a negative quartic correction $c=-1/12$ (bounding the domain
+of its positive metric) and a bion correction
 $K_{\text{bion}} \sim |\!\sum s_k\sqrt{\hat m_k}|^2$,
 a superpotential combining the Seiberg constraint
 with Yukawa couplings (using separate $H_u$, $H_d$ doublets)
