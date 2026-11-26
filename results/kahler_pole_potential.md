@@ -1,5 +1,14 @@
 # Effective Potential with Non-Canonical Kahler Potential
 
+**Correction (2026-11-26, issue #1).** The value $t_{\mathrm{CW}} \approx 0.49$
+quoted below came from `pseudomodulus_cw.py` before its Weyl-fermion weight
+was corrected from $-1$ to $-2$. With the correct weight the canonical CW
+minimum is $t_{\mathrm{CW}} = 0$ (Intriligator–Seiberg, hep-ph/0702069,
+Eq. (2.62); see `pseudomodulus_cw.md`). Both $V_{\mathrm{tree}}$ and
+$V_{\mathrm{CW}}$ then increase from $t = 0$, so the minimum of
+$V_{\mathrm{eff}}$ is at the origin and the pole remains a wall. The
+conclusions about the pole are unchanged.
+
 ## Setup
 
 O'Raifeartaigh superpotential with three chiral superfields:
@@ -141,7 +150,7 @@ $$\frac{dV_{\mathrm{tree}}}{dt} + \frac{dV_{\mathrm{CW}}}{dt} = 0$$
 
 $$\frac{2t}{3}\,\frac{f^2}{(1-t^2/3)^2} = -\frac{1}{64\pi^2}\,\frac{dv_{\mathrm{CW}}}{dt}$$
 
-The LHS is strictly positive for $t > 0$. Therefore, the RHS must be positive, requiring $dv_{\mathrm{CW}}/dt < 0$. This happens only for $t < t_{\mathrm{CW}}$, where $t_{\mathrm{CW}} \approx 0.49$ is the CW minimum.
+The LHS is strictly positive for $t > 0$. Therefore, the RHS must be positive, requiring $dv_{\mathrm{CW}}/dt < 0$. This happens only for $t < t_{\mathrm{CW}}$, where $t_{\mathrm{CW}}$ is the CW minimum ($t_{\mathrm{CW}} = 0$ after the correction above, so the minimum of $V_{\mathrm{eff}}$ is $t = 0$).
 
 **The minimum of $V_{\mathrm{eff}}$ is always in the interval $[0, t_{\mathrm{CW}})$.**
 
@@ -255,7 +264,7 @@ This is **finite**: the moduli space has a boundary at finite proper distance, w
 
 3. **The CW potential** is smooth and monotonically increasing near the pole (both $V_{\mathrm{CW}}$ and $dV_{\mathrm{CW}}/dt$ are positive at $t = \sqrt{3}$).
 
-4. **The minimum** of $V_{\mathrm{eff}}$ lies in the **bulk** of the moduli space, at $t \lesssim t_{\mathrm{CW}} \approx 0.49$ for $y \ll 1$. The non-canonical Kahler correction pushes the minimum **toward the origin**, away from the pole.
+4. **The minimum** of $V_{\mathrm{eff}}$ lies in the **bulk** of the moduli space, at $t \le t_{\mathrm{CW}} = 0$, i.e. at the origin (corrected from the former $t_{\mathrm{CW}} \approx 0.49$). The non-canonical Kahler correction pushes the minimum **toward the origin**, away from the pole.
 
 5. **The energy-balance point** $t = \sqrt{3}$, where the fermion spectrum acquires the $Q = 2/3$ relation, is separated from the potential minimum by the entire moduli space. This is the central tension: the geometric point of interest ($t = \sqrt{3}$) is at the boundary, while the dynamical minimum is in the interior.
 

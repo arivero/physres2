@@ -165,13 +165,14 @@ def cw_potential(x, y, include_X_scalar=True):
     # If including X scalar (massless at tree level), it contributes 0
     # (it's the pseudo-modulus whose mass we're computing)
 
-    # Fermionic contributions (factor of -2 for Dirac, but these are Weyl)
-    # Each Weyl fermion contributes with factor -1 in the CW potential
-    # The two non-zero Weyl fermions with masses mf1, mf2:
+    # Fermionic contributions: STr weight -2 per Weyl fermion (two
+    # helicity states), as in STr[M^4] above and in the docstring.
+    # (Before 2026-11-26 this loop subtracted each Weyl fermion once,
+    # which produced the spurious minima x_min ~ 0.3-0.5 for y < 1/2.)
     for mf in [mf1, mf2]:
         if mf > 1e-15:
             mfsq = mf**2
-            V -= mfsq**2 * (np.log(mfsq) - 1.5)
+            V -= 2.0 * mfsq**2 * (np.log(mfsq) - 1.5)
 
     # Goldstino: massless, contributes 0
 
@@ -325,6 +326,23 @@ for y in y_vals:
     r = results[y]
     V0 = cw_potential(0, y)
     print(f"{y:6.2f} | {r['x_min']:10.6f} | {r['x_min']/sqrt3:10.6f} | {r['V_min']:14.6f} | {V0:14.6f}")
+print()
+
+# Curvature at x = 0 versus the analytic one-loop result
+# (Intriligator-Seiberg, hep-ph/0702069, Eq. (2.62), with h = 2g, eta = 2y):
+#   mu_CW^2 = g^2 m^2 B(eta)/(8 pi^2),
+#   B(eta) = [(1+eta)^2 log(1+eta) - (1-eta)^2 log(1-eta)]/eta - 2.
+# In the units used here V = c2 x^2 + ... with c2 = 8 B(eta).
+def B_eta(eta):
+    return ((1 + eta)**2 * np.log(1 + eta) - (1 - eta)**2 * np.log(1 - eta)) / eta - 2
+
+
+print("Curvature at x = 0: numerical c2 vs analytic 8*B(2y)")
+print(f"{'y':>6} | {'c2 (numerical)':>16} | {'8 B(2y)':>14} | {'ratio':>10}")
+for y in [0.05, 0.1, 0.25, 0.4, 0.49]:
+    h = 1e-3
+    c2 = (cw_potential(h, y) - 2 * cw_potential(0, y) + cw_potential(-h, y)) / (2 * h * h)
+    print(f"{y:6.2f} | {c2:16.8f} | {8*B_eta(2*y):14.8f} | {c2/(8*B_eta(2*y)):10.7f}")
 print()
 
 # More detailed scan over y

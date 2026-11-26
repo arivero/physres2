@@ -1,0 +1,216 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+
+\begin{document}
+
+\section*{A local metastable branch of the $R$-breaking deformation}
+
+\noindent\textbf{Status.} The model and the phenomenon (metastability
+after small explicit $R$ breaking in a Wess--Zumino model) are standard
+\cite{IS2007}. This note gives the explicit calculation for the
+deformation $\delta W=\epsilon\,\Phi_0\Phi_2$ used in
+\texttt{sbootstrap\_v4d.tex} (issue \#1). Every equation below is checked
+by \texttt{results/rbreaking\_metastable\_branch.py} (Python: \texttt{sympy}
+for the exact tree-level algebra, \texttt{mpmath} at 40 digits for the
+one-loop numerics). It supersedes the off-stationary massive-Goldstino
+calculation in \texttt{results/bloom\_instability.tex}.
+
+\subsection*{1. Model and conventions}
+
+Write $X=\Phi_0$, $A=\Phi_1$, $B=\Phi_2$ and take the rigid model
+\begin{equation}
+W=fX+mAB+gXA^2+\epsilon XB,\qquad K=|X|^2+|A|^2+|B|^2,
+\end{equation}
+with $f,m,g>0$ and $\epsilon$ real. $f$ has mass dimension two, $m$ and
+$\epsilon$ dimension one, $g$ is dimensionless; $\epsilon/m$ is the
+dimensionless $R$-breaking parameter. Define
+\begin{equation}
+S=m^2+\epsilon^2,\qquad \eta=\frac{2gf}{m^2},\qquad z=\frac{2gf}{S},
+\qquad \ell=\frac{g^2}{8\pi^2}.
+\end{equation}
+The repository's $y=gf/m^2$ (\texttt{results/pseudomodulus\_cw.py}) is
+$y=\eta/2$. Throughout $0<\eta<1$, away from both endpoints, so the
+undeformed heavy scalars are non-tachyonic. $F_i$ denotes $W_i$.
+
+\subsection*{2. Exact stationary point and Goldstino}
+
+The $F$-terms are $F_X=f+gA^2+\epsilon B$, $F_A=mB+2gXA$,
+$F_B=mA+\epsilon X$. The point
+\begin{equation}
+P_\epsilon:\qquad X=A=0,\qquad B=-\frac{\epsilon f}{S}
+\end{equation}
+has
+\begin{equation}
+(F_X,F_A,F_B)=\frac{fm}{S}\,(m,-\epsilon,0),\qquad V(P_\epsilon)=\frac{f^2m^2}{S}>0,
+\end{equation}
+and satisfies the stationarity condition $W_{ij}\overline{W_j}=0$; its only
+nontrivial component is $\epsilon F_X+mF_A=0$. Imposing $F_A=F_B=0$ at a
+fixed $X=v$ does not impose this condition. The two supersymmetric vacua
+$A^2=-f/(3g)$, $X=-mA/\epsilon$, $B=-2f/(3\epsilon)$ lie at distances of
+order $1/|\epsilon|$, while $P_\epsilon$ tends to the undeformed origin.
+
+At $P_\epsilon$ the fermion mass matrix
+\begin{equation}
+\mathcal M_F=W''=\begin{pmatrix}0&0&\epsilon\\0&0&m\\\epsilon&m&0\end{pmatrix}
+\end{equation}
+has singular masses $(0,\sqrt S,\sqrt S)$ and the exact zero mode
+\begin{equation}
+\psi_G=\frac{m\,\psi_X-\epsilon\,\psi_A}{\sqrt S},
+\end{equation}
+parallel to the $F$-vector: the Goldstino rotates with $\epsilon$ and stays
+exactly massless.
+
+\subsection*{3. Complete tree-level Hessian: an exact saddle}
+
+In canonical real fields ($X=(X_R+iX_I)/\sqrt2$, etc.) the $6\times6$
+Hessian is block diagonal. Both components of $B$ have mass squared $S$.
+The real and imaginary $(X,A)$ blocks are
+\begin{equation}
+H_R=\begin{pmatrix}\epsilon^2&\epsilon m(1-z)\\\epsilon m(1-z)&m^2(1+z)\end{pmatrix},\qquad
+H_I=\begin{pmatrix}\epsilon^2&\epsilon m(1+z)\\\epsilon m(1+z)&m^2(1-z)\end{pmatrix},
+\end{equation}
+equal to $\mathcal M_F^\dagger\mathcal M_F\pm C$ with $C_{XA}=2gF_A=-\epsilon mz$
+and $C_{AA}=2gF_X=m^2z$. Hence
+\begin{equation}
+\det H_R=\epsilon^2m^2z(3-z),\qquad \det H_I=-\epsilon^2m^2z(3+z)<0 .
+\end{equation}
+For every $\epsilon\neq0$, $H_I$ has exactly one negative eigenvalue and
+$P_\epsilon$ is a tree-level saddle. Two independent checks: the scalar
+trace is $4S$, equal to twice the sum of the fermion mass squares, so
+$\mathrm{STr}\,M^2=0$; and the imaginary fluctuation along the Goldstino
+direction $n=(m,-\epsilon)/\sqrt S$ gives
+$n^TH_In=-6gfm^2\epsilon^2/S^2<0$. The Schur complements of the heavy
+entries give the light curvatures
+\begin{equation}
+m^2_{R,\rm tree}=\epsilon^2\frac{\eta(3-\eta)}{1+\eta}+O(\epsilon^4/m^2),\qquad
+m^2_{I,\rm tree}=-\epsilon^2\frac{\eta(3+\eta)}{1-\eta}+O(\epsilon^4/m^2),
+\end{equation}
+not uniform as $\eta\to1$.
+
+\subsection*{4. One-loop curvature of the pseudomodulus}
+
+At $\epsilon=0$, $V_{\rm CW}=V_{\rm CW}(0)+\mu_{\rm CW}^2|X|^2+O(|X|^4)$ with
+\begin{gather}
+\mu^2_{\rm CW}=\frac{g^2m^2}{8\pi^2}\,\mathcal B(\eta),\\
+\mathcal B(\eta)=\frac{(1+\eta)^2\log(1+\eta)-(1-\eta)^2\log(1-\eta)}{\eta}-2
+=\sum_{n\ge1}\frac{4\eta^{2n}}{(2n-1)(2n)(2n+1)}>0 ,
+\end{gather}
+Eq.~(2.62) of \cite{IS2007} with $h=2g$, $y=\eta$. The supertrace weights
+are $+1$ per real scalar and $-2$ per Weyl fermion. With these weights the
+numerical second derivative of the heavy-mode $V_{\rm CW}$ reproduces
+$\mu^2_{\rm CW}$ to ten digits at $\eta=1/4,1/2,3/4$, and the one-loop
+minimum of the undeformed model is $X=0$ for every $y<1/2$.
+\texttt{results/pseudomodulus\_cw.py} previously subtracted each Weyl
+fermion once; that error produced its reported minima
+$gX/m\approx0.3$--$0.5$, now corrected (\texttt{results/pseudomodulus\_cw.md}).
+
+\subsection*{5. Combined expansion and the stability window}
+
+Count $\ell\ll1$ and $\epsilon^2/m^2=O(\ell)$ at fixed $\eta$ away from
+0 and 1, with renormalized parameters at a scale of order $m$. Integrate out
+the massive modes (the analytic heavy-mode effective potential; the
+tree-tachyonic light mode is the quantity being stabilized and is not
+inserted in a logarithm). The bosonic symmetry
+$(X,A,B)\mapsto(-X,-A,B)$ leaves $V$ invariant, so the corrected
+stationary point stays at $X=A=0$ with $B$ shifted by a relative $O(\ell)$.
+To leading order
+\begin{equation}
+m_R^2=\mu^2_{\rm CW}+\epsilon^2\frac{\eta(3-\eta)}{1+\eta}+O(\ell^2m^2),\qquad
+m_I^2=\mu^2_{\rm CW}-\epsilon^2\frac{\eta(3+\eta)}{1-\eta}+O(\ell^2m^2),
+\end{equation}
+and the leading local stability condition is
+\begin{equation}
+\epsilon^2<\mu^2_{\rm CW}\,\frac{1-\eta}{\eta(3+\eta)} .
+\end{equation}
+The heavy directions keep masses squared near $m^2(1\pm\eta)$ and $S$.
+
+\paragraph{Numerical test of the omitted terms.} The script builds
+$V_{\rm tree}+V_{\rm CW}^{\rm heavy}$ in all six real directions, solves for
+the corrected stationary point and evaluates the full Hessian at $\eta=1/2$,
+$\epsilon^2=\mu^2_{\rm CW}/7$ (renormalization scale $m$):
+\begin{center}
+\begin{tabular}{cccccc}
+\toprule
+$g$ & $\ell$ & $B_*/B_{\rm tree}-1$ & $m_I^2/\mu^2_{\rm CW}$ & $m_R^2/\mu^2_{\rm CW}$ & deviations$/\ell$ (I, R)\\
+\midrule
+0.3 & $1.14\times10^{-3}$ & $5.1\times10^{-3}$ & 0.500863 & 1.119179 & 0.757, 0.115\\
+0.1 & $1.27\times10^{-4}$ & $5.6\times10^{-4}$ & 0.500096 & 1.119062 & 0.756, 0.115\\
+0.03 & $1.14\times10^{-5}$ & $5.1\times10^{-5}$ & 0.500009 & 1.119049 & 0.756, 0.115\\
+\bottomrule
+\end{tabular}
+\end{center}
+The leading values are $1/2$ and $47/42=1.119048$. The deviations scale
+as $\ell$ times a constant, so the omitted terms in the light curvatures
+are $O(\ell^2m^2)$ as stated. The boundary $m_I^2=0$ lies at
+$\epsilon^2/\mu^2_{\rm CW}=0.285779$ ($g=0.1$) and $0.285720$
+($g=0.03$), against the leading $2/7=0.285714$; the shift is
+$0.51\,\ell$. All heavy eigenvalues are positive ($0.5000$, $0.9997$
+twice, $1.5000$ in units of $m^2$ at $g=0.1$). The coefficients grow as
+$\eta\to1$ through the factors $1/(1-\eta)$, and as $\eta\to0$ the window
+closes like $\mu^2_{\rm CW}\propto\eta^2$; the expansion is reliable only
+at fixed $\eta$ inside the interval.
+
+\subsection*{6. The interior family}
+
+At $\eta=1/2$, i.e.\ $f=m^2/(4g)$, and $\epsilon^2=\mu^2_{\rm CW}/7$ with
+$\mu^2_{\rm CW}=\frac{g^2m^2}{8\pi^2}\bigl(\tfrac92\log3-4\log2-2\bigr)$,
+\begin{equation}
+m_I^2=\tfrac12\,\mu^2_{\rm CW}+O(\ell^2m^2),\qquad
+m_R^2=\tfrac{47}{42}\,\mu^2_{\rm CW}+O(\ell^2m^2).
+\end{equation}
+Both light curvatures keep a fixed positive fraction of $\mu^2_{\rm CW}$;
+the margin persists for every $\epsilon^2<\tfrac27\mu^2_{\rm CW}$ at
+sufficiently weak coupling. This is a weak-coupling family with a locally
+stable supersymmetry-breaking branch near the origin and two distant
+supersymmetric vacua.
+
+\subsection*{7. Ward identity at the corrected stationary point}
+
+For the 1PI action at zero momentum the rigid Ward identity reads
+$(W_{ij}+\Sigma_{ij})\,\langle\overline{W}{}^j\rangle=\partial_iV_{\rm eff}$,
+with $\langle W_j\rangle=W_j(\phi)+\delta W_j$ and
+$\delta W_j=\tfrac12W_{jkl}\langle\phi^k\phi^l\rangle$ the auxiliary-field
+tadpole. At the corrected point the bare operator no longer annihilates
+the $F$-vector: $W_{Bj}\overline W{}^j=S\,\delta B\neq0$. Here $W_{Bkl}=0$,
+so $\Sigma_{Bj}$ vanishes at one loop, and the $X$ and $A$ rows vanish by
+the $\mathbb Z_2$ above. The zero mode is restored by the tadpole,
+$\epsilon\,\delta\overline W_X+m\,\delta\overline W_A=\partial_BV_{\rm CW}$. The script
+computes $\delta W_X=g\langle AA\rangle$ and $\delta W_A=2g\langle XA\rangle$
+from the heavy-mode propagator $\frac{1}{16\pi^2}M^2(\log M^2/m^2-1)$,
+independently of the potential. At $g=0.1$ the bare $B$ row is
+$-2.474\times10^{-6}m^3$, the tadpole term is $+2.47441\times10^{-6}m^3$,
+equal to $\partial_BV_{\rm CW}$, and the corrected row vanishes to
+$10^{-43}$; the same holds at $g=0.03$. The Goldstino is massless at the
+corrected point, along $\langle\overline W{}^j\rangle$ rather than
+$\overline W{}^j(\phi_*)$. The bare $W''$ evaluated at the shifted point is
+the wrong mass operator.
+
+\subsection*{8. Limitations}
+
+\begin{itemize}
+\item The branch lies near $X=0$, far from the Koide seed radius
+$g|X|/m=\sqrt3$. Its tree-level fermion spectrum $(0,\sqrt S,\sqrt S)$
+gives $Q=1/2$, not $2/3$. The regular-metric seed example in
+\texttt{sbootstrap\_v4d.tex} is a separate construction with its own
+input radius.
+\item No Goldstino mass follows: the zero mode is exact at every
+stationary point. The bloom angle of \texttt{bloom\_instability.tex},
+derived from a nonzero ``Goldstino mass'' at a non-stationary background,
+has no counterpart here.
+\item No tunnelling lifetime is computed; the supersymmetric vacua are at
+distance $O(m/|\epsilon|)$ in field space.
+\item No strongly coupled SQCD embedding follows; in the $N_f=N_c=3$ chiral
+limit the Seiberg description has no finite vacuum at all (issue \#2).
+\item Noncanonical K\"ahler terms and additional sectors need their own
+Hessian analysis.
+\end{itemize}
+
+\begin{thebibliography}{9}
+\bibitem{IS2007}
+K.~Intriligator and N.~Seiberg, ``Lectures on supersymmetry breaking,''
+Class.\ Quant.\ Grav.\ \textbf{24}, S741 (2007), arXiv:hep-ph/0702069.
+\end{thebibliography}
+
+\end{document}

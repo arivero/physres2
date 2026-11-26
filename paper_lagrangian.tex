@@ -951,8 +951,14 @@ with K\"ahler potential (canonical plus stabilization and bion corrections),
   + \underbrace{\frac{\zeta^2}{\Lambda^2}\,
     \Bigl|\sum_{k=1}^{N_c} s_k \sqrt{\hat m_k}\,\Bigr|^2}_{K_{\text{bion}}}\,,
 \end{equation}
-where the stabilization term pins the pseudo-modulus at
-$\langle X\rangle = \sqrt{3}\,\mu$ via the K\"ahler pole,
+where the quartic term places a zero of the K\"ahler metric at
+$\langle X\rangle = \sqrt{3}\,\mu$; there the potential
+$|F_X|^2/K_{X\bar X}$ diverges, so this point is an infinite wall and
+hosts no vacuum (the subsection on K\"ahler stabilization above). A
+regular metric with an independently chosen maximum can hold the
+pseudo-modulus at that radius; the radius is then an input
+(\texttt{sbootstrap\_v4d.tex}, K\"ahler stabilization of the
+pseudo-modulus),
 $\zeta \propto e^{-S_0/(2N_c)}$ is the monopole fugacity,
 $\hat m_k$ are the current quark masses, and
 $s_k = \pm 1$ are monopole-instanton signs encoding the seed-to-bloom phase.
@@ -2454,8 +2460,8 @@ $\sqrt{3}/12$ (one-sixth of the fundamental domain).
 The number $\sqrt{3}$ appears here in a purely geometric role: it is
 the imaginary part of the modular parameter of the unique
 $\mathbb{Z}_3$-compatible torus.  In the sBootstrap Lagrangian, the
-pseudo-modulus is stabilised at $\langle X\rangle/\mu = \sqrt{3}$
-(equivalently $gv/m = \sqrt{3}$).  Two suggestive connections
+pseudo-modulus is assumed to sit at $\langle X\rangle/\mu = \sqrt{3}$
+(equivalently $gv/m = \sqrt{3}$); no derived vacuum places it there.  Two suggestive connections
 deserve mention:
 \begin{itemize}
 \item The K\"ahler modulus $T$ of each $T^2$ satisfies
@@ -2627,24 +2633,28 @@ angular parameter $\delta$ that controls how the seed develops into a
 full triple. The O'Raifeartaigh vacuum fixes the seed ratio
 $gv/m = \sqrt{3}$ but leaves $\delta$ undetermined.
 
+\begin{sloppypar}
 The lowest-dimension $R$-breaking deformation that affects the
-spectrum is the bilinear $\Delta W = \epsilon\,\Phi_0\Phi_2$, which
-forces $\langle\Phi_1\rangle \neq 0$ and mixes the goldstino with the
-massive sector.  (Cubic deformations in $\Phi_1,\Phi_2$ alone vanish
-at the vacuum and are inert.)  To first order in $\varepsilon =
-\epsilon/m$, all eigenvalue shifts vanish, but the bloom angle shifts
-at $O(\varepsilon)$ because $\delta\delta \sim \sqrt{m_0} \sim
-\varepsilon$:
-$$
-  \delta\delta = 3^{5/4}\,|\varepsilon| \approx 3.95\,|\varepsilon|\,.
-$$
-The direction is \emph{toward} the physical quark spectrum
-($\delta > 3\pi/4$).  The determinant condition $m_+m_- = m^2$ is
-broken at $O(\varepsilon^2)$ with fractional deviation
-$49\,\varepsilon^2$.  The seed is therefore an unstable fixed point
-under any $R$-breaking, and the instability points in the right
-direction. The bloom magnitude, however, requires a nonperturbative
-mechanism.
+spectrum is the bilinear $\Delta W = \epsilon\,\Phi_0\Phi_2$.
+An earlier version of this section evaluated it at the background
+$\Phi_0 = v$ with $F_1 = F_2 = 0$ imposed by hand and found a Goldstino
+mass $6\sqrt3\,\varepsilon^2 m$ ($\varepsilon = \epsilon/m$), a bloom angle
+$\delta\delta = 3^{5/4}|\varepsilon|$ and a $49\varepsilon^2$ shift of
+$m_+m_-$ (\texttt{results/bloom\_instability.tex}). That background is not
+stationary: with the canonical K\"ahler metric
+$W_{ij}\overline{W_j} = (\epsilon^2 v,\, m\epsilon v,\, \epsilon f) \neq 0$.
+At every stationary point with a nonzero $F$-term the Goldstino is exactly
+massless, so these three results are superseded. The stationary analysis
+(\texttt{results/rbreaking\_metastable\_branch.tex}) finds two distant
+supersymmetric vacua and, near the origin, the exact point
+$\Phi_0 = \Phi_1 = 0$, $\Phi_2 = -\epsilon f/(m^2 + \epsilon^2)$: a tree-level
+saddle that the one-loop pseudo-modulus curvature turns into a local
+minimum for $\epsilon^2 < \mu^2_{\rm CW}(1-\eta)/[\eta(3+\eta)]$,
+$\eta = 2gf/m^2$, with a massless Goldstino and fermion spectrum
+$(0, \sqrt{m^2+\epsilon^2}, \sqrt{m^2+\epsilon^2})$ ($Q = 1/2$). The
+deformation therefore produces no bloom of the seed; the bloom requires
+another mechanism.
+\end{sloppypar}
 
 A natural candidate for a dynamical origin is the instanton structure of
 SQCD: for $N_f = N_c = 3$, instantons break $U(1)_{R+2A} \to \mathbb{Z}_{18}$,
@@ -2781,14 +2791,17 @@ both are consequences of the mass-charge condition $t = \sqrt{3}$.
 
 In the mass-charge parametrisation, the seed spectrum
 $(0,\, m_-,\, m_+)$ sits at $\delta = 3\pi/4$ where the lightest
-eigenvalue vanishes.  The bloom
-$\Delta W = \varepsilon\,\Phi_0\Phi_2$ rotates~$\delta$ by
-only $2.3^\circ$, creating the electron mass while shifting
+eigenvalue vanishes.  The bloom to the observed leptons is a rotation
+of~$\delta$ by only $2.3^\circ$, creating the electron mass while shifting
 the muon eigenstate \emph{down} by $16\%$ and the tau eigenstate
 \emph{up} by $1\%$ relative to the seed values.
 At the seed, $m_+/m_- = (2+\sqrt{3})^2 = 13.93$; at the
 physical point, $m_\tau/m_\mu = 16.82$.  The entire
 difference is the bloom correction.
+The deformation $\Delta W = \varepsilon\,\Phi_0\Phi_2$ does not generate
+this rotation: it leaves the Goldstino exactly massless at every
+stationary point (Section~\ref{sec:bloom}), so the $2.3^\circ$ is a
+parametrisation of the observed spectrum with no derived source.
 
 \paragraph{The supercharge and the two zeros.}
 The supercharge~$Q$ that maps each lepton to its meson partner
@@ -2968,7 +2981,8 @@ excluded from the composite sector.
 \paragraph{2.\ The O'Raifeartaigh superpotential produces the
 mass-charge identity as a theorem.}
 With three chiral superfields, the O'Raifeartaigh model at
-$gv/m = \sqrt{3}$ (stabilized by a K\"ahler pole at $c = -1/12$)
+$gv/m = \sqrt{3}$ (a supplied radius: the K\"ahler pole at $c = -1/12$
+is an infinite wall, and a regular metric must be given that radius as input)
 produces the fermion spectrum
 $(0,\, (2{-}\sqrt{3})\,m,\, (2{+}\sqrt{3})\,m)$
 satisfying $\langle z_k^2\rangle = z_0^2$ exactly. This identity is a
