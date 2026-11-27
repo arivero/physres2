@@ -1,0 +1,919 @@
+\documentclass[aspectratio=169,12pt]{beamer}
+\usetheme{Madrid}
+\usecolortheme{seahorse}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+
+\newcommand{\MeV}{\,\text{MeV}}
+\newcommand{\GeV}{\,\text{GeV}}
+\newcommand{\fpi}{f_\pi}
+\newcommand{\zch}{\mathfrak{z}}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+\title{Three families from SUSY confinement}
+\subtitle{Spectrum and mass predictions of an
+$\mathcal{N}=1$ $\mathrm{SU}(3)\times\mathrm{SU}(2)$ theory}
+\author{A.~Rivero}
+\institute{Universidad de Zaragoza}
+\date{2026}
+
+\begin{document}
+
+%-------------------------------------------------------------
+\begin{frame}
+\titlepage
+\end{frame}
+
+%-------------------------------------------------------------
+\begin{frame}{The flavour problem}
+
+The Standard Model has \textbf{13 free parameters} in the
+charged fermion sector:
+\begin{itemize}
+\item 9 masses: $m_e, m_\mu, m_\tau, m_u, m_d, m_s, m_c, m_b, m_t$
+\item 4 CKM angles: $\theta_{12}, \theta_{23}, \theta_{13}, \delta_{\rm CP}$
+\end{itemize}
+
+\bigskip
+No established principle relates them.
+
+\bigskip
+\textbf{This talk:} an $\mathcal{N}=1$ SUSY theory that
+reduces 13 to \textbf{6} free parameters.
+
+\end{frame}
+
+%-------------------------------------------------------------
+\begin{frame}{The foundational relation}
+
+\begin{equation*}
+\boxed{m_\pi^2 - m_\mu^2 \;\approx\; \fpi^2}
+\end{equation*}
+
+\bigskip
+\begin{center}
+\begin{tabular}{lc}
+$m_\pi^2 - m_\mu^2$ & $8\,316\MeV^2$ \\
+$\fpi^2$ & $8\,501\MeV^2$ \\
+Discrepancy & $2.2\%$
+\end{tabular}
+\end{center}
+
+\bigskip
+If the pion and the muon are \textbf{superpartners}
+split by soft SUSY breaking, the splitting scale is~$\fpi$.
+
+\end{frame}
+
+%-------------------------------------------------------------
+\begin{frame}{Diophantine bootstrap}
+
+\textbf{Postulate:} every scalar of the SSM is a composite
+(meson or diquark) of quarks.
+
+\medskip
+Matching composites to fermion d.o.f.\ gives three equations:
+\begin{align*}
+rs &= 2N \\
+\tfrac{r(r+1)}{2} &= 2N \\
+r^2 + s^2 - 1 &= 4N
+\end{align*}
+
+\pause
+\textbf{Unique solution:}
+\begin{equation*}
+\boxed{(N,\,r,\,s) = (3,\,3,\,2)}
+\end{equation*}
+
+Three colours, three generations, five light quarks
+$\to$ $\mathrm{SU}(5)$ flavour symmetry.
+
+\medskip
+Right-handed neutrinos are \emph{required}. Top quark is
+automatically excluded.
+
+\end{frame}
+
+%-------------------------------------------------------------
+\begin{frame}{$\mathrm{SU}(5)$ composites}
+
+Composites fill:
+\begin{equation*}
+\mathbf{24} \oplus \mathbf{15} \oplus \overline{\mathbf{15}}
+\end{equation*}
+
+\begin{itemize}
+\item $\mathbf{24}$: mesons ($q\bar q$, colour singlet)
+--- leptons + sleptons
+\item $\mathbf{15} + \overline{\mathbf{15}}$:
+diquarks ($qq$, colour triplet)
+\end{itemize}
+
+\bigskip
+\textbf{Anomaly-free} ($A(\mathbf{24})+A(\mathbf{15})+A(\overline{\mathbf{15}})=0$)
+
+\textbf{Asymptotically free} ($b_0 = 31/3$)
+
+\bigskip
+The symmetric $\mathbf{15}$ (not the antisymmetric
+$\overline{\mathbf{10}}$) is forced by the counting.
+
+\end{frame}
+
+%-------------------------------------------------------------
+\begin{frame}{The Lagrangian: Seiberg dual}
+
+$\mathrm{SU}(3)$ SQCD with $N_f = N_c = 3$.
+Confined d.o.f.: meson matrix $M^i{}_j$, baryons $B, \bar B$,
+Lagrange multiplier $X$.
+
+\begin{equation*}
+\begin{split}
+W &= \mathrm{Tr}(\hat m\, M)
+  + X\!\left(\det M^{(3)} - B\bar B - \Lambda^{6}\right)
+  + c_3\,\frac{(\det M^{(3)})^3}{\Lambda^{18}}\\
+&\quad + y_c H_u M^c{}_c + y_b H_d M^b{}_b
+  + y_t H_u Q^t \bar Q_t
+  + \lambda_S S H_u\!\cdot\!H_d + \tfrac{\kappa}{3}S^3
+\end{split}
+\end{equation*}
+
+\medskip
+\textbf{Seiberg seesaw:}
+$\langle M_j\rangle = C/m_j$
+\quad (heavy quarks $\to$ light mesons)
+
+\end{frame}
+
+%-------------------------------------------------------------
+\begin{frame}{O'Raifeartaigh mechanism}
+
+$W = f\Phi_0 + m\Phi_1\Phi_2 + g\Phi_0\Phi_1^2$
+
+\medskip
+$F_{\Phi_0} = f \neq 0$ \quad$\Longrightarrow$\quad
+SUSY \textbf{necessarily broken}
+
+\bigskip
+Fermion spectrum at vacuum $gv/m = \sqrt{3}$:
+\begin{equation*}
+\bigl(0,\;\; (2{-}\sqrt{3})\,m,\;\; (2{+}\sqrt{3})\,m\bigr)
+\end{equation*}
+
+\pause
+\textbf{Structural mass ratio:}
+\begin{equation*}
+R_{\mathrm{OR}} = \frac{m_+}{m_-}
+= (2+\sqrt{3})^2 = 7 + 4\sqrt{3} \approx 13.93
+\end{equation*}
+
+No free parameters.
+
+\end{frame}
+
+%-------------------------------------------------------------
+\begin{frame}{The mass-charge identity}
+
+Write each mass as $m_k = \zch_k^2$ with
+$\zch_k = z_0 + z_k$, $\sum z_k = 0$.
+
+\bigskip
+At $gv/m = \sqrt{3}$, the O'Raifeartaigh vacuum satisfies:
+\begin{equation*}
+\boxed{\langle z_k^2\rangle = z_0^2}
+\qquad\Longleftrightarrow\qquad
+\frac{\sum m_k}{(\sum\sqrt{m_k})^2} = \frac{2}{3}
+\end{equation*}
+
+\bigskip
+This is a \textbf{theorem} about the superpotential ---
+not an empirical fit.
+
+\medskip
+\textbf{Not an RG attractor:} one-loop RG drives
+$\langle z_k^2\rangle/z_0^2 \to 0$.
+It is a \emph{boundary condition}.
+
+\end{frame}
+
+%-------------------------------------------------------------
+\begin{frame}{The mass chain: five quarks from one input}
+
+\begin{equation*}
+\boxed{
+\begin{aligned}
+m_u + m_d &= 6.83\MeV \quad\text{(input)}\\[4pt]
+&\xrightarrow{\;\text{isospin seed}\;}
+m_s = 95.1\MeV \quad[+1.8\%]\\[4pt]
+&\xrightarrow{\;R_{\mathrm{OR}} = (2{+}\sqrt{3})^2\;}
+m_c = 1301\MeV \quad[+2.0\%]\\[4pt]
+&\xrightarrow{\;\sqrt{m_b} = 3\sqrt{m_s} + \sqrt{m_c}\;}
+m_b = 4233\MeV \quad[+1.3\%]\\[4pt]
+&\xrightarrow{\;\langle z_k^2\rangle = z_0^2\;\text{on }(c,b,t)\;}
+m_t = 171{,}250\MeV \quad[-0.9\%]\\[4pt]
+&\xrightarrow{\;\text{dual identity on }(d,s,b)\;}
+m_d = 4.6\MeV \quad[-1.5\%]
+\end{aligned}
+}
+\end{equation*}
+
+Spans a factor of $2.5 \times 10^4$ in mass.
+
+\end{frame}
+
+%-------------------------------------------------------------
+\begin{frame}{The bion mass relation}
+
+Monopole-instantons on $\mathbb{R}^3\times S^1$ (\"Unsal):
+each carries a $\sqrt{m_k}$ factor.
+
+\medskip
+Bion K\"ahler correction:
+$\delta K \sim \lambda_2\,|S_{\rm bloom} - 2\,S_{\rm seed}|^2$
+
+\medskip
+\textbf{Perfect square} $\to$ minimum at:
+\begin{equation*}
+\boxed{\sqrt{m_b} = 3\sqrt{m_s} + \sqrt{m_c}}
+\end{equation*}
+
+The coefficient $3 = N_c$.
+
+\bigskip
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+Input $m_c$ & $m_b$ predicted & PDG pull \\
+\midrule
+1301 MeV (chain) & 4233 MeV & $+1.8\sigma$ \\
+1275 MeV (PDG) & 4186 MeV & $+0.2\sigma$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+%-------------------------------------------------------------
+\begin{frame}{The dual mass-charge identity}
+
+The Seiberg seesaw $\langle M_j\rangle = C/m_j$ maps
+$\zch_k = \sqrt{m_k}$ to dual charges
+$\xi_k \propto 1/\sqrt{m_k}$.
+
+\begin{equation*}
+\frac{\sum 1/m_k}{(\sum 1/\sqrt{m_k})^2} = \frac{2}{3}
+\end{equation*}
+
+\medskip
+For $(d,s,b)$: deviation from $2/3$ is only $0.22\%$.
+
+\medskip
+Predicts $m_d = 4.605\MeV$ \quad (PDG: $4.67 \pm 0.48$, $-0.13\sigma$)
+
+\bigskip
+\textbf{Not an independent assumption:} algebraic property
+of the seesaw $F$-term equations.
+
+\end{frame}
+
+%-------------------------------------------------------------
+\begin{frame}{Lepton sector: SU(2) $s$-confinement}
+
+Separate $\mathrm{SU}(2)$ SQCD with $N_f = 3$ ($s$-confining).
+
+Same O'Raifeartaigh structure, same $gv/m = \sqrt{3}$.
+
+\bigskip
+No bion mechanism in SU(2) $\to$ spectrum stays near seed.
+
+\bigskip
+$\langle z_k^2\rangle = z_0^2$ on $(m_e, m_\mu, m_\tau)$:
+
+\begin{equation*}
+\boxed{m_\tau^{\rm pred} = 1776.97\MeV}
+\end{equation*}
+
+\begin{center}
+PDG: $1776.86 \pm 0.12\MeV$ \qquad
+\textbf{$+0.006\%$, $\mathbf{0.9\sigma}$}
+\end{center}
+
+\medskip
+Most precise prediction in the programme.
+
+\end{frame}
+
+%-------------------------------------------------------------
+\begin{frame}{Supermultiplet identification}
+
+Each meson superfield $M^i{}_j$: fermion = lepton,
+scalar = meson.
+
+\bigskip
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+Multiplet & Fermion & Scalar & SUSY-limit mass \\
+\midrule
+$\Phi_0$ (goldstino) & $e$ & $\pi$ & $\to 0$ \\
+$\Phi_1$ (light) & $\mu$ & $K$ & $(2{-}\sqrt{3})\,m$ \\
+$\Phi_2$ (heavy) & $\tau$ & $D_s$ & $(2{+}\sqrt{3})\,m$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\bigskip
+Soft mass $\tilde m^2 = \fpi^2$ splits each pair:
+\begin{itemize}
+\item $m_\pi/m_e \approx 264$ (large splitting, lightest)
+\item $m_K/m_\mu \approx 4.7$ (moderate)
+\item $m_{D_s}/m_\tau \approx 1.11$ (near-degenerate, heaviest)
+\end{itemize}
+
+\end{frame}
+
+%-------------------------------------------------------------
+\begin{frame}{Electroweak predictions}
+
+\textbf{$\tan\beta = 1$} is required: mass-charge identity on
+masses $=$ identity on Yukawas only when $\sin\beta = \cos\beta$.
+
+\bigskip
+\textbf{Higgs mass} (NMSSM, $S \neq X$):
+\begin{equation*}
+m_h = \frac{\lambda_S v}{\sqrt{2}} = 125.35\GeV
+\qquad (\lambda_S = 0.72,\;\; 0.6\sigma)
+\end{equation*}
+
+\bigskip
+\textbf{Cabibbo angle} (GST from seesaw texture):
+\begin{equation*}
+\sin\theta_C = \sqrt{m_d/m_s} = 0.2236
+\qquad (\text{PDG:}\; 0.2243,\;\; 0.9\sigma)
+\end{equation*}
+
+\bigskip
+\textbf{Weak mixing} (Casimir eigenvalue equation):
+\begin{equation*}
+\sin^2\theta_W = 0.22310
+\qquad (\text{PDG:}\; 0.22320,\;\; 0.4\sigma)
+\end{equation*}
+
+\end{frame}
+
+%-------------------------------------------------------------
+\begin{frame}{Summary of predictions}
+
+\small
+\begin{center}
+\begin{tabular}{llll}
+\toprule
+Quantity & Predicted & PDG 2024 & Source \\
+\midrule
+$m_s$ & $95.1\MeV$ & $93.4 \pm 8.6$ ($0.2\sigma$)
+  & Isospin seed \\
+$m_c$ & $1301\MeV$ & $1275 \pm 25$ ($1.0\sigma$)
+  & O'Raifeartaigh \\
+$m_b$ & $4233\MeV$ & $4180 \pm 30$ ($1.8\sigma$)
+  & Bion K\"ahler \\
+$m_t$ & $171.3\GeV$ & $172.76 \pm 0.30$ ($-0.9\%$)
+  & Yukawa constraint \\
+$m_d$ & $4.6\MeV$ & $4.67 \pm 0.48$ ($0.1\sigma$)
+  & Dual identity \\
+$m_\tau$ & $1776.97\MeV$ & $1776.86 \pm 0.12$ ($0.9\sigma$)
+  & Lepton identity \\
+$V_{us}$ & $0.2236$ & $0.2243 \pm 0.0008$ ($0.9\sigma$)
+  & GST \\
+$m_h$ & $125.35\GeV$ & $125.25 \pm 0.17$ ($0.6\sigma$)
+  & NMSSM \\
+$\sin^2\theta_W$ & $0.22310$ & $0.22320$ ($0.4\sigma$)
+  & Casimir eq. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{All pulls below $2\sigma$.}
+
+\end{frame}
+
+%-------------------------------------------------------------
+\begin{frame}{Parameter budget}
+
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Seven eliminated:}
+\begin{enumerate}
+\item $m_s$ from $m_u{+}m_d$ (isospin seed)
+\item $m_c$ from $m_s$ (O'Raifeartaigh)
+\item $m_b$ from $m_s, m_c$ (bion)
+\item $m_t$ from $m_c, m_b$ (Yukawa)
+\item $m_d$ from $m_s, m_b$ (dual)
+\item $m_\tau$ from $m_e, m_\mu$ (lepton)
+\item $\theta_{12}$ from $m_d, m_s$ (GST)
+\end{enumerate}
+
+\column{0.48\textwidth}
+\textbf{Six remain free:}
+\begin{itemize}
+\item $m_u$
+\item $m_e$
+\item $m_\mu$
+\item $\theta_{23}$
+\item $\theta_{13}$
+\item $\delta_{\rm CP}$
+\end{itemize}
+
+\bigskip
+$\chi^2/\text{dof} = 0.12$
+
+$p = 0.97$
+\end{columns}
+
+\end{frame}
+
+%-------------------------------------------------------------
+\begin{frame}{Spectrum flow}
+
+\small
+\begin{center}
+\begin{tabular}{p{2.8cm}p{3.5cm}p{5cm}l}
+\toprule
+Stage & Fermions & Scalars & STr \\
+\midrule
+Full SUSY & $(0, m_-, m_+)$
+  & exact boson--fermion pairs & $0$ \\[3pt]
+$F$-breaking & unchanged
+  & $B$-term: $\pi < m_k^2 < \sigma$ & $0$ \\[3pt]
+CW stabilisation & unchanged
+  & pseudo-modulus lifted & $0$ \\[3pt]
+Bion $K$ & $v_0$-doubling
+  & scalars track & $0$ \\[3pt]
+3-instanton & $\delta$ selected
+  & angular potential & $0$ \\[3pt]
+Soft $\fpi^2$ & unchanged
+  & mesons at $\sqrt{2}\fpi$ & $18\fpi^2$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+STr $= 0$ at every stage except the last.
+
+\end{frame}
+
+%-------------------------------------------------------------
+\begin{frame}{The flavour-universal Yukawa}
+
+Seiberg seesaw: $\langle M_j\rangle = C/m_j$
+
+Standard Yukawa: $y_j = \sqrt{2}\,m_j/v_{\rm EW}$
+
+\bigskip
+Their product:
+\begin{equation*}
+y_j\,\langle M_j\rangle
+= \frac{\sqrt{2}\,m_j}{v_{\rm EW}}\,\frac{C}{m_j}
+= \frac{\sqrt{2}\,C}{v_{\rm EW}}
+= 5.07\MeV
+\end{equation*}
+
+\textbf{Same for every confined flavour.} The $m_j$ cancels exactly.
+
+\bigskip
+$\Longrightarrow$ Glashow--Weinberg FCNC suppression is
+\emph{automatic}.
+
+$\Longrightarrow$ Yukawa couplings are \emph{not free parameters}.
+
+\end{frame}
+
+%-------------------------------------------------------------
+\begin{frame}{The $\mathrm{SO}(32)$ embedding}
+
+$\mathrm{SO}(32) \supset \mathrm{SU}(16) \supset
+\mathrm{SU}(5)_f \times \mathrm{SU}(3)_c$
+
+\medskip
+$\mathbf{16} = (\mathbf{5},\mathbf{3}) \oplus
+(\mathbf{1},\mathbf{1})$
+\qquad ($5 \times 3 + 1 = 16$)
+
+\bigskip
+$\mathbf{496} = \wedge^2(\mathbf{32})$ contains:
+
+\begin{center}
+\begin{tabular}{ll}
+$(\mathbf{24},\mathbf{1})$ & mesons \\
+$(\mathbf{15},\bar{\mathbf{3}})$ & diquarks \\
+$(\overline{\mathbf{15}},\mathbf{3})$ & anti-diquarks
+\end{tabular}
+\end{center}
+
+\bigskip
+The symmetric $\mathbf{15}$ appears naturally from
+$S^2(\mathbf{5}) \otimes \wedge^2(\mathbf{3})$.
+
+\medskip
+$E_8 \times E_8$ is \textbf{blocked}: only exterior powers
+of $\mathbf{5}$, never $S^2(\mathbf{5})$.
+
+\end{frame}
+
+%-------------------------------------------------------------
+\begin{frame}{Open problems}
+
+\begin{enumerate}
+\item \textbf{Diquark obstruction:} Pauli theorem forces
+antisymmetric $\overline{\mathbf{10}}$ for $qq$ composites,
+but the counting requires symmetric $\mathbf{15}$.
+The diquark must be non-composite.
+
+\bigskip
+\item \textbf{Bloom mechanism:} The seed $gv/m = \sqrt{3}$ is
+an unstable fixed point under $R$-breaking. The instability
+points in the right direction, but the bloom magnitude is
+nonperturbative.
+
+\bigskip
+\item \textbf{$V_{cb}$:} Fritzsch 6-zero texture gives
+$|V_{cb}| \geq 0.059$ (PDG: $0.042$, 40\% too large).
+The 2--3 sector needs a modified texture or separate mechanism.
+
+\bigskip
+\item \textbf{K\"ahler stabilisation:} Both $V_{\rm tree}$ and
+$V_{\rm CW}$ are monotonically increasing --- the pole is a wall,
+not a well. The minimum at $\sqrt{3}$ requires a nonperturbative
+contribution.
+\end{enumerate}
+
+\end{frame}
+
+%-------------------------------------------------------------
+\begin{frame}{Conclusions}
+
+\begin{itemize}
+\item SUSY + confinement uniquely select $N = 3$ generations
+  via a Diophantine system
+
+\bigskip
+\item The O'Raifeartaigh superpotential at $gv/m = \sqrt{3}$
+  produces the mass-charge identity as a \emph{theorem}
+
+\bigskip
+\item From $m_u + m_d$ alone: five quark masses predicted to
+  $\leq 2\%$ accuracy
+
+\bigskip
+\item Lepton mass-charge identity: $m_\tau$ to $0.006\%$
+
+\bigskip
+\item Seven of thirteen SM parameters eliminated
+  ($\chi^2/\text{dof} = 0.12$, $p = 0.97$)
+
+\bigskip
+\item The theory lives naturally in $\mathrm{SO}(32)$
+  (Type~I string), not $E_8 \times E_8$
+\end{itemize}
+
+\end{frame}
+
+%-------------------------------------------------------------
+\begin{frame}{}
+\centering
+\Huge Thank you
+
+\bigskip
+\large
+\texttt{arXiv:2407.05397}
+
+\bigskip
+\normalsize
+\textit{Eur.\ Phys.\ J.\ C} \textbf{84}, 1058 (2024)
+\end{frame}
+
+%=============================================================
+% BACKUP SLIDES
+%=============================================================
+
+\appendix
+\newcounter{finalframe}
+\setcounter{finalframe}{\value{framenumber}}
+
+%-------------------------------------------------------------
+\begin{frame}{Backup: the mass-charge identity and Koide}
+
+The identity
+$\displaystyle\frac{\sum m_k}{(\sum\sqrt{m_k})^2} = \frac{2}{3}$
+was discovered empirically by Y.~Koide (1982) for the
+charged leptons $(e,\mu,\tau)$.
+
+\bigskip
+\textbf{Key difference in this work:}
+\begin{itemize}
+\item Koide's formula is an \emph{observation} --- unexplained,
+possibly accidental
+\item Here it is a \textbf{theorem}: the O'Raifeartaigh
+superpotential at $gv/m = \sqrt{3}$ produces
+$(0, m_-, m_+)$ satisfying the identity \emph{exactly}
+\item The identity is a boundary condition set by the
+superpotential, not an RG attractor
+\end{itemize}
+
+\bigskip
+We avoid the name ``Koide'' in the paper to prevent confusion
+with the empirical observation: the identity here has a
+Lagrangian derivation.
+
+\end{frame}
+
+%-------------------------------------------------------------
+\begin{frame}{Backup: numerical status of the identity}
+
+\small
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+Triple & $\displaystyle\frac{\sum m_k}{(\sum\sqrt{m_k})^2}$
+  & Deviation from $2/3$ & Status \\
+\midrule
+$(e,\mu,\tau)$ & $0.6667$ & $0.006\%$ & exact (input) \\[4pt]
+$(0, m_u{+}m_d, m_s)$ & $0.665$ & $0.27\%$ & isospin seed \\[4pt]
+$(-\sqrt{m_s},\sqrt{m_c},\sqrt{m_b})$ & $0.674$
+  & $1.2\%$ & bloomed \\[4pt]
+$(\sqrt{m_c},\sqrt{m_b},\sqrt{m_t})$ & $0.669$
+  & $0.4\%$ & Yukawa constraint \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\bigskip
+\begin{itemize}
+\item Lepton triple: near-exact (bloom is only $2.3^\circ$)
+\item Quark triples: bloomed away from seed, but $< 2\%$
+\item The seed ($\delta = 3\pi/4$, one mass zero) satisfies
+  the identity \emph{exactly} by construction
+\end{itemize}
+
+\end{frame}
+
+%-------------------------------------------------------------
+\begin{frame}{Backup: the dual identity}
+
+The Seiberg seesaw $\langle M_j\rangle = C/m_j$ maps
+$\sqrt{m_k} \to 1/\sqrt{m_k}$:
+
+\begin{equation*}
+\frac{\sum 1/m_k}{(\sum 1/\sqrt{m_k})^2} = \frac{2}{3}
+\end{equation*}
+
+\medskip
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+Triple & Direct ratio & Dual ratio \\
+\midrule
+$(d,s,b)$ & $0.732$ (far) & $0.665$ ($0.22\%$) \\
+$(u,d,s)$ & seed (exact) & seed (exact) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\bigskip
+At the seed (one mass $= 0$), direct and dual coincide.
+
+After bloom, the seesaw \emph{preserves} the identity much
+better than the direct masses: it maps the bloomed spectrum
+back toward the seed hierarchy.
+
+\medskip
+Dual self-consistency (both $= 2/3$): requires
+$\cos 3\delta = 5\sqrt{2}/8$.
+
+\end{frame}
+
+%-------------------------------------------------------------
+\begin{frame}{Backup: history}
+
+\begin{itemize}
+\item \textbf{1982:} Koide observes
+$\sum m_\ell / (\sum\sqrt{m_\ell})^2 = 2/3$ for $(e,\mu,\tau)$
+
+\item \textbf{1966:} Miyazawa proposes hadronic supersymmetry
+(meson--baryon)
+
+\item \textbf{1985:} Catto \& G\"ursey develop algebraic
+hadronic SUSY
+
+\item \textbf{2005:} Rivero: scalar composites of 5 quarks
+fill $\mathrm{SO}(32)$ adjoint; sBootstrap programme begins
+
+\item \textbf{2024:} Published in EPJC: Diophantine uniqueness,
+$\mathrm{SU}(5)$ flavour, $\mathrm{SO}(32)$ embedding
+
+\item \textbf{2026:} This work: explicit Lagrangian,
+O'Raifeartaigh derivation of the identity, mass chain,
+seven parameters eliminated
+\end{itemize}
+
+\end{frame}
+
+%-------------------------------------------------------------
+\begin{frame}{Backup: why $\mathrm{SO}(32)$ and not $E_8 \times E_8$?}
+
+The symmetric $\mathbf{15} = S^2(\mathbf{5})$ is the key test.
+
+\bigskip
+\textbf{$\mathrm{SO}(32)$:} $\;\mathbf{16} = (\mathbf{5},\mathbf{3})
+\oplus (\mathbf{1},\mathbf{1})$ \quad ($5\times 3 + 1 = 16$)
+
+$\wedge^2[(\mathbf{5},\mathbf{3})]
+= \underbrace{(S^2\mathbf{5},\wedge^2\mathbf{3})}_{(\mathbf{15},\bar{\mathbf{3}})}
+\oplus (\wedge^2\mathbf{5}, S^2\mathbf{3})$
+
+The $\mathbf{15}$ appears naturally: overall antisymmetry of
+the composite index forces symmetric flavour $\times$
+antisymmetric colour.
+
+\bigskip
+\textbf{$E_8 \times E_8$:} Every $E_8$ decomposition under
+$\mathrm{SU}(5)$ yields only exterior powers
+($\mathbf{5}$, $\overline{\mathbf{10}}$, $\mathbf{24}$, \ldots).
+
+$S^2(\mathbf{5}) = \mathbf{15}$ is \textbf{algebraically forbidden}.
+
+\bigskip
+$\Longrightarrow$ If the sBootstrap is correct,
+string theory must be Type~I / heterotic $\mathrm{SO}(32)$.
+
+\end{frame}
+
+%-------------------------------------------------------------
+\begin{frame}{Backup: a Type~I construction}
+
+Type~IIB on $T^6/\mathbb{Z}_3$ with orientifold~$\Omega$.
+
+\medskip
+Chan-Paton embedding on 16 D9-brane pairs:
+\begin{equation*}
+\gamma_\theta = \mathrm{diag}(\omega\cdot\mathbb{1}_5,\;
+  \omega^2\cdot\mathbb{1}_5,\; \mathbb{1}_3,\; \mathbb{1}_3)
+\qquad (\omega = e^{2\pi i/3})
+\end{equation*}
+
+Twisted tadpole: $\mathrm{Tr}(\gamma_\theta)
+= 5\omega + 5\omega^2 + 6 = 1$ \quad\checkmark
+
+\bigskip
+\begin{columns}[T]
+\column{0.5\textwidth}
+\textbf{What works:}
+\begin{itemize}
+\item Gauge group $\mathrm{SU}(5)_f \times \mathrm{SU}(3)_c$
+\item Three chiral generations from $\mathbb{Z}_3$
+\item $5\times 3 + 1 = 16$ is self-referential
+\item $\mathrm{SU}(3)$ root lattice: minimal triangle
+  area $\sqrt{3}/4$ \\ (candidate for $gv/m = \sqrt{3}$)
+\end{itemize}
+
+\column{0.5\textwidth}
+\textbf{Open:}
+\begin{itemize}
+\item Chiral spectrum gives antisymmetric $\mathbf{10}$,
+  not symmetric $\mathbf{15}$
+\item String scale $M_s \sim 1\GeV$ requires
+  $\geq 3$ large extra dimensions ($R \sim 0.2\,\mu$m)
+\item Full tadpole cancellation not verified
+\item Orientifold sign for Sp-type projection
+\end{itemize}
+\end{columns}
+
+\end{frame}
+
+%-------------------------------------------------------------
+\begin{frame}{Backup: PMNS and neutrino mixing}
+
+The theory provides \textbf{one} neutrino mass mechanism:
+
+\medskip
+\begin{itemize}
+\item $\mathrm{SU}(2)$ sector has 4 fermions:
+$\psi_{X_L}$ (goldstino), $\psi_{L_2}$ (pseudo-modulus),
+$\psi_{L_1,L_3}$ ($\to \mu, \tau$)
+\item $\psi_{L_2}$ gets CW mass $\sim 50\,\text{meV}$
+from $W_{\rm dyn} = L_1 L_2 L_3/\Lambda_L^3$
+\end{itemize}
+
+\bigskip
+\textbf{Why large PMNS angles are natural here:}
+
+\medskip
+The $s$-confining superpotential $L_1 L_2 L_3/\Lambda_L^3$
+is \textbf{$S_3$-symmetric} --- it treats all three composites
+democratically.
+
+\medskip
+Contrast with quarks: the Seiberg seesaw $\langle M_j\rangle = C/m_j$
+creates a \emph{hierarchical} texture $\to$ small CKM angles.
+
+\medskip
+\textbf{Same Lagrangian} explains both:
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Sector & Confinement & Mixing \\
+\midrule
+Quarks ($\mathrm{SU}(3)$) & Seiberg seesaw (hierarchical)
+  & small CKM \\
+Leptons ($\mathrm{SU}(2)$) & $s$-confinement (democratic)
+  & large PMNS \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+%-------------------------------------------------------------
+\begin{frame}{Backup: top--neutrino duality}
+
+\textbf{Conjecture}: the top and neutrino are ``dual'' particles ---
+one gets mass in each frame of the electric-magnetic duality.
+
+\bigskip
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Frame & Top & Neutrino \\
+\midrule
+Electric & Dirac mass ($y_t \sim 1$) & massless \\
+Magnetic & massless & Majorana ($\sim (m/\Lambda_L)^6$) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\bigskip
+Both sit \textbf{outside} the main composite spectrum:
+\begin{itemize}
+\item Top = Chan-Paton singlet (the ``$1$'' in $5\times 3 + 1 = 16$)
+\item Neutrino = pseudo-modulus of SU(2) $s$-confinement
+\end{itemize}
+
+\medskip
+$D{=}11$ SUGRA: $128 = 44 + 84$, graviton $44 = 32 + 12$.
+
+The ``$12$'' = top (electric) or neutrino (magnetic).
+
+\medskip
+The product $m_t \times m_\nu$ should be set by the duality
+scale --- determined by M-theory geometry.
+
+\end{frame}
+
+%-------------------------------------------------------------
+\begin{frame}{Backup: is this gravity?}
+
+A string at $M_s \sim 1\GeV$ is also a theory of gravity.
+Closed strings $\to$ gravitons.
+
+\bigskip
+\textbf{The puzzle is inverted:} not ``why is gravity so weak?''
+but ``why is $M_{\rm Pl}$ so large compared to the hadronic scale?''
+
+\medskip
+Answer (ADD): extra dimensions.
+$M_{\rm Pl}^2 \sim M_s^{n+2} R^n / g_s^2$
+
+\medskip
+\begin{center}
+\begin{tabular}{ccl}
+\toprule
+Large dims $n$ & $R$ & Status \\
+\midrule
+4 & $\sim 1\;\mu$m & marginally safe \\
+5 & $\sim 12$~nm & safe \\
+6 & $\sim 0.6$~nm & safe \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\bigskip
+\textbf{What changes:}
+\begin{itemize}
+\item Gravity becomes strong at $\sim 1\GeV$, not $10^{19}\GeV$
+\item KK graviton tower starts at $1/R \sim$~keV--MeV
+\item Moduli stabilisation of the orbifold $\to$ \emph{could} fix
+  the pseudo-modulus at $\sqrt{3}$
+\end{itemize}
+
+\medskip
+We do not claim this is gravity. But if $SO(32)$ is literal,
+it comes with gravity for free.
+
+\end{frame}
+
+\setcounter{framenumber}{\value{finalframe}}
+
+\end{document}

@@ -30,12 +30,14 @@ See: [manhattan_design.md](manhattan_design.md) for full rationale.
 - `4.tex`, `sbootstrap_v4*.tex` — paper drafts under revision
 
 ## Paper Status (March 2026)
-- **paper_lagrangian.tex**: 38 pages, 12 sections. The main working paper.
+- **paper_lagrangian.tex**: 39 pages, 12 sections. The main working paper.
 - **talk_lagrangian.tex**: 33-slide Beamer talk (24 main + 9 backup). Compiles clean.
 - **Session N+1 COMPLETE**: Items D (Yukawa identity), A (spectrum flow), B (supermultiplets), dual identity derivation, notation cleanup.
 - **Session N+1.5 COMPLETE**: New §10 "Hadronic superstrings" (7 subsections), M-theory uplift, Beamer talk with backup slides.
-- **Session N+2 (this session)**: QCD-RG invariance paragraph added (backed by `calculations/rg_running_qcd.py`), PMNS paragraph added, preon/Cabibbo history paragraph added, orbifold V_cb candidate (ε₁³≈0.066) noted in Cabibbo section. RETRACTED: "m_t×m_ν=f_π²" was a unit error (meV≠10⁻³ MeV; actually 10⁻⁹ MeV). Removed from paper/talk/table.
-- **All "Koide" removed** from paper. Use "mass-charge identity" language. Q replaced with ⟨z_k²⟩/z_0² notation.
+- **Session N+2**: QCD-RG invariance, PMNS paragraph, preon/Cabibbo history, orbifold V_cb (ε₁³≈0.066). RETRACTED m_t×m_ν=f_π² (unit error).
+- **Session N+3**: Orientifold 15 vs 10 analysis. SU(2) lepton scaffolding removed. Supermultiplet restoration = central open problem. Non-universal B-term: tau partner at 1810 MeV. See `calculations/supermultiplet_restoration.py`.
+- **Session N+3 continued (this session)**: Parameter-by-parameter spectrum flow: fermion-boson degeneracy restored as SUSY breaking turned off. CKM reinterpreted: within N_f=4, O'R gives (u,d),(c,s) consistent with standard generations; V_cb = bion eigenvalue mixing. Bloom correction: only 2.3° Koide-phase rotation creates electron, shifts seed ratio 13.93→physical 16.82. Key result: effective SUSY breaking for muon multiplet is y×sin²(π/12) ≈ 3%. See `calculations/spectrum_flow.py`.
+- **All "Koide" removed** from paper. Use "mass-charge identity" language.
 
 ## Next Steps (prioritized)
 1. ~~QCD-RG invariance paragraph~~ DONE
@@ -105,7 +107,9 @@ The goal is to get a SUSY Lagrangian for the full theory, including Yukawa coupl
 - **det W theorem (Round 22)**: det(m+vg) = det m for all v iff m⁻¹g is nilpotent. For n=2: Tr(adj(m)·g)=0 and det g=0. Standard O'R satisfies both (m antidiagonal, g diagonal rank-1). Product m₊m₋=m² holds for ALL pseudo-modulus values, not just at √3
 - **Bloom direction (Round 22)**: Under R-breaking ΔW=εΦ₀Φ₂, bloom angle shifts δδ=3^{5/4}|ε/m|≈3.95|ε/m| TOWARD physical spectrum. Cubics vanish at vacuum. Det condition broken at O(ε²) with coefficient 49. Bilinear Φ₀Φ₂ is unique bloom controller
 - **Top quark scheme (Round 22)**: 171.3 GeV is between m_t(m_t)=162.5 and m_t^pole=172.57. At 2-loop MSbar conversion: m_t(m_t)≈161.3 GeV, pull=-1.1σ. Chain mixes scales (m_s at 2 GeV, heavy quarks at m_q). O(1 GeV) scheme ambiguity
-- **Lepton STr (Round 22)**: SU(2) s-confining sector = SU(3) O'R ⊕ free massless L₂. STr=0 identically. B-term ±2gf identical. L₂ pseudo-modulus stabilized at CW with mass suppressed by (m/Λ_L)⁶
+- **SU(2) lepton sector REMOVED (Session N+3)**: The SU(2) s-confining construction for leptons was LLM scaffolding with no basis in the Diophantine bootstrap (s=2 is up-type quark count, NOT N_c=2 gauge group). Leptons get O'R structure from Miyazawa superpartner identification with mesons. Paper rewritten: Section 5 now derives lepton O'R from meson sector, not from SU(2) preons. The Pfaffian L₁L₂L₃/Λ_L³ removed from superpotential.
+- **Non-universal B-term splitting (Session N+3)**: B-term acts only on Φ₁ direction. At t=√3: ψ₋(muon) has |⟨Φ₁⟩|²=0.067, ψ₊(tau) has |⟨Φ₁⟩|²=0.933. The founding relation m_π²−m_μ²≈f_π² works because muon eigenstate has SMALL Φ₁ content. Fixing muon-pion splitting → predicts tau meson partner at 1810 MeV (3% from D meson, 1870 MeV). Ratio of splittings: 0.072 (strongly non-universal).
+- **Supermultiplet restoration = central open problem**: Cross-generation pairings (t,s), (u,b), (c,d) — NOT standard generations. CKM measures misalignment between SUSY basis and mass eigenbasis. Solving this would: identify all meson-lepton pairs, derive lepton masses from meson sector, explain CKM origin. See `calculations/supermultiplet_restoration.py`.
 - **CW mass**: m_CW ≈ 13 MeV at Seiberg vacuum. Factor 320 below m_b (not "five orders"). Bloom must be nonperturbative.
 - **Three-instanton potential**: (det M)³/Λ¹⁸ is the lowest Z₁₈-singlet holomorphic operator. Exact identity: ∏_k[1+√2 cos(δ+2πk/3)] = −1/2 + cos(3δ)/√2. So [f(δ)]⁶ contains ALL harmonics cos(3nδ) n=0..6. cos(9δ) is only 34% of dominant cos(3δ). Actual potential has **6 minima** not 9. The claim "generates cos(9δ) potential" was sloppy — now corrected in paper.
 - **Cartan rigidity (proven)**: r⃗ = Σ√m_k w⃗_k = (z₀√6/2)(sin(δ+π/3), cos(δ+π/3)). So θ = π/6−δ is an EXACT algebraic identity for all δ,z₀ — not just numerically verified. Bloom = rigid rotation at fixed R = z₀√6/2, no radial component. Added to paper.
@@ -123,7 +127,12 @@ The goal is to get a SUSY Lagrangian for the full theory, including Yukawa coupl
 - **Superpotential (CORRECTED R15)**: W = Tr(m̂M) + X(det M − BB̃ − Λ⁶) + c₃(det M)³/Λ¹⁸ + y_c H_u M^c_c + y_b H_d M^b_b + y_t H_u Q^t Q̄_t + λ_S S H_u·H_d + κ/3 S³. Note S ≠ X.
 - **M-theory uplift route**: Type I → T-dual → Type I' (massive IIA + O8/D8) → M-theory on S¹. Never touches E₈×E₈. Electric-magnetic dualities (Seiberg seesaw, dual identity) geometrize in M-theory.
 - **Top–neutrino duality (Rivero conjecture)**: D=11 SUGRA: 128 bosonic = 84 (3-form) + 44 (graviton). Graviton: 44 = 32 (SO(32) fundamental) + 12 (neutral composites, r²+s²−1). The "12" has dual interpretations: electric frame = top (Dirac mass), magnetic frame = neutrino (Majorana mass). m_t × m_ν set by duality/geometric scale.
-- **PMNS from confinement mechanism**: SU(3) Seiberg seesaw → hierarchical texture → small CKM. SU(2) s-confining W_dyn = L₁L₂L₃/Λ³ → S₃-democratic → large PMNS. Same Lagrangian explains both mixing patterns.
+- **PMNS from confinement mechanism**: Hierarchical texture → small CKM. Democratic coupling → large PMNS.
+- **CKM = O'R eigenvalue misalignment**: Within N_f=4, the O'R groups quarks as (u,d) at eigenvalue 0 and (c,s) at eigenvalues (m_+, m_-) — standard generations, consistent with V_ud≈V_cs≈1. Cabibbo angle = rotation within this 2×2 block. The "cross-generation pairings" (t,s),(u,b),(c,d) from sBootstrap literature are SU(5) representation labels, NOT O'R eigenvalue groupings.
+- **V_cb from bion eigenvalue mixing**: √m_b = 3√m_s + √m_c mixes the m_- and m_+ ISS eigenvalues. V_cb measures how much the b quark overlaps with the c-quark eigenstate. This connects CKM 2-3 mixing to the nonperturbative bion mechanism.
+- **Bloom is tiny for leptons**: δ rotates only 2.3° from seed (345°→347°). Creates m_e from zero; shifts muon down 16%, tau up 1%. Seed ratio m_+/m_- = (2+√3)² = 13.93; physical m_τ/m_μ = 16.82. Entire difference is bloom correction.
+- **Physical y ≈ 0.41**: SUSY-breaking parameter y = f/(gm). Effective breaking for muon multiplet: y×sin²(π/12) ≈ 0.027 (3%). Muon-pion pair is nearly degenerate; founding relation is leading B-term correction.
+- **Composite Z⁰/Higgs question (user direction)**: The Yukawa-Higgs coupling should be DERIVED, not postulated. Composite Z⁰ (vector meson of confined sector) would make Higgs mechanism part of confinement dynamics. Do not discard.
 - **QCD-RG invariance**: Mass-charge ratio Σm_k/(Σ√m_k)² depends only on mass RATIOS. Under QCD all quarks share universal γ_m, so ratio is exactly μ-independent. EW corrections break this but are "off" in the confined sector. Explains mixed-scale convention.
 - **String scale**: M_s ~ 1 GeV requires ≥4 large extra dims. n=4: R~1μm (marginally safe), n=6: R~0.6nm (safe). Formula: R ~ (g_s² M_Pl²/M_s^{n+2})^{1/n}.
 
